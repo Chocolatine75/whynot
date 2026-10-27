@@ -64,11 +64,11 @@ Bonus prizes we can target:
 
 | Prize | Amount | How we qualify |
 |---|---|---|
-| Most Viral Project | $20K | Demo post on X, engagement until Nov 8 EOD |
-| **Best Build on Meta Open Weight Models** | $10K | Synthetic panel runs on Muse Spark Open via Baseten |
-| Community Vote | $10K | Public gallery votes |
-| **Best Agentic Use-Case** | $5K | The autonomous campaign agent |
-| Best Creative Build | $5K | Muse Image ad generation |
+| Most Viral Project | $20K | Arena + public pre-registered prediction + build in public on X, engagement until Nov 8 EOD |
+| **Best Build on Meta Open Weight Models** | $10K | Viewer agents run on Muse Spark Open (Baseten); student viewer distilled/fine-tuned on open weights |
+| Community Vote | $10K | Public gallery votes; Arena anyone can try |
+| **Best Agentic Use-Case** | $5K | Agent team (scout, strategist, creative director, audience, analyst, media buyer) with verifiable log |
+| Best Creative Build | $5K | Evolving creative: Muse Image + SAM 3.1 in a simulate-and-fix loop |
 
 ## Resources and credits
 

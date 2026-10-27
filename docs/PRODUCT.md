@@ -2,87 +2,86 @@
 
 ## One-liner
 
-An autonomous growth marketer for Shopify stores: it finds out why each visitor didn't buy, answers that reason with an ad built for them, spends only where the ad changes the outcome, and proves it.
+A flight simulator for Meta ads: put your ad in a simulated Instagram feed next to your competitors' real ads, hear *why not* from viewer agents built on real Meta audience data, and let agents evolve it until it wins — before you spend a cent.
+
+## The problem
+
+- **The creative is the only lever left.** Meta automates targeting (Andromeda: "the creative is the targeting"), bidding and budgets. What the advertiser still decides is what the ad says and shows.
+- **It is decided blind.** Advertisers guess, pay to find out (the learning phase is testing with real money), and even winners are unexplained. Meta's ranking predicts per-user response internally but doesn't explain it, and only after you spend.
+- **Pre-testing is for big brands.** Kantar LINK AI from ~$4,500, System1 ~$11,000 per ad. They score an ad in isolation, don't fix it, and don't place it among the competition.
+- **Variations don't help anymore.** Andromeda groups near-identical ads; small advertisers need genuinely different concepts every 2–3 weeks (ad fatigue) and can't produce them.
 
 ## Who it's for
 
-Small and mid-size Shopify merchants spending on Meta ads, with no in-house marketing team and no budget for an agency. They need 20+ fresh creatives a month to keep up with ad fatigue and can't produce them.
+Small and mid Meta advertisers who make their own creative, roughly $2k–$100k/month on Meta, no creative-strategy team:
+- **Mobile apps** (subscription apps, install + in-app events). Design partner: a friend's mobile app, ~$20k MRR, wants to use it.
+- **DTC / Shopify brands.** Design partner: a Shopify store (TBC).
 
-## What the merchant buys
+## What they get
 
-| Need | What whynot delivers |
+| Need | whynot |
 |---|---|
-| More sales | Ads that answer each visitor's real objection, refreshed fast enough to never wear out |
-| Zero time spent | The agent handles strategy, creatives, launch and monitoring; the merchant approves once and reads a weekly report |
-| No wasted budget | No spend on sure buyers; weak ads filtered before they cost anything |
-| Trust | Measured causal sales, real product pixels, budget hard-capped by the merchant |
-| Understand customers | Objections turned into concrete fixes for the store |
+| Know if an ad will work before paying | Score in a simulated feed vs real competitors, with a measured reliability |
+| Know *why* | Viewer objections ("why not") + counterfactuals per element |
+| New concepts, not variants | ~10 evidence-backed templates per account, evolved continuously |
+| Less wasted budget | Only ads that win the simulation go to Meta; learning happens in simulation |
+| Trust | Reliability published (backtest, humans, pre-registered predictions), real product pixels, capped spend |
 
-Positioning: *the marketing team of a €50M brand, for the price of a Shopify app.*
+Positioning: *a creative strategist and a pre-test lab for the price of an app.* Built **on** Meta (Muse models, Ad Library, Ads MCP), feeding Andromeda the diverse, good creative it needs.
 
 ## The loop
 
-1. **Connect**: merchant installs the Shopify app. We read catalog, browsing events, orders, store pages (size guide, shipping, returns, reviews).
-2. **Understand the market**: Muse Wonder reads competitors' long-running ads from the Meta Ad Library (text, visuals via snapshots, reach split by age and gender) plus the store's reviews, and writes a **strategy brief**: segments, angles that work, angles competitors miss, how competitors answer each objection.
-3. **Infer objections**: each non-buying visitor gets a likely objection from their path:
-   - viewed size guide → `size_fit`
-   - viewed shipping page then left → `shipping_cost_or_delay`
-   - read low-star reviews → `quality_trust`
-   - abandoned at cart total → `price`
-   - multiple product comparisons → `choice_overload`
-   - unknown → `generic`
-4. **Templates**: ~10 ad templates per store, each tied to one objection and one angle from the brief. A template is a spec (see below), not an image.
-5. **Personalize**: per visitor or micro-segment, pick the template and fill the variable slots. Mostly deterministic composition in code; Muse Image only regenerates a slot when it adds value.
-6. **Pre-test**: every variant is scored by a synthetic consumer panel (personas built from real visitor segments, Semantic Similarity Rating). Only top variants ship.
-7. **Target**: an uplift model scores each visitor as persuadable / sure thing / lost cause. Budget goes to persuadables.
-8. **Launch**: campaigns, custom audiences per objection, ads and budgets created via the Meta Marketing API, inside merchant-set limits. Sandbox by default.
-9. **Learn**: daily, pull performance, detect fatigue, kill losers, generate replacements, update which templates win for which objections in *this* store.
-10. **Prove**: a random holdout of persuadables sees no ad; the difference in purchases is the causal lift.
-11. **Fix the store**: "40% of drop-offs doubt sizing → move the size guide above the fold, show free returns on the product page."
+1. **Understand.** Brand onboarding: store or App Store page, reviews, product footage (a short phone video), past ads. Competitors from the Ad Library: creatives (captured with Muse Spark computer use), copy, start date (longevity), EU reach split by age/gender/country. Muse Wonder writes the **strategy brief**: segments, angles that work, angles nobody uses, objections and how winners answer them.
+2. **Personas.** Viewer personas built from real reach breakdowns × customer segments × objections (e.g. "F 25–34 FR, price-sensitive, doubts sizing").
+3. **Templates (concepts).** ~10 distinct concepts, each tied to an objection/angle and backed by evidence. Each has a fixed core and a **genome** of mutable genes.
+4. **Compose.** Deterministic assembly of statics and short videos from genes. Product/app screen = SAM 3.1 cutout, never generated. Scenes and first frames from Muse Image.
+5. **Simulate.** A **feed** = the candidate + N real competitor ads from the same market. Viewer agents (Muse Spark Open, sees images/video + audio transcript) produce structured reactions per ad: hook noticed (first frame / first 2 s), message understood, believed, objection ("why not"), purchase intent (free text → SSR distribution), preferred ad in the feed. Aggregated per persona.
+6. **Explain.** Counterfactuals: remove/swap one tracked element (face, product, text, first shot), re-simulate, report the delta (simulated).
+7. **Evolve.** Creative agents read objections + counterfactuals, propose mutations, re-simulate. A diversity guard keeps concepts distinct. Stops on budget or plateau.
+8. **Launch.** Winners pushed via Ads MCP / Marketing API, sandbox and dry-run by default, hard spend cap set by the advertiser.
+9. **Calibrate.** Real metrics (hook rate, video thresholds, CTR, CPA) flow back; the simulator is re-weighted per account. A weekly concept drop keeps creative fresh.
 
-## Ad template spec
+## Template spec (concept + genome)
 
 ```yaml
-id: size_fit_reassurance_v1
+id: size_fit_guarantee_v1
+concept: "Fit guarantee: you can't get the size wrong"
 objection: size_fit
-angle: "fit guarantee"          # from the strategy brief
-evidence: [competitor_ad_ids]   # long-running competitor ads using this angle
-layout: square_1080             # fixed
+evidence:
+  reviews: [review_ids]            # customer quotes
+  competitor_ads: [ad_ids]         # long-running ads using this angle
+  behaviour: "38% of drop-offs opened the size guide"
 fixed:
   brand: {logo, palette, font}
-  background_scene: muse_image_asset_id   # generated once, reused
-slots:
-  headline:   {type: text, max_chars: 40, generator: muse_spark}
-  product:    {type: product_cutout, source: sam_3_1}   # real pixels only
-  proof:      {type: one_of, options: [free_returns_badge, size_chart_snippet, review_quote]}
-  cta:        {type: text, options: ["Find your size", "Free exchanges"]}
-rules:
-  - if visitor.price_sensitive: proof = free_returns_badge
-guards:
-  - product_pixels_unchanged     # pixel diff vs SAM cutout must be 0
-  - brand_palette_respected
-  - text_legible
+  product: {source: sam_3_1, asset_id}      # real pixels only
+genes:                                       # what evolution may mutate
+  format: [static_1080, reel_6s, reel_15s]
+  hook: [question, before_after, face_to_camera, bold_claim]
+  first_shot: [product_closeup, person_wearing, size_chart, ugc_frame]
+  proof: [free_returns_badge, size_chart_snippet, review_quote]
+  persona_focus: [persona_ids]
+  cta: ["Find your size", "Free exchanges"]
+guards: [product_pixels_unchanged, brand_palette, text_legible, policy_safe]
 ```
+
+For an app: `product` = app screen recording cut out with SAM 3.1; objections like `price_of_subscription`, `does_it_work_for_me`, `time_commitment`.
 
 ## Surfaces
 
-Public teardown (any Shopify URL), merchant dashboard, on-site answer. Defined in `TARGETS.md`.
+- **Arena (public):** upload an ad (or pick one) + a market → see it in the feed vs competitors, the objections, top 3 fixes. Viral entry point.
+- **Workspace (design partners):** onboarding, templates, evolution runs, counterfactuals, launch, calibration, weekly concepts, agent log, cost counter.
+- **Validation page (public):** the simulator's measured reliability and the pre-registered predictions vs real outcomes.
 
-## Channels
+## How we prove it
 
-- **Primary**: Meta (Facebook / Instagram) via Marketing API.
-- **Free proof channels** (for validation without ad spend): on-site banner on the partner store, personalized abandoned-cart email.
-
-## How we prove it works (no ad spend)
-
-1. **Blind human test**: 50–100 people, each picks a realistic hesitation scenario for the partner's real product, compares generic vs personalized ad blind, rates purchase intent. Paired design, so a small sample gives a clear result.
-2. **Synthetic panel validated against humans**: same scenarios through the panel; we report how well its ranking matches the humans.
-3. **Partner store A/B**: on-site banner and cart email, generic vs objection-specific.
-4. **Panel vs market**: panel scores vs Ad Library longevity of competitor ads (R4).
-5. *(optional)* Criteo uplift side check; capped Meta split test with explicit approval.
+1. **Backtest** on design partners' historical ads with real Meta metrics (consented, private, anonymised).
+2. **Humans:** blind paired comparisons; agreement with the simulator; evolved vs original ad.
+3. **Market:** simulator vs Ad Library longevity of competitor ads.
+4. **Pre-registered public prediction:** rank a set of ads, publish it, then publish real results (only with an explicitly approved, capped budget).
 
 ## Out of scope for the hackathon
 
-- Real multi-week ad spend and real causal lift on a live store (we show the mechanism; numbers come from public data and the human test).
-- Non-Shopify platforms, non-Meta ad networks.
-- Video ads.
+- Claiming per-second retention or scroll prediction.
+- Non-Meta networks.
+- Generated video (no Meta video generation model in scope; we edit real footage).
+- Voice-over generation (Muse Voice Transcribe is speech-to-text only).

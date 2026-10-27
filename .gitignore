@@ -22,3 +22,6 @@ outputs/
 
 # os
 .DS_Store
+
+# design partner data (consented, private, never committed)
+data/private/

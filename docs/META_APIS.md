@@ -83,7 +83,10 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
 - Observed: two Lacoste ads active for ~4 months, one reaching ~195k people in France, mostly 25–44, roughly 50/50 men/women. Long-running = proxy for "this ad works".
 - Observed: most advertisers target 18–65 broadly; `age_country_gender_reach_breakdown` reflects who the algorithm actually delivered to, which is the useful signal.
 
-## Marketing API
+## Marketing API / Ads MCP
+
+- **Ads MCP server** (Oct 2026): creative uploads, ad previews, performance tracking; partners include Triple Whale, Snowflake, Databricks, Perplexity. Candidate launch + metrics channel.
+- Real metrics we need per ad for backtest/calibration: impressions, 3-s plays / hook rate, video thresholds (p25/p50/p75/p95 watched actions — *unverified field names*), ThruPlay, CTR, CPA. Ad-level per-second retention curves are *not confirmed* for ads (the per-timestamp retention metric documented is for Reels video insights).
 
 - Create campaigns, ad sets, custom audiences, ads. Needs `ads_management`, `ads_read`, a business setup, and possibly App Review for non-dev users. Use a **sandbox ad account** to test without spending.
 - v26.0 changes that affect us: new or copied ad sets with constrained targeting must set `advantage_audience` explicitly (1 or 0); Instagram Explore Feed placement removed; poll ads blocked. Several restrictions apply to all versions from 2026-10-27.
