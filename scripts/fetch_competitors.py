@@ -3,6 +3,8 @@
 Usage:
     uv run python scripts/fetch_competitors.py --name language-apps --page-ids 123 456 --countries FR
     uv run python scripts/fetch_competitors.py --name test --terms "learn languages" --max 50
+    # long-running ads: still active and started more than 60 days ago
+    uv run python scripts/fetch_competitors.py --name winners --page-ids 123 --active ACTIVE --started-before-days 60
 
 Prefer --page-ids (keyword search is noisy). Needs FB_TOKEN in .env.
 Tokens are stripped before saving; the output never contains access_token.
@@ -11,7 +13,7 @@ Tokens are stripped before saving; the output never contains access_token.
 import argparse
 import statistics
 from collections import Counter
-from datetime import date
+from datetime import date, timedelta
 
 from whynot.config import REPO_ROOT, load_settings
 from whynot.ingest.adlibrary import AdLibraryClient, AdLibraryError, save_jsonl
@@ -25,13 +27,18 @@ def main() -> None:
     parser.add_argument("--countries", nargs="+", default=["FR"])
     parser.add_argument("--active", default="ALL", choices=["ALL", "ACTIVE", "INACTIVE"])
     parser.add_argument("--max", type=int, default=200)
+    parser.add_argument("--started-before-days", type=int,
+                        help="only ads that started at least N days ago (the API returns newest first)")
     args = parser.parse_args()
 
     settings = load_settings()
     try:
         client = AdLibraryClient(settings.fb_token or "", version=settings.fb_api_version)
+        started_before = (date.today() - timedelta(days=args.started_before_days)
+                          if args.started_before_days else None)
         ads = list(client.search(countries=args.countries, page_ids=args.page_ids, terms=args.terms,
-                                 active_status=args.active, max_ads=args.max))
+                                 active_status=args.active, delivery_date_max=started_before,
+                                 max_ads=args.max))
     except AdLibraryError as exc:
         raise SystemExit(f"Ad Library: {exc}")
 

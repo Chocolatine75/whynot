@@ -128,6 +128,24 @@ def test_search_respects_max_ads():
     assert len(ads) == 2 and len(seen) == 1
 
 
+def test_search_sends_delivery_date_max():
+    seen: list[httpx.Request] = []
+    pages = [{"data": [raw_ad("1")], "paging": {}}]
+    list(make_client(pages, seen).search(countries=["FR"], page_ids=["111"], active_status="ACTIVE",
+                                         delivery_date_max=date(2026, 8, 28)))
+    params = seen[0].url.params
+    assert params["ad_delivery_date_max"] == "2026-08-28"
+    assert params["ad_active_status"] == "ACTIVE"
+
+
+def test_real_breakdown_shape():
+    # Shape observed on a real call (2026-10-27): genders are omitted when zero.
+    raw = [{"country": "FR", "age_gender_breakdowns": [
+        {"age_range": "25-34", "male": 1}, {"age_range": "65+", "female": 6}]}]
+    assert [(s.age_range, s.gender, s.reach) for s in parse_breakdown(raw)] == [
+        ("25-34", "male", 1), ("65+", "female", 6)]
+
+
 def test_search_needs_a_query():
     with pytest.raises(ValueError):
         list(make_client([], []).search(countries=["FR"]))

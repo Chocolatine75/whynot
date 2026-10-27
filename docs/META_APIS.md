@@ -2,7 +2,7 @@
 
 Checked against official docs on 2026-10-27 (sources at the bottom). Items marked *unverified* have not been confirmed by an official page or by our own calls. Our smoke tests should confirm everything here; update this file with what we actually observe.
 
-Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.json`). Checks: model list, Spark text + vision, Contributor text, Wonder text, Muse Image, SAM 3.1 on a test image, Spark Open on Baseten text + vision. Last run: *not yet run — no keys in `.env`*.
+Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.json`). Checks: model list, Spark text + vision, Contributor text, Wonder text, Muse Image, SAM 3.1 on a test image, Spark Open on Baseten text + vision. Last run: *not yet run — `MODEL_API_KEY` empty in `.env`* (Ad Library token works).
 
 ## Meta Model API
 
@@ -81,8 +81,10 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
 - ⚠️ `ad_snapshot_url` and paging `next` URLs contain the access token. Strip it.
 - ⚠️ No creative image/video files: only the snapshot page.
 - ⚠️ A missing token returns `OAuthException code 1 "unknown error"`, not an auth error.
-- *Unverified (our parser assumes it):* `age_country_gender_reach_breakdown` = `[{country, age_gender_breakdowns: [{age_range, male, female, unknown}]}]`. Confirm on the first real call (`scripts/fetch_competitors.py`).
-- Observed: keyword search is noisy ("baskets" matched a coaching ad). Prefer `search_page_ids` for known competitors.
+- **Confirmed (2026-10-27, real calls):** `age_country_gender_reach_breakdown` = `[{country, age_gender_breakdowns: [{age_range, male, female, unknown}]}]`; a gender key is omitted when its reach is 0. `eu_total_reach` is an integer. Present on all 37 ads fetched.
+- **Results come newest first.** A plain query returns ads that started today. For long-running ads ("ads that work"): `ad_active_status=ACTIVE` + `ad_delivery_date_max=<today − 60 days>` → `scripts/fetch_competitors.py --active ACTIVE --started-before-days 60`.
+- Observed: Lacoste (page id `25440047420`), FR, active and started ≥ 60 days ago: 17 ads, median 118 days, top reach ~793k. Same copy run as separate ads per gender (0 % vs 100 % women) — advertisers do segment creative by profile.
+- Observed: keyword search is noisy ("baskets" matched a coaching ad; "Lacoste" returned 2 Lacoste ads out of 20). Prefer `search_page_ids` for known competitors.
 - Observed: two Lacoste ads active for ~4 months, one reaching ~195k people in France, mostly 25–44, roughly 50/50 men/women. Long-running = proxy for "this ad works".
 - Observed: most advertisers target 18–65 broadly; `age_country_gender_reach_breakdown` reflects who the algorithm actually delivered to, which is the useful signal.
 

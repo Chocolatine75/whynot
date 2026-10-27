@@ -7,7 +7,7 @@ Last updated: 2026-10-27
 
 ## Where we are
 
-Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. Code so far (`src/whynot/`, `scripts/`, 45 tests passing, no network): cost ledger + model client + smoke tests; Ad Library ingest (tokens stripped, reach breakdown, longevity); validation statistics. Nothing run against real APIs yet: no `.env` keys.
+Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. Code so far (`src/whynot/`, `scripts/`, 45 tests passing, no network): cost ledger + model client + smoke tests; Ad Library ingest (tokens stripped, reach breakdown, longevity); validation statistics. Ad Library works for real (`FB_TOKEN` set; breakdown format confirmed; long-running filter). Model smoke tests not run: `MODEL_API_KEY` still empty.
 
 Done:
 - Accepted to the hackathon (Indie track, *Build for Your World*).
@@ -27,8 +27,8 @@ Done:
 1. **Design partner:** written consent; export of past ads + real metrics per ad → `data/private/`; read-only account access; agree the pilot (cap, autonomy level, approvals, start ~Oct 31). Critical path for R1 and R4.
 2. Contact 5–10 more businesses/agencies; confirm the Shopify partner.
 3. Both: claim Meta credits + spend limit; request Baseten and Modal credits (Baseten: first 2,000 participants).
-4. Fill `.env` (MODEL_API_KEY, BASETEN_API_KEY, FB_TOKEN), run `uv run python scripts/smoke_models.py`, record results in `META_APIS.md`.
-5. With `FB_TOKEN`: `scripts/fetch_competitors.py` on the partner's competitors; confirm the reach breakdown format. Then creative capture.
+4. Fill `MODEL_API_KEY` (and `BASETEN_API_KEY` when credits arrive) in `.env`, run `uv run python scripts/smoke_models.py`, record results in `META_APIS.md`.
+5. Get the partner's competitors (Facebook page ids) and run `scripts/fetch_competitors.py --active ACTIVE --started-before-days 60` on them. Then creative capture.
 6. Next code without keys: template schema (concept + genome), deterministic composer + pixel guard, autopilot safety rules — all with tests.
 7. First build-in-public post.
 
@@ -48,6 +48,7 @@ Newest first. One entry per working session: date, who, what changed, what's nex
 
 - 2026-10-27 — Matteo + Claude — VoodRadar logged as prior art (ideas only). Python project set up (uv); `costs.py` ledger, `models.py` client (Spark, Wonder, Image, SAM, Spark Open), `sam.py` parser, smoke-test script, 14 tests. Next: keys in `.env`, run smoke tests.
 - 2026-10-27 — Matteo + Claude — Validation stats (R1–R3, R6) and Ad Library ingest + fetch script, 45 tests. Next: template schema, composer + pixel guard, autopilot rules.
+- 2026-10-27 — Matteo + Claude — First real Ad Library calls: token works, breakdown format confirmed, results are newest-first → added long-running filter; Lacoste test (17 ads, median 118 days). 47 tests.
 
 - 2026-10-27 — Matteo + Claude — Settled the direction (AI ad agency, simulator as quality gate, live pilot with the app partner); rewrote and aligned all docs in English. Next: M0, partner data and pilot terms first.
 - 2026-10-27 — Matteo + Claude — Pivot from objection retargeting to the create–test–evolve loop; market research.
