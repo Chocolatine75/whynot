@@ -6,6 +6,8 @@
 
 Team: two engineering students at EPITA (Paris), previous hackathon winners and finalists. Goal: ship a real product, not a tech demo.
 
+Our project: **whynot, an AI ad agency for small businesses on Meta** (see `PRODUCT.md`).
+
 ## Key dates (Eastern Time → Paris)
 
 | When (ET) | Paris | What |
@@ -64,16 +66,16 @@ Bonus prizes we can target:
 
 | Prize | Amount | How we qualify |
 |---|---|---|
-| Most Viral Project | $20K | Arena + public pre-registered prediction + build in public on X, engagement until Nov 8 EOD |
+| Most Viral Project | $20K | Arena + live pilot predictions published before results + build in public on X, engagement until Nov 8 EOD |
 | **Best Build on Meta Open Weight Models** | $10K | Viewer agents run on Muse Spark Open (Baseten); student viewer distilled/fine-tuned on open weights |
 | Community Vote | $10K | Public gallery votes; Arena anyone can try |
-| **Best Agentic Use-Case** | $5K | Agent team (scout, strategist, creative director, audience, analyst, media buyer) with verifiable log |
-| Best Creative Build | $5K | Evolving creative: Muse Image + SAM 3.1 in a simulate-and-fix loop |
+| **Best Agentic Use-Case** | $5K | The agency: an agent team that researches, creates, tests, runs a real ad account within caps and reports, with a verifiable log |
+| Best Creative Build | $5K | New ad concepts created and evolved: Muse Image + SAM 3.1 in a create-test-evolve loop |
 
 ## Resources and credits
 
 - **Meta Model API: $150 per person.** Each member claims individually via the form, before Nov 4 9 PM ET. A card is required (temporary pre-auth). **Set a spend limit on the Billing page.**
-- **Baseten: $100 + 2M TPM**, first 2,000 participants, per person. Use model `meta-models/muse-spark-open-1026`.
+- **Baseten: $100 + 2M TPM**, first 2,000 participants, per person. Model string: official docs say `meta-models/muse-spark-open`, the guide said `meta-models/muse-spark-open-1026`; the smoke test decides (see `META_APIS.md`).
 - **Modal: $100**, first 1,000 participants.
 - **Fireworks: $25** per team, shortlist only.
 

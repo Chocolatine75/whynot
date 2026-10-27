@@ -24,7 +24,7 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
 | `muse-voice-transcribe-1.0` | Speech to text | $0.18 / hour of audio | | | 256 concurrent streams |
 
 - Web search grounding: $2.50 / 1k queries on top of tokens.
-- **Contributor mode is confirmed to grant Meta the right to train on prompts, files and responses.** Only Muse Spark 1.3 / 1.2. Never send real visitor or store data to it.
+- **Contributor mode is confirmed to grant Meta the right to train on prompts, files and responses.** Only Muse Spark 1.3 / 1.2. Never send partner or customer data to it.
 - Background (async) responses capped at 600 submissions / min / team.
 
 ### Prompt caching
@@ -85,10 +85,11 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
 
 ## Marketing API / Ads MCP
 
-- **Ads MCP server** (Oct 2026): creative uploads, ad previews, performance tracking; partners include Triple Whale, Snowflake, Databricks, Perplexity. Candidate launch + metrics channel.
-- Real metrics we need per ad for backtest/calibration: impressions, 3-s plays / hook rate, video thresholds (p25/p50/p75/p95 watched actions — *unverified field names*), ThruPlay, CTR, CPA. Ad-level per-second retention curves are *not confirmed* for ads (the per-timestamp retention metric documented is for Reels video insights).
+Used by the agency's media buyer to publish, monitor and rotate ads, and by `ingest/history` to read past ads and metrics.
 
-- Create campaigns, ad sets, custom audiences, ads. Needs `ads_management`, `ads_read`, a business setup, and possibly App Review for non-dev users. Use a **sandbox ad account** to test without spending.
+- **Ads MCP server** (Oct 2026): creative uploads, ad previews, performance tracking; partners include Triple Whale, Snowflake, Databricks, Perplexity. Preferred publishing + metrics channel; exact capabilities (pausing ads, budgets) to verify.
+- Real metrics we need per ad for backtest/calibration: impressions, 3-s plays / hook rate, video thresholds (p25/p50/p75/p95 watched actions — *unverified field names*), ThruPlay, CTR, CPA. Ad-level per-second retention curves are *not confirmed* for ads (the per-timestamp retention metric documented is for Reels video insights).
+- Create campaigns, ad sets, custom audiences, ads. Needs `ads_management`, `ads_read`, a business setup, and possibly App Review for non-dev users. Use a **sandbox ad account** to test without spending. Partner accounts: read-only first; write access only with the owner's written consent, a hard cap and approval before the first live launch.
 - v26.0 changes that affect us: new or copied ad sets with constrained targeting must set `advantage_audience` explicitly (1 or 0); Instagram Explore Feed placement removed; poll ads blocked. Several restrictions apply to all versions from 2026-10-27.
 
 ## Sources

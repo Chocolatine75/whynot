@@ -2,98 +2,117 @@
 
 ## One-liner
 
-An AI creative team for Meta ads with a flight simulator built in: agents invent ad concepts from your market and your customers, build variants, test them in a simulated Instagram feed next to your competitors' real ads, hear *why not* from viewer agents built on real Meta audience data, and evolve them until they win — before you spend a cent on losers.
-
-**The product is the loop.** Templates are the generator, the simulator is the judge, the agents evolve. Neither half is the product alone: a generator without a judge is one more AdCreative.ai; a judge without a generator is one more Kantar.
+whynot is an AI ad agency for small businesses on Meta: agents research the market and the customers, create ads for each customer profile, test every ad in a simulated feed before spending, then publish, steer and report. The owner just checks.
 
 ## The problem
 
-- **The creative is the only lever left.** Meta automates targeting (Andromeda: "the creative is the targeting"), bidding and budgets. What the advertiser still decides is what the ad says and shows.
-- **It is decided blind.** Advertisers guess, pay to find out (the learning phase is testing with real money), and even winners are unexplained. Meta's ranking predicts per-user response internally but doesn't explain it, and only after you spend.
-- **Pre-testing is for big brands.** Kantar LINK AI from ~$4,500, System1 ~$11,000 per ad. They score an ad in isolation, don't fix it, and don't place it among the competition.
-- **Variations don't help anymore.** Andromeda groups near-identical ads; small advertisers need genuinely different concepts every 2–3 weeks (ad fatigue) and can't produce them.
+- **Small businesses can't afford an agency and can't keep up alone.** Under Andromeda, ads wear out in 2–3 weeks and only genuinely different concepts get distinct delivery (near-duplicates are grouped). A founder can't produce, test and rotate new concepts every week.
+- **Meta automates delivery, not creation.** Targeting, bidding and budgets are automated: the creative is the last lever. Advantage+ tweaks existing assets (backgrounds, text variants, video from a still); it doesn't create a new concept. Meta's business AI assistant (testing since Oct 2026) plans and adjusts campaigns, but learns by spending.
+- **Testing costs real money and explains nothing.** The learning phase is testing with the advertiser's budget. Pre-tests from Kantar or System1 cost $4,500–$11,000 per ad and score an ad in isolation.
 
 ## Who it's for
 
-Small and mid Meta advertisers who make their own creative, roughly $2k–$100k/month on Meta, no creative-strategy team:
-- **Mobile apps** (subscription apps, install + in-app events). Design partner: a friend's mobile app, ~$20k MRR, wants to use it.
-- **DTC / Shopify brands.** Design partner: a Shopify store (TBC).
+Small businesses that advertise on Meta without a marketing team, roughly $2k–$100k/month of ad spend:
+- **Mobile apps** (subscriptions, installs). First design partner: a friend's app, ~$20k MRR. His ask, in his words: a tool that runs the whole ad campaign without him — creates, posts and adjusts the ads — so he only checks.
+- **DTC / Shopify brands.** Second design partner: a Shopify store (TBC).
 
-## What they get
+## What the owner gets
 
 | Need | whynot |
 |---|---|
-| Know if an ad will work before paying | Score in a simulated feed vs real competitors, with a measured reliability |
-| Know *why* | Viewer objections ("why not") + counterfactuals per element |
-| New concepts, not variants | ~10 evidence-backed templates per account, evolved continuously |
-| Less wasted budget | Only ads that win the simulation go to Meta; learning happens in simulation |
-| Trust | Reliability published (backtest, humans, pre-registered predictions), real product pixels, capped spend |
+| Ads done without them | Research, strategy, creation, publishing, rotation and reporting by agents |
+| Real new ads, not tweaks | ~10 evidence-backed concepts per business, refreshed weekly |
+| No budget wasted on bad ads | Every ad tested in a simulated feed vs real competitors before it runs |
+| Understand what works | Every ad comes with its concept, evidence and the reasons it won |
+| Control | Hard spend caps, autonomy level chosen by the owner, approve/block from the weekly report |
 
-Positioning: *your creative team and its flight simulator, for the price of an app.* Built **on** Meta (Muse models, Ad Library, Ads MCP), feeding Andromeda the diverse, good creative it needs.
+Positioning: *the marketing team of a much bigger brand, for the price of an app.* Built **on** Meta (Muse models, Ad Library, Ads MCP): it feeds Andromeda the diverse, good creative it needs and leaves bidding and delivery to Meta.
 
-## The loop
+## The engine: a loop
 
 ```
- Understand ──▶ Create templates ──▶ Compose variants ──▶ Simulate in the feed
-     ▲             (concepts)          (code, ~free)          (viewer agents)
-     │                                                              │
- Calibrate ◀── Launch on Meta ◀── Keep winners ◀── Evolve (mutate genes) ◀┘
- (real results)   (Ads MCP)
+ Research ──▶ Strategy ──▶ Create templates ──▶ Produce variants ──▶ Test in the simulated feed
+    ▲                        (concepts)          (code, ~free)          (viewer agents)
+    │                                                                         │
+ Learn ◀── Report ◀── Run on Meta ◀── Keep winners ◀── Evolve (mutate genes) ◀┘
+ (real results)  (owner checks)  (Ads MCP, caps)
 ```
 
-The simulator is also the diversity guard: two concepts viewers perceive the same way are merged. Evolution is guided by reasons (objections, counterfactuals), not random search.
+**Templates generate, the simulator judges, the agents evolve.** A generator without a judge is one more AdCreative.ai; a judge without a generator is one more Kantar. The simulator is also the diversity guard: two concepts that viewers perceive the same way are merged. Evolution is guided by reasons (objections, counterfactuals), not random search.
 
-1. **Understand.** Brand onboarding: store or App Store page, reviews, product footage (a short phone video), past ads. Competitors from the Ad Library: creatives (captured with Muse Spark computer use), copy, start date (longevity), EU reach split by age/gender/country. Muse Wonder writes the **strategy brief**: segments, angles that work, angles nobody uses, objections and how winners answer them.
-2. **Personas.** Viewer personas built from real reach breakdowns × customer segments × objections (e.g. "F 25–34 FR, price-sensitive, doubts sizing").
-3. **Templates (concepts).** ~10 distinct concepts, each tied to an objection/angle and backed by evidence. Each has a fixed core and a **genome** of mutable genes.
-4. **Compose.** Deterministic assembly of statics and short videos from genes. Product/app screen = SAM 3.1 cutout, never generated. Scenes and first frames from Muse Image.
-5. **Simulate.** A **feed** = the candidate + N real competitor ads from the same market. Viewer agents (Muse Spark Open, sees images/video + audio transcript) produce structured reactions per ad: hook noticed (first frame / first 2 s), message understood, believed, objection ("why not"), purchase intent (free text → SSR distribution), preferred ad in the feed. Aggregated per persona.
-6. **Explain.** Counterfactuals: remove/swap one tracked element (face, product, text, first shot), re-simulate, report the delta (simulated).
-7. **Evolve.** Creative agents read objections + counterfactuals, propose mutations, re-simulate. A diversity guard keeps concepts distinct. Stops on budget or plateau.
-8. **Launch.** Winners pushed via Ads MCP / Marketing API, sandbox and dry-run by default, hard spend cap set by the advertiser.
-9. **Calibrate.** Real metrics (hook rate, video thresholds, CTR, CPA) flow back; the simulator is re-weighted per account. A weekly concept drop keeps creative fresh.
+## Step by step
+
+1. **Onboard.** The owner pastes a store or App Store link, connects the ad account (read-only first), sets a spend cap and an autonomy level, optionally uploads a short product video.
+2. **Research.** Scout: competitors' ads from the Ad Library — copy, creatives (captured with Muse Spark computer use), transcripts, start date (longevity), EU reach by age/gender/country. Researcher: reviews, pages, past ads and their metrics → why people buy and *why not*.
+3. **Strategy.** Muse Wonder reads everything in one cached call: customer profiles (personas), angles that work, angles nobody uses, objections and how the winners answer them.
+4. **Personas.** Built from real reach breakdowns × customer segments × objections (e.g. "F 25–34 FR, short on time, doubts it works for her").
+5. **Create.** ~10 templates: distinct concepts, each tied to a persona/objection and backed by evidence, each with a genome.
+6. **Produce.** Deterministic assembly of statics and short videos from genes. Product/app screen = SAM 3.1 cutout, never generated. Scenes and first frames from Muse Image.
+7. **Test.** A feed = the candidate + N real competitor ads from the same market. Viewer agents (Muse Spark Open, sees images/video + transcript) react per ad: hook noticed (first frame / first 2 s), message understood, believed, objection ("why not"), purchase intent (free text → SSR distribution), preferred ad in the feed. Aggregated per persona.
+8. **Explain.** Counterfactuals: remove/swap one tracked element (face, product, text, first shot), re-simulate, report the delta (simulated).
+9. **Evolve.** The creative director reads objections and counterfactuals, mutates genes, re-tests, until the ad wins its feed or the budget is spent.
+10. **Run.** Winners published through the Ads MCP / Marketing API within caps. Daily: pull metrics, detect fatigue, pause losers, keep winners. Weekly: new concepts. Meta handles bidding and delivery.
+11. **Report.** Weekly report in plain language: what shipped, what was paused and why, what's next; approve/block buttons.
+12. **Learn.** Real metrics (hook rate, video thresholds, CTR, CPA) recalibrate the simulator for that business and tell which concepts work for whom.
 
 ## Template spec (concept + genome)
 
 ```yaml
-id: size_fit_guarantee_v1
-concept: "Fit guarantee: you can't get the size wrong"
-objection: size_fit
+id: five_minutes_a_day_v1
+concept: "Five minutes a day is enough"
+persona: f25_34_short_on_time
+objection: no_time
 evidence:
-  reviews: [review_ids]            # customer quotes
+  reviews: [review_ids]            # customers saying it
   competitor_ads: [ad_ids]         # long-running ads using this angle
-  behaviour: "38% of drop-offs opened the size guide"
+  metrics: "past ads with time-based hooks: hook rate +X% (partner history)"
 fixed:
   brand: {logo, palette, font}
-  product: {source: sam_3_1, asset_id}      # real pixels only
+  product: {source: sam_3_1, asset_id}      # real app screens only
 genes:                                       # what evolution may mutate
   format: [static_1080, reel_6s, reel_15s]
   hook: [question, before_after, face_to_camera, bold_claim]
-  first_shot: [product_closeup, person_wearing, size_chart, ugc_frame]
-  proof: [free_returns_badge, size_chart_snippet, review_quote]
-  persona_focus: [persona_ids]
-  cta: ["Find your size", "Free exchanges"]
+  first_shot: [app_screen, person_using, result_card, ugc_frame]
+  proof: [rating_badge, review_quote, streak_counter]
+  cta: ["Start free", "Try 5 minutes"]
 guards: [product_pixels_unchanged, brand_palette, text_legible, policy_safe]
 ```
 
-For an app: `product` = app screen recording cut out with SAM 3.1; objections like `price_of_subscription`, `does_it_work_for_me`, `time_commitment`.
+For a store: `product` = product photo/video cutout; objections like `size_fit`, `shipping`, `price`, `trust`.
+
+## Personalisation: by profile, not by person
+
+Meta audiences need at least ~100 people (practically ~1,000) and Meta chooses who sees what. whynot makes different concepts for different personas; Meta delivers each concept to the people who respond to it. Per-person personalisation is out of scope on Meta.
+
+## Autonomy and control
+
+| Level | What the agency does | Owner |
+|---|---|---|
+| `dry_run` (default) | Everything except publishing; shows what it would do | Reads |
+| `propose` | Prepares each action, waits | Approves each action |
+| `autopilot` | Acts within caps, reports every action | Can block; reads the weekly report |
+
+Hard rules: spend never exceeds the owner's cap; first live launch always needs explicit approval; every action is logged and explained.
 
 ## Surfaces
 
-- **Arena (public):** paste a store or App Store link → agents propose 3 concepts with evidence, build them, test them in the feed vs real competitors, evolve them, and show the winners with their why not. Or upload an existing ad to see how it does and get it reworked. Viral entry point.
-- **Workspace (design partners):** onboarding, templates, evolution runs, counterfactuals, launch, calibration, weekly concepts, agent log, cost counter.
-- **Validation page (public):** the simulator's measured reliability and the pre-registered predictions vs real outcomes.
+- **Onboarding:** link + account + cap + autonomy level.
+- **Agency room:** live agent log, running ads, test results in the simulated feed, next concepts, cost counter.
+- **Weekly report:** actions, results, reasons, approve/block.
+- **Arena (public, no account):** paste a link → the agents create 3 concepts, test them in the simulated feed vs real competitors, evolve them, show the winners and the why not. Or upload an existing ad. Viral entry point; nothing is published.
+- **Validation page (public):** the simulator's measured reliability and the live pilot results.
 
 ## How we prove it
 
-1. **Backtest** on design partners' historical ads with real Meta metrics (consented, private, anonymised).
+1. **Backtest:** the simulator ranks the design partner's past ads blind; compared with their real metrics.
 2. **Humans:** blind paired comparisons; agreement with the simulator; evolved vs original ad.
 3. **Market:** simulator vs Ad Library longevity of competitor ads.
-4. **Pre-registered public prediction:** rank a set of ads, publish it, then publish real results (only with an explicitly approved, capped budget).
+4. **Live pilot:** the agency runs the design partner's account for several days within caps; predictions published before results; real outcomes reported, good or bad.
 
 ## Out of scope for the hackathon
 
-- Claiming per-second retention or scroll prediction.
+- Per-person ads on Meta.
+- Bidding and delivery optimisation (Meta's job).
+- Claiming scroll or per-second retention prediction.
 - Non-Meta networks.
-- Generated video (no Meta video generation model in scope; we edit real footage).
-- Voice-over generation (Muse Voice Transcribe is speech-to-text only).
+- Generated video (we edit real footage) and voice-over generation (Muse Voice Transcribe is speech-to-text only).

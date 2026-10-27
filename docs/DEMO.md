@@ -1,40 +1,41 @@
 # Demo script (3 minutes)
 
-The video is a primary judging artefact. Show only what we built during the hackathon. Every number on screen is real and measured; every simulated number is labelled "simulated".
+The video is a primary judging artefact. Show only what we built during the hackathon. Every number on screen is real and measured; every simulated number is labelled "simulated". Partner data anonymised unless he agrees otherwise.
 
-The story is the loop: **understand → create templates → compose → simulate → evolve → launch → calibrate.**
+The story: **a founder hands his ads to the agency; the agency researches, creates, tests, runs and reports; we prove its judgement is right.**
 
 ## 0:00–0:15 — Hook
-"You pay Meta to find out your ad is bad." An app founder (design partner) needs new ads every two weeks and guesses every time.
+An app founder: "I pay for Meta ads, I don't have time to make them, and Advantage+ only tweaks my visuals." He pastes his App Store link, connects his account, sets a cap. The agency takes over.
 
-## 0:15–0:45 — The agents understand and create
+## 0:15–0:45 — Research and strategy
 - Scout pulls competitors' running ads from the Ad Library, with who Meta really shows them to.
-- Researcher reads the app's reviews: why people don't subscribe.
-- Strategist (Muse Wonder) writes the brief; Creative director turns it into templates: distinct concepts, each with its evidence and its genome.
+- Researcher reads the app's reviews and past ads: why people subscribe, and why not.
+- Strategist (Muse Wonder) writes the strategy: personas, angles that work, angles nobody uses.
+
+## 0:45–1:10 — Create
+- Creative director turns it into templates: distinct concepts, each with its evidence, persona and genome.
 - Producer builds variants in seconds: real app screens (SAM 3.1, pixel guard ✅), scenes and first frames (Muse Image).
 
-## 0:45–1:20 — The simulator judges
-The variants drop into a **simulated Instagram feed** between the competitors' real ads. Viewer agents scroll; reactions appear: hook, believed, **why not** ("I don't see the price", "looks like every other app"). Our v1 loses to the market leader.
+## 1:10–1:45 — Test before spending
+- The variants drop into a **simulated Instagram feed** between competitors' real ads. Viewer agents react: hook, believed, **why not** ("I don't see the price", "looks like every other app"). v1 loses.
+- Counterfactual: without the first shot, intent moves by X % (simulated).
+- Evolution v1 → v3: price first, new hook, new first frame. Score rises until we win the feed. Agent log on the side. **Cost counter: $X.XX.**
 
-## 1:20–1:50 — The agents evolve
-- Counterfactual: SAM isolates the first shot; without it, intent moves by X % (simulated).
-- Creative director mutates genes: new hook, price first, new first frame. v1 → v2 → v3, score rising until we win the feed. Agent log on the side. **Cost counter: $X.XX.**
-- Winners launch on Meta via Ads MCP, capped.
+## 1:45–2:15 — Run
+- Winners published via the Ads MCP within the cap, after the founder's approval.
+- Days of autopilot compressed: tired ads paused, winners kept, new concepts shipped; the weekly report with approve/block. Real numbers vs his previous ads.
 
-## 1:50–2:30 — Is the judge right?
-- Backtest on the partner's real past ads: picks the better ad X times out of 10, vs baselines.
+## 2:15–2:45 — Is the agency's judgement right?
+- Backtest on his real past ads: picks the better ad X times out of 10, vs baselines.
 - Humans: agreement X %; evolved ad preferred X % blind.
 - Market: separates long-running from short-lived competitor ads (AUC X).
-- The public bet: predicted ranking posted on X before launch — and the real results.
-
-## 2:30–2:45 — Product
-Arena: paste your link, watch the agents build and test your ads. Workspace: weekly concepts, launch, calibration on real results. Distilled viewer on Meta open weights: X× cheaper.
+- Predictions published before launch vs real results.
 
 ## 2:45–3:00 — Close
-"Meta automated the media buyer. We built the creative team — and the flight simulator it tests every ad in." Meta models used. Built in 10 days.
+Arena: paste your link, watch the agency work. "Meta automated the media buyer. whynot is the rest of the agency: it creates the ads, tests them before they cost anything, runs them and reports." Meta models used. Built in 10 days.
 
 ## Recording checklist
-- [ ] 1080p, readable fonts, no tokens, emails or partner-identifying data on screen
+- [ ] 1080p, readable fonts, no tokens, emails or partner-identifying data on screen (unless agreed)
 - [ ] Simulated numbers labelled
 - [ ] Voice-over timed
 - [ ] Real run, no mock screens

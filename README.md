@@ -1,8 +1,6 @@
 # whynot
 
-**An AI creative team for Meta ads, with a flight simulator built in.** Agents study your market and your customers, invent ad concepts as templates, and build variants. Every variant is tested in a simulated Instagram feed next to your competitors' real ads, where viewer agents built from real Meta audience data say *why not*. The agents evolve the ads until they win, then launch them on Meta — before you spend a cent on losers.
-
-**The product is the loop: the templates generate, the simulator judges, the agents evolve.** A generator without a judge is one more AdCreative.ai. A judge without a generator is one more Kantar.
+**An AI ad agency for small businesses on Meta.** whynot's agents research your market and your customers, create ads for each customer profile, test every ad in a simulated Instagram feed before spending a cent, then publish, steer and report. The owner just checks.
 
 Built for the [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon) (Oct 26 – Nov 4, 2026), Indie Developer track, theme *Build for Your World*.
 
@@ -10,41 +8,48 @@ Built for the [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/m
 
 ## The problem
 
-On Meta in 2026, the machine automates targeting, bidding and budgets. **The creative is the only lever left — "the creative is the targeting" — and it is made blind.** Advertisers guess, pay Meta to find out (the learning phase is testing with real money), and even when an ad wins, nobody knows why. Big brands pay $4,500–$11,000 per ad for a pre-test score. Small advertisers — DTC brands, mobile apps — gamble their budget.
+- **Small businesses can't run Meta ads well.** An agency costs thousands a month. Doing it yourself means producing new concepts every 2–3 weeks (ads wear out fast under Meta's Andromeda delivery system), guessing what will work, and paying Meta to find out.
+- **Meta automates delivery, not creation.** Targeting, bidding and budgets are automated; the creative is the last lever ("the creative is the targeting"). Advantage+ tweaks your visuals (backgrounds, text, video from a still); it doesn't create a new ad concept.
+- **Testing costs real money.** The learning phase is testing with your budget. A proper pre-test from Kantar or System1 costs $4,500–$11,000 per ad. Even winners come with no explanation.
 
 ## What whynot does
 
-1. **Reads the market and the customer.** Competitors' ads from the Meta Ad Library (who they really reach, how long they run), reviews, on-site or in-app behaviour: what makes people buy, and *why not*.
-2. **Invents ad concepts, not variations.** Agents write ~10 templates, each a distinct concept grounded in evidence, with a "genome" of parts that can change (hook, first shot, proof, persona, format). Andromeda rewards concept diversity; near-duplicates get grouped and cannibalise.
-3. **Composes variants cheaply.** Deterministic code assembles statics and short videos. The real product (or app screen) is cut out with SAM 3.1 and never generated.
-4. **Simulates the feed.** Viewer agents (Muse Spark Open, multimodal) see your ad among your competitors' and react: do they get it, believe it, what's their objection, would they buy, which ad do they prefer?
-5. **Explains why.** Counterfactuals: remove or swap one element (tracked by SAM 3.1), re-simulate, measure its effect.
-6. **Evolves the ad.** Creative agents read the objections and counterfactuals and mutate the genome until the ad wins the simulated feed.
-7. **Proves the simulator.** Backtested on design partners' real ad history, checked against human panels and Ad Library longevity, and pre-registered public predictions. Every simulated number is labelled as simulated.
-8. **Launches and learns.** Winners go to Meta through the Ads MCP / Marketing API (capped, sandbox by default); real results recalibrate the simulator for that account.
+The product is an agency. Its engine is a loop: **templates generate, the simulator judges, the agents evolve.**
+
+1. **Research.** Agents pull competitors' ads from the Meta Ad Library (how long they run, who Meta really shows them to) and read the business's reviews, pages and past ads to find why people buy — and *why not*.
+2. **Strategy.** Muse Wonder reads the whole corpus in one cached call and writes the strategy: customer profiles (personas), angles that work, angles nobody uses.
+3. **Create.** A creative director agent writes ~10 templates. Each template is a distinct ad concept, backed by evidence, with a "genome" of parts that can change (hook, first shot, proof, persona, format).
+4. **Produce.** Code assembles statics and short videos from the genes. The real product or app screen is cut out with SAM 3.1 and never generated; scenes come from Muse Image.
+5. **Test before spending.** Every ad is placed in a simulated feed next to competitors' real ads. Viewer agents built from real Meta reach data (Muse Spark Open) say whether they get it, believe it, and why they wouldn't buy. Counterfactuals show which element helps or hurts.
+6. **Evolve.** Agents mutate the genes until the ad wins the simulated feed.
+7. **Run.** Winners are published through Meta's Ads MCP / Marketing API within the owner's caps. The agency rotates creative, pauses tired or losing ads, and ships new concepts every week. Meta's own systems keep handling bidding and delivery.
+8. **Report and learn.** A weekly report says what was done and why; the owner approves or blocks. Real results recalibrate the simulator for that business.
+
+**Personalised by profile, not by person.** Meta audiences need hundreds of people and Meta decides who sees what. whynot creates different concepts for different customer profiles; Meta delivers each to the people who respond.
+
+**Why trust an autopilot?** Every ad is tested before it costs anything, spend is capped, every action is logged and explained, and the simulator's reliability is measured and published.
 
 ## Built with Meta models
 
-| Model | Role |
+| Model | Role in the agency |
 |---|---|
-| Muse Spark Open (via Baseten) | Viewer agents: watch the ad in the feed, react, explain — thousands of calls |
-| Muse Glimmer / fine-tuned Spark Open | Distilled viewer: cheap student trained on the big viewer (and real outcomes) |
-| Muse Wonder | Reads the whole competitive feed and customer corpus in one cached 1M-token call → strategy |
-| Muse Spark | Agents (strategist, creative director, critic), computer use to capture Ad Library creatives |
-| Muse Image | Scenes, first frames, concept assets — consistent across a series |
-| SAM 3.1 | Exact product / app-screen cutouts; element tracking in video for counterfactuals |
-| Muse Voice Transcribe | Transcribes competitors' and our video ads for the viewers and captions |
+| Muse Wonder | Strategist: reads the whole market and customer corpus in one cached 1M-token call |
+| Muse Spark | Agents (scout, researcher, creative director, analyst, account manager); computer use to capture competitors' ad creatives |
+| Muse Spark Open (via Baseten) | Viewer agents in the simulated feed — thousands of calls on open weights |
+| Distilled viewer (Muse Glimmer or fine-tuned Spark Open) | Cheap student viewer trained on the big one |
+| Muse Image | Scenes and first frames, consistent across a series |
+| SAM 3.1 | Exact product / app-screen cutouts; element tracking for counterfactuals |
+| Muse Voice Transcribe | Transcripts of video ads for the viewers and captions |
 
-Plus the Meta Ad Library API (feed + calibration), Marketing API and Ads MCP (launch + real metrics).
+Plus the Meta Ad Library API (research, feed, calibration) and the Ads MCP / Marketing API (publishing, real metrics).
 
 ## Docs
 
 - [Targets: final product, results, criteria](docs/TARGETS.md) ← the bar
-- [Product](docs/PRODUCT.md)
-- [Architecture](docs/ARCHITECTURE.md)
+- [Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md)
 - [Plan](docs/PLAN.md) · [Status / session handoff](docs/STATUS.md)
 - [Demo script](docs/DEMO.md)
-- [Research behind the product](docs/RESEARCH.md) · [Competitive landscape](docs/COMPETITION.md)
+- [Research](docs/RESEARCH.md) · [Competitive landscape](docs/COMPETITION.md)
 - [Meta APIs notes](docs/META_APIS.md) · [Hackathon context and rules](docs/HACKATHON.md) · [Decision log](docs/DECISIONS.md)
 
 ## Built during the hackathon

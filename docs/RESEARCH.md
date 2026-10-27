@@ -9,7 +9,7 @@ Each design choice is grounded in published work or market data. Sources at the 
 - A Common Thread Collective analysis: well under 1 % of ads drive most spend.
 - Creative fatigue window fell to 2–3 weeks (2026, from 4–6 weeks in 2024); brands testing 20+ new ads per month see higher ROAS (CTC, 170+ brands).
 
-→ **whynot generates distinct concepts and checks diversity before shipping.**
+→ **whynot's agents create distinct concepts and check diversity before shipping, and refresh them weekly.**
 
 ## 2. Meta automates everything else
 
@@ -17,7 +17,9 @@ Each design choice is grounded in published work or market data. Sources at the 
 - Business AI assistant (testing, Oct 2026) plans campaigns, generates creative, adjusts budgets; Ads MCP open to partners; Brand Memory; Creative Studio.
 - Main advertiser complaint: black box, no explanation of what works (AdExchanger, Mediaweek).
 
-→ **whynot builds on Meta (Muse, Ad Library, Ads MCP) and adds what the platform can't: pre-spend, explained, measured.**
+- Per-person ads aren't possible on Meta: custom audiences need at least ~100 people (practically ~1,000 for reliable delivery), and Meta decides who sees what (agency and vendor guides).
+
+→ **whynot builds on Meta (Muse, Ad Library, Ads MCP): it creates concepts per customer profile, tests them before spend, explains them, and leaves delivery to Meta.**
 
 ## 3. LLM synthetic consumers work — if asked the right way
 
@@ -25,7 +27,7 @@ Each design choice is grounded in published work or market data. Sources at the 
 
 Limit: this validates **purchase intent on concepts**, not scroll-stopping or attention.
 
-→ **Viewer agents output free text → SSR; we simulate cognitive reactions and validate them ourselves.**
+→ **The agency's quality gate: viewer agents output free text → SSR; we simulate cognitive reactions and validate them ourselves.**
 
 ## 4. Context changes attention
 
@@ -37,14 +39,14 @@ AdGazer (University of Maryland & Tilburg, 2026): attention to an ad depends on 
 
 Meta's AdLlama (arXiv 2507.21983): RL from performance feedback (historical CTR as reward) raised CTR by 6.7 % vs supervised imitation in a 10-week A/B test across ~35,000 advertisers.
 
-→ **The simulator is the pre-spend reward; real metrics recalibrate it; the student viewer can be trained on both.**
+→ **The simulator is the pre-spend reward; the agency's live results recalibrate it; the student viewer can be trained on both.**
 
 ## 6. Pre-testing is expensive; synthetic research is hot
 
 - Kantar LINK AI self-serve from ~$4,500 (US), System1 Pro ~$11,250 per ad (comparison blogs).
 - Synthetic research raised $1.5B+; Simile $100M (Index, Feb 2026); Qualtrics added synthetic respondents (market-map blogs).
 
-→ **A validated, cheap, competitive-context pre-test for SMBs is open.**
+→ **Small businesses have neither an agency nor a credible pre-test. An agency with a validated, cheap, competitive-context test built in is open.**
 
 ## 7. Ad Library as ground truth
 
@@ -52,13 +54,14 @@ Under the DSA, EU-delivered ads expose start dates, EU reach and reach by age/ge
 
 → **Reach breakdowns ground the personas; longevity is one validation signal (R3), not the only one.**
 
-## 8. Uplift and retargeting (kept as background)
+## 8. Uplift and retargeting (background, not in the current product)
 
 Ghost Ads (Johnson, Lewis, Nubbemeyer): retargeting lifts purchases +10.5 % with a proper control group, less than attribution suggests. Criteo uplift dataset (CC BY-NC-SA 4.0). Not core to the current product; holdouts stay the right way to measure real outcomes later.
 
 ## Sources
 
 - Andromeda & creative diversity: https://jetfuel.agency/metas-2026-algorithm-update-what-andromeda-changed-and-how-to-adapt-your-ads/ , https://www.exposure.com.au/blog/meta-andromeda-creative-targeting , https://nikhil.pro/meta-ads-creative-similarity-explained/ , https://www.precis.com/resources/meta-andromeda-and-creative-strategy-what-actually-changed-and-what-didnt
+- Audience minimums: https://www.stackmatix.com/blog/meta-custom-audiences , https://support.buyerbridge.com/knowledge/fix-meta-retargeting-not-spending-inventory-ads
 - Meta updates: https://adsuploader.com/blog/meta-ads-updates , https://www.socialsamosa.com/industry-updates/meta-ai-advertising-tools-cannes-lions-12065586 , https://www.fool.com/earnings/call-transcripts/2026/10/21/meta-meta-q3-2026-earnings-call-transcript/
 - Black box: https://www.adexchanger.com/commerce/more-performance-less-transparency-inside-metas-advantage-shopping-black-box/
 - SSR: https://www.emergentmind.com/papers/2510.08338 , https://github.com/pymc-labs/semantic-similarity-rating
