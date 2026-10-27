@@ -23,6 +23,7 @@ One line per decision: date — decision — why.
 - 2026-10-27 — Templates = concepts with a mutable genome, not slot-filled images — Andromeda groups near-duplicates.
 - 2026-10-27 — Teacher viewer on Muse Spark Open, distilled student on open weights — volume cost + Best Open Weights prize.
 - 2026-10-27 — Superseded: per-visitor objection retargeting, uplift targeting and Criteo as product pillars (objections survive as personas and concept axes).
+- 2026-10-27 — Positioning = the loop (templates generate, simulator judges, agents evolve), not "a simulator" — a judge alone is a Kantar, a generator alone an AdCreative; Arena starts from a link, not only an uploaded ad.
 
 ## Data & asset rights
 

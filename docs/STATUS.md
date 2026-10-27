@@ -7,7 +7,7 @@ Last updated: 2026-10-27
 
 ## Where we are
 
-Day 2 of 10. **Pivoted** to whynot = flight simulator for Meta ads (see `PRODUCT.md`, `TARGETS.md`). All docs rewritten for it. **No pipeline code yet.**
+Day 2 of 10. **Pivoted** to whynot = AI creative team for Meta ads with a built-in flight simulator (the loop: templates generate, simulator judges, agents evolve) (see `PRODUCT.md`, `TARGETS.md`). All docs rewritten for it. **No pipeline code yet.**
 
 Done:
 - Accepted to the hackathon (Indie track, *Build for Your World*).

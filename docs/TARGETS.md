@@ -2,7 +2,7 @@
 
 This is the reference we loop on. Every few days, and before submitting, go through each line and mark it ✅ / 🟡 / ❌ with the measured value. If a criterion is ❌ two days before the deadline, cut scope elsewhere; never lower the bar silently. Changing a target = one line in `DECISIONS.md` with why.
 
-The bar: **not a wrapper, not an ad generator.** A Meta judge must think "I'd want this in our ecosystem", and an advertiser must want to drop their own ad in.
+The bar: **not a wrapper, not an ad generator alone, not a pre-test alone — the loop.** A Meta judge must think "I'd want this in our ecosystem", and an advertiser must want to paste their link and watch the agents build and test their ads.
 
 Our honest estimate (gut, not a calculation): ~10% chance of Indie top 5 with the simulator validated, ~20% if the levers in §5 land, ~5% if the simulator isn't validated.
 
@@ -11,11 +11,12 @@ Our honest estimate (gut, not a calculation): ~10% chance of Indie top 5 with th
 ## 1. The final product (what exists on Nov 4)
 
 ### A. Arena — public, no install
-Upload an ad (image or ≤ 30 s video) or pick one, choose a market → in under 2 minutes:
-- the ad **inside a simulated feed** next to real competitor ads from the Ad Library;
+Paste a store or App Store link (or upload an existing ad) → in a few minutes:
+- the agents' **3 concepts** (templates) with their evidence (reviews, competitor ads, behaviour);
+- the variants built from them, **inside a simulated feed** next to real competitor ads from the Ad Library;
 - reactions per persona: hook, understood, believed, **why not**, intent, preferred ad;
-- the 3 fixes that would help most (from counterfactuals, labelled simulated);
-- the simulator's reliability, linked to the Validation page.
+- one evolution round: what changed and why, score before / after (simulated);
+- the winners, downloadable; the simulator's reliability, linked to the Validation page.
 
 ### B. Workspace — design partners (mobile app ~$20k MRR; Shopify store TBC)
 - Onboarding from store/App Store page, reviews, product footage, past ads.
@@ -43,7 +44,7 @@ Target = what we aim for. Floor = below this we don't show it as a win; we show 
 | R6 | **Concepts, not variations** | Pairwise similarity of shipped concepts (our embedding metric) + viewer-perceived distinctness | All pairs under threshold | — |
 | R7 | **Product / app never invented** | Pixel diff on product region vs SAM cutout | 0 px on 100 % of ads | hard rule |
 | R8 | **Cheap** | `costs` log | Arena run < $0.50; evolution run (5 gens) < $5; student ≥ 10× cheaper than teacher with ≥ 85 % agreement | — |
-| R9 | **Fast** | Wall clock | Arena < 2 min | < 4 min |
+| R9 | **Fast** | Wall clock | Arena: link → 3 evolved concepts < 5 min (existing ad → verdict < 2 min) | < 10 min |
 | R10 | **People use it** | Real advertisers | ≥ 30 Arena runs by real advertisers, ≥ 2 partners in Workspace, ≥ 5 quotes, ≥ 1 ad changed because of whynot | ≥ 10 runs |
 
 ---
@@ -71,12 +72,12 @@ Target = what we aim for. Floor = below this we don't show it as a win; we show 
 - [ ] Clean modules, tests on core (composer, guards, SSR, validation stats).
 
 ### Demo (25 %)
-- [ ] Hook in 15 s: an ad dropped into a fake Instagram feed among real competitors; viewers say why not.
+- [ ] Hook in 15 s: the agents build ads for a real app and drop them into a fake Instagram feed among real competitors; viewers say why not.
 - [ ] Evolution v1 → vN live, score rising vs competitors, with the reasons.
 - [ ] A counterfactual moment: "without this shot, −X % (simulated)".
 - [ ] Proof on screen: R1/R2/R3 numbers, the public bet.
 - [ ] Live, no manual step; simulated numbers labelled.
-- [ ] A judge can drop their own ad in the Arena.
+- [ ] A judge can paste their own link (or ad) in the Arena.
 - [ ] 30 s cut for X that stands alone.
 
 ---
@@ -85,7 +86,7 @@ Target = what we aim for. Floor = below this we don't show it as a win; we show 
 
 - Claiming per-second scroll or retention prediction.
 - Unlabelled simulated numbers; reliability claims without `validate/` behind them.
-- An ad generator with a score bolted on.
+- An ad generator with a score bolted on, or a scoring tool with no generator: the loop is the product.
 - Variations sold as concepts.
 - Partner data in the repo or visible un-anonymised.
 - Generated product / app pixels.

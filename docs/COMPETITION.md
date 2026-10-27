@@ -43,9 +43,9 @@ For $4.5k–$11k per ad, in isolation, with a score. We place the ad among its r
 **"Why would Meta want this?"**
 Better ads make a better feed for users; small advertisers who don't burn budget stay and grow; it showcases every Muse model, uses open weights at scale, and is built on Meta's Ad Library and Ads MCP.
 
-**"Isn't it just an ad generator?"**
-The generator is the cheap part. The product is the judge (the simulator), its measured reliability, and the explanation.
+**"Isn't it just an ad generator?" / "Isn't it just a pre-test?"**
+Neither alone. A generator without a judge is one more AdCreative.ai; a judge without a generator is one more Kantar. The product is the loop: templates grounded in evidence generate, the simulator judges and explains, the agents evolve, real results recalibrate.
 
 ## Pitch line
 
-*Meta automated the media buyer. We built the creative strategist — and a flight simulator to test every ad before it costs you anything.*
+*Meta automated the media buyer. We built the creative team — and the flight simulator it tests every ad in before it costs you anything.*

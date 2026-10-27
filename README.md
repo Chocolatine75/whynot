@@ -1,6 +1,8 @@
 # whynot
 
-**A flight simulator for Meta ads.** Drop your ad into a simulated Instagram feed, next to your competitors' real ads. Thousands of viewer agents, built from real Meta audience data, react to it and tell you *why not*. Agents then evolve the ad, generation after generation, until it wins the feed — before you spend a cent.
+**An AI creative team for Meta ads, with a flight simulator built in.** Agents study your market and your customers, invent ad concepts as templates, and build variants. Every variant is tested in a simulated Instagram feed next to your competitors' real ads, where viewer agents built from real Meta audience data say *why not*. The agents evolve the ads until they win, then launch them on Meta — before you spend a cent on losers.
+
+**The product is the loop: the templates generate, the simulator judges, the agents evolve.** A generator without a judge is one more AdCreative.ai. A judge without a generator is one more Kantar.
 
 Built for the [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon) (Oct 26 – Nov 4, 2026), Indie Developer track, theme *Build for Your World*.
 

@@ -2,7 +2,9 @@
 
 ## One-liner
 
-A flight simulator for Meta ads: put your ad in a simulated Instagram feed next to your competitors' real ads, hear *why not* from viewer agents built on real Meta audience data, and let agents evolve it until it wins — before you spend a cent.
+An AI creative team for Meta ads with a flight simulator built in: agents invent ad concepts from your market and your customers, build variants, test them in a simulated Instagram feed next to your competitors' real ads, hear *why not* from viewer agents built on real Meta audience data, and evolve them until they win — before you spend a cent on losers.
+
+**The product is the loop.** Templates are the generator, the simulator is the judge, the agents evolve. Neither half is the product alone: a generator without a judge is one more AdCreative.ai; a judge without a generator is one more Kantar.
 
 ## The problem
 
@@ -27,9 +29,19 @@ Small and mid Meta advertisers who make their own creative, roughly $2k–$100k/
 | Less wasted budget | Only ads that win the simulation go to Meta; learning happens in simulation |
 | Trust | Reliability published (backtest, humans, pre-registered predictions), real product pixels, capped spend |
 
-Positioning: *a creative strategist and a pre-test lab for the price of an app.* Built **on** Meta (Muse models, Ad Library, Ads MCP), feeding Andromeda the diverse, good creative it needs.
+Positioning: *your creative team and its flight simulator, for the price of an app.* Built **on** Meta (Muse models, Ad Library, Ads MCP), feeding Andromeda the diverse, good creative it needs.
 
 ## The loop
+
+```
+ Understand ──▶ Create templates ──▶ Compose variants ──▶ Simulate in the feed
+     ▲             (concepts)          (code, ~free)          (viewer agents)
+     │                                                              │
+ Calibrate ◀── Launch on Meta ◀── Keep winners ◀── Evolve (mutate genes) ◀┘
+ (real results)   (Ads MCP)
+```
+
+The simulator is also the diversity guard: two concepts viewers perceive the same way are merged. Evolution is guided by reasons (objections, counterfactuals), not random search.
 
 1. **Understand.** Brand onboarding: store or App Store page, reviews, product footage (a short phone video), past ads. Competitors from the Ad Library: creatives (captured with Muse Spark computer use), copy, start date (longevity), EU reach split by age/gender/country. Muse Wonder writes the **strategy brief**: segments, angles that work, angles nobody uses, objections and how winners answer them.
 2. **Personas.** Viewer personas built from real reach breakdowns × customer segments × objections (e.g. "F 25–34 FR, price-sensitive, doubts sizing").
@@ -68,7 +80,7 @@ For an app: `product` = app screen recording cut out with SAM 3.1; objections li
 
 ## Surfaces
 
-- **Arena (public):** upload an ad (or pick one) + a market → see it in the feed vs competitors, the objections, top 3 fixes. Viral entry point.
+- **Arena (public):** paste a store or App Store link → agents propose 3 concepts with evidence, build them, test them in the feed vs real competitors, evolve them, and show the winners with their why not. Or upload an existing ad to see how it does and get it reworked. Viral entry point.
 - **Workspace (design partners):** onboarding, templates, evolution runs, counterfactuals, launch, calibration, weekly concepts, agent log, cost counter.
 - **Validation page (public):** the simulator's measured reliability and the pre-registered predictions vs real outcomes.
 
