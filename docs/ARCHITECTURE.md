@@ -70,7 +70,7 @@ holdout ─▶ causal lift report + store fix recommendations                   
 
 ## Open questions
 
-- Exact Muse Image API surface (editing, reference images) → check docs on day 1.
-- SAM 3.1 API input/output format → check docs on day 1.
+- ~~Muse Image API surface~~ → checked: generations + edits with up to 10 reference images, no mask (see META_APIS.md).
+- SAM 3.1 output is special-token text with base85 masks smaller than the frame → verify how to map a mask back to full resolution on a real image.
 - Marketing API sandbox ad account setup time.
 - Source of browsing sessions if partner store traffic is low (public e-commerce event dataset, licence to check).

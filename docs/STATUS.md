@@ -32,12 +32,16 @@ Done before / at kickoff:
 ## Blockers / open questions
 
 - Partner store not yet confirmed in writing.
-- Muse Image and SAM 3.1 API formats unknown → check docs.
+- Baseten model: `meta-models/muse-spark-open` (official) or `...-1026` (guide)? Smoke test decides.
+- SAM 3.1 mask → full-resolution mapping not documented; test on a real image.
+- Finals top 5 or top 10? Ask on Discord.
 - Marketing API sandbox account setup time unknown.
 - Teammate name / GitHub handle to add in `README.md` and the table above.
 
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-27 — Matteo + Claude — Checked all docs against official sources. Rewrote `META_APIS.md` (real prices, rate limits, Muse Image and SAM 3.1 formats). Baseten model string conflict noted. Criteo licence = CC BY-NC-SA. Next: costs wrapper + smoke tests.
 
 - 2026-10-27 — Matteo + Claude — Added `STATUS.md` handoff file; folded remaining brainstorm details into docs. Next: Day 1–2 foundations.

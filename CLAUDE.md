@@ -22,7 +22,7 @@ Full spec: `docs/PRODUCT.md`. Architecture: `docs/ARCHITECTURE.md`. Plan: `docs/
 
 - Meta Ad Library API responses embed the access token inside every `ad_snapshot_url`. **Strip `access_token` from URLs before storing, logging or displaying them.**
 - Never log full API responses that contain tokens.
-- The Muse Spark *Contributor* tier is cheaper but may allow Meta to use the data. Use it only for synthetic personas, never for real visitor data.
+- The Muse Spark *Contributor* tier is cheaper but Meta trains on the data (confirmed in the pricing docs). Use it only for synthetic personas, never for real visitor data.
 - Any action that spends money on Meta (creating active campaigns) must go through an explicit budget cap and a dry-run / sandbox mode by default.
 
 ## Meta APIs: quick reference
@@ -30,7 +30,8 @@ Full spec: `docs/PRODUCT.md`. Architecture: `docs/ARCHITECTURE.md`. Plan: `docs/
 See `docs/META_APIS.md` for details.
 
 - Meta Model API: base URL `https://api.meta.ai/v1`, OpenAI- and Anthropic-compatible, key in `MODEL_API_KEY`. Model IDs: `muse-spark-1.3`, `muse-spark-1.3-contributor`, `muse-wonder-1.0`, `muse-image-1.0`, `sam-3.1`, `muse-voice-transcribe-1.0`. Verify IDs against the model list before relying on them.
-- Muse Spark Open on Baseten: model `meta-models/muse-spark-open-1026` (not the name in Baseten's docs).
+- Muse Spark Open on Baseten: `base_url=https://inference.baseten.co/v1`. Official docs say model `meta-models/muse-spark-open`; the hackathon guide said `meta-models/muse-spark-open-1026`. The smoke test decides; read it from `BASETEN_MODEL`.
+- SAM 3.1 returns streamed special-token text (boxes + base85 masks), not JSON. Muse Image edits do not support masks. Details in `docs/META_APIS.md`.
 - Ad Library: `GET https://graph.facebook.com/v26.0/ads_archive`, token in `FB_TOKEN`. Commercial ads only returned for EU/UK-delivered ads. Useful fields: `ad_creative_bodies, ad_creative_link_titles, ad_delivery_start_time, ad_snapshot_url, eu_total_reach, age_country_gender_reach_breakdown, target_ages, target_gender, page_name`.
 
 ## Engineering principles

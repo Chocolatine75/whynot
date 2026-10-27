@@ -2,6 +2,8 @@
 
 **Meta Global AI Developer Hackathon**, organised by Meta and Cerebral Valley. Virtual. We are in the **Indie Developer** track (individuals and students, teams up to 4).
 
+> **Sources (checked 2026-10-27).** The public event page (cerebralvalley.ai/e/meta-ai-developer-hackathon) confirms: dates, deadline Nov 4 9 PM ET, two tracks, $1M pool, Baseten $100 + 2M TPM, Modal $100, Fireworks $25, allowed models. It does **not** list criteria weights, per-prize amounts, team size or the $150 Meta credit: those come from the participant guide / official rules. To confirm on Discord: finals are **top 5** per track (a participant repo says top 10), judging starts Nov 4 (public page) or Nov 5.
+
 Team: two engineering students at EPITA (Paris), previous hackathon winners and finalists. Goal: ship a real product, not a tech demo.
 
 ## Key dates (Eastern Time → Paris)
