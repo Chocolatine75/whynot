@@ -50,11 +50,13 @@ Plus the Meta Ad Library API (research, feed, calibration) and the Ads MCP / Mar
 - [Plan](docs/PLAN.md) · [Status / session handoff](docs/STATUS.md)
 - [Demo script](docs/DEMO.md)
 - [Research](docs/RESEARCH.md) · [Competitive landscape](docs/COMPETITION.md)
-- [Meta APIs notes](docs/META_APIS.md) · [Hackathon context and rules](docs/HACKATHON.md) · [Decision log](docs/DECISIONS.md)
+- [Prior art](docs/PRIOR_ART.md) · [Meta APIs notes](docs/META_APIS.md) · [Hackathon context and rules](docs/HACKATHON.md) · [Decision log](docs/DECISIONS.md)
 
 ## Built during the hackathon
 
 Everything in this repository was written during the hackathon, starting Oct 26, 2026. The commit history is the record.
+
+Related prior work we learned from (ideas only, no code reused): [VoodRadar](https://github.com/edouardfoussier/voodoo-anthropic-hack-winner), winner of the Voodoo × Anthropic Hack 2026. See [Prior art](docs/PRIOR_ART.md).
 
 ## Team
 

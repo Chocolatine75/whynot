@@ -29,6 +29,7 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-27 — Autonomy levels dry_run (default) → propose → autopilot, hard spend caps, owner approval before the first live launch — we'd be spending a real client's money.
 - 2026-10-27 — Live pilot on the design partner's account replaces the separate "public bet": predictions published before the pilot's results — real business, real proof, one setup.
 - 2026-10-27 — All docs in English — public repo, international judges.
+- 2026-10-27 — VoodRadar (Voodoo × Anthropic Hack 2026 winner) studied for ideas only; no code, prompts, data or assets reused — hackathon rule (new work only) and the repo has no licence. Ideas taken and our differences in `PRIOR_ART.md`; disclosed in the README.
 
 ## Data & asset rights
 
