@@ -12,6 +12,11 @@ One line per decision: date — decision — why.
 - 2026-10-27 — Repo name `whynot`.
 - 2026-10-27 — Docs checked against official Meta docs; Baseten model string read from env (`meta-models/muse-spark-open` vs guide's `-1026`) — official sources disagree with the hackathon guide.
 
+- 2026-10-27 — Added `TARGETS.md` as the bar (final product, R1–R10, per-criterion checklist) — loop on it instead of on features.
+- 2026-10-27 — Plan reorganised into gated milestones, vertical slice by Oct 30 — avoid layers that never connect.
+- 2026-10-27 — Criteo uplift demoted to optional side check; main proofs = exit-question ground truth, human test, panel vs humans, panel vs Ad Library longevity — Criteo is unrelated data and costly to integrate.
+- 2026-10-27 — Add a public teardown (any Shopify URL) — impact, viral and community vote need something people can try.
+
 ## Data & asset rights
 
 | Asset | Source | Licence / consent | Status |

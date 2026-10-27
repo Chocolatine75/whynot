@@ -64,6 +64,10 @@ guards:
   - text_legible
 ```
 
+## Surfaces
+
+Public teardown (any Shopify URL), merchant dashboard, on-site answer. Defined in `TARGETS.md`.
+
 ## Channels
 
 - **Primary**: Meta (Facebook / Instagram) via Marketing API.
@@ -74,7 +78,8 @@ guards:
 1. **Blind human test**: 50–100 people, each picks a realistic hesitation scenario for the partner's real product, compares generic vs personalized ad blind, rates purchase intent. Paired design, so a small sample gives a clear result.
 2. **Synthetic panel validated against humans**: same scenarios through the panel; we report how well its ranking matches the humans.
 3. **Partner store A/B**: on-site banner and cart email, generic vs objection-specific.
-4. **Uplift on public data**: Criteo uplift dataset, uplift curve vs response-model targeting.
+4. **Panel vs market**: panel scores vs Ad Library longevity of competitor ads (R4).
+5. *(optional)* Criteo uplift side check; capped Meta split test with explicit approval.
 
 ## Out of scope for the hackathon
 

@@ -36,6 +36,7 @@ Small e-commerce brands are losing on Meta ads:
 
 ## Docs
 
+- [Targets: final product, results, criteria](docs/TARGETS.md)
 - [Product](docs/PRODUCT.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Research behind the product](docs/RESEARCH.md)

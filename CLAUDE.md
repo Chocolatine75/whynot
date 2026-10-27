@@ -8,6 +8,8 @@ Context for Claude Code (and any coding agent) working in this repo. Read this f
 
 Full spec: `docs/PRODUCT.md`. Architecture: `docs/ARCHITECTURE.md`. Plan: `docs/PLAN.md`.
 
+**The bar is `docs/TARGETS.md`**: final product, measured results (R1–R10), per-criterion checklist. Check work against it.
+
 **Start every session by reading `docs/STATUS.md`** (where we are, who is on what, what's next). Update it before ending the session.
 
 ## Hard constraints (hackathon rules)

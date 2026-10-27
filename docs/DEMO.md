@@ -20,7 +20,7 @@ Install on the partner's Shopify store. Live:
 ## 1:40–2:20 — Proof
 - Blind human test: "N people, personalized ad preferred X times out of 10."
 - Panel vs humans agreement.
-- Uplift curve on Criteo public data: same causal sales with Y% less budget.
+- Objection accuracy vs real exit answers (R1); panel predicts long-running competitor ads (R4).
 
 ## 2:20–2:45 — Autonomy
 - Campaigns created on Meta (sandbox), budget capped.

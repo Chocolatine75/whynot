@@ -20,14 +20,13 @@ Done before / at kickoff:
 |---|---|---|---|
 | — | — | — | — |
 
-## Next up (from `PLAN.md`, Day 1–2)
+## Next up (from `PLAN.md`, M0)
 
 1. Both: claim Meta credits + spend limit, Baseten, Modal.
-2. `costs` wrapper: one client for every model call, logs tokens / images / $.
-3. Smoke tests for each Meta model; record real IDs and prices in `META_APIS.md`.
-4. Ad Library ingest: competitor page IDs → ads + reach breakdowns, **tokens stripped**.
-5. Partner store: written consent, export catalog / pages / reviews / media.
-6. Sessions source: partner traffic and/or public dataset (licence in `DECISIONS.md`).
+2. **Partner store confirmed in writing**, then tracking + exit question live (ground truth for R1).
+3. `costs` wrapper + smoke tests of every model.
+4. Ad Library ingest, one market end to end (tokens stripped).
+5. App skeleton: run a job, show agent log + cost.
 
 ## Blockers / open questions
 
@@ -42,6 +41,7 @@ Done before / at kickoff:
 
 Newest first. One entry per working session: date, who, what changed, what's next.
 
+- 2026-10-27 — Matteo + Claude — Wrote `TARGETS.md` (final product, R1–R10, criteria); PLAN reorganised into gated milestones M0–M4; Criteo demoted. Next: M0.
 - 2026-10-27 — Matteo + Claude — Checked all docs against official sources. Rewrote `META_APIS.md` (real prices, rate limits, Muse Image and SAM 3.1 formats). Baseten model string conflict noted. Criteo licence = CC BY-NC-SA. Next: costs wrapper + smoke tests.
 
 - 2026-10-27 — Matteo + Claude — Added `STATUS.md` handoff file; folded remaining brainstorm details into docs. Next: Day 1–2 foundations.
