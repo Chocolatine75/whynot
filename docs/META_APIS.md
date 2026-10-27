@@ -2,6 +2,8 @@
 
 Checked against official docs on 2026-10-27 (sources at the bottom). Items marked *unverified* have not been confirmed by an official page or by our own calls. Our smoke tests should confirm everything here; update this file with what we actually observe.
 
+Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.json`). Checks: model list, Spark text + vision, Contributor text, Wonder text, Muse Image, SAM 3.1 on a test image, Spark Open on Baseten text + vision. Last run: *not yet run — no keys in `.env`*.
+
 ## Meta Model API
 
 - Base URL: `https://api.meta.ai/v1`. Auth: `Authorization: Bearer $MODEL_API_KEY`.

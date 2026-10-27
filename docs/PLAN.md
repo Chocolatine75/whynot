@@ -10,7 +10,8 @@ The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) d
 - [ ] (B) **Design partner (mobile app, ~$20k MRR):** written consent; export of past ads (creatives) + real metrics per ad (hook rate / video thresholds, CTR, CPA); read-only account access. Agree the pilot: spend cap, autonomy level, which decisions he approves, start date. Data in `data/private/`, never committed. *Critical path for R1 and R4.*
 - [ ] (B) Contact 5–10 more businesses/agencies (backtest data, Arena users); confirm the Shopify partner
 - [ ] (both) Claim Meta credits + spend limit, Baseten, Modal
-- [ ] (A) `costs` wrapper + smoke tests (incl. Muse Spark Open with image/video input on Baseten)
+- [x] (A) `costs` wrapper + `ModelClient` + unit tests (`src/whynot/costs.py`, `models.py`)
+- [ ] (A) Run the smoke tests with real keys (`scripts/smoke_models.py`); record results in `META_APIS.md`; add video input check
 - [ ] (A) Ad Library ingest for the partner's market (tokens stripped) + creative capture
 - [ ] (B) First build-in-public post
 

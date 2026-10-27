@@ -43,6 +43,17 @@ The product is an agency. Its engine is a loop: **templates generate, the simula
 
 Plus the Meta Ad Library API (research, feed, calibration) and the Ads MCP / Marketing API (publishing, real metrics).
 
+## Getting started
+
+```bash
+uv sync                      # install (Python 3.12+)
+cp .env.example .env         # then fill in your keys
+uv run pytest                # unit tests, no network
+uv run python scripts/smoke_models.py   # calls every model once, a few cents
+```
+
+Every model call goes through `whynot.models.ModelClient`, which logs its real cost to `outputs/costs.jsonl`.
+
 ## Docs
 
 - [Targets: final product, results, criteria](docs/TARGETS.md) ← the bar

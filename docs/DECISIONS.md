@@ -30,6 +30,7 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-27 — Live pilot on the design partner's account replaces the separate "public bet": predictions published before the pilot's results — real business, real proof, one setup.
 - 2026-10-27 — All docs in English — public repo, international judges.
 - 2026-10-27 — VoodRadar (Voodoo × Anthropic Hack 2026 winner) studied for ideas only; no code, prompts, data or assets reused — hackathon rule (new work only) and the repo has no licence. Ideas taken and our differences in `PRIOR_ART.md`; disclosed in the README.
+- 2026-10-27 — Python engine managed with uv, `src/whynot` layout; one `ModelClient` (OpenAI SDK) for both the Meta Model API and Baseten, logging every call to a JSONL cost ledger — both APIs are OpenAI-compatible; one wrapper keeps the cost counter real.
 
 ## Data & asset rights
 
