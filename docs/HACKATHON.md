@@ -2,6 +2,8 @@
 
 **Meta Global AI Developer Hackathon**, organised by Meta and Cerebral Valley. Virtual. We are in the **Indie Developer** track (individuals and students, teams up to 4).
 
+Team: two engineering students at EPITA (Paris), previous hackathon winners and finalists. Goal: ship a real product, not a tech demo.
+
 ## Key dates (Eastern Time → Paris)
 
 | When (ET) | Paris | What |

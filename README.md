@@ -42,6 +42,7 @@ Small e-commerce brands are losing on Meta ads:
 - [Competitive landscape](docs/COMPETITION.md)
 - [Hackathon context and rules](docs/HACKATHON.md)
 - [10-day plan](docs/PLAN.md)
+- [Status / session handoff](docs/STATUS.md)
 - [Demo script](docs/DEMO.md)
 - [Decision log](docs/DECISIONS.md)
 

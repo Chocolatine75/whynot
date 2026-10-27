@@ -64,6 +64,7 @@ holdout ─▶ causal lift report + store fix recommendations                   
 
 - Onboarding: Wonder brief reuses a cached corpus (cache reads ~20× cheaper than fresh input). Muse Image ~$0.01/image, ~10–30 scene assets per store.
 - Per visitor: classifier + uplift + composition, no LLM call.
+- Order of magnitude: one generated ad per visitor ≈ $10k per million visitors; templates generated once + code composition ≈ a few $ per store.
 - Panel: open-weight model on partner credits, not Meta API credits.
 - Every call logged in `costs`, so the UI's cost counter is real.
 

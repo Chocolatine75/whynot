@@ -6,7 +6,9 @@ Context for Claude Code (and any coding agent) working in this repo. Read this f
 
 **whynot**: an autonomous growth marketer for Shopify stores. It infers *why* each visitor didn't buy (their objection), generates a personalized ad answering that objection from reusable templates, pre-tests ads on a synthetic consumer panel, targets only persuadable visitors (uplift), launches on Meta via the Marketing API, and proves causal sales with a holdout.
 
-Full spec: `docs/PRODUCT.md`. Architecture: `docs/ARCHITECTURE.md`. Plan and current status: `docs/PLAN.md`.
+Full spec: `docs/PRODUCT.md`. Architecture: `docs/ARCHITECTURE.md`. Plan: `docs/PLAN.md`.
+
+**Start every session by reading `docs/STATUS.md`** (where we are, who is on what, what's next). Update it before ending the session.
 
 ## Hard constraints (hackathon rules)
 
@@ -44,4 +46,5 @@ See `docs/META_APIS.md` for details.
 - Python for pipeline/ML, TypeScript for the web app (adjust in `docs/DECISIONS.md` if we change this).
 - Write decisions to `docs/DECISIONS.md` (one line + why).
 - Update the status checkboxes in `docs/PLAN.md` when a task is done.
+- At the end of a session, update `docs/STATUS.md` (in progress, next up, blockers, one log line).
 - Commit often with clear messages: the history proves the work was done during the event.

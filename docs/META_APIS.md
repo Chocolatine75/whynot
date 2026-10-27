@@ -35,6 +35,7 @@ Computer use reference: Meta cookbook "Building a computer-use agent with Muse S
 - ⚠️ No creative image/video files: only the snapshot page.
 - ⚠️ A missing token returns `OAuthException code 1 "unknown error"`, not an auth error.
 - Observed: keyword search is noisy ("baskets" matched a coaching ad). Prefer `search_page_ids` for known competitors.
+- Observed: two Lacoste ads active for ~4 months, one reaching ~195k people in France, mostly 25–44, roughly 50/50 men/women. Long-running = proxy for "this ad works".
 - Observed: most advertisers target 18–65 broadly; `age_country_gender_reach_breakdown` reflects who the algorithm actually delivered to, which is the useful signal.
 
 ## Marketing API
