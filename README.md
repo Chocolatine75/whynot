@@ -52,7 +52,7 @@ Everything in this repository was written during the hackathon, starting Oct 26,
 ## Team
 
 - Matteo Atkinson ([@Chocolatine75](https://github.com/Chocolatine75))
-- _teammate_
+- Tom Angles ([@Tooom123](https://github.com/Tooom123))
 
 ## License
 
