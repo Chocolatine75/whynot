@@ -81,6 +81,7 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
 - ⚠️ `ad_snapshot_url` and paging `next` URLs contain the access token. Strip it.
 - ⚠️ No creative image/video files: only the snapshot page.
 - ⚠️ A missing token returns `OAuthException code 1 "unknown error"`, not an auth error.
+- *Unverified (our parser assumes it):* `age_country_gender_reach_breakdown` = `[{country, age_gender_breakdowns: [{age_range, male, female, unknown}]}]`. Confirm on the first real call (`scripts/fetch_competitors.py`).
 - Observed: keyword search is noisy ("baskets" matched a coaching ad). Prefer `search_page_ids` for known competitors.
 - Observed: two Lacoste ads active for ~4 months, one reaching ~195k people in France, mostly 25–44, roughly 50/50 men/women. Long-running = proxy for "this ad works".
 - Observed: most advertisers target 18–65 broadly; `age_country_gender_reach_breakdown` reflects who the algorithm actually delivered to, which is the useful signal.

@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "AI ad agency for small businesses on Meta"
 requires-python = ">=3.12"
 dependencies = [
+    "httpx>=0.28.1",
     "openai>=1.60",
     "python-dotenv>=1.0",
 ]

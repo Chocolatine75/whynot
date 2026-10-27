@@ -12,7 +12,10 @@ The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) d
 - [ ] (both) Claim Meta credits + spend limit, Baseten, Modal
 - [x] (A) `costs` wrapper + `ModelClient` + unit tests (`src/whynot/costs.py`, `models.py`)
 - [ ] (A) Run the smoke tests with real keys (`scripts/smoke_models.py`); record results in `META_APIS.md`; add video input check
-- [ ] (A) Ad Library ingest for the partner's market (tokens stripped) + creative capture
+- [x] (A) Ad Library ingest code: search by page ids/terms, cursor pagination, tokens stripped, reach breakdown, longevity (`ingest/adlibrary.py`, `scripts/fetch_competitors.py`, tested on fake responses)
+- [ ] (A) Run it on the partner's market once `FB_TOKEN` is in `.env`; confirm the breakdown format
+- [ ] (A) Creative capture from snapshot pages (Muse Spark computer use)
+- [x] (A) Validation statistics for R1–R3, R6: pairwise accuracy, AUC, bootstrap CIs, Wilson, binomial test (`validate/stats.py`)
 - [ ] (B) First build-in-public post
 
 **Gate:** partner data in hand (or a firm date); pilot terms agreed; viewers can see an image and a video.

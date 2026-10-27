@@ -17,6 +17,8 @@ class Settings:
     baseten_base_url: str
     baseten_model: str
     cost_log: Path
+    fb_token: str | None = None
+    fb_api_version: str = "v26.0"
 
 
 def load_settings() -> Settings:
@@ -27,5 +29,7 @@ def load_settings() -> Settings:
         baseten_api_key=os.getenv("BASETEN_API_KEY") or None,
         baseten_base_url=os.getenv("BASETEN_BASE_URL", "https://inference.baseten.co/v1"),
         baseten_model=os.getenv("BASETEN_MODEL", "meta-models/muse-spark-open"),
-        cost_log=Path(os.getenv("WHYNOT_COST_LOG", REPO_ROOT / "outputs" / "costs.jsonl")),
+        cost_log=Path(os.getenv("WHYNOT_COST_LOG") or REPO_ROOT / "outputs" / "costs.jsonl"),
+        fb_token=os.getenv("FB_TOKEN") or None,
+        fb_api_version=os.getenv("FB_API_VERSION", "v26.0"),
     )
