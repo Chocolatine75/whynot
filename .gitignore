@@ -1,0 +1,24 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# node
+node_modules/
+.next/
+dist/
+
+# data & outputs (never commit raw API dumps: they can contain tokens)
+data/raw/
+data/cache/
+outputs/
+*.log
+
+# os
+.DS_Store
