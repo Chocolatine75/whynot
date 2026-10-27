@@ -7,7 +7,7 @@ Last updated: 2026-10-27
 
 ## Where we are
 
-Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. **No code yet.**
+Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. **No code yet.**
 
 Done:
 - Accepted to the hackathon (Indie track, *Build for Your World*).
@@ -40,7 +40,6 @@ Done:
 - SAM 3.1 mask → full-resolution mapping; video tracking format.
 - Ad Library terms for capturing and showing competitor creatives.
 - Finals top 5 or top 10? Ask on Discord.
-- Teammate name / GitHub handle to add in `README.md`.
 
 ## Session log
 
