@@ -78,6 +78,7 @@ class CostEvent:
     input_tokens: int = 0
     cached_tokens: int = 0
     output_tokens: int = 0
+    reasoning_tokens: int = 0  # part of output_tokens, billed as output
     images: int = 0
     video_frames: int = 0
     audio_seconds: float = 0.0

@@ -7,7 +7,7 @@ import pytest
 
 from whynot.config import Settings
 from whynot.costs import CostLedger
-from whynot.models import ModelClient, MissingKey
+from whynot.models import ModelClient, MissingKey, TruncatedOutput, image_data_url
 
 
 def _settings(tmp_path: Path, key: str | None = "test") -> Settings:
@@ -18,12 +18,13 @@ def _settings(tmp_path: Path, key: str | None = "test") -> Settings:
 
 
 class FakeChat:
-    def __init__(self, text="OK", prompt=1000, cached=400, completion=50):
+    def __init__(self, text="OK", prompt=1000, cached=400, completion=50, reasoning=30, finish="stop"):
         self.completions = self
         self._resp = NS(
-            choices=[NS(message=NS(content=text))],
+            choices=[NS(message=NS(content=text), finish_reason=finish)],
             usage=NS(prompt_tokens=prompt, completion_tokens=completion,
-                     prompt_tokens_details=NS(cached_tokens=cached)),
+                     prompt_tokens_details=NS(cached_tokens=cached),
+                     completion_tokens_details=NS(reasoning_tokens=reasoning)),
         )
         self.calls = []
 
@@ -49,6 +50,37 @@ def test_chat_records_cost(tmp_path):
     # 600 fresh * 1.25 + 400 cached * 0.15 + 50 out * 4.25, per 1M
     assert result.cost.usd == pytest.approx((600 * 1.25 + 400 * 0.15 + 50 * 4.25) / 1e6)
     assert client.ledger.total("test") == pytest.approx(result.cost.usd)
+
+
+def test_reasoning_tokens_recorded(tmp_path):
+    client = ModelClient(_settings(tmp_path), meta=FakeOpenAI())
+    result = client.chat([{"role": "user", "content": "hi"}], module="test")
+    assert result.cost.reasoning_tokens == 30
+    assert result.finish_reason == "stop"
+
+
+def test_truncated_empty_answer_raises_but_is_billed(tmp_path):
+    # Seen on real calls: reasoning used all of max_tokens, empty content, still billed.
+    fake = FakeOpenAI()
+    fake.chat = FakeChat(text="", completion=20, reasoning=18, finish="length")
+    client = ModelClient(_settings(tmp_path), meta=fake)
+    with pytest.raises(TruncatedOutput):
+        client.chat([{"role": "user", "content": "hi"}], module="test", max_tokens=20)
+    assert client.ledger.total("test") > 0
+
+
+def test_truncated_partial_answer_is_returned(tmp_path):
+    fake = FakeOpenAI()
+    fake.chat = FakeChat(text="Partial ans", finish="length")
+    client = ModelClient(_settings(tmp_path), meta=fake)
+    assert client.chat([{"role": "user", "content": "hi"}], module="test").finish_reason == "length"
+
+
+def test_image_data_url(tmp_path):
+    path = tmp_path / "a.png"
+    path.write_bytes(b"\x89PNG fake")
+    assert image_data_url(path).startswith("data:image/png;base64,")
+    assert image_data_url(b"abc", "image/webp") == "data:image/webp;base64,YWJj"
 
 
 def test_open_chat_uses_baseten_model(tmp_path):

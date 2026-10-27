@@ -7,7 +7,10 @@ cost counter is real and every run can be audited.
 Rule: never call the OpenAI SDK directly elsewhere in the code base.
 """
 
+import base64
+import mimetypes
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from openai import OpenAI
@@ -26,11 +29,33 @@ class MissingKey(RuntimeError):
     """Raised when a call needs an API key that is not set in .env."""
 
 
+class TruncatedOutput(RuntimeError):
+    """The model hit max_tokens before writing any answer (reasoning used it all).
+
+    Muse Spark reasons before answering, even at reasoning_effort="minimal", and
+    reasoning tokens count against max_tokens. The call is still billed (and
+    logged). Raise max_tokens.
+    """
+
+
+def image_data_url(source: str | Path | bytes, mime: str | None = None) -> str:
+    """Base64 data URL for an image, so the model never has to download it."""
+    if isinstance(source, bytes):
+        data = source
+        mime = mime or "image/jpeg"
+    else:
+        path = Path(source)
+        data = path.read_bytes()
+        mime = mime or mimetypes.guess_type(path.name)[0] or "image/jpeg"
+    return f"data:{mime};base64,{base64.b64encode(data).decode()}"
+
+
 @dataclass
 class ChatResult:
     text: str
     cost: CostEvent
     raw: Any
+    finish_reason: str | None = None
 
 
 @dataclass
@@ -45,13 +70,13 @@ class SegmentResult:
     cost: CostEvent
 
 
-def _usage_tokens(usage: Any) -> tuple[int, int, int]:
-    """(input, cached, output) from a Chat Completions usage object."""
+def _usage_tokens(usage: Any) -> tuple[int, int, int, int]:
+    """(input, cached, output, reasoning) from a Chat Completions usage object."""
     if usage is None:
-        return 0, 0, 0
-    details = getattr(usage, "prompt_tokens_details", None)
-    cached = getattr(details, "cached_tokens", 0) or 0
-    return usage.prompt_tokens or 0, cached, usage.completion_tokens or 0
+        return 0, 0, 0, 0
+    cached = getattr(getattr(usage, "prompt_tokens_details", None), "cached_tokens", 0) or 0
+    reasoning = getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", 0) or 0
+    return usage.prompt_tokens or 0, cached, usage.completion_tokens or 0, reasoning
 
 
 class ModelClient:
@@ -94,14 +119,21 @@ class ModelClient:
 
     def _chat(self, client: OpenAI, model: str, messages: list[dict], module: str, **kwargs) -> ChatResult:
         response = client.chat.completions.create(model=model, messages=messages, **kwargs)
-        input_tokens, cached, output_tokens = _usage_tokens(response.usage)
+        input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)
         event = self.ledger.record(CostEvent(
             module=module, model=model,
             usd=token_cost(model, input_tokens, cached, output_tokens),
             input_tokens=input_tokens, cached_tokens=cached, output_tokens=output_tokens,
+            reasoning_tokens=reasoning,
         ))
-        text = response.choices[0].message.content or ""
-        return ChatResult(text=text, cost=event, raw=response)
+        choice = response.choices[0]
+        text = choice.message.content or ""
+        finish = getattr(choice, "finish_reason", None)
+        if finish == "length" and not text.strip():
+            raise TruncatedOutput(
+                f"{model} used all {output_tokens} output tokens ({reasoning} reasoning) before answering; "
+                "raise max_tokens")
+        return ChatResult(text=text, cost=event, raw=response, finish_reason=finish)
 
     # --- images ------------------------------------------------------------
 

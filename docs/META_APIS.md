@@ -2,7 +2,13 @@
 
 Checked against official docs on 2026-10-27 (sources at the bottom). Items marked *unverified* have not been confirmed by an official page or by our own calls. Our smoke tests should confirm everything here; update this file with what we actually observe.
 
-Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.json`). Checks: model list, Spark text + vision, Contributor text, Wonder text, Muse Image, SAM 3.1 on a test image, Spark Open on Baseten text + vision. Last run: *not yet run — `MODEL_API_KEY` empty in `.env`* (Ad Library token works).
+Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.json`). Checks: model list, Spark text + vision, Contributor text, Wonder text, Muse Image, SAM 3.1 on a test image, Spark Open on Baseten text + vision. Last run (2026-10-27, Meta API only; Baseten pending credits): all pass — model list, Spark text + vision, Contributor, Wonder, Muse Image, SAM 3.1. ~$0.02 total.
+
+### Observed on real calls (2026-10-27)
+- `GET /v1/models` returns: `muse-image-1.0`, `muse-spark-1.1`, `muse-spark-1.2`, `muse-spark-1.2-contributor`, `muse-spark-1.3`, `muse-spark-1.3-contributor`, `muse-voice-transcribe-1.0`, `muse-wonder-1.0`, `sam-3.1`. No open-weights model on the Meta API.
+- **Muse Spark always reasons before answering**: ~120 reasoning tokens for "Reply with exactly: OK", even with `reasoning_effort="minimal"`. Reasoning counts against `max_tokens`; with `max_tokens=20` the answer is empty (`finish_reason="length"`) **and still billed**. `ModelClient` raises `TruncatedOutput` in that case and logs `reasoning_tokens`. Budget ≥ 300–600 output tokens even for short answers.
+- **Images: send them inline** (base64 data URL via `models.image_data_url`). Remote URLs are fetched by Meta's servers and some hosts refuse them (Wikimedia → "failed to download media … origin returned HTTP 400").
+- Chat Completions vision works with `{"type": "image_url", "image_url": {"url": ...}}` (Spark identified the test image).
 
 ## Meta Model API
 
@@ -55,7 +61,7 @@ Prices per 1M tokens unless noted. Rate limits are **per team, per model**, not 
   - Box: `<|box;x1=..;y1=..;x2=..;y2=..;w=<frameW>;h=<frameH>[;c=<conf>]|>`, corners in source pixels.
   - Mask: `<|mask;x=0;y=0[;c=<conf>];data=<H>,<W>,<enc><payload>|>`. Payload is **base85**; `~` = lossless (default), `!` = one-bit. Mask raster H×W is smaller than the frame.
   - Confidence only with `include_confidence: "true"`. Encoding via `metadata.mask_encoding`.
-- ⚠️ Docs don't say how the H×W mask maps back to the frame. Official decoder is in client libraries (`decodeMaskToRaster`). → Must verify on a real image in the smoke test before building `assets/cutout`.
+- ⚠️ Docs don't say how the H×W mask maps back to the frame. **Observed (one real image):** frame 1600×1598, box (0,4)–(1249,1597), mask 1024×803 — the mask has the **box's** aspect ratio (803/1024 ≈ 1249/1593), so it covers the box, scaled to a long side of 1024. Payload is base85 with `~` (lossless) encoding; the decoder still has to be written and checked against a known shape. The stream can start with a stray prefix (e.g. `<0f>0`) before the first record; our parser ignores it.
 
 ### Computer use / vision
 

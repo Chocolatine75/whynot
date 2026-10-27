@@ -11,10 +11,12 @@ The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) d
 - [ ] (B) Contact 5–10 more businesses/agencies (backtest data, Arena users); confirm the Shopify partner
 - [ ] (both) Claim Meta credits + spend limit, Baseten, Modal
 - [x] (A) `costs` wrapper + `ModelClient` + unit tests (`src/whynot/costs.py`, `models.py`)
-- [ ] (A) Run the smoke tests with real keys (`scripts/smoke_models.py`); record results in `META_APIS.md`; add video input check
+- [x] (A) Smoke tests on the Meta API: all models pass; findings in `META_APIS.md` (reasoning tokens, inline images, SAM mask geometry)
+- [ ] (A) Smoke tests on Baseten (Muse Spark Open) once credits arrive; add a video input check
 - [x] (A) Ad Library ingest code: search by page ids/terms, cursor pagination, tokens stripped, reach breakdown, longevity (`ingest/adlibrary.py`, `scripts/fetch_competitors.py`, tested on fake responses)
 - [x] (A) Real calls work with `FB_TOKEN`; breakdown format confirmed; long-running filter added (`--active ACTIVE --started-before-days 60`)
 - [ ] (A) Run it on the partner's competitors (need their page ids)
+- [ ] (B) SAM mask decoder (base85 `~`) + mapping into the box, checked on a known shape
 - [ ] (A) Creative capture from snapshot pages (Muse Spark computer use)
 - [x] (A) Validation statistics for R1–R3, R6: pairwise accuracy, AUC, bootstrap CIs, Wilson, binomial test (`validate/stats.py`)
 - [ ] (B) First build-in-public post

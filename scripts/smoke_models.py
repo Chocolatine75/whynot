@@ -15,11 +15,13 @@ import time
 from pathlib import Path
 
 from whynot.config import REPO_ROOT
-from whynot.models import SPARK, SPARK_CONTRIBUTOR, WONDER, ModelClient
+import httpx
+
+from whynot.models import SPARK, SPARK_CONTRIBUTOR, WONDER, ModelClient, image_data_url
 from whynot.sam import parse
 
 # Public test image (Wikimedia Commons). Only used for smoke tests, never shown in the product.
-DEFAULT_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/640px-Cat03.jpg"
+DEFAULT_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg"
 OUT = REPO_ROOT / "outputs"
 
 
@@ -30,6 +32,20 @@ def vision_message(question: str, image_url: str) -> list[dict]:
     ]}]
 
 
+def fetch_image(url: str) -> str:
+    """Download the test image ourselves and send it inline: some hosts refuse
+    Meta's media fetcher (seen with Wikimedia: HTTP 400)."""
+    if url.startswith("data:"):
+        return url
+    response = httpx.get(url, headers={"User-Agent": "whynot-smoke-test/0.1"}, follow_redirects=True, timeout=30)
+    response.raise_for_status()
+    return image_data_url(response.content, response.headers.get("content-type", "image/jpeg").split(";")[0])
+
+
+# Muse Spark reasons before answering (~120 tokens even for "OK"); keep headroom.
+MAX_TOKENS = 600
+
+
 def build_checks(client: ModelClient, image_url: str) -> dict:
     say_ok = [{"role": "user", "content": "Reply with exactly: OK"}]
 
@@ -38,21 +54,21 @@ def build_checks(client: ModelClient, image_url: str) -> dict:
         return {"models": ids}
 
     def spark_text():
-        r = client.chat(say_ok, module="smoke", model=SPARK, max_tokens=20)
+        r = client.chat(say_ok, module="smoke", model=SPARK, max_tokens=MAX_TOKENS)
         return {"reply": r.text, "usd": r.cost.usd}
 
     def spark_vision():
         r = client.chat(vision_message("Which animal is this? One word.", image_url),
-                        module="smoke", model=SPARK, max_tokens=20)
+                        module="smoke", model=SPARK, max_tokens=MAX_TOKENS)
         return {"reply": r.text, "usd": r.cost.usd}
 
     def contributor_text():
         # Synthetic prompt only: Meta trains on Contributor-tier data.
-        r = client.chat(say_ok, module="smoke", model=SPARK_CONTRIBUTOR, max_tokens=20)
+        r = client.chat(say_ok, module="smoke", model=SPARK_CONTRIBUTOR, max_tokens=MAX_TOKENS)
         return {"reply": r.text, "usd": r.cost.usd}
 
     def wonder_text():
-        r = client.chat(say_ok, module="smoke", model=WONDER, max_tokens=20)
+        r = client.chat(say_ok, module="smoke", model=WONDER, max_tokens=MAX_TOKENS)
         return {"reply": r.text, "usd": r.cost.usd}
 
     def image_generate():
@@ -69,12 +85,12 @@ def build_checks(client: ModelClient, image_url: str) -> dict:
                 "raw_head": r.text[:300], "usd": r.cost.usd}
 
     def open_text():
-        r = client.open_chat(say_ok, module="smoke", max_tokens=20)
+        r = client.open_chat(say_ok, module="smoke", max_tokens=MAX_TOKENS)
         return {"model": client.settings.baseten_model, "reply": r.text, "usd": r.cost.usd}
 
     def open_vision():
         r = client.open_chat(vision_message("Which animal is this? One word.", image_url),
-                             module="smoke", max_tokens=20)
+                             module="smoke", max_tokens=MAX_TOKENS)
         return {"reply": r.text, "usd": r.cost.usd}
 
     return {f.__name__: f for f in [models_list, spark_text, spark_vision, contributor_text,
@@ -89,7 +105,7 @@ def main() -> None:
 
     OUT.mkdir(exist_ok=True)
     client = ModelClient()
-    checks = build_checks(client, args.image_url)
+    checks = build_checks(client, fetch_image(args.image_url))
     names = args.only or list(checks)
 
     results = {}
