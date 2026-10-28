@@ -35,34 +35,41 @@ Feed = list[FeedItem]
 
 
 def build_market_feeds(items: list[FeedItem], *, feed_size: int, appearances: int, seed: int = 0) -> list[Feed]:
-    """Feeds where each item appears exactly `appearances` times, never twice in a feed.
+    """Feeds where each item appears at least `appearances` times, never twice in a feed.
 
-    When the last chunk of a round is short, it is topped up with items from
-    other positions, so a few items can appear once more than the others.
+    Each feed takes the `feed_size` items shown least so far, ties broken at
+    random. Invariant: shown counts never differ by more than one, so every ad
+    gets the same exposure (±1) and meets varied competitors.
     """
     if feed_size < 2:
         raise ValueError("feed_size must be at least 2")
+    if appearances < 1:
+        raise ValueError("appearances must be at least 1")
+    if len({i.ad_id for i in items}) != len(items):
+        raise ValueError("ad ids must be unique")
     if len(items) < feed_size:
         raise ValueError("need at least feed_size items")
     rng = random.Random(seed)
+    shown = {i.ad_id: 0 for i in items}
     feeds: list[Feed] = []
-    for _ in range(appearances):
-        order = items[:]
-        rng.shuffle(order)
-        for start in range(0, len(order), feed_size):
-            chunk = order[start:start + feed_size]
-            if len(chunk) < feed_size:
-                ids = {i.ad_id for i in chunk}
-                pool = [i for i in items if i.ad_id not in ids]
-                chunk += rng.sample(pool, feed_size - len(chunk))
-            feeds.append(chunk)
+    while min(shown.values()) < appearances:
+        pool = items[:]
+        rng.shuffle(pool)
+        pool.sort(key=lambda i: shown[i.ad_id])  # stable: random among equals
+        feed = pool[:feed_size]
+        rng.shuffle(feed)
+        for i in feed:
+            shown[i.ad_id] += 1
+        feeds.append(feed)
     return feeds
 
 
 def build_candidate_feeds(candidate: FeedItem, competitors: list[FeedItem], *, feed_size: int,
                           n_feeds: int, seed: int = 0) -> list[Feed]:
     """`n_feeds` feeds, each = the candidate + (feed_size - 1) different competitors."""
-    others = [c for c in competitors if c.ad_id != candidate.ad_id]
+    if feed_size < 2 or n_feeds < 1:
+        raise ValueError("feed_size must be at least 2 and n_feeds at least 1")
+    others = list({c.ad_id: c for c in competitors if c.ad_id != candidate.ad_id}.values())
     if len(others) < feed_size - 1:
         raise ValueError("not enough competitor ads for this feed size")
     rng = random.Random(seed)

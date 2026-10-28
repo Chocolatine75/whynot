@@ -49,8 +49,8 @@ def auc(scores: Sequence[float], labels: Sequence[bool]) -> float:
     """Area under the ROC curve (Mann–Whitney form, ties count half)."""
     if len(scores) != len(labels):
         raise ValueError("scores and labels must have the same length")
-    pos = [s for s, y in zip(scores, labels) if y]
-    neg = [s for s, y in zip(scores, labels) if not y]
+    pos = [s for s, y in zip(scores, labels, strict=True) if y]
+    neg = [s for s, y in zip(scores, labels, strict=True) if not y]
     if not pos or not neg:
         raise ValueError("need at least one positive and one negative")
     wins = 0.0
@@ -67,6 +67,10 @@ def bootstrap_ci(metric: Callable[[list[int]], float], n_items: int, *, iteratio
     `metric` receives a list of indices (with repeats) and returns a number;
     resamples where the metric is undefined (raises ValueError) are skipped.
     """
+    if n_items < 1:
+        raise ValueError("need at least one item")
+    if not 0 < level < 1:
+        raise ValueError("level must be between 0 and 1")
     rng = random.Random(seed)
     values: list[float] = []
     for _ in range(iterations):
@@ -80,7 +84,7 @@ def bootstrap_ci(metric: Callable[[list[int]], float], n_items: int, *, iteratio
     values.sort()
     alpha = (1 - level) / 2
     lo = values[int(alpha * (len(values) - 1))]
-    hi = values[int(math.ceil((1 - alpha) * (len(values) - 1)))]
+    hi = values[math.ceil((1 - alpha) * (len(values) - 1))]
     return lo, hi
 
 
@@ -97,13 +101,15 @@ def auc_ci(scores: Sequence[float], labels: Sequence[bool], **kwargs) -> tuple[f
 
 def wilson_interval(successes: int, n: int, z: float = 1.959964) -> tuple[float, float]:
     """95 % Wilson score interval for a proportion."""
-    if n <= 0:
-        raise ValueError("n must be positive")
+    if n <= 0 or not 0 <= successes <= n:
+        raise ValueError("need 0 <= successes <= n and n > 0")
     p = successes / n
     denom = 1 + z * z / n
     centre = (p + z * z / (2 * n)) / denom
     half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
-    return max(0.0, centre - half), min(1.0, centre + half)
+    lo = 0.0 if successes == 0 else max(0.0, centre - half)
+    hi = 1.0 if successes == n else min(1.0, centre + half)  # exact bounds, no float drift
+    return lo, hi
 
 
 def binomial_two_sided_p(successes: int, n: int, p: float = 0.5) -> float:

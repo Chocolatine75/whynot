@@ -13,7 +13,8 @@ real call and update docs/META_APIS.md.
 """
 
 import json
-from collections.abc import Iterator
+import time
+from collections.abc import Callable, Iterator
 from dataclasses import asdict, dataclass, field
 from datetime import date
 from pathlib import Path
@@ -31,6 +32,11 @@ DEFAULT_FIELDS = (
     "age_country_gender_reach_breakdown",
 )
 _SECRET_PARAMS = {"access_token"}
+
+
+# Graph API codes worth retrying: temporary service issue, app/user/page rate limits.
+# Code 1 is not retried: with this API it is almost always a bad or expired token.
+TRANSIENT_CODES = {2, 4, 17, 341, 613}
 
 
 class AdLibraryError(RuntimeError):
@@ -148,10 +154,14 @@ def parse_ad(raw: dict[str, Any]) -> CompetitorAd:
 
 class AdLibraryClient:
     def __init__(self, token: str, *, version: str = DEFAULT_VERSION,
-                 http: httpx.Client | None = None, base_url: str = GRAPH_URL):
+                 http: httpx.Client | None = None, base_url: str = GRAPH_URL,
+                 retries: int = 3, backoff_s: float = 2.0, sleep: Callable[[float], None] = time.sleep):
         if not token:
             raise AdLibraryError("FB_TOKEN is not set in .env")
         self.token = token
+        self.retries = retries
+        self.backoff_s = backoff_s
+        self._sleep = sleep
         self.url = f"{base_url}/{version}/ads_archive"
         self.http = http or httpx.Client(timeout=30)
 
@@ -162,6 +172,8 @@ class AdLibraryClient:
         """Yield ads page by page. Prefer `page_ids`: keyword search is noisy."""
         if not page_ids and not terms:
             raise ValueError("give page_ids or terms")
+        if not countries:
+            raise ValueError("give at least one country (commercial ads: EU/UK only)")
         params: dict[str, Any] = {
             "access_token": self.token,
             "ad_type": "ALL",
@@ -192,20 +204,37 @@ class AdLibraryClient:
             params = {**params, "after": after}
 
     def _get(self, params: dict[str, Any]) -> dict[str, Any]:
-        try:
-            response = self.http.get(self.url, params=params)
-        except httpx.HTTPError as exc:
-            raise AdLibraryError(redact(f"request failed: {exc}", self.token)) from None
-        try:
-            body = response.json()
-        except ValueError:
-            raise AdLibraryError(f"non-JSON response (HTTP {response.status_code})") from None
-        if "error" in body:
-            err = body["error"]
-            message = redact(str(err.get("message", "")), self.token)
-            hint = " (usually a missing, expired or invalid token)" if err.get("code") == 1 else ""
-            raise AdLibraryError(f"Ad Library error {err.get('code')}: {message}{hint}")
-        return body
+        """One page, retried with exponential backoff on network errors, 5xx and rate limits."""
+        for attempt in range(self.retries + 1):
+            last = attempt == self.retries
+            try:
+                response = self.http.get(self.url, params=params)
+            except httpx.HTTPError as exc:
+                if last:
+                    raise AdLibraryError(redact(f"request failed: {exc}", self.token)) from None
+                self._sleep(self.backoff_s * 2**attempt)
+                continue
+            try:
+                body = response.json()
+            except ValueError:
+                if response.status_code >= 500 and not last:
+                    self._sleep(self.backoff_s * 2**attempt)
+                    continue
+                raise AdLibraryError(f"non-JSON response (HTTP {response.status_code})") from None
+            if not isinstance(body, dict):
+                raise AdLibraryError("unexpected response shape")
+            if "error" in body:
+                err = body["error"] if isinstance(body["error"], dict) else {}
+                code = err.get("code")
+                transient = bool(err.get("is_transient")) or code in TRANSIENT_CODES
+                if transient and not last:
+                    self._sleep(self.backoff_s * 2**attempt)
+                    continue
+                message = redact(str(err.get("message", "")), self.token)
+                hint = " (usually a missing, expired or invalid token)" if code == 1 else ""
+                raise AdLibraryError(f"Ad Library error {code}: {message}{hint}")
+            return body
+        raise AssertionError("unreachable")
 
 
 def save_jsonl(ads: list[CompetitorAd], path: Path) -> Path:

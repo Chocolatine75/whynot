@@ -16,7 +16,7 @@ from typing import Any
 from openai import OpenAI
 
 from whynot.config import Settings, load_settings
-from whynot.costs import CostEvent, CostLedger, image_cost, segment_cost, token_cost
+from whynot.costs import CostEvent, CostLedger, check_priced, image_cost, segment_cost, token_cost
 
 SPARK = "muse-spark-1.3"
 SPARK_CONTRIBUTOR = "muse-spark-1.3-contributor"  # Meta trains on this data: synthetic content only
@@ -66,7 +66,7 @@ class ImageResult:
 
 @dataclass
 class SegmentResult:
-    text: str  # SAM 3.1 special-token output; parse with whynot.sam
+    text: str  # SAM 3.1 special-token output; parse with whynot.assets.sam
     cost: CostEvent
 
 
@@ -133,7 +133,8 @@ class ModelClient:
         raise ValueError(f"unknown VIEWER_BACKEND: {backend!r}")
 
     def _chat(self, client: OpenAI, model: str, messages: list[dict], module: str, **kwargs) -> ChatResult:
-        response = client.chat.completions.create(model=model, messages=messages, **kwargs)
+        check_priced(model)
+        response = client.chat.completions.create(model=model, messages=messages, **kwargs)  # type: ignore[arg-type]
         input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)
         event = self.ledger.record(CostEvent(
             module=module, model=model,
@@ -141,6 +142,8 @@ class ModelClient:
             input_tokens=input_tokens, cached_tokens=cached, output_tokens=output_tokens,
             reasoning_tokens=reasoning,
         ))
+        if not response.choices:
+            raise RuntimeError(f"{model} returned no choices")
         choice = response.choices[0]
         text = choice.message.content or ""
         finish = getattr(choice, "finish_reason", None)
@@ -178,12 +181,16 @@ class ModelClient:
         if include_confidence:
             request["extra_body"] = {"include_confidence": "true"}
         chunks: list[str] = []
-        for event in self.meta.responses.create(**request):
-            if getattr(event, "type", "") == "response.output_text.delta":
-                chunks.append(event.delta)
-        cost = self.ledger.record(CostEvent(
-            module=module, model=SAM, usd=segment_cost(SAM, images=1), images=1,
-        ))
+        ok = False
+        try:
+            for event in self.meta.responses.create(**request):
+                if getattr(event, "type", "") == "response.output_text.delta":
+                    chunks.append(event.delta)
+            ok = True
+        finally:  # the request is billed even if the stream breaks
+            cost = self.ledger.record(CostEvent(
+                module=module, model=SAM, usd=segment_cost(SAM, images=1), images=1, ok=ok,
+            ))
         return SegmentResult(text="".join(chunks), cost=cost)
 
     # --- discovery ---------------------------------------------------------

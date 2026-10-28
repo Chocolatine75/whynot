@@ -3,10 +3,14 @@ import random
 import pytest
 
 from whynot.validate.stats import (
-    auc, auc_ci, binomial_two_sided_p, bootstrap_ci, pairwise_accuracy, pairwise_accuracy_ci,
+    auc,
+    auc_ci,
+    binomial_two_sided_p,
+    bootstrap_ci,
+    pairwise_accuracy,
+    pairwise_accuracy_ci,
     wilson_interval,
 )
-
 
 # --- pairwise accuracy (R1) ---------------------------------------------------
 

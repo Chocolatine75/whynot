@@ -17,27 +17,28 @@ log (`LiveAction` in ARCHITECTURE.md). This module never calls Meta itself.
 """
 
 import json
+import math
 import statistics
 import threading
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
-from enum import Enum
+from datetime import UTC, datetime
+from enum import StrEnum
 from pathlib import Path
 
 
-class Level(str, Enum):
+class Level(StrEnum):
     DRY_RUN = "dry_run"
     PROPOSE = "propose"
     AUTOPILOT = "autopilot"
 
 
-class Kind(str, Enum):
+class Kind(StrEnum):
     PUBLISH = "publish"
     PAUSE = "pause"
     BUDGET = "budget"  # change an ad set's daily budget
 
 
-class Outcome(str, Enum):
+class Outcome(StrEnum):
     SIMULATED = "simulated"  # dry run: shown, not executed
     NEEDS_APPROVAL = "needs_approval"
     EXECUTE = "execute"
@@ -50,15 +51,22 @@ class Policy:
     daily_cap_eur: float = 0.0  # owner's hard cap over all running ads
     first_live_approved: bool = False
 
+    def __post_init__(self) -> None:
+        if not math.isfinite(self.daily_cap_eur) or self.daily_cap_eur < 0:
+            raise ValueError("daily cap must be a finite number ≥ 0")
+
     @classmethod
     def from_env(cls, level: str, daily_cap_eur: str | float, first_live_approved: bool = False) -> "Policy":
         try:
             lvl = Level(level.strip().lower())
         except ValueError:
-            raise ValueError(f"AUTONOMY_LEVEL must be one of {[l.value for l in Level]}, got {level!r}") from None
-        cap = float(daily_cap_eur)
-        if cap < 0:
-            raise ValueError("MAX_DAILY_AD_SPEND_EUR cannot be negative")
+            raise ValueError(f"AUTONOMY_LEVEL must be one of {[x.value for x in Level]}, got {level!r}") from None
+        try:
+            cap = float(daily_cap_eur)
+        except (TypeError, ValueError):
+            raise ValueError(f"MAX_DAILY_AD_SPEND_EUR must be a number, got {daily_cap_eur!r}") from None
+        if not math.isfinite(cap) or cap < 0:
+            raise ValueError("MAX_DAILY_AD_SPEND_EUR must be a finite number ≥ 0")
         return cls(lvl, cap, first_live_approved)
 
 
@@ -89,10 +97,13 @@ class Decision:
 
 def decide(action: Action, policy: Policy, state: AccountState, *, approved_by: str | None = None) -> Decision:
     current = state.committed_eur
+    if not math.isfinite(current) or any(b < 0 for b in state.daily_budgets_eur.values()):
+        return Decision(Outcome.REFUSED, "account state has an invalid budget", current)
     after = current
     if action.kind in (Kind.PUBLISH, Kind.BUDGET):
-        if action.daily_budget_eur < 0:
-            return Decision(Outcome.REFUSED, "negative budget", current)
+        b = action.daily_budget_eur
+        if not math.isfinite(b) or b < 0:
+            return Decision(Outcome.REFUSED, f"invalid budget {b!r}", current)
         after = current - state.daily_budgets_eur.get(action.ad_ref, 0.0) + action.daily_budget_eur
     elif action.kind is Kind.PAUSE:
         after = current - state.daily_budgets_eur.get(action.ad_ref, 0.0)
@@ -109,7 +120,8 @@ def decide(action: Action, policy: Policy, state: AccountState, *, approved_by: 
     if policy.level is Level.PROPOSE or first_live:
         if approved_by:
             return Decision(Outcome.EXECUTE, f"approved by {approved_by}", after)
-        why = "first live launch needs the owner's approval" if first_live else "propose mode: owner approves each action"
+        why = ("first live launch needs the owner's approval" if first_live
+               else "propose mode: owner approves each action")
         return Decision(Outcome.NEEDS_APPROVAL, why, after)
     return Decision(Outcome.EXECUTE, "autopilot, within caps", after)
 
@@ -138,8 +150,9 @@ def _ctr(days: list[DailyMetrics]) -> float | None:
     return sum(d.clicks for d in days) / imp if imp else None
 
 
-def review(history: dict[str, list[DailyMetrics]], rules: Rules = Rules()) -> list[Action]:
+def review(history: dict[str, list[DailyMetrics]], rules: Rules | None = None) -> list[Action]:
     """Pause actions for losers (CPA far above the account median) and fatigued ads."""
+    rules = rules or Rules()
     cpas: dict[str, float] = {}
     for ad, days in history.items():
         spend = sum(d.spend_eur for d in days)
@@ -178,7 +191,7 @@ class ActionLog:
         self._lock = threading.Lock()
 
     def record(self, action: Action, policy: Policy, decision: Decision, *, approved_by: str | None = None) -> dict:
-        row = {"ts": datetime.now(timezone.utc).isoformat(), **asdict(action), "level": policy.level.value,
+        row = {"ts": datetime.now(UTC).isoformat(), **asdict(action), "level": policy.level.value,
                "cap_eur": policy.daily_cap_eur, "outcome": decision.outcome.value, "why": decision.why,
                "committed_after_eur": decision.committed_after_eur, "approved_by": approved_by}
         row["kind"] = action.kind.value

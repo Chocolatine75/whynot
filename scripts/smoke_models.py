@@ -14,11 +14,11 @@ import json
 import time
 from pathlib import Path
 
-from whynot.config import REPO_ROOT
 import httpx
 
+from whynot.assets.sam import parse
+from whynot.config import REPO_ROOT
 from whynot.models import SPARK, SPARK_CONTRIBUTOR, WONDER, ModelClient, image_data_url
-from whynot.sam import parse
 
 # Public test image (Wikimedia Commons). Only used for smoke tests, never shown in the product.
 DEFAULT_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg"

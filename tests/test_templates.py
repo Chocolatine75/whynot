@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from whynot.templates import Template, TemplateError, Variant, load_dir
+from whynot.create.templates import Template, TemplateError, Variant, load_dir
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "templates" / "examples"
 

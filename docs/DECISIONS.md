@@ -39,6 +39,12 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-28 — Pixel guard = exact equality of every fully opaque product pixel with the asset after the composer's single declared resize (LANCZOS). The resize is the only allowed transform; anything drawn over or generated fails.
 - 2026-10-28 — A guard that wasn't run (e.g. policy, which needs a model) counts as not passed: an ad is publishable only if every guard of its template passed.
 - 2026-10-28 — Autopilot rules: the cap applies to the sum of daily budgets of running ads; lowering spend (pause, budget cut) is always allowed; the first live publish needs the owner's approval even in autopilot; losers = CPA > 2× account median after €20 spent; fatigue = CTR down ≥30 % between the first and last 3 days. Thresholds are defaults, to tune with the partner.
+- 2026-10-28 — Quality bar: ruff + mypy + pytest with branch coverage ≥ 90 % in one command (`scripts/check.sh`) and in CI on every push/PR; Hypothesis property tests for invariants; one regression test per bug. Rules in `ENGINEERING.md`.
+- 2026-10-28 — Package split along the loop: `create/` (templates, composer, guards), `assets/` (SAM), `run/` (autopilot), next to `ingest/`, `sim/`, `validate/`.
+- 2026-10-28 — Market feeds now take the least-shown ads first: exposure differs by at most one between ads (the old round-robin with random top-ups gave 7 vs 4 views on small sets, found by a property test).
+- 2026-10-28 — All guards are mandatory whatever the template lists; a template with `guards: []` was publishable before.
+- 2026-10-28 — Transcription cost rounds up to the second (billing granularity undocumented; never under-count).
+- 2026-10-28 — Ad Library calls retry with exponential backoff on network errors, 5xx and rate-limit codes (2, 4, 17, 341, 613); never on token errors.
 
 ## Data & asset rights
 

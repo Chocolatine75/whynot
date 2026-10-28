@@ -48,7 +48,7 @@ Plus the Meta Ad Library API (research, feed, calibration) and the Ads MCP / Mar
 ```bash
 uv sync                      # install (Python 3.12+)
 cp .env.example .env         # then fill in your keys
-uv run pytest                # unit tests, no network
+./scripts/check.sh           # lint + types + tests with coverage (what CI runs), no network
 uv run python scripts/smoke_models.py   # calls every model once, a few cents
 uv run python scripts/fetch_competitors.py --name demo --page-ids <ids> --countries FR
 ```
@@ -59,7 +59,7 @@ Every model call goes through `whynot.models.ModelClient`, which logs its real c
 
 - [Targets: final product, results, criteria](docs/TARGETS.md) ← the bar
 - [Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md)
-- [Plan](docs/PLAN.md) · [Status / session handoff](docs/STATUS.md)
+- [Plan](docs/PLAN.md) · [Status / session handoff](docs/STATUS.md) · [Engineering guide](docs/ENGINEERING.md)
 - [Demo script](docs/DEMO.md)
 - [Research](docs/RESEARCH.md) · [Competitive landscape](docs/COMPETITION.md)
 - [Prior art](docs/PRIOR_ART.md) · [Meta APIs notes](docs/META_APIS.md) · [Hackathon context and rules](docs/HACKATHON.md) · [Decision log](docs/DECISIONS.md)

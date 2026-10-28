@@ -58,7 +58,7 @@ def main() -> None:
         old_ads = list(lib.search(countries=args.countries, page_ids=args.page_ids, active_status="INACTIVE",
                                   max_ads=600))
     except AdLibraryError as exc:
-        raise SystemExit(f"Ad Library: {exc}")
+        raise SystemExit(f"Ad Library: {exc}") from None
     save_jsonl(long_ads, cache / f"{args.name}-active.jsonl")
     save_jsonl(old_ads, cache / f"{args.name}-inactive.jsonl")
 

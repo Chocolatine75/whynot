@@ -14,7 +14,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-from whynot.templates import Genome, Template
+from whynot.create.templates import Genome, Template
 
 SIZE = 1080
 MARGIN = 60
@@ -40,6 +40,8 @@ class Brand:
         palette = [hex_to_rgb(c) for c in b.get("palette", [])]
         if len(palette) < 3:
             raise ComposeError("brand palette needs at least 3 colours: background, foreground, accent")
+        if len(set(palette)) != len(palette):
+            raise ComposeError("brand palette has duplicate colours")
         return cls(name=str(b.get("name", "")), palette=palette, font=b.get("font"))
 
 
@@ -68,10 +70,13 @@ class Composition:
 
 
 def hex_to_rgb(value: str) -> RGB:
-    v = value.lstrip("#")
+    v = str(value).lstrip("#")
     if len(v) != 6:
         raise ComposeError(f"bad colour {value!r}")
-    return tuple(int(v[i:i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
+    try:
+        return (int(v[0:2], 16), int(v[2:4], 16), int(v[4:6], 16))
+    except ValueError:
+        raise ComposeError(f"bad colour {value!r}") from None
 
 
 def relative_luminance(c: RGB) -> float:
@@ -170,7 +175,9 @@ def compose(template: Template, genome: Genome, product_asset: str | Path | Imag
     comp = Composition(image=image, fills=[bg])
 
     headline_box: Box = (MARGIN, MARGIN, SIZE - MARGIN, 300)
-    headline = template.text("hook", genome["hook"])
+    headline = template.text("hook", genome["hook"]).strip()
+    if not headline:
+        raise ComposeError(f"{template.id}: empty headline for hook {genome['hook']!r}")
     size = _draw_text(draw, brand, headline, headline_box, fg, max_size=88, min_size=40)
     comp.texts.append(TextElement("headline", headline, headline_box, fg, bg, size))
     comp.fills.append(fg)
@@ -191,7 +198,9 @@ def compose(template: Template, genome: Genome, product_asset: str | Path | Imag
         size = _draw_text(draw, brand, proof, proof_box, fg, max_size=44, min_size=28)
         comp.texts.append(TextElement("proof", proof, proof_box, fg, bg, size))
 
-    cta = template.text("cta", genome["cta"])
+    cta = template.text("cta", genome["cta"]).strip()
+    if not cta:
+        raise ComposeError(f"{template.id}: empty call to action")
     button: Box = (300, 960, 780, 1040)
     cta_fg = best_text_colour(accent, brand.palette)
     draw.rounded_rectangle(button, radius=40, fill=accent)

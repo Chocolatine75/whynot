@@ -4,9 +4,9 @@ from pathlib import Path
 import pytest
 from PIL import Image, ImageDraw
 
-from whynot.composer import ComposeError, compose, contrast_ratio
-from whynot.guards import publishable, run_guards
-from whynot.templates import Template, load_dir
+from whynot.create.composer import ComposeError, compose, contrast_ratio
+from whynot.create.guards import MANDATORY, GuardResult, publishable, run_guards
+from whynot.create.templates import Template, load_dir
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "templates" / "examples"
 
@@ -83,12 +83,21 @@ def test_off_palette_and_low_contrast_are_caught(template):
     assert run_guards(pale, comp, asset)["brand_palette"].passed is False
 
 
-def test_publishable_when_every_guard_passes(template):
+def test_mandatory_guards_run_even_if_the_template_lists_none(template):
     data = template.to_dict()
-    data["guards"] = ["product_pixels_unchanged", "brand_palette", "text_legible"]
+    data["guards"] = []
     t = Template.from_dict(data)
-    comp = compose(t, next(t.genomes()), phone_asset())
-    assert publishable(run_guards(t, comp, phone_asset()))
+    results = run_guards(t, compose(t, next(t.genomes()), phone_asset()), phone_asset())
+    assert set(results) == set(MANDATORY)
+    assert not publishable(results)  # policy is not checked yet
+
+
+def test_publishable_needs_every_mandatory_guard_passed():
+    ok = {g: GuardResult(g, True) for g in MANDATORY}
+    assert publishable(ok)
+    assert not publishable({k: v for k, v in ok.items() if k != "text_legible"})  # one missing
+    assert not publishable({**ok, "policy_safe": GuardResult("policy_safe", None)})  # not checked
+    assert not publishable({**ok, "brand_palette": GuardResult("brand_palette", False)})
 
 
 def test_unsupported_format_and_overlong_text(template):
@@ -117,3 +126,40 @@ def test_missing_glyphs_are_refused(template):
     g = {**next(t.genomes()), "proof": "rating_badge"}
     with pytest.raises(ComposeError, match="cannot draw"):
         compose(t, g, phone_asset())
+
+
+# --- each guard failure path ---------------------------------------------------------
+
+def test_pixel_guard_catches_a_one_level_change_in_one_channel(template):
+    """Bug: diffs were converted to grey first, so (1, 0, 0) rounded to 0 and passed."""
+    asset = phone_asset()
+    comp = compose(template, next(template.genomes()), asset)
+    left, top, right, bottom = comp.product.box
+    x, y = (left + right) // 2, (top + bottom) // 2
+    r, g, b = comp.image.getpixel((x, y))
+    comp.image.putpixel((x, y), ((r + 1) % 256, g, b))
+    result = run_guards(template, comp, asset)["product_pixels_unchanged"]
+    assert result.passed is False and result.detail.startswith("1 of")
+
+
+def test_pixel_guard_without_product_or_opaque_pixels(template):
+    asset = phone_asset()
+    comp = compose(template, next(template.genomes()), asset)
+    transparent = Image.new("RGBA", asset.size, (0, 0, 0, 0))
+    assert "no fully opaque" in run_guards(template, comp, transparent)["product_pixels_unchanged"].detail
+    comp.product = None
+    assert run_guards(template, comp, asset)["product_pixels_unchanged"].detail == "no product placed"
+
+
+def test_legibility_guard_failure_paths(template):
+    from dataclasses import replace
+
+    comp = compose(template, next(template.genomes()), phone_asset())
+    headline = comp.texts[0]
+    comp.texts = [
+        replace(headline, font_size=20),                          # too small
+        replace(headline, box=(-10, 0, 100, 50)),                 # outside the canvas
+        replace(headline, box=comp.product.box),                  # over the product
+    ]
+    detail = run_guards(template, comp, phone_asset())["text_legible"].detail
+    assert "20px < 28px" in detail and "outside the canvas" in detail and "overlaps the product" in detail

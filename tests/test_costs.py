@@ -1,7 +1,12 @@
 import pytest
 
 from whynot.costs import (
-    CostEvent, CostLedger, UnknownModelPrice, image_cost, segment_cost, token_cost,
+    CostEvent,
+    CostLedger,
+    UnknownModelPrice,
+    image_cost,
+    segment_cost,
+    token_cost,
     transcribe_cost,
 )
 
@@ -30,7 +35,8 @@ def test_unit_prices():
     assert segment_cost("sam-3.1", images=1000) == pytest.approx(2.50)
     # video requests are billed at least 50 frames
     assert segment_cost("sam-3.1", video_frames=10) == pytest.approx(50 * 0.20 / 1000)
-    assert transcribe_cost("muse-voice-transcribe-1.0", 3600.9) == pytest.approx(0.18)
+    assert transcribe_cost("muse-voice-transcribe-1.0", 3600.0) == pytest.approx(0.18)
+    assert transcribe_cost("muse-voice-transcribe-1.0", 0.2) == pytest.approx(0.18 / 3600)  # rounded up
 
 
 def test_ledger_appends_and_totals(tmp_path):

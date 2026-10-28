@@ -8,16 +8,19 @@
 - brand_palette: every colour the composer painted with is in the brand palette;
 - policy_safe: Meta ad-policy check; needs a model, reported as not checked here.
 
-A guard returns passed=True/False, or None when it was not checked. An ad is
-publishable only if every guard of its template passed (None blocks too).
+A guard returns passed=True/False, or None when it was not checked. Every guard
+in `MANDATORY` runs on every ad, whatever the template lists. An ad is
+publishable only if every guard that ran passed (None blocks too).
 """
 
 from dataclasses import dataclass
 
 from PIL import Image, ImageChops
 
-from whynot.composer import Box, Brand, Composition, contrast_ratio, resize_asset
-from whynot.templates import Template
+from whynot.create.composer import Box, Brand, Composition, contrast_ratio, resize_asset
+from whynot.create.templates import KNOWN_GUARDS, Template
+
+MANDATORY = frozenset(KNOWN_GUARDS)  # all of them, for now
 
 MIN_CONTRAST = 4.5
 MIN_CONTRAST_LARGE = 3.0  # WCAG large text
@@ -46,7 +49,9 @@ def product_pixels_unchanged(comp: Composition, asset: Image.Image) -> GuardResu
     if n_opaque == 0:
         return GuardResult(name, False, "asset has no fully opaque pixels to check")
     actual = comp.image.crop(comp.product.box).convert("RGB")
-    diff = ImageChops.difference(actual, expected.convert("RGB")).convert("L")
+    r, g, b = ImageChops.difference(actual, expected.convert("RGB")).split()
+    # max over channels: converting to grey would round a 1-level change in one channel to 0
+    diff = ImageChops.lighter(ImageChops.lighter(r, g), b)
     changed = ImageChops.multiply(diff.point(lambda d: 255 if d else 0), opaque)
     n_changed = changed.histogram()[255]
     if n_changed:
@@ -90,8 +95,9 @@ def run_guards(template: Template, comp: Composition, asset: Image.Image) -> dic
         "brand_palette": lambda: brand_palette(comp, brand),
         "policy_safe": lambda: GuardResult("policy_safe", None, "needs the policy model; not checked"),
     }
-    return {g: checks[g]() for g in template.guards}
+    names = sorted(MANDATORY | set(template.guards))
+    return {g: checks[g]() for g in names}
 
 
 def publishable(results: dict[str, GuardResult]) -> bool:
-    return all(r.passed is True for r in results.values())
+    return set(results) >= MANDATORY and all(r.passed is True for r in results.values())

@@ -25,3 +25,10 @@ outputs/
 
 # design partner data (consented, private, never committed)
 data/private/
+
+# test tooling
+.hypothesis/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

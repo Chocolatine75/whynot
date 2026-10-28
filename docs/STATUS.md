@@ -46,6 +46,7 @@ Done:
 
 Newest first. One entry per working session: date, who, what changed, what's next.
 
+- 2026-10-28 — Matteo + Claude — Quality pass: ENGINEERING.md (layout, rules, definition of done), ruff + mypy + coverage ≥ 90 % in `scripts/check.sh` and GitHub CI, packages split along the loop (`create/`, `assets/`, `run/`). Review fixed 11 bugs, each with a regression test (NaN budget passed the cap, guards skippable, pixel guard missed 1-level changes, unbalanced feeds, duplicate personas skewed scores, unpriced model calls unlogged, SAM payload cut on `|>`…). Property tests on invariants. 180 tests, 96 % coverage.
 - 2026-10-28 — Matteo + Claude — Partner identified: VietBuddy (US ads → we focus on EU for him). Built generic product pieces: templates (schema, genome, mutation, variant ids), composer v0 (static 1080), guards (exact product pixels, contrast, palette, missing glyphs), autopilot rules (levels, cap, first-live approval, loser/fatigue review, action log). 120 tests. Next: SAM cutout as asset, viewers see composed images, evolution step.
 
 - 2026-10-27 — Matteo + Claude — VoodRadar logged as prior art (ideas only). Python project set up (uv); `costs.py` ledger, `models.py` client (Spark, Wonder, Image, SAM, Spark Open), `sam.py` parser, smoke-test script, 14 tests. Next: keys in `.env`, run smoke tests.

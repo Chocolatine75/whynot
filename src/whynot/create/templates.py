@@ -16,9 +16,10 @@ import itertools
 import json
 import random
 import re
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 import yaml
 
@@ -49,6 +50,8 @@ class Template:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Template":
+        if not isinstance(data, dict):
+            raise TemplateError(f"a template must be a mapping, got {type(data).__name__}")
         for key in ("id", "concept", "persona", "objection", "genes"):
             if not data.get(key):
                 raise TemplateError(f"template is missing '{key}'")
@@ -63,18 +66,26 @@ class Template:
             if not isinstance(options, list) or not options:
                 raise TemplateError(f"{tid}: gene '{name}' needs a non-empty list of options")
             opts = [str(o) for o in options]
+            if any(not o.strip() for o in opts):
+                raise TemplateError(f"{tid}: gene '{name}' has an empty option")
             if len(set(opts)) != len(opts):
                 raise TemplateError(f"{tid}: gene '{name}' has duplicate options")
             clean[str(name)] = opts
         missing = REQUIRED_GENES - set(clean)
         if missing:
             raise TemplateError(f"{tid}: missing required genes {sorted(missing)}")
-        guards = [str(g) for g in data.get("guards", [])]
+        guards = [str(g) for g in data.get("guards") or []]
+        if len(set(guards)) != len(guards):
+            raise TemplateError(f"{tid}: duplicate guards")
         unknown = set(guards) - KNOWN_GUARDS
         if unknown:
             raise TemplateError(f"{tid}: unknown guards {sorted(unknown)}")
         copy = data.get("copy") or {}
+        if not isinstance(copy, dict):
+            raise TemplateError(f"{tid}: 'copy' must be a mapping")
         for gene, texts in copy.items():
+            if not isinstance(texts, dict):
+                raise TemplateError(f"{tid}: copy for '{gene}' must map options to texts")
             if gene not in clean:
                 raise TemplateError(f"{tid}: copy for unknown gene '{gene}'")
             extra = set(texts) - set(clean[gene])
@@ -88,7 +99,11 @@ class Template:
 
     @classmethod
     def load(cls, path: str | Path) -> "Template":
-        return cls.from_dict(yaml.safe_load(Path(path).read_text()))
+        try:
+            data = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+        except yaml.YAMLError as exc:
+            raise TemplateError(f"{path}: invalid YAML: {exc}") from None
+        return cls.from_dict(data)
 
     def to_dict(self) -> dict[str, Any]:
         return {"id": self.id, "concept": self.concept, "persona": self.persona, "objection": self.objection,
@@ -113,7 +128,7 @@ class Template:
     def genomes(self) -> Iterator[Genome]:
         names = list(self.genes)
         for values in itertools.product(*(self.genes[n] for n in names)):
-            yield dict(zip(names, values))
+            yield dict(zip(names, values, strict=True))
 
     def sample(self, n: int, *, seed: int = 0) -> list[Genome]:
         """Up to n distinct genomes, reproducible for a given seed."""

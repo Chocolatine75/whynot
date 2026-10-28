@@ -6,7 +6,7 @@ picked twice as often as chance. It measures "does this ad win its feed".
 The other rates are reported alongside, never mixed into one opaque number.
 """
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 
 from whynot.sim.viewer import Reaction
@@ -21,7 +21,7 @@ class AdScore:
     stop_rate: float
     understood_rate: float
     believed_rate: float
-    top_why_not: list[str]
+    top_why_not: list[str]  # most frequent objections (exact text), most common first
 
 
 def score_ads(reactions: list[Reaction], *, max_reasons: int = 3) -> dict[str, AdScore]:
@@ -38,6 +38,8 @@ def score_ads(reactions: list[Reaction], *, max_reasons: int = 3) -> dict[str, A
         chance = sum(1 / feed_sizes[(r.feed_id, r.persona_id)] for r in rs)
         picks = sum(r.preferred for r in rs)
         reasons = [r.why_not for r in rs if r.why_not]
+        # Counter keeps first-seen order among ties, so this is deterministic
+        top = [text for text, _ in Counter(reasons).most_common(max_reasons)]
         scores[ad_id] = AdScore(
             ad_id=ad_id, views=n,
             preference_lift=picks / chance if chance else 0.0,
@@ -45,6 +47,6 @@ def score_ads(reactions: list[Reaction], *, max_reasons: int = 3) -> dict[str, A
             stop_rate=sum(r.stopped for r in rs) / n,
             understood_rate=sum(r.understood for r in rs) / n,
             believed_rate=sum(r.believed for r in rs) / n,
-            top_why_not=reasons[:max_reasons],
+            top_why_not=top,
         )
     return scores

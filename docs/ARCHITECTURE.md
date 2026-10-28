@@ -45,6 +45,8 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 
 ## Modules
 
+Code layout, rules and definition of done: `ENGINEERING.md`.
+
 | Module | Responsibility | Models / tools |
 |---|---|---|
 | `costs` | Single model-call wrapper; logs tokens, images, $ | code |
@@ -54,19 +56,19 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 | `ingest/business` | Store / App Store page, reviews, product footage | — |
 | `ingest/history` | Partner's past ads + real metrics (read-only, private) | Marketing API / Ads MCP |
 | `strategy` | Strategy and personas | Muse Wonder (prompt caching) |
-| `templates` | Concepts + genomes (YAML), validation, sampling, one-gene mutation, variant ids (`templates.py`) | Muse Spark (writes them) |
-| `assets/cutout` | Product / app-screen cutouts, element tracks in video | SAM 3.1 |
+| `create/templates` | Concepts + genomes (YAML), validation, sampling, one-gene mutation, variant ids | Muse Spark (writes them) |
+| `assets/sam` (+ `assets/cutout` next) | SAM 3.1 output parsing; product / app-screen cutouts, element tracks in video | SAM 3.1 |
 | `assets/scenes` | Scenes, first frames | Muse Image |
-| `composer` | Deterministic statics (v0: `static_1080`) and short videos from genes (`composer.py`) | Pillow, ffmpeg |
-| `guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy checks (`guards.py`; policy not yet) | code (+ Muse Spark for policy) |
+| `create/composer` | Deterministic statics (v0: `static_1080`) and short videos from genes | Pillow, ffmpeg |
+| `create/guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy (not yet); all mandatory | code (+ Muse Spark for policy) |
 | `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
-| `sim/feed` | Market feeds (each ad equally often) and candidate feeds; per-viewer order | — |
+| `sim/feed` | Market feeds (exposure balanced ±1, least-shown first) and candidate feeds; per-viewer order | — |
 | `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs; backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
 | `sim/scores` | Per-ad scores: preference lift vs chance (primary), intent, stop/understood/believed rates, why-not | — |
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |
 | `counterfactual` | Element removal/swap + re-test deltas | SAM 3.1, composer, simfeed |
 | `evolve` | Mutations, selection, diversity guard | Muse Spark, embeddings |
-| `autopilot` | Autonomy levels, caps, fatigue/loser rules, action log (`autopilot.py`); publishing and rotation next | Ads MCP / Marketing API |
+| `run/autopilot` | Autonomy levels, caps, fatigue/loser rules, action log; publishing and rotation next | Ads MCP / Marketing API |
 | `report` | Weekly report, approvals | Muse Spark |
 | `calibrate` | Per-business re-weighting from real metrics | code |
 | `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`); backtest, humans, live pilot next | code |

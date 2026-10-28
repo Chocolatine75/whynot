@@ -1,4 +1,4 @@
-from whynot.sam import parse
+from whynot.assets.sam import parse
 
 SAMPLE = (
     "<|box;x1=12;y1=40;x2=300;y2=320;w=320;h=334;c=0.93|>"

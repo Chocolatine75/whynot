@@ -9,6 +9,7 @@ docs/META_APIS.md). Update them here if they change.
 """
 
 import json
+import math
 import threading
 import time
 from dataclasses import asdict, dataclass, field
@@ -41,10 +42,19 @@ class UnknownModelPrice(KeyError):
     """Raised when a model has no price: add it to the tables above first."""
 
 
+def check_priced(model: str) -> None:
+    """Fail before a call, not after it was billed, if we could not log its cost."""
+    if not any(model in table for table in (TOKEN_PRICES, IMAGE_PRICE, SEGMENT_IMAGE_PRICE,
+                                              TRANSCRIBE_HOUR_PRICE)):
+        raise UnknownModelPrice(model)
+
+
 def token_cost(model: str, input_tokens: int, cached_tokens: int, output_tokens: int) -> float:
     """USD cost of a text call. `cached_tokens` is a subset of `input_tokens`."""
     if model not in TOKEN_PRICES:
         raise UnknownModelPrice(model)
+    if min(input_tokens, cached_tokens, output_tokens) < 0:
+        raise ValueError("token counts cannot be negative")
     price_in, price_cached, price_out = TOKEN_PRICES[model]
     cached = min(cached_tokens, input_tokens)
     fresh = input_tokens - cached
@@ -54,12 +64,16 @@ def token_cost(model: str, input_tokens: int, cached_tokens: int, output_tokens:
 def image_cost(model: str, images_returned: int) -> float:
     if model not in IMAGE_PRICE:
         raise UnknownModelPrice(model)
+    if images_returned < 0:
+        raise ValueError("image count cannot be negative")
     return images_returned * IMAGE_PRICE[model]
 
 
 def segment_cost(model: str, images: int = 0, video_frames: int = 0) -> float:
     if model not in SEGMENT_IMAGE_PRICE:
         raise UnknownModelPrice(model)
+    if images < 0 or video_frames < 0:
+        raise ValueError("counts cannot be negative")
     frames = max(video_frames, SEGMENT_MIN_FRAMES) if video_frames else 0
     return images * SEGMENT_IMAGE_PRICE[model] + frames * SEGMENT_FRAME_PRICE[model]
 
@@ -67,7 +81,10 @@ def segment_cost(model: str, images: int = 0, video_frames: int = 0) -> float:
 def transcribe_cost(model: str, audio_seconds: float) -> float:
     if model not in TRANSCRIBE_HOUR_PRICE:
         raise UnknownModelPrice(model)
-    return int(audio_seconds) / 3600 * TRANSCRIBE_HOUR_PRICE[model]
+    if audio_seconds < 0:
+        raise ValueError("duration cannot be negative")
+    # billing granularity is not documented: round up to the second so we never under-count
+    return math.ceil(audio_seconds) / 3600 * TRANSCRIBE_HOUR_PRICE[model]
 
 
 @dataclass

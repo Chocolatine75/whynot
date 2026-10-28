@@ -40,7 +40,7 @@ def main() -> None:
                                  active_status=args.active, delivery_date_max=started_before,
                                  max_ads=args.max))
     except AdLibraryError as exc:
-        raise SystemExit(f"Ad Library: {exc}")
+        raise SystemExit(f"Ad Library: {exc}") from None
 
     path = save_jsonl(ads, REPO_ROOT / "data" / "cache" / "adlibrary" / f"{args.name}.jsonl")
     today = date.today()

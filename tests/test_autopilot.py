@@ -1,7 +1,17 @@
 import pytest
 
-from whynot.autopilot import (
-    AccountState, Action, ActionLog, DailyMetrics, Kind, Level, Outcome, Policy, Rules, decide, review,
+from whynot.run.autopilot import (
+    AccountState,
+    Action,
+    ActionLog,
+    DailyMetrics,
+    Kind,
+    Level,
+    Outcome,
+    Policy,
+    Rules,
+    decide,
+    review,
 )
 
 RUNNING = AccountState({"ad1": 10.0, "ad2": 15.0})  # €25/day committed
@@ -63,8 +73,9 @@ def test_policy_from_env():
     assert Policy.from_env("Autopilot ", "12.5").level is Level.AUTOPILOT
     with pytest.raises(ValueError, match="AUTONOMY_LEVEL"):
         Policy.from_env("yolo", 10)
-    with pytest.raises(ValueError, match="negative"):
-        Policy.from_env("dry_run", -1)
+    for bad in (-1, "nan", "inf", "ten"):
+        with pytest.raises(ValueError, match="MAX_DAILY_AD_SPEND_EUR"):
+            Policy.from_env("dry_run", bad)
 
 
 def days(spend, conv, ctrs):

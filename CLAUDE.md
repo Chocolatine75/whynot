@@ -60,6 +60,8 @@ Details and sources in `docs/META_APIS.md`.
 
 ## Working conventions
 
+- **Read `docs/ENGINEERING.md`** (layout, code and test rules, definition of done). Run `./scripts/check.sh` before every commit; CI runs the same.
+
 - Python for the engine (agents, simulator, ML), TypeScript for the web app (record changes in `docs/DECISIONS.md`).
 - Docs and code comments in English.
 - Write decisions to `docs/DECISIONS.md` (one line + why).

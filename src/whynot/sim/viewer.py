@@ -93,7 +93,7 @@ def build_messages(persona: Persona, feed: Feed) -> tuple[list[dict], dict[str, 
     for item in feed:
         if item.image_url:
             content.append({"type": "image_url", "image_url": {"url": item.image_url}})
-    messages = [
+    messages: list[dict[str, Any]] = [
         {"role": "system", "content": SYSTEM.format(who=persona.describe())},
         {"role": "user", "content": content if len(content) > 1 else content[0]["text"]},
     ]
@@ -125,6 +125,8 @@ def _bool(value: Any) -> bool:
 
 def parse_reactions(text: str, labels: dict[str, str], *, feed_id: str, persona_id: str) -> list[Reaction]:
     data = _extract_json(text)
+    if not isinstance(data, dict):
+        raise ViewerParseError("answer is not a JSON object")
     raw = data.get("reactions")
     if not isinstance(raw, list):
         raise ViewerParseError("missing 'reactions' list")
@@ -133,6 +135,8 @@ def parse_reactions(text: str, labels: dict[str, str], *, feed_id: str, persona_
         raise ViewerParseError(f"'preferred' is not one of the ads: {preferred!r}")
     by_label: dict[str, dict] = {}
     for r in raw:
+        if not isinstance(r, dict):
+            raise ViewerParseError(f"reaction is not an object: {r!r}"[:120])
         label = str(r.get("ad", "")).strip()
         if label in labels and label not in by_label:
             by_label[label] = r
@@ -144,8 +148,8 @@ def parse_reactions(text: str, labels: dict[str, str], *, feed_id: str, persona_
     for label in order:
         r = by_label[label]
         try:
-            score = int(round(float(r.get("intent_score"))))
-        except (TypeError, ValueError):
+            score = round(float(r.get("intent_score")))  # type: ignore[arg-type]
+        except (TypeError, ValueError, OverflowError):
             raise ViewerParseError(f"bad intent_score for {label}") from None
         reactions.append(Reaction(
             feed_id=feed_id, persona_id=persona_id, ad_id=labels[label], position=order.index(label),
@@ -188,6 +192,13 @@ def run_simulation(viewer: Viewer, personas: list[Persona], feeds: list[Feed], *
     """Each feed is watched by `viewers_per_feed` personas (assigned round-robin)."""
     if not personas:
         raise ValueError("no personas")
+    if viewers_per_feed < 1:
+        raise ValueError("viewers_per_feed must be at least 1")
+    if viewers_per_feed > len(personas):
+        # the same persona would see the same feed twice and skew the scores
+        raise ValueError(f"viewers_per_feed ({viewers_per_feed}) > personas ({len(personas)})")
+    if len({p.id for p in personas}) != len(personas):
+        raise ValueError("persona ids must be unique")
     jobs = []
     k = 0
     for f_index, feed in enumerate(feeds):

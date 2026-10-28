@@ -25,6 +25,21 @@ class Settings:
     max_daily_ad_spend_eur: float = 0.0  # hard cap; 0 = no live spend
 
 
+def _clean(value: str | None) -> str:
+    """Env value without an inline comment (`VALUE   # note`)."""
+    return (value or "").split("#", 1)[0].strip()
+
+
+def _float(name: str, default: float) -> float:
+    raw = _clean(os.getenv(name))
+    if not raw:
+        return default
+    try:
+        return float(raw)
+    except ValueError:
+        raise ValueError(f"{name} must be a number, got {raw!r}") from None
+
+
 def load_settings() -> Settings:
     load_dotenv(REPO_ROOT / ".env")
     return Settings(
@@ -38,6 +53,6 @@ def load_settings() -> Settings:
         fb_api_version=os.getenv("FB_API_VERSION", "v26.0"),
         viewer_backend=os.getenv("VIEWER_BACKEND", "meta"),
         viewer_model=os.getenv("VIEWER_MODEL", "muse-spark-1.3"),
-        autonomy_level=(os.getenv("AUTONOMY_LEVEL") or "dry_run").split("#")[0].strip(),
-        max_daily_ad_spend_eur=float((os.getenv("MAX_DAILY_AD_SPEND_EUR") or "0").split("#")[0].strip()),
+        autonomy_level=_clean(os.getenv("AUTONOMY_LEVEL")) or "dry_run",
+        max_daily_ad_spend_eur=_float("MAX_DAILY_AD_SPEND_EUR", 0.0),
     )

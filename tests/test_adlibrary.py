@@ -7,8 +7,14 @@ import httpx
 import pytest
 
 from whynot.ingest.adlibrary import (
-    AdLibraryClient, AdLibraryError, CompetitorAd, load_jsonl, parse_ad, parse_breakdown,
-    save_jsonl, strip_token,
+    AdLibraryClient,
+    AdLibraryError,
+    CompetitorAd,
+    load_jsonl,
+    parse_ad,
+    parse_breakdown,
+    save_jsonl,
+    strip_token,
 )
 
 TOKEN = "EAAtestSECRET123"
