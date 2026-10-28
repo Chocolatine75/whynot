@@ -34,10 +34,13 @@ The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) d
 
 ## M2 — Vertical slice + pilot launch (Fri Oct 30 – Sat Oct 31)
 research → templates → composer (static + 6 s video) → guards → simulated feed → why not → one evolution step → publish (dry-run, then live with approval) → agent log + cost.
-- [ ] (B) Templates v0 (3 hand-written), composer, SAM cutout, pixel guard
+- [x] (B) Template schema + validation, genome sampling/mutation, deterministic variant ids (`templates.py`); 1 example template (`templates/examples/`)
+- [x] (B) Composer v0 (`static_1080`, Pillow) + guards: exact product-pixel check, WCAG contrast, palette, missing glyphs (`composer.py`, `guards.py`)
+- [ ] (B) 2 more hand-written templates; SAM cutout as the product asset; reels (ffmpeg); policy guard (model)
 - [ ] (A) Simulated feed aggregated per persona; personas from reach breakdowns
 - [ ] (B) Creative director: mutations from objections
-- [ ] (B) Autopilot v0: autonomy levels, caps, publish via Ads MCP / Marketing API (sandbox first)
+- [x] (B) Autopilot rules v0: autonomy levels, daily cap, first-live approval, guard gate, loser/fatigue review, action log (`autopilot.py`, no Meta calls)
+- [ ] (B) Autopilot publishing via Ads MCP / Marketing API (sandbox first)
 - [ ] (both) **Pilot:** publish the predicted ranking (timestamped), then launch the first live ads on the partner's account with his explicit approval
 - [ ] (both) Launch the blind human test (R2, R6) — collection runs until Nov 3
 - [ ] (A) Fireworks workshop (Oct 30): distillation / fine-tuning path

@@ -1,0 +1,29 @@
+# Example template for a language-learning app. Hand-written; the creative
+# director agent will write these from research evidence.
+id: five_minutes_a_day_v1
+concept: "Five minutes a day is enough"
+persona: f25_34_short_on_time
+objection: no_time
+evidence:
+  reviews: []
+  competitor_ads: []
+  metrics: "to fill from the partner's history"
+fixed:
+  brand: {name: "Brand", palette: ["#FFF8EE", "#1B1B1F", "#E4572E"]}
+  product: {source: sam_3_1, asset: app_screen_lesson.png}
+genes:
+  format: [static_1080]
+  hook: [question, bold_claim, before_after]
+  first_shot: [app_screen, result_card]
+  proof: [rating_badge, review_quote, none]
+  cta: ["Start free", "Try 5 minutes"]
+copy:
+  hook:
+    question: "No time to learn a language?"
+    bold_claim: "Five minutes a day. That's it."
+    before_after: "From zero to your first conversation"
+  proof:
+    rating_badge: "Rated 4.8 on the App Store"
+    review_quote: "\"I finally stuck with it\""
+    none: ""
+guards: [product_pixels_unchanged, brand_palette, text_legible, policy_safe]

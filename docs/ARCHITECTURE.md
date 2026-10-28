@@ -54,11 +54,11 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 | `ingest/business` | Store / App Store page, reviews, product footage | — |
 | `ingest/history` | Partner's past ads + real metrics (read-only, private) | Marketing API / Ads MCP |
 | `strategy` | Strategy and personas | Muse Wonder (prompt caching) |
-| `templates` | Concepts + genomes (YAML) | Muse Spark |
+| `templates` | Concepts + genomes (YAML), validation, sampling, one-gene mutation, variant ids (`templates.py`) | Muse Spark (writes them) |
 | `assets/cutout` | Product / app-screen cutouts, element tracks in video | SAM 3.1 |
 | `assets/scenes` | Scenes, first frames | Muse Image |
-| `composer` | Deterministic statics and short videos from genes | Pillow, ffmpeg |
-| `guards` | Pixel diff, palette, legibility, ad-policy checks | code (+ Muse Spark for policy) |
+| `composer` | Deterministic statics (v0: `static_1080`) and short videos from genes (`composer.py`) | Pillow, ffmpeg |
+| `guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy checks (`guards.py`; policy not yet) | code (+ Muse Spark for policy) |
 | `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
 | `sim/feed` | Market feeds (each ad equally often) and candidate feeds; per-viewer order | — |
 | `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs; backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
@@ -66,7 +66,7 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |
 | `counterfactual` | Element removal/swap + re-test deltas | SAM 3.1, composer, simfeed |
 | `evolve` | Mutations, selection, diversity guard | Muse Spark, embeddings |
-| `autopilot` | Autonomy levels, caps, publishing, fatigue/loser rules, rotation | Ads MCP / Marketing API |
+| `autopilot` | Autonomy levels, caps, fatigue/loser rules, action log (`autopilot.py`); publishing and rotation next | Ads MCP / Marketing API |
 | `report` | Weekly report, approvals | Muse Spark |
 | `calibrate` | Per-business re-weighting from real metrics | code |
 | `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`); backtest, humans, live pilot next | code |

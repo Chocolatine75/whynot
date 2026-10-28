@@ -21,6 +21,8 @@ class Settings:
     fb_api_version: str = "v26.0"
     viewer_backend: str = "meta"  # "meta" (Muse Spark on the Meta API) or "baseten" (Muse Spark Open)
     viewer_model: str = "muse-spark-1.3"  # used when viewer_backend == "meta"
+    autonomy_level: str = "dry_run"  # dry_run | propose | autopilot (see autopilot.py)
+    max_daily_ad_spend_eur: float = 0.0  # hard cap; 0 = no live spend
 
 
 def load_settings() -> Settings:
@@ -36,4 +38,6 @@ def load_settings() -> Settings:
         fb_api_version=os.getenv("FB_API_VERSION", "v26.0"),
         viewer_backend=os.getenv("VIEWER_BACKEND", "meta"),
         viewer_model=os.getenv("VIEWER_MODEL", "muse-spark-1.3"),
+        autonomy_level=(os.getenv("AUTONOMY_LEVEL") or "dry_run").split("#")[0].strip(),
+        max_daily_ad_spend_eur=float((os.getenv("MAX_DAILY_AD_SPEND_EUR") or "0").split("#")[0].strip()),
     )

@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-27
+Last updated: 2026-10-28
 
 ## Where we are
 
@@ -30,7 +30,7 @@ Done:
 4. When Baseten credits arrive: `BASETEN_API_KEY` in `.env`, then `uv run python scripts/smoke_models.py --only open_text open_vision`.
 5. Get the partner's competitors (Facebook page ids) and run `scripts/fetch_competitors.py --active ACTIVE --started-before-days 60` on them. Then creative capture.
 6. R3 at scale: pick 4–6 advertisers in the partner's market (page ids), run `scripts/longevity_check.py` with ≥ 20 ads per class, compare reasoning effort low vs minimal.
-7. Next code: creative capture (so viewers see visuals), template schema (concept + genome), composer + pixel guard, autopilot safety rules — all with tests.
+7. Next code: SAM mask decoder → cutout as the composer's product asset; viewers see composed images (candidate feeds); one evolution step (objections → mutate one gene → re-test); creative capture; publishing via Marketing API sandbox.
 8. First build-in-public post.
 
 ## Blockers / open questions
@@ -45,6 +45,8 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-28 — Matteo + Claude — Partner identified: VietBuddy (US ads → we focus on EU for him). Built generic product pieces: templates (schema, genome, mutation, variant ids), composer v0 (static 1080), guards (exact product pixels, contrast, palette, missing glyphs), autopilot rules (levels, cap, first-live approval, loser/fatigue review, action log). 120 tests. Next: SAM cutout as asset, viewers see composed images, evolution step.
 
 - 2026-10-27 — Matteo + Claude — VoodRadar logged as prior art (ideas only). Python project set up (uv); `costs.py` ledger, `models.py` client (Spark, Wonder, Image, SAM, Spark Open), `sam.py` parser, smoke-test script, 14 tests. Next: keys in `.env`, run smoke tests.
 - 2026-10-27 — Matteo + Claude — Validation stats (R1–R3, R6) and Ad Library ingest + fetch script, 45 tests. Next: template schema, composer + pixel guard, autopilot rules.

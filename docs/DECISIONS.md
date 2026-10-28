@@ -34,6 +34,11 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-28 — Viewers run on Muse Spark via the Meta API until Baseten credits arrive (`VIEWER_BACKEND`), never on the Contributor tier — don't block on inference credits; feeds can contain partner ads.
 - 2026-10-28 — R3 design fixed before results: long = still active ≥ 60 days, short = stopped ≤ 14 days; one ad per (advertiser, copy); classes balanced across advertisers; primary metric = AUC of preference lift, intent secondary, copy length as baseline — avoid choosing the metric after seeing the data.
 - 2026-10-28 — Viewer reasoning effort defaults to `low` in experiments (≈2× cheaper than default, `minimal` ≈4×); quality per effort to be compared on R3 — reasoning tokens are ~85 % of viewer cost.
+- 2026-10-28 — Build the generic product first, specialise for the design partner after. Partner = VietBuddy (Vietnamese-learning iOS app) advertising mainly in the US; the Ad Library API only exposes EU/UK commercial ads, so competitor research and the R3 test use EU/UK ads, and the partner's own US history comes from his ad account (with consent).
+- 2026-10-28 — Pillow + PyYAML for templates and the composer: deterministic, no model in the composition path.
+- 2026-10-28 — Pixel guard = exact equality of every fully opaque product pixel with the asset after the composer's single declared resize (LANCZOS). The resize is the only allowed transform; anything drawn over or generated fails.
+- 2026-10-28 — A guard that wasn't run (e.g. policy, which needs a model) counts as not passed: an ad is publishable only if every guard of its template passed.
+- 2026-10-28 — Autopilot rules: the cap applies to the sum of daily budgets of running ads; lowering spend (pause, budget cut) is always allowed; the first live publish needs the owner's approval even in autopilot; losers = CPA > 2× account median after €20 spent; fatigue = CTR down ≥30 % between the first and last 3 days. Thresholds are defaults, to tune with the partner.
 
 ## Data & asset rights
 
