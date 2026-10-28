@@ -49,6 +49,9 @@ Plus the Meta Ad Library API (research, feed, calibration) and the Ads MCP / Mar
 uv sync                      # install (Python 3.12+)
 cp .env.example .env         # then fill in your keys
 ./scripts/check.sh           # lint + types + tests with coverage (what CI runs), no network
+uv run pytest --live -k live # contract checks against the real App Store and Ad Library (free)
+uv run whynot create "https://apps.apple.com/us/app/<app>/id<id>" --countries US --daily-cap 20 --budget-usd 3
+                             # research → strategy → ads → simulated test → campaign plan → report.md (nothing is published)
 uv run python scripts/smoke_models.py   # calls every model once, a few cents
 uv run python scripts/fetch_competitors.py --name demo --page-ids <ids> --countries FR
 ```

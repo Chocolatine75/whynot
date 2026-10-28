@@ -1,0 +1,71 @@
+{
+ "resultCount": 1,
+ "results": [
+  {
+   "trackId": 570060128,
+   "trackName": "Duolingo: Learn Languages",
+   "sellerName": "Duolingo, Inc",
+   "bundleId": "com.duolingo.DuolingoMobile",
+   "primaryGenreName": "Education",
+   "genres": [
+    "Education",
+    "Social Networking"
+   ],
+   "averageUserRating": 4.72253,
+   "userRatingCount": 5537866,
+   "price": 0.0,
+   "formattedPrice": "Free",
+   "currency": "USD",
+   "contentAdvisoryRating": "4+",
+   "description": "Learn a new language, chess & more with the world's most downloaded education app! Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons. Practice speaking, reading, listening & writing to build your vocabulary & grammar skills.\n\nDesigned by learning experts & loved by hundreds of millions worldwide, our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more.\n\n\nAnd now, you can learn CHESS on Duolingo! Whether you're a total beginner or looking to level up your game, you'll love learning chess the Duolingo way. Play matches and fun chess lessons for all levels, no matter the language - chess, ajedrez, xadrez, schach, Шахматы, الشطرنج.\n\n• Chess: Learn the moves, level up your game & play matches in our Chess course. Learn the basics, solve fun chess puzzles & improve your strategy with guided lessons. Whether you're new to chess or already play, our course is designed to help you have fun and build real skills. Checkmate!\n\n• Math: Forget lectures and math worksheets! Built by learning experts, our Math course makes math feel like a game. Boost learning and fight the summer slide with standards-aligned math lessons for elementary school, middle school, and high school students.\n\n• Music: Learn how to read music & play songs in our Music course, no instrument needed! Using an on-screen keyboard, you'll learn bit-by-bit.\n\nWhether you're ",
+   "screenshotUrls": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6e/ef/30/6eef3023-de04-3b29-21f8-a993245b9abd/iPhone6.5_-_Default_-_first_screen_adapt_Var_2_01.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cb/ee/31/cbee31c9-a814-b59b-db16-3136ce60d20d/V2_iOS6.5_02.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e0/aa/36/e0aa3660-a5e3-431d-908a-fc04035a62a8/V2_iOS6.5_03.jpg/320x480bb.jpg"
+   ],
+   "ipadScreenshotUrls": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/6d/5b/766d5b1d-c08b-34c8-f9e9-f6dbb42783a1/Tablet_-_Default_-_first_screen_adapt_Var_2_01.jpg/360x480bb.jpg"
+   ],
+   "artworkUrl512": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/56/65/00566533-bbf5-4664-eedf-82d1a843c3fc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+   "trackViewUrl": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128?uo=4",
+   "languageCodesISO2A": [
+    "AR",
+    "BN",
+    "CS",
+    "NL",
+    "EN",
+    "FR",
+    "DE",
+    "EL",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KN",
+    "KO",
+    "MR",
+    "PL",
+    "PT",
+    "PA",
+    "RO",
+    "RU",
+    "ZH",
+    "ES",
+    "SV",
+    "TA",
+    "TE",
+    "TH",
+    "ZH",
+    "TR",
+    "UK",
+    "UR",
+    "VI"
+   ],
+   "releaseDate": "2012-11-13T08:00:00Z",
+   "currentVersionReleaseDate": "2026-10-26T16:52:10Z",
+   "version": "7.146.0",
+   "kind": "software"
+  }
+ ]
+}

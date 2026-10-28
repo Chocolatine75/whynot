@@ -11,6 +11,9 @@ dependencies = [
     "pyyaml>=6.0.3",
 ]
 
+[project.scripts]
+whynot = "whynot.cli:main"
+
 [dependency-groups]
 dev = [
     "hypothesis>=6.170.13",
@@ -40,6 +43,9 @@ src = ["src", "tests", "scripts"]
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
 ignore = ["RUF001", "RUF002", "RUF003"]  # unicode ×, →, · in strings and comments are intended
+
+[tool.ruff.lint.per-file-ignores]
+"src/whynot/agents/*.py" = ["E501"]  # prompts are prose; wrapping them changes what the model reads
 
 [tool.mypy]
 python_version = "3.12"

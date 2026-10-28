@@ -16,27 +16,44 @@ The package follows the agency loop. Each stage reads and writes plain data (dat
 
 ```
 src/whynot/
+  cli.py               `whynot create ...` (entry point)
   config.py            settings from .env (one place)
   costs.py             prices + append-only cost ledger
-  models.py            ModelClient: the ONLY way to call a model (logs cost of every call)
-  ingest/adlibrary.py  competitor ads from the Ad Library (tokens stripped, retries)
-  assets/sam.py        SAM 3.1 output parser (cutouts of real product / app screens)
+  models.py            ModelClient: the ONLY way to call a model (logs cost of every call, run budget)
+  jsonio.py            JSON out of model answers
+  agency/
+    create.py          the `create` pipeline: stages, run folder, resume, events
+    report.py          the owner's report (report.md)
+  agents/
+    ask.py             ask_json: validated answers, repaired with the exact errors, never guessed
+    scout.py           search terms → Ad Library → real competitors (noise filtered)
+    strategist.py      Muse Wonder: personas, objections, angles, claims — every quote verified verbatim
+    director.py        templates + ad copy; numbers only from verified claims, policy, diversity
+  ingest/
+    adlibrary.py       competitor ads from the Ad Library (tokens stripped, retries)
+    appstore.py        App Store page, reviews, real screenshots, competitor apps
+  assets/
+    sam.py             SAM 3.1 output parser (cutouts of real product / app screens)
+    brand.py           brand palette from the app icon (legible by construction)
   create/
     templates.py       concept + genome (YAML), validation, sampling, mutation, variant ids
     composer.py        deterministic static ads from a genome (Pillow)
     guards.py          checks every ad must pass (product pixels, legibility, palette, policy)
+    policy.py          rule-based Meta ad-policy checks (personal attributes, absolutes, bait)
   sim/
     personas.py        personas allocated from real reach data
     feed.py            market feeds (balanced exposure) and candidate feeds
     viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs
     scores.py          per-ad scores (preference lift, intent, objections)
-  run/autopilot.py     autonomy levels, caps, approval rules, loser/fatigue review, action log
+  run/
+    autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
+    campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test
     longevity.py       R3: simulator vs Ad Library longevity
 scripts/               thin command-line entry points (argparse); no logic that isn't in src/
 templates/examples/    hand-written example templates
-tests/                 one test file per module + test_hardening.py (regressions) + test_properties.py (invariants)
+tests/                 see "Kinds of tests" below; fixtures/ holds recorded real API responses
 ```
 
 Adding a stage: new module in the matching sub-package, a module docstring that states its contract (inputs, outputs, guarantees, what it does *not* do), a test file, a line in the module table of `ARCHITECTURE.md`.
@@ -51,6 +68,19 @@ Adding a stage: new module in the matching sub-package, a module docstring that 
 6. **Simulated numbers are labelled as simulated** wherever they are written (`"simulated": true` in experiment outputs, "simulated" in the UI).
 7. **Thin scripts.** A script parses arguments, calls library functions, prints and writes results. If a script needs logic, that logic goes in `src/` with tests.
 8. Style: ruff (line length 120), type hints on public functions, mypy clean. Docstrings and comments in English, short, saying *why*.
+
+## Kinds of tests
+
+| Kind | Where | What it proves |
+|---|---|---|
+| Unit | `test_<module>.py` | each function does what its docstring says, failure paths included |
+| Contract | `test_appstore.py`, `test_adlibrary.py` + `fixtures/` | our parsers read **real recorded** Apple / Meta responses |
+| Adversarial | `test_strategist.py`, `test_director.py`, `test_scout.py` | a model that invents quotes, numbers, ids or competitors is caught, repaired or refused, never trusted |
+| Property | `test_properties.py`, `test_campaign.py`, `test_policy_brand.py` | invariants over thousands of random inputs (cap never exceeded, pixels never altered, buttons always legible) |
+| End-to-end | `test_create_pipeline.py` on `world.py` | the whole `create` pipeline on a fake world (App Store, Ad Library, CDN, models) with the real model client: valid plan, reproducible images, no token leaks, costs match, resume re-bills nothing, failures stop cleanly |
+| Regression | `test_hardening.py` | one test per bug found, named after it |
+| Live | `test_live.py`, `pytest --live` | the real services still answer the way the contracts assume (free endpoints) |
+| Real run | `uv run whynot create ...` | the product on a real app, with a hard model budget; outputs in `outputs/runs/` (gitignored) |
 
 ## Rules for tests
 
@@ -74,8 +104,11 @@ A change is done when:
 
 ## Known limits (be honest about them)
 
-- `policy_safe` guard is not implemented yet (needs a model); until it is, no ad is publishable.
+- `policy_safe` is rule-based (v0); a model-based review is planned. Meta's own review still applies.
 - Composer v0 renders `static_1080` only; reels need ffmpeg.
 - SAM mask payloads are parsed, not decoded yet.
-- Autopilot decides; it does not call Meta yet.
+- Autopilot decides and the campaign plan is in Marketing API shape; nothing calls Meta's write API yet.
+- **Simulator bias found on the first real run:** all 24 VietBuddy variants scored the maximum preference (4.0×) against competitors. Viewer personas carry the very objections the ads answer, and our items are tailored to them. Until fixed, simulated scores in `create` don't rank variants; the plan's budget split doesn't depend on them.
+- Viewers see ad text (ours and competitors'), not images, to keep the comparison fair until creative capture exists.
+- `--budget-usd` caps one invocation; a resumed run gets a fresh budget (finished stages are not re-billed).
 - Hypothesis runs a few hundred examples per property in CI; raise `max_examples` locally when changing safety code.

@@ -9,6 +9,7 @@ Rule: never call the OpenAI SDK directly elsewhere in the code base.
 
 import base64
 import mimetypes
+import threading
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -27,6 +28,10 @@ SAM = "sam-3.1"
 
 class MissingKey(RuntimeError):
     """Raised when a call needs an API key that is not set in .env."""
+
+
+class BudgetExceeded(RuntimeError):
+    """The run's model budget is spent: no further call is made."""
 
 
 class TruncatedOutput(RuntimeError):
@@ -81,11 +86,25 @@ def _usage_tokens(usage: Any) -> tuple[int, int, int, int]:
 
 class ModelClient:
     def __init__(self, settings: Settings | None = None, ledger: CostLedger | None = None,
-                 meta: OpenAI | None = None, baseten: OpenAI | None = None):
+                 meta: OpenAI | None = None, baseten: OpenAI | None = None, *, budget_usd: float | None = None):
+        """`budget_usd`: hard cap on what this client may spend; calls stop once it is reached
+        (a call already in flight can overshoot by its own cost)."""
         self.settings = settings or load_settings()
         self.ledger = ledger or CostLedger(self.settings.cost_log)
         self._meta = meta
         self._baseten = baseten
+        self.budget_usd = budget_usd
+        self.spent_usd = 0.0
+        self._spent_lock = threading.Lock()
+
+    def _check_budget(self) -> None:
+        if self.budget_usd is not None and self.spent_usd >= self.budget_usd:
+            raise BudgetExceeded(f"model budget of ${self.budget_usd:.2f} spent (${self.spent_usd:.3f})")
+
+    def _record(self, event: CostEvent) -> CostEvent:
+        with self._spent_lock:
+            self.spent_usd += event.usd
+        return self.ledger.record(event)
 
     # --- clients -----------------------------------------------------------
 
@@ -134,9 +153,10 @@ class ModelClient:
 
     def _chat(self, client: OpenAI, model: str, messages: list[dict], module: str, **kwargs) -> ChatResult:
         check_priced(model)
+        self._check_budget()
         response = client.chat.completions.create(model=model, messages=messages, **kwargs)  # type: ignore[arg-type]
         input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)
-        event = self.ledger.record(CostEvent(
+        event = self._record(CostEvent(
             module=module, model=model,
             usd=token_cost(model, input_tokens, cached, output_tokens),
             input_tokens=input_tokens, cached_tokens=cached, output_tokens=output_tokens,
@@ -157,10 +177,11 @@ class ModelClient:
 
     def image(self, prompt: str, *, module: str, n: int = 1, size: str = "auto", **kwargs) -> ImageResult:
         """Generate images with Muse Image. Billed per image returned."""
+        self._check_budget()
         response = self.meta.images.generate(model=IMAGE, prompt=prompt, n=n, size=size,
                                              response_format="b64_json", **kwargs)
         images = [d.b64_json for d in response.data if getattr(d, "b64_json", None)]
-        event = self.ledger.record(CostEvent(
+        event = self._record(CostEvent(
             module=module, model=IMAGE, usd=image_cost(IMAGE, len(images)), images=len(images),
         ))
         return ImageResult(images_b64=images, cost=event)
@@ -180,6 +201,7 @@ class ModelClient:
         }
         if include_confidence:
             request["extra_body"] = {"include_confidence": "true"}
+        self._check_budget()
         chunks: list[str] = []
         ok = False
         try:
@@ -188,7 +210,7 @@ class ModelClient:
                     chunks.append(event.delta)
             ok = True
         finally:  # the request is billed even if the stream breaks
-            cost = self.ledger.record(CostEvent(
+            cost = self._record(CostEvent(
                 module=module, model=SAM, usd=segment_cost(SAM, images=1), images=1, ok=ok,
             ))
         return SegmentResult(text="".join(chunks), cost=cost)

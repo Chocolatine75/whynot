@@ -45,6 +45,13 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-28 — All guards are mandatory whatever the template lists; a template with `guards: []` was publishable before.
 - 2026-10-28 — Transcription cost rounds up to the second (billing granularity undocumented; never under-count).
 - 2026-10-28 — Ad Library calls retry with exponential backoff on network errors, 5xx and rate-limit codes (2, 4, 17, 341, 613); never on token errors.
+- 2026-10-28 — The product's entry point is `whynot create <app>`: research → strategy → ads → simulation → campaign plan → report. The simulator is one stage (quality gate), not the product; a daily loop (`whynot daily`) comes next.
+- 2026-10-28 — Every agent answer is validated by code and repaired with the exact error (max 2 repairs), never guessed. Strategy quotes must appear verbatim in the cited review, ad or store page; ads may only state numbers found in verified claims; competitor names are banned from copy.
+- 2026-10-28 — Research countries are EU/UK (Ad Library limit) even when the campaign targets elsewhere (e.g. the US partner): the EU/UK market is the proxy.
+- 2026-10-28 — Campaign plan: one ad set per persona, budget split evenly under the cap (simulated scores rank ads but don't move money before real results), €5/day minimum per ad set, 2–6 ads per set, ≤ 2 variants per template, everything PAUSED, launch through the autopilot.
+- 2026-10-28 — Brand palette from the app icon; the accent is darkened/lightened (same hue) until button text reaches 4.6:1 — a red icon made every ad fail the legibility guard (found by the end-to-end test).
+- 2026-10-28 — Viewers compare text with text (our copy + image text vs competitors' copy) until competitor creatives are captured, so the comparison stays fair.
+- 2026-10-28 — Policy guard v0 is rule-based (personal attributes, absolute claims, engagement bait, shouting); model-based review planned.
 
 ## Data & asset rights
 
@@ -54,6 +61,7 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 | Design partner ad account (pilot) | partner | written consent for read access; separate written consent + cap + approval for live actions | ☐ |
 | Design partner app screens / footage | partner | written consent | ☐ |
 | Shopify partner catalog & images (if confirmed) | partner | written consent | ☐ |
+| App Store pages, reviews, screenshots | Apple public endpoints | the owner's own app for the owner's own campaign; competitor apps: metadata only; reviewer names dropped; test fixtures from a large public app (Duolingo), trimmed | ☐ check Apple terms for screenshots in ads (owner's own assets) |
 | Competitor ads (copy, creatives, reach) | Meta Ad Library API | Meta terms (public transparency data) | ☐ check terms for capturing creatives and showing them in the Arena / demo |
 | Criteo uplift dataset | Criteo AI Lab | CC BY-NC-SA 4.0, cite Diemert et al. 2018 (AdKDD) | not used in the current plan |
 | SSR library | pymc-labs/semantic-similarity-rating | open source (repo shows both Apache-2.0 and MIT) | ☐ |

@@ -12,12 +12,11 @@ Answers are strict JSON, validated; a malformed answer is retried once, then
 counted as a failure rather than guessed.
 """
 
-import json
-import re
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from typing import Any
 
+from whynot.jsonio import JSONExtractError, extract_json
 from whynot.models import ModelClient
 from whynot.sim.feed import Feed, order_for
 from whynot.sim.personas import Persona
@@ -100,15 +99,11 @@ def build_messages(persona: Persona, feed: Feed) -> tuple[list[dict], dict[str, 
     return messages, labels
 
 
-def _extract_json(text: str) -> dict:
-    cleaned = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
-    start, end = cleaned.find("{"), cleaned.rfind("}")
-    if start < 0 or end <= start:
-        raise ViewerParseError("no JSON object in the answer")
+def _extract_json(text: str) -> Any:
     try:
-        return json.loads(cleaned[start:end + 1])
-    except json.JSONDecodeError as exc:
-        raise ViewerParseError(f"invalid JSON: {exc}") from None
+        return extract_json(text)
+    except JSONExtractError as exc:
+        raise ViewerParseError(str(exc)) from None
 
 
 def _bool(value: Any) -> bool:

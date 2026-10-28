@@ -1,0 +1,401 @@
+{
+ "feed": {
+  "entry": [
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-27T01:42:20-07:00"
+    },
+    "im:rating": {
+     "label": "3"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716858607"
+    },
+    "title": {
+     "label": "Too many unnecessary clicks"
+    },
+    "content": {
+     "label": "I’m learning chess. After each game, you need to click 10-15times on social engagement buttons (encourage friends, open chests, collect gems) before being able to play another game. Totally annoying and unnecessary.",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-27T00:51:48-07:00"
+    },
+    "im:rating": {
+     "label": "1"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716744144"
+    },
+    "title": {
+     "label": "энергия"
+    },
+    "content": {
+     "label": "бред полный с этой энергией. невозможно нормально учить ничего за 2 минуты в день",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-27T00:15:17-07:00"
+    },
+    "im:rating": {
+     "label": "5"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716664381"
+    },
+    "title": {
+     "label": "Vocabulary"
+    },
+    "content": {
+     "label": "This app really helps me learn a lot of new words. And how to pronounce the words",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-27T00:03:38-07:00"
+    },
+    "im:rating": {
+     "label": "1"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716639279"
+    },
+    "title": {
+     "label": "Bad"
+    },
+    "content": {
+     "label": "Bad",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-26T23:54:23-07:00"
+    },
+    "im:rating": {
+     "label": "1"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716619696"
+    },
+    "title": {
+     "label": "Рекламная помойка"
+    },
+    "content": {
+     "label": "Кал рекалама каждую секунду",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-26T23:30:15-07:00"
+    },
+    "im:rating": {
+     "label": "1"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716568700"
+    },
+    "title": {
+     "label": "Bad support"
+    },
+    "content": {
+     "label": "Apps have issues, I sent many issues  to support, but neglected my emails.",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-26T23:20:18-07:00"
+    },
+    "im:rating": {
+     "label": "5"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716548108"
+    },
+    "title": {
+     "label": "Duolingo"
+    },
+    "content": {
+     "label": "Sooooooooooo good",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   },
+   {
+    "author": {
+     "name": {
+      "label": "redacted"
+     },
+     "uri": {
+      "label": ""
+     }
+    },
+    "updated": {
+     "label": "2026-10-26T23:09:29-07:00"
+    },
+    "im:rating": {
+     "label": "5"
+    },
+    "im:version": {
+     "label": "7.146.0"
+    },
+    "id": {
+     "label": "14716525818"
+    },
+    "title": {
+     "label": "Larp"
+    },
+    "content": {
+     "label": "Has no limits",
+     "attributes": {
+      "type": "text"
+     }
+    },
+    "link": {
+     "attributes": {
+      "rel": "related",
+      "href": "https://itunes.apple.com/us/review?id=570060128&type=Purple%20Software"
+     }
+    },
+    "im:voteSum": {
+     "label": "0"
+    },
+    "im:contentType": {
+     "attributes": {
+      "term": "Application",
+      "label": "Application"
+     }
+    },
+    "im:voteCount": {
+     "label": "0"
+    }
+   }
+  ],
+  "id": {
+   "label": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=570060128/sortby=mostrecent/json"
+  }
+ }
+}

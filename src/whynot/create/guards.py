@@ -6,7 +6,9 @@
 - text_legible: WCAG contrast (≥ 4.5, ≥ 3 for the large headline), a minimum
   font size, text inside the canvas and not over the product;
 - brand_palette: every colour the composer painted with is in the brand palette;
-- policy_safe: Meta ad-policy check; needs a model, reported as not checked here.
+- policy_safe: rule-based Meta ad-policy check on the text drawn in the ad
+  (`create/policy.py`: personal attributes, absolute claims, engagement bait,
+  shouting). The ad's primary text is checked by the creative director.
 
 A guard returns passed=True/False, or None when it was not checked. Every guard
 in `MANDATORY` runs on every ad, whatever the template lists. An ad is
@@ -17,6 +19,7 @@ from dataclasses import dataclass
 
 from PIL import Image, ImageChops
 
+from whynot.create import policy
 from whynot.create.composer import Box, Brand, Composition, contrast_ratio, resize_asset
 from whynot.create.templates import KNOWN_GUARDS, Template
 
@@ -87,13 +90,23 @@ def brand_palette(comp: Composition, brand: Brand) -> GuardResult:
     return GuardResult(name, True, "all colours from the brand palette")
 
 
+def policy_safe(comp: Composition) -> GuardResult:
+    issues = policy.check_ad({f"{t.role}_{i}": t.text for i, t in enumerate(comp.texts)})
+    errs = policy.errors(issues)
+    if errs:
+        return GuardResult("policy_safe", False, "; ".join(f"{e.field}: {e.message}" for e in errs))
+    warnings = [i.message for i in issues if i.severity == "warning"]
+    detail = "rule-based check passed" + (f" (warnings: {warnings})" if warnings else "")
+    return GuardResult("policy_safe", True, detail)
+
+
 def run_guards(template: Template, comp: Composition, asset: Image.Image) -> dict[str, GuardResult]:
     brand = Brand.from_fixed(template.fixed)
     checks = {
         "product_pixels_unchanged": lambda: product_pixels_unchanged(comp, asset),
         "text_legible": lambda: text_legible(comp),
         "brand_palette": lambda: brand_palette(comp, brand),
-        "policy_safe": lambda: GuardResult("policy_safe", None, "needs the policy model; not checked"),
+        "policy_safe": lambda: policy_safe(comp),
     }
     names = sorted(MANDATORY | set(template.guards))
     return {g: checks[g]() for g in names}

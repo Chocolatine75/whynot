@@ -40,8 +40,8 @@ def test_every_genome_composes_and_passes_guards(template):
         results = run_guards(template, comp, asset)
         failed = {k: r.detail for k, r in results.items() if r.passed is False}
         assert not failed, (genome, failed)
-        assert results["policy_safe"].passed is None
-        assert not publishable(results)  # policy not checked → not publishable yet
+        assert results["policy_safe"].passed is True
+        assert publishable(results)
 
 
 def test_composition_is_deterministic(template):
@@ -89,7 +89,7 @@ def test_mandatory_guards_run_even_if_the_template_lists_none(template):
     t = Template.from_dict(data)
     results = run_guards(t, compose(t, next(t.genomes()), phone_asset()), phone_asset())
     assert set(results) == set(MANDATORY)
-    assert not publishable(results)  # policy is not checked yet
+    assert publishable(results)
 
 
 def test_publishable_needs_every_mandatory_guard_passed():

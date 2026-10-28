@@ -1,0 +1,45 @@
+{
+ "resultCount": 4,
+ "results": [
+  {
+   "trackId": 6449095298,
+   "trackName": "Learn Vietnamese (Beginners)",
+   "sellerName": "BNR LANGUAGES INC.",
+   "primaryGenreName": "Education",
+   "userRatingCount": 36,
+   "averageUserRating": 4.58333,
+   "trackViewUrl": "https://apps.apple.com/us/app/learn-vietnamese-beginners/id6449095298?uo=4",
+   "bundleId": "com.breboucas.vietnamitaparaviajar"
+  },
+  {
+   "trackId": 570060128,
+   "trackName": "Duolingo: Learn Languages",
+   "sellerName": "Duolingo, Inc",
+   "primaryGenreName": "Education",
+   "userRatingCount": 5540071,
+   "averageUserRating": 4.72251,
+   "trackViewUrl": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128?uo=4",
+   "bundleId": "com.duolingo.DuolingoMobile"
+  },
+  {
+   "trackId": 635605857,
+   "trackName": "Vietnamese by Nemo",
+   "sellerName": "Nemo Apps LLC",
+   "primaryGenreName": "Travel",
+   "userRatingCount": 1375,
+   "averageUserRating": 4.68072,
+   "trackViewUrl": "https://apps.apple.com/us/app/vietnamese-by-nemo/id635605857?uo=4",
+   "bundleId": "com.nemoapps.vietnamesefree"
+  },
+  {
+   "trackId": 1261193709,
+   "trackName": "LingoDeer - Learn Languages",
+   "sellerName": "LingoDeer Co., Ltd.",
+   "primaryGenreName": "Education",
+   "userRatingCount": 28070,
+   "averageUserRating": 4.74389,
+   "trackViewUrl": "https://apps.apple.com/us/app/lingodeer-learn-languages/id1261193709?uo=4",
+   "bundleId": "com.lingodeer"
+  }
+ ]
+}

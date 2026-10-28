@@ -36,3 +36,26 @@ class FakeOpenAI:
         events = [NS(type="response.output_text.delta", delta="<|box;x1=1;y1=2;x2=3;y2=4;w=10;h=10|>"),
                   NS(type="response.completed")]
         self.responses = NS(create=lambda **kw: iter(events))
+
+
+class ScriptedChat:
+    """Fake model for agent tests: `reply(messages, module) -> str`, or a list of answers in order.
+
+    Records every call; each call costs `usd` so budget and cost paths are exercised.
+    """
+
+    def __init__(self, reply, usd: float = 0.01):
+        self._reply = reply
+        self._queue = list(reply) if isinstance(reply, list) else None
+        self.calls: list[dict] = []
+        self.usd = usd
+
+    def chat(self, messages, *, module, model="muse-spark-1.3", **kwargs):
+        self.calls.append({"messages": messages, "module": module, "model": model, **kwargs})
+        text = self._queue.pop(0) if self._queue is not None else self._reply(messages, module)
+        return NS(text=text, cost=NS(usd=self.usd))
+
+    viewer_chat = chat
+
+    def prompts(self, module=None):
+        return [c["messages"][-1]["content"] for c in self.calls if module in (None, c["module"])]

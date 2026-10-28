@@ -1,0 +1,262 @@
+"""End-to-end: `create` on a fake world, then the properties a real client relies on.
+
+Not unit tests: the whole pipeline runs (App Store → Ad Library → strategy →
+templates → images → guards → simulated feeds → campaign plan → report) with
+the real model client, and we check the outputs as an auditor would.
+"""
+
+import json
+
+import pytest
+from PIL import Image
+
+from strategy_fixture import APP
+from whynot.agency.create import STAGES, CreateConfig, StageError, create
+from whynot.create.composer import compose
+from whynot.create.templates import Template
+from whynot.models import BudgetExceeded
+from whynot.run.autopilot import Level, Policy
+from world import TOKEN, FakeMeta, Http, clients, default_reply
+
+CFG = dict(app_ref="https://apps.apple.com/us/app/linguaapp/id1234567890", countries=["FR", "GB"], daily_cap_eur=20.0)
+
+
+@pytest.fixture(scope="module")
+def done(tmp_path_factory):
+    tmp = tmp_path_factory.mktemp("e2e")
+    c, meta, http = clients(tmp)
+    result = create(CreateConfig(**CFG), c, tmp / "run")
+    return result, meta, http, tmp / "run"
+
+
+def files(run):
+    return [p for p in run.rglob("*") if p.is_file()]
+
+
+def test_every_stage_ran_once_and_left_its_output(done):
+    _result, _, _, run = done
+    events = [json.loads(line) for line in (run / "events.jsonl").read_text().splitlines()]
+    assert [e["stage"] for e in events if e["status"] == "ok"] == list(STAGES)
+    for name in ["app.json", "brand.json", "market.json", "market_ads.jsonl", "strategy.json", "variants.json",
+                 "simulation.json", "plan.json", "meta_api_payloads.json", "launch.json", "report.md"]:
+        assert (run / name).exists(), name
+    assert len(list((run / "templates").glob("*.yaml"))) == 4
+
+
+def test_the_plan_is_valid_within_the_cap_and_paused(done):
+    result, _, _, run = done
+    assert result.plan_errors == []
+    assert 0 < result.plan.daily_total_eur <= 20.0
+    assert {s.audience.persona for s in result.plan.ad_sets} == {"heritage_learner", "busy_traveller"}
+    api = json.loads((run / "meta_api_payloads.json").read_text())
+    assert {x["status"] for x in [api["campaign"], *api["ad_sets"], *api["ads"]]} == {"PAUSED"}
+    assert sum(x["daily_budget"] for x in api["ad_sets"]) <= 2000
+
+
+def test_every_planned_ad_is_real_reproducible_and_checked(done):
+    """Each ad image exists, is exactly what the composer makes from its template and the real screenshot,
+    and passed every guard."""
+    result, _, _, run = done
+    variants = {v["variant_id"]: v for v in json.loads((run / "variants.json").read_text())}
+    templates = {t.id: t for t in (Template.load(p) for p in (run / "templates").glob("*.yaml"))}
+    assert result.choices
+    for ad in result.choices:
+        v = variants[ad.variant_id]
+        assert v["guards_passed"] and all(g["passed"] is True for g in v["guards"].values())
+        saved = Image.open(run / ad.image_path)
+        assert saved.size == (1080, 1080)
+        t = templates[ad.template_id]
+        again = compose(t, v["genome"], Image.open(run / "assets" / t.fixed["product"]["asset"]))
+        assert again.image.tobytes() == saved.convert("RGB").tobytes()
+        assert ad.persona == t.persona
+
+
+def test_competitor_research_drops_noise_and_feeds_the_simulator(done):
+    _, meta, _, run = done
+    market = json.loads((run / "market.json").read_text())
+    assert {c["page_id"] for c in market["competitors"]} == {"p1", "p2"}
+    assert [r["page_id"] for r in market["rejected"]] == ["spam"]
+    ads = (run / "market_ads.jsonl").read_text()
+    assert "iPhone" not in ads and "900" in ads and "903" in ads  # inactive ads kept for longevity
+    sim = json.loads((run / "simulation.json").read_text())
+    assert sim["simulated"] and not sim["failures"] and sim["scores"]
+    viewer_feeds = [r for r in meta.requests if r["messages"][0]["role"] == "system"]
+    assert all("Rival Lingo" in r["messages"][1]["content"] or "Other App" in r["messages"][1]["content"]
+               for r in viewer_feeds)
+
+
+def test_no_token_and_no_reviewer_identity_leaks_into_the_run(done):
+    _, _, _, run = done
+    for p in files(run):
+        if p.suffix in {".json", ".jsonl", ".md", ".yaml"}:
+            text = p.read_text()
+            assert TOKEN not in text and "access_token" not in text, p.name
+
+
+def test_costs_are_logged_per_agent_and_match_the_report(done):
+    result, meta, _, run = done
+    ledger = [json.loads(line) for line in (run / "costs.jsonl").read_text().splitlines()]
+    assert {e["module"] for e in ledger} == {"scout", "strategy", "director", "viewers"}
+    assert len(ledger) == len(meta.requests)
+    assert result.usd == pytest.approx(sum(e["usd"] for e in ledger), abs=1e-3)
+    assert {e["model"] for e in ledger if e["module"] == "strategy"} == {"muse-wonder-1.0"}
+    assert f"${result.usd:.2f}" in (run / "report.md").read_text()
+
+
+def test_report_is_honest_about_what_is_simulated_and_not_launched(done):
+    _, _, _, run = done
+    report = (run / "report.md").read_text()
+    assert "Status: not launched" in report and "(SIMULATED)" in report
+    assert "“The app doesn't hear you correctly” (review:101)" in report
+    assert "Heritage learner" in report and "€10.0/day" in report
+    assert "Launch: **refused**" in report  # default policy: dry run with a €0 live cap
+    for line in report.splitlines():
+        if line.startswith("![") and "](" in line:
+            assert (run / line.split("](")[1].rstrip(")")).exists()
+
+
+def test_resume_reuses_every_stage_without_new_calls(done, tmp_path):
+    result, _, _, run = done
+
+    def no_calls(model, messages):
+        raise AssertionError("resume must not call the model")
+
+    c, meta, http = clients(tmp_path, meta=FakeMeta(no_calls))
+    again = create(CreateConfig(**CFG), c, run)
+    assert meta.requests == [] and http.calls == []
+    assert again.plan.to_json() == result.plan.to_json()
+
+
+# --- when things go wrong -------------------------------------------------------------
+
+def test_hallucinating_strategist_stops_the_run_then_resume_finishes(tmp_path):
+    def liar(model, messages):
+        text = default_reply(model, messages)
+        if "You are the strategist" in str(messages[-1]["content"]) or model == "muse-wonder-1.0":
+            data = json.loads(text)
+            data["claims"][0]["evidence"]["quote"] = "Used by 2 million learners"
+            return json.dumps(data)
+        return text
+
+    c, meta, _http = clients(tmp_path, meta=FakeMeta(liar))
+    with pytest.raises(StageError) as exc:
+        create(CreateConfig(**CFG), c, tmp_path / "run")
+    assert exc.value.stage == "strategy"
+    assert sum(r["model"] == "muse-wonder-1.0" for r in meta.requests) == 3  # tried, repaired twice, refused
+    events = (tmp_path / "run" / "events.jsonl").read_text()
+    assert '"stage": "strategy", "status": "error"' in events and "not verbatim" in events
+    assert not (tmp_path / "run" / "strategy.json").exists()
+
+    c2, meta2, http2 = clients(tmp_path)
+    result = create(CreateConfig(**CFG), c2, tmp_path / "run")
+    assert result.plan_errors == []
+    assert "itunes.apple.com" not in http2.calls and "graph.facebook.com" not in http2.calls  # app + market reused
+    assert not any("search terms" in str(r["messages"][-1]["content"]) for r in meta2.requests)
+
+
+def test_model_budget_stops_the_run_cleanly(tmp_path):
+    c, meta, _ = clients(tmp_path, budget=0.0001)
+    with pytest.raises(StageError) as exc:
+        create(CreateConfig(**CFG), c, tmp_path / "run")
+    assert isinstance(exc.value.cause, BudgetExceeded) and exc.value.stage == "market"
+    assert len(meta.requests) == 1  # one call, then nothing
+
+
+def test_without_competitor_ads_the_plan_says_it_was_not_simulated(tmp_path):
+    def no_ad_evidence(model, messages):
+        text = default_reply(model, messages)
+        if model != "muse-wonder-1.0":
+            return text
+        data = json.loads(text)  # with no market ads, a valid strategy can only cite reviews and the store
+        data["objections"][2]["evidence"] = [{"ref": "review:103", "quote": "Five minutes a day fits my commute"}]
+        data["angles"][3]["evidence"] = [{"ref": "store", "quote": "Free to start"}]
+        return json.dumps(data)
+
+    c, _, _ = clients(tmp_path, meta=FakeMeta(no_ad_evidence), http=Http(ad_library={}))
+    result = create(CreateConfig(**CFG), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert sim["simulated"] is False
+    assert any("NOT simulated" in n for n in result.plan.notes)
+    assert "Not simulated" in (tmp_path / "run" / "report.md").read_text()
+
+
+def test_broken_viewers_are_counted_not_guessed(tmp_path):
+    def broken_viewers(model, messages):
+        if messages[0]["role"] == "system":
+            return "I'd rather not say."
+        return default_reply(model, messages)
+
+    c, _, _ = clients(tmp_path, meta=FakeMeta(broken_viewers))
+    result = create(CreateConfig(**CFG), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert sim["failures"] and sim["scores"] == {}
+    assert result.plan_errors == []  # the plan still holds; ranking falls back to neutral
+
+
+def test_us_campaign_researches_the_market_in_europe(tmp_path):
+    """The partner case: ads target the US, the Ad Library only shows EU/UK, so research runs on GB."""
+    import strategy_fixture
+
+    def us_strategy(model, messages):
+        text = default_reply(model, messages)
+        if model == "muse-wonder-1.0":
+            data = json.loads(text)
+            for p in data["personas"]:
+                p["countries"] = ["US"]
+            return json.dumps(data)
+        return text
+
+    c, _, _http = clients(tmp_path, meta=FakeMeta(us_strategy))
+    result = create(CreateConfig(**{**CFG, "countries": ["US"]}), c, tmp_path / "run")
+    market = json.loads((tmp_path / "run" / "market.json").read_text())
+    assert market["research_countries"] == ["GB"]
+    assert all(s.audience.countries == ("US",) for s in result.plan.ad_sets)
+    assert strategy_fixture.APP.name == APP.name
+
+
+def test_app_without_screenshots_is_refused(tmp_path, monkeypatch):
+    import world
+
+    monkeypatch.setattr(world, "SHOTS", [])
+    c, _, _ = clients(tmp_path)
+    with pytest.raises(StageError, match="no screenshots"):
+        create(CreateConfig(**CFG), c, tmp_path / "run")
+
+
+def test_live_policy_turns_the_plan_into_approval_requests(tmp_path):
+    c, _, _ = clients(tmp_path)
+    cfg = CreateConfig(**CFG, policy=Policy(Level.AUTOPILOT, 20.0, first_live_approved=False))
+    create(cfg, c, tmp_path / "run")
+    launch = json.loads((tmp_path / "run" / "launch.json").read_text())
+    assert {x["outcome"] for x in launch} == {"needs_approval"}
+
+
+# --- the command a client runs ---------------------------------------------------------
+
+def test_cli_create_end_to_end(tmp_path, monkeypatch, capsys):
+    import whynot.agency.create as pipeline
+    from whynot.cli import main
+
+    c, _, _ = clients(tmp_path)
+    monkeypatch.setattr(pipeline, "default_clients", lambda budget, run_dir: c)
+    monkeypatch.setenv("AUTONOMY_LEVEL", "dry_run")
+    monkeypatch.setenv("MAX_DAILY_AD_SPEND_EUR", "0")
+    code = main(["create", CFG["app_ref"], "--countries", "FR", "GB", "--daily-cap", "20",
+                 "--out", str(tmp_path / "runs")])
+    out = capsys.readouterr().out
+    assert code == 0, out
+    assert "2 ad set(s)" in out and "PAUSED, not launched" in out and "report.md" in out
+    run_dir = next((tmp_path / "runs").iterdir())
+    assert (run_dir / "report.md").exists()
+
+
+def test_cli_reports_a_failed_stage_and_how_to_resume(tmp_path, monkeypatch, capsys):
+    import whynot.agency.create as pipeline
+    from whynot.cli import main
+
+    c, _, _ = clients(tmp_path, budget=0.0001)
+    monkeypatch.setattr(pipeline, "default_clients", lambda budget, run_dir: c)
+    code = main(["create", CFG["app_ref"], "--countries", "FR", "--daily-cap", "20",
+                 "--out", str(tmp_path / "runs")])
+    err = capsys.readouterr().err
+    assert code == 1 and "stage 'market' failed" in err and "--resume" in err

@@ -53,13 +53,19 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `agents` | Orchestrator, roles, shared log | Muse Spark |
 | `ingest/adlibrary` | Competitor ads, reach breakdowns, start dates; tokens stripped | Graph API v26 |
 | `ingest/creatives` | Capture images/videos from snapshot pages; transcripts | Muse Spark computer use, Voice Transcribe |
-| `ingest/business` | Store / App Store page, reviews, product footage | — |
+| `ingest/appstore` | App Store page, reviews (objections), real screenshots, competitor apps | iTunes lookup/RSS/search |
 | `ingest/history` | Partner's past ads + real metrics (read-only, private) | Marketing API / Ads MCP |
-| `strategy` | Strategy and personas | Muse Wonder (prompt caching) |
+| `agents/scout` | Search terms, Ad Library collection, competitor filter, market corpus | Muse Spark, Ad Library |
+| `agents/strategist` | Personas, objections, angles, claims; every quote verified in its source | Muse Wonder |
+| `agents/director` | Templates + copy per angle; numbers only from claims; policy; diversity | Muse Spark |
+| `agency/create` | `whynot create`: the pipeline, run folder, resume, budget, report | — |
 | `create/templates` | Concepts + genomes (YAML), validation, sampling, one-gene mutation, variant ids | Muse Spark (writes them) |
 | `assets/sam` (+ `assets/cutout` next) | SAM 3.1 output parsing; product / app-screen cutouts, element tracks in video | SAM 3.1 |
 | `assets/scenes` | Scenes, first frames | Muse Image |
 | `create/composer` | Deterministic statics (v0: `static_1080`) and short videos from genes | Pillow, ffmpeg |
+| `create/policy` | Rule-based Meta ad-policy checks (v0) | code |
+| `assets/brand` | Brand palette from the app icon, legible by construction | Pillow |
+| `run/campaign` | Campaign plan (Marketing API shape), validation, launch through the autopilot | — |
 | `create/guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy (not yet); all mandatory | code (+ Muse Spark for policy) |
 | `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
 | `sim/feed` | Market feeds (exposure balanced ±1, least-shown first) and candidate feeds; per-viewer order | — |
