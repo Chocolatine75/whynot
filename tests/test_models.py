@@ -83,6 +83,24 @@ def test_image_data_url(tmp_path):
     assert image_data_url(b"abc", "image/webp") == "data:image/webp;base64,YWJj"
 
 
+def test_viewer_backend_switch(tmp_path):
+    from dataclasses import replace
+    meta, baseten = FakeOpenAI(), FakeOpenAI()
+    on_meta = ModelClient(_settings(tmp_path), meta=meta, baseten=baseten)
+    on_meta.viewer_chat([{"role": "user", "content": "hi"}])
+    assert meta.chat.calls[0]["model"] == "muse-spark-1.3" and not baseten.chat.calls
+    on_baseten = ModelClient(replace(_settings(tmp_path), viewer_backend="baseten"), meta=meta, baseten=baseten)
+    on_baseten.viewer_chat([{"role": "user", "content": "hi"}])
+    assert baseten.chat.calls[0]["model"] == "meta-models/muse-spark-open"
+
+
+def test_viewers_refuse_contributor_tier(tmp_path):
+    from dataclasses import replace
+    client = ModelClient(replace(_settings(tmp_path), viewer_model="muse-spark-1.3-contributor"), meta=FakeOpenAI())
+    with pytest.raises(ValueError):
+        client.viewer_chat([{"role": "user", "content": "hi"}])
+
+
 def test_open_chat_uses_baseten_model(tmp_path):
     fake = FakeOpenAI()
     client = ModelClient(_settings(tmp_path), baseten=fake)

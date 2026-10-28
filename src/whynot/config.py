@@ -19,6 +19,8 @@ class Settings:
     cost_log: Path
     fb_token: str | None = None
     fb_api_version: str = "v26.0"
+    viewer_backend: str = "meta"  # "meta" (Muse Spark on the Meta API) or "baseten" (Muse Spark Open)
+    viewer_model: str = "muse-spark-1.3"  # used when viewer_backend == "meta"
 
 
 def load_settings() -> Settings:
@@ -32,4 +34,6 @@ def load_settings() -> Settings:
         cost_log=Path(os.getenv("WHYNOT_COST_LOG") or REPO_ROOT / "outputs" / "costs.jsonl"),
         fb_token=os.getenv("FB_TOKEN") or None,
         fb_api_version=os.getenv("FB_API_VERSION", "v26.0"),
+        viewer_backend=os.getenv("VIEWER_BACKEND", "meta"),
+        viewer_model=os.getenv("VIEWER_MODEL", "muse-spark-1.3"),
     )

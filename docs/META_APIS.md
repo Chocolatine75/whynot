@@ -8,6 +8,7 @@ Smoke test: `uv run python scripts/smoke_models.py` (results in `outputs/smoke.j
 - `GET /v1/models` returns: `muse-image-1.0`, `muse-spark-1.1`, `muse-spark-1.2`, `muse-spark-1.2-contributor`, `muse-spark-1.3`, `muse-spark-1.3-contributor`, `muse-voice-transcribe-1.0`, `muse-wonder-1.0`, `sam-3.1`. No open-weights model on the Meta API.
 - **Muse Spark always reasons before answering**: ~120 reasoning tokens for "Reply with exactly: OK", even with `reasoning_effort="minimal"`. Reasoning counts against `max_tokens`; with `max_tokens=20` the answer is empty (`finish_reason="length"`) **and still billed**. `ModelClient` raises `TruncatedOutput` in that case and logs `reasoning_tokens`. Budget ≥ 300–600 output tokens even for short answers.
 - **Images: send them inline** (base64 data URL via `models.image_data_url`). Remote URLs are fetched by Meta's servers and some hosts refuse them (Wikimedia → "failed to download media … origin returned HTTP 400").
+- **Viewer calls (text feed of 5 ads, ~480 input tokens), measured 2026-10-28:** default effort ~2,100 reasoning / ~2,500 output tokens, ~$0.012 per call (one call reached 2,963 output tokens); `reasoning_effort="low"` ~785 reasoning, $0.0055; `"minimal"` ~196 reasoning, $0.0031. Answers stay realistic at low/minimal; ranking quality per effort still to be measured.
 - Chat Completions vision works with `{"type": "image_url", "image_url": {"url": ...}}` (Spark identified the test image).
 
 ## Meta Model API

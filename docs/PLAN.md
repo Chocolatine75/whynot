@@ -24,9 +24,10 @@ The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) d
 **Gate:** partner data in hand (or a firm date); pilot terms agreed; viewers can see an image and a video.
 
 ## M1 — Kill test (Thu Oct 29)
-- [ ] (A) Viewer v0 (teacher, structured reactions + SSR) on a feed of competitor ads
+- [x] (A) Viewer v0: personas from real reach, market/candidate feeds, viewer agent with strict JSON + retry, per-ad scores (`sim/`); runs on Muse Spark via `VIEWER_BACKEND=meta` until Baseten. Text-only feeds; intent as 1–5 (SSR later)
+- [x] (A) Longevity pipeline (`validate/longevity.py`, `scripts/longevity_check.py`): tiny real run on Lacoste (10 ads, 0 failures, $0.10) — too small to conclude
+- [ ] (A) R3 v0 at scale: ≥ 20 ads per class across several advertisers of the partner's market; compare reasoning effort low vs minimal
 - [ ] (A) Backtest v0 on the partner's history: pairwise accuracy vs real metric, with baselines
-- [ ] (A) Longevity check v0 on ~40 Ad Library ads
 - [ ] (both) 10 people × 6 pairs: quick human agreement check
 
 **Gate (decide Oct 29 evening):** if ≥ 2 of {backtest beats baselines, longevity AUC > 0.55, human agreement > 60 %, someone new to the project finds the demo impressive} fail → change idea now. Otherwise go.

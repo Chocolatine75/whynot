@@ -59,15 +59,17 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 | `assets/scenes` | Scenes, first frames | Muse Image |
 | `composer` | Deterministic statics and short videos from genes | Pillow, ffmpeg |
 | `guards` | Pixel diff, palette, legibility, ad-policy checks | code (+ Muse Spark for policy) |
-| `simfeed` | Assemble feeds, run viewers, aggregate per persona | — |
-| `viewers` | Teacher viewer prompts + structured output; student model | Muse Spark Open (Baseten); Glimmer / fine-tune |
+| `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
+| `sim/feed` | Market feeds (each ad equally often) and candidate feeds; per-viewer order | — |
+| `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs; backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
+| `sim/scores` | Per-ad scores: preference lift vs chance (primary), intent, stop/understood/believed rates, why-not | — |
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |
 | `counterfactual` | Element removal/swap + re-test deltas | SAM 3.1, composer, simfeed |
 | `evolve` | Mutations, selection, diversity guard | Muse Spark, embeddings |
 | `autopilot` | Autonomy levels, caps, publishing, fatigue/loser rules, rotation | Ads MCP / Marketing API |
 | `report` | Weekly report, approvals | Muse Spark |
 | `calibrate` | Per-business re-weighting from real metrics | code |
-| `validate` | Backtest, humans, longevity, live pilot stats | code |
+| `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`); backtest, humans, live pilot next | code |
 | `web` | Onboarding, Agency room, Report, Arena, Validation page | Next.js |
 
 ## Data contracts (sketch)
@@ -96,7 +98,8 @@ An orchestrator runs the agents over a shared, inspectable log (`AgentEvent`). E
 
 ## Open questions
 
-- Muse Spark Open on Baseten: image/video input via chat completions? Tokens per frame? → smoke test.
+- Muse Spark Open on Baseten: image/video input via chat completions? Tokens per frame? → smoke test when credits arrive.
+- SSR needs an embedding model; the Meta API lists none. Options: an open-source embedding model run locally, or Muse Spark Open embeddings if the host offers them. Until then viewers give a 1–5 intent score plus free text (kept for SSR).
 - SAM 3.1 video tracking output and mask → frame mapping → test on real footage.
 - Ad Library creative capture reliability with computer use.
 - Partner account: which metrics per ad, how many past ads, Ads MCP vs Marketing API access, write permissions.

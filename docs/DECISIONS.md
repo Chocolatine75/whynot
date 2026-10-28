@@ -31,6 +31,9 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-27 — All docs in English — public repo, international judges.
 - 2026-10-27 — VoodRadar (Voodoo × Anthropic Hack 2026 winner) studied for ideas only; no code, prompts, data or assets reused — hackathon rule (new work only) and the repo has no licence. Ideas taken and our differences in `PRIOR_ART.md`; disclosed in the README.
 - 2026-10-27 — Python engine managed with uv, `src/whynot` layout; one `ModelClient` (OpenAI SDK) for both the Meta Model API and Baseten, logging every call to a JSONL cost ledger — both APIs are OpenAI-compatible; one wrapper keeps the cost counter real.
+- 2026-10-28 — Viewers run on Muse Spark via the Meta API until Baseten credits arrive (`VIEWER_BACKEND`), never on the Contributor tier — don't block on inference credits; feeds can contain partner ads.
+- 2026-10-28 — R3 design fixed before results: long = still active ≥ 60 days, short = stopped ≤ 14 days; one ad per (advertiser, copy); classes balanced across advertisers; primary metric = AUC of preference lift, intent secondary, copy length as baseline — avoid choosing the metric after seeing the data.
+- 2026-10-28 — Viewer reasoning effort defaults to `low` in experiments (≈2× cheaper than default, `minimal` ≈4×); quality per effort to be compared on R3 — reasoning tokens are ~85 % of viewer cost.
 
 ## Data & asset rights
 

@@ -117,6 +117,21 @@ class ModelClient:
         """Chat completion on Muse Spark Open (open weights, served by Baseten)."""
         return self._chat(self.baseten, self.settings.baseten_model, messages, module, **kwargs)
 
+    def viewer_chat(self, messages: list[dict], *, module: str = "viewers", **kwargs) -> ChatResult:
+        """Chat for viewer agents, on the backend chosen by VIEWER_BACKEND.
+
+        "meta": Muse Spark on the Meta API (works today). "baseten": Muse Spark Open.
+        Never the Contributor tier: feeds can contain partner ads.
+        """
+        backend = self.settings.viewer_backend
+        if backend == "baseten":
+            return self.open_chat(messages, module=module, **kwargs)
+        if backend == "meta":
+            if "contributor" in self.settings.viewer_model:
+                raise ValueError("viewers must not use the Contributor tier (partner data)")
+            return self.chat(messages, module=module, model=self.settings.viewer_model, **kwargs)
+        raise ValueError(f"unknown VIEWER_BACKEND: {backend!r}")
+
     def _chat(self, client: OpenAI, model: str, messages: list[dict], module: str, **kwargs) -> ChatResult:
         response = client.chat.completions.create(model=model, messages=messages, **kwargs)
         input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)

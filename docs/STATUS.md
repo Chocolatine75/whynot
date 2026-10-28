@@ -7,7 +7,7 @@ Last updated: 2026-10-27
 
 ## Where we are
 
-Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. Code so far (`src/whynot/`, `scripts/`, 51 tests passing, no network): cost ledger + model client + smoke tests; Ad Library ingest (tokens stripped, reach breakdown, longevity); validation statistics. Real calls: Ad Library works (format confirmed, long-running filter); every Meta model passes its smoke test. Baseten not set up (credits pending).
+Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. Code so far (`src/whynot/`, `scripts/`, 85 tests passing, no network): simulated feed v0 (personas from reach, feeds, viewer agents, scores) and the R3 longevity experiment; cost ledger + model client + smoke tests; Ad Library ingest (tokens stripped, reach breakdown, longevity); validation statistics. Real calls: Ad Library works (format confirmed, long-running filter); every Meta model passes its smoke test. Baseten, Modal and Fireworks credits requested (pending); viewers run on Muse Spark meanwhile.
 
 Done:
 - Accepted to the hackathon (Indie track, *Build for Your World*).
@@ -29,8 +29,9 @@ Done:
 3. Both: claim Meta credits + spend limit; request Baseten and Modal credits (Baseten: first 2,000 participants).
 4. When Baseten credits arrive: `BASETEN_API_KEY` in `.env`, then `uv run python scripts/smoke_models.py --only open_text open_vision`.
 5. Get the partner's competitors (Facebook page ids) and run `scripts/fetch_competitors.py --active ACTIVE --started-before-days 60` on them. Then creative capture.
-6. Next code without keys: template schema (concept + genome), deterministic composer + pixel guard, autopilot safety rules — all with tests.
-7. First build-in-public post.
+6. R3 at scale: pick 4–6 advertisers in the partner's market (page ids), run `scripts/longevity_check.py` with ≥ 20 ads per class, compare reasoning effort low vs minimal.
+7. Next code: creative capture (so viewers see visuals), template schema (concept + genome), composer + pixel guard, autopilot safety rules — all with tests.
+8. First build-in-public post.
 
 ## Blockers / open questions
 
@@ -49,6 +50,7 @@ Newest first. One entry per working session: date, who, what changed, what's nex
 - 2026-10-27 — Matteo + Claude — Validation stats (R1–R3, R6) and Ad Library ingest + fetch script, 45 tests. Next: template schema, composer + pixel guard, autopilot rules.
 - 2026-10-27 — Matteo + Claude — First real Ad Library calls: token works, breakdown format confirmed, results are newest-first → added long-running filter; Lacoste test (17 ads, median 118 days). 47 tests.
 - 2026-10-27 — Matteo + Claude — Meta model smoke tests all pass (~$0.02). Fixed silent empty answers (reasoning tokens eat max_tokens → `TruncatedOutput`), images sent inline, SAM mask covers the box. 51 tests.
+- 2026-10-28 — Matteo + Claude — Simulated feed v0: personas from real reach, feeds, viewer agents (strict JSON, retry, parallel), per-ad scores; R3 longevity pipeline. Tiny real run on Lacoste: 8/8 viewers valid, realistic why-nots, $0.10. Reasoning = 85 % of cost; `low` effort ≈2× cheaper. 85 tests.
 
 - 2026-10-27 — Matteo + Claude — Settled the direction (AI ad agency, simulator as quality gate, live pilot with the app partner); rewrote and aligned all docs in English. Next: M0, partner data and pilot terms first.
 - 2026-10-27 — Matteo + Claude — Pivot from objection retargeting to the create–test–evolve loop; market research.
