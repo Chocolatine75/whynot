@@ -20,6 +20,8 @@ src/whynot/
   config.py            settings from .env (one place)
   costs.py             prices + append-only cost ledger
   models.py            ModelClient: the ONLY way to call a model (logs cost of every call, run budget)
+  cassette.py          recorded model answers: WHYNOT_CASSETTE=record|replay|off (replay = $0, offline)
+  budget.py            per-command model cap: estimate refused before running, hard stop during it
   jsonio.py            JSON out of model answers
   agency/
     create.py          the `create` pipeline: stages, run folder, resume, events

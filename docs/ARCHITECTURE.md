@@ -50,6 +50,8 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | Module | Responsibility | Models / tools |
 |---|---|---|
 | `costs` | Single model-call wrapper; logs tokens, images, $ | code |
+| `models` + `cassette` | The only model client; chat answers recorded once and replayed for free (`WHYNOT_CASSETTE=record\|replay`), replay never touches the network | code |
+| `budget` | Per-command model cap: estimate refused before running, hard stop during the run | code |
 | `agents` | Orchestrator, roles, shared log | Muse Spark |
 | `ingest/adlibrary` | Competitor ads, reach breakdowns, start dates; tokens stripped | Graph API v26 |
 | `ingest/creatives` | Capture images/videos from snapshot pages; transcripts | Muse Spark computer use, Voice Transcribe |

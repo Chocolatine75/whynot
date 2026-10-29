@@ -101,6 +101,7 @@ class CostEvent:
     audio_seconds: float = 0.0
     ok: bool = True
     ts: float = field(default_factory=time.time)
+    source: str = "api"  # "api" (billed), "cassette" (replayed recording, $0) or "cache" (cached viewer answer, $0)
 
 
 class CostLedger:
