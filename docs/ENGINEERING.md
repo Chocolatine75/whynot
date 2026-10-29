@@ -18,7 +18,7 @@ The package follows the agency loop. Each stage reads and writes plain data (dat
 src/whynot/
   cli.py               `whynot create ...` (entry point)
   config.py            settings from .env (one place)
-  costs.py             prices + append-only cost ledger
+  costs.py             prices + append-only cost ledger + spend report (`whynot costs`)
   models.py            ModelClient: the ONLY way to call a model (logs cost of every call, run budget)
   cassette.py          recorded model answers: WHYNOT_CASSETTE=record|replay|off (replay = $0, offline)
   budget.py            per-command model cap: estimate refused before running, hard stop during it
