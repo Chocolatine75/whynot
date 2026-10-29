@@ -87,13 +87,16 @@ def main() -> None:
 
     effort = None if args.reasoning_effort == "default" else args.reasoning_effort
     model = ModelClient(settings, budget_usd=args.max_usd)  # hard stop during the run too
-    sim = run_simulation(Viewer(model, reasoning_effort=effort), personas, feeds,
-                         viewers_per_feed=args.viewers_per_feed)
+    viewer = Viewer(model, reasoning_effort=effort)
+    sim = run_simulation(viewer, personas, feeds, viewers_per_feed=args.viewers_per_feed)
     scores = score_ads(sim.reactions)
     result = evaluate(labelled, scores)
 
     print(f"\nspent ${sim.usd:.3f} (estimate ${estimate:.2f}, cap ${args.max_usd:.2f}) · "
           f"{len(sim.failures)} failed viewers out of {calls}")
+    if viewer.cache:
+        files, size = viewer.cache.size()
+        print(f"viewer cache: {viewer.cache.hits} hits ($0) · {files} answers stored, {size / 1e6:.1f} MB")
     print(f"AUC preference (primary): {result.auc_preference:.2f}  "
           f"95% CI [{result.ci_preference[0]:.2f}, {result.ci_preference[1]:.2f}]")
     print(f"AUC mean intent:          {result.auc_intent:.2f}  "

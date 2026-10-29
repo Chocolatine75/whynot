@@ -72,7 +72,7 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `create/guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy (not yet); all mandatory | code (+ Muse Spark for policy) |
 | `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
 | `sim/feed` | Market feeds (exposure balanced ±1, least-shown first) and candidate feeds; per-viewer order | — |
-| `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs; backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
+| `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs, answer cache (a view is never paid twice); backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
 | `sim/arena` | Fair feeds for our variants: page-style brand name, two candidate slots per feed, placebos (competitor ads under our name), bias flag | — |
 | `sim/scores` | Per-ad scores: preference lift vs chance (primary), intent, stop/understood/believed rates, why-not | — |
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |

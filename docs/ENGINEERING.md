@@ -47,7 +47,7 @@ src/whynot/
     arena.py           fair feeds: brand name, head-to-head slots, placebos, bias flag
     personas.py        personas allocated from real reach data
     feed.py            market feeds (balanced exposure) and candidate feeds
-    viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs
+    viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs, answer cache
     scores.py          per-ad scores (preference lift, intent, objections)
   run/
     autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
