@@ -83,7 +83,7 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `run/autopilot` | Autonomy levels, caps, fatigue/loser rules, action log; publishing and rotation next | Ads MCP / Marketing API |
 | `report` | Weekly report, approvals | Muse Spark |
 | `calibrate` | Per-business re-weighting from real metrics | code |
-| `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`), test-retest noise floor (`retest.py`); backtest, humans, live pilot next | code |
+| `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`), test-retest noise floor (`retest.py`), bias suite (`bias.py`); backtest, humans, live pilot next | code |
 | `web` | Onboarding, Agency room, Report, Arena, Validation page | Next.js |
 
 ## Data contracts (sketch)
