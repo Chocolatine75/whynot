@@ -12,10 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <nav className="nav">
-          <Link href="/" className="wordmark">why<span>not</span></Link>
-          <div className="row small">
-            <Link href="/#campaigns" className="muted">Campaigns</Link>
-            <Link href="/#new" className="btn" style={{ height: 32, padding: "0 14px", fontSize: 13 }}>New campaign</Link>
+          <Link href="/" className="wordmark">whynot</Link>
+          <div className="nav-links">
+            <Link href="/#campaigns">Campaigns</Link>
+            <Link href="/" className="btn compact">New campaign</Link>
           </div>
         </nav>
         {children}

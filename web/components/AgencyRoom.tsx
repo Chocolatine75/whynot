@@ -30,7 +30,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
       <header className="row" style={{ justifyContent: "space-between", alignItems: "flex-end" }}>
         <div className="stack" style={{ gap: 8 }}>
           <span className={`tag ${kind}`} style={{ alignSelf: "flex-start" }}>{label}</span>
-          <h1 style={{ fontSize: 44 }}>{run.app?.name ?? run.config?.app_ref ?? "New campaign"}</h1>
+          <h1 style={{ fontSize: 40 }}>{run.app?.name ?? run.config?.app_ref ?? "New campaign"}</h1>
           <p className="muted">
             {run.config?.countries?.join(" · ")} · cap {eur(run.config?.daily_cap_eur ?? 0)}/day · started {ago(run.startedAt)}
           </p>
@@ -41,7 +41,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
         </div>
       </header>
 
-      <nav className="tabs" style={{ marginTop: 24 }}>
+      <nav className="tabs">
         {[["progress", "Progress"], ["strategy", "Strategy"], ["ads", "Ads"], ["evolution", "Evolution"],
           ["campaign", "Campaign"], ["research", "Research"]].map(([href, text]) => <a key={href} href={`#${href}`}>{text}</a>)}
       </nav>
@@ -97,7 +97,6 @@ function Summary({ run }: { run: RunView }) {
   return (
     <div className="stack">
       <div className="banner info">
-        <span>🔒</span>
         <div>
           <strong>Nothing is live.</strong>
           <p className="small muted">The campaign is prepared paused. whynot never spends above your cap and waits for your approval before the first launch.</p>

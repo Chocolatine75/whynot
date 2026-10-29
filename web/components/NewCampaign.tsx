@@ -3,8 +3,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { runUrl } from "@/lib/format";
 
-/** The command bar: paste the App Store link, hand it to the agency (Muse-style input pill). */
-export default function NewCampaign({ tone = "dark" }: { tone?: "dark" | "light" }) {
+/** The command bar: paste the App Store link, hand it to the agency. */
+export default function NewCampaign() {
   const router = useRouter();
   const [app, setApp] = useState("");
   const [countries, setCountries] = useState("US");
@@ -14,6 +14,7 @@ export default function NewCampaign({ tone = "dark" }: { tone?: "dark" | "light"
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (!app.trim()) { setError("Paste your App Store link first."); return; }
     setBusy(true);
     setError(null);
     try {
@@ -31,13 +32,12 @@ export default function NewCampaign({ tone = "dark" }: { tone?: "dark" | "light"
   }
 
   return (
-    <form className={`command ${tone}`} onSubmit={submit} aria-label="Start a campaign">
-      <div className="command-bar">
+    <form className="command" onSubmit={submit} aria-label="Start a campaign">
+      <div className="command-bar glass">
         <input aria-label="Your App Store link" className="command-input" placeholder="Paste your App Store link"
-               value={app} onChange={(e) => setApp(e.target.value)} required autoComplete="off" spellCheck={false} />
-        <button className="btn command-go" disabled={busy || !app}>
-          {busy ? "Starting…" : "Hand it to the agency"}
-          <span aria-hidden className="arrow-go">→</span>
+               value={app} onChange={(e) => setApp(e.target.value)} autoComplete="off" spellCheck={false} />
+        <button className="btn command-go" disabled={busy}>
+          {busy ? "Starting…" : <>Start<span className="go-long">&nbsp;the campaign</span></>}
         </button>
       </div>
       <div className="command-options">

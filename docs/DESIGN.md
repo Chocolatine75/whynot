@@ -1,56 +1,49 @@
 # Design
 
-whynot looks like it belongs between Apple and Meta: Apple's calm (white space, large type, soft depth, rounded geometry) with Meta's product language (Meta blue for action, pill buttons, feed-native cards). One system for the web app and for the ads we generate.
+whynot looks like a premium Apple app: macOS / iOS design language with **Liquid Glass used with restraint**. Content sits on solid, quiet surfaces; glass is reserved for what floats above content. Neutral palette, one accent, almost no motion. Tokens live in `web/app/globals.css`.
 
 ## Principles
 
-1. **Content first.** The app's real screen, the ad, the number: the interface frames them and gets out of the way.
-2. **One accent.** Meta blue for every primary action and live state. Everything else is neutral.
-3. **Soft depth, no borders.** Separate surfaces with background tone and a soft shadow, not lines.
-4. **Large, calm type.** Few sizes, generous line height, sentence case. No ALL CAPS, no exclamation marks.
-5. **Honest by design.** Anything simulated carries a "Simulated" tag; nothing looks live unless it is.
+1. **Content first.** The ad, the quote, the number. The interface frames them and steps back.
+2. **Glass only where something floats.** Toolbar, command bar, segmented tabs, inspectors over content. Never on every card: glass over a flat background means nothing.
+3. **One accent.** System blue for actions and the current state. Semantic tints (green, orange, red, indigo for "Simulated") are quiet fills, never large areas.
+4. **Depth from light, not lines.** Hairline separators (0.5 px), soft layered shadows, a specular top edge on glass.
+5. **Calm type.** SF Pro (system stack), semibold display, negative tracking on large sizes, balanced headings.
+6. **Restrained motion.** Press feedback and colour transitions only. No entrance animations, no pulsing, no parallax.
+7. **Honest.** Simulated numbers are tagged; illustrations are labelled; nothing looks live unless it is.
 
-## Tokens (web app)
+Avoid: neon or multi-colour gradients, dark "hero" sections with glows, big stat cards, uppercase eyebrows on every section, generic SaaS feature grids.
 
-| Token | Value | Use |
-|---|---|---|
-| `--accent` | `#0064E0` (Meta blue) | primary buttons, links, live state |
-| `--accent-hover` | `#0866FF` | hover / focus ring |
-| `--bg` | `#FFFFFF` | page |
-| `--surface` | `#F5F5F7` (Apple grey) | cards, panels |
-| `--text` | `#1D1D1F` | body and headings |
-| `--text-2` | `#6E6E73` | secondary text, labels |
-| `--positive` | `#1E8E3E` | gains, passed checks |
-| `--warning` | `#B26A00` | bias flags, needs approval |
-| `--negative` | `#D93025` | refused, failed checks |
-| `--simulated` | `#5E5CE6` on `#EFEFFD` | "Simulated" tag |
-| radius | 12 (inputs) · 20 (cards) · 999 (pills) | |
-| shadow | `0 8px 30px rgba(0,0,0,.08)` | raised cards only |
-| spacing | 4-pt grid: 8 · 12 · 16 · 24 · 32 · 48 · 64 | |
+## Tokens
 
-Dark mode: `--bg #000`, `--surface #1C1C1E`, `--text #F5F5F7`, `--text-2 #98989D`, accent unchanged.
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--canvas` | `#F5F5F7` | `#000000` | page background |
+| `--surface` / `--surface-2` | `#FFFFFF` / `#F2F2F4` | `#1C1C1E` / `#2C2C2E` | content cards, sidebars |
+| `--fill` / `--fill-2` | grey 12 % / 8 % | grey 24 % / 16 % | inputs, secondary buttons, rows on hover |
+| `--text` / `--text-2` / `--text-3` | `#1D1D1F` / `#6E6E73` / `#86868B` | `#F5F5F7` / `#A1A1A6` / `#8E8E93` | |
+| `--separator` | 12 % | 60 % | hairlines (0.5 px) |
+| `--accent` | `#0071E3` | `#0A84FF` | actions, focus |
+| semantic | positive, warning, negative, sim (indigo) | | tints at 10–16 % |
+| radius | 10 · 14 · 22 · 999 (pills) | | |
+| shadow | `--shadow-1` hairline lift · `--shadow-2` floating · `--shadow-3` window | | |
 
-**Type:** system stack `-apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif`. Sizes 13 · 15 · 17 (body) · 22 · 28 · 40 · 56 (hero). Weights 400 / 600 / 700. Numbers tabular (`font-variant-numeric: tabular-nums`) in tables and counters.
+**Glass material (`.glass`):** `rgba(255,255,255,.62)` (dark: `rgba(40,40,44,.58)`), `backdrop-filter: blur(24px) saturate(180%)`, a 1 px luminous border, a specular inner top edge (`inset 0 1px 0 rgba(255,255,255,.9)`), a 0.5 px outer edge and `--shadow-2`. Falls back to a solid surface with `prefers-reduced-transparency`, gets a visible border with `prefers-contrast: more`.
 
-**Components:** pill buttons (primary = accent fill, white text; secondary = surface fill); cards on `--surface` with radius 20; ads always shown in a phone-width feed frame (≤ 420 px) like Instagram, with "Sponsored" under the brand name; a cost counter in tabular numbers; the agent log as a calm vertical timeline.
+**Type:** body 17/1.47, tracking −0.022 em; display semibold 600, 64 → 28 px with −0.035 → −0.025 em; labels 13 px medium; numbers tabular.
 
 ## Motion
 
-From the design-engineering skills we use (`emil-design-eng`, `apple-design`, `animate` from emilkowalski/skill, MIT; listed in `skills-lock.json`, restore with `npx skills experimental_install`):
+From the design-engineering skills (`emil-design-eng`, `apple-design`, `animate` from emilkowalski/skill, MIT; pinned in `skills-lock.json`, restore with `npx skills experimental_install`):
 
-- Only `transform` and `opacity` animate; custom curves `--ease-out: cubic-bezier(0.23, 1, 0.32, 1)`, `--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)`.
-- Buttons answer the press: `scale(0.97)` on `:active`, 160 ms. Hover effects only for `(hover: hover) and (pointer: fine)`.
-- UI motion under 300 ms; the landing's one-time stagger is 70 ms per item.
-- `prefers-reduced-motion`: stagger, pulses and press scaling off.
-- Headings `text-wrap: balance` (no orphan words), body `text-wrap: pretty`.
+- Buttons: `scale(0.97)` on press, 150 ms, `cubic-bezier(0.23, 1, 0.32, 1)`; colour transitions 150 ms. Nothing else moves.
+- `prefers-reduced-motion`: press scaling and transitions off.
 
 ## Landing page
 
-Inspired by minitap.ai (dark navy hero with a faint grid and glow, gradient words, a results card overlapping the hero) and Meta's Muse page (uppercase blue eyebrows, large left-aligned feature headlines, product UI on soft grey panels, a pill input bar, a "secure and in control" section). Rules:
-
-- The hero input is a pill command bar: paste the App Store link → "Hand it to the agency".
-- Product pictures are drawn in HTML with no real brand, and tagged **Illustration**. Partner data never appears on the landing page.
-- The results card shows measured numbers only.
+- A centred, calm headline and one sentence; the glass command bar (paste the App Store link → Start the campaign).
+- The product itself as a static macOS window: sidebar of agency steps, an ad in a feed, a glass inspector floating over the ad with the simulated result. Brand-free and captioned **Illustration**; partner data never appears there.
+- "How it works" as one inset list (like System Settings), three short commitments, then the campaigns.
 
 ## Ads (composer)
 

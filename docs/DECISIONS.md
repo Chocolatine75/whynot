@@ -69,6 +69,7 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-29 — Platform security: run ids and file paths are resolved inside the runs folder, lexically and by real path (a symlink inside a run could otherwise expose any file — found by a test); only images and the report are served; inputs validated before spawning the engine. The "Approve launch" button stays disabled until Meta publishing exists.
 - 2026-10-29 — Landing page redesigned after minitap.ai and Meta Muse (dark hero, command bar, feature sections, "you stay in control"). Illustrations tagged and brand-free; results card shows measured numbers only ($1–3 per campaign measured on 3 apps; 100 % of quotes verified).
 - 2026-10-29 — Design-engineering agent skills from emilkowalski/skill (MIT) used for motion and Apple-style rules; not vendored (gitignored), pinned in `skills-lock.json`.
+- 2026-10-29 — Interface redesigned to a premium Apple language with restrained Liquid Glass (owner's brief: the previous landing felt like generic AI SaaS and too close to minitap.ai, with too much motion). Neutral palette, system blue as the only accent, glass only on floating elements, no gradients or entrance animations, product shown as a static macOS window. Replaces the "between Apple and Meta" and minitap/Muse-inspired landing.
 
 ## Data & asset rights
 
