@@ -70,6 +70,8 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-29 — Landing page redesigned after minitap.ai and Meta Muse (dark hero, command bar, feature sections, "you stay in control"). Illustrations tagged and brand-free; results card shows measured numbers only ($1–3 per campaign measured on 3 apps; 100 % of quotes verified).
 - 2026-10-29 — Design-engineering agent skills from emilkowalski/skill (MIT) used for motion and Apple-style rules; not vendored (gitignored), pinned in `skills-lock.json`.
 - 2026-10-29 — Interface redesigned to a premium Apple language with restrained Liquid Glass (owner's brief: the previous landing felt like generic AI SaaS and too close to minitap.ai, with too much motion). Neutral palette, system blue as the only accent, glass only on floating elements, no gradients or entrance animations, product shown as a static macOS window. Replaces the "between Apple and Meta" and minitap/Muse-inspired landing.
+- 2026-10-29 — Publishing (`whynot publish`, Approve panel): sandbox by default, live only with `--live`; every ad set passes the autopilot (live = the owner's policy exactly; sandbox = the plan's cap, approval still required); all objects created PAUSED, activation a separate step; resumable via `publish.json` (no duplicates after a failure); separate tokens and accounts for sandbox and live. `traffic` objective added because app-install campaigns need the app registered with Meta.
+- 2026-10-29 — Security: the approver's name is passed as `--approve=NAME` and must start with a letter — a name like `--live` would otherwise be read as an option and could switch a sandbox publish to live (found by a test).
 
 ## Data & asset rights
 

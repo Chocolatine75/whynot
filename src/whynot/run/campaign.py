@@ -160,31 +160,50 @@ def validate(plan: CampaignPlan) -> list[str]:
     return errors
 
 
-def to_api(plan: CampaignPlan, *, api_version: str = "v26.0") -> dict[str, Any]:
-    """Marketing API request bodies, in creation order, everything PAUSED. Placeholders in braces."""
-    campaign = {"name": plan.name, "objective": "OUTCOME_APP_PROMOTION", "status": "PAUSED",
-                "buying_type": "AUCTION", "special_ad_categories": []}
+OBJECTIVES = ("app_promotion", "traffic")
+APP_ONLY_CTAS = {"INSTALL_MOBILE_APP", "USE_APP"}  # need an app-promotion campaign
+
+
+def to_api(plan: CampaignPlan, *, api_version: str = "v26.0", objective: str = "app_promotion") -> dict[str, Any]:
+    """Marketing API request bodies, in creation order, everything PAUSED. Placeholders in braces.
+
+    `app_promotion` (installs) needs the app registered with Meta ({META_APP_ID}); `traffic` sends clicks to the
+    App Store link and needs no app id — it is what a sandbox ad account can test end to end."""
+    if objective not in OBJECTIVES:
+        raise ValueError(f"objective must be one of {OBJECTIVES}")
+    app = objective == "app_promotion"
+    campaign: dict[str, Any] = {"name": plan.name, "objective": "OUTCOME_APP_PROMOTION" if app else "OUTCOME_TRAFFIC",
+                "status": "PAUSED", "buying_type": "AUCTION", "special_ad_categories": [],
+                "is_adset_budget_sharing_enabled": False}
     ad_sets, creatives, ads = [], [], []
     for i, s in enumerate(plan.ad_sets):
         targeting: dict[str, Any] = {"geo_locations": {"countries": list(s.audience.countries)},
                                      "age_min": s.audience.age_min, "age_max": s.audience.age_max,
-                                     "user_os": ["iOS"], "publisher_platforms": ["facebook", "instagram"]}
+                                     "user_os": ["iOS"], "publisher_platforms": ["facebook", "instagram"],
+                                     # v26: constrained targeting must state Advantage+ audience explicitly;
+                                     # 0 keeps delivery to the persona we planned and tested
+                                     "targeting_automation": {"advantage_audience": 0}}
         if GENDER_CODES[s.audience.gender]:
             targeting["genders"] = GENDER_CODES[s.audience.gender]
-        ad_sets.append({"ref": f"adset_{i}", "name": s.name, "campaign_id": "{campaign}", "status": "PAUSED",
-                        "daily_budget": round(s.daily_budget_eur * 100), "billing_event": "IMPRESSIONS",
-                        "optimization_goal": "APP_INSTALLS", "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
-                        "promoted_object": {"application_id": "{META_APP_ID}", "object_store_url": plan.store_url},
-                        "targeting": targeting})
+        ad_set: dict[str, Any] = {"ref": f"adset_{i}", "name": s.name, "campaign_id": "{campaign}", "status": "PAUSED",
+                                  "daily_budget": round(s.daily_budget_eur * 100), "billing_event": "IMPRESSIONS",
+                                  "bid_strategy": "LOWEST_COST_WITHOUT_CAP", "targeting": targeting}
+        if app:
+            ad_set |= {"optimization_goal": "APP_INSTALLS",
+                       "promoted_object": {"application_id": "{META_APP_ID}", "object_store_url": plan.store_url}}
+        else:
+            ad_set |= {"optimization_goal": "LINK_CLICKS", "destination_type": "WEBSITE"}
+        ad_sets.append(ad_set)
         for ad in s.ads:
             creatives.append({"ref": f"creative_{ad.variant_id}", "name": ad.variant_id,
                               "object_story_spec": {"page_id": "{PAGE_ID}", "link_data": {
                                   "image_hash": f"{{image:{ad.image_path}}}", "link": plan.store_url,
                                   "message": ad.body, "name": ad.title,
-                                  "call_to_action": {"type": ad.cta, "value": {"link": plan.store_url}}}}})
+                                  "call_to_action": {"type": ad.cta if app or ad.cta not in APP_ONLY_CTAS
+                                                     else "LEARN_MORE", "value": {"link": plan.store_url}}}}})
             ads.append({"ref": f"ad_{ad.variant_id}", "name": ad.variant_id, "adset_id": f"{{adset_{i}}}",
                         "creative": {"creative_id": f"{{creative_{ad.variant_id}}}"}, "status": "PAUSED"})
-    return {"api_version": api_version, "account": "act_{AD_ACCOUNT_ID}", "campaign": campaign,
+    return {"api_version": api_version, "objective": objective, "account": "act_{AD_ACCOUNT_ID}", "campaign": campaign,
             "ad_sets": ad_sets, "creatives": creatives, "ads": ads,
             "currency_note": "daily_budget is in the ad account's minor units (cents for EUR)"}
 

@@ -142,6 +142,10 @@ export interface PlanAd { variant_id: string; template_id: string; image_path: s
 export interface Plan { name: string; daily_cap_eur: number; daily_total_eur: number; ad_sets: { name: string; daily_budget_eur: number; audience: { persona: string; name: string; countries: string[]; age_min: number; age_max: number; gender: string }; ads: PlanAd[] }[]; notes: string[]; errors: string[] }
 export interface Market { terms: string[]; category: string; advertisers_found: number; competitors: { page_id: string; why: string }[]; rejected: { page_id: string }[]; ads: number; research_countries: string[]; advertisers?: { page_id: string; page_name: string; ads: number }[] }
 export interface Launch { ad_set: string; outcome: string; why: string }
+export interface Published {
+  mode: "sandbox" | "live"; account: string; objective: string; status: string; approved_by: string | null;
+  objects: Record<string, string>; decisions: Launch[]; campaign_url: string | null;
+}
 
 export interface RunView {
   id: string;
@@ -159,6 +163,15 @@ export interface RunView {
   evolution: Evolution | null;
   plan: Plan | null;
   launch: Launch[];
+  published: Published | null;
+  publishLog: string[];
+}
+
+/** The last lines the publish command printed (its own messages; tokens are redacted by the engine). */
+function tail(dir: string, name: string, n = 6): string[] {
+  const p = path.join(dir, name);
+  if (!fs.existsSync(p)) return [];
+  return fs.readFileSync(p, "utf8").trim().split("\n").slice(-n);
 }
 
 export function readRun(id: string, root: string = runsRoot(), now = Date.now()): RunView {
@@ -182,6 +195,8 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
     evolution: readJson(dir, "evolution.json"),
     plan: readJson(dir, "plan.json"),
     launch: readJson<Launch[]>(dir, "launch.json") ?? [],
+    published: readJson(dir, "publish.json"),
+    publishLog: tail(dir, "publish.log"),
   };
 }
 

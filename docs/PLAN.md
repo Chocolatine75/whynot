@@ -42,7 +42,8 @@ research → templates → composer (static + 6 s video) → guards → simulate
 - [x] (B) Autopilot rules v0: autonomy levels, daily cap, first-live approval, guard gate, loser/fatigue review, action log (`autopilot.py`, no Meta calls)
 - [x] (A+B) `whynot create`: App Store ingest, Scout, Strategist (verified quotes), Creative director (verified copy), brand palette, policy guard v0, campaign plan (Marketing API shape), report; end-to-end, adversarial, contract and live tests
 - [ ] (B) `whynot daily`: real metrics → pause/scale/rotate → new variants → simulate → publish within caps → daily report
-- [ ] (B) Autopilot publishing via Ads MCP / Marketing API (sandbox first)
+- [x] (B) Publishing via the Marketing API: `whynot publish` + Approve panel, sandbox first, autopilot-gated, resumable (tested on a fake Graph API)
+- [ ] (B) First real sandbox publish (needs sandbox account + token + page id)
 - [ ] (both) **Pilot:** publish the predicted ranking (timestamped), then launch the first live ads on the partner's account with his explicit approval
 - [ ] (both) Launch the blind human test (R2, R6) — collection runs until Nov 3
 - [ ] (A) Fireworks workshop (Oct 30): distillation / fine-tuning path

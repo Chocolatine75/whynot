@@ -92,6 +92,7 @@ def test_api_payload_shape():
     s = api["ad_sets"][1]
     assert s["daily_budget"] == 1000 and s["optimization_goal"] == "APP_INSTALLS"
     assert s["targeting"]["genders"] == [2] and s["targeting"]["user_os"] == ["iOS"]
+    assert s["targeting"]["targeting_automation"] == {"advantage_audience": 0}  # required explicitly since v26
     assert "genders" not in api["ad_sets"][0]["targeting"]
     assert s["promoted_object"]["object_store_url"] == STORE
     link = api["creatives"][0]["object_story_spec"]["link_data"]

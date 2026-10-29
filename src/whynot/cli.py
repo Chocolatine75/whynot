@@ -35,6 +35,54 @@ def _create(args: argparse.Namespace) -> int:
     return 0 if not result.plan_errors else 2
 
 
+def _publish(args: argparse.Namespace) -> int:
+    import json
+
+    from whynot.agency.create import plan_from_json
+    from whynot.run.meta import Account, MarketingClient, MetaError
+    from whynot.run.publish import PublishError, PublishState, activate_published, publish
+
+    s = load_settings()
+    run_dir = Path(args.run)
+    if not (run_dir / "plan.json").exists():
+        print(f"✗ no plan.json in {run_dir}: run `whynot create` first", file=sys.stderr)
+        return 1
+    live = args.live
+    account = Account(
+        account_id=(s.meta_ad_account_id if live else s.meta_sandbox_ad_account_id) or "",
+        token=(s.meta_token if live else s.meta_sandbox_token) or "",
+        page_id=s.meta_page_id, app_id=s.meta_app_id, sandbox=not live)
+    try:
+        client = MarketingClient(account, version=s.fb_api_version)
+        if args.activate_only:
+            state = PublishState.load(run_dir / "publish.json")
+            if state is None:
+                print("✗ nothing published yet", file=sys.stderr)
+                return 1
+            if not args.approve:
+                print("✗ activation needs --approve <your name>", file=sys.stderr)
+                return 1
+            state = activate_published(state, client, run_dir)
+        else:
+            plan = plan_from_json(json.loads((run_dir / "plan.json").read_text()))
+            owner = Policy.from_env(s.autonomy_level, s.max_daily_ad_spend_eur)
+            state = publish(plan, run_dir, client, owner, objective=args.objective, approved_by=args.approve,
+                            activate=args.activate)
+    except (MetaError, PublishError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    mode = "SANDBOX" if not live else "LIVE"
+    for d in state.decisions:
+        print(f"  {d['outcome']:>15}  {d['ad_set']}  ({d['why']})")
+    n = {k: sum(1 for r in state.objects if r.startswith(k)) for k in ("adset_", "creative_", "ad_")}
+    print(f"\n{'✓' if state.status in ('published', 'active') else '•'} {mode} {account.act}: {state.status} · "
+          f"campaign {state.objects.get('campaign', '—')} · {n['adset_']} ad sets · {n['ad_']} ads"
+          + ("" if state.status == "active" else " · all PAUSED"))
+    if state.campaign_url:
+        print(f"  Ads Manager: {state.campaign_url}")
+    return 0 if state.status in ("published", "active") else 2
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -56,6 +104,16 @@ def main(argv: list[str] | None = None) -> int:
                                            "report"],
                    help="with --resume: recompute this stage and the following ones, reuse the earlier ones")
     c.set_defaults(func=_create)
+
+    pub = sub.add_parser("publish", help="publish a run's campaign plan to Meta (sandbox unless --live), all PAUSED")
+    pub.add_argument("run", help="the run folder (outputs/runs/...)")
+    pub.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
+    pub.add_argument("--objective", choices=["traffic", "app_promotion"], default="traffic",
+                     help="app_promotion needs META_APP_ID (the app registered with Meta)")
+    pub.add_argument("--approve", metavar="NAME", help="the owner's approval, recorded with every action")
+    pub.add_argument("--activate", action="store_true", help="switch everything to ACTIVE after publishing")
+    pub.add_argument("--activate-only", action="store_true", help="activate what an earlier run published")
+    pub.set_defaults(func=_publish)
     args = p.parse_args(argv)
     return int(args.func(args))
 

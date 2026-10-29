@@ -50,6 +50,8 @@ src/whynot/
   run/
     autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
     campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
+    meta.py            Marketing API client (the only code that writes to an ad account)
+    publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test
     longevity.py       R3: simulator vs Ad Library longevity

@@ -22,6 +22,13 @@ class Settings:
     viewer_backend: str = "meta"  # "meta" (Muse Spark on the Meta API) or "baseten" (Muse Spark Open)
     viewer_model: str = "muse-spark-1.3"  # used when viewer_backend == "meta"
     autonomy_level: str = "dry_run"  # dry_run | propose | autopilot (see autopilot.py)
+    # Marketing API (publishing). Sandbox and live are separate accounts and tokens on purpose.
+    meta_token: str | None = None
+    meta_ad_account_id: str | None = None
+    meta_sandbox_token: str | None = None
+    meta_sandbox_ad_account_id: str | None = None
+    meta_page_id: str | None = None
+    meta_app_id: str | None = None
     max_daily_ad_spend_eur: float = 0.0  # hard cap; 0 = no live spend
 
 
@@ -54,5 +61,11 @@ def load_settings() -> Settings:
         viewer_backend=os.getenv("VIEWER_BACKEND", "meta"),
         viewer_model=os.getenv("VIEWER_MODEL", "muse-spark-1.3"),
         autonomy_level=_clean(os.getenv("AUTONOMY_LEVEL")) or "dry_run",
+        meta_token=_clean(os.getenv("META_ACCESS_TOKEN")) or None,
+        meta_ad_account_id=_clean(os.getenv("META_AD_ACCOUNT_ID")) or None,
+        meta_sandbox_token=_clean(os.getenv("META_SANDBOX_TOKEN")) or None,
+        meta_sandbox_ad_account_id=_clean(os.getenv("META_SANDBOX_AD_ACCOUNT_ID")) or None,
+        meta_page_id=_clean(os.getenv("META_PAGE_ID")) or None,
+        meta_app_id=_clean(os.getenv("META_APP_ID")) or None,
         max_daily_ad_spend_eur=_float("MAX_DAILY_AD_SPEND_EUR", 0.0),
     )

@@ -104,6 +104,19 @@ Used by the agency's media buyer to publish, monitor and rotate ads, and by `ing
 - Create campaigns, ad sets, custom audiences, ads. Needs `ads_management`, `ads_read`, a business setup, and possibly App Review for non-dev users. Use a **sandbox ad account** to test without spending. Partner accounts: read-only first; write access only with the owner's written consent, a hard cap and approval before the first live launch.
 - v26.0 changes that affect us: new or copied ad sets with constrained targeting must set `advantage_audience` explicitly (1 or 0); Instagram Explore Feed placement removed; poll ads blocked. Several restrictions apply to all versions from 2026-10-27.
 
+### Publishing (`whynot publish`, `run/meta.py`, `run/publish.py`)
+
+What we send, in order (all PAUSED): `POST act_<id>/adimages` (base64 bytes → hash), `act_<id>/campaigns` (`objective` OUTCOME_TRAFFIC or OUTCOME_APP_PROMOTION, `special_ad_categories=[]`, `is_adset_budget_sharing_enabled=false`), `act_<id>/adsets` (daily budget in minor units, targeting with `targeting_automation.advantage_audience=0`, LINK_CLICKS or APP_INSTALLS + `promoted_object`), `act_<id>/adcreatives` (`object_story_spec.link_data` with the image hash, App Store link, primary text, headline, CTA), `act_<id>/ads`. Activation: `POST <id> status=ACTIVE`, ads → ad sets → campaign. *Field names checked against the docs, not yet against a real sandbox response.*
+
+**Set up the sandbox (once, ~10 min):**
+1. developers.facebook.com → your app (the one used for the Ad Library) → Add product → **Marketing API**.
+2. Marketing API → **Tools** → *Sandbox Ad Account* → create one. Copy its id (digits) to `META_SANDBOX_AD_ACCOUNT_ID`.
+3. Same page (or Graph API Explorer): generate a token with **`ads_management`** and `ads_read` for that sandbox account → `META_SANDBOX_TOKEN`.
+4. `META_PAGE_ID`: a Facebook Page you manage (creatives are published as a Page).
+5. Test: `uv run whynot publish outputs/runs/<run> --approve "<your name>"` → prints the decisions, the ids created and the Ads Manager link. Or the **Approve and publish** panel in the platform.
+
+A sandbox account creates real objects that never deliver and never spend. App-install campaigns additionally need the app registered with Meta (`META_APP_ID`); use `--objective traffic` until then.
+
 ## Sources
 
 - Meta Model API docs: https://dev.meta.ai/docs/ — pricing & rate limits: https://dev.meta.ai/docs/pricing-rate-limits

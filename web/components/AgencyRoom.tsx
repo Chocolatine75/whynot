@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { PlanAd, RunView, Score, Variant } from "@/lib/runs";
+import PublishPanel from "@/components/PublishPanel";
 import { STATUS_TAG, ago, eur, fileUrl, joinPhrases, signed, usd } from "@/lib/format";
 
 const CTA_LABEL: Record<string, string> = {
@@ -10,13 +11,15 @@ const CTA_LABEL: Record<string, string> = {
 
 export default function AgencyRoom({ initial }: { initial: RunView }) {
   const [run, setRun] = useState(initial);
+  const refresh = async () => {
+    const res = await fetch(`/api/run?id=${encodeURIComponent(run.id)}`, { cache: "no-store" });
+    if (res.ok) setRun(await res.json());
+  };
   useEffect(() => {
     if (run.status !== "running") return;
-    const t = setInterval(async () => {
-      const res = await fetch(`/api/run?id=${encodeURIComponent(run.id)}`, { cache: "no-store" });
-      if (res.ok) setRun(await res.json());
-    }, 2500);
+    const t = setInterval(refresh, 2500);
     return () => clearInterval(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [run.id, run.status]);
 
   const [kind, label] = STATUS_TAG[run.status];
@@ -50,7 +53,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
       {run.strategy && <StrategySection run={run} />}
       {run.plan && <AdsSection run={run} brand={brand} variants={variants} scores={scores} />}
       {run.evolution?.groups?.length ? <EvolutionSection run={run} variants={variants} /> : null}
-      {run.plan && <CampaignSection run={run} />}
+      {run.plan && <CampaignSection run={run} onRefresh={refresh} />}
       {run.market && <ResearchSection run={run} />}
     </main>
   );
@@ -253,10 +256,9 @@ function EvolutionSection({ run, variants }: { run: RunView; variants: Map<strin
   );
 }
 
-function CampaignSection({ run }: { run: RunView }) {
+function CampaignSection({ run, onRefresh }: { run: RunView; onRefresh: () => Promise<void> }) {
   const plan = run.plan!;
   const decisions = new Map(run.launch.map((l) => [l.ad_set, l]));
-  const live = run.config?.policy?.level && run.config.policy.level !== "dry_run";
   return (
     <section id="campaign" className="section">
       <h2>The campaign</h2>
@@ -289,13 +291,7 @@ function CampaignSection({ run }: { run: RunView }) {
           <ul style={{ margin: "8px 0 0", paddingLeft: 20 }}>{plan.notes.map((n) => <li key={n} className="small">{n}</li>)}</ul>
         </div>
       )}
-      <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
-        <p className="small muted" style={{ maxWidth: 560 }}>
-          {live ? "Approving publishes the ad sets on your Meta account within your cap."
-                : "Dry-run mode: approving simulates the launch. Connect your Meta ad account and set a live cap to go live."}
-        </p>
-        <button className="btn large" disabled title="Publishing to Meta is not connected yet">Approve launch</button>
-      </div>
+      {run.status === "done" && <PublishPanel run={run} onRefresh={onRefresh} />}
     </section>
   );
 }
