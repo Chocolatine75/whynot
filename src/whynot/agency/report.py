@@ -59,11 +59,27 @@ def build_report(run: Path) -> str:
             f"objections, **{len(strategy.get('angles', []))}** ad angles, all backed by quotes.",
             f"- Produced **{len(variants)}** ad variants; **{len(passed)}** passed every check "
             "(real app pixels, legibility, brand colours, Meta policy rules).",
-            "- " + ("Each variant was tested in simulated feeds next to real competitor ads (SIMULATED)."
+            "- " + ("Each variant was tested head-to-head in simulated feeds next to real competitor ads, "
+                    "against a placebo (a real competitor ad shown under our name) (SIMULATED)."
                     if sim.get("simulated") else f"Not simulated: {sim.get('reason', 'n/a')}."),
             f"- Proposed campaign: **{n_sets}** ad set(s), **{n_ads}** ads, "
             f"**€{plan.get('daily_total_eur', 0)}/day** (your cap: €{plan.get('daily_cap_eur', 0)}/day).",
             f"- Cost of this run (models): **${spent_usd(run):.2f}**.", ""]
+
+    groups = sim.get("groups", [])
+    if groups:
+        out += ["## How reliable is the simulation?", "",
+                "Each audience's feeds include placebos: real competitor ads shown under our name and layout. "
+                "If placebos win as often as our ads, the setup, not the ad, is doing the work.", "",
+                "| Audience | Placebo preference | Placebo intent | Placebo views | Verdict |", "|---|---|---|---|---|"]
+        for g in groups:
+            if "error" in g:
+                out.append(f"| {g['persona']} ({g['language']}) | — | — | — | not judged: {_cell(g['error'])} |")
+                continue
+            verdict = "⚠ biased: rank within audience only" if g["biased"] else "usable for ranking"
+            out.append(f"| {g['persona']} ({g['language']}) | {g['placebo_lift']:.2f}× | "
+                       f"{g['placebo_intent']:.1f}/5 | {g.get('placebo_views', '?')} | {verdict} |")
+        out.append("")
 
     if plan.get("errors"):
         out += ["## ⚠ The plan has problems", ""] + [f"- {e}" for e in plan["errors"]] + [""]
@@ -108,8 +124,12 @@ def build_report(run: Path) -> str:
             sc = scores.get(ad["variant_id"])
             sim_line = "Not simulated"
             if sc:
-                sim_line = (f"Simulated preference vs competitors: **{sc['preference_lift']:.2f}×** chance, "
-                            f"intent {sc['mean_intent']:.1f}/5, {sc['views']} simulated views (SIMULATED)")
+                sim_line = (f"Preference **{sc['lift']:.2f}×** chance, **{sc['lift_over_placebo']:+.2f}** vs a real "
+                            "competitor ad shown under our name; "
+                            f"intent {sc['intent']:.1f}/5 ({sc['intent_vs_placebo']:+.1f} vs placebo); "
+                            f"{sc['views']} simulated views (SIMULATED)")
+                if sc.get("biased_group"):
+                    sim_line += " ⚠ placebo also won here: ranking within this audience only"
             why = f" · Top objection: “{sc['top_why_not'][0]}”" if sc and sc.get("top_why_not") else ""
             out += [f"![{ad['variant_id']}]({ad['image_path']})", "",
                     f"- **Primary text:** {t.get('body', '')}", f"- **Headline:** {t.get('title', '')} · "

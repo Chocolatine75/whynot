@@ -59,6 +59,9 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-29 — Ad set names are neutral ("Profile 1 · US · 18-34"): persona labels can contain sensitive words ("ADHD", seen on Finch) and names live in the ad account.
 - 2026-10-29 — Strategist gets 3 repairs (2 of 3 real runs needed all 3 attempts); every refused attempt's errors are saved in the run (`strategy.raw.json`, `creative.json`).
 - 2026-10-29 — `--redo-from <stage>` recomputes a stage and the later ones, reusing earlier results (no re-billing).
+- 2026-10-29 — Simulator bias diagnosed with placebos (`scripts/sim_bias_check.py`, VietBuddy): the same competitor ads scored 0.50× under their own page name and 3.50× under "VietBuddy: Learn Vietnamese". The advertiser name drove preference; removing objections from viewer traits changed nothing; purchase intent still separated our ads from placebos.
+- 2026-10-29 — Fair feeds (`sim/arena.py`): ads shown under the page-style brand name; every feed has two candidate slots (our variants or placebos = real competitor ads dressed as ours) plus competitors, so name bias cancels head-to-head; ranking metric = lift minus placebo lift (a ratio blew up when placebos never won). An audience is flagged biased when placebo lift > 1.5× (midpoint between fair 1.0 and fully name-driven feed_size/2). Defaults 3 placebos × 3 appearances: on a scripted test world, 27/30 biased audiences caught, 1/30 false alarm (2 appearances: 23/30, 2/30).
+- 2026-10-29 — Viewers get who they are and what they want, never the objections the ads answer (objections are measured, not injected).
 
 ## Data & asset rights
 

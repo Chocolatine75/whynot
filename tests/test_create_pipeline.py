@@ -305,3 +305,41 @@ def test_cli_reports_a_failed_stage_and_how_to_resume(tmp_path, monkeypatch, cap
                  "--out", str(tmp_path / "runs")])
     err = capsys.readouterr().err
     assert code == 1 and "stage 'market' failed" in err and "--resume" in err
+
+
+# --- simulator bias (found on real runs: the advertiser name alone won the feed) -----------
+
+def test_fair_viewers_rank_by_content_and_placebos_stay_low(done):
+    _, _, _, run = done
+    sim = json.loads((run / "simulation.json").read_text())
+    assert sim["brand"] == "LinguaApp"  # page-style name, not "LinguaApp: Learn Vietnamese"
+    assert sim["groups"] and not any(g["biased"] for g in sim["groups"])
+    variants = {v["variant_id"]: v for v in json.loads((run / "variants.json").read_text())}
+    family = [s["lift_over_placebo"] for k, s in sim["scores"].items()
+              if "famil" in variants[k]["texts"]["hook"].lower()]
+    other = [s["lift_over_placebo"] for k, s in sim["scores"].items()
+             if "famil" not in variants[k]["texts"]["hook"].lower()]
+    assert family and other and min(family) > max(other)  # the ads that answer the need win, and only those
+
+
+def test_viewers_are_never_handed_the_objections(done):
+    _, meta, _, _ = done
+    systems = [r["messages"][0]["content"] for r in meta.requests if r["messages"][0]["role"] == "system"]
+    assert systems and not any("hesitates" in s or "Will it even understand me" in s for s in systems)
+
+
+def test_a_name_biased_simulator_is_flagged_in_the_plan_and_report(tmp_path):
+    from world import name_biased_viewer
+
+    def biased(model, messages):
+        if messages[0]["role"] == "system":
+            return name_biased_viewer(messages[1]["content"])
+        return default_reply(model, messages)
+
+    c, _, _ = clients(tmp_path, meta=FakeMeta(biased))
+    result = create(CreateConfig(**CFG), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert all(g["biased"] for g in sim["groups"])
+    assert any("simulator bias" in n for n in result.plan.notes)
+    report = (tmp_path / "run" / "report.md").read_text()
+    assert "⚠ biased: rank within audience only" in report and "placebo also won here" in report

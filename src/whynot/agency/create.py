@@ -18,6 +18,7 @@ by the autopilot under the owner's autonomy level, cap and approval.
 """
 
 import json
+import random
 import re
 import time
 from collections.abc import Callable
@@ -52,9 +53,10 @@ from whynot.run.campaign import (
     to_api,
     validate,
 )
-from whynot.sim.feed import FeedItem, build_candidate_feeds
+from whynot.sim.arena import brand_name, judge, our_item, paired_feeds, placebo_item
+from whynot.sim.feed import FeedItem
 from whynot.sim.personas import Persona as SimPersona
-from whynot.sim.scores import AdScore, score_ads
+from whynot.sim.scores import score_ads
 from whynot.sim.viewer import Viewer, run_simulation
 
 STAGES = ("app", "market", "strategy", "creative", "produce", "simulate", "plan", "report")
@@ -72,7 +74,8 @@ class CreateConfig:
     competitor_pages: list[str] = field(default_factory=list)  # owner-named Facebook page ids
     max_angles: int = 6
     variants_per_template: int = 4
-    feeds_per_variant: int = 2
+    feeds_per_variant: int = 3  # feeds each candidate (variant or placebo) appears in
+    placebos: int = 3  # real competitor ads dressed as ours, per persona group (bias control; 12 views by default)
     feed_size: int = 4
     viewers_per_feed: int = 2
     viewer_reasoning: str | None = "low"
@@ -290,47 +293,67 @@ def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> Non
     run.write_json("variants.json", rows)
 
 
-def viewer_personas(p: strategist.Persona, objections: dict[str, str], n: int) -> list[SimPersona]:
+def viewer_personas(p: strategist.Persona, n: int) -> list[SimPersona]:
+    """Viewers for a persona: who they are and what they want. Objections are measured, never given to them."""
     genders = [p.gender] if p.gender != "all" else ["female", "male"]
-    traits = (p.description, "wants: " + "; ".join(p.motivations),
-              "hesitates because: " + "; ".join(objections[o] for o in p.objections if o in objections))
+    traits = (p.description, "wants: " + "; ".join(p.motivations))
     return [SimPersona(f"{p.id}_{i}", p.countries[i % len(p.countries)], f"{p.age_min}-{p.age_max}",
                        genders[i % len(genders)], traits) for i in range(n)]
 
 
 def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
                    ads: list[CompetitorAd], variants: list[dict[str, Any]]) -> None:
+    """Fair feeds with placebos (sim/arena.py): our variants head-to-head next to real competitor ads."""
     ok = [v for v in variants if v.get("guards_passed")]
     competitors = [FeedItem.from_ad(a) for a in ads if (a.bodies or [""])[0].strip()]
-    if len(competitors) < cfg.feed_size - 1:
-        run.write_json("simulation.json", {"simulated": False, "reason": f"only {len(competitors)} competitor ads",
-                                           "scores": {}})
+    needed = cfg.placebos + cfg.feed_size - 2
+    if len(competitors) < needed:
+        run.write_json("simulation.json", {"simulated": False, "scores": {}, "groups": [],
+                                           "reason": f"only {len(competitors)} competitor ads (need {needed})"})
         return
-    objections = {o.id: o.text for o in strategy.objections}
+    brand = brand_name(app.name)
     viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
-    scores: dict[str, AdScore] = {}
-    failures, usd = [], 0.0
+    verdicts: dict[str, Any] = {}
+    groups_out: list[dict[str, Any]] = []
+    failures: list[dict[str, str]] = []
+    usd = 0.0
+    rng = random.Random(cfg.seed)
     groups = languages(cfg)
     for p_all, code in ((p, code) for p in strategy.personas for code in groups):
         p = replace(p_all, countries=tuple(x for x in p_all.countries if x in groups[code]))
         mine = [v for v in ok if v["persona"] == p.id and v.get("language", "en") == code]
         if not mine or not p.countries:
             continue
-        feeds = []
-        for i, v in enumerate(mine):
-            ours = FeedItem(v["variant_id"], app.name, v["texts"]["title"],
-                            f"{v['texts']['body']}\n[image text: {v['texts']['hook']}"
-                            + (f" — {v['texts']['proof']}" if v["texts"].get("proof") else "") + "]")
-            feeds += build_candidate_feeds(ours, competitors, feed_size=cfg.feed_size, n_feeds=cfg.feeds_per_variant,
-                                           seed=cfg.seed * 1000 + i)
-        personas = viewer_personas(p, objections, max(cfg.viewers_per_feed, 2))
-        sim = run_simulation(viewer, personas, feeds, viewers_per_feed=cfg.viewers_per_feed)
+        placebos = [placebo_item(a, brand) for a in rng.sample(competitors, cfg.placebos)]
+        candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in mine] + placebos
+        feeds = paired_feeds(candidates, competitors, feed_size=cfg.feed_size, appearances=cfg.feeds_per_variant,
+                             seed=cfg.seed + len(groups_out))
+        sim = run_simulation(viewer, viewer_personas(p, max(cfg.viewers_per_feed, 2)), feeds,
+                             viewers_per_feed=cfg.viewers_per_feed)
         usd += sim.usd
         failures += sim.failures
-        ours_ids = {v["variant_id"] for v in mine}
-        scores.update({k: s for k, s in score_ads(sim.reactions).items() if k in ours_ids})
-    run.write_json("simulation.json", {"simulated": True, "usd": usd, "failures": failures,
-                                       "scores": {k: asdict(s) for k, s in scores.items()}})
+        ids = {x.ad_id for x in candidates}
+        scored = {k: s for k, s in score_ads(sim.reactions).items() if k in ids}
+        try:
+            result = judge(scored, ids)
+        except ValueError as exc:  # every viewer failed: nothing to judge
+            groups_out.append({"persona": p.id, "language": code, "error": str(exc)})
+            continue
+        groups_out.append({"persona": p.id, "language": code, "placebo_lift": result.placebo_lift,
+                           "placebo_intent": result.placebo_intent, "biased": result.biased,
+                           "placebo_views": result.placebo_views,
+                           "feeds": len(feeds), "variants": len(mine)})
+        for k, verdict in result.verdicts.items():
+            verdicts[k] = {**asdict(verdict), "top_why_not": scored[k].top_why_not, "biased_group": result.biased}
+    run.write_json("simulation.json", {"simulated": True, "brand": brand, "usd": usd, "failures": failures,
+                                       "groups": groups_out, "scores": verdicts})
+
+
+def _rank_score(score: dict[str, Any] | None) -> float:
+    """Ranking signal for the plan: lift over the placebo (same name, same layout); neutral if unknown."""
+    if not score:
+        return 1.0
+    return 1.0 + float(score["lift_over_placebo"])
 
 
 def stage_plan(run: Run, cfg: CreateConfig, app: AppProfile, strategy: Strategy, variants: list[dict[str, Any]],
@@ -339,7 +362,7 @@ def stage_plan(run: Run, cfg: CreateConfig, app: AppProfile, strategy: Strategy,
     # one audience per (persona, ad language), targeting only that language's countries
     choices = [AdChoice(v["variant_id"], v["template_id"], f"{v['persona']}.{v.get('language', 'en')}", v["image"],
                         v["texts"]["hook"], v["texts"]["body"], v["texts"]["title"], v["genome"]["cta"], True,
-                        float(scores.get(v["variant_id"], {}).get("preference_lift", 1.0)))
+                        _rank_score(scores.get(v["variant_id"])))
                for v in variants if v.get("guards_passed")]
     groups = languages(cfg)
     audiences = []
@@ -356,6 +379,10 @@ def stage_plan(run: Run, cfg: CreateConfig, app: AppProfile, strategy: Strategy,
     errors = validate(plan)
     if not sim.get("simulated"):
         plan.notes.append("ads were NOT simulated (not enough competitor ads): ranking is arbitrary")
+    biased = [f"{g['persona']}.{g['language']}" for g in sim.get("groups", []) if g.get("biased")]
+    if biased:
+        plan.notes.append(f"simulator bias: placebos (competitor ads under our name) won in {biased}; "
+                          "variants are ranked against each other only, not proven better than competitors")
     run.write_json("plan.json", {**plan.to_json(), "errors": errors})
     run.write_json("meta_api_payloads.json", to_api(plan))
     run.write_json("launch.json", [{"ad_set": name, "outcome": d.outcome.value, "why": d.why}

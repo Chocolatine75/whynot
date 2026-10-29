@@ -55,7 +55,8 @@ class ScriptedChat:
         text = self._queue.pop(0) if self._queue is not None else self._reply(messages, module)
         return NS(text=text, cost=NS(usd=self.usd))
 
-    viewer_chat = chat
+    def viewer_chat(self, messages, *, module="viewers", **kwargs):
+        return self.chat(messages, module=module, **kwargs)
 
     def prompts(self, module=None):
         return [c["messages"][-1]["content"] for c in self.calls if module in (None, c["module"])]

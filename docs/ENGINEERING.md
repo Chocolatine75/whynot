@@ -108,7 +108,7 @@ A change is done when:
 - Composer v0 renders `static_1080` only; reels need ffmpeg.
 - SAM mask payloads are parsed, not decoded yet.
 - Autopilot decides and the campaign plan is in Marketing API shape; nothing calls Meta's write API yet.
-- **Simulator bias found on the first real run:** all 24 VietBuddy variants scored the maximum preference (4.0×) against competitors. Viewer personas carry the very objections the ads answer, and our items are tailored to them. Until fixed, simulated scores in `create` don't rank variants; the plan's budget split doesn't depend on them.
+- **Simulator:** the ranking *between our variants* is the reliable output (fair feeds, placebo-checked; on VietBuddy, variants now spread 0–4× while placebos score ~0). The size of the win *over competitors* is not proof of quality yet: the research market (EU/UK) includes ads for other products (other languages), so topic match inflates it. Validation against real results (R1, R4) is what will settle it.
 - The ad font comes from the machine (Arial on macOS, DejaVu on Linux/CI) unless one is put in `assets/fonts/`: pixels can differ between machines. Shipping an open-licence font fixes it.
 - Screenshots come from one App Store storefront: a French ad shows the US (English) screens. Per-language storefronts are next.
 - Viewers see ad text (ours and competitors'), not images, to keep the comparison fair until creative capture exists.

@@ -103,18 +103,44 @@ class Http:
         return httpx.Response(404)
 
 
+def _viewer_answer(labels: list[str], preferred: str) -> str:
+    return json.dumps({"reactions": [{"ad": lab, "stopped": lab == preferred, "understood": True, "believed": True,
+                                      "why_not": "" if lab == preferred else "Not for me", "intent": "maybe",
+                                      "intent_score": 4 if lab == preferred else 2} for lab in labels],
+                       "preferred": preferred})
+
+
+def _blocks(feed_text: str) -> list[tuple[str, str, str]]:
+    """(label, advertiser, block text) for each ad in a viewer prompt."""
+    parts = re.split(r"(?=\[A\d+\] Sponsored · )", feed_text)
+    out = []
+    for part in parts:
+        m = re.match(r"\[(A\d+)\] Sponsored · (.*)", part)
+        if m:
+            out.append((m.group(1), m.group(2).strip(), part))
+    return out
+
+
+def fair_viewer(feed_text: str) -> str:
+    """Judges content: prefers the first ad that talks about family, whoever the advertiser."""
+    blocks = _blocks(feed_text)
+    liked = [lab for lab, _, body in blocks if "famil" in body.lower()]  # family, famille
+    return _viewer_answer([b[0] for b in blocks], liked[0] if liked else blocks[-1][0])
+
+
+def name_biased_viewer(feed_text: str) -> str:
+    """Judges the name: prefers anything shown under the app's brand (what the real model did)."""
+    blocks = _blocks(feed_text)
+    ours = [lab for lab, adv, _ in blocks if adv == "LinguaApp"]
+    return _viewer_answer([b[0] for b in blocks], ours[0] if ours else blocks[-1][0])
+
+
 def default_reply(model: str, messages: list[dict]) -> str:
     system = messages[0]["content"] if messages[0]["role"] == "system" else ""
     user = next(m["content"] for m in messages if m["role"] == "user")  # the original prompt, also on repairs
     text = user if isinstance(user, str) else user[0]["text"]
     if "You simulate one specific person" in system:
-        labels = re.findall(r"\[(A\d+)\] Sponsored · (.*)", text)
-        ours = [lab for lab, adv in labels if adv.strip() == APP.name]
-        preferred = ours[0] if ours and "family" in text.lower() else labels[-1][0]
-        return json.dumps({"reactions": [{"ad": lab, "stopped": lab == preferred, "understood": True,
-                                          "believed": True, "why_not": "" if lab == preferred else "Not for me",
-                                          "intent": "maybe", "intent_score": 4 if lab == preferred else 2}
-                                         for lab, _ in labels], "preferred": preferred})
+        return fair_viewer(text)
     if "Keyword search is noisy" in text:
         ids = re.findall(r"page_id (\S+):", text)
         return json.dumps({"advertisers": [{"page_id": i, "competitor": i != "spam", "why": "test"} for i in ids]})
