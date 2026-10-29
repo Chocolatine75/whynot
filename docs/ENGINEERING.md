@@ -50,6 +50,7 @@ src/whynot/
     viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs, answer cache
     scores.py          per-ad scores (preference lift, intent, objections)
     tournament.py      round-robin games between our variants, Bradley-Terry ranking with CIs
+    relevance.py       hard feeds: same-language, long-running, on-topic competitor ads first
   run/
     autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
     campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
