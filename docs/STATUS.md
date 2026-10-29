@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-28
+Last updated: 2026-10-29
 
 ## Where we are
 
@@ -45,6 +45,8 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-29 — Matteo + Claude — First real publishes. Sandbox (act 2319100775624921): 10 images, campaign, 3 ad sets created; creatives refused (sandbox test user can't post as a New Pages Experience Page). Matteo's own ad account, PAUSED, €0 spent: images, campaign, 3 ad sets **and a creative** created; `ads` needs a payment method, then Meta put the new account under review (status 100). Findings in `META_APIS.md`. Next: resume `whynot publish outputs/runs/<run>-own-account --live --objective=traffic --approve=Matteo` once Meta clears the account (only `ads` left), or validate `ads` on the partner's account, PAUSED, with his consent.
 
 - 2026-10-29 — Matteo + Claude — Publishing to Meta: `run/meta.py` (Marketing API client, retries, token redaction), `run/publish.py` (autopilot-gated, PAUSED, resumable, logged), `whynot publish`, Approve panel in the platform (readiness without exposing values, sandbox default). Tested on a fake Graph API (order, approval, cap, resume without duplicates, rate limits, token errors, leaks) + mutation check. **Not yet run against a real sandbox: needs META_SANDBOX_AD_ACCOUNT_ID, META_SANDBOX_TOKEN, META_PAGE_ID (setup in META_APIS.md).**
 - 2026-10-29 — Matteo + Claude — Interface v3: premium Apple design with restrained Liquid Glass (glass only on toolbar, command bar, tabs, inspector over content), neutral palette, one accent, no motion beyond press feedback; landing = calm headline + command bar + static macOS product window + settings-style list. Checked light/dark/mobile.

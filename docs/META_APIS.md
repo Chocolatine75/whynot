@@ -106,7 +106,7 @@ Used by the agency's media buyer to publish, monitor and rotate ads, and by `ing
 
 ### Publishing (`whynot publish`, `run/meta.py`, `run/publish.py`)
 
-What we send, in order (all PAUSED): `POST act_<id>/adimages` (base64 bytes → hash), `act_<id>/campaigns` (`objective` OUTCOME_TRAFFIC or OUTCOME_APP_PROMOTION, `special_ad_categories=[]`, `is_adset_budget_sharing_enabled=false`), `act_<id>/adsets` (daily budget in minor units, targeting with `targeting_automation.advantage_audience=0`, LINK_CLICKS or APP_INSTALLS + `promoted_object`), `act_<id>/adcreatives` (`object_story_spec.link_data` with the image hash, App Store link, primary text, headline, CTA), `act_<id>/ads`. Activation: `POST <id> status=ACTIVE`, ads → ad sets → campaign. *Field names checked against the docs, not yet against a real sandbox response.*
+What we send, in order (all PAUSED): `POST act_<id>/adimages` (base64 bytes → hash), `act_<id>/campaigns` (`objective` OUTCOME_TRAFFIC or OUTCOME_APP_PROMOTION, `special_ad_categories=[]`, `is_adset_budget_sharing_enabled=false`), `act_<id>/adsets` (daily budget in minor units, targeting with `targeting_automation.advantage_audience=0`, LINK_CLICKS or APP_INSTALLS + `promoted_object`), `act_<id>/adcreatives` (`object_story_spec.link_data` with the image hash, App Store link, primary text, headline, CTA), `act_<id>/ads`. Activation: `POST <id> status=ACTIVE`, ads → ad sets → campaign. **Verified on the real API (2026-10-29):** adimages, campaigns, adsets (3 ad sets with budgets and targeting) and adcreatives all accepted. `ads` not yet verified (blocked by account setup, below).
 
 **Set up the sandbox (once, ~10 min):**
 1. developers.facebook.com → your app (the one used for the Ad Library) → Add product → **Marketing API**.
@@ -114,6 +114,12 @@ What we send, in order (all PAUSED): `POST act_<id>/adimages` (base64 bytes → 
 3. Same page (or Graph API Explorer): generate a token with **`ads_management`** and `ads_read` for that sandbox account → `META_SANDBOX_TOKEN`.
 4. `META_PAGE_ID`: a Facebook Page you manage (creatives are published as a Page).
 5. Test: `uv run whynot publish outputs/runs/<run> --approve "<your name>"` → prints the decisions, the ids created and the Ads Manager link. Or the **Approve and publish** panel in the platform.
+
+**What we hit on real calls (2026-10-29), in order:**
+- `META_PAGE_ID` must be the **Page id from `me/accounts`**, not the `profile.php?id=` number in the URL of a New Pages Experience Page.
+- Error 1885183: the app must be **Live** (needs a privacy policy URL: `docs/PRIVACY.md`) before creatives can be created.
+- Error 10/1341012 "not authorized to access this profile": the sandbox's test user ("Sandbox Ad Account Owner") only gets the ADVERTISE task on a New Pages Experience Page, which is not enough to create the post behind an ad. Your own user token sees the Page but not the sandbox account (error 200), so **creatives can't be created in the sandbox with a New Pages Experience Page.** Campaigns and ad sets work there.
+- On a personal ad account (own user token, `--live`, everything PAUSED): creatives work; `ads` needs a payment method (error 100/1359188). Adding a card on a brand-new account can put it under Meta review (`account_status` 100), which blocks writes (error 200/2490592) until Meta clears it. Plan for this a few days before the pilot.
 
 A sandbox account creates real objects that never deliver and never spend. App-install campaigns additionally need the app registered with Meta (`META_APP_ID`); use `--objective traffic` until then.
 
