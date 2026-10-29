@@ -65,6 +65,8 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-29 — Evolution loop (`agents/evolver.py`, stage `evolve`): per audience, the 2 best ads (different concepts first) get 2 mutations each that change ONE element (hook, body, title or proof) to answer the viewers' most frequent objection; parents, children and fresh placebos are re-tested in the same fair feeds; the 2 best go on. Default 2 generations. Mutations pass the director's copy rules (shared `CopyRules`). A refused evolver never stops the run.
 - 2026-10-29 — Plan ranking across simulations: the final evolution round of each audience ranks first; scores from different rounds are not compared directly.
 - 2026-10-29 — Design system "between Apple and Meta" (`docs/DESIGN.md`): Meta blue as the only accent, Apple neutrals, soft depth, large calm type. Ads: icon-derived palette with a gradient surface, bold balanced headline, big real screen with rounded corners and shadow, pill button; split and rising layouts. Rounded corners and edge crop are part of the declared product transform the pixel guard replays.
+- 2026-10-29 — Client platform in `web/` (Next.js 15, TypeScript, plain CSS tokens from `DESIGN.md`). It reads run folders directly and starts `whynot create` as a child process (argument array, no shell); no database yet. Agency room polls the run every 2.5 s while it works.
+- 2026-10-29 — Platform security: run ids and file paths are resolved inside the runs folder, lexically and by real path (a symlink inside a run could otherwise expose any file — found by a test); only images and the report are served; inputs validated before spawning the engine. The "Approve launch" button stays disabled until Meta publishing exists.
 
 ## Data & asset rights
 

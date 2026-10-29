@@ -32,3 +32,7 @@ data/private/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# web
+web/node_modules/
+web/.next/

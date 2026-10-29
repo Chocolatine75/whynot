@@ -56,6 +56,7 @@ research → templates → composer (static + 6 s video) → guards → simulate
 - [ ] (A) R1, R3 final with CIs
 - [ ] (B) Evolution loop multi-generation + diversity guard (R7)
 - [ ] (B) Autopilot daily loop: metrics, fatigue/loser rules, rotation; weekly report with approve/block
+- [x] (B) Client platform v0 (`web/`): start a campaign, live agency room, results
 - [ ] (B) **Arena public** (R11), shared with businesses (R12)
 
 **Gate:** a stranger runs the Arena on their own link without help; R1–R3 measured; pilot running with daily logs.

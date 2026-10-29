@@ -53,6 +53,8 @@ src/whynot/
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test
     longevity.py       R3: simulator vs Ad Library longevity
+web/                   client platform (Next.js): lib/runs.ts reads run folders, lib/start.ts starts the engine,
+                       components/AgencyRoom.tsx shows a run; tests in web/test (vitest)
 scripts/               thin command-line entry points (argparse); no logic that isn't in src/
 templates/examples/    hand-written example templates
 tests/                 see "Kinds of tests" below; fixtures/ holds recorded real API responses
@@ -82,6 +84,7 @@ Adding a stage: new module in the matching sub-package, a module docstring that 
 | End-to-end | `test_create_pipeline.py` on `world.py` | the whole `create` pipeline on a fake world (App Store, Ad Library, CDN, models) with the real model client: valid plan, reproducible images, no token leaks, costs match, resume re-bills nothing, failures stop cleanly |
 | Regression | `test_hardening.py` | one test per bug found, named after it |
 | Live | `test_live.py`, `pytest --live` | the real services still answer the way the contracts assume (free endpoints) |
+| Platform | `web/test/*.test.ts` (vitest) + browser check | run folders read safely (path traversal, symlinks), inputs validated, engine started without a shell, formatting |
 | Real run | `uv run whynot create ...` | the product on a real app, with a hard model budget; outputs in `outputs/runs/` (gitignored) |
 
 ## Rules for tests

@@ -6,3 +6,7 @@ echo "== lint (ruff)";   uv run ruff check
 echo "== types (mypy)";  uv run mypy
 echo "== tests + coverage (pytest, no network)"
 uv run pytest -q --cov --cov-report=term
+if [ -d web/node_modules ]; then
+  echo "== web: types + tests"
+  (cd web && npm run -s typecheck && npm test --silent)
+fi
