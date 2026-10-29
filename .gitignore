@@ -36,3 +36,6 @@ data/private/
 # web
 web/node_modules/
 web/.next/
+
+# third-party agent skills (MIT, emilkowalski/skill): restore with `npx skills experimental_install`
+.claude/skills/

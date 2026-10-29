@@ -34,6 +34,24 @@ Dark mode: `--bg #000`, `--surface #1C1C1E`, `--text #F5F5F7`, `--text-2 #98989D
 
 **Components:** pill buttons (primary = accent fill, white text; secondary = surface fill); cards on `--surface` with radius 20; ads always shown in a phone-width feed frame (≤ 420 px) like Instagram, with "Sponsored" under the brand name; a cost counter in tabular numbers; the agent log as a calm vertical timeline.
 
+## Motion
+
+From the design-engineering skills we use (`emil-design-eng`, `apple-design`, `animate` from emilkowalski/skill, MIT; listed in `skills-lock.json`, restore with `npx skills experimental_install`):
+
+- Only `transform` and `opacity` animate; custom curves `--ease-out: cubic-bezier(0.23, 1, 0.32, 1)`, `--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1)`.
+- Buttons answer the press: `scale(0.97)` on `:active`, 160 ms. Hover effects only for `(hover: hover) and (pointer: fine)`.
+- UI motion under 300 ms; the landing's one-time stagger is 70 ms per item.
+- `prefers-reduced-motion`: stagger, pulses and press scaling off.
+- Headings `text-wrap: balance` (no orphan words), body `text-wrap: pretty`.
+
+## Landing page
+
+Inspired by minitap.ai (dark navy hero with a faint grid and glow, gradient words, a results card overlapping the hero) and Meta's Muse page (uppercase blue eyebrows, large left-aligned feature headlines, product UI on soft grey panels, a pill input bar, a "secure and in control" section). Rules:
+
+- The hero input is a pill command bar: paste the App Store link → "Hand it to the agency".
+- Product pictures are drawn in HTML with no real brand, and tagged **Illustration**. Partner data never appears on the landing page.
+- The results card shows measured numbers only.
+
 ## Ads (composer)
 
 Implemented in `src/whynot/create/composer.py`, checked by `create/guards.py`.
