@@ -49,13 +49,14 @@ src/whynot/
     feed.py            market feeds (balanced exposure) and candidate feeds
     viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs, answer cache
     scores.py          per-ad scores (preference lift, intent, objections)
+    tournament.py      round-robin games between our variants, Bradley-Terry ranking with CIs
   run/
     autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
     campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
     meta.py            Marketing API client (the only code that writes to an ad account)
     publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
   validate/
-    stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test
+    stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry
     longevity.py       R3: simulator vs Ad Library longevity
 web/                   client platform (Next.js): lib/runs.ts reads run folders, lib/start.ts starts the engine,
                        components/AgencyRoom.tsx shows a run; tests in web/test (vitest)
