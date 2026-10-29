@@ -14,7 +14,7 @@ Docs: `docs/PRODUCT.md` (spec), `docs/ARCHITECTURE.md`, `docs/PLAN.md`.
 
 **The bar is `docs/TARGETS.md`**: final product, measured results, per-criterion checklist. Check work against it.
 
-**Start every session by reading `docs/STATUS.md`** (where we are, who is on what, what's next). Update it before ending the session.
+**Start every session by reading `docs/STATUS.md`** (where we are, who is on what, what's next; update it before ending the session) **and `docs/ROADMAP.md`** (the task list to the deadline: lanes, task ids, tests required, spending rules).
 
 ## Hard constraints (hackathon rules)
 

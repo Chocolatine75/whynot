@@ -4,7 +4,7 @@ Two people. **A** = engine: research, simulator, validation, ML. **B** = agency 
 
 Deadline: **Wed Nov 4, 9:00 PM ET = Thu Nov 5, 03:00 Paris.** Submit Wed Nov 4 evening Paris time, never at the last hour.
 
-The bar is `TARGETS.md`. Each milestone ends with a gate. **The kill test (M1) decides whether we keep the idea.** The live pilot needs ads running by ~Oct 31 to have results before the deadline.
+The bar is `TARGETS.md`. **Tasks, lanes and the day-by-day schedule from Oct 29: `ROADMAP.md`** (this file keeps the milestones and gates). Each milestone ends with a gate. **The kill test (M1) decides whether we keep the idea.** The live pilot needs ads running by ~Oct 31 to have results before the deadline.
 
 ## M0 — Foundations + partner (Tue Oct 27 – Wed Oct 28)
 - [ ] (B) **Design partner (mobile app, ~$20k MRR):** written consent; export of past ads (creatives) + real metrics per ad (hook rate / video thresholds, CTR, CPA); read-only account access. Agree the pilot: spend cap, autonomy level, which decisions he approves, start date. Data in `data/private/`, never committed. *Critical path for R1 and R4.*
