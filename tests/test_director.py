@@ -121,3 +121,27 @@ def test_write_templates_never_returns_unverified_copy():
     chat = ScriptedChat([json.dumps(answer(hooks__family="Trusted by 1 million"))] * 3)
     with pytest.raises(AgentError):
         write_templates(chat, CTX, ANGLES)
+
+
+def test_accent_stripped_copy_is_refused_for_accented_languages():
+    """Bug seen on the Flighty run: French ads came out as 'Retarde, mais pourquoi' (no accents)."""
+    import dataclasses
+
+    french = dataclasses.replace(CTX, language="French")
+    stripped = director_json()
+    for t in stripped["templates"]:
+        t["hooks"] = {"q": "Votre vol est retarde, mais pourquoi au juste", "b": "Le statut ne dit pas tout"}
+        t["bodys"] = {"short": "Un statut dit retarde. Voyez la raison en direct sur iPhone, sans attendre.",
+                      "story": "Tableau au rouge, depart repousse, sans explication. Suivez le vol en direct."}
+        t["titles"] = {"main": "Voir pourquoi le vol est retarde"}
+        t["proofs"] = {"none": ""}
+        t["ctas"] = {"INSTALL_MOBILE_APP": "Essayer"}
+    with pytest.raises(Invalid, match="no accented letter"):
+        make_validator(french, ANGLES)(stripped)
+    accented = json.loads(json.dumps(stripped).replace("retarde", "retardé").replace("depart", "départ"))
+    assert len(make_validator(french, ANGLES)(accented)) == 4
+    assert len(VALIDATE(stripped)) == 4  # English context: no accent rule
+
+
+def test_first_shots_as_a_single_string_is_accepted():
+    assert VALIDATE(answer(first_shots="app_screen"))[0].genes["first_shot"] == ["app_screen"]

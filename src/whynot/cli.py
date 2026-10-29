@@ -21,7 +21,7 @@ def _create(args: argparse.Namespace) -> int:
     run_dir = Path(args.resume) if args.resume else new_run_dir(Path(args.out), args.app)
     print(f"run folder: {run_dir}")
     try:
-        result = create(cfg, default_clients(cfg.budget_usd, run_dir), run_dir)
+        result = create(cfg, default_clients(cfg.budget_usd, run_dir), run_dir, redo_from=args.redo_from)
     except StageError as exc:
         print(f"\n✗ {exc}\n  inspect {run_dir}/events.jsonl, fix, then resume with --resume {run_dir}",
               file=sys.stderr)
@@ -44,12 +44,14 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--budget-usd", type=float, default=3.0, help="hard cap on model spend for this run")
     c.add_argument("--research-countries", nargs="+", help="EU/UK countries for Ad Library research")
     c.add_argument("--store-country", default="us", help="App Store storefront for the page and reviews")
-    c.add_argument("--language", default="English", help="language of the ads")
+    c.add_argument("--language", help="force one ad language (code: en, fr, de...); default: per country")
     c.add_argument("--competitor-page", action="append", help="Facebook page id of a known competitor (repeat)")
     c.add_argument("--angles", type=int, default=6, help="max ad concepts")
     c.add_argument("--variants", type=int, default=4, help="variants produced per concept")
     c.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")
     c.add_argument("--resume", help="an existing run folder: finished stages are reused, not re-billed")
+    c.add_argument("--redo-from", choices=["market", "strategy", "creative", "produce", "simulate", "plan", "report"],
+                   help="with --resume: recompute this stage and the following ones, reuse the earlier ones")
     c.set_defaults(func=_create)
     args = p.parse_args(argv)
     return int(args.func(args))

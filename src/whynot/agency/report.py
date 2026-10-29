@@ -100,7 +100,7 @@ def build_report(run: Path) -> str:
     launch_by = {x["ad_set"]: x for x in launch}
     for s in plan.get("ad_sets", []):
         decision = launch_by.get(s["name"], {})
-        out += [f"### {s['name']} · €{s['daily_budget_eur']}/day",
+        out += [f"### {s['audience']['name']} · {s['name']} · €{s['daily_budget_eur']}/day",
                 f"Launch: **{decision.get('outcome', '?')}** ({decision.get('why', '')})", ""]
         for ad in s["ads"]:
             v = by_variant.get(ad["variant_id"], {})

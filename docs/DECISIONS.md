@@ -52,6 +52,13 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-10-28 — Brand palette from the app icon; the accent is darkened/lightened (same hue) until button text reaches 4.6:1 — a red icon made every ad fail the legibility guard (found by the end-to-end test).
 - 2026-10-28 — Viewers compare text with text (our copy + image text vs competitors' copy) until competitor creatives are captured, so the comparison stays fair.
 - 2026-10-28 — Policy guard v0 is rule-based (personal attributes, absolute claims, engagement bait, shouting); model-based review planned.
+- 2026-10-29 — Baseten model string is `meta-models/muse-spark-open-1026` (the hackathon guide's name): with our key `meta-models/muse-spark-open` returns 403. Default updated in config and `.env.example`.
+- 2026-10-29 — `create` tested on 3 real apps in 3 categories (VietBuddy/language, Finch/wellbeing, Flighty/travel): all complete; it is generic for iOS apps. Not covered yet: Android, Shopify/web stores.
+- 2026-10-29 — One set of ads per language (create/locale.py): each ad set targets only the countries of its language. Found on Flighty: France would have received English ads.
+- 2026-10-29 — Ads are drawn with a font covering every Latin language (create/fonts.py: WHYNOT_FONT → assets/fonts → Arial/DejaVu); Pillow's default font can't draw "é", which pushed the model to strip accents. Director refuses accented-language copy with no accent at all (the model drops them intermittently).
+- 2026-10-29 — Ad set names are neutral ("Profile 1 · US · 18-34"): persona labels can contain sensitive words ("ADHD", seen on Finch) and names live in the ad account.
+- 2026-10-29 — Strategist gets 3 repairs (2 of 3 real runs needed all 3 attempts); every refused attempt's errors are saved in the run (`strategy.raw.json`, `creative.json`).
+- 2026-10-29 — `--redo-from <stage>` recomputes a stage and the later ones, reusing earlier results (no re-billing).
 
 ## Data & asset rights
 

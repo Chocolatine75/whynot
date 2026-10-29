@@ -14,7 +14,7 @@ from types import SimpleNamespace as NS
 import httpx
 from PIL import Image, ImageDraw
 
-from director_fixture import director_json
+from director_fixture import director_json, director_json_fr
 from fakes import make_settings
 from strategy_fixture import APP, REVIEWS, strategy_json
 from whynot.agency.create import Clients
@@ -125,6 +125,8 @@ def default_reply(model: str, messages: list[dict]) -> str:
         return json.dumps(strategy_json())
     if "creative director" in text:
         angles = re.findall(r"^- (\w+) \(persona", text, flags=re.M)
+        if "- Language: French." in text:
+            return json.dumps(director_json_fr(tuple(angles)))
         return json.dumps(director_json(tuple(angles)))
     raise AssertionError(f"unrouted prompt: {text[:120]}")
 

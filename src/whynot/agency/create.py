@@ -36,6 +36,7 @@ from whynot.agents.strategist import Strategy
 from whynot.assets.brand import palette_from_icon
 from whynot.create.composer import ComposeError, compose
 from whynot.create.guards import publishable, run_guards
+from whynot.create.locale import LANGUAGES, language_groups, unmapped
 from whynot.create.templates import Template, Variant
 from whynot.ingest.adlibrary import AdLibraryClient, CompetitorAd, load_jsonl, save_jsonl
 from whynot.ingest.appstore import AppProfile, AppStoreClient
@@ -67,7 +68,7 @@ class CreateConfig:
     budget_usd: float = 3.0  # hard cap on model spend for this run
     research_countries: list[str] | None = None  # EU/UK; default: campaign countries in the EU/UK, else GB
     store_country: str = "us"
-    language: str = "English"
+    language: str | None = None  # language code for every ad; default: per country (create/locale.py)
     competitor_pages: list[str] = field(default_factory=list)  # owner-named Facebook page ids
     max_angles: int = 6
     variants_per_template: int = 4
@@ -111,6 +112,18 @@ class Run:
 
     def done(self, stage: str) -> bool:
         return self.path(f"{stage}.done").exists()
+
+    def redo_from(self, stage: str) -> list[str]:
+        """Forget `stage` and every later stage, so the next run recomputes them (earlier ones are reused)."""
+        if stage not in STAGES:
+            raise ValueError(f"unknown stage {stage!r}; one of {STAGES}")
+        cleared = []
+        for s in STAGES[STAGES.index(stage):]:
+            marker = self.path(f"{s}.done")
+            if marker.exists():
+                marker.unlink()
+                cleared.append(s)
+        return cleared
 
     def mark(self, stage: str) -> None:
         self.path(f"{stage}.done").write_text(datetime.now(UTC).isoformat())
@@ -190,7 +203,8 @@ def stage_market(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile) -> No
 def stage_strategy(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, ads: list[CompetitorAd]) -> None:
     answer = strategist.plan_strategy(c.model, app, ads, [x.upper() for x in cfg.countries], model=cfg.strategy_model)
     run.write_json("strategy.json", answer.value.to_json())
-    run.write_json("strategy.raw.json", {"attempts": answer.attempts, "usd": answer.usd, "answer": answer.raw})
+    run.write_json("strategy.raw.json", {"attempts": answer.attempts, "errors": answer.errors, "usd": answer.usd,
+                                         "answer": answer.raw})
 
 
 def pick_angles(strategy: Strategy, n: int) -> list[str]:
@@ -206,19 +220,44 @@ def pick_angles(strategy: Strategy, n: int) -> list[str]:
     return out
 
 
+def languages(cfg: CreateConfig) -> dict[str, list[str]]:
+    return language_groups([c.upper() for c in cfg.countries], override=cfg.language)
+
+
+def localised(strategy: Strategy, countries: list[str]) -> Strategy:
+    """The strategy restricted to personas targeting some of `countries` (and those countries only)."""
+    personas = [replace(p, countries=tuple(c for c in p.countries if c in countries)) for p in strategy.personas]
+    personas = [p for p in personas if p.countries]
+    keep = {p.id for p in personas}
+    return replace(strategy, personas=personas, angles=[a for a in strategy.angles if a.persona in keep])
+
+
 def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
                    market: dict[str, Any], brand: dict[str, Any]) -> None:
+    """One template set per ad language: French ads for France, English ads for the UK."""
     names = tuple(x["page_name"] for x in market.get("advertisers", []) if x.get("page_name"))
-    angles = pick_angles(strategy, cfg.max_angles)
-    ctx = Context(strategy, app.name, app.description, names, tuple(brand["palette"]), brand["screenshots"][0],
-                  cfg.language)
-    answer = director.write_templates(c.model, ctx, angles, model=cfg.director_model)
     folder = run.path("templates")
     folder.mkdir(exist_ok=True)
-    for i, t in enumerate(answer.value):
-        d = t.to_dict()  # rotate real screenshots across templates
-        d["fixed"]["product"]["asset"] = brand["screenshots"][i % len(brand["screenshots"])]
-        (folder / f"{t.id}.yaml").write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True), encoding="utf-8")
+    for old in folder.glob("*.yaml"):  # a redo replaces the whole set
+        old.unlink()
+    log = {}
+    for code, countries in languages(cfg).items():
+        local = localised(strategy, countries)
+        angles = pick_angles(local, cfg.max_angles)
+        if not angles:
+            continue
+        ctx = Context(local, app.name, app.description, names, tuple(brand["palette"]), brand["screenshots"][0],
+                      LANGUAGES[code])
+        answer = director.write_templates(c.model, ctx, angles, model=cfg.director_model)
+        log[code] = {"countries": countries, "attempts": answer.attempts, "errors": answer.errors}
+        for i, t in enumerate(answer.value):
+            d = t.to_dict()
+            d["id"] = t.id.removesuffix("_v1") + f"_{code}_v1"
+            d["fixed"]["language"] = code
+            d["fixed"]["product"]["asset"] = brand["screenshots"][i % len(brand["screenshots"])]  # rotate real screens
+            (folder / f"{d['id']}.yaml").write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True),
+                                                    encoding="utf-8")
+    run.write_json("creative.json", log)
 
 
 def load_templates(run: Run) -> list[Template]:
@@ -228,12 +267,15 @@ def load_templates(run: Run) -> list[Template]:
 def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> None:
     out = run.path("ads")
     out.mkdir(exist_ok=True)
+    for old in out.glob("*.png"):
+        old.unlink()
     rows = []
     for t in templates:
         asset = Image.open(run.path("assets", t.fixed["product"]["asset"]))
         for genome in t.sample(cfg.variants_per_template, seed=cfg.seed):
             v = Variant(t.id, genome)
-            row: dict[str, Any] = {"variant_id": v.id, "template_id": t.id, "persona": t.persona, "genome": genome}
+            row: dict[str, Any] = {"variant_id": v.id, "template_id": t.id, "persona": t.persona, "genome": genome,
+                                   "language": t.fixed.get("language", "en")}
             try:
                 comp = compose(t, genome, asset)
             except ComposeError as exc:
@@ -268,9 +310,11 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
     viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
     scores: dict[str, AdScore] = {}
     failures, usd = [], 0.0
-    for p in strategy.personas:
-        mine = [v for v in ok if v["persona"] == p.id]
-        if not mine:
+    groups = languages(cfg)
+    for p_all, code in ((p, code) for p in strategy.personas for code in groups):
+        p = replace(p_all, countries=tuple(x for x in p_all.countries if x in groups[code]))
+        mine = [v for v in ok if v["persona"] == p.id and v.get("language", "en") == code]
+        if not mine or not p.countries:
             continue
         feeds = []
         for i, v in enumerate(mine):
@@ -292,12 +336,23 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
 def stage_plan(run: Run, cfg: CreateConfig, app: AppProfile, strategy: Strategy, variants: list[dict[str, Any]],
                sim: dict[str, Any]) -> None:
     scores = sim.get("scores", {})
-    choices = [AdChoice(v["variant_id"], v["template_id"], v["persona"], v["image"], v["texts"]["hook"],
-                        v["texts"]["body"], v["texts"]["title"], v["genome"]["cta"], True,
+    # one audience per (persona, ad language), targeting only that language's countries
+    choices = [AdChoice(v["variant_id"], v["template_id"], f"{v['persona']}.{v.get('language', 'en')}", v["image"],
+                        v["texts"]["hook"], v["texts"]["body"], v["texts"]["title"], v["genome"]["cta"], True,
                         float(scores.get(v["variant_id"], {}).get("preference_lift", 1.0)))
                for v in variants if v.get("guards_passed")]
-    audiences = [Audience(p.id, p.name, p.countries, p.age_min, p.age_max, p.gender) for p in strategy.personas]
+    groups = languages(cfg)
+    audiences = []
+    for p in strategy.personas:
+        for code, countries in groups.items():
+            local = tuple(c for c in p.countries if c in countries)
+            if local:
+                label = p.name + (f" ({LANGUAGES[code]})" if len(groups) > 1 else "")
+                audiences.append(Audience(f"{p.id}.{code}", label, local, p.age_min, p.age_max, p.gender))
     plan = build_plan(app.name, app.store_url, audiences, choices, daily_cap_eur=cfg.daily_cap_eur)
+    missing = unmapped(cfg.countries)
+    if missing and not cfg.language:
+        plan.notes.append(f"no known ad language for {missing}: English used")
     errors = validate(plan)
     if not sim.get("simulated"):
         plan.notes.append("ads were NOT simulated (not enough competitor ads): ranking is arbitrary")
@@ -319,8 +374,10 @@ def plan_from_json(d: dict[str, Any]) -> CampaignPlan:
 
 # --- orchestration -------------------------------------------------------------------------
 
-def create(cfg: CreateConfig, clients: Clients, run_dir: Path) -> Result:
+def create(cfg: CreateConfig, clients: Clients, run_dir: Path, *, redo_from: str | None = None) -> Result:
     run = Run(run_dir)
+    if redo_from:
+        run.log(stage=redo_from, status="redo", cleared=run.redo_from(redo_from))
     run.write_json("config.json", {**asdict(cfg), "policy": {"level": cfg.policy.level.value,
                                                              "daily_cap_eur": cfg.policy.daily_cap_eur}})
     _stage(run, "app", lambda: stage_app(run, cfg, clients), clients)

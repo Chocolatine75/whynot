@@ -47,7 +47,7 @@ def load_settings() -> Settings:
         model_base_url=os.getenv("META_MODEL_BASE_URL", "https://api.meta.ai/v1"),
         baseten_api_key=os.getenv("BASETEN_API_KEY") or None,
         baseten_base_url=os.getenv("BASETEN_BASE_URL", "https://inference.baseten.co/v1"),
-        baseten_model=os.getenv("BASETEN_MODEL", "meta-models/muse-spark-open"),
+        baseten_model=os.getenv("BASETEN_MODEL", "meta-models/muse-spark-open-1026"),
         cost_log=Path(os.getenv("WHYNOT_COST_LOG") or REPO_ROOT / "outputs" / "costs.jsonl"),
         fb_token=os.getenv("FB_TOKEN") or None,
         fb_api_version=os.getenv("FB_API_VERSION", "v26.0"),

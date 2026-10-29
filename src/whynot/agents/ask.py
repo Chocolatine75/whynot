@@ -9,7 +9,7 @@ error seen, and the spend is still recorded by the model client.
 """
 
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Protocol
 
 from whynot.jsonio import JSONExtractError, extract_json
@@ -36,6 +36,7 @@ class Answer[T]:
     usd: float
     attempts: int
     raw: Any  # the parsed JSON, kept for the run's audit trail
+    errors: list[str] = field(default_factory=list)  # why earlier attempts were refused
 
 
 def ask_json[T](client: ChatClient, messages: list[dict[str, Any]], validate: Callable[[Any], T], *, module: str,
@@ -48,7 +49,7 @@ def ask_json[T](client: ChatClient, messages: list[dict[str, Any]], validate: Ca
         usd += result.cost.usd
         try:
             data = extract_json(result.text)
-            return Answer(validate(data), usd, attempt, data)
+            return Answer(validate(data), usd, attempt, data, errors)
         except (JSONExtractError, Invalid) as exc:
             errors.append(str(exc))
             history = [*history, {"role": "assistant", "content": result.text[:6000]},

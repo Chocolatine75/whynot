@@ -317,7 +317,7 @@ Reply with JSON only, this schema:
 
 
 def plan_strategy(client: ChatClient, app: AppProfile, ads: list[CompetitorAd], countries: list[str], *,
-                  model: str = WONDER, repairs: int = 2) -> Answer[Strategy]:
+                  model: str = WONDER, repairs: int = 3) -> Answer[Strategy]:
     sources = Sources.build(app, ads)
     return ask_json(client, [{"role": "user", "content": build_prompt(app, ads, countries)}],
                     make_validator(sources, countries), module="strategy", model=model, repairs=repairs,

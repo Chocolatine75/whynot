@@ -112,8 +112,9 @@ def build_plan(app_name: str, store_url: str, audiences: list[Audience], candida
     if not usable:
         raise ValueError("no persona has at least 2 publishable ads: nothing to launch")
     per_set = math.floor(daily_cap_eur / len(usable) * 100) / 100  # never round up past the cap
-    ad_sets = [AdSetPlan(f"{a.name} · {'/'.join(a.countries)} · {a.age_min}-{a.age_max}", a, per_set, ads)
-               for a, ads in usable]
+    # neutral names: persona labels may contain sensitive words ("ADHD") and names live in the ad account
+    ad_sets = [AdSetPlan(f"Profile {i + 1} · {'/'.join(a.countries)} · {a.age_min}-{a.age_max}", a, per_set, ads)
+               for i, (a, ads) in enumerate(usable)]
     notes.append("budget split evenly: simulated scores rank ads but do not move money before real results")
     return CampaignPlan(name or f"whynot · {app_name}", app_name, store_url, daily_cap_eur, ad_sets, notes)
 

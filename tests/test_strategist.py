@@ -87,6 +87,6 @@ def test_plan_strategy_repairs_a_hallucinated_quote():
 
 def test_plan_strategy_gives_up_rather_than_accepting_invented_facts():
     bad = mutated(["claims", 0, "evidence", "quote"], "Rated number one by teachers")
-    chat = ScriptedChat([json.dumps(bad)] * 3)
+    chat = ScriptedChat([json.dumps(bad)] * 4)  # first try + 3 repairs
     with pytest.raises(AgentError):
         plan_strategy(chat, APP, ADS, COUNTRIES)

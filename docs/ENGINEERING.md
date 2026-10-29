@@ -109,6 +109,8 @@ A change is done when:
 - SAM mask payloads are parsed, not decoded yet.
 - Autopilot decides and the campaign plan is in Marketing API shape; nothing calls Meta's write API yet.
 - **Simulator bias found on the first real run:** all 24 VietBuddy variants scored the maximum preference (4.0×) against competitors. Viewer personas carry the very objections the ads answer, and our items are tailored to them. Until fixed, simulated scores in `create` don't rank variants; the plan's budget split doesn't depend on them.
+- The ad font comes from the machine (Arial on macOS, DejaVu on Linux/CI) unless one is put in `assets/fonts/`: pixels can differ between machines. Shipping an open-licence font fixes it.
+- Screenshots come from one App Store storefront: a French ad shows the US (English) screens. Per-language storefronts are next.
 - Viewers see ad text (ours and competitors'), not images, to keep the comparison fair until creative capture exists.
 - `--budget-usd` caps one invocation; a resumed run gets a fresh budget (finished stages are not re-billed).
 - Hypothesis runs a few hundred examples per property in CI; raise `max_examples` locally when changing safety code.

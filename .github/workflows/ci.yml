@@ -17,5 +17,6 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
+      - run: sudo apt-get install -y --no-install-recommends fonts-dejavu-core  # accents in ads (create/fonts.py)
       - run: uv sync --locked
       - run: ./scripts/check.sh

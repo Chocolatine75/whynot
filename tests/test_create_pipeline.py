@@ -40,14 +40,18 @@ def test_every_stage_ran_once_and_left_its_output(done):
     for name in ["app.json", "brand.json", "market.json", "market_ads.jsonl", "strategy.json", "variants.json",
                  "simulation.json", "plan.json", "meta_api_payloads.json", "launch.json", "report.md"]:
         assert (run / name).exists(), name
-    assert len(list((run / "templates").glob("*.yaml"))) == 4
+    # FR + GB: English templates for every persona reaching GB, French ones for personas reaching FR
+    names = sorted(p.stem for p in (run / "templates").glob("*.yaml"))
+    assert len([n for n in names if n.endswith("_en_v1")]) == 4 and len([n for n in names if n.endswith("_fr_v1")]) == 2
 
 
 def test_the_plan_is_valid_within_the_cap_and_paused(done):
     result, _, _, run = done
     assert result.plan_errors == []
     assert 0 < result.plan.daily_total_eur <= 20.0
-    assert {s.audience.persona for s in result.plan.ad_sets} == {"heritage_learner", "busy_traveller"}
+    assert {s.audience.persona for s in result.plan.ad_sets} == {"heritage_learner.en", "heritage_learner.fr",
+                                                                  "busy_traveller.en"}
+    assert all(s.name.startswith("Profile ") for s in result.plan.ad_sets)  # no persona labels in the ad account
     api = json.loads((run / "meta_api_payloads.json").read_text())
     assert {x["status"] for x in [api["campaign"], *api["ad_sets"], *api["ads"]]} == {"PAUSED"}
     assert sum(x["daily_budget"] for x in api["ad_sets"]) <= 2000
@@ -68,7 +72,7 @@ def test_every_planned_ad_is_real_reproducible_and_checked(done):
         t = templates[ad.template_id]
         again = compose(t, v["genome"], Image.open(run / "assets" / t.fixed["product"]["asset"]))
         assert again.image.tobytes() == saved.convert("RGB").tobytes()
-        assert ad.persona == t.persona
+        assert ad.persona == f"{t.persona}.{t.fixed['language']}"
 
 
 def test_competitor_research_drops_noise_and_feeds_the_simulator(done):
@@ -108,7 +112,7 @@ def test_report_is_honest_about_what_is_simulated_and_not_launched(done):
     report = (run / "report.md").read_text()
     assert "Status: not launched" in report and "(SIMULATED)" in report
     assert "“The app doesn't hear you correctly” (review:101)" in report
-    assert "Heritage learner" in report and "€10.0/day" in report
+    assert "Heritage learner (French)" in report and "€6.66/day" in report
     assert "Launch: **refused**" in report  # default policy: dry run with a €0 live cap
     for line in report.splitlines():
         if line.startswith("![") and "](" in line:
@@ -127,6 +131,25 @@ def test_resume_reuses_every_stage_without_new_calls(done, tmp_path):
     assert again.plan.to_json() == result.plan.to_json()
 
 
+def test_redo_from_creative_reuses_research_and_replaces_the_ads(done, tmp_path):
+    import shutil
+
+    _, _, _, original = done
+    run = tmp_path / "copy"
+    shutil.copytree(original, run)
+    c, meta, http = clients(tmp_path)
+    create(CreateConfig(**CFG), c, run, redo_from="creative")
+    modules = {r["messages"][0]["role"] for r in meta.requests}
+    assert http.calls == [] and modules  # no App Store / Ad Library calls
+    assert not any(r["model"] == "muse-wonder-1.0" for r in meta.requests)  # strategy reused, not re-billed
+    assert any("creative director" in str(r["messages"][0]["content"]) for r in meta.requests)
+    pngs = {p.name for p in (run / "ads").glob("*.png")}
+    listed = {v["image"].split("/")[1] for v in json.loads((run / "variants.json").read_text()) if v.get("image")}
+    assert pngs == listed  # no stale images left from the previous set
+    with pytest.raises(ValueError, match="unknown stage"):
+        create(CreateConfig(**CFG), c, run, redo_from="everything")
+
+
 # --- when things go wrong -------------------------------------------------------------
 
 def test_hallucinating_strategist_stops_the_run_then_resume_finishes(tmp_path):
@@ -142,7 +165,7 @@ def test_hallucinating_strategist_stops_the_run_then_resume_finishes(tmp_path):
     with pytest.raises(StageError) as exc:
         create(CreateConfig(**CFG), c, tmp_path / "run")
     assert exc.value.stage == "strategy"
-    assert sum(r["model"] == "muse-wonder-1.0" for r in meta.requests) == 3  # tried, repaired twice, refused
+    assert sum(r["model"] == "muse-wonder-1.0" for r in meta.requests) == 4  # tried, repaired 3 times, refused
     events = (tmp_path / "run" / "events.jsonl").read_text()
     assert '"stage": "strategy", "status": "error"' in events and "not verbatim" in events
     assert not (tmp_path / "run" / "strategy.json").exists()
@@ -223,6 +246,28 @@ def test_app_without_screenshots_is_refused(tmp_path, monkeypatch):
         create(CreateConfig(**CFG), c, tmp_path / "run")
 
 
+def test_each_ad_set_speaks_the_language_of_its_countries(done):
+    """Bug found on the Flighty run: French audiences got English ads."""
+    from whynot.create.locale import language_of
+
+    result, meta, _, run = done
+    variants = {v["variant_id"]: v for v in json.loads((run / "variants.json").read_text())}
+    for s in result.plan.ad_sets:
+        langs = {language_of(c) for c in s.audience.countries}
+        assert len(langs) == 1, s.audience.countries
+        assert {variants[a.variant_id]["language"] for a in s.ads} == langs
+    director_prompts = [r["messages"][0]["content"] for r in meta.requests
+                        if "creative director" in str(r["messages"][0]["content"])]
+    assert {p.split("- Language: ")[1].split(".")[0] for p in director_prompts} == {"English", "French"}
+
+
+def test_forced_language_gives_one_set_for_all_countries(tmp_path):
+    c, _, _ = clients(tmp_path)
+    result = create(CreateConfig(**CFG, language="en"), c, tmp_path / "run")
+    assert all(p.stem.endswith("_en_v1") for p in (tmp_path / "run" / "templates").glob("*.yaml"))
+    assert {s.audience.persona for s in result.plan.ad_sets} == {"heritage_learner.en", "busy_traveller.en"}
+
+
 def test_live_policy_turns_the_plan_into_approval_requests(tmp_path):
     c, _, _ = clients(tmp_path)
     cfg = CreateConfig(**CFG, policy=Policy(Level.AUTOPILOT, 20.0, first_live_approved=False))
@@ -245,7 +290,7 @@ def test_cli_create_end_to_end(tmp_path, monkeypatch, capsys):
                  "--out", str(tmp_path / "runs")])
     out = capsys.readouterr().out
     assert code == 0, out
-    assert "2 ad set(s)" in out and "PAUSED, not launched" in out and "report.md" in out
+    assert "3 ad set(s)" in out and "PAUSED, not launched" in out and "report.md" in out
     run_dir = next((tmp_path / "runs").iterdir())
     assert (run_dir / "report.md").exists()
 

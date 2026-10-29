@@ -113,3 +113,10 @@ Used by the agency's media buyer to publish, monitor and rotate ads, and by `ing
 - Muse Spark launch post: https://dev.meta.ai/resources/blog/build-with-muse-spark
 - Muse Spark Open: https://dev.meta.ai/docs/muse-spark-open , https://dev.meta.ai/docs/muse-spark-open/deploy , https://www.baseten.co/library/muse-spark-open/
 - Graph API v26.0: https://developers.facebook.com/docs/graph-api/changelog/version26.0
+
+### Muse Spark Open on Baseten (measured 2026-10-29)
+
+- Model `meta-models/muse-spark-open-1026` works; `meta-models/muse-spark-open` → 403 with our key. `GET /v1/models` lists both.
+- Text: "OK" in 0.8 s, $0.0004 (151 in, 83 out incl. 72 reasoning). Reasons like Spark; `cached_tokens` reported.
+- Vision (inline data URL, 1290×2796 screenshot): correct description in 14 s, $0.008 (4,199 in).
+- Viewer agent (4-ad feed, strict JSON): valid first try; default effort 6.3 s / $0.0086, `reasoning_effort="low"` 2.5 s / $0.0034.

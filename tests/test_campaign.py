@@ -112,3 +112,10 @@ def test_launch_goes_through_the_autopilot():
     assert {d.outcome for _, d in approved} == {Outcome.EXECUTE}
     tight = launch_decisions(plan, Policy(Level.AUTOPILOT, 15, first_live_approved=True))
     assert [d.outcome for _, d in tight] == [Outcome.EXECUTE, Outcome.REFUSED]  # second set would pass the cap
+
+
+def test_ad_set_names_never_carry_persona_labels():
+    sensitive = [Audience("adhd", "Overwhelmed ADHD adults", ("US",), 18, 34, "all")]
+    plan = build_plan("App", STORE, sensitive, [ad(i, "adhd", f"t{i}") for i in range(3)], daily_cap_eur=10)
+    api = json.dumps(to_api(plan))
+    assert "ADHD" not in api and plan.ad_sets[0].name == "Profile 1 · US · 18-34"

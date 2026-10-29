@@ -114,9 +114,8 @@ def resize_asset(asset: Image.Image, size: tuple[int, int]) -> Image.Image:
 
 
 def _font(brand: Brand, size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    if brand.font:
-        return ImageFont.truetype(brand.font, size)
-    return ImageFont.load_default(size=size)
+    from whynot.create import fonts
+    return fonts.load(size, brand.font)
 
 
 def _wrap(draw: ImageDraw.ImageDraw, text: str, font, width: int) -> list[str]:
