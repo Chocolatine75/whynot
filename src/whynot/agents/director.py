@@ -92,12 +92,51 @@ def _texts(raw: Any, gene: str, where: str) -> dict[str, str]:
     return out
 
 
+class CopyRules:
+    """Every check ad copy must pass, shared by the creative director and the evolver.
+
+    `texts` maps "gene.key" (e.g. "hook.question") to the text; raises `Invalid` with the reason.
+    """
+
+    def __init__(self, ctx: Context):
+        self.ctx = ctx
+        self.allowed_numbers = _allowed_numbers(ctx)
+        self.font = fonts.load(40)  # the font the composer will draw with
+        self.competitors = [n for n in ctx.competitor_names if len(n) >= 4]
+
+    def check(self, texts: dict[str, str], where: str) -> None:
+        for field_name, text in texts.items():
+            gene = field_name.split(".")[0]
+            if gene in LIMITS and len(text) > LIMITS[gene]:
+                raise Invalid(f"{where}: {field_name} has {len(text)} characters, max {LIMITS[gene]}")
+            for n in _NUMBER.findall(text):
+                if n.replace(",", ".") not in self.allowed_numbers:
+                    raise Invalid(f"{where}: {field_name} says {n!r}, a number not in any verified claim")
+            low = normalise(text)
+            for name in self.competitors:
+                if re.search(rf"\b{re.escape(normalise(name))}\b", low):
+                    raise Invalid(f"{where}: {field_name} names a competitor ({name!r})")
+            if gene in DRAWN:
+                symbols = pictograms(text)
+                if symbols:
+                    raise Invalid(f"{where}: {field_name} has emoji or pictograms {symbols}; words only")
+                bad = missing_glyphs(self.font, text)
+                if bad:
+                    raise Invalid(f"{where}: {field_name} has characters the ad font cannot draw {bad}; no emoji")
+        if self.ctx.language in ACCENTED_LANGUAGES:
+            letters = "".join(ch for text in texts.values() for ch in text if ch.isalpha())
+            if len(letters) >= MIN_LETTERS_FOR_ACCENT_CHECK and letters.isascii():
+                raise Invalid(f"{where}: the {self.ctx.language} copy has no accented letter at all; "
+                              f"write correct {self.ctx.language} with its accents (é, è, à, ç...)")
+        errs = policy.errors(policy.check_ad(texts))
+        if errs:
+            raise Invalid(f"{where}: policy: " + "; ".join(f"{e.field}: {e.message}" for e in errs))
+
+
 def make_validator(ctx: Context, angle_ids: list[str]):
     angles = {a.id: a for a in ctx.strategy.angles}
     claims = {c.id for c in ctx.strategy.claims}
-    allowed_numbers = _allowed_numbers(ctx)
-    font = fonts.load(40)  # the font the composer will draw with
-    competitors = [n for n in ctx.competitor_names if len(n) >= 4]
+    rules = CopyRules(ctx)
 
     def validate(data: Any) -> list[Template]:
         rows = data.get("templates") if isinstance(data, dict) else None
@@ -120,29 +159,7 @@ def make_validator(ctx: Context, angle_ids: list[str]):
                 if not isinstance(used, list) or any(c not in claims for c in used):
                     raise Invalid(f"{w}: claims_used must list claim ids from {sorted(claims)}")
                 all_text = {f"{g}.{k}": v for g, texts in genes_text.items() for k, v in texts.items()}
-                for field_name, text in all_text.items():
-                    for n in _NUMBER.findall(text):
-                        if n.replace(",", ".") not in allowed_numbers:
-                            raise Invalid(f"{w}: {field_name} says {n!r}, a number not in any verified claim")
-                    low = normalise(text)
-                    for name in competitors:
-                        if re.search(rf"\b{re.escape(normalise(name))}\b", low):
-                            raise Invalid(f"{w}: {field_name} names a competitor ({name!r})")
-                    if field_name.split(".")[0] in DRAWN:
-                        symbols = pictograms(text)
-                        if symbols:
-                            raise Invalid(f"{w}: {field_name} has emoji or pictograms {symbols}; words only")
-                        bad = missing_glyphs(font, text)
-                        if bad:
-                            raise Invalid(f"{w}: {field_name} has characters the ad font cannot draw {bad}; no emoji")
-                if ctx.language in ACCENTED_LANGUAGES:
-                    letters = "".join(ch for text in all_text.values() for ch in text if ch.isalpha())
-                    if len(letters) >= MIN_LETTERS_FOR_ACCENT_CHECK and letters.isascii():
-                        raise Invalid(f"{w}: the {ctx.language} copy has no accented letter at all; "
-                                      f"write correct {ctx.language} with its accents (é, è, à, ç...)")
-                errs = policy.errors(policy.check_ad(all_text))
-                if errs:
-                    raise Invalid(f"{w}: policy: " + "; ".join(f"{e.field}: {e.message}" for e in errs))
+                rules.check(all_text, w)
                 concept = t.get("concept")
                 if not isinstance(concept, str) or not 10 <= len(concept.strip()) <= 160:
                     raise Invalid(f"{w}: 'concept' must be one sentence (10–160 characters)")

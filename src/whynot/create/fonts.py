@@ -16,6 +16,14 @@ from pathlib import Path
 from PIL import ImageFont
 
 REPO_FONTS = Path(__file__).resolve().parents[3] / "assets" / "fonts"
+SYSTEM_BOLD_FONTS = (
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/Library/Fonts/Arial Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
+    "C:/Windows/Fonts/arialbd.ttf",
+)
 SYSTEM_FONTS = (
     "/System/Library/Fonts/Supplemental/Arial.ttf",
     "/Library/Fonts/Arial.ttf",
@@ -33,19 +41,29 @@ def covers(font: ImageFont.FreeTypeFont, text: str = REQUIRED) -> bool:
     return not missing_glyphs(font, text)
 
 
-def _candidates() -> list[str]:
+def _candidates(bold: bool = False) -> list[str]:
     paths: list[str] = []
-    if os.getenv("WHYNOT_FONT"):
-        paths.append(os.environ["WHYNOT_FONT"])
+    env = "WHYNOT_FONT_BOLD" if bold else "WHYNOT_FONT"
+    if os.getenv(env):
+        paths.append(os.environ[env])
     if REPO_FONTS.is_dir():
-        paths += [str(p) for p in sorted(REPO_FONTS.iterdir()) if p.suffix.lower() in {".ttf", ".otf"}]
-    return paths + list(SYSTEM_FONTS)
+        files = [p for p in sorted(REPO_FONTS.iterdir()) if p.suffix.lower() in {".ttf", ".otf"}]
+        paths += [str(p) for p in files if ("bold" in p.stem.lower()) == bold]
+    return paths + list(SYSTEM_BOLD_FONTS if bold else SYSTEM_FONTS)
 
 
-@lru_cache(maxsize=1)
-def default_font_path() -> str | None:
-    """Path of the first candidate that draws every required character, or None."""
-    for path in _candidates():
+@lru_cache(maxsize=2)
+def default_font_path(bold: bool = False) -> str | None:
+    """Path of the first candidate that draws every required character, or None.
+    Bold falls back to the regular font when no bold one is found."""
+    if bold:
+        found = _first_covering(_candidates(bold=True))
+        return found or default_font_path(False)
+    return _first_covering(_candidates())
+
+
+def _first_covering(candidates: list[str]) -> str | None:
+    for path in candidates:
         if not Path(path).is_file():
             continue
         try:
@@ -57,8 +75,8 @@ def default_font_path() -> str | None:
     return None
 
 
-def load(size: int, path: str | None = None) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    chosen = path or default_font_path()
+def load(size: int, path: str | None = None, *, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    chosen = path or default_font_path(bold)
     if chosen:
         return ImageFont.truetype(chosen, size)
     return ImageFont.load_default(size=size)

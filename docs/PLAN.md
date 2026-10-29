@@ -38,7 +38,7 @@ research → templates → composer (static + 6 s video) → guards → simulate
 - [x] (B) Composer v0 (`static_1080`, Pillow) + guards: exact product-pixel check, WCAG contrast, palette, missing glyphs (`composer.py`, `guards.py`)
 - [ ] (B) 2 more hand-written templates; SAM cutout as the product asset; reels (ffmpeg); policy guard (model)
 - [ ] (A) Simulated feed aggregated per persona; personas from reach breakdowns
-- [ ] (B) Creative director: mutations from objections
+- [x] (B) Evolver: one-element mutations from simulated objections, generations with placebo-checked re-tests, lineage in the report
 - [x] (B) Autopilot rules v0: autonomy levels, daily cap, first-live approval, guard gate, loser/fatigue review, action log (`autopilot.py`, no Meta calls)
 - [x] (A+B) `whynot create`: App Store ingest, Scout, Strategist (verified quotes), Creative director (verified copy), brand palette, policy guard v0, campaign plan (Marketing API shape), report; end-to-end, adversarial, contract and live tests
 - [ ] (B) `whynot daily`: real metrics → pause/scale/rotate → new variants → simulate → publish within caps → daily report

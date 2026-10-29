@@ -11,6 +11,7 @@ so the same genome always gets the same id (dedup across generations).
 Spec: docs/PRODUCT.md, "Template spec (concept + genome)".
 """
 
+import copy
 import hashlib
 import itertools
 import json
@@ -106,9 +107,10 @@ class Template:
         return cls.from_dict(data)
 
     def to_dict(self) -> dict[str, Any]:
-        return {"id": self.id, "concept": self.concept, "persona": self.persona, "objection": self.objection,
-                "evidence": self.evidence, "fixed": self.fixed, "genes": self.genes, "copy": self.copy,
-                "guards": self.guards}
+        """A deep copy: editing it never changes this (frozen) template."""
+        return copy.deepcopy({"id": self.id, "concept": self.concept, "persona": self.persona,
+                              "objection": self.objection, "evidence": self.evidence, "fixed": self.fixed,
+                              "genes": self.genes, "copy": self.copy, "guards": self.guards})
 
     # --- genome space -------------------------------------------------------
 

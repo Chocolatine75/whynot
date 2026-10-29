@@ -64,7 +64,7 @@ def build_report(run: Path) -> str:
                     if sim.get("simulated") else f"Not simulated: {sim.get('reason', 'n/a')}."),
             f"- Proposed campaign: **{n_sets}** ad set(s), **{n_ads}** ads, "
             f"**€{plan.get('daily_total_eur', 0)}/day** (your cap: €{plan.get('daily_cap_eur', 0)}/day).",
-            f"- Cost of this run (models): **${spent_usd(run):.2f}**.", ""]
+            f"- Model spend for this campaign folder (all runs and redos): **${spent_usd(run):.2f}**.", ""]
 
     groups = sim.get("groups", [])
     if groups:
@@ -80,6 +80,36 @@ def build_report(run: Path) -> str:
             out.append(f"| {g['persona']} ({g['language']}) | {g['placebo_lift']:.2f}× | "
                        f"{g['placebo_intent']:.1f}/5 | {g.get('placebo_views', '?')} | {verdict} |")
         out.append("")
+
+    evolution = _load(run, "evolution.json", {}) or {}
+    if evolution.get("groups"):
+        out += ["## How the ads evolved (SIMULATED)", "",
+                "Each round, the best ads were changed in ONE element to answer what simulated viewers objected to, "
+                "then re-tested against their parents and placebos in fresh feeds.", ""]
+        for g in evolution["groups"]:
+            chain, vid = [], g.get("champion")
+            while vid:  # champion back to its generation-0 ancestor
+                chain.append(by_variant[vid])
+                vid = by_variant[vid].get("parent_id")
+            chain.reverse()
+            out += [f"### {g['persona']} ({g['language']})", ""]
+            rounds = [h for h in g["history"] if "scores" in h]
+            out += ["| Round | Best ad | vs placebo | Intent |", "|---|---|---|---|"]
+            for h in rounds:
+                best = h["kept"][0] if h["kept"] else None
+                s = h["scores"].get(best, {}) if best else {}
+                hook = _cell(by_variant.get(best, {}).get("texts", {}).get("hook", "")) if best else "—"
+                out.append(f"| {h['generation']} | {hook} | {s.get('lift_over_placebo', 0):+.2f} | "
+                           f"{s.get('intent', 0):.1f}/5 |")
+            stopped = [h for h in g["history"] if h.get("stopped")]
+            if stopped:
+                out.append(f"\nStopped at round {stopped[0]['generation']}: {stopped[0]['stopped']}.")
+            out += ["", "Lineage of the winning ad:", ""]
+            for v in chain:
+                m = v.get("mutation")
+                change = f" — changed **{m['gene']}**: “{m['text']}” ({m['why']})" if m else " — original"
+                out.append(f"- Gen {v.get('generation', 0)}: ![{v['variant_id']}]({v['image']}){change}")
+            out.append("")
 
     if plan.get("errors"):
         out += ["## ⚠ The plan has problems", ""] + [f"- {e}" for e in plan["errors"]] + [""]

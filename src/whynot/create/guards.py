@@ -1,8 +1,8 @@
 """Guards: checks every composed ad must pass before it can be tested or published.
 
 - product_pixels_unchanged: the real product/app-screen pixels in the ad are
-  exactly the asset after the composer's one declared resize (no generated or
-  painted-over product pixels; R8 in TARGETS.md);
+  exactly the asset after the composer's declared transform (resize, crop at the
+  canvas edge, rounded corners; no generated or painted-over pixels; R8);
 - text_legible: WCAG contrast (≥ 4.5, ≥ 3 for the large headline), a minimum
   font size, text inside the canvas and not over the product;
 - brand_palette: every colour the composer painted with is in the brand palette;
@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from PIL import Image, ImageChops
 
 from whynot.create import policy
-from whynot.create.composer import Box, Brand, Composition, contrast_ratio, resize_asset
+from whynot.create.composer import Box, Brand, Composition, contrast_ratio, product_pixels
 from whynot.create.templates import KNOWN_GUARDS, Template
 
 MANDATORY = frozenset(KNOWN_GUARDS)  # all of them, for now
@@ -46,7 +46,7 @@ def product_pixels_unchanged(comp: Composition, asset: Image.Image) -> GuardResu
     name = "product_pixels_unchanged"
     if comp.product is None:
         return GuardResult(name, False, "no product placed")
-    expected = resize_asset(asset, comp.product.size)
+    expected = product_pixels(asset, comp.product)
     opaque = expected.getchannel("A").point(lambda a: 255 if a == 255 else 0)
     n_opaque = opaque.histogram()[255]
     if n_opaque == 0:

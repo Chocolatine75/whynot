@@ -28,7 +28,8 @@ src/whynot/
     ask.py             ask_json: validated answers, repaired with the exact errors, never guessed
     scout.py           search terms → Ad Library → real competitors (noise filtered)
     strategist.py      Muse Wonder: personas, objections, angles, claims — every quote verified verbatim
-    director.py        templates + ad copy; numbers only from verified claims, policy, diversity
+    director.py        templates + ad copy; numbers only from verified claims, policy, diversity (CopyRules)
+    evolver.py         one-element mutations answering simulated objections
   ingest/
     adlibrary.py       competitor ads from the Ad Library (tokens stripped, retries)
     appstore.py        App Store page, reviews, real screenshots, competitor apps
@@ -41,6 +42,7 @@ src/whynot/
     guards.py          checks every ad must pass (product pixels, legibility, palette, policy)
     policy.py          rule-based Meta ad-policy checks (personal attributes, absolutes, bait)
   sim/
+    arena.py           fair feeds: brand name, head-to-head slots, placebos, bias flag
     personas.py        personas allocated from real reach data
     feed.py            market feeds (balanced exposure) and candidate feeds
     viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs

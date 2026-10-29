@@ -17,7 +17,7 @@ def _create(args: argparse.Namespace) -> int:
         app_ref=args.app, countries=args.countries, daily_cap_eur=args.daily_cap, budget_usd=args.budget_usd,
         research_countries=args.research_countries, store_country=args.store_country, language=args.language,
         competitor_pages=args.competitor_page or [], max_angles=args.angles,
-        variants_per_template=args.variants, policy=policy)
+        variants_per_template=args.variants, generations=args.generations, policy=policy)
     run_dir = Path(args.resume) if args.resume else new_run_dir(Path(args.out), args.app)
     print(f"run folder: {run_dir}")
     try:
@@ -27,7 +27,8 @@ def _create(args: argparse.Namespace) -> int:
               file=sys.stderr)
         return 1
     print(f"\n✓ {result.app.name}: {len(result.plan.ad_sets)} ad set(s), {len(result.choices)} ads, "
-          f"€{result.plan.daily_total_eur}/day planned (PAUSED, not launched) · model cost ${result.usd:.2f}")
+          f"€{result.plan.daily_total_eur}/day planned (PAUSED, not launched) · model cost ${result.usd_now:.2f} "
+          f"this run (${result.usd:.2f} total for this folder)")
     if result.plan_errors:
         print("  plan problems: " + "; ".join(result.plan_errors))
     print(f"  report: {run_dir / 'report.md'}")
@@ -50,7 +51,9 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--variants", type=int, default=4, help="variants produced per concept")
     c.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")
     c.add_argument("--resume", help="an existing run folder: finished stages are reused, not re-billed")
-    c.add_argument("--redo-from", choices=["market", "strategy", "creative", "produce", "simulate", "plan", "report"],
+    c.add_argument("--generations", type=int, default=2, help="evolution rounds after the first test (0 = none)")
+    c.add_argument("--redo-from", choices=["market", "strategy", "creative", "produce", "simulate", "evolve", "plan",
+                                           "report"],
                    help="with --resume: recompute this stage and the following ones, reuse the earlier ones")
     c.set_defaults(func=_create)
     args = p.parse_args(argv)

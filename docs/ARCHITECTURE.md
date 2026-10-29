@@ -58,6 +58,7 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `agents/scout` | Search terms, Ad Library collection, competitor filter, market corpus | Muse Spark, Ad Library |
 | `agents/strategist` | Personas, objections, angles, claims; every quote verified in its source | Muse Wonder |
 | `agents/director` | Templates + copy per angle; numbers only from claims; policy; diversity | Muse Spark |
+| `agents/evolver` | Mutations of one element per ad, answering simulated objections; same copy rules as the director | Muse Spark |
 | `agency/create` | `whynot create`: the pipeline, run folder, resume, budget, report | — |
 | `create/templates` | Concepts + genomes (YAML), validation, sampling, one-gene mutation, variant ids | Muse Spark (writes them) |
 | `assets/sam` (+ `assets/cutout` next) | SAM 3.1 output parsing; product / app-screen cutouts, element tracks in video | SAM 3.1 |

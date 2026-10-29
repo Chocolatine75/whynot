@@ -8,9 +8,10 @@ whose output exists is loaded, not recomputed or re-billed):
  3. strategy  Strategist (Muse Wonder): personas, objections, angles, verified claims
  4. creative  Creative director: one template per angle, checked copy
  5. produce   Composer: ad images per variant + every guard
- 6. simulate  Viewer agents: each variant in feeds next to real competitor ads (SIMULATED)
- 7. plan      Campaign plan in Marketing API shape, validated; launch decisions via the autopilot
- 8. report    report.md for the owner
+ 6. simulate  Viewer agents: each variant in fair feeds next to real competitor ads and placebos (SIMULATED)
+ 7. evolve    Evolver: mutate the best ads to answer viewers' objections, re-test, keep the best (SIMULATED)
+ 8. plan      Campaign plan in Marketing API shape, validated; launch decisions via the autopilot
+ 9. report    report.md for the owner
 
 All model calls go through one `ModelClient` with a hard budget for the run.
 Nothing is sent to Meta here: the plan is created PAUSED and only published
@@ -31,7 +32,8 @@ import yaml
 from PIL import Image
 
 from whynot.agency.report import spent_usd, write_report
-from whynot.agents import director, scout, strategist
+from whynot.agents import director, evolver, scout, strategist
+from whynot.agents.ask import AgentError
 from whynot.agents.director import Context
 from whynot.agents.strategist import Strategy
 from whynot.assets.brand import palette_from_icon
@@ -59,7 +61,7 @@ from whynot.sim.personas import Persona as SimPersona
 from whynot.sim.scores import score_ads
 from whynot.sim.viewer import Viewer, run_simulation
 
-STAGES = ("app", "market", "strategy", "creative", "produce", "simulate", "plan", "report")
+STAGES = ("app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report")
 
 
 @dataclass
@@ -79,6 +81,9 @@ class CreateConfig:
     feed_size: int = 4
     viewers_per_feed: int = 2
     viewer_reasoning: str | None = "low"
+    generations: int = 2  # evolution rounds after the first simulation; 0 = no evolution
+    evolve_parents: int = 2  # ads kept per audience each round (best of different concepts first)
+    mutations_per_parent: int = 2
     strategy_model: str = WONDER
     director_model: str = SPARK
     policy: Policy = field(default_factory=Policy)
@@ -160,7 +165,8 @@ class Result:
     choices: list[AdChoice]
     plan: CampaignPlan
     plan_errors: list[str]
-    usd: float
+    usd: float  # everything ever spent on this run folder (all invocations, redos included)
+    usd_now: float = 0.0  # spent by this invocation
 
 
 def _stage(run: Run, name: str, fn: Callable[[], Any], clients: Clients) -> Any:
@@ -267,29 +273,30 @@ def load_templates(run: Run) -> list[Template]:
     return [Template.load(p) for p in sorted(run.path("templates").glob("*.yaml"))]
 
 
+def produce_row(run: Run, t: Template, genome: dict[str, str], **extra: Any) -> dict[str, Any]:
+    """Compose one variant, save its image, run every guard: the row stored in variants.json."""
+    v = Variant(t.id, genome)
+    row: dict[str, Any] = {"variant_id": v.id, "template_id": t.id, "persona": t.persona, "genome": genome,
+                           "language": t.fixed.get("language", "en"), "generation": 0, **extra}
+    asset = Image.open(run.path("assets", t.fixed["product"]["asset"]))
+    try:
+        comp = compose(t, genome, asset)
+    except ComposeError as exc:
+        return {**row, "error": str(exc), "guards_passed": False}
+    comp.image.save(run.path("ads", f"{v.id}.png"))
+    results = run_guards(t, comp, asset)
+    return {**row, "image": f"ads/{v.id}.png", "guards": {k: asdict(r) for k, r in results.items()},
+            "guards_passed": publishable(results),
+            "texts": {g: t.text(g, genome[g]) for g in ("hook", "body", "title", "proof", "cta") if g in genome}}
+
+
 def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> None:
     out = run.path("ads")
     out.mkdir(exist_ok=True)
     for old in out.glob("*.png"):
         old.unlink()
-    rows = []
-    for t in templates:
-        asset = Image.open(run.path("assets", t.fixed["product"]["asset"]))
-        for genome in t.sample(cfg.variants_per_template, seed=cfg.seed):
-            v = Variant(t.id, genome)
-            row: dict[str, Any] = {"variant_id": v.id, "template_id": t.id, "persona": t.persona, "genome": genome,
-                                   "language": t.fixed.get("language", "en")}
-            try:
-                comp = compose(t, genome, asset)
-            except ComposeError as exc:
-                rows.append({**row, "error": str(exc), "guards_passed": False})
-                continue
-            comp.image.save(out / f"{v.id}.png")
-            results = run_guards(t, comp, asset)
-            rows.append({**row, "image": f"ads/{v.id}.png", "guards": {k: asdict(r) for k, r in results.items()},
-                         "guards_passed": publishable(results),
-                         "texts": {g: t.text(g, genome[g]) for g in ("hook", "body", "title", "proof", "cta")
-                                   if g in genome}})
+    rows = [produce_row(run, t, genome) for t in templates for genome in t.sample(cfg.variants_per_template,
+                                                                                   seed=cfg.seed)]
     run.write_json("variants.json", rows)
 
 
@@ -299,6 +306,37 @@ def viewer_personas(p: strategist.Persona, n: int) -> list[SimPersona]:
     traits = (p.description, "wants: " + "; ".join(p.motivations))
     return [SimPersona(f"{p.id}_{i}", p.countries[i % len(p.countries)], f"{p.age_min}-{p.age_max}",
                        genders[i % len(genders)], traits) for i in range(n)]
+
+
+@dataclass
+class Round:
+    verdicts: dict[str, dict[str, Any]]  # our variants only
+    info: dict[str, Any]  # placebo lift/intent/views, biased, feeds — or an error
+    usd: float
+    failures: list[dict[str, str]]
+
+
+def arena_round(viewer: Viewer, persona: strategist.Persona, rows: list[dict[str, Any]],
+                competitors: list[FeedItem], brand: str, cfg: CreateConfig, rng: random.Random, *,
+                seed: int) -> Round:
+    """One fair-feed comparison of `rows` (our variants) with fresh placebos, for one persona's viewers."""
+    placebos = [placebo_item(a, brand) for a in rng.sample(competitors, cfg.placebos)]
+    candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in rows] + placebos
+    feeds = paired_feeds(candidates, competitors, feed_size=cfg.feed_size, appearances=cfg.feeds_per_variant,
+                         seed=seed)
+    sim = run_simulation(viewer, viewer_personas(persona, max(cfg.viewers_per_feed, 2)), feeds,
+                         viewers_per_feed=cfg.viewers_per_feed)
+    ids = {x.ad_id for x in candidates}
+    scored = {k: s for k, s in score_ads(sim.reactions).items() if k in ids}
+    try:
+        result = judge(scored, ids)
+    except ValueError as exc:  # every viewer failed: nothing to judge
+        return Round({}, {"error": str(exc), "feeds": len(feeds)}, sim.usd, sim.failures)
+    info = {"placebo_lift": result.placebo_lift, "placebo_intent": result.placebo_intent, "biased": result.biased,
+            "placebo_views": result.placebo_views, "feeds": len(feeds)}
+    verdicts = {k: {**asdict(v), "top_why_not": scored[k].top_why_not, "biased_group": result.biased}
+                for k, v in result.verdicts.items()}
+    return Round(verdicts, info, sim.usd, sim.failures)
 
 
 def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
@@ -324,45 +362,142 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         mine = [v for v in ok if v["persona"] == p.id and v.get("language", "en") == code]
         if not mine or not p.countries:
             continue
-        placebos = [placebo_item(a, brand) for a in rng.sample(competitors, cfg.placebos)]
-        candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in mine] + placebos
-        feeds = paired_feeds(candidates, competitors, feed_size=cfg.feed_size, appearances=cfg.feeds_per_variant,
-                             seed=cfg.seed + len(groups_out))
-        sim = run_simulation(viewer, viewer_personas(p, max(cfg.viewers_per_feed, 2)), feeds,
-                             viewers_per_feed=cfg.viewers_per_feed)
-        usd += sim.usd
-        failures += sim.failures
-        ids = {x.ad_id for x in candidates}
-        scored = {k: s for k, s in score_ads(sim.reactions).items() if k in ids}
-        try:
-            result = judge(scored, ids)
-        except ValueError as exc:  # every viewer failed: nothing to judge
-            groups_out.append({"persona": p.id, "language": code, "error": str(exc)})
-            continue
-        groups_out.append({"persona": p.id, "language": code, "placebo_lift": result.placebo_lift,
-                           "placebo_intent": result.placebo_intent, "biased": result.biased,
-                           "placebo_views": result.placebo_views,
-                           "feeds": len(feeds), "variants": len(mine)})
-        for k, verdict in result.verdicts.items():
-            verdicts[k] = {**asdict(verdict), "top_why_not": scored[k].top_why_not, "biased_group": result.biased}
+        r = arena_round(viewer, p, mine, competitors, brand, cfg, rng, seed=cfg.seed + len(groups_out))
+        usd += r.usd
+        failures += r.failures
+        groups_out.append({"persona": p.id, "language": code, **r.info, "variants": len(mine)})
+        verdicts.update(r.verdicts)
     run.write_json("simulation.json", {"simulated": True, "brand": brand, "usd": usd, "failures": failures,
                                        "groups": groups_out, "scores": verdicts})
 
 
-def _rank_score(score: dict[str, Any] | None) -> float:
-    """Ranking signal for the plan: lift over the placebo (same name, same layout); neutral if unknown."""
-    if not score:
-        return 1.0
-    return 1.0 + float(score["lift_over_placebo"])
+def pick_parents(rows: list[dict[str, Any]], scores: dict[str, dict[str, Any]], k: int) -> list[dict[str, Any]]:
+    """Best k scored rows, preferring different templates (concept diversity), ties broken by intent then id."""
+    ranked = sorted((r for r in rows if r["variant_id"] in scores),
+                    key=lambda r: (-scores[r["variant_id"]]["lift_over_placebo"], -scores[r["variant_id"]]["intent"],
+                                   r["variant_id"]))
+    chosen: list[dict[str, Any]] = []
+    for r in ranked:
+        if len(chosen) < k and r["template_id"] not in {c["template_id"] for c in chosen}:
+            chosen.append(r)
+    for r in ranked:  # fill from the same concepts if there are fewer concepts than k
+        if len(chosen) < k and r not in chosen:
+            chosen.append(r)
+    return chosen
+
+
+def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
+                 ads: list[CompetitorAd], market: dict[str, Any], brand_info: dict[str, Any]) -> None:
+    """Generations per audience: parents → mutations answering their objections → fair re-test → keep the best.
+
+    Children and the options they add to templates are written back (templates/, variants.json); the original
+    templates are kept in templates_gen0/ so a redo starts from the same place."""
+    import shutil
+
+    gen0, live = run.path("templates_gen0"), run.path("templates")
+    if gen0.exists():  # a redo: restore the templates as the creative stage left them
+        shutil.rmtree(live)
+        shutil.copytree(gen0, live)
+    else:
+        shutil.copytree(live, gen0)
+    variants = [v for v in run.read_json("variants.json") if v.get("generation", 0) == 0]
+    sim = run.read_json("simulation.json")
+    out: dict[str, Any] = {"generations": cfg.generations, "groups": [], "usd": 0.0}
+    if cfg.generations <= 0 or not sim.get("simulated"):
+        out["skipped"] = "no evolution requested" if cfg.generations <= 0 else "nothing was simulated"
+        run.write_json("variants.json", variants)
+        run.write_json("evolution.json", out)
+        return
+    registry = {t.id: t for t in load_templates(run)}
+    competitors = [FeedItem.from_ad(a) for a in ads if (a.bodies or [""])[0].strip()]
+    names = tuple(x["page_name"] for x in market.get("advertisers", []) if x.get("page_name"))
+    brand = sim["brand"]
+    viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
+    rng = random.Random(cfg.seed + 7)
+    groups = languages(cfg)
+    spent_before = c.model.spent_usd
+
+    for gi, g in enumerate(x for x in sim["groups"] if "error" not in x):
+        code = g["language"]
+        p_all = strategy.persona(g["persona"])
+        p = replace(p_all, countries=tuple(x for x in p_all.countries if x in groups[code]))
+        ctx = Context(localised(strategy, groups[code]), app.name, app.description, names,
+                      tuple(brand_info["palette"]), brand_info["screenshots"][0], LANGUAGES[code])
+        rows = [v for v in variants if v.get("guards_passed") and v["persona"] == p.id and v["language"] == code]
+        scores = {k: s for k, s in sim["scores"].items() if k in {r["variant_id"] for r in rows}}
+        parents = pick_parents(rows, scores, cfg.evolve_parents)
+        history: list[dict[str, Any]] = [{"generation": 0, "scores": scores, "info": {k: g[k] for k in g
+                                          if k not in ("persona", "language")},
+                                          "kept": [r["variant_id"] for r in parents]}]
+        for gen in range(1, cfg.generations + 1):
+            children, refused = [], []
+            for par in parents:
+                t = registry[par["template_id"]]
+                s = scores[par["variant_id"]]
+                parent = evolver.Parent(par["variant_id"], t, par["genome"], s["lift_over_placebo"], s["intent"],
+                                        tuple(s.get("top_why_not", [])))
+                try:
+                    answer = evolver.propose(c.model, ctx, parent, n=cfg.mutations_per_parent)
+                except AgentError as exc:  # evolution improves ads; one refusal must not stop the run
+                    refused.append({"parent": par["variant_id"], "errors": exc.errors})
+                    continue
+                for j, m in enumerate(answer.value):
+                    tag = f"g{gen}_{par['variant_id'].rsplit('-', 1)[-1][:6]}_{j}"
+                    new_t, genome = evolver.apply(registry[t.id], par["genome"], m, tag=tag)
+                    registry[t.id] = new_t
+                    row = produce_row(run, new_t, genome, generation=gen, parent_id=par["variant_id"],
+                                      mutation={"gene": m.gene, "text": m.text, "why": m.why})
+                    variants.append(row)
+                    if row.get("guards_passed"):
+                        children.append(row)
+            if not children:
+                history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
+                break
+            pool = parents + children
+            r = arena_round(viewer, p, pool, competitors, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
+            if not r.verdicts:
+                history.append({"generation": gen, "stopped": r.info.get("error", "not judged"), "refused": refused})
+                break
+            scores = r.verdicts
+            parents = pick_parents(pool, scores, cfg.evolve_parents)
+            history.append({"generation": gen, "scores": scores, "info": r.info, "refused": refused,
+                            "children": [ch["variant_id"] for ch in children],
+                            "kept": [x["variant_id"] for x in parents]})
+        final = next(h for h in reversed(history) if "scores" in h)
+        out["groups"].append({"persona": p.id, "language": code, "history": history,
+                              "final": final["scores"], "champion": final["kept"][0] if final["kept"] else None})
+
+    for t in registry.values():
+        (live / f"{t.id}.yaml").write_text(yaml.safe_dump(t.to_dict(), sort_keys=False, allow_unicode=True),
+                                           encoding="utf-8")
+    out["usd"] = round(c.model.spent_usd - spent_before, 4)
+    run.write_json("variants.json", variants)
+    run.write_json("evolution.json", out)
+
+
+def final_scores(sim: dict[str, Any], evolution: dict[str, Any] | None) -> dict[str, float]:
+    """Ranking signal per variant for the plan.
+
+    Scores from different simulations are not on the same scale, so: the final evolution round of each audience
+    ranks first (10 + lift over placebo); every other variant keeps its latest score (1 + lift over placebo)."""
+    out = {k: 1.0 + float(s["lift_over_placebo"]) for k, s in sim.get("scores", {}).items()}
+    for g in (evolution or {}).get("groups", []):
+        for h in g["history"]:
+            for k, s in h.get("scores", {}).items():
+                out[k] = 1.0 + float(s["lift_over_placebo"])
+        for k, s in g["final"].items():
+            out[k] = 10.0 + float(s["lift_over_placebo"])
+    return out
 
 
 def stage_plan(run: Run, cfg: CreateConfig, app: AppProfile, strategy: Strategy, variants: list[dict[str, Any]],
                sim: dict[str, Any]) -> None:
-    scores = sim.get("scores", {})
+    evolution = run.read_json("evolution.json") if run.path("evolution.json").exists() else None
+    ranks = final_scores(sim, evolution)
     # one audience per (persona, ad language), targeting only that language's countries
     choices = [AdChoice(v["variant_id"], v["template_id"], f"{v['persona']}.{v.get('language', 'en')}", v["image"],
                         v["texts"]["hook"], v["texts"]["body"], v["texts"]["title"], v["genome"]["cta"], True,
-                        _rank_score(scores.get(v["variant_id"])))
+                        ranks.get(v["variant_id"], 1.0))
                for v in variants if v.get("guards_passed")]
     groups = languages(cfg)
     audiences = []
@@ -420,13 +555,17 @@ def create(cfg: CreateConfig, clients: Clients, run_dir: Path, *, redo_from: str
     _stage(run, "produce", lambda: stage_produce(run, cfg, templates), clients)
     variants = run.read_json("variants.json")
     _stage(run, "simulate", lambda: stage_simulate(run, cfg, clients, app, strategy, ads, variants), clients)
+    _stage(run, "evolve", lambda: stage_evolve(run, cfg, clients, app, strategy, ads, market, brand), clients)
+    variants = run.read_json("variants.json")
+    templates = load_templates(run)
     sim = run.read_json("simulation.json")
     _stage(run, "plan", lambda: stage_plan(run, cfg, app, strategy, variants, sim), clients)
     plan_json = run.read_json("plan.json")
     plan = plan_from_json(plan_json)
     _stage(run, "report", lambda: write_report(run.dir), clients)
     choices = [a for s in plan.ad_sets for a in s.ads]
-    return Result(run.dir, app, strategy, templates, choices, plan, plan_json["errors"], round(spent_usd(run.dir), 4))
+    return Result(run.dir, app, strategy, templates, choices, plan, plan_json["errors"], round(spent_usd(run.dir), 4),
+                  round(clients.model.spent_usd, 4))
 
 
 def default_clients(budget_usd: float, run_dir: Path) -> Clients:

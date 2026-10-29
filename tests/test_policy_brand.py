@@ -56,12 +56,13 @@ def icon(colour, bg=(255, 255, 255)):
 
 @pytest.mark.parametrize("colour", [(220, 38, 38), (22, 163, 74), (37, 99, 235), (234, 179, 8), (147, 51, 234)])
 def test_palette_from_icon_has_readable_text(colour):
-    bg, fg, accent = (hex_to_rgb(c) for c in palette_from_icon(icon(colour)))
+    bg, fg, accent, surface = (hex_to_rgb(c) for c in palette_from_icon(icon(colour)))
+    assert contrast_ratio(fg, surface) >= 12
     assert max(abs(a - b) for a, b in zip(accent, colour, strict=True)) <= 60  # the brand colour, maybe darkened
     assert colorsys.rgb_to_hls(*(x / 255 for x in accent))[0] == pytest.approx(
         colorsys.rgb_to_hls(*(x / 255 for x in colour))[0], abs=0.03)  # same hue
     assert contrast_ratio(fg, bg) >= 12  # body text far above WCAG AA
-    assert len({bg, fg, accent}) == 3
+    assert len({bg, fg, accent, surface}) == 4
 
 
 def test_greyscale_icon_falls_back_to_a_neutral_accent():
@@ -72,7 +73,7 @@ def test_greyscale_icon_falls_back_to_a_neutral_accent():
 @given(st.tuples(st.integers(0, 255), st.integers(0, 255), st.integers(0, 255)))
 def test_any_icon_colour_gives_a_legible_button(colour):
     """Bug: a red icon gave button text at 4.43:1, so the legibility guard refused every ad."""
-    bg, fg, accent = (hex_to_rgb(c) for c in palette_from_icon(icon(colour)))
+    bg, fg, accent, surface = (hex_to_rgb(c) for c in palette_from_icon(icon(colour)))
     assert max(contrast_ratio(accent, bg), contrast_ratio(accent, fg)) >= 4.5
-    assert contrast_ratio(fg, bg) >= 12
-    assert len({bg, fg, accent}) == 3
+    assert contrast_ratio(fg, bg) >= 12 and contrast_ratio(fg, surface) >= 12
+    assert len({bg, fg, accent, surface}) == 4

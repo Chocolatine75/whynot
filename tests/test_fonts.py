@@ -45,7 +45,7 @@ def test_accented_ads_compose_and_pass_every_guard(lang):
 
 
 def test_without_a_suitable_font_accents_are_refused_not_mangled(monkeypatch):
-    monkeypatch.setattr(fonts, "_candidates", lambda: ["/nope/missing.ttf"])
+    monkeypatch.setattr(fonts, "_candidates", lambda bold=False: ["/nope/missing.ttf"])
     fonts.default_font_path.cache_clear()
     try:
         with pytest.raises(ComposeError, match="cannot draw"):
@@ -63,3 +63,7 @@ def test_env_font_wins_when_it_covers_the_languages(monkeypatch):
         assert fonts._candidates()[0] == path and fonts.default_font_path() == path
     finally:
         fonts.default_font_path.cache_clear()
+
+
+def test_bold_font_covers_every_language_too():
+    assert fonts.covers(fonts.load(40, bold=True))

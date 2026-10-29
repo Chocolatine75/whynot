@@ -70,9 +70,11 @@ def readable_accent(accent: RGB, background: RGB, foreground: RGB, *, minimum: f
 
 
 def palette_from_icon(icon: Image.Image) -> list[str]:
-    """[background, foreground, accent] as hex, for `fixed.brand.palette`.
-    Guaranteed: body text ≥ 12:1 on the background, button text ≥ 4.6:1 on the accent."""
+    """[background, foreground, accent, surface] as hex, for `fixed.brand.palette`.
+    Background and surface are the two ends of the soft vertical gradient (a near-white tint of the brand).
+    Guaranteed: body text ≥ 12:1 on both ends, button text ≥ 4.6:1 on the accent."""
     accent = accent_from_icon(icon)
-    background = _tint(accent, 0.97, 0.6)
-    foreground = _tint(accent, 0.12, 0.35)
-    return [_hex(background), _hex(foreground), _hex(readable_accent(accent, background, foreground))]
+    background = _tint(accent, 0.985, 0.5)
+    surface = _tint(accent, 0.93, 0.55)
+    foreground = _tint(accent, 0.11, 0.35)
+    return [_hex(background), _hex(foreground), _hex(readable_accent(accent, background, foreground)), _hex(surface)]

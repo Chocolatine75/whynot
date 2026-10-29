@@ -100,7 +100,7 @@ def test_no_token_and_no_reviewer_identity_leaks_into_the_run(done):
 def test_costs_are_logged_per_agent_and_match_the_report(done):
     result, meta, _, run = done
     ledger = [json.loads(line) for line in (run / "costs.jsonl").read_text().splitlines()]
-    assert {e["module"] for e in ledger} == {"scout", "strategy", "director", "viewers"}
+    assert {e["module"] for e in ledger} == {"scout", "strategy", "director", "viewers", "evolver"}
     assert len(ledger) == len(meta.requests)
     assert result.usd == pytest.approx(sum(e["usd"] for e in ledger), abs=1e-3)
     assert {e["model"] for e in ledger if e["module"] == "strategy"} == {"muse-wonder-1.0"}
@@ -343,3 +343,89 @@ def test_a_name_biased_simulator_is_flagged_in_the_plan_and_report(tmp_path):
     assert any("simulator bias" in n for n in result.plan.notes)
     report = (tmp_path / "run" / "report.md").read_text()
     assert "⚠ biased: rank within audience only" in report and "placebo also won here" in report
+
+
+# --- evolution -----------------------------------------------------------------------------
+
+def test_evolution_improves_the_ads_and_keeps_the_lineage(done):
+    """In the fair world viewers want 'family': the evolver adds it, and the children must win their round."""
+    result, _, _, run = done
+    evo = json.loads((run / "evolution.json").read_text())
+    variants = {v["variant_id"]: v for v in json.loads((run / "variants.json").read_text())}
+    assert evo["groups"] and evo["usd"] > 0
+    improved = 0
+    for g in evo["groups"]:
+        gens = [h for h in g["history"] if "scores" in h]
+        assert gens[0]["generation"] == 0 and len(gens) >= 2
+        for h in gens[1:]:
+            for child in h["children"]:
+                v = variants[child]
+                assert v["generation"] == h["generation"] and v["parent_id"] in variants
+                assert v["guards_passed"] and (run / v["image"]).exists()
+                parent = variants[v["parent_id"]]
+                diff = [k for k in parent["genome"] if parent["genome"][k] != v["genome"][k]]
+                assert diff == [v["mutation"]["gene"]]  # exactly one element changed
+        champ = variants[g["champion"]]
+        if champ["generation"] > 0:
+            improved += 1
+            assert "famil" in champ["texts"]["hook"].lower()
+    assert improved >= 1
+    planned = {a.variant_id for a in result.choices}
+    assert any(variants[k]["generation"] > 0 for k in planned)  # evolved ads reach the campaign
+
+
+def test_evolved_templates_reproduce_their_children(done):
+    from whynot.create.templates import Template, Variant
+
+    _, _, _, run = done
+    templates = {t.id: t for t in (Template.load(p) for p in (run / "templates").glob("*.yaml"))}
+    for v in json.loads((run / "variants.json").read_text()):
+        t = templates[v["template_id"]]
+        t.check(v["genome"])
+        assert Variant(t.id, v["genome"]).id == v["variant_id"]
+    assert (run / "templates_gen0").is_dir()
+
+
+def test_redo_evolve_starts_from_the_same_templates(done, tmp_path):
+    import shutil
+
+    _, _, _, original = done
+    run = tmp_path / "copy"
+    shutil.copytree(original, run)
+    c, _, _ = clients(tmp_path)
+    create(CreateConfig(**CFG), c, run, redo_from="evolve")
+    rows = json.loads((run / "variants.json").read_text())
+    assert len({r["variant_id"] for r in rows}) == len(rows)  # no duplicated children
+
+
+def test_evolution_survives_a_stubborn_evolver(tmp_path):
+    def stubborn(model, messages):
+        text = default_reply(model, messages)
+        if "You are improving a Meta app-install ad" in str(messages[0]["content"]):
+            return json.dumps({"mutations": [{"gene": "hook", "text": "Join 3 million learners", "why": "x"}]})
+        return text
+
+    c, _, _ = clients(tmp_path, meta=FakeMeta(stubborn))
+    result = create(CreateConfig(**CFG), c, tmp_path / "run")
+    evo = json.loads((tmp_path / "run" / "evolution.json").read_text())
+    assert all(g["history"][-1].get("stopped") == "no valid child" for g in evo["groups"])
+    assert all("not in any verified claim" in str(g["history"][-1]["refused"]) for g in evo["groups"])
+    assert result.plan_errors == []  # the campaign still ships with generation-0 ads
+
+
+def test_generations_zero_skips_evolution(tmp_path):
+    c, meta, _ = clients(tmp_path)
+    create(CreateConfig(**CFG, generations=0), c, tmp_path / "run")
+    assert json.loads((tmp_path / "run" / "evolution.json").read_text())["skipped"]
+    assert not any("improving a Meta" in str(r["messages"][0]["content"]) for r in meta.requests)
+
+
+def test_report_shows_the_evolution_with_images(done):
+    _, _, _, run = done
+    report = (run / "report.md").read_text()
+    assert "## How the ads evolved (SIMULATED)" in report and "Lineage of the winning ad:" in report
+    assert "changed **hook**" in report
+    for line in report.splitlines():
+        if "![" in line:
+            path = line.split("](")[1].split(")")[0]
+            assert (run / path).exists(), path

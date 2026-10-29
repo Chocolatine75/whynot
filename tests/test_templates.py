@@ -71,3 +71,12 @@ def test_variant_id_depends_only_on_genome():
 def test_roundtrip_dict():
     t = Template.from_dict(base(copy={"hook": {"question": "Why?"}}))
     assert Template.from_dict(t.to_dict()) == t
+
+
+def test_to_dict_is_a_copy():
+    """Bug: editing to_dict() output changed the frozen template (found by the evolver tests)."""
+    t = Template.from_dict(base(copy={"hook": {"question": "Why?"}}))
+    d = t.to_dict()
+    d["genes"]["hook"].append("new")
+    d["copy"]["hook"]["question"] = "changed"
+    assert "new" not in t.genes["hook"] and t.text("hook", "question") == "Why?"
