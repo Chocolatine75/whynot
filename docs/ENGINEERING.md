@@ -58,6 +58,7 @@ src/whynot/
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry
     longevity.py       R3: simulator vs Ad Library longevity
+    retest.py          test-retest noise floor: the smallest simulated difference reported as real
 web/                   client platform (Next.js): lib/runs.ts reads run folders, lib/start.ts starts the engine,
                        components/AgencyRoom.tsx shows a run; tests in web/test (vitest)
 scripts/               thin command-line entry points (argparse); no logic that isn't in src/
