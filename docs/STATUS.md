@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-29
+Last updated: 2026-10-30
 
 ## Where we are
 
@@ -45,6 +45,8 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-30 — Tom + Claude — Lane A, branch `a/lane-a-oct30`: E0-1 cassettes (`WHYNOT_CASSETTE=record|replay`, a whole fake-world `create` replays identically offline, $0), E0-2 `Budget` (estimate refused before running, hard stop during), E0-3 viewer cache (a view is never paid twice), E0-4 `whynot costs`, E3-1 hard feeds (same language, long-running, on-topic; wired into simulate + evolve), E3-2 tournament + Bradley-Terry (τ 0.92 on the fake world), E3-3 noise floor (1.96·√2·SD retest), E2-6 bias suite (≥ 92 % detection, 3 % false alarms). 471 tests, 95 %. No model spend. Next: with `MODEL_API_KEY`, record the VietBuddy cassette and run `scripts/bias_suite.py` on a real run; lane B: show the noise floor and the tournament in report/UI.
 
 - 2026-10-29 — Matteo + Claude — `ROADMAP.md`: honest baseline (simulator never validated against reality, our ads judged on text only, agents are a fixed chain, tests check plumbing not quality, landing = mock-ups), 13 epics with ids, lanes A/B by files, test bar per task, $60 model budget with cassettes + viewer cache + Baseten, day-by-day gates to Nov 4. Next: claim tasks from the Thu Oct 29 row.
 
