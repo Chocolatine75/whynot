@@ -121,7 +121,8 @@ def test_contrast_ratio_extremes():
 
 def test_missing_glyphs_are_refused(template):
     data = template.to_dict()
-    data["copy"] = {**data["copy"], "proof": {**data["copy"]["proof"], "rating_badge": "★ 4.8"}}
+    # U+E000 is private use: no font draws it, so this checks the composer whatever fonts the machine has
+    data["copy"] = {**data["copy"], "proof": {**data["copy"]["proof"], "rating_badge": "\ue000 4.8"}}
     t = Template.from_dict(data)
     g = {**next(t.genomes()), "proof": "rating_badge"}
     with pytest.raises(ComposeError, match="cannot draw"):

@@ -12,6 +12,7 @@ Invalid answers go back to the model with the exact errors (`ask_json`).
 """
 
 import re
+import unicodedata
 from dataclasses import dataclass
 from typing import Any
 
@@ -46,6 +47,11 @@ class Context:
     palette: tuple[str, str, str]
     product_asset: str  # screenshot used as the product image
     language: str = "English"
+
+
+def pictograms(text: str) -> list[str]:
+    """Emoji and symbols (★ ✓ → flags...): banned on ad images whatever the font can draw."""
+    return sorted({ch for ch in text if unicodedata.category(ch) in {"So", "Sk", "Co", "Cs"} or ord(ch) >= 0x1F000})
 
 
 def _allowed_numbers(ctx: Context) -> set[str]:
@@ -123,6 +129,9 @@ def make_validator(ctx: Context, angle_ids: list[str]):
                         if re.search(rf"\b{re.escape(normalise(name))}\b", low):
                             raise Invalid(f"{w}: {field_name} names a competitor ({name!r})")
                     if field_name.split(".")[0] in DRAWN:
+                        symbols = pictograms(text)
+                        if symbols:
+                            raise Invalid(f"{w}: {field_name} has emoji or pictograms {symbols}; words only")
                         bad = missing_glyphs(font, text)
                         if bad:
                             raise Invalid(f"{w}: {field_name} has characters the ad font cannot draw {bad}; no emoji")
