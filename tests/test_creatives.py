@@ -109,3 +109,20 @@ def test_capture_is_resumable_and_one_failure_does_not_stop_it(tmp_path):
     assert "no creative image" in report.failed["3"] and "404" in report.failed["4"]
     assert report.rate() == 2 / 6
     assert CreativeStore(tmp_path).has("5")  # the index survives a reload
+
+
+def test_video_ads_use_the_poster_frame_and_avatars_are_never_picked():
+    """Regression: 180 of 298 R3 v1 pages were video ads (no <img> for the creative), so capture failed;
+    and an Instagram profile picture (206 px, cdninstagram.com) could pass for a creative."""
+    avatar = Media("https://scontent-cdg6-1.cdninstagram.com/v/t51/avatar.jpg", 206, 206)
+    small = Media(CDN.format("logo"), 60, 60)
+    poster = Media(CDN.format("poster"), 360, 640, poster=True)
+    assert pick(Snapshot([small, avatar, poster], has_video=True)) == poster
+    image = Media("https://scontent-cdg6-1.cdninstagram.com/v/t51/creative.jpg", 1080, 1350)
+    assert pick(Snapshot([avatar, image, poster], has_video=True)) == image  # an ad-sized image comes first
+
+
+def test_a_captured_poster_is_recorded_as_a_video(tmp_path):
+    browser = FakeBrowser({"7": Snapshot([Media(CDN.format("p"), 360, 640, poster=True)], has_video=True)})
+    report = capture([snap_ad(7)], CreativeStore(tmp_path), token=TOKEN, renderer=browser, http=cdn([]))
+    assert report.captured["7"].kind == "video"

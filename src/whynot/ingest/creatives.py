@@ -28,8 +28,8 @@ from PIL import Image
 
 from whynot.ingest.adlibrary import CompetitorAd, redact
 
-CDN_SUFFIXES = (".fbcdn.net",)  # where ad creatives live; anything else on the page is Facebook's own UI
-MIN_SIDE = 200  # smaller images are icons, avatars or UI
+CDN_SUFFIXES = (".fbcdn.net", ".cdninstagram.com")  # where creatives live; the rest is Facebook's own UI
+MIN_SIDE = 300  # smaller images are icons or avatars (Instagram profile pictures are 206 px)
 
 
 @dataclass(frozen=True)
@@ -37,11 +37,12 @@ class Media:
     url: str
     width: int
     height: int
+    poster: bool = False  # a video's poster frame (video ads have no <img> for the creative)
 
 
 @dataclass(frozen=True)
 class Snapshot:
-    """What a snapshot page shows: its images in page order and whether it holds a video."""
+    """What a snapshot page shows: its images in page order, then its video posters."""
 
     images: list[Media]
     has_video: bool = False
@@ -78,8 +79,10 @@ def is_creative(m: Media) -> bool:
 
 
 def pick(snapshot: Snapshot) -> Media | None:
-    """The main creative: the first ad-sized image from Meta's CDN, in page order (first card of a carousel)."""
-    return next((m for m in snapshot.images if is_creative(m)), None)
+    """The main creative: the first ad-sized image from Meta's CDN, in page order (first card of a carousel);
+    for a video ad without one, the video's poster frame."""
+    return next((m for m in snapshot.images if is_creative(m) and not m.poster), None) or next(
+        (m for m in snapshot.images if m.poster and is_creative(m)), None)
 
 
 def with_token(snapshot_url: str, token: str) -> str:
@@ -141,7 +144,7 @@ def capture(ads: Iterable[CompetitorAd], store: CreativeStore, *, token: str, re
             response = http.get(media.url)
             response.raise_for_status()
             jpeg, w, h = shrink(response.content, max_side)
-            info = Captured("video" if snap.has_video else "image", w, h, hashlib.sha256(jpeg).hexdigest(),
+            info = Captured("video" if media.poster or snap.has_video else "image", w, h, hashlib.sha256(jpeg).hexdigest(),
                             urlsplit(media.url).hostname or "")
             store.put(ad.id, jpeg, info)
             report.captured[ad.id] = info
@@ -169,8 +172,12 @@ class PlaywrightRenderer:  # pragma: no cover - needs a browser; exercised by sc
         time.sleep(self.settle_s)
         raw = self._page.eval_on_selector_all(
             "img", "els => els.map(e => [e.currentSrc || e.src || '', e.naturalWidth, e.naturalHeight])")
-        videos = self._page.eval_on_selector_all("video", "els => els.length")
-        return Snapshot([Media(u, int(w), int(h)) for u, w, h in raw if u], bool(videos))
+        posters = self._page.eval_on_selector_all(
+            "video", "els => els.map(e => [e.getAttribute('poster') || '', e.videoWidth, e.videoHeight])")
+        images = [Media(u, int(w), int(h)) for u, w, h in raw if u]
+        # a poster's size is the video's; before the video loads it reads 0, yet a poster is the ad itself
+        images += [Media(u, int(w) or MIN_SIDE, int(h) or MIN_SIDE, poster=True) for u, w, h in posters if u]
+        return Snapshot(images, bool(posters))
 
     def close(self) -> None:
         self._browser.close()
