@@ -1,0 +1,11 @@
+{
+ "key": "a221158549d17c6ccea8be2d0996bad8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not learning Thai and don't trust the 10 minutes a day claim\", \"intent\": \"wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"don't want to read a Substack article from a dating app, feels like fluff\", \"intent\": \"might have paused but wouldn't click through to read it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I already ignore their ads\", \"intent\": \"would just scroll past, not buying a bike\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the first one, not learning a language right now and sick of these apps\", \"intent\": \"wouldn't click or try it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"saw it was £1,849 and immediately scrolled, no chance I'm spending that on an exercise bike\", \"intent\": \"definitely wouldn't click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 606,
+ "cached_tokens": 256,
+ "output_tokens": 736,
+ "reasoning_tokens": 379
+}

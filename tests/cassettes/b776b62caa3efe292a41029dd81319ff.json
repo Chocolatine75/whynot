@@ -1,0 +1,11 @@
+{
+ "key": "b776b62caa3efe292a41029dd81319ff",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already use a period tracker I like and I don't trust these apps with sensitive health data\", \"intent\": \"I wouldn't click, I have no need for another cycle app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking to date right now and I'm sick of dating apps anyway\", \"intent\": \"I wouldn't click, I'm not interested in downloading Bumble\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning Japanese so it's irrelevant and those 5 star claims always feel fake\", \"intent\": \"I wouldn't click as I have no use for it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Nearly three grand for a treadmill is insane, I don't have the space or money\", \"intent\": \"I definitely wouldn't buy, way too expensive\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just saw this exact ad two posts ago, feels spammy and still not relevant to me\", \"intent\": \"I wouldn't click, I'd just keep scrolling past it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 128,
+ "output_tokens": 603,
+ "reasoning_tokens": 234
+}

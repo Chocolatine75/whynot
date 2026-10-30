@@ -1,0 +1,11 @@
+{
+ "key": "b6bd13110a75f845254b9b07026dea69",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese so no idea what it's saying, just looks like another wellness quiz ad\", \"intent\": \"Wouldn't click, not for me and can't understand it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"German text, I don't speak German so I just scrolled past\", \"intent\": \"No chance I'd click something I can't read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Vinted ads are everywhere and I'm not doing a home makeover, feels like a stretch to get me to sell stuff\", \"intent\": \"Might pause for a second but wouldn't click or watch\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"There's nothing to actually see, just a removed notice so what's the point\", \"intent\": \"Would just keep scrolling, nothing to engage with\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've got no reason to learn Thai and app ad looks generic\", \"intent\": \"Wouldn't download, not relevant to me at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 642,
+ "cached_tokens": 0,
+ "output_tokens": 597,
+ "reasoning_tokens": 232
+}

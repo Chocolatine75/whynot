@@ -1,0 +1,11 @@
+{
+ "key": "ae824a790a62994c08ba3da8d4b94c14",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do use Vinted but I doubt they'd give me much for old electronics and it seems like hassle to list them\", \"intent\": \"probably wouldn't click, I'd just keep scrolling\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no clue what 'first reading for free' even means, looks spammy with all the heart emojis\", \"intent\": \"definitely wouldn't click, seems sketchy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's literally called Kegel MEN, it's not for me at all\", \"intent\": \"would never click, zero interest\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"the boyfriend obsessed line feels so fake and I get too many of these puzzle game ads\", \"intent\": \"probably wouldn't click, maybe if I was really bored\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Japanese about learning Thai, I can't read it and it's totally irrelevant to me\", \"intent\": \"wouldn't click, not for me at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 563,
+ "cached_tokens": 128,
+ "output_tokens": 986,
+ "reasoning_tokens": 618
+}

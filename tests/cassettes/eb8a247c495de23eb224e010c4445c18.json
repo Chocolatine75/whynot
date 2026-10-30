@@ -1,0 +1,11 @@
+{
+ "key": "eb8a247c495de23eb224e010c4445c18",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Tagalog and I've never heard of Ling so I just scrolled past\", \"intent\": \"I would not click or download this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and I don't trust fintech hype about super apps and special edition cards\", \"intent\": \"I would not click, maybe look at Revolut later if I needed it but not from this ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Don't need to learn Thai and it's the second Ling ad already so feels spammy\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title is just a weird filename and the image is confusing, didn't get what they're actually selling me\", \"intent\": \"I would not click, I don't sell on Vinted\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Saw the same Thai Ling ad two posts ago, instantly ignored it as repetitive\", \"intent\": \"I would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 128,
+ "output_tokens": 749,
+ "reasoning_tokens": 374
+}

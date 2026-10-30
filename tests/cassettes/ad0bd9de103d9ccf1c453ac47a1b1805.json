@@ -1,0 +1,11 @@
+{
+ "key": "ad0bd9de103d9ccf1c453ac47a1b1805",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"happy with my current bank and not looking to switch just for a card colour\", \"intent\": \"I wouldn't click, no reason to change banks\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"no interest in learning Japanese and not downloading another app\", \"intent\": \"I would just scroll past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same ad as before, looks spammy seeing it three times in a row\", \"intent\": \"I definitely wouldn't click after seeing it again\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"getting repetitive now, just want to skip past these\", \"intent\": \"I would keep scrolling and ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not really my thing selling clothes online, sounds like hassle\", \"intent\": \"No, wouldn't bother clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 597,
+ "cached_tokens": 128,
+ "output_tokens": 625,
+ "reasoning_tokens": 293
+}

@@ -1,0 +1,11 @@
+{
+ "key": "574b410548e471fe840036bfdfc581ea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not spending nearly 2 grand on an exercise bike, just ad speak\", \"intent\": \"wouldn't click, not in market for it at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn a language and free trial always means paid subscription after\", \"intent\": \"wouldn't click, no interest right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"10 minutes a day claim sounds like bollocks and I don't need Thai\", \"intent\": \"wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"slightly curious but looks like just a blog post to push the app, not actually moving\", \"intent\": \"might have a quick look but probably wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the first one, second Peloton ad in a row so just scrolled past\", \"intent\": \"definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 606,
+ "cached_tokens": 128,
+ "output_tokens": 748,
+ "reasoning_tokens": 396
+}

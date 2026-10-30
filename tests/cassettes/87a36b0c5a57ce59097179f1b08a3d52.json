@@ -1,0 +1,11 @@
+{
+ "key": "87a36b0c5a57ce59097179f1b08a3d52",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I am retired, I don't need a business account, this is not for me at all\", \"intent\": \"I would not click, I have no use for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no interest in learning Thai and I just scroll past these language apps\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It is not even in English so I don't know what it is trying to say to me\", \"intent\": \"I would keep scrolling and ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These promises of a transformation in 28 days never seem believable at my age and it feels like a scam\", \"intent\": \"I would not install it, I do not trust it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is far too expensive for me and I don't believe you really save that much\", \"intent\": \"I would not click, it is not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 665,
+ "cached_tokens": 128,
+ "output_tokens": 717,
+ "reasoning_tokens": 344
+}

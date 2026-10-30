@@ -1,0 +1,11 @@
+{
+ "key": "a977cb9fe88b90847f00ce489ff11d7a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Japanese and free apps are never really free\", \"intent\": \"I would just scroll past, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's specifically for women so it's not relevant to me as a bloke\", \"intent\": \"I wouldn't click, I'd ignore it completely.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe the Europe's number one claim and I don't want another subscription app\", \"intent\": \"I might have paused for a second but I wouldn't click or buy.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Visible transformation in 28 days sounds like absolute rubbish\", \"intent\": \"I would keep scrolling straight past this gimmick.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Vinted is but I've got nothing to sell at the moment\", \"intent\": \"I wouldn't click right now but it's the only half decent one here.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 673,
+ "cached_tokens": 0,
+ "output_tokens": 970,
+ "reasoning_tokens": 611
+}

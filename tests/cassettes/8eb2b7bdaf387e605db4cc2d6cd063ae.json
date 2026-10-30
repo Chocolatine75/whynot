@@ -1,0 +1,11 @@
+{
+ "key": "8eb2b7bdaf387e605db4cc2d6cd063ae",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn Japanese and looks like a generic language app ad\", \"intent\": \"would not click, no interest in learning Japanese\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute idea but self-care gamified pet stuff isn't for me\", \"intent\": \"might pause to look but wouldn't download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German so I just scrolled past, plus 7 day transformation sounds like BS\", \"intent\": \"would not click at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"literally saw the same ad two posts ago, just spammy\", \"intent\": \"definitely wouldn't click, already ignored it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it, it's in Hindi, not relevant to me\", \"intent\": \"would not click as I don't understand it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 631,
+ "cached_tokens": 128,
+ "output_tokens": 672,
+ "reasoning_tokens": 330
+}

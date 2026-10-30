@@ -1,0 +1,11 @@
+{
+ "key": "3d0561b7d17e7d9460a941d9d5f075e2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Those reviews look fake and that 30-day transformation promise is just unrealistic, not for me\", \"intent\": \"I wouldn't click, I know it won't work like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already know Vinted and I doubt selling a few old bits would really pay for a makeover\", \"intent\": \"Might have a quick look at the before and after but not listing anything right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I speak English already so this has nothing to do with me at all\", \"intent\": \"I wouldn't click, it's completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds a bit too good to be true with the 20 million voices claim and I don't pay for meditation apps\", \"intent\": \"I might be tempted to look but I wouldn't buy or download\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what this has to do with the World Cup and I don't want another banking app\", \"intent\": \"I wouldn't click, I'm happy with my own bank\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 762,
+ "cached_tokens": 128,
+ "output_tokens": 731,
+ "reasoning_tokens": 343
+}

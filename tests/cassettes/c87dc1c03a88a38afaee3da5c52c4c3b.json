@@ -1,0 +1,11 @@
+{
+ "key": "c87dc1c03a88a38afaee3da5c52c4c3b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, Hindi I think, so I've no idea what it's really offering and it's not for me\", \"intent\": \"I would not click because I can't understand it and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've no desire to learn Japanese at my age, just another language app advert\", \"intent\": \"I would not click as I have no interest in learning Japanese\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There's nothing to see, it just says removed for not following standards so I'd just scroll on\", \"intent\": \"I would not click because there is nothing there to click on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Load of nonsense about AI football photos, not interested in that sort of gimmick at all\", \"intent\": \"I would not click because it looks like a silly fad for youngsters\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own high street bank and I don't trust all these new app-only banks\", \"intent\": \"I would not click because I'm too set in my ways to change banks now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 618,
+ "cached_tokens": 128,
+ "output_tokens": 734,
+ "reasoning_tokens": 338
+}

@@ -1,0 +1,11 @@
+{
+ "key": "285ce82ea987336d8c68db8600838fd4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks really cringe and not for me, some self care pet game for decluttering? not my thing at all\", \"intent\": \"would definitely not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"i don't have a business so completely irrelevant to me\", \"intent\": \"would not click as i don't need a business account\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"vague inspirational quote tells me nothing, not going to read some Substack\", \"intent\": \"would not click, seemed boring and pointless\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"already got a bank account and can't be bothered switching, ads always make it sound better than it is\", \"intent\": \"probably wouldn't click but might consider it later if i needed it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish so i have no idea what it's actually offering and looks like every other language app ad\", \"intent\": \"would not click because i don't even know what it says\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 0,
+ "output_tokens": 786,
+ "reasoning_tokens": 410
+}

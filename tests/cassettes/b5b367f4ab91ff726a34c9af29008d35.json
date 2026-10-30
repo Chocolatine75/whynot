@@ -1,0 +1,11 @@
+{
+ "key": "b5b367f4ab91ff726a34c9af29008d35",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"no reason to learn Thai and looks like spammy language app ad\", \"intent\": \"wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't want a big exercise bike\", \"intent\": \"would just scroll past, definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German so I have no idea what it's actually saying\", \"intent\": \"wouldn't click cause I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"obvious influencer ad and I don't need a paid workout app\", \"intent\": \"might pause for a sec but wouldn't click the link\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Chinese and looks like another AI learn English scam\", \"intent\": \"would just scroll straight past\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 0,
+ "output_tokens": 715,
+ "reasoning_tokens": 375
+}

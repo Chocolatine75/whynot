@@ -1,0 +1,11 @@
+{
+ "key": "75dc40fcc819ecc711c82d7d6d656b34",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Don't need to learn Tagalog, not relevant to me at all\", \"intent\": \"Would keep scrolling, no interest in the language\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like the usual gig economy spin, not a proper stable job\", \"intent\": \"Not looking for Deliveroo work so wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business owner and don't need business banking\", \"intent\": \"Would scroll past as it doesn't apply to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton kit is expensive and I doubt I need all that tech to get fit\", \"intent\": \"Might pause on the video but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not trying to learn a language right now and free trials always try to charge you after\", \"intent\": \"Would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 662,
+ "cached_tokens": 256,
+ "output_tokens": 534,
+ "reasoning_tokens": 183
+}

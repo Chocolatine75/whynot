@@ -1,0 +1,11 @@
+{
+ "key": "14a2e4106e968b903656ff785f4f7824",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen a lot of Vinted ads and this feels like clickbait, not actually looking to sell stuff for a makeover\", \"intent\": \"Wouldn't click, I've already got the app and I'm not interested right now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"20 million voices and sound healing sounds like total nonsense and a scam\", \"intent\": \"Definitely wouldn't click or buy this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Those reviews look fake and 30-day transformation promises are always rubbish, probably an expensive subscription\", \"intent\": \"Would scroll past, not clicking on another fitness app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm English and live in the UK, I don't need to learn English\", \"intent\": \"No need to click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Already have a bank and don't want another app, World Cup tie-in feels forced\", \"intent\": \"Wouldn't click, not switching banks for an advert\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 762,
+ "cached_tokens": 128,
+ "output_tokens": 920,
+ "reasoning_tokens": 547
+}

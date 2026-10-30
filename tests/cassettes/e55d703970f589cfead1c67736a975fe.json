@@ -1,0 +1,11 @@
+{
+ "key": "e55d703970f589cfead1c67736a975fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not interested in learning Japanese and I get too many of these language app ads\", \"intent\": \"No I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm happy with my current bank and don't want the hassle of switching\", \"intent\": \"Probably not, I might have a quick look but I doubt I'd sign up\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know what Vinted is but I've heard mixed things about sellers not getting paid properly\", \"intent\": \"Might have a browse if I was having a clear out but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same ad as before just worded differently, feels a bit spammy\", \"intent\": \"No, I'd just scroll past this one\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Third time seeing this same app, I'm definitely not learning Japanese\", \"intent\": \"No, I'm ignoring it now\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 597,
+ "cached_tokens": 0,
+ "output_tokens": 783,
+ "reasoning_tokens": 420
+}

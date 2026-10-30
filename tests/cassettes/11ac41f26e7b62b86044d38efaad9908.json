@@ -1,0 +1,11 @@
+{
+ "key": "11ac41f26e7b62b86044d38efaad9908",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking to learn Japanese and five star reviews in the title feels like an advert trick\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too vague, don't know what language or what it costs and AI chat puts me off\", \"intent\": \"I wouldn't click, I'd just scroll past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like Vinted but I've seen this sort of ad a million times, not making me do anything right now\", \"intent\": \"I might pause on it but I wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Thirty minutes anywhere sounds nice but I've no time for hobbies adverts and I bet it's expensive\", \"intent\": \"I wouldn't click, I'm not trying to learn a language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Keep all the cash sounds too good to be true, there must be fees and faff posting things\", \"intent\": \"I wouldn't click now, maybe later if I have a clear out\", \"intent_score\": 2}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 612,
+ "cached_tokens": 128,
+ "output_tokens": 635,
+ "reasoning_tokens": 251
+}

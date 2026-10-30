@@ -1,0 +1,11 @@
+{
+ "key": "a3b7b48ed5614ed14aa87adf91e21423",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen Vinted ads a million times, not selling anything right now and can't be bothered\", \"intent\": \"Would not click, just kept scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and looks like a gimmick, ads always overhype it\", \"intent\": \"Might have paused to look at the kit but definitely not clicking to buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Already know I can get Tesco on Deliveroo and delivery fees are a rip off\", \"intent\": \"Wouldn't click now but might remember it if I need something last minute\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I have no idea what it's saying and it looks like a scammy fitness app\", \"intent\": \"Would not click at all, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another Deliveroo ad pushing takeaways, nothing special and trying to make me order\", \"intent\": \"Would not click, ignored it completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 256,
+ "output_tokens": 727,
+ "reasoning_tokens": 339
+}

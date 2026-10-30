@@ -1,0 +1,11 @@
+{
+ "key": "8fe9c96d42bf38f2ed9bb9a1d711c3ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning a language or going on a trip, just sounds like another subscription app trying to get me to sign up\", \"intent\": \"I wouldn't click, not relevant to me right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what's going on, just someone talking about a date and #ad put me off immediately\", \"intent\": \"I would keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke so it's completely irrelevant to me, easy to ignore\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the first one, seen it already and I don't need language lessons\", \"intent\": \"I wouldn't click, still not interested\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"What ends on 16th August? No offer explained, just Deliveroo being vague\", \"intent\": \"I wouldn't click unless I knew what the deal actually was\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 128,
+ "output_tokens": 737,
+ "reasoning_tokens": 365
+}

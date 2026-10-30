@@ -1,0 +1,11 @@
+{
+ "key": "3123f45029d14aa96728253006812c14",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Tagalog at my age, no interest in language apps\", \"intent\": \"I would not click as it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those fad fitness apps making big promises, I get plenty of walking in\", \"intent\": \"I would scroll past and not comment\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I use Tesco but I prefer to go to the shop myself rather than pay delivery fees\", \"intent\": \"I would not click but it's the only one that made sense to me\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Do not trust these new online banks, happy with my high street bank\", \"intent\": \"I would not click on a financial ad like this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same fitness company again, not for me, too vague\", \"intent\": \"I would keep scrolling past it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 621,
+ "cached_tokens": 0,
+ "output_tokens": 541,
+ "reasoning_tokens": 178
+}

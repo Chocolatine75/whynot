@@ -1,0 +1,11 @@
+{
+ "key": "df77bff6fbfe2982ae84beb2845132ca",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a trip coming up and I wouldn't stick to language lessons, free trial would just be a hassle to cancel\", \"intent\": \"I wouldn't click, not relevant to me right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled past it straight away\", \"intent\": \"I wouldn't click as I can't even read what it's offering\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz ads always feel a bit gimmicky and I don't trust what they'd do with my data\", \"intent\": \"I wouldn't click, I just ignore these wellness app ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a fitness app and Europe's number one sounds like made up marketing\", \"intent\": \"I wouldn't click, fitness apps aren't for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"My kids are a bit older/younger for this and we already have accounts sorted, so not needed\", \"intent\": \"I might have a quick look but probably wouldn't switch\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 810,
+ "cached_tokens": 128,
+ "output_tokens": 624,
+ "reasoning_tokens": 241
+}

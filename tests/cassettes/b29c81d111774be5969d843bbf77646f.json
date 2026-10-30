@@ -1,0 +1,11 @@
+{
+ "key": "b29c81d111774be5969d843bbf77646f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a delivery rider job and I don't need extra cash that badly\", \"intent\": \"I wouldn't click, it's completely irrelevant to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton stuff costs a fortune and £900 off just sounds like inflated marketing\", \"intent\": \"No way I'd buy, not interested in Peloton at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't buy the no AI gimmick and I don't need another language app pestering me\", \"intent\": \"Probably wouldn't click, maybe curious for a second but not actually.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No clue what it's even trying to say, just hashtags and half a sentence\", \"intent\": \"I'd just scroll straight past this one.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's the second Peloton ad in a row and I'm still not the audience for it\", \"intent\": \"I wouldn't click, just annoying seeing it twice.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 594,
+ "cached_tokens": 0,
+ "output_tokens": 940,
+ "reasoning_tokens": 574
+}

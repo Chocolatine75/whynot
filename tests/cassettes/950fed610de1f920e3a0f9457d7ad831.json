@@ -1,0 +1,11 @@
+{
+ "key": "950fed610de1f920e3a0f9457d7ad831",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, Hindi I think, I can't read a word of it so I just scrolled on.\", \"intent\": \"I would not click, it's not meant for me and I don't understand it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Dating advice for moving to a new city is nothing to do with me at my age, I'm happily settled.\", \"intent\": \"I would not click or buy, not interested in dating apps.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Deliveroo is but I don't really get takeaways delivered, I prefer to cook or go out.\", \"intent\": \"I would not click right now, maybe another time but not today.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, I don't speak German so I've no idea what it's offering properly.\", \"intent\": \"I would not click, I don't understand it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Thai and I don't trust these app adverts with all the stars.\", \"intent\": \"I would not click, not relevant to me at all.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 581,
+ "cached_tokens": 128,
+ "output_tokens": 810,
+ "reasoning_tokens": 409
+}

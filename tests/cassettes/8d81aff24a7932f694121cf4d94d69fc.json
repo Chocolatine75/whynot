@@ -1,0 +1,11 @@
+{
+ "key": "8d81aff24a7932f694121cf4d94d69fc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's actually selling, just hashtags and nonsense text, scrolled straight past\", \"intent\": \"Wouldn't click, not for me at my age\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and promises a visible transformation in 7 days which is obvious rubbish\", \"intent\": \"Would not click or buy, don't trust these claims\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I've got no need to learn Thai, never going there\", \"intent\": \"Would not download, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and don't trust these app banks with all the hype, especially tied to football\", \"intent\": \"Might have a quick look but wouldn't download or switch banks\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is far too expensive and aimed at younger fitness fanatics, not for me\", \"intent\": \"Would not click, not interested in pricey gym programmes\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 645,
+ "cached_tokens": 128,
+ "output_tokens": 616,
+ "reasoning_tokens": 248
+}

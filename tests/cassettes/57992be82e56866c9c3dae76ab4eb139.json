@@ -1,0 +1,11 @@
+{
+ "key": "57992be82e56866c9c3dae76ab4eb139",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like the idea of second-hand but I don't sell online and I worry about hassle and scams\", \"intent\": \"I wouldn't click, I'm not looking to buy pre-loved clothes right now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is expensive gym equipment, not for me at my age and I don't do that sort of intense training\", \"intent\": \"I just scrolled past, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds nice but these language apps never work as promised and I don't have a trip planned\", \"intent\": \"I wouldn't click, maybe nice for younger people but not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There was nothing to see, just a removed notice so I ignored it\", \"intent\": \"I wouldn't click as there's nothing there\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I have no idea what it's about and it feels like spam\", \"intent\": \"I scrolled straight past, not for me at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 698,
+ "cached_tokens": 128,
+ "output_tokens": 689,
+ "reasoning_tokens": 309
+}

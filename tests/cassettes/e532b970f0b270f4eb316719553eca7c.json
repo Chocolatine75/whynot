@@ -1,0 +1,11 @@
+{
+ "key": "e532b970f0b270f4eb316719553eca7c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"All in German, not for me at my age and I'm not downloading a fitness coach\", \"intent\": \"I would just scroll past, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Japanese and I don't trust these app ads\", \"intent\": \"I would not click, no interest in it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese so I can't read it and I'm wary of mental health quizzes online\", \"intent\": \"I would scroll on without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, I don't need Japanese and it's just another ad\", \"intent\": \"I would keep scrolling and not give it a second thought\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English, looks like another AI gimmick trying to get my money\", \"intent\": \"I definitely would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 0,
+ "output_tokens": 525,
+ "reasoning_tokens": 170
+}

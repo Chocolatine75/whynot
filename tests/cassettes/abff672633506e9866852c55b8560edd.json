@@ -1,0 +1,11 @@
+{
+ "key": "abff672633506e9866852c55b8560edd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these 28 day transformation apps, never believe they work and feels like a subscription trap\", \"intent\": \"Wouldn't click, not interested at my age in that sort of app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another fitness coach ad claiming to be number one, I'm not looking for a fitness app\", \"intent\": \"Would keep scrolling, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted already and do use it sometimes but I don't need to list anything right now\", \"intent\": \"Might remember it for later but wouldn't click from the ad\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Japanese at all, completely irrelevant to me\", \"intent\": \"Would scroll straight past, definitely not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other fitness ones, big promises and aimed at younger women, puts me off\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 673,
+ "cached_tokens": 0,
+ "output_tokens": 715,
+ "reasoning_tokens": 345
+}

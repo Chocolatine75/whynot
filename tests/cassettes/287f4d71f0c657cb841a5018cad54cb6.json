@@ -1,0 +1,11 @@
+{
+ "key": "287f4d71f0c657cb841a5018cad54cb6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Hallucinations without drugs sounds dangerous and a bit scary, not something I want to mess with at my age\", \"intent\": \"I would definitely not click this, it looks like nonsense\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm married and not interested in dating apps, just scrolled right past\", \"intent\": \"I wouldn't click, it's not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not an expat so this app is no use to me whatsoever\", \"intent\": \"I wouldn't download it as I don't need it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"We know Deliveroo but we try not to have too many takeaways for health and money reasons\", \"intent\": \"I might have a look but probably wouldn't order anything\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Bumble one, I'm not on dating sites and don't trust influencer ads like this\", \"intent\": \"I would not click, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 592,
+ "cached_tokens": 0,
+ "output_tokens": 738,
+ "reasoning_tokens": 365
+}

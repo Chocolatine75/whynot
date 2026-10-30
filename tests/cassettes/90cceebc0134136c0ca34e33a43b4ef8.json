@@ -1,0 +1,11 @@
+{
+ "key": "90cceebc0134136c0ca34e33a43b4ef8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sell my clothes online, too much faff with posting and people haggling, and I don't trust you keep all the cash with no fees\", \"intent\": \"I would keep scrolling, not for me at my age\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"20 million voices sounds made up and 5 minutes every 3 days won't transform your life, just another wellness fad\", \"intent\": \"I would not click, I do my own little breathing without an app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning a language and every app says something different about AI these days, not interested\", \"intent\": \"I would scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't own a restaurant so this has nothing to do with me, why show me this\", \"intent\": \"I would definitely not click on this advert\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"A pet game to declutter my house just sounds silly, I just get on and tidy up\", \"intent\": \"I would not click or download a game like that\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 0,
+ "output_tokens": 782,
+ "reasoning_tokens": 389
+}

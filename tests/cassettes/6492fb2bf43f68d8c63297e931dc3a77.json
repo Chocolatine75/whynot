@@ -1,0 +1,11 @@
+{
+ "key": "6492fb2bf43f68d8c63297e931dc3a77",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so not relevant to me, just scrolled straight past it\", \"intent\": \"Would definitely not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen Revolut ads a hundred times, don't trust these money apps and not switching bank for an ad\", \"intent\": \"Would not click, not interested in signing up\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and pushy, not for me at my age\", \"intent\": \"Would not click, no intention to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Peloton ad again and £1849 is ridiculous money for an exercise bike\", \"intent\": \"Would not click, definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get the idea but I don't use Vinted and not really looking to buy second hand stuff right now\", \"intent\": \"Probably wouldn't click but it's the least annoying of the lot\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 681,
+ "cached_tokens": 0,
+ "output_tokens": 752,
+ "reasoning_tokens": 382
+}

@@ -1,0 +1,11 @@
+{
+ "key": "40b1c1f2614d76fa1d97d371753edf56",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Three grand for a treadmill is insane, got no room for it anyway so just scrolled on\", \"intent\": \"Wouldn't click, not buying gym equipment off an ad.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen a million fintech ads, don't trust the hype and I'm fine with my bank\", \"intent\": \"No chance I'd download it from an ad.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not learning Japanese and these app ads always look a bit scammy\", \"intent\": \"Wouldn't click, totally irrelevant to me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Peloton one, same as before - way too expensive and not interested\", \"intent\": \"Definitely wouldn't click or buy.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Title is just gibberish file name which puts me off, and I'm not selling anything at the minute\", \"intent\": \"Might remember Vinted if I need to sell stuff but not clicking now.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 626,
+ "cached_tokens": 128,
+ "output_tokens": 729,
+ "reasoning_tokens": 361
+}

@@ -1,0 +1,11 @@
+{
+ "key": "0219d13f08bb10c7b88674af8ae39013",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not on dating apps, not interested in Bumble content and it looks like an influencer ad\", \"intent\": \"Wouldn't click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I use Deliveroo sometimes but no offer or reason to click here, just a generic ad\", \"intent\": \"Might keep in mind but wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not got a trip planned and not convinced by language apps, free trial always has a catch\", \"intent\": \"Would scroll past, not interested right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other Pimsleur ad, seen it already and not looking to learn a language\", \"intent\": \"No need to click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke so it's completely irrelevant to me\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 128,
+ "output_tokens": 554,
+ "reasoning_tokens": 202
+}

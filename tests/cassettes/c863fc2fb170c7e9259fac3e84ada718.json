@@ -1,0 +1,11 @@
+{
+ "key": "c863fc2fb170c7e9259fac3e84ada718",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"obvious bumble ad with #bumblepartner tag, no interest in dating app promos\", \"intent\": \"would not click, not looking for a dating app right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"generic lazy workout health claims look like spammy app trying to sell subscription\", \"intent\": \"would not click, don't trust these fitness apps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German so I skipped it completely, not relevant to me in the UK\", \"intent\": \"would not click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another language app ad promising to speak like a local instantly feels fake\", \"intent\": \"would not click, not trying to learn Thai\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"had too many language app ads lately and don't believe the 10 minutes a day claim\", \"intent\": \"might have paused but still wouldn't click or download\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 665,
+ "cached_tokens": 128,
+ "output_tokens": 607,
+ "reasoning_tokens": 245
+}

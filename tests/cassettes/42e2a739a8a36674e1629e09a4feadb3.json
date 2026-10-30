@@ -1,0 +1,11 @@
+{
+ "key": "42e2a739a8a36674e1629e09a4feadb3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no interest in learning Thai and I just scroll past language app ads\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"there's nothing to see, it just says removed\", \"intent\": \"I wouldn't click on a removed ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's confusing, says learn a language but then it's about AI football photos and I don't trust that\", \"intent\": \"I wouldn't click, not what I'm looking for\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I use Vinted now and then but I'm not doing a home makeover and I doubt selling a few old bits would fund it\", \"intent\": \"I might watch if I saw the show but I wouldn't click the ad right now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business and I don't need business banking, not relevant to me\", \"intent\": \"I wouldn't click or contact sales\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 602,
+ "cached_tokens": 0,
+ "output_tokens": 665,
+ "reasoning_tokens": 300
+}

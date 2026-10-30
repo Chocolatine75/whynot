@@ -1,0 +1,11 @@
+{
+ "key": "e485e377328c582c72dcf66d1b958715",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Nearly three grand for a treadmill is ridiculous and I don't have the room or the interest\", \"intent\": \"I would just keep scrolling, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Title looks like nonsense spam and I don't trust zero fees claims, there's always a catch\", \"intent\": \"I might vaguely think about it as I have stuff to sell but I wouldn't click now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Japanese and I'm fed up with these learn fast app ads\", \"intent\": \"I would scroll straight past, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust new banking apps with my money and I am happy with my own bank\", \"intent\": \"I would not click or download, I ignore banking ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Peloton one, too expensive and I know returning it wouldn't be that simple\", \"intent\": \"I would keep scrolling, no chance I'm buying an exercise bike like that\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 626,
+ "cached_tokens": 0,
+ "output_tokens": 762,
+ "reasoning_tokens": 378
+}

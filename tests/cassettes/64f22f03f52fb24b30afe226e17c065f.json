@@ -1,0 +1,11 @@
+{
+ "key": "64f22f03f52fb24b30afe226e17c065f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want another banking app and the World Cup tie-in feels forced, I'm happy with my current bank\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Revolut ad again, I don't trust fintech hype about hassle-free banking\", \"intent\": \"I would ignore it and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too expensive and I have no space for a Peloton, feels like an ad for rich people\", \"intent\": \"I might look at the picture but definitely wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Very generic AI lessons ad, doesn't tell me what language or how it works\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen lots of these language app claims before and 30 mins a day still sounds like a lot of commitment\", \"intent\": \"I wouldn't click now but might remember it if I ever want to learn a language\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 0,
+ "output_tokens": 481,
+ "reasoning_tokens": 104
+}

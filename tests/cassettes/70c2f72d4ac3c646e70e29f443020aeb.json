@@ -1,0 +1,11 @@
+{
+ "key": "70c2f72d4ac3c646e70e29f443020aeb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I just kept scrolling, not for me\", \"intent\": \"I wouldn't click, I don't understand it and I'm not looking for that app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no plans to learn Thai so it's just irrelevant to me\", \"intent\": \"I wouldn't click as I don't need a Thai learning app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like another wellness app trying to sell me a subscription via a quiz, not convinced it would actually help\", \"intent\": \"I might pause but I wouldn't click, I don't trust these mental health quiz ads\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish, I don't speak it so I ignored it\", \"intent\": \"I wouldn't click, I can't understand what it's offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same as the other one, learning Thai is not something I need right now\", \"intent\": \"I wouldn't click or download, just not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 670,
+ "cached_tokens": 0,
+ "output_tokens": 700,
+ "reasoning_tokens": 327
+}

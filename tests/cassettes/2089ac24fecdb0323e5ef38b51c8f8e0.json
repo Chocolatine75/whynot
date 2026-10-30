@@ -1,0 +1,11 @@
+{
+ "key": "2089ac24fecdb0323e5ef38b51c8f8e0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Chinese, not for me, just kept scrolling\", \"intent\": \"I wouldn't click as I have no idea what it's really offering me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a Deliveroo rider job at my age, nonsense hours\", \"intent\": \"I would not click, not interested in gig work\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a gambling problem so this ad is irrelevant to me\", \"intent\": \"I wouldn't click because it doesn't apply to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Europe's number one sounds like marketing fluff and I doubt the workouts are for my age group\", \"intent\": \"I might have a quick look but probably wouldn't buy anything\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is far too expensive and I don't have room for a bike like that\", \"intent\": \"I wouldn't click, nice idea but not for me at that price\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 589,
+ "cached_tokens": 0,
+ "output_tokens": 589,
+ "reasoning_tokens": 220
+}

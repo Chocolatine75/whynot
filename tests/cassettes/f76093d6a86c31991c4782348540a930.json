@@ -1,0 +1,11 @@
+{
+ "key": "f76093d6a86c31991c4782348540a930",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"No interest in learning Thai and don't trust free app claims, just ad spam\", \"intent\": \"Would not click, no need for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French so I ignored it and these 7 day transformation claims are nonsense\", \"intent\": \"Would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is expensive kit and another subscription, not interested at my age\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's actually selling, just hashtags\", \"intent\": \"Would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Already got a bank and don't trust these finance apps with World Cup hype\", \"intent\": \"Might have a glance but wouldn't download\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 645,
+ "cached_tokens": 128,
+ "output_tokens": 544,
+ "reasoning_tokens": 208
+}

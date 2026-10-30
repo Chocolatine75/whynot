@@ -1,0 +1,11 @@
+{
+ "key": "9ca482f0f67b67666fea64f64629271f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking to date anyone right now, just not for me\", \"intent\": \"Would not click, have no need for a dating app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English, so this isn't relevant to me at all\", \"intent\": \"Would not click, no reason to need an English tutor\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks expensive and I don't own Peloton equipment, just marketing hype\", \"intent\": \"Probably wouldn't click, not going to buy pricey fitness gear\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read the text and I don't need to learn English anyway\", \"intent\": \"Would not click, not sure what it's offering me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already sort my holiday money and don't need another pot right now\", \"intent\": \"Might have a quick look but probably wouldn't open an account\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 0,
+ "output_tokens": 824,
+ "reasoning_tokens": 468
+}

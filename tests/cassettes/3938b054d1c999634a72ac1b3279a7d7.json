@@ -1,0 +1,11 @@
+{
+ "key": "3938b054d1c999634a72ac1b3279a7d7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"these 28 day transformation ads are everywhere, looks like fake before/afters and just after my money\", \"intent\": \"wouldn't click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I've got no reason to learn Japanese, never going there\", \"intent\": \"no need to click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other fitness one, those reviews look made up\", \"intent\": \"just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"don't get what a pet game has to do with self care, not for me anyway\", \"intent\": \"wouldn't click, looks a bit daft for my age\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not looking to learn a language right now and these apps are always expensive subscriptions\", \"intent\": \"might remember the name but wouldn't click now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 777,
+ "cached_tokens": 256,
+ "output_tokens": 791,
+ "reasoning_tokens": 442
+}

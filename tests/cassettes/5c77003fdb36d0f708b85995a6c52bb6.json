@@ -1,0 +1,11 @@
+{
+ "key": "5c77003fdb36d0f708b85995a6c52bb6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, not for me at all, just scrolled past it\", \"intent\": \"I would not click or buy anything like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is clearly not aimed at me as an older man, no interest whatsoever\", \"intent\": \"I would not click or buy, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen hundreds of quit smoking ads before, don't trust an app to do it and not looking to buy\", \"intent\": \"I would not click or buy, would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in learning a language at my age and don't want a free trial that charges you\", \"intent\": \"I would not click or buy, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English, waste of time and looks like nonsense AI stuff\", \"intent\": \"I would not click or buy this at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 628,
+ "cached_tokens": 128,
+ "output_tokens": 646,
+ "reasoning_tokens": 278
+}

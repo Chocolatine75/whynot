@@ -1,0 +1,11 @@
+{
+ "key": "ec8570eac341c2f1901376df67083d96",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not planning a trip to Thailand and not trying to learn Thai, just not relevant to me\", \"intent\": \"No chance I would download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Just a generic Deliveroo ad I've seen a thousand times, nothing to make me stop\", \"intent\": \"Wouldn't click, I already have the app if I need it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but feels like a staged influencer ad, and Honest Burgers is pricey with delivery fees\", \"intent\": \"Might make me crave a burger but I wouldn't order from this ad\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Already have a bank I'm happy with, don't need another card even if everyone has Monzo\", \"intent\": \"Definitely not switching banks from an Instagram ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same as the first one, I have no reason to learn Japanese right now\", \"intent\": \"No interest in downloading it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 630,
+ "cached_tokens": 256,
+ "output_tokens": 661,
+ "reasoning_tokens": 287
+}

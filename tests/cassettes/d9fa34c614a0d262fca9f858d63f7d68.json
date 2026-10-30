@@ -1,0 +1,11 @@
+{
+ "key": "d9fa34c614a0d262fca9f858d63f7d68",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero reason to learn Croatian and it's just another generic language app ad\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not going to Thailand and it's the same app spamming my feed again\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Ling app for the third time, 10 minutes a day claim sounds like rubbish\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Those reviews look totally fake and over the top, feels like a scammy fitness cash grab\", \"intent\": \"I might have paused but I wouldn't click or buy it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I don't really know what it's trying to sell me\", \"intent\": \"I would not click on an ad I can't even read\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 709,
+ "cached_tokens": 256,
+ "output_tokens": 759,
+ "reasoning_tokens": 403
+}

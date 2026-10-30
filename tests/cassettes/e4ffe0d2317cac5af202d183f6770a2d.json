@@ -1,0 +1,11 @@
+{
+ "key": "e4ffe0d2317cac5af202d183f6770a2d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English so this is totally irrelevant to me, just scrolled past\", \"intent\": \"I would not click or download this, no need for it at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted already but I'm not trying to sell anything right now so I kept scrolling\", \"intent\": \"I wouldn't click right now, maybe later if I'm having a clear out\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning Japanese and ads like this always look a bit spammy\", \"intent\": \"I wouldn't click, not interested in learning Japanese\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, I'm not learning Thai and I've seen this ad twice now\", \"intent\": \"I wouldn't click or download, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute and funny but I don't need another self-care app on my phone\", \"intent\": \"I might have paused on it but I wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 128,
+ "output_tokens": 721,
+ "reasoning_tokens": 348
+}

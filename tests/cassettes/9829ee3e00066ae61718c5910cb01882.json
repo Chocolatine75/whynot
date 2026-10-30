@@ -1,0 +1,11 @@
+{
+ "key": "9829ee3e00066ae61718c5910cb01882",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have absolutely no need to learn Tagalog so it feels totally irrelevant to me\", \"intent\": \"I wouldn't click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic dating app ad, I've seen it a hundred times and I'm not looking for that\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I didn't get what it was actually offering, just looked like another language app\", \"intent\": \"I wouldn't click because I don't understand what I'd be clicking on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Paused for a sec but I don't want to go read Bumble's Substack, feels like bait\", \"intent\": \"I might be curious but I wouldn't actually click through to read it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a student and 30-minute lessons sounds like a lot of commitment, plus I don't need a language app right now\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 256,
+ "output_tokens": 1024,
+ "reasoning_tokens": 641
+}

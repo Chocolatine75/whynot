@@ -1,0 +1,11 @@
+{
+ "key": "13dd7aa3a8e0954635070ebfb5158fd3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen loads of these mental health quiz apps, feels like generic cash grab and won't actually help\", \"intent\": \"wouldn't click, not doing a random 3 minute quiz from an ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"got zero reason to learn Thai, just scrolling past\", \"intent\": \"no chance I'd download it, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"literally just saw the same ad above, annoying duplicate so ignored it\", \"intent\": \"wouldn't click, definitely not downloading\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute idea but looks a bit childish and I know I wouldn't stick with it\", \"intent\": \"might have paused for a second but wouldn't download or pay for it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't need Vietnamese and no app is making me fluent in 10 mins a day\", \"intent\": \"not clicking, not interested at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 664,
+ "cached_tokens": 128,
+ "output_tokens": 735,
+ "reasoning_tokens": 373
+}

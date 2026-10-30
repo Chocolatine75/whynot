@@ -1,0 +1,11 @@
+{
+ "key": "845e24b3799a24d59b5e8ff6dc19ef4e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not planning a trip and I don't have the patience for language apps, I'd never stick to it\", \"intent\": \"I wouldn't click, not for me at my age\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen the one just before, same thing again, feels pushy and I know these free trials charge you after\", \"intent\": \"No, I'd just scroll past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"That title put me right off, hallucinations without drugs sounds dangerous and silly\", \"intent\": \"Definitely not clicking, looks like nonsense\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what a reading is, just hearts and free, looks like a scam to get your details\", \"intent\": \"I wouldn't touch it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for work like that, and not able to ride around on a bike for money\", \"intent\": \"Not relevant to me at all, scrolling on\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 659,
+ "cached_tokens": 128,
+ "output_tokens": 585,
+ "reasoning_tokens": 217
+}

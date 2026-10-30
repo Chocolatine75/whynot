@@ -1,0 +1,11 @@
+{
+ "key": "09edba3a5bf7cbe54403d66b3766d5f3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not selling anything at the moment so it's not relevant to me\", \"intent\": \"I wouldn't click, no need for it right now.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Three grand for a treadmill is just ridiculous, no way I can afford or justify that\", \"intent\": \"I would definitely not click or buy, way too expensive.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, it's Peloton so it'll be too expensive and I don't want a big bike cluttering the flat\", \"intent\": \"I wouldn't click, not interested in buying exercise equipment like that.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not trying to learn Japanese so this has nothing to do with me\", \"intent\": \"I wouldn't click, the app isn't for me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Already got my bank sorted and I don't trust switching to app banks from adverts\", \"intent\": \"I wouldn't click, happy with my current bank.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 626,
+ "cached_tokens": 128,
+ "output_tokens": 643,
+ "reasoning_tokens": 274
+}

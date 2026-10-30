@@ -1,0 +1,11 @@
+{
+ "key": "2e9b510fb364703a22c4716281b1bf5c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking for dating advice from an app blog, feels like clickbait\", \"intent\": \"Would not click, not relevant to me right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe you can learn Thai in 10 mins a day and I have no plans to learn Thai\", \"intent\": \"Would not click or buy, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I know Peloton is expensive and I don't want a bike taking up space\", \"intent\": \"Would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"£1,849 is way too much for an exercise bike, not buying that\", \"intent\": \"Definitely would not buy, too expensive\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another language app ad, I don't need one and hands-free sounds gimmicky\", \"intent\": \"Would not click, not trying to learn a language\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 606,
+ "cached_tokens": 128,
+ "output_tokens": 783,
+ "reasoning_tokens": 425
+}

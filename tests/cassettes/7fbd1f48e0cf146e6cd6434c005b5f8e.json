@@ -1,0 +1,11 @@
+{
+ "key": "7fbd1f48e0cf146e6cd6434c005b5f8e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen a million language apps and free trial just means they want your card details\", \"intent\": \"Wouldn't click, no need to learn a language right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no plans to go to Thailand so it's completely irrelevant to me\", \"intent\": \"Would definitely not click, total waste of time for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like hard work for little pay and Deliveroo riders get a bad deal from what I've heard\", \"intent\": \"Might have a quick look but probably wouldn't actually apply\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this even does, just vague wellness rubbish\", \"intent\": \"Would scroll straight past, not clicking that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Way too expensive and I don't have space for a Peloton, plus gym is cheaper\", \"intent\": \"No chance I'm clicking, not buying a bike from an Instagram ad\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 595,
+ "cached_tokens": 128,
+ "output_tokens": 690,
+ "reasoning_tokens": 321
+}

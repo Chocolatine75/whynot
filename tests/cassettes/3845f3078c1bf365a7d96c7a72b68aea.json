@@ -1,0 +1,11 @@
+{
+ "key": "3845f3078c1bf365a7d96c7a72b68aea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Got no need to learn Japanese and I've seen a dozen language apps all claiming the same thing\", \"intent\": \"No chance I'd click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not really into buying second hand clothes and that feels like a cheesy influencer ad\", \"intent\": \"Would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"30 minutes anytime anywhere sounds nice but I doubt you'd actually learn much and I've no time anyway\", \"intent\": \"Might pause for a second but wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Too vague, what language? AI lessons puts me off a bit as well\", \"intent\": \"Definitely wouldn't click on something so generic\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've got nothing to sell and seen the Vinted ads a hundred times before\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 612,
+ "cached_tokens": 0,
+ "output_tokens": 585,
+ "reasoning_tokens": 226
+}

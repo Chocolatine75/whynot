@@ -1,0 +1,11 @@
+{
+ "key": "0010af9d0e5521959b422bd8d258f5d6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Deliveroo does Tesco, not exactly unexpected anymore and delivery fees are a rip off\", \"intent\": \"I wouldn't click, maybe order if I was desperate but not now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled past, looks like one of those scammy fitness apps anyway\", \"intent\": \"No chance I'd click or buy this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Seen the same Deliveroo ad two posts ago, just ignoring it second time around\", \"intent\": \"Wouldn't click, nothing new here\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know Vinted but I don't have anything to sell right now and can't be bothered with listing\", \"intent\": \"Might use Vinted again in future but not clicking today\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't trust all that AI personalised stuff to be worth it\", \"intent\": \"Definitely not clicking, not my thing\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 128,
+ "output_tokens": 819,
+ "reasoning_tokens": 436
+}

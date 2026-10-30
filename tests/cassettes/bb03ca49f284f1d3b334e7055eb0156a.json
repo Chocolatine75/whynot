@@ -1,0 +1,11 @@
+{
+ "key": "bb03ca49f284f1d3b334e7055eb0156a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is far too expensive even with money off and I've got no room for that kit in the house\", \"intent\": \"I wouldn't click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those scammy fitness apps promising miracles in 28 days, don't trust it at all\", \"intent\": \"I would not install it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a business and don't need a new bank account, so not for me\", \"intent\": \"I wouldn't click or apply\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It was in Dutch so I couldn't even read what it was on about\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I've no plans to learn Thai or travel there\", \"intent\": \"I wouldn't download it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 666,
+ "cached_tokens": 128,
+ "output_tokens": 658,
+ "reasoning_tokens": 311
+}

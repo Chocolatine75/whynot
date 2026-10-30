@@ -1,0 +1,11 @@
+{
+ "key": "d7dfb43c2a9347cba7b0991cd397cf06",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've got an old phone in a drawer but I don't trust I'll get much for it and seems like a hassle to post\", \"intent\": \"Probably not, I might look at Vinted another time but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not for me at all, games like that are for younger people and I don't understand what it's actually selling\", \"intent\": \"No I wouldn't click, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"We don't really do Deliveroo, too expensive for what it is and the burgers don't appeal to me\", \"intent\": \"No I wouldn't order this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"That's for restaurant owners not for me, nothing to do with me\", \"intent\": \"Definitely not clicking, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spam, no real information and Download now with exclamation marks puts me off\", \"intent\": \"No I wouldn't download it, don't trust it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 598,
+ "cached_tokens": 128,
+ "output_tokens": 747,
+ "reasoning_tokens": 369
+}

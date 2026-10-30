@@ -1,0 +1,11 @@
+{
+ "key": "29f0c5ce0f4b572c51fa92b62fe4de77",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking to learn a language at the moment and seen too many of these apps promising fluency in 30 minutes\", \"intent\": \"Would not click, no interest right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just not for me, I'm too old for a self care pet game and it looks a bit silly\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Japanese and free download usually means paid subscription after\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like every other fitness app promising a 30 day transformation, reviews look cherry picked and probably won't work\", \"intent\": \"Might have a quick look but wouldn't buy anything\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Visible transformation in 28 days is nonsense and the emojis and caps make it look cheap and scammy\", \"intent\": \"Would scroll straight past\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 777,
+ "cached_tokens": 128,
+ "output_tokens": 762,
+ "reasoning_tokens": 397
+}

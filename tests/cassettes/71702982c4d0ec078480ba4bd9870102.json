@@ -1,0 +1,11 @@
+{
+ "key": "71702982c4d0ec078480ba4bd9870102",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks like just another bank trying to get kids hooked early, don't need another card to manage\", \"intent\": \"Might have a look if I had kids that age but not buying right now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled past, no idea what it's actually selling\", \"intent\": \"Would not click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz apps all seem a bit scammy and generic, don't trust it\", \"intent\": \"No chance I'd click on this kind of ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Probably expensive subscription after the free trial and I never stick with language apps\", \"intent\": \"Tempted to try the free week before a holiday but probably won't bother\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen a million fitness apps claiming to be number one, just ad waffle to me\", \"intent\": \"Not going to click, I wouldn't pay for a fitness app\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 810,
+ "cached_tokens": 128,
+ "output_tokens": 651,
+ "reasoning_tokens": 272
+}

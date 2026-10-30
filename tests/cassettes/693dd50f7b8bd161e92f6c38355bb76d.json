@@ -1,0 +1,11 @@
+{
+ "key": "693dd50f7b8bd161e92f6c38355bb76d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i have zero interest in learning japanese and i get spammed with language app ads constantly\", \"intent\": \"i would not click, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks a bit gimmicky and i dont need another mental health pet game on my phone\", \"intent\": \"i wouldn't click but it's the only one that made me pause for a second.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"its all in hindi so i have no idea what its actually offering me\", \"intent\": \"i would just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i literally just saw the same ad two posts ago, feels spammy\", \"intent\": \"i would definitely not click on the repeat.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"its in german and promises a visible transformation in 7 days which is obvious nonsense\", \"intent\": \"i would not click, not for me and i dont trust the claim.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 631,
+ "cached_tokens": 128,
+ "output_tokens": 644,
+ "reasoning_tokens": 272
+}

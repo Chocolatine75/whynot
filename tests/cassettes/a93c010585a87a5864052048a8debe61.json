@@ -1,0 +1,11 @@
+{
+ "key": "a93c010585a87a5864052048a8debe61",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Korean at all and it looks like a generic app ad\", \"intent\": \"Would not click or download, totally irrelevant to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've already got my banking sorted and I don't trust the hype about switching\", \"intent\": \"Probably wouldn't click, not looking to change banks right now.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I have no idea what it says, just scrolled straight past\", \"intent\": \"Definitely wouldn't click on an ad I can't read.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Don't know who Motsi is and I don't care about a Vinted YouTube show\", \"intent\": \"Wouldn't click, not interested in watching it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't really sell stuff online and the weird title makes it look spammy\", \"intent\": \"Wouldn't click now, maybe if I actually wanted to sell something.\", \"intent_score\": 2}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 632,
+ "cached_tokens": 256,
+ "output_tokens": 852,
+ "reasoning_tokens": 484
+}

@@ -1,0 +1,11 @@
+{
+ "key": "6c61eaae7c8544a761b89b2cc62e072d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in the UK and already speak English so completely irrelevant to me\", \"intent\": \"Would not click at all, nothing for me here\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spam with the dodgy grammar and no detail on what it actually does\", \"intent\": \"Would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic language app ad promising to sound like a local which I don't buy\", \"intent\": \"Probably wouldn't click, not planning to learn Japanese right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"10 minutes a day sounds like marketing fluff and I don't need Vietnamese\", \"intent\": \"Might have a quick look if I was learning a language but not right now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Hands-free sounds useful but I've got no time for a language course at the moment\", \"intent\": \"Least annoying ad but still wouldn't click or pay for it now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 617,
+ "cached_tokens": 256,
+ "output_tokens": 763,
+ "reasoning_tokens": 396
+}

@@ -1,0 +1,11 @@
+{
+ "key": "960772c93278c096d80685bfe795d212",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not going to Thailand or trying to learn Thai, just irrelevant to me\", \"intent\": \"Wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Thai thing again, not interested and 10 minutes a day sounds like typical app claim\", \"intent\": \"No chance I'd click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need Croatian either, feels like random targeting\", \"intent\": \"Just kept scrolling, wouldn't bother\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The before/after style and fake sounding reviews put me off, looks like another scammy fitness app\", \"intent\": \"Might have paused for a second but definitely wouldn't click or pay\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I didn't really get what it's selling\", \"intent\": \"Scrolled straight past, wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 709,
+ "cached_tokens": 256,
+ "output_tokens": 576,
+ "reasoning_tokens": 225
+}

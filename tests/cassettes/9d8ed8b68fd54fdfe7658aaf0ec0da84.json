@@ -1,0 +1,11 @@
+{
+ "key": "9d8ed8b68fd54fdfe7658aaf0ec0da84",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm with my high street bank for years and have no plans to switch, sounds like hassle despite what it says\", \"intent\": \"I wouldn't click, not looking for a new bank account\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Free trial always means they want your card details and then charge you, and I'm sceptical about learning to speak that quickly\", \"intent\": \"I might have a look but I wouldn't sign up right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I've no idea what it's really selling, just scrolled straight past\", \"intent\": \"I wouldn't click as I don't understand it and not interested in fitness apps\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"That's for businesses with teams, nothing to do with me as a retired bloke\", \"intent\": \"I wouldn't click, it's not aimed at me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"AI language app promising Vietnamese in 10 minutes a day sounds like nonsense, don't trust it\", \"intent\": \"No chance I'd download it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 799,
+ "cached_tokens": 0,
+ "output_tokens": 669,
+ "reasoning_tokens": 284
+}

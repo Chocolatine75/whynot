@@ -1,0 +1,11 @@
+{
+ "key": "4d046efc6105ab4fca191ffbefe109c6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I've got Deliveroo already and I'm not ordering right now, just another takeaway ad I've seen a hundred times\", \"intent\": \"I wouldn't click, maybe use it later for dinner but not from an ad.\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Croatian and I don't trust these 5 star language app ads\", \"intent\": \"I would definitely not click or download this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Feels like a gimmick saying it doesn't use AI just to get clicks, still not interested\", \"intent\": \"Not clicking, I don't need a language app at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another identical Ling ad just a different language, I'm just scrolling past these\", \"intent\": \"I would keep scrolling and not download anything.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe you can learn Norwegian in 10 minutes a day and I don't need AI conversations\", \"intent\": \"I wouldn't click, language apps aren't for me.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 649,
+ "cached_tokens": 128,
+ "output_tokens": 684,
+ "reasoning_tokens": 303
+}

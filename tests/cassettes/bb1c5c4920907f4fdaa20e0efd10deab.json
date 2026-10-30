@@ -1,0 +1,11 @@
+{
+ "key": "bb1c5c4920907f4fdaa20e0efd10deab",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's just random Spanish text and AI lessons, not interested and looks like every other language app ad\", \"intent\": \"I wouldn't click it, I have no reason to learn a language right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"dating apps are a scam and full of bots, can't be bothered paying or getting no matches\", \"intent\": \"Might have a quick look but probably wouldn't download it again\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't know anyone from the Philippines and don't need Tagalog at all\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not moving to a new city and don't want to read some blog post from a dating app\", \"intent\": \"I wouldn't click to read it, seems boring\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another language ad and that 'better than school' claim is just marketing\", \"intent\": \"I wouldn't click, I don't need language lessons\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 0,
+ "output_tokens": 593,
+ "reasoning_tokens": 222
+}

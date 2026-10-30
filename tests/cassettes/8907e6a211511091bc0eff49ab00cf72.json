@@ -1,0 +1,11 @@
+{
+ "key": "8907e6a211511091bc0eff49ab00cf72",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like every other fitness app promising amazing results in 4 weeks, feels like clickbait and I hate the comment START thing\", \"intent\": \"No chance I'd click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I've already got Monzo and my normal bank, don't need another money app right now\", \"intent\": \"I wouldn't click, maybe if I needed a new card I'd think about it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not trying to learn a language at the moment and it just sounds like another subscription\", \"intent\": \"Wouldn't click, not relevant to me right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Quite like the idea of learning while walking but I know I'd never stick to it and forget to cancel the free trial\", \"intent\": \"Might have paused but wouldn't actually sign up\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"All those reviews sound fake and too perfect, really puts me off\", \"intent\": \"Definitely wouldn't click or buy, scrolled on\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 802,
+ "cached_tokens": 128,
+ "output_tokens": 914,
+ "reasoning_tokens": 528
+}

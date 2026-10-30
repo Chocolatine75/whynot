@@ -1,0 +1,11 @@
+{
+ "key": "da5c2faebf498d0280373cc2c67df993",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like typical wellness bollocks, 20 million voices claim means nothing and 5 mins every 3 days fixing anxiety is nonsense\", \"intent\": \"would not click, not interested in sound healing apps\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Japanese and I don't want to learn Thai, totally irrelevant to me\", \"intent\": \"would not click, no need for Thai lessons\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not trying to learn Japanese and I ignore language app ads anyway\", \"intent\": \"would not click, no interest in learning Japanese right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what it actually is or does, feel better is too vague\", \"intent\": \"would not click as I don't know what I'm getting\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Peloton but I'm not paying for an expensive subscription to do pilates at home\", \"intent\": \"might pause to look but would not click to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 601,
+ "cached_tokens": 0,
+ "output_tokens": 539,
+ "reasoning_tokens": 168
+}

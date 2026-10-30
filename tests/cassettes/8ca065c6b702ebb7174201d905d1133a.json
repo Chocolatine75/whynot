@@ -1,0 +1,11 @@
+{
+ "key": "8ca065c6b702ebb7174201d905d1133a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I've no idea what it's actually selling, just scrolled straight past\", \"intent\": \"Definitely wouldn't click as I don't know what it is and don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a fake personal post but it's just an ad for Deliveroo, and I'm not ordering burgers right now\", \"intent\": \"I wouldn't click, I'd just keep scrolling\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in a language app and the World Cup angle feels forced\", \"intent\": \"No chance I'd click or pay for this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke so it's completely irrelevant to me\", \"intent\": \"Wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like another subscription app trying to get me to pay after a free trial\", \"intent\": \"I might read it but I wouldn't click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 653,
+ "cached_tokens": 128,
+ "output_tokens": 652,
+ "reasoning_tokens": 287
+}

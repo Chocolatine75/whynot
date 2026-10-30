@@ -1,0 +1,11 @@
+{
+ "key": "8e6bac47df7b99f6dbde3f36278d157e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Japanese and I don't believe any app makes you sound like a local overnight\", \"intent\": \"No, I would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same ad again just a different language, feels spammy and I'm not learning Thai\", \"intent\": \"Definitely wouldn't click, getting bored of seeing the same thing\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Third identical one in a row, put me right off, and I don't need Tagalog\", \"intent\": \"No chance, I'd scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Speak Malay in 10 minutes a day sounds like nonsense and I don't need Malay anyway\", \"intent\": \"No, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking to learn a language right now and I don't want another subscription to pay for\", \"intent\": \"I wouldn't click, maybe the most normal of the lot but still no\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 648,
+ "cached_tokens": 0,
+ "output_tokens": 807,
+ "reasoning_tokens": 435
+}

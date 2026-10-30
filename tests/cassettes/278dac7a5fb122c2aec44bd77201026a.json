@@ -1,0 +1,11 @@
+{
+ "key": "278dac7a5fb122c2aec44bd77201026a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn Japanese and just looks like another spammy language app ad\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"don't need a language app right now and not paying for a subscription\", \"intent\": \"I might have paused for a second but wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in Vietnamese and don't trust the 10 minutes a day claim\", \"intent\": \"Not for me, kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm English already so completely irrelevant to me\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks dodgy and cheap, makes no sense what it's even offering\", \"intent\": \"Ignored it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 617,
+ "cached_tokens": 256,
+ "output_tokens": 563,
+ "reasoning_tokens": 231
+}

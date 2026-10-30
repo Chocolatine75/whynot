@@ -1,0 +1,11 @@
+{
+ "key": "b1948c6006bd9585c9f371fd150888f4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn Thai at all so just not relevant to me, scrolled straight past\", \"intent\": \"No chance I'd click, I don't need a language app right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive for me even with a discount and I have no space for that equipment anyway\", \"intent\": \"Wouldn't click, not in the market for fitness equipment like that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It felt quite nice and relatable but it's clearly a paid collab so I don't really trust the recommendation\", \"intent\": \"Might stop to look at the picture but I wouldn't click the link or buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Chinese which I can't read so I had no idea what it was actually offering\", \"intent\": \"Definitely wouldn't click as I don't even know what it's saying\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I couldn't understand it and just kept scrolling\", \"intent\": \"No interest in clicking when it's not even in English\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 0,
+ "output_tokens": 654,
+ "reasoning_tokens": 263
+}

@@ -1,0 +1,11 @@
+{
+ "key": "bea325f0828908cef3a23092832002f2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Tai Chi isn't really for me, looks like it's for older blokes and just another generic fitness ad trying to sell something\", \"intent\": \"I wouldn't click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled straight past, plus these 28 day transformation apps are always rubbish\", \"intent\": \"Definitely wouldn't click, wasn't even in English\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not gonna download a self-care pet game, just not my thing at all\", \"intent\": \"No chance I'd click or download it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French so I've got no idea what it's saying, just kept scrolling\", \"intent\": \"Wouldn't click on an ad I can't even read\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There's barely any text and I have no clue what they're actually offering, just hashtags\", \"intent\": \"I wouldn't click as I don't know what I'm clicking on\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 742,
+ "cached_tokens": 128,
+ "output_tokens": 748,
+ "reasoning_tokens": 375
+}

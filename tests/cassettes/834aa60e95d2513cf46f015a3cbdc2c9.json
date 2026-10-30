@@ -1,0 +1,11 @@
+{
+ "key": "834aa60e95d2513cf46f015a3cbdc2c9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"looks like one of those scammy psychic tarot ads, title says mood tracker but text says free reading so makes no sense, don't trust it\", \"intent\": \"definitely wouldn't click, seems spammy and not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"nice idea but I don't have time to learn Spanish right now and don't want to start a free trial I'll forget to cancel\", \"intent\": \"would scroll past, not interested in paying for language lessons at the moment\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play puzzle games and that claim about every level having one answer sounds like nonsense\", \"intent\": \"would just keep scrolling, not my kind of game\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted but cba with the hassle of listing old phones and dealing with buyers for a few quid\", \"intent\": \"might keep it in mind if I have a clear out but wouldn't click now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"nearly three grand for a treadmill is insane, no space for it anyway\", \"intent\": \"would ignore, way too expensive and not relevant\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 597,
+ "cached_tokens": 128,
+ "output_tokens": 649,
+ "reasoning_tokens": 244
+}

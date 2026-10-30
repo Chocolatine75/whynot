@@ -1,0 +1,11 @@
+{
+ "key": "ff6e975e8e2d7fd70c60f9dda44b364b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a dating app and this feels like an influencer ad\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another fitness app making vague health claims, I've seen loads of these\", \"intent\": \"I wouldn't click, I don't trust these apps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I just scrolled straight past\", \"intent\": \"I wouldn't click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai, totally irrelevant\", \"intent\": \"I wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need to learn Portuguese and don't want another subscription app\", \"intent\": \"I wouldn't click, not interested\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 665,
+ "cached_tokens": 256,
+ "output_tokens": 584,
+ "reasoning_tokens": 251
+}

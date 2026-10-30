@@ -1,0 +1,11 @@
+{
+ "key": "405e7f9ee41a960004632638f8116c43",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds nice for holidays but 'sound like a local in 30 minutes a day' is a big claim and I haven't got the time to keep it up\", \"intent\": \"I wouldn't click, maybe I'd remember the name if I ever really wanted to learn a language\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"visible transformation in 28 days just from an app sounds completely unrealistic and pushy\", \"intent\": \"I would scroll straight past this one\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what a pet game has to do with self care and it's not for me\", \"intent\": \"I wouldn't click or download this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not planning to learn Japanese so it's irrelevant to me\", \"intent\": \"I would not click on this at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"all those perfect reviews look fake and I'm fed up of these 30-day transformation ads\", \"intent\": \"I wouldn't click, I don't trust these fitness apps\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 777,
+ "cached_tokens": 128,
+ "output_tokens": 846,
+ "reasoning_tokens": 468
+}

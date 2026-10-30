@@ -1,0 +1,11 @@
+{
+ "key": "2a7f5a06a806f889b438c8374df527fd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another fitness influencer ad, not interested in subscription apps\", \"intent\": \"I wouldn't click, I get enough exercise walking the dog\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"my kids are older than that anyway and they already have bank accounts\", \"intent\": \"No need to click, doesn't apply to me anymore\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"clearly not aimed at me as a bloke in his 50s\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and I don't trust these 28-day transformation claims\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"sounds a bit weird and gimmicky, not what I'm looking for\", \"intent\": \"I wouldn't click on something like that\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 796,
+ "cached_tokens": 0,
+ "output_tokens": 572,
+ "reasoning_tokens": 231
+}

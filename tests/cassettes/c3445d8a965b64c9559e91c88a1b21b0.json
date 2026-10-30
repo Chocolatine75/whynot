@@ -1,0 +1,11 @@
+{
+ "key": "c3445d8a965b64c9559e91c88a1b21b0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and promising a visible body in 28 days, that's not for me at my age and feels like nonsense.\", \"intent\": \"I wouldn't click, I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Hallucinations without drugs sounds worrying and a bit silly, not something I want to mess with.\", \"intent\": \"I definitely wouldn't click on that one.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly an influencer ad and I'm not looking for a workout app, I don't trust these personalised coach claims.\", \"intent\": \"I wouldn't click but it was the nicest to look at.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm 60, I've been through all that, it's just not relevant to me anymore.\", \"intent\": \"I have no need to click or download it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"My children are grown up and it's not my place to sort bank cards for grandkids.\", \"intent\": \"I wouldn't click, not needed for our family.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 796,
+ "cached_tokens": 256,
+ "output_tokens": 933,
+ "reasoning_tokens": 549
+}

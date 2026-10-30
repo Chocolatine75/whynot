@@ -1,0 +1,11 @@
+{
+ "key": "60c67ac61465d93b7262e74e3b42a96e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There's nothing to see, it just says removed so I scrolled straight past\", \"intent\": \"I wouldn't click, there's nothing there to click on\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I have no idea what it's saying and I'm not interested anyway\", \"intent\": \"I wouldn't click because it's not in English and not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not trying to learn Thai so it has nothing to do with me, just another language app ad\", \"intent\": \"I wouldn't click as I have no plans to learn Thai\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese or something, I can't read it so I just ignored it\", \"intent\": \"I wouldn't click because I don't understand what it's offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do use Vinted but I'm not doing a home makeover right now and I'm wary of these watch now type ads\", \"intent\": \"I might pause on it but I wouldn't click through right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 642,
+ "cached_tokens": 0,
+ "output_tokens": 672,
+ "reasoning_tokens": 289
+}

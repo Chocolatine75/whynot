@@ -1,0 +1,11 @@
+{
+ "key": "3aaa0850f02f03fd075258c7f137ecad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Vinted and use it for buying mostly, don't feel like listing anything right now\", \"intent\": \"I wouldn't click now but might use it later when I have a clear out\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks a bit cute but kinda cringey and I don't need another self-care app on my phone\", \"intent\": \"I might remember the name but I wouldn't click the ad to download\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning Thai at all so it's just irrelevant to me\", \"intent\": \"I'd just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other one, I'm not learning Japanese and ads like this feel a bit spammy\", \"intent\": \"Wouldn't click, just scroll on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in the UK and speak English already so this is completely useless for me\", \"intent\": \"Definitely not clicking or downloading\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 128,
+ "output_tokens": 897,
+ "reasoning_tokens": 527
+}

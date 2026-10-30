@@ -1,0 +1,11 @@
+{
+ "key": "5948d7d5985554041719fa4befafcdc5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and I don't want another app on my phone\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's very vague, I don't know what it's actually offering and I'm not on Bumble\", \"intent\": \"I wouldn't click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds nice but these free trials always want your card details and then charge you, and I doubt you'd really learn Spanish just walking the dog\", \"intent\": \"I might pause for a second but I wouldn't sign up\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need Norwegian and ten minutes a day to speak confidently sounds like nonsense\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's the same as the other one, I don't have time for hobbies let alone 30 minutes of language tapes\", \"intent\": \"I would keep scrolling, not interested in buying\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 678,
+ "cached_tokens": 128,
+ "output_tokens": 594,
+ "reasoning_tokens": 221
+}

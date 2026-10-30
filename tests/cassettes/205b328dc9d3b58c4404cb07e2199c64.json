@@ -1,0 +1,11 @@
+{
+ "key": "205b328dc9d3b58c4404cb07e2199c64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Japanese and fed up of these five star app ads\", \"intent\": \"Would not click or buy, no need for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking to learn a language hands-free, just another subscription push\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same ad as the first one just different language, no reason for me to learn Tagalog\", \"intent\": \"Would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe you can speak Malay in 10 minutes a day, sounds like nonsense AI hype\", \"intent\": \"No chance I would click or buy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Third time seeing same Ling ad, not interested in Thai either\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 648,
+ "cached_tokens": 0,
+ "output_tokens": 509,
+ "reasoning_tokens": 167
+}

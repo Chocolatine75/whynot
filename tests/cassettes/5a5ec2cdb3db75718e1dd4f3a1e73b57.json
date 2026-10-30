@@ -1,0 +1,11 @@
+{
+ "key": "5a5ec2cdb3db75718e1dd4f3a1e73b57",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Spanish so I just scrolled past, don't need a language app anyway\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and adverts for finance stuff feel a bit pushy and not trustworthy\", \"intent\": \"Probably wouldn't click unless I was actually looking to switch banks\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a business so this is completely irrelevant to me\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"didn't really get what it was trying to say, felt vague and a bit cringe\", \"intent\": \"Wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"it looks really cute but I don't need another app and I'd probably get bored of it\", \"intent\": \"Might be tempted to have a look but probably wouldn't download\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 0,
+ "output_tokens": 763,
+ "reasoning_tokens": 402
+}

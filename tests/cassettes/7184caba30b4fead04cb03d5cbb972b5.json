@@ -1,0 +1,11 @@
+{
+ "key": "7184caba30b4fead04cb03d5cbb972b5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I like puzzles but I don't trust these free games, they always want you to pay later or get bombarded with adverts\", \"intent\": \"I might look but I wouldn't click, I get enough puzzles in my paper\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own bank I've been with for years, I'm not changing to something on my phone\", \"intent\": \"I would not click, I don't want bank stress from a new app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This lazy workout and visible results in 4 weeks sounds like nonsense aimed at young people\", \"intent\": \"I would not click or buy, it's not for me at my age\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's too vague, doesn't say what language or what it costs, I don't trust AI\", \"intent\": \"I would scroll past, I have no need to learn a language now\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I haven't got a clue what it's about and I'm not interested in muscle workouts\", \"intent\": \"I would definitely not click, it's not even in English\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 776,
+ "cached_tokens": 128,
+ "output_tokens": 633,
+ "reasoning_tokens": 230
+}

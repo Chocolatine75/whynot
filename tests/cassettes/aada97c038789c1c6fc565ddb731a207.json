@@ -1,0 +1,11 @@
+{
+ "key": "aada97c038789c1c6fc565ddb731a207",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds alright but I've heard mixed things about selling on Vinted and I wouldn't want the hassle for a few quid\", \"intent\": \"I wouldn't click, I'd just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That text doesn't even make proper sense and looks a bit spammy to me\", \"intent\": \"I definitely wouldn't download it, looks untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't own a restaurant so it's got nothing to do with me at all\", \"intent\": \"I wouldn't click as it's not meant for someone like me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Haven't a clue what it's actually trying to sell me, a game for decluttering with a pet?\", \"intent\": \"I wouldn't bother clicking, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks nice enough but I know it's just an advert trying to get me to order a takeaway\", \"intent\": \"I might have a quick look at the picture but I wouldn't order anything\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 598,
+ "cached_tokens": 256,
+ "output_tokens": 689,
+ "reasoning_tokens": 304
+}

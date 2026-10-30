@@ -1,0 +1,11 @@
+{
+ "key": "49bae8ea0a58eece70dbc9e35bd9cec0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Tagalog and I do not trust these free app adverts\", \"intent\": \"I would not click or download it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"We do not use Deliveroo and I prefer to do my own shopping at the supermarket\", \"intent\": \"I would not click as I have no need for it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like nonsense promising visible results in 4 weeks and trying to get you to comment START\", \"intent\": \"I would scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I am a bit wary of fitness apps and subscriptions at my age but it seems sensible enough\", \"intent\": \"I might have a quick look but I probably would not buy anything.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I do not trust these new online banks with my money and I am happy with my own bank\", \"intent\": \"I would not click on it.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 621,
+ "cached_tokens": 0,
+ "output_tokens": 743,
+ "reasoning_tokens": 372
+}

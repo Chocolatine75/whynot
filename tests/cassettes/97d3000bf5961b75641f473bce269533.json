@@ -1,0 +1,11 @@
+{
+ "key": "97d3000bf5961b75641f473bce269533",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says learn a language but text is about AI football photos, makes no sense and i don't want ai templates anyway\", \"intent\": \"i'd just keep scrolling, not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not a business owner and monzo business isn't for me, looks boring\", \"intent\": \"i wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"i use vinted already but this just feels like another pushy ad, not watching a show for it\", \"intent\": \"probably wouldn't click, might think about it for a second then scroll on\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"i have no plans to learn thai so no reason to download\", \"intent\": \"i wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"there's nothing there, it was removed so obviously not clicking\", \"intent\": \"definitely not clicking, nothing to see\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 602,
+ "cached_tokens": 0,
+ "output_tokens": 632,
+ "reasoning_tokens": 269
+}

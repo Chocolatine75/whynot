@@ -1,0 +1,11 @@
+{
+ "key": "b1329c6825d5fb6ba5a6b4ac1a236ad0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Spammy as hell, 'Top1 app AI Learn' means nothing and screams low effort scam\", \"intent\": \"Would not click, looks rubbish\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not learning Japanese and don't want another language app clogging my phone\", \"intent\": \"No need to click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says learn a language but text is about World Cup AI photos, makes no sense and looks dodgy\", \"intent\": \"Wouldn't click, too confusing to trust\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German, I'm in the UK and not interested in fitness apps from ads\", \"intent\": \"Definitely not clicking, not relevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've already got banks and I'm not signing up for financial stuff from an Instagram ad\", \"intent\": \"Might remember the name but wouldn't click now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 625,
+ "cached_tokens": 0,
+ "output_tokens": 973,
+ "reasoning_tokens": 612
+}

@@ -1,0 +1,11 @@
+{
+ "key": "620581c6bc2647efe06bd907dd0ad59b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I know Vinted and Motsi from Strictly but I'm not interested in watching a YouTube series about it, feels like an ad trying to look like a show\", \"intent\": \"I would keep scrolling and not click to watch\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German and looks like fake reviews for a fitness app, not for me at all\", \"intent\": \"I would scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly game ad with that boyfriend line, I don't play these puzzle games\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat and I don't need a language app like this\", \"intent\": \"I would not click on it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English fluently so an AI English tutor is completely irrelevant to me\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 759,
+ "cached_tokens": 0,
+ "output_tokens": 567,
+ "reasoning_tokens": 197
+}

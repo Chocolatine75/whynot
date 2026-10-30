@@ -1,0 +1,11 @@
+{
+ "key": "0f9857a3ad0a5d7e7a9768549addde03",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled straight past, not for me at all\", \"intent\": \"I would not click or download this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like another young fitness influencer trying to sell me an app, not believable and not my age group\", \"intent\": \"I would not click the link in bio\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm past that stage of life, I'm 60, I don't need a cycle tracker\", \"intent\": \"I would not download this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"My grandchildren are older and I don't want to open bank accounts from an advert on Facebook\", \"intent\": \"I would not click to get it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Hallucinations without drugs sounds very strange and a bit scary, definitely not something I'd try\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 796,
+ "cached_tokens": 0,
+ "output_tokens": 593,
+ "reasoning_tokens": 233
+}

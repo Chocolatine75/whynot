@@ -1,0 +1,11 @@
+{
+ "key": "1619230982a749453396c7b54e04021e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke and have no need for this, just another app trying to sell you something\", \"intent\": \"I would just scroll past and not click on it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English and I don't trust these AI tutor things\", \"intent\": \"I would not click or download this at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm too old to be learning languages now and I don't want a free trial that charges you later\", \"intent\": \"I might have a little look but I wouldn't buy anything\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for young girls not a woman my age, completely not relevant to me\", \"intent\": \"I would definitely scroll past this one\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign German writing so I haven't a clue what it's about\", \"intent\": \"I would just keep scrolling and ignore it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 628,
+ "cached_tokens": 128,
+ "output_tokens": 657,
+ "reasoning_tokens": 297
+}

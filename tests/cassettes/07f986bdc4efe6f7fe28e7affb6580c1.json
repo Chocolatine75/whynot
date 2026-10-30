@@ -1,0 +1,11 @@
+{
+ "key": "07f986bdc4efe6f7fe28e7affb6580c1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in selling stuff right now and home makeover ads aren't for me\", \"intent\": \"No, I just scrolled past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need to learn Portuguese and I don't believe you can learn in 10 minutes a day\", \"intent\": \"No chance I'd click or pay for this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Deliveroo does Tesco deliveries so nothing new, not ordering right now\", \"intent\": \"I didn't click but I did pause for a second.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I had no clue what it was about and just ignored it\", \"intent\": \"No, scrolled straight past.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and looks like another random wellness app ad\", \"intent\": \"Definitely not clicking.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 671,
+ "cached_tokens": 128,
+ "output_tokens": 971,
+ "reasoning_tokens": 618
+}

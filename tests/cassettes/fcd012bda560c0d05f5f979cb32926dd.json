@@ -1,0 +1,11 @@
+{
+ "key": "fcd012bda560c0d05f5f979cb32926dd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me, I don't sell clothes online and it sounds like the usual keep all the cash nonsense\", \"intent\": \"I wouldn't click, not interested in selling old clothes\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't own a restaurant so it's completely irrelevant to me\", \"intent\": \"I wouldn't click as it's aimed at business owners\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Load of new age waffle, 20 million voices and transform your life just sounds like hype\", \"intent\": \"I wouldn't click, I'm not into meditation apps\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks childish, a pet game to declutter? No idea what it's actually supposed to do\", \"intent\": \"I wouldn't click, seems meant for younger people\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I might learn a language but every app says try free then charges you, and I don't trust the no AI claim\", \"intent\": \"I might have a quick look but probably wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 651,
+ "cached_tokens": 0,
+ "output_tokens": 593,
+ "reasoning_tokens": 217
+}

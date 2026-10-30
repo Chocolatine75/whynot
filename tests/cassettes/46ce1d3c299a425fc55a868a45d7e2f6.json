@@ -1,0 +1,11 @@
+{
+ "key": "46ce1d3c299a425fc55a868a45d7e2f6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me, I don't have a drinking problem and I don't trust an app to fix that sort of thing anyway\", \"intent\": \"I would keep scrolling, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Thai, never going to use it\", \"intent\": \"I wouldn't click, it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I've already got banks I use and I don't need another card, seen too many ads for Revolut\", \"intent\": \"I might have glanced but I wouldn't click to get it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another language app, they all claim to have great reviews\", \"intent\": \"I wouldn't bother clicking, not looking to learn a language right now\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I don't really know what it's offering me\", \"intent\": \"I would just scroll past, wouldn't click something I can't understand\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 0,
+ "output_tokens": 874,
+ "reasoning_tokens": 506
+}

@@ -1,0 +1,11 @@
+{
+ "key": "f96b615bc5dd468bc03fbb35d1e801c7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my high street bank, don't trust these app banks with my money\", \"intent\": \"I wouldn't click, no need to change banks\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business owner, this has nothing to do with me\", \"intent\": \"I would just scroll past, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and looks like another get-fit-quick scam\", \"intent\": \"I wouldn't click, not for me and can't even read it properly\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Vietnamese and 10 minutes a day sounds like nonsense\", \"intent\": \"No chance I'd click or download this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking to learn a language right now and I wouldn't pay after the free trial\", \"intent\": \"I might have paused but I wouldn't click through to buy anything\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 799,
+ "cached_tokens": 256,
+ "output_tokens": 837,
+ "reasoning_tokens": 476
+}

@@ -1,0 +1,11 @@
+{
+ "key": "4b3f40d91532f05510049e9b2097f437",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says learn a language but text is about football AI photos, makes no sense and looks a bit scammy\", \"intent\": \"I would just scroll past it, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Japanese and I never click on app download ads\", \"intent\": \"I wouldn't click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spam, broken English and no real information\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own bank and I don't trust switching banks from an Instagram ad\", \"intent\": \"I might have paused but I wouldn't click or sign up\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I don't know what it's saying, not for me\", \"intent\": \"I would scroll straight past\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 625,
+ "cached_tokens": 0,
+ "output_tokens": 613,
+ "reasoning_tokens": 259
+}

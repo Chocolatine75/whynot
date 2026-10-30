@@ -1,0 +1,11 @@
+{
+ "key": "9397c1eeb6bcbb9f869a197fdbdf7c6a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I’ve tried language apps before and never stick with them, and I don’t want to sign up for a free trial that charges me later\", \"intent\": \"Probably wouldn’t click, might think about it if I was actually going on holiday somewhere\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"See these fintech ads all the time, I already have my bank and I’m not switching\", \"intent\": \"No chance I’d click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not really relevant to me and feels a bit preachy for an ad\", \"intent\": \"Didn’t click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Confusing - is it meditation or gambling help? I don’t gamble anyway so ignored it\", \"intent\": \"Definitely wouldn’t click on this one\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don’t have a business account and not looking to get one, so not for me\", \"intent\": \"No need to click, scrolled straight past\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 622,
+ "cached_tokens": 128,
+ "output_tokens": 712,
+ "reasoning_tokens": 328
+}

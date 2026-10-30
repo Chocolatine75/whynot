@@ -1,0 +1,11 @@
+{
+ "key": "6f9ecffe426afcbc331ef72bc2f01637",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too vague - \\\"feel better\\\" could be anything, sounds like generic wellness fluff\", \"intent\": \"wouldn't click, no idea what it actually is\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's for men so completely irrelevant to me\", \"intent\": \"would scroll straight past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like pilates but I know Peloton is expensive and I don't need another subscription\", \"intent\": \"might pause but wouldn't click, not paying for Peloton\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat so not relevant and just looks like another language app ad\", \"intent\": \"would just keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to quit drinking and these apps always overpromise\", \"intent\": \"definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 588,
+ "cached_tokens": 0,
+ "output_tokens": 682,
+ "reasoning_tokens": 332
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c3e2d8c84c4de7e7477a53874210650f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm already with a normal bank and Revolut ads are everywhere, don't trust the hype and don't need another app\", \"intent\": \"I would keep scrolling, not interested in switching banks\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"30 minutes a day sounds nice but you won't sound like a local, I've seen these language apps never work that well\", \"intent\": \"I wouldn't click, just another language app ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too vague, just says AI lessons, no idea what language or how it actually works, feels spammy\", \"intent\": \"I would scroll past, looks like a cheap copycat ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Weird World Cup tie-in, makes no sense for a bank and feels gimmicky\", \"intent\": \"I would definitely not click or download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Nearly two grand for an exercise bike is insane, no space for it and gym is cheaper\", \"intent\": \"I might have paused at the price but would not click to buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 128,
+ "output_tokens": 948,
+ "reasoning_tokens": 558
+}

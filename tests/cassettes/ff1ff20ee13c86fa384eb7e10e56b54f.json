@@ -1,0 +1,11 @@
+{
+ "key": "ff1ff20ee13c86fa384eb7e10e56b54f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and I just ignore these learn a language app ads\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, don't need Thai and it's just another language app ad\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I couldn't understand what it says, looks like it's not in English\", \"intent\": \"I wouldn't click because I don't know what it's for\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's actually offering\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute idea but I don't need another self care game on my phone\", \"intent\": \"I might have paused but I wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 609,
+ "cached_tokens": 0,
+ "output_tokens": 596,
+ "reasoning_tokens": 244
+}

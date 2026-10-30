@@ -1,0 +1,11 @@
+{
+ "key": "2eeda0fb9f276ccea0b3985e0f7c4039",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm too old for this sort of intense gym thing and Peloton is very expensive, not for me\", \"intent\": \"I would just scroll past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's mostly in French so I don't really get it and I don't believe you can transform your body in 7 days\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Thai at my age, it's not relevant to me\", \"intent\": \"I would not click, I don't need a language app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust these banking apps and I'm not interested in the World Cup fuss\", \"intent\": \"I would definitely not download this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It doesn't even say what it's selling properly, just hashtags\", \"intent\": \"I would scroll straight past it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 644,
+ "cached_tokens": 128,
+ "output_tokens": 574,
+ "reasoning_tokens": 213
+}

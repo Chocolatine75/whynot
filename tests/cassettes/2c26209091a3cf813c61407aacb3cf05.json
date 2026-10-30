@@ -1,0 +1,11 @@
+{
+ "key": "2c26209091a3cf813c61407aacb3cf05",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've got no reason to learn Norwegian and I don't buy the whole speak in 10 minutes a day claim\", \"intent\": \"No chance I'd click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in learning Thai, just another language app ad\", \"intent\": \"Wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, no need to learn Croatian and it's spammy seeing Ling twice\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Deliveroo is but I try not to order takeaway too much as it's expensive\", \"intent\": \"Might have a browse if I was hungry but probably wouldn't order\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Getting fed up with Ling ads now, and the no AI thing just feels like a gimmick\", \"intent\": \"Not going to click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 649,
+ "cached_tokens": 128,
+ "output_tokens": 502,
+ "reasoning_tokens": 138
+}

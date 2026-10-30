@@ -1,0 +1,11 @@
+{
+ "key": "38f20c5b71ac36bc20dcdec9096e02e6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to quit drinking and don't need an app nagging me, feels a bit preachy\", \"intent\": \"Wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Already got my bank sorted and don't need another card gimmick\", \"intent\": \"Might have glanced but wouldn't click or apply\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these language apps and the reviews never mean much\", \"intent\": \"No interest so didn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I had no idea what it's actually offering\", \"intent\": \"Just ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need to learn Thai and 10 minutes a day sounds like nonsense\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 128,
+ "output_tokens": 718,
+ "reasoning_tokens": 377
+}

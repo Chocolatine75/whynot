@@ -1,0 +1,11 @@
+{
+ "key": "137fe3b49f868c7668a76e51a765f88e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English fluently, totally irrelevant ad for me, just scrolled past\", \"intent\": \"No chance I'd click this, I don't need an English tutor.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Couldn't even read it, it's not in English, assumed it's also an English learning app which I don't need\", \"intent\": \"Would not click as I don't understand what it's offering.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton stuff is way too expensive and I don't need all that tech for a workout\", \"intent\": \"Might watch the video for a second but definitely not clicking to buy.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank and don't really use pots for holidays, just didn't feel like opening it\", \"intent\": \"Probably wouldn't click right now but it's the least annoying ad.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Dating apps are all hassle and I've heard mixed things about Bumble, not in the mood to download another one\", \"intent\": \"Tempted to have a look but I know I won't bother actually clicking.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 0,
+ "output_tokens": 666,
+ "reasoning_tokens": 271
+}

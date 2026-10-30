@@ -1,0 +1,11 @@
+{
+ "key": "8990123e9a7ca1a9cb62a28f532ebbf2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 67, I've no need to learn Japanese and I don't trust these five star claims\", \"intent\": \"I would just scroll on past it, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"What has football AI photos got to do with learning a language, makes no sense to me\", \"intent\": \"I would not click, it looks like nonsense\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"If it's been removed for not following standards I wouldn't touch it, sounds dodgy\", \"intent\": \"I definitely would not click on something that's been taken down\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I do my banking on the high street with my proper bank, I don't trust these app banks\", \"intent\": \"I would not download it, I'm happy where I am\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, I can't even read it, and I already speak English\", \"intent\": \"I would just keep scrolling, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 618,
+ "cached_tokens": 0,
+ "output_tokens": 621,
+ "reasoning_tokens": 241
+}

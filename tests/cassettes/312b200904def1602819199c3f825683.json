@@ -1,0 +1,11 @@
+{
+ "key": "312b200904def1602819199c3f825683",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a language app at my age and I never trust these review numbers, just advertising puff\", \"intent\": \"I would not click, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and promising a body change in 7 days, that's nonsense and not for me\", \"intent\": \"I would definitely not click on something I can't read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"A Peloton bike costs a fortune and takes up the whole house, and I'm too old for that sort of thing\", \"intent\": \"I would not click, I have no interest in buying an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm happily married for 40 years, I don't need dating advice from an app like Bumble\", \"intent\": \"I would not click on it at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't gamble and I don't see what meditation has to do with it, looks a bit strange\", \"intent\": \"I would not click, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 630,
+ "cached_tokens": 0,
+ "output_tokens": 681,
+ "reasoning_tokens": 292
+}

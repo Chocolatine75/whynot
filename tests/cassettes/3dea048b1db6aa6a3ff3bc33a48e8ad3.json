@@ -1,0 +1,11 @@
+{
+ "key": "3dea048b1db6aa6a3ff3bc33a48e8ad3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn a language at my age and these free trials always end up charging you\", \"intent\": \"I would not click or buy, I am not interested in language apps\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I do not need to speak Vietnamese and I do not trust AI to teach you anything properly\", \"intent\": \"I would definitely not click, it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It is all in Spanish so I cannot understand it and I am too old for a muscle building app like this\", \"intent\": \"I would scroll straight past and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is for businesses with teams on different sites, that is not me at all\", \"intent\": \"I would not click, it is not meant for someone like me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I do not trust these new online banks and I worry about scams, I prefer my normal bank\", \"intent\": \"I would not click, I am happy where I am for banking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 798,
+ "cached_tokens": 0,
+ "output_tokens": 820,
+ "reasoning_tokens": 428
+}

@@ -1,0 +1,11 @@
+{
+ "key": "683a7e627d12928379d8e99e2e2c98b9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"too vague, no idea what it actually is or does, just another fluffy wellness ad\", \"intent\": \"I wouldn't click, tells me nothing useful\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not relevant to me and I wouldn't trust an app to help quit drinking anyway\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do like pilates but Peloton is way too pricey and pushy for me\", \"intent\": \"I might watch for a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat so this has nothing to do with me\", \"intent\": \"I wouldn't click, not aimed at me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's for men, why am I even being shown this, instant scroll past\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 588,
+ "cached_tokens": 0,
+ "output_tokens": 804,
+ "reasoning_tokens": 451
+}

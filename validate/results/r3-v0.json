@@ -1,0 +1,53 @@
+{
+  "simulated": true,
+  "experiment": "R3 v0, text-only feeds",
+  "date": "2026-10-30",
+  "viewer": {
+    "backend": "baseten",
+    "model": "meta-models/muse-spark-open-1026",
+    "reasoning_effort": "low"
+  },
+  "sample": {
+    "ads": 130,
+    "long_running": 65,
+    "advertisers": 24,
+    "advertisers_with_both_classes": 9,
+    "countries": [
+      "GB"
+    ],
+    "long_days": 60,
+    "short_days": 14
+  },
+  "pooled": {
+    "auc_preference": 0.493,
+    "ci_preference": [
+      0.404,
+      0.582
+    ],
+    "auc_intent": 0.478,
+    "auc_copy_length": 0.382
+  },
+  "within_advertiser": {
+    "auc_preference": 0.55,
+    "ci_preference": [
+      0.44,
+      0.66
+    ],
+    "auc_intent": 0.54,
+    "ci_intent": [
+      0.44,
+      0.64
+    ],
+    "auc_shorter_copy": 0.57,
+    "ci_shorter_copy": [
+      0.35,
+      0.79
+    ],
+    "pairs": 84,
+    "note": "computed after seeing that per-advertiser balance failed; bootstrap over advertisers"
+  },
+  "usd": 0.88,
+  "failures_first_pass": 44,
+  "failure_cause": "Baseten rate limits, retried from cache",
+  "verdict": "no evidence the text-only simulator predicts longevity (CIs include 0.5)"
+}

@@ -1,0 +1,11 @@
+{
+ "key": "80beec07363af9a94cf5b37c9ff96133",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me, I'm not selling clothes online and that keep all the cash bit sounds like rubbish anyway\", \"intent\": \"Wouldn't click, I've got nothing to flog\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Load of waffle about sound healing, don't believe 5 minutes every few days will transform anything\", \"intent\": \"Scroll straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Sick of hearing about AI to be fair but I'm not learning a language so free app is no use to me\", \"intent\": \"Didn't click, maybe remembered the name but that's it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Haven't got a clue what it's on about, a pet game to declutter? Not for a bloke my age\", \"intent\": \"No interest in clicking, just scrolled on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't own a restaurant so completely irrelevant to me\", \"intent\": \"Ignored it entirely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 651,
+ "cached_tokens": 256,
+ "output_tokens": 861,
+ "reasoning_tokens": 487
+}

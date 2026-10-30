@@ -1,0 +1,11 @@
+{
+ "key": "fde9b43cfb722571f114a9205457520a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another fitness influencer ad trying to flog a subscription, not falling for the link in bio thing\", \"intent\": \"I just scrolled straight past it, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like a stretch linking football chants to learning a language and i doubt a free trial actually teaches much\", \"intent\": \"I wouldn't click, maybe vaguely interesting but not for me\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"cheesy vague dating ad, no idea what it's even offering\", \"intent\": \"I kept scrolling, definitely not clicking a dating blog\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Hindi so not for me and i don't need to learn English\", \"intent\": \"I scrolled past immediately cause it's not relevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a time-waster ad that will just spam me with ads if i download it\", \"intent\": \"I might click just to have a look but probably wouldn't actually play it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 701,
+ "cached_tokens": 128,
+ "output_tokens": 782,
+ "reasoning_tokens": 402
+}

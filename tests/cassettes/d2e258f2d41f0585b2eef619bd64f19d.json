@@ -1,0 +1,11 @@
+{
+ "key": "d2e258f2d41f0585b2eef619bd64f19d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"already get loads of language app ads and not looking to learn a language right now\", \"intent\": \"wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a side gig like Deliveroo riding at all\", \"intent\": \"definitely wouldn't click or apply\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton bikes are way too expensive and I don't have space for one\", \"intent\": \"might have glanced but wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"no reason to learn Thai, never going there\", \"intent\": \"would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what it actually does, just vague wellness talk\", \"intent\": \"wouldn't click as it feels a bit scammy\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 595,
+ "cached_tokens": 128,
+ "output_tokens": 715,
+ "reasoning_tokens": 379
+}

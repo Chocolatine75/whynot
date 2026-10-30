@@ -1,0 +1,11 @@
+{
+ "key": "27b7f0ed106f1c2f141681e2df2c0812",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly a paid ad for Deliveroo, I've got Honest Burgers near me anyway and I don't need an ad to order takeaway\", \"intent\": \"I wouldn't click, maybe I'll get Deliveroo later if I fancy it but not because of this\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Just a generic Deliveroo ad I've seen a hundred times, nothing new to make me stop\", \"intent\": \"I wouldn't click, I already have the app if I want it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking to learn Japanese and I don't trust these language app ads anyway\", \"intent\": \"I wouldn't click or download it at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same as the other one, I have no interest in learning Thai\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm already with my current bank and happy, don't want the hassle of switching for a coloured card\", \"intent\": \"I wouldn't click, not looking to change banks right now\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 630,
+ "cached_tokens": 128,
+ "output_tokens": 862,
+ "reasoning_tokens": 469
+}

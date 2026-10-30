@@ -1,0 +1,11 @@
+{
+ "key": "65c9d239057e4cd1d9481029adf3a8dd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn Japanese and these language app ads all look the same\", \"intent\": \"Wouldn't click, no need for it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read what it says, not relevant to me anyway\", \"intent\": \"Would just scroll past, no idea what it's offering.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe you can learn Portuguese in 10 minutes a day and I'm not looking to learn it\", \"intent\": \"No chance I'd download this, not interested.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other Ling ones, zero interest in Korean\", \"intent\": \"Would keep scrolling without clicking.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Might be a decent time waster but sounds like another ad trying to get me addicted to a puzzle game\", \"intent\": \"Probably wouldn't click but it's the only one I'd even consider.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 617,
+ "cached_tokens": 0,
+ "output_tokens": 794,
+ "reasoning_tokens": 439
+}

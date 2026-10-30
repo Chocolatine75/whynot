@@ -1,0 +1,11 @@
+{
+ "key": "0d1906f01bd249aee9d72125b2dc4542",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I get plenty of puzzle ads like this, looks like another time waster and probably full of adverts\", \"intent\": \"Would not click, not interested in downloading another game\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These fitness app claims about visible results in 4 weeks never seem genuine\", \"intent\": \"Definitely would not click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too vague, seen loads of language apps and I am not looking to learn one\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It is all in German so I just scrolled straight past\", \"intent\": \"Would not click as I cannot understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I am happy with my current bank and do not trust switching to an app based bank from an advert\", \"intent\": \"Might have paused but would not click through\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 777,
+ "cached_tokens": 128,
+ "output_tokens": 584,
+ "reasoning_tokens": 227
+}

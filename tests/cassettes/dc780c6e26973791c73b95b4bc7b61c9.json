@@ -1,0 +1,11 @@
+{
+ "key": "dc780c6e26973791c73b95b4bc7b61c9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"sounds useful but I don't have time for language learning right now and don't want to get roped into a subscription\", \"intent\": \"I wouldn't click, maybe save for later if I ever get serious about learning\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"there's literally nothing to see, it was removed\", \"intent\": \"I would just scroll past, nothing to click on\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Chinese so I have no idea what it's actually offering me\", \"intent\": \"I wouldn't click because I can't read it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute but I don't need another wellness game trying to be my therapist\", \"intent\": \"I might look at the comments but I wouldn't download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"World Cup angle feels random and dated and I'm not learning a language for football chants\", \"intent\": \"I wouldn't click, just swiped past\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 615,
+ "cached_tokens": 128,
+ "output_tokens": 672,
+ "reasoning_tokens": 308
+}

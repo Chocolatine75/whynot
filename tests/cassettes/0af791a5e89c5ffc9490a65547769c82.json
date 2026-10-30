@@ -1,0 +1,11 @@
+{
+ "key": "0af791a5e89c5ffc9490a65547769c82",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Too vague and clickbaity, no idea what I'm actually getting, just feels like waste of time fluff\", \"intent\": \"I wouldn't click, not interested in reading a dating blog post.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have zero interest in learning Korean, completely irrelevant to me\", \"intent\": \"I would keep scrolling past this with no second thought.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I don't know what it's saying, just scrolled straight past\", \"intent\": \"I wouldn't click something I can't even read.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and don't trust switching to an app bank from an advert, seems like hassle\", \"intent\": \"I might pause but I definitely wouldn't download it right now.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Feels embarrassing and a bit scammy, not something I'd ever click on social media\", \"intent\": \"I scrolled past as fast as possible.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 605,
+ "cached_tokens": 0,
+ "output_tokens": 532,
+ "reasoning_tokens": 159
+}

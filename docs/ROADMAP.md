@@ -151,7 +151,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 
 ### E2. Validate the simulator against reality (A, ★ the technical hero)
 
-- [ ] **E2-1** ★ R3 at scale: longevity (A)
+- [ ] **E2-1** ★ R3 at scale: longevity (A) — *v0 measured Oct 30 (text-only, 130 GB ads, 24 advertisers, Muse Spark Open low, $0.88, `validate/results/r3-v0.json`): pooled AUC 0.49 [0.40, 0.58]; within advertiser 0.55 [0.44, 0.66] on 9 advertisers / 84 pairs. **No evidence yet.** Found: `select` does not balance per advertiser (Ling 24 long / 0 short), so the pooled AUC partly measures the brand. Left: only advertisers with both classes, ≥ 25 of them, images (E2-2), single-LLM judge baseline.*
   - *Done when:*
     - ≥ 200 ads from ≥ 15 advertisers in ≥ 4 categories, classes balanced per advertiser (long ≥ 60 days active, short ≤ 14 days stopped, pre-registered in `DECISIONS.md` on Oct 28);
     - viewers on Muse Spark Open, low effort;
@@ -401,6 +401,7 @@ If a gate fails: write it in `STATUS.md`, take the next item from the cut list, 
 
 ### Gate log
 
+- **Fri Oct 30, R3 v0 measured (gate met, result negative):** text-only simulator does not separate long-running from short-lived ads (pooled 0.49, within-advertiser 0.55, CIs include 0.5). Next: balanced-per-advertiser selection, more advertisers, images in the feed, judge baseline — then re-run.
 - **Thu Oct 29 gate (cassettes + cost cap + cache): met Oct 30** (branch `a/lane-a-oct30`): E0-1, E0-2 code done, E0-3 done; a fake-world `create` replays offline at $0. Real cassettes wait for `MODEL_API_KEY`.
 - **Fri Oct 30, lane A:** E3-1 done (hard feeds wired into simulate + evolve); E3-2 and E3-3 code done (tournament τ 0.92, noise floor); E2-6 code done (bias suite); E0-4 done; E0-5 tests 96 s → 25 s. **R3 not measured yet** (E2-1 needs model keys and credits): first task once keys are in `.env`.
 

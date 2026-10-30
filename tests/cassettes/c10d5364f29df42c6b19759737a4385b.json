@@ -1,0 +1,11 @@
+{
+ "key": "c10d5364f29df42c6b19759737a4385b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another language app promising fluency, I've seen loads and I don't have a trip planned anyway\", \"intent\": \"I just kept scrolling, not interested in starting a free trial.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the last one basically, just repeated ad and I'm not looking to learn a language right now\", \"intent\": \"Didn't click, just swiped past it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"didn't really get what was going on, some influencer thing with bumble, not for me\", \"intent\": \"I watched for a second then kept scrolling, wouldn't click.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo already but I don't need takeaway tonight and the fees put me off\", \"intent\": \"I might keep it in mind but I wouldn't order from the ad right now.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke so it's completely irrelevant to me\", \"intent\": \"Scrolled straight past, nothing to do with me.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 0,
+ "output_tokens": 652,
+ "reasoning_tokens": 273
+}

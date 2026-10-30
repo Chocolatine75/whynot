@@ -1,0 +1,11 @@
+{
+ "key": "0d31936ba706234fd132220644ec5f3a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Has nothing to do with learning a language, it's just AI football photos, feels like clickbait and not what it says it is\", \"intent\": \"I would not click, I don't want AI fan photos\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I have no idea what it's actually offering me, just scrolled past\", \"intent\": \"I would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks cheap and spammy with the triple exclamation and no real info, don't trust it\", \"intent\": \"I would not click or download, looks dodgy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know Revolut but I've seen these banking ads a million times and I don't need another banking app\", \"intent\": \"I would not click, I'm not looking to switch banks\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn Japanese and the five stars looks paid for, easy to ignore\", \"intent\": \"I would not click, I have no interest in learning Japanese\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 625,
+ "cached_tokens": 0,
+ "output_tokens": 706,
+ "reasoning_tokens": 317
+}

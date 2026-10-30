@@ -1,0 +1,11 @@
+{
+ "key": "23587607fe1661b8d57e1102de1d001f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Italian and I don't speak it, so I just scrolled straight past, not for me at all\", \"intent\": \"I wouldn't click, I have no idea what it's trying to sell me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I like the idea of learning a language for holidays but these free trials always end up charging you and I'm too busy for lessons anyway\", \"intent\": \"I might have a look but I probably wouldn't sign up for anything\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is very expensive and that high intensity stuff isn't for me at my age, I'd hurt myself\", \"intent\": \"I wouldn't click, it's not meant for someone like me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do like Vinted and charity shops but I've seen the ad a hundred times before so I didn't need to click\", \"intent\": \"I wouldn't click today but I do use Vinted now and then\", \"intent_score\": 3}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There's nothing there to look at, it's just been removed so why is it even showing\", \"intent\": \"I wouldn't click, there's nothing to click on\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 698,
+ "cached_tokens": 128,
+ "output_tokens": 778,
+ "reasoning_tokens": 374
+}

@@ -1,0 +1,11 @@
+{
+ "key": "35c79296ea4e98c439dc17c80a08520b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"So vague, doesn't even say what it is - an app? supplements? feels like vague wellness waffle\", \"intent\": \"I just scrolled straight past, tells me nothing\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Peloton is expensive and I wouldn't pay a monthly sub for pilates, I can just do YouTube\", \"intent\": \"Might have paused for a second but no way I'm clicking to get sold a Peloton subscription\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn Japanese and these free language apps always end up nagging you to pay\", \"intent\": \"No interest so I kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"20 million voices and transform your life in 5 minutes sounds like absolute nonsense and a bit scammy\", \"intent\": \"Definitely not clicking, just eye-roll and scroll on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a different language so I've got no idea what it's actually saying to me\", \"intent\": \"Scrolled past immediately as it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 601,
+ "cached_tokens": 0,
+ "output_tokens": 711,
+ "reasoning_tokens": 321
+}

@@ -1,0 +1,11 @@
+{
+ "key": "0554e505f26b4441b46142d696d45585",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I keep seeing language app ads and never stick with them, don't need another 7-day free trial that turns into a subscription\", \"intent\": \"I wouldn't click, not trying to learn Spanish right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like fake stacked reviews and another fitness app trying to sell me a plan\", \"intent\": \"I would just scroll past, definitely not downloading\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"second Pimsleur ad in a row feels spammy and I don't buy the whole brain science claim\", \"intent\": \"Might pause for a second but wouldn't click through\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"lazy workout and visible results in 4 weeks just screams scammy ad\", \"intent\": \"No chance I'd comment START or click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know about Revolut and have a bank I like, ads don't make me want to switch\", \"intent\": \"I wouldn't click, maybe look it up later if I needed it but not from this ad\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 802,
+ "cached_tokens": 128,
+ "output_tokens": 741,
+ "reasoning_tokens": 354
+}

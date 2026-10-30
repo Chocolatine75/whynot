@@ -1,0 +1,11 @@
+{
+ "key": "3702cbc6b37a96be3026c682f0eb4239",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Heard of Vinted but mainly for clothes, not sure I'd trust posting electronics and dealing with hassle of postage for a few quid.\", \"intent\": \"I wouldn't click, I just scrolled past.\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a cheap knock-off app advert, broken English just screams scam to me.\", \"intent\": \"Definitely wouldn't click or download this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly just an influencer ad for Deliveroo, not a real recommendation, and I don't need takeaway pushed at me.\", \"intent\": \"I paused at the burger picture but kept scrolling, no chance of ordering.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not relevant at all, I don't own a restaurant so it's just clutter in my feed.\", \"intent\": \"I ignored it completely.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Self care pet game sounds like nonsense for teenagers, not for a man my age, total waffle.\", \"intent\": \"No interest in clicking, not for me.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 598,
+ "cached_tokens": 0,
+ "output_tokens": 632,
+ "reasoning_tokens": 247
+}

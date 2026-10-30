@@ -1,0 +1,11 @@
+{
+ "key": "679391543e8158beb06ac192285b9fdd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've no interest in learning Korean and it's just a generic try now ad with nothing convincing\", \"intent\": \"I wouldn't click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the last one, not learning Japanese and the five stars look fake\", \"intent\": \"I wouldn't click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Speak Portuguese in 10 minutes a day sounds like nonsense, I don't trust these AI learning claims\", \"intent\": \"I wouldn't click, not looking to learn a language right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I have no idea what it's asking me to do\", \"intent\": \"I wouldn't click as I can't understand it at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The boyfriend line feels made up and I'm wary of free games being full of ads and in-app purchases\", \"intent\": \"I might glance at it out of curiosity but I wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 617,
+ "cached_tokens": 0,
+ "output_tokens": 916,
+ "reasoning_tokens": 541
+}

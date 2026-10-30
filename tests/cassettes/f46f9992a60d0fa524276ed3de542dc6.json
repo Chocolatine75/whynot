@@ -1,0 +1,11 @@
+{
+ "key": "f46f9992a60d0fa524276ed3de542dc6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German, haven't got a clue what it's on about and not interested in quizzes\", \"intent\": \"I wouldn't click, it's not for me and I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"30 day transformation sounds like nonsense and those reviews look made up, too old for that lark anyway\", \"intent\": \"I would not click or buy, not wasting money on fitness apps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't know who Motsi is and I don't watch second hand clothes shows on YouTube\", \"intent\": \"I wouldn't click, might be alright for others but not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Wary of these new banks on the phone, happy with my own bank and don't trust the hype about 75 million users\", \"intent\": \"I might have a look but I definitely wouldn't sign up for it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one in German, no idea what it's selling\", \"intent\": \"I would not click as I can't read it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 783,
+ "cached_tokens": 0,
+ "output_tokens": 825,
+ "reasoning_tokens": 436
+}

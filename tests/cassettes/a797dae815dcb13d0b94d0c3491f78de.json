@@ -1,0 +1,11 @@
+{
+ "key": "a797dae815dcb13d0b94d0c3491f78de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"20 million voices claim sounds like total bollocks and sound healing is not my thing at all\", \"intent\": \"would not click, I just scrolled past the wellness waffle\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"no interest in learning Japanese and I ignore most language app ads\", \"intent\": \"would not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no clue what it actually is or does, just vague feel better nonsense\", \"intent\": \"would not click, too generic to bother with\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Japanese so I couldn't read it and it's not relevant anyway\", \"intent\": \"would not click, scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton stuff is expensive and I'm not looking to do pilates at home\", \"intent\": \"probably wouldn't click but at least I know what it is\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 601,
+ "cached_tokens": 256,
+ "output_tokens": 905,
+ "reasoning_tokens": 546
+}

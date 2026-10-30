@@ -28,6 +28,7 @@ from whynot.validate.longevity import evaluate, select
 
 # Cost of one viewer call on Muse Spark, text feed of 5 ads, measured 2026-10-28
 # (reasoning tokens dominate). Update from outputs/costs.jsonl after real runs.
+PAGE_IDS_PER_CALL = 10
 EST_USD_PER_CALL = {"default": 0.012, "low": 0.0055, "minimal": 0.0031}
 
 
@@ -54,10 +55,12 @@ def main() -> None:
     cache = REPO_ROOT / "data" / "cache" / "adlibrary"
     try:
         lib = AdLibraryClient(settings.fb_token or "", version=settings.fb_api_version)
-        long_ads = list(lib.search(countries=args.countries, page_ids=args.page_ids, active_status="ACTIVE",
-                                   delivery_date_max=today - timedelta(days=args.long_days), max_ads=300))
-        old_ads = list(lib.search(countries=args.countries, page_ids=args.page_ids, active_status="INACTIVE",
-                                  max_ads=600))
+        long_ads, old_ads = [], []
+        for i in range(0, len(args.page_ids), PAGE_IDS_PER_CALL):  # the Ad Library takes at most 10 page ids
+            chunk = args.page_ids[i:i + PAGE_IDS_PER_CALL]
+            long_ads += lib.search(countries=args.countries, page_ids=chunk, active_status="ACTIVE",
+                                   delivery_date_max=today - timedelta(days=args.long_days), max_ads=300)
+            old_ads += lib.search(countries=args.countries, page_ids=chunk, active_status="INACTIVE", max_ads=600)
     except AdLibraryError as exc:
         raise SystemExit(f"Ad Library: {exc}") from None
     save_jsonl(long_ads, cache / f"{args.name}-active.jsonl")

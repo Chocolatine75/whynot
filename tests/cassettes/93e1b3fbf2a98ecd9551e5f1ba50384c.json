@@ -1,0 +1,11 @@
+{
+ "key": "93e1b3fbf2a98ecd9551e5f1ba50384c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"looks like dodgy psychic spam with the hearts and free reading, not a mood tracker\", \"intent\": \"would not click, looks like a scam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"£3000 for a treadmill is ridiculous, no space or money for that\", \"intent\": \"definitely not clicking to buy a Peloton\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn a language right now and don't want another subscription\", \"intent\": \"would scroll past, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"might be alright but these puzzle games are usually full of ads\", \"intent\": \"might click if I was bored but probably not\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"thought Vinted was just for clothes, I'd use CeX or eBay for tech instead\", \"intent\": \"wouldn't click, not selling anything right now\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 597,
+ "cached_tokens": 0,
+ "output_tokens": 851,
+ "reasoning_tokens": 498
+}

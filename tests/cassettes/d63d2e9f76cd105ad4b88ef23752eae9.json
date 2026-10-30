@@ -1,0 +1,11 @@
+{
+ "key": "d63d2e9f76cd105ad4b88ef23752eae9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another language app ad, I don't need one and hands-free sounds vague\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Vietnamese is random for me and I don't believe you can learn in 10 mins a day\", \"intent\": \"I wouldn't click or buy, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm English already so this isn't for me at all\", \"intent\": \"Definitely wouldn't click, ignored it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn Japanese and sick of these 5 star claims\", \"intent\": \"No chance I'd download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks spammy and low effort, title doesn't even make sense\", \"intent\": \"Wouldn't click it seems dodgy\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 617,
+ "cached_tokens": 128,
+ "output_tokens": 580,
+ "reasoning_tokens": 238
+}

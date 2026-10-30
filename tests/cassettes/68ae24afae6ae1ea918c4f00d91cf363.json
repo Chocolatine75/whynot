@@ -1,0 +1,11 @@
+{
+ "key": "68ae24afae6ae1ea918c4f00d91cf363",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and I don't recognise the app, just scrolled past\", \"intent\": \"I wouldn't click, I have no need to learn Spanish right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai and I ignore these language app ads\", \"intent\": \"I wouldn't download it, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, second Thai ad in a row so I just kept scrolling\", \"intent\": \"I wouldn't click, I'm not interested in learning Thai\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I didn't understand it and just skipped it\", \"intent\": \"I wouldn't click because I can't even read what it's offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz apps always seem a bit scammy and want to charge you after\", \"intent\": \"I might have paused but I wouldn't take the quiz or pay for it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 670,
+ "cached_tokens": 0,
+ "output_tokens": 615,
+ "reasoning_tokens": 247
+}

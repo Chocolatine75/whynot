@@ -1,0 +1,11 @@
+{
+ "key": "c7273237916ecbcce384c20c45b95f04",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled past, not trying to learn a language right now\", \"intent\": \"No I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not on dating apps and these kind of inspirational ads feel a bit cheesy\", \"intent\": \"I wouldn't click or subscribe\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Already have a bank I like and I don't trust these fintech ads that promise everything\", \"intent\": \"No interest in downloading another banking app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a business so this is completely irrelevant to me\", \"intent\": \"Wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute and I paused for a second but I know I wouldn't stick with a self-care game app\", \"intent\": \"Might have a quick look but probably wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 128,
+ "output_tokens": 711,
+ "reasoning_tokens": 352
+}

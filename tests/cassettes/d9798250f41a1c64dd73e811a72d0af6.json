@@ -1,0 +1,11 @@
+{
+ "key": "d9798250f41a1c64dd73e811a72d0af6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own bank and I'm tired of seeing Revolut everywhere, don't care about 75 million users\", \"intent\": \"Wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do use Vinted but this 'fund a home makeover' bit feels like a stretch, I'm not selling that much stuff\", \"intent\": \"Probably wouldn't click the ad but I might open Vinted later anyway\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"My kids have already got accounts sorted and I don't want another card to manage\", \"intent\": \"Not clicking now, maybe something to look at in future if I needed it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Those reviews look fake and cherry-picked and I'm not after a bloke's muscle app anyway\", \"intent\": \"Definitely wouldn't click or buy this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I've got no plans to go to Thailand or learn Thai so totally irrelevant to me\", \"intent\": \"No reason to click at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 721,
+ "cached_tokens": 0,
+ "output_tokens": 816,
+ "reasoning_tokens": 431
+}

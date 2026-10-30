@@ -1,0 +1,11 @@
+{
+ "key": "77b142a599edffa9c18f3cc77daf44b8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want another expensive Peloton thing pushed at me, not interested in cross training programmes\", \"intent\": \"I wouldn't click, just kept scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job so it's completely irrelevant to me\", \"intent\": \"I wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds a bit gimmicky saying it doesn't use AI, and I'm not sure I trust a random language app to be any good\", \"intent\": \"I might have paused but I wouldn't download it without looking into it more\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Peloton ad straight after the first one, feels too pushy and I know it'll still be expensive even with money off\", \"intent\": \"I definitely wouldn't click, just scrolled on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Didn't get what it was even trying to say, just hashtags and a vague caption\", \"intent\": \"I wouldn't click as I have no idea what they're selling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 594,
+ "cached_tokens": 0,
+ "output_tokens": 600,
+ "reasoning_tokens": 212
+}

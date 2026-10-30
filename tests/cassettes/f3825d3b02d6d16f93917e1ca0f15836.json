@@ -1,0 +1,11 @@
+{
+ "key": "f3825d3b02d6d16f93917e1ca0f15836",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Chinese characters so not for me, I already speak English\", \"intent\": \"I wouldn't click cause it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another language app ad, I don't need it and I don't trust the free trial will actually be free\", \"intent\": \"I would keep scrolling and not click it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I get what it's trying to do with the World Cup thing but I'm not trying to learn a language right now\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks kind of cute but I don't need a self care pet game on my phone, probably cringey\", \"intent\": \"I might pause on it but I wouldn't download it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it says it was removed for not following standards so it looks sketchy and I don't know what it even is\", \"intent\": \"I would definitely not click on something that got banned\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 615,
+ "cached_tokens": 128,
+ "output_tokens": 632,
+ "reasoning_tokens": 248
+}

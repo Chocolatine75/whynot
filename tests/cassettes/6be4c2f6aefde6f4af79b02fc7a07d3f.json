@@ -1,0 +1,11 @@
+{
+ "key": "6be4c2f6aefde6f4af79b02fc7a07d3f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Chinese/Japanese characters so couldn't even read it and I don't need to learn English\", \"intent\": \"wouldn't click cos I have no idea what it is and don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't care about football or world cup stuff and I never pay for language apps\", \"intent\": \"just scrolled past it, not trying to learn anything rn\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"there's literally nothing there, just says removed so nothing to click\", \"intent\": \"can't click it, there's no content\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"looks cute but I know I'd download it and never use it and then get spammed with notifications\", \"intent\": \"might look it up later but probably wouldn't actually download it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"second ad for the same thing and it just sounds like every other language app claiming science\", \"intent\": \"scrolled past, not interested in paying after a free trial\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 615,
+ "cached_tokens": 0,
+ "output_tokens": 841,
+ "reasoning_tokens": 464
+}

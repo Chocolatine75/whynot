@@ -1,0 +1,11 @@
+{
+ "key": "4d2a56d7c52028d4bc1f9dd4da08264c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton stuff is way too expensive and I don't want a big machine in my flat, plus it feels like an ad for rich gym people\", \"intent\": \"No chance I'm clicking, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled straight past, also those 30-day transform claims always look scammy\", \"intent\": \"Wouldn't click, don't understand it and don't trust it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Vinted is but I'm not trying to sell anything right now and can't be bothered with listing stuff\", \"intent\": \"Might use it in future but definitely not clicking now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Useful to know but Deliveroo fees are a rip off so I'd just go to Tesco myself instead\", \"intent\": \"Wouldn't click right now but it's good to know it's there\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Just another Deliveroo takeaway ad, I get loads of these and I'm trying not to order as much anyway\", \"intent\": \"Not clicking, nothing new or interesting here\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 128,
+ "output_tokens": 782,
+ "reasoning_tokens": 374
+}

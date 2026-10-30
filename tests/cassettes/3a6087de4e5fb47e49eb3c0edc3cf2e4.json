@@ -1,0 +1,11 @@
+{
+ "key": "3a6087de4e5fb47e49eb3c0edc3cf2e4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 65, no interest in learning Japanese and I don't trust these free app adverts\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's on about\", \"intent\": \"I wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, not for me at all\", \"intent\": \"I would keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't understand a word of it, looks like nonsense to me\", \"intent\": \"I would not click on it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the first one, I don't need Japanese and don't want another app\", \"intent\": \"I would ignore it and carry on scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 128,
+ "output_tokens": 684,
+ "reasoning_tokens": 345
+}

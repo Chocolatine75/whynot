@@ -1,0 +1,11 @@
+{
+ "key": "e4f484d85163014bf8d1527cb278b80c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so no idea what it's saying and not for me anyway, plus 7 day transformation sounds like rubbish\", \"intent\": \"I wouldn't click, it's not even in English\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read it, it's in Hindi or something, nothing to do with me\", \"intent\": \"Wouldn't click as I have no idea what it's for\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank and I'm not going on holiday anytime soon, don't need another account\", \"intent\": \"Might remember Monzo but I wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into these cutesy pet self care game things, seems a bit daft\", \"intent\": \"I wouldn't click, not my sort of game at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It literally says women-focused so it's not aimed at me, and I don't trust these transform your body ads\", \"intent\": \"I wouldn't click, it's not for me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 675,
+ "cached_tokens": 128,
+ "output_tokens": 911,
+ "reasoning_tokens": 530
+}

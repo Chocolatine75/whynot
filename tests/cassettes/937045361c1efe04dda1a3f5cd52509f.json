@@ -1,0 +1,11 @@
+{
+ "key": "937045361c1efe04dda1a3f5cd52509f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me at my age, looks like fake reviews and I don't do gym apps\", \"intent\": \"I would not click or buy this fitness app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't know who Motsi is and not interested in selling old clothes\", \"intent\": \"I would not click to watch it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust putting my money on an app on the phone, stick to my bank\", \"intent\": \"I would not click or join Revolut\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I haven't a clue what it's about\", \"intent\": \"I would not click on a German ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one in German, not for me and I don't want it\", \"intent\": \"I would not click or install it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 783,
+ "cached_tokens": 128,
+ "output_tokens": 766,
+ "reasoning_tokens": 418
+}

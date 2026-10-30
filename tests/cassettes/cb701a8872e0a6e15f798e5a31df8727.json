@@ -1,0 +1,11 @@
+{
+ "key": "cb701a8872e0a6e15f798e5a31df8727",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to go to Thailand and no interest in learning Thai, just scrolled past\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, don't need Thai and 10 minutes a day claim sounds like typical app hype\", \"intent\": \"No chance I'd click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I didn't really get what it's offering, just kept scrolling\", \"intent\": \"I wouldn't click as I don't know what I'm clicking on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looked a bit interesting at first but the 30-day transformation and all those perfect reviews feel fake and salesy\", \"intent\": \"Might have paused but I wouldn't click or pay for it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Ling ad, I don't need Croatian either, getting repetitive now\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 709,
+ "cached_tokens": 256,
+ "output_tokens": 677,
+ "reasoning_tokens": 305
+}

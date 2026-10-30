@@ -1,0 +1,11 @@
+{
+ "key": "687b9e5ba427b632965658e4cbf8cd0c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too vague, just 'feel better' tells me nothing about what it actually is or does\", \"intent\": \"would not click, looks like generic wellness spam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't need to quit drinking and don't trust an app to do that anyway\", \"intent\": \"would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"feels awkward and a bit scammy, not downloading a kegel app from an ad\", \"intent\": \"definitely would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"know Peloton is expensive and I'm not interested in pilates\", \"intent\": \"would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat so completely irrelevant\", \"intent\": \"would not click at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 588,
+ "cached_tokens": 0,
+ "output_tokens": 734,
+ "reasoning_tokens": 391
+}

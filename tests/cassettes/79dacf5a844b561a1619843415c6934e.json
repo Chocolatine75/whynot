@@ -1,0 +1,11 @@
+{
+ "key": "79dacf5a844b561a1619843415c6934e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just feels like they're slapping World Cup on a banking app to get attention, doesn't make me want it\", \"intent\": \"Wouldn't click, I've got a bank already and the football link does nothing for me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Every language app claims you can learn in 30 mins a day, never believe it actually works like that\", \"intent\": \"Wouldn't click, just scrolled past same as all the other language ads.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Clocked the £1,849 price and noped out immediately, no way I'm spending that on an exercise bike\", \"intent\": \"Definitely wouldn't buy, don't have the money or space for it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seen Revolut ads a million times and I'm not switching banks from an Instagram ad, sounds a bit gimmicky\", \"intent\": \"Probably wouldn't click but it's slightly more relevant than the World Cup one.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like generic AI slop and it's the second language ad in a row, just scrolled on\", \"intent\": \"Wouldn't click, don't trust random AI lesson apps.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 128,
+ "output_tokens": 1015,
+ "reasoning_tokens": 603
+}

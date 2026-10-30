@@ -1,0 +1,11 @@
+{
+ "key": "abbedc62756aa4ead6d57fbbbc63cfce",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Chinese so I've no idea what it's actually offering, not for me\", \"intent\": \"I wouldn't click, I don't read Chinese and don't need an AI English tutor\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a Deliveroo rider job at my age and I know it's not as flexible or well paid as they make out\", \"intent\": \"I wouldn't click, not interested in gig delivery work\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another fitness app making big claims, Europe's number one sounds like nonsense\", \"intent\": \"I wouldn't click, I don't use fitness apps like this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton bikes are far too expensive and I haven't got the space, all this flexible trial talk just means monthly payments\", \"intent\": \"I might have a quick look but I wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"a 3 minute quiz isn't going to stop gambling, feels like clickbait to sell something\", \"intent\": \"I wouldn't click, it's not relevant to me and looks gimmicky\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 589,
+ "cached_tokens": 0,
+ "output_tokens": 669,
+ "reasoning_tokens": 272
+}

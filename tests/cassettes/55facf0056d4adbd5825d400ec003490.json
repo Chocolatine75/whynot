@@ -1,0 +1,11 @@
+{
+ "key": "55facf0056d4adbd5825d400ec003490",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I just scrolled past, not for me\", \"intent\": \"I wouldn't click, I don't understand it and I'm not looking for that anyway\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I see these ads all the time, just not interested\", \"intent\": \"I wouldn't click, not going to buy a Peloton bike\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do like Vinted actually but I wasn't in the mood to shop so I kept scrolling\", \"intent\": \"I might have a browse another time but not clicking right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Peloton one, far too pricey at £1,849, just scrolled on\", \"intent\": \"Definitely not buying, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own bank and wary of switching to app banks from ads\", \"intent\": \"No need to click, I'm not looking for a new finance app\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 681,
+ "cached_tokens": 128,
+ "output_tokens": 617,
+ "reasoning_tokens": 236
+}

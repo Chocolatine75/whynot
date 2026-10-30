@@ -1,0 +1,11 @@
+{
+ "key": "51ec673c24c8b27092eb09a467d81b4d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German so i have no idea what it's actually saying and it just looks like one of those generic quiz ads\", \"intent\": \"would definitely not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's a nice vibe but i know it's just an ambassador ad trying to get me to pay for a subscription, not buying it\", \"intent\": \"might pause for a sec but wouldn't click the link\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it at all, it's in Chinese so not for me\", \"intent\": \"would just scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"peloton is way too expensive and i don't have space for that stuff, even with money off it's still so much\", \"intent\": \"would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i'm not trying to learn thai so no point, just another language app ad\", \"intent\": \"wouldn't click or download\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 0,
+ "output_tokens": 746,
+ "reasoning_tokens": 370
+}

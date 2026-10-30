@@ -1,0 +1,11 @@
+{
+ "key": "3fdae32c7f7263be91eb7bb1c360eafa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these quiz apps, feels like it'll just try and sell me a subscription after\", \"intent\": \"I wouldn't click, not fussed about another self-care app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Italian so I just scrolled past\", \"intent\": \"Would not click as it's not even in English\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not learning Thai and have no plans to go there\", \"intent\": \"Definitely wouldn't download, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I didn't really get what it's offering\", \"intent\": \"Wouldn't click when I can't even read it properly\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same as before, not learning Thai at all\", \"intent\": \"No chance I'd download it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 670,
+ "cached_tokens": 0,
+ "output_tokens": 545,
+ "reasoning_tokens": 206
+}

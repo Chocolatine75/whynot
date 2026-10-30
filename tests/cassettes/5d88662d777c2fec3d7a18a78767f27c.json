@@ -1,0 +1,11 @@
+{
+ "key": "5d88662d777c2fec3d7a18a78767f27c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business owner and I don't need a business bank account, just scrolled straight past\", \"intent\": \"I wouldn't click as it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Tagalog and I ignore these language app ads\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't believe the AI form stuff works that well, just feels like hype to sell kit\", \"intent\": \"I might look for a second but I wouldn't buy or click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a delivery rider job and those no fixed schedule claims never tell you the full story\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like the idea of learning a language but I know I wouldn't stick to 30-minute lessons every day\", \"intent\": \"I wouldn't click right now but I'd maybe remember the name for later\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 662,
+ "cached_tokens": 128,
+ "output_tokens": 671,
+ "reasoning_tokens": 286
+}

@@ -1,0 +1,11 @@
+{
+ "key": "33f4bbf952c0da527579b3a300f56845",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's vague clickbait for a dating app, not for me at my age, I just scrolled past\", \"intent\": \"I wouldn't click, nothing relevant to me there\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is far too expensive and I've no room for a bike, don't trust the hassle-free refund will be that easy\", \"intent\": \"I wouldn't click or buy, not interested in an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French so I haven't a clue what it's really saying and that 7 day transformation claim looks like nonsense\", \"intent\": \"I wouldn't click, I just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says quiz and text says stop gambling, doesn't make sense and I don't gamble anyway, felt a bit spammy\", \"intent\": \"I wouldn't click, I don't need it and it looked untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen loads of language apps and the reviews are probably cherry-picked, not paying for another subscription\", \"intent\": \"I wouldn't click right now, maybe look later but not from an ad\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 631,
+ "cached_tokens": 0,
+ "output_tokens": 779,
+ "reasoning_tokens": 375
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c52dacda33e17d9adc75044474df5ed7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like generic fitness app waffle, seen a hundred like it and don't need an app for small movements\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I have no idea what it's saying and that 7 day transformation claim sounds like bollocks anyway\", \"intent\": \"Definitely wouldn't click on a foreign language ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Can't even see what it was, just says removed for not following standards which makes me not trust it\", \"intent\": \"I wouldn't click or buy something that got taken down\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and promising visible results in 28 days, just another scammy fitness ad to me\", \"intent\": \"No chance I'd click, don't speak Spanish\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Seems harmless and a bit funny but I'm 40, I'm not playing a self care pet game\", \"intent\": \"I might have paused for the joke but I wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 705,
+ "cached_tokens": 128,
+ "output_tokens": 794,
+ "reasoning_tokens": 404
+}

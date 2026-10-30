@@ -1,0 +1,11 @@
+{
+ "key": "f9416b5d58df255969de8c40461a0ded",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and I don't believe you can learn a language in 10 minutes a day\", \"intent\": \"I would just scroll straight past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another language app pushing reviews at me, I'm not trying to learn a language\", \"intent\": \"I wouldn't click or download anything\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've heard of Revolut but I don't need another bank card and I don't trust financial ads on social media\", \"intent\": \"I might pause to look but I wouldn't click to get one\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's written in Spanish so I haven't got a clue what it's offering me\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need an app to tell me to stop drinking, feels a bit preachy and gimmicky\", \"intent\": \"I wouldn't click, not relevant and puts me off\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 0,
+ "output_tokens": 1004,
+ "reasoning_tokens": 627
+}

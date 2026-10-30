@@ -1,0 +1,11 @@
+{
+ "key": "62a7e20ae9d03071754eeefa6b11123e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn a language at my age and 30 minutes a day sounds like a lot of faff\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've no need to learn Croatian, never going there\", \"intent\": \"No interest so I wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't own a restaurant so this has nothing to do with me\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need Malay and I don't trust these AI language apps to actually work\", \"intent\": \"Wouldn't bother clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a student and I'm not looking for language lessons\", \"intent\": \"I just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 0,
+ "output_tokens": 560,
+ "reasoning_tokens": 226
+}

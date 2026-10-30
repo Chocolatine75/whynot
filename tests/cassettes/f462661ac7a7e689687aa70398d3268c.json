@@ -1,0 +1,11 @@
+{
+ "key": "f462661ac7a7e689687aa70398d3268c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like total waffle, 20 million voices and sound healing nonsense wouldn't trust it\", \"intent\": \"wouldn't click at all not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"already know what Revolut is and don't need another banking app just because of World Cup tie-in\", \"intent\": \"might look but definitely wouldn't download from an ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"i'm English so completely irrelevant to me, just scrolled straight past\", \"intent\": \"no chance of clicking it's not needed\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like fake reviews and the 30-day transformation promises are never real\", \"intent\": \"wouldn't click feels like a scammy fitness app\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I've heard of Vinted but not looking to sell stuff or do a makeover right now\", \"intent\": \"wouldn't click now but it's the least annoying of them\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 762,
+ "cached_tokens": 0,
+ "output_tokens": 693,
+ "reasoning_tokens": 329
+}

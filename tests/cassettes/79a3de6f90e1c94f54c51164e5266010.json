@@ -1,0 +1,11 @@
+{
+ "key": "79a3de6f90e1c94f54c51164e5266010",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing at all, self care pet game sounds a bit cringe and for kids\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Tai Chi isn't for me and these muscle booster apps are always a subscription trap\", \"intent\": \"I might have paused to read it but wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just ignored it, plus those 28 day transformation claims are nonsense\", \"intent\": \"No chance I'd click, not even in English\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again not in English, just looks like the same scammy fitness app ad as before\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's actually selling, just a vague caption and hashtags, feels pointless\", \"intent\": \"I wouldn't bother clicking, doesn't tell me anything\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 742,
+ "cached_tokens": 256,
+ "output_tokens": 600,
+ "reasoning_tokens": 233
+}

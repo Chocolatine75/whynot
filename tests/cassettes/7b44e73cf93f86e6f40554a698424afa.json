@@ -1,0 +1,11 @@
+{
+ "key": "7b44e73cf93f86e6f40554a698424afa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks cute but I don't need a virtual pet app to look after myself, seems a bit gimmicky\", \"intent\": \"I wouldn't click, not really my thing\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Hindi so I have no idea what it's actually offering me\", \"intent\": \"Would not click as I can't read it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Japanese and these apps always claim to be free then charge you\", \"intent\": \"No need to learn Japanese so wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I just scrolled straight past it\", \"intent\": \"Wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, not interested in learning Japanese\", \"intent\": \"Would not click or buy, zero interest\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 631,
+ "cached_tokens": 0,
+ "output_tokens": 617,
+ "reasoning_tokens": 266
+}

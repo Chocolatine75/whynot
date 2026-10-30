@@ -1,0 +1,11 @@
+{
+ "key": "c325e25d69899ff51540ddf99483c8f1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"just looks like a paid promotion, not hungry and Deliveroo fees are a rip off anyway\", \"intent\": \"might look at the burger but wouldn't order\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English, no idea what it's saying so just scrolled straight past\", \"intent\": \"would not click as it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't smoke so completely irrelevant, just another wellness app ad\", \"intent\": \"would not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like every other language app trial that then charges you, not planning a trip soon\", \"intent\": \"maybe would look at it but probably not sign up\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"World Cup angle feels forced and I don't need Spanish for football chants\", \"intent\": \"would not click, just scrolled on\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 653,
+ "cached_tokens": 128,
+ "output_tokens": 728,
+ "reasoning_tokens": 370
+}

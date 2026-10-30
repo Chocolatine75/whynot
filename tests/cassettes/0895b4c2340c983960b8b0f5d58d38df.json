@@ -1,0 +1,11 @@
+{
+ "key": "0895b4c2340c983960b8b0f5d58d38df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and promising a visible transformation in 7 days just sounds like nonsense, I scrolled straight past\", \"intent\": \"I would not click or buy, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a gambling problem so this has nothing to do with me\", \"intent\": \"I would not click, it's irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Vague clickbait title about relationships from a dating app, no interest\", \"intent\": \"I would not click or buy, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I wasn't looking to learn a language and I don't want to sign up for a free trial that starts charging you\", \"intent\": \"I might have a look another time but I would not click now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton bikes are far too expensive and I haven't got the space, 30 day trial doesn't change that\", \"intent\": \"I would not click or buy, too dear and not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 631,
+ "cached_tokens": 0,
+ "output_tokens": 724,
+ "reasoning_tokens": 338
+}

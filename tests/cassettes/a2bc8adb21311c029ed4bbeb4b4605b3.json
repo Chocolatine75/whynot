@@ -1,0 +1,11 @@
+{
+ "key": "a2bc8adb21311c029ed4bbeb4b4605b3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn a language at the moment and free trial ads always end up charging you\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just feels like a generic bank ad, I already have my bank and don't trust the hype\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It did catch my eye because I do like podcasts while walking but I can't be bothered paying for another subscription right now\", \"intent\": \"Might consider it later but wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks so fake with all those random quotes and the before/after body thing is off-putting\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Visible results in 4 weeks just sounds like a scam, and I hate the comment START stuff\", \"intent\": \"No chance I'd click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 802,
+ "cached_tokens": 128,
+ "output_tokens": 843,
+ "reasoning_tokens": 478
+}

@@ -1,0 +1,11 @@
+{
+ "key": "83042115ad3bc7dd583995f8abe4911a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like every other language app advert, and I doubt a 7 day trial would actually get me speaking confidently\", \"intent\": \"Probably wouldn't click, maybe save it for later but never go back to it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a business account and I'm not looking to switch banks\", \"intent\": \"Would just keep scrolling, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen this a million times and it's too vague, feels like a pushy sales pitch\", \"intent\": \"Wouldn't click, I already have a bank I'm happy with\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to quit drinking and I don't trust these meditation apps to fix something that serious\", \"intent\": \"Would scroll straight past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same brand as previous ad but completely different topic so it feels spammy and untrustworthy\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 622,
+ "cached_tokens": 256,
+ "output_tokens": 689,
+ "reasoning_tokens": 318
+}

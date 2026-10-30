@@ -1,0 +1,11 @@
+{
+ "key": "ebf3275211de16f25559d615cd7025c4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a language app right now and I doubt any app is truly 100% without AI these days, sounds like a gimmick\", \"intent\": \"I wouldn't click, just kept scrolling.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is still way too expensive even with £900 off and I don't have space for that kit in my flat\", \"intent\": \"I paused to look at the discount but definitely wouldn't buy.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's actually trying to sell, just hashtags and a vague line\", \"intent\": \"I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's the second Peloton ad in a row and I'm not looking for a fitness programme\", \"intent\": \"I ignored this one completely.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a side gig riding around and the pay is probably not worth it\", \"intent\": \"No chance I'd apply, kept scrolling.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 594,
+ "cached_tokens": 0,
+ "output_tokens": 683,
+ "reasoning_tokens": 310
+}

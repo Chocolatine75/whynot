@@ -1,0 +1,11 @@
+{
+ "key": "77d1562bb4e68cdf3613acf0736a8edf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn Japanese atm so just scrolled past, felt like a generic app ad\", \"intent\": \"Wouldn't click or download, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Don't really want another dating app, feels a bit desperate and cba with the hassle\", \"intent\": \"Probably not clicking, maybe I'd look it up later if I was bored\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Literally just saw the same Ling ad two posts ago, feels spammy and put me off\", \"intent\": \"Definitely wouldn't click now, just annoyed by the double ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already use a period tracker and not sure I trust giving health data to another app with the star thing\", \"intent\": \"Might consider it but wouldn't download straight from the ad\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"£2,999 for a treadmill is insane, I don't have the money or space and I just go to the gym\", \"intent\": \"No chance I'd click or buy this\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 128,
+ "output_tokens": 944,
+ "reasoning_tokens": 554
+}

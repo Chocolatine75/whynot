@@ -1,0 +1,11 @@
+{
+ "key": "2345d81100f0f087275ee9d9fe613f68",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's literally for women so not for me at all, just kept scrolling\", \"intent\": \"I would not click at all as it's not aimed at me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank and not really planning a holiday right now\", \"intent\": \"I might have a quick look at Monzo but probably wouldn't open anything.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's offering and ignored it\", \"intent\": \"I would definitely not click as I can't read it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into pet care games, feels a bit childish and not for me\", \"intent\": \"I would not click or download this game.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I couldn't understand it and just scrolled past\", \"intent\": \"I would not click because I don't speak German.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 675,
+ "cached_tokens": 0,
+ "output_tokens": 738,
+ "reasoning_tokens": 379
+}

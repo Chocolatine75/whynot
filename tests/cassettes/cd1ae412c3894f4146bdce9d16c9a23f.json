@@ -1,0 +1,11 @@
+{
+ "key": "cd1ae412c3894f4146bdce9d16c9a23f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn Vietnamese and I just ignore these language app ads, sounds like every other one\", \"intent\": \"Would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, don't need Thai and it's just a free download ad\", \"intent\": \"Would keep scrolling, no interest\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz apps feel a bit scammy and generic, don't trust it\", \"intent\": \"Would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Literally saw this two posts ago, just duplicate spam so I scroll past\", \"intent\": \"Definitely would not click after seeing it twice\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks kind of cute but I don't need a self care pet game on my phone\", \"intent\": \"Probably wouldn't click but at least it's less annoying than the others\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 664,
+ "cached_tokens": 0,
+ "output_tokens": 548,
+ "reasoning_tokens": 188
+}

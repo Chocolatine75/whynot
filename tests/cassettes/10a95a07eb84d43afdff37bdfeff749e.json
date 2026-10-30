@@ -1,0 +1,11 @@
+{
+ "key": "10a95a07eb84d43afdff37bdfeff749e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic language app ad, seen it a hundred times and I'm not looking to learn a language\", \"intent\": \"I wouldn't click, I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Vinted is more for my wife and daughter, not really aimed at me and feels a bit preachy\", \"intent\": \"No interest in clicking, it's not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Keep all the cash sounds like nonsense, there's always fees and hassle selling stuff online\", \"intent\": \"I wouldn't click, I've got nothing I want to sell on there.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I recognise Pimsleur from years ago so it seems more legit, but I just don't have time or need for this\", \"intent\": \"I didn't click but I paused a second longer on this one than the others.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Five star review looks fake and I have zero desire to learn Japanese at my age\", \"intent\": \"Definitely not clicking, completely irrelevant to me.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 612,
+ "cached_tokens": 0,
+ "output_tokens": 813,
+ "reasoning_tokens": 423
+}

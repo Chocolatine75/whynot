@@ -1,0 +1,11 @@
+{
+ "key": "e835601d00631f5e1a30ad465c0d925d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German so I just scrolled past, no idea what it's trying to sell me\", \"intent\": \"I wouldn't click, it's not even in English so not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"feels a bit awkward and spammy, not something I'm looking for from an Instagram ad\", \"intent\": \"I definitely wouldn't download this, feels weird and unnecessary\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"vague clickbaity title, probably just fluff to get me onto their blog\", \"intent\": \"I might have paused but I wouldn't click through, not interested in Bumble content\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen loads of Revolut ads, don't trust fintech hype and don't want to switch banks\", \"intent\": \"I wouldn't click or download, I'm happy with my current bank\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Korean, totally irrelevant to me\", \"intent\": \"I would not click, not interested at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 605,
+ "cached_tokens": 128,
+ "output_tokens": 659,
+ "reasoning_tokens": 279
+}

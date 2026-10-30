@@ -1,0 +1,11 @@
+{
+ "key": "ee0ddeedb1bb115c96dabda3db454306",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm too old and stiff for that and I don't want an expensive bike in the house\", \"intent\": \"I would not click, Peloton is not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a student and I'm not trying to learn a language, this isn't aimed at me\", \"intent\": \"I would not click, it's not relevant to my life\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank and I don't need another account just for a holiday pot\", \"intent\": \"I would not click, I don't need a new bank account\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Tagalog and this doesn't apply to me at all\", \"intent\": \"I would definitely not click, not interested in the slightest\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do have clutter but I'm wary of the hassle of selling online and whether it's worth it\", \"intent\": \"I might have a quick look but I probably wouldn't get around to selling\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 597,
+ "cached_tokens": 0,
+ "output_tokens": 583,
+ "reasoning_tokens": 202
+}

@@ -1,0 +1,11 @@
+{
+ "key": "4413fdc873d2dbbaff6c7d149e153fdf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Vinted is already and I haven't got anything I want to sell at the moment\", \"intent\": \"wouldn't click unless I needed to sell some old clothes\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm from the UK so I don't need to learn English and it looks like a cheap spammy AI ad\", \"intent\": \"would just scroll straight past, definitely not downloading\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"self care pet game thing is not for me, looks a bit cringey and childish\", \"intent\": \"no chance I'd click or download that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai so it's completely irrelevant to me\", \"intent\": \"would just keep scrolling and ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other language one, not interested in learning Japanese right now\", \"intent\": \"would scroll past without clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 128,
+ "output_tokens": 955,
+ "reasoning_tokens": 594
+}

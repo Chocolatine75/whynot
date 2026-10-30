@@ -1,0 +1,11 @@
+{
+ "key": "27ac6f76a0e3385a24243f28ccc8ce31",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Portuguese and I don't believe you can learn any language in 10 minutes a day, sounds like a gimmick\", \"intent\": \"I would keep scrolling, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like Vinted but I don't want to watch a show just to be sold to, and I haven't got time for listing things\", \"intent\": \"I might pause on it but I wouldn't click through right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese so I have no idea what it's really offering me\", \"intent\": \"I would just scroll past as it's not in English\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and I don't know what language it's even trying to teach me\", \"intent\": \"I wouldn't click because I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Deliveroo fees are too high, I can just go to Tesco myself or get a proper Tesco delivery\", \"intent\": \"I might remember it if I needed something quick but I wouldn't order now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 671,
+ "cached_tokens": 128,
+ "output_tokens": 746,
+ "reasoning_tokens": 347
+}

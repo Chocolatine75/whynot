@@ -1,0 +1,11 @@
+{
+ "key": "93c6d528288383a203b9fad97d3b8d47",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not selling anything at the minute and I've seen this Vinted ad loads of times\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai and I don't believe an app can make you fluent that quick\", \"intent\": \"Definitely wouldn't download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in Tagalog, another language app ad I just ignore\", \"intent\": \"Wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't need another bank account and I don't trust the 'super app' hype\", \"intent\": \"No interest in getting a new card so I scrolled past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Thai app again, felt spammy seeing it twice so I ignored it even more\", \"intent\": \"Would not click, getting fed up of these ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 0,
+ "output_tokens": 730,
+ "reasoning_tokens": 374
+}

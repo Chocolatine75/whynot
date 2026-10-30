@@ -1,0 +1,11 @@
+{
+ "key": "0064e14d1829d7c7ec89a3a5fd1afb8a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"looks tasty but I'm not ordering Deliveroo right now and that burger looks expensive\", \"intent\": \"might save it for later but wouldn't click to order now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai and I just scroll past language app ads\", \"intent\": \"would not click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank I like and can't be bothered switching for a card colour\", \"intent\": \"would not click to sign up\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"just a generic Deliveroo ad, seen it a million times, nothing new\", \"intent\": \"would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other Ling ad, not interested in learning Japanese right now\", \"intent\": \"would not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 630,
+ "cached_tokens": 128,
+ "output_tokens": 549,
+ "reasoning_tokens": 204
+}

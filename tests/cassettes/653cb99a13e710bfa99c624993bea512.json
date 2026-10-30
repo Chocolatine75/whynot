@@ -1,0 +1,11 @@
+{
+ "key": "653cb99a13e710bfa99c624993bea512",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not for me at all, I'm a guy so cycle tracking apps are irrelevant\", \"intent\": \"definitely wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"dating apps are mostly scams or full of bots and I don't really trust them\", \"intent\": \"might have a quick look but probably wouldn't bother downloading\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not trying to learn Japanese right now so no point clicking\", \"intent\": \"would just scroll past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"way too expensive and I don't want a treadmill anyway\", \"intent\": \"no chance I'm buying that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"same ad as before, already ignored it and still not interested\", \"intent\": \"would just keep scrolling past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 0,
+ "output_tokens": 657,
+ "reasoning_tokens": 325
+}

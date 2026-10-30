@@ -1,0 +1,11 @@
+{
+ "key": "0354a3fa6d1cfeef6331eccde1ead967",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat so it's irrelevant to me and it just looks like a generic 5 star ad spam\", \"intent\": \"Wouldn't click or download, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in the UK and speak English already, no need for an AI tutor\", \"intent\": \"No reason to click, would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in Vinted and don't care about a show with Motsi Mabuse, feels like an ad for their YouTube\", \"intent\": \"Probably wouldn't click unless I was really bored\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I can't even read it properly and it looks like fake testimonials\", \"intent\": \"Definitely wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not really into puzzle games and it looks like a cheap free game ad that will be full of adverts\", \"intent\": \"Might have paused for a second but wouldn't click to download\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 759,
+ "cached_tokens": 256,
+ "output_tokens": 889,
+ "reasoning_tokens": 502
+}

@@ -1,0 +1,11 @@
+{
+ "key": "13163e7de976dbe73082a6839527ff93",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing at all, I don't play pet games or self-care apps\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I ignored it and it looks like one of those scammy visible results in 28 days ads anyway\", \"intent\": \"I would not click or buy, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again not in English and the 7 day transformation claim sounds like nonsense\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these fitness apps before, doubt it does much and I wouldn't pay for it\", \"intent\": \"I might have paused on it but I wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It says removed for not following standards which makes me not trust it at all\", \"intent\": \"I wouldn't click on something that got taken down like that\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 705,
+ "cached_tokens": 128,
+ "output_tokens": 794,
+ "reasoning_tokens": 423
+}

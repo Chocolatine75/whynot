@@ -1,0 +1,11 @@
+{
+ "key": "247220e0f5124202f549e1570796f4b0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Tagalog and it just looks like a generic app ad\", \"intent\": \"I would not click as I don't need a language app right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already use Vinted sometimes but I'm not selling anything at the moment\", \"intent\": \"I wouldn't click right now but might remember it when I have stuff to sell\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Ling ad, I'm not trying to learn Thai so it's irrelevant to me\", \"intent\": \"I would just keep scrolling past this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and I don't trust fancy card ads, sounds like hype\", \"intent\": \"I wouldn't click because I don't want another finance app\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's basically the same Thai ad as before, repetitive and not for me\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 608,
+ "cached_tokens": 256,
+ "output_tokens": 713,
+ "reasoning_tokens": 349
+}

@@ -1,0 +1,11 @@
+{
+ "key": "bb4e314157bae4d217458c8b88482bf0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't use delivery apps like that, far too expensive and I can cook or go out myself\", \"intent\": \"I would not click or buy, I have no need for takeaway delivery\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Thai at my age and I don't trust these download now adverts\", \"intent\": \"I would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I haven't got a clue what it's on about\", \"intent\": \"I would not click as I don't understand it and don't need a language app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language I don't recognise, looks like nonsense to me and probably a scam\", \"intent\": \"I would not click, I don't know what it is\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm too old for dating apps like Bumble and I don't trust them anyway\", \"intent\": \"I would not click, not for me in the slightest\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 581,
+ "cached_tokens": 256,
+ "output_tokens": 522,
+ "reasoning_tokens": 140
+}

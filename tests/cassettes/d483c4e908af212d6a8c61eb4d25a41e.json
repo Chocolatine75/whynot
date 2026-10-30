@@ -1,0 +1,11 @@
+{
+ "key": "d483c4e908af212d6a8c61eb4d25a41e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not going on a trip and I don't trust these 7 day free trials, they always end up charging you\", \"intent\": \"I wouldn't click, I have no use for it right now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Hallucinations without drugs sounds dangerous and a bit bonkers, not something for me at all\", \"intent\": \"I definitely wouldn't click on that one\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"What is it, a mood tracker or a reading? Makes no sense and looks like one of those scammy horoscope things\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm 60 not looking for a job riding a bike around in all weathers delivering takeaways\", \"intent\": \"Not for me, so I wouldn't click apply\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, I don't have 30 minutes to learn a language and I don't want another subscription\", \"intent\": \"I wouldn't bother clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 659,
+ "cached_tokens": 0,
+ "output_tokens": 860,
+ "reasoning_tokens": 477
+}

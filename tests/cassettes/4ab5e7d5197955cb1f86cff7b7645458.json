@@ -1,0 +1,11 @@
+{
+ "key": "4ab5e7d5197955cb1f86cff7b7645458",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Japanese at my age and I don't trust these free app claims\", \"intent\": \"I would not click or download this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I haven't a clue what it's trying to sell me\", \"intent\": \"I would just scroll past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, not interested in Japanese and it's just an advert\", \"intent\": \"I would not click on it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English so I don't understand a word of it\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language, looks like Portuguese, not for me\", \"intent\": \"I would scroll straight on by\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 256,
+ "output_tokens": 629,
+ "reasoning_tokens": 294
+}

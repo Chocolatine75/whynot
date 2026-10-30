@@ -1,0 +1,11 @@
+{
+ "key": "a18d2089220349f6ead35d23f529a320",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like generic fake reviews and another scammy fitness app promising a 30 day transformation\", \"intent\": \"Wouldn't click, I've seen loads of these before\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Don't have kids so not relevant to me right now\", \"intent\": \"Wouldn't click but it's the most legit ad here\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Selling stuff to fund a makeover feels like a stretch, just another Vinted push\", \"intent\": \"Wouldn't bother clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sick of seeing Revolut ads everywhere and don't trust the hype\", \"intent\": \"Definitely wouldn't click or switch\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"No plans to learn Thai so totally irrelevant\", \"intent\": \"Would just scroll straight past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 721,
+ "cached_tokens": 128,
+ "output_tokens": 582,
+ "reasoning_tokens": 246
+}

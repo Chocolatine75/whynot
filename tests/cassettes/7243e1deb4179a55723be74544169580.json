@@ -1,0 +1,11 @@
+{
+ "key": "7243e1deb4179a55723be74544169580",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's an obvious paid ambassador post, I like the cosy autumn vibe but I'm not looking for a fitness app and I don't trust the coach adapts to you claim\", \"intent\": \"I wouldn't click or buy, just scrolled past after a glance\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just looks like another generic mobile game ad, I don't play logic puzzles like that\", \"intent\": \"I wouldn't click, not my kind of game\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn a language for the World Cup and Pimsleur ads always feel a bit pushy\", \"intent\": \"I wouldn't click, not relevant to me right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's very vague and cheesy, doesn't tell me anything useful about Bumble\", \"intent\": \"I wouldn't click through to a Substack from an ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English so I have no idea what it's really offering me and it feels like spam\", \"intent\": \"I definitely wouldn't click as it's not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 701,
+ "cached_tokens": 0,
+ "output_tokens": 811,
+ "reasoning_tokens": 418
+}

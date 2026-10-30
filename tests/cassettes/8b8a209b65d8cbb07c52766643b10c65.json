@@ -1,0 +1,11 @@
+{
+ "key": "8b8a209b65d8cbb07c52766643b10c65",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm retired, I'm not looking for a Deliveroo job and it looks like hard work\", \"intent\": \"I would not click, it's not for me at my age.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"That Peloton bike is far too expensive and not something I need\", \"intent\": \"I would not click, I don't want a pricey exercise bike.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Chinese characters, I can't read a word of it\", \"intent\": \"I would definitely not click as I have no idea what it's selling.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't gamble at all so this has nothing to do with me\", \"intent\": \"I would not click, it's not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These fitness coaching apps are for young people, not for me\", \"intent\": \"I would not click or buy, I'm too old for that sort of thing.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 588,
+ "cached_tokens": 0,
+ "output_tokens": 1000,
+ "reasoning_tokens": 631
+}

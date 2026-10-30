@@ -1,0 +1,11 @@
+{
+ "key": "51b6e80b3205606ee1396f6365036f8e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not single and have zero interest in Bumble or their dating advice blog\", \"intent\": \"I would not click, it's not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Clearly a paid influencer ad for a dating app I don't use, just scroll past\", \"intent\": \"I would not click or watch this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not an expat and I don't need another language app advert\", \"intent\": \"I would not download this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like clickbait rubbish, don't believe you get hallucinations just from sound\", \"intent\": \"I might have paused to look but I wouldn't click through\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo but I'm not ordering a takeaway right now\", \"intent\": \"I wouldn't order now but it's the only useful one if I needed it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 592,
+ "cached_tokens": 0,
+ "output_tokens": 695,
+ "reasoning_tokens": 336
+}

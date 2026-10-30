@@ -1,0 +1,11 @@
+{
+ "key": "7fcfe34e7cffce9288417b7c4349e01d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I haven't got space or money for a Peloton and these AI features just sound like gimmicks to justify the price\", \"intent\": \"I would keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a dating app and I'm fed up with seeing them everywhere\", \"intent\": \"I wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank I like and I don't want another account just for holiday savings\", \"intent\": \"Might have paused for a second but wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I speak English already so it's completely irrelevant to me and I don't trust AI tutors\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English, I couldn't understand what it's offering me\", \"intent\": \"I would just scroll past without a second thought\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 627,
+ "cached_tokens": 0,
+ "output_tokens": 703,
+ "reasoning_tokens": 339
+}

@@ -1,0 +1,11 @@
+{
+ "key": "2e9a51376e45f5dec15bd9d6e06807c5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero need to learn Norwegian and these 10 minutes a day claims never work anyway\", \"intent\": \"I would not click or buy this, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's actually offering, I'm not on Bumble and not interested in a Substack\", \"intent\": \"I would just keep scrolling past this one.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No plans to learn Thai, just another language app ad cluttering my feed\", \"intent\": \"I would not click or download it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like the idea of learning while walking the dog but I don't actually need Spanish and wouldn't pay for it\", \"intent\": \"I might have paused but I would not click through or buy.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, sounds nice but I've got no time for hobbies let alone a new language\", \"intent\": \"I would scroll on and not click.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 678,
+ "cached_tokens": 128,
+ "output_tokens": 722,
+ "reasoning_tokens": 345
+}

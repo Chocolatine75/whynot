@@ -1,0 +1,11 @@
+{
+ "key": "53d49828fff5eaeceaa938b3c32e18a8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i'm not looking to download a dating app rn i just scroll past these\", \"intent\": \"i wouldn't click, not interested\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like every other language app ad and i don't trust it'll be better than school\", \"intent\": \"maybe I'd look at it but probably wouldn't click\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish so I didn't really get what it's selling and I just kept scrolling\", \"intent\": \"wouldn't click cause I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"saw Bumble again two seconds later so I ignored it, felt spammy\", \"intent\": \"definitely wouldn't click the second one\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i have no reason to learn Tagalog and five star ads always feel fake\", \"intent\": \"no chance I'd download it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 0,
+ "output_tokens": 532,
+ "reasoning_tokens": 183
+}

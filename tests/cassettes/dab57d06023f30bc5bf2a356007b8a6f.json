@@ -1,0 +1,11 @@
+{
+ "key": "dab57d06023f30bc5bf2a356007b8a6f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have a business so it's completely irrelevant to me, just scrolled past\", \"intent\": \"Wouldn't click as I don't need a business account\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Meditation quiz but says stop gambling, looked confusing and a bit clickbaity so I didn't trust it\", \"intent\": \"Would not click as I don't gamble and it feels spammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not trying to learn a language right now and I hate free trials that turn into subscriptions\", \"intent\": \"Might be useful someday but I wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Already have a bank account and I've seen too many Revolut ads, don't need another app\", \"intent\": \"Wouldn't click, I'm sorted for banking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not something I need, I don't really drink that much and these app ads feel a bit preachy\", \"intent\": \"Wouldn't click as it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 622,
+ "cached_tokens": 128,
+ "output_tokens": 896,
+ "reasoning_tokens": 517
+}
