@@ -58,6 +58,7 @@ from whynot.run.campaign import (
 from whynot.sim.arena import brand_name, judge, our_item, paired_feeds, placebo_item
 from whynot.sim.feed import FeedItem
 from whynot.sim.personas import Persona as SimPersona
+from whynot.sim.relevance import hard_competitors
 from whynot.sim.scores import score_ads
 from whynot.sim.viewer import Viewer, run_simulation
 
@@ -88,6 +89,7 @@ class CreateConfig:
     director_model: str = SPARK
     policy: Policy = field(default_factory=Policy)
     seed: int = 0
+    feed_pool: int = 12  # competitor ads per language in the feeds: the most relevant ones (sim/relevance.py)
 
     def research(self) -> list[str]:
         if self.research_countries:
@@ -300,6 +302,21 @@ def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> Non
     run.write_json("variants.json", rows)
 
 
+def feed_competitors(ads: list[CompetitorAd], code: str, app: AppProfile, cfg: CreateConfig
+                     ) -> tuple[list[FeedItem], dict[str, Any]]:
+    """Hard feeds: the competitor ads most relevant to ads in language `code` (language, longevity, topic).
+
+    Longevity is counted up to the latest date seen in the market data, not today, so a rerun on recorded
+    inputs picks the same ads."""
+    dates = [d for a in ads for d in (a.start_date, a.stop_date) if d]
+    as_of = max(dates) if dates else datetime.now(UTC).date()
+    hard = hard_competitors(ads, language=code, topic=f"{app.name} {app.description}", as_of=as_of,
+                            k=max(cfg.feed_pool, cfg.placebos + cfg.feed_size - 2))
+    info = {"pool": len(hard.ads), "long_running": sum(r.long_running for r in hard.ranked),
+            "wrong_language": hard.wrong_language_used}
+    return [FeedItem.from_ad(a) for a in hard.ads], info
+
+
 def viewer_personas(p: strategist.Persona, n: int) -> list[SimPersona]:
     """Viewers for a persona: who they are and what they want. Objections are measured, never given to them."""
     genders = [p.gender] if p.gender != "all" else ["female", "male"]
@@ -362,10 +379,12 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         mine = [v for v in ok if v["persona"] == p.id and v.get("language", "en") == code]
         if not mine or not p.countries:
             continue
-        r = arena_round(viewer, p, mine, competitors, brand, cfg, rng, seed=cfg.seed + len(groups_out))
+        pool, pool_info = feed_competitors(ads, code, app, cfg)
+        r = arena_round(viewer, p, mine, pool, brand, cfg, rng, seed=cfg.seed + len(groups_out))
         usd += r.usd
         failures += r.failures
-        groups_out.append({"persona": p.id, "language": code, **r.info, "variants": len(mine)})
+        groups_out.append({"persona": p.id, "language": code, **r.info, "variants": len(mine),
+                           "competitors": pool_info})
         verdicts.update(r.verdicts)
     run.write_json("simulation.json", {"simulated": True, "brand": brand, "usd": usd, "failures": failures,
                                        "groups": groups_out, "scores": verdicts})
@@ -409,7 +428,6 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
         run.write_json("evolution.json", out)
         return
     registry = {t.id: t for t in load_templates(run)}
-    competitors = [FeedItem.from_ad(a) for a in ads if (a.bodies or [""])[0].strip()]
     names = tuple(x["page_name"] for x in market.get("advertisers", []) if x.get("page_name"))
     brand = sim["brand"]
     viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
@@ -419,6 +437,7 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
 
     for gi, g in enumerate(x for x in sim["groups"] if "error" not in x):
         code = g["language"]
+        rivals, _ = feed_competitors(ads, code, app, cfg)  # the same hard feeds as generation 0
         p_all = strategy.persona(g["persona"])
         p = replace(p_all, countries=tuple(x for x in p_all.countries if x in groups[code]))
         ctx = Context(localised(strategy, groups[code]), app.name, app.description, names,
@@ -454,7 +473,7 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
                 history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
                 break
             pool = parents + children
-            r = arena_round(viewer, p, pool, competitors, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
+            r = arena_round(viewer, p, pool, rivals, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
             if not r.verdicts:
                 history.append({"generation": gen, "stopped": r.info.get("error", "not judged"), "refused": refused})
                 break

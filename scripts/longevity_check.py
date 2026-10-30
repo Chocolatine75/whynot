@@ -16,6 +16,7 @@ import json
 from dataclasses import asdict
 from datetime import date, timedelta
 
+from whynot.budget import Budget, BudgetExceeded
 from whynot.config import REPO_ROOT, load_settings
 from whynot.ingest.adlibrary import AdLibraryClient, AdLibraryError, save_jsonl
 from whynot.models import ModelClient
@@ -79,16 +80,23 @@ def main() -> None:
           f"≈ ${estimate:.2f} (backend: {settings.viewer_backend}, reasoning: {args.reasoning_effort})")
     if args.dry_run:
         return
-    if estimate > args.max_usd:
-        raise SystemExit(f"estimate above --max-usd {args.max_usd}: lower the size or raise the cap")
+    try:
+        Budget(args.max_usd).require(estimate)
+    except BudgetExceeded as exc:
+        raise SystemExit(str(exc)) from None
 
     effort = None if args.reasoning_effort == "default" else args.reasoning_effort
-    sim = run_simulation(Viewer(ModelClient(settings), reasoning_effort=effort), personas, feeds,
-                         viewers_per_feed=args.viewers_per_feed)
+    model = ModelClient(settings, budget_usd=args.max_usd)  # hard stop during the run too
+    viewer = Viewer(model, reasoning_effort=effort)
+    sim = run_simulation(viewer, personas, feeds, viewers_per_feed=args.viewers_per_feed)
     scores = score_ads(sim.reactions)
     result = evaluate(labelled, scores)
 
-    print(f"\nspent ${sim.usd:.3f} · {len(sim.failures)} failed viewers out of {calls}")
+    print(f"\nspent ${sim.usd:.3f} (estimate ${estimate:.2f}, cap ${args.max_usd:.2f}) · "
+          f"{len(sim.failures)} failed viewers out of {calls}")
+    if viewer.cache:
+        files, size = viewer.cache.size()
+        print(f"viewer cache: {viewer.cache.hits} hits ($0) · {files} answers stored, {size / 1e6:.1f} MB")
     print(f"AUC preference (primary): {result.auc_preference:.2f}  "
           f"95% CI [{result.ci_preference[0]:.2f}, {result.ci_preference[1]:.2f}]")
     print(f"AUC mean intent:          {result.auc_intent:.2f}  "

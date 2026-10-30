@@ -90,19 +90,19 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 
 ### E0. Infrastructure for non-stop work (A + B, day 1)
 
-- [ ] **E0-1** ★ Replay cassettes for model calls (A)
+- [ ] **E0-1** ★ Replay cassettes for model calls (A) — *code done Oct 30 (`cassette.py`): a whole fake-world `create` replays identically offline at $0. Left: record the real VietBuddy strategy cassette (needs `MODEL_API_KEY`).*
   - *Done when:* `ModelClient` gains `record` and `replay` modes (`WHYNOT_CASSETTE=record|replay|off`). Cassettes are keyed by hash of (model, messages, params) and stored in `tests/cassettes/`. Tokens and keys are stripped. Replay never touches the network: a missing cassette fails loudly.
   - *Tests:* unit (key stability, redaction); a replay of a recorded VietBuddy strategy gives byte-identical output; a test that the network is never called in replay mode.
-- [ ] **E0-2** ★ Cost cap per command (A)
+- [ ] **E0-2** ★ Cost cap per command (A) — *code done Oct 30 (`budget.py`, used by `ModelClient`, R3 and bias scripts; property test). Left: `create` CLI printing an estimate (lane B), `eval`/`validate` commands when they exist.*
   - *Done when:* `Budget(max_usd)` with `estimate()` before running and a hard stop during the run. Used by `create`, `eval`, `validate`. The CLI prints the estimate and the actual cost.
   - *Tests:* property (spend never exceeds the cap + one call); unit (refuses when the estimate is above the cap).
-- [ ] **E0-3** ★ Viewer answer cache (A)
+- [x] **E0-3** ★ Viewer answer cache (A) — *Oct 30: second identical simulation = $0 and 0 calls; hits logged `source=cache`; on by default (`data/cache/viewers`).*
   - *Done when:* a disk cache keyed by (persona, feed items + order, model, prompt version, effort). Hits are counted in the cost log as $0. Cache size is reported.
   - *Tests:* unit (a different order means a different key); e2e (a second run of the same simulation costs $0).
-- [ ] **E0-4** `whynot costs` report (A)
+- [x] **E0-4** `whynot costs` report (A) — *Oct 30: `uv run whynot costs --since 2026-10-29`.*
   - *Done when:* totals by day, module, model and run, plus remaining budget vs the $60 cap.
   - *Tests:* unit on a recorded log.
-- [ ] **E0-5** Fast CI (both)
+- [ ] **E0-5** Fast CI (both) — *Oct 30: `pytest -n auto` in `check.sh` (Python tests 96 s → 25 s locally, 3 runs green); replay tests run in CI; `live` skipped. Left: visual tests (lane B), CI time measured on GitHub.*
   - *Done when:* Python tests in parallel (`pytest -n auto`); CI < 4 min; replay and visual tests in CI; `live` and `eval` never run in CI.
   - *Tests:* the CI run itself.
 - [ ] **E0-6** Mutation testing on the critical modules (A)
@@ -174,7 +174,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E2-5** ★ R2 human agreement (A + B)
   - *Done when:* a public, mobile-friendly blind test page (`/judge`): pairs of ads, "which one would you stop on?", no login, one vote per pair per browser, spam guard. ≥ 80 people × 6 pairs by Nov 3. Agreement with the simulator with a Wilson CI.
   - *Tests:* the randomisation (left/right balanced, property); dedup; the analysis script on synthetic votes with a known answer.
-- [ ] **E2-6** Bias suite (A)
+- [ ] **E2-6** Bias suite (A) — *code done Oct 30 (`validate/bias.py`, `scripts/bias_suite.py`): brand, length, emoji, label leak, position (language via `translated`). Fake world, 40 seeds: planted biases caught ≥ 92 %, 3 % false alarms. Left: record a real run in cassettes and gate CI on it.*
   - *Done when:* automated checks run on every simulator change:
     - brand name (placebos);
     - position in the feed;
@@ -196,13 +196,13 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 
 ### E3. Harder, fairer simulated feeds so evolution can show progress (A)
 
-- [ ] **E3-1** ★ Hard feeds (A)
+- [x] **E3-1** ★ Hard feeds (A) — *Oct 30: `sim/relevance.py`, used by simulate + evolve. Fake world: a weak ad scores 1.7–1.85× chance vs the raw market, 0.05–0.4× in hard feeds.*
   - *Done when:* competitors in each feed are the **most relevant** ones (same category and language, long-running first), not random market ads. Our ads must beat ads that survived in the market.
   - *Tests:* relevance ranking (unit); a fake world where a weak ad loses to strong competitors.
-- [ ] **E3-2** ★ Tournament mode (A)
+- [ ] **E3-2** ★ Tournament mode (A) — *code done Oct 30 (`sim/tournament.py`): Kendall τ mean 0.92, ≥ 0.8 in 95 % of 20 seeds (6 variants, 9 games per pair). Left: call it from `simulate`/`evolve` and show it in the report (with E6-1).*
   - *Done when:* our variants face each other in round-robin feeds, which gives a ranking with a CI and no ceiling. The arena reports win rate vs competitors **and** Elo/Bradley-Terry among ours.
   - *Tests:* Bradley-Terry fit recovers a known ranking on the fake world (Kendall τ ≥ 0.8).
-- [ ] **E3-3** Noise floor (A)
+- [ ] **E3-3** Noise floor (A) — *code done Oct 30 (`validate/retest.py`): floor = 1.96·√2·SD(retest); 8 ads: 90 % of real gaps clear it, 9 % of equal-ad gaps do. Left: display it next to simulated differences in report and UI (lane B).*
   - *Done when:* the same feed is shown twice with a new seed. We measure test-retest agreement and use it as the minimum difference we report as real.
   - *Tests:* the stats (unit); the floor is displayed next to every simulated difference in the report and the UI.
 - [ ] **E3-4** Viewer realism (A)
@@ -398,6 +398,11 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 | **Wed Nov 4** | D-1, D-4 | D-3 video, D-5 submit | post | **submitted before 22:00 Paris** |
 
 If a gate fails: write it in `STATUS.md`, take the next item from the cut list, and never lower a target silently.
+
+### Gate log
+
+- **Thu Oct 29 gate (cassettes + cost cap + cache): met Oct 30** (branch `a/lane-a-oct30`): E0-1, E0-2 code done, E0-3 done; a fake-world `create` replays offline at $0. Real cassettes wait for `MODEL_API_KEY`.
+- **Fri Oct 30, lane A:** E3-1 done (hard feeds wired into simulate + evolve); E3-2 and E3-3 code done (tournament τ 0.92, noise floor); E2-6 code done (bias suite); E0-4 done; E0-5 tests 96 s → 25 s. **R3 not measured yet** (E2-1 needs model keys and credits): first task once keys are in `.env`.
 
 ## 4. Cut list (in order) and never-cut list
 

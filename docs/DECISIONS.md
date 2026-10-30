@@ -86,3 +86,9 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 | Criteo uplift dataset | Criteo AI Lab | CC BY-NC-SA 4.0, cite Diemert et al. 2018 (AdKDD) | not used in the current plan |
 | SSR library | pymc-labs/semantic-similarity-rating | open source (repo shows both Apache-2.0 and MIT) | ☐ |
 | Human test answers | our form | participant consent line in form | ☐ |
+- 2026-10-30 — Cassettes store only the answer, finish reason and usage, never the request (prompts can hold partner data); replay never falls through to the network, image/SAM calls are refused in replay. Why: tests and reruns at $0 without leaking inputs.
+- 2026-10-30 — Viewer cache on by default (`data/cache/viewers`), keyed by the exact request + `draw`; only valid answers cached. Why: a view is never paid twice; `draw` keeps retests independent.
+- 2026-10-30 — Hard feeds rank competitor ads by language → long-running → topic overlap → days; longevity counted up to the latest date in the market data, not today. Why: our ads beat foreign/off-topic ads too easily; replays must pick the same ads.
+- 2026-10-30 — Tournament ranking = Bradley-Terry (MM) with a prior of one virtual game vs a reference, CIs by bootstrap over viewers. Why: no ceiling, finite strengths for unbeaten variants, uncertainty per variant.
+- 2026-10-30 — Noise floor = 1.96·√2·SD of retest differences. Why: two ads in one feed are negatively correlated; 1.96·SD alone gave 18–29 % false "real" gaps on the fake world.
+- 2026-10-30 — Bias suite flags only |effect| ≥ 0.10 with p < 0.05, 72 views per check by default. Why: measured ≥ 92 % detection of a 1-logit bias, 3 % false alarms; 48 views missed up to 25 %.

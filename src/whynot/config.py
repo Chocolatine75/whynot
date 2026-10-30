@@ -30,6 +30,9 @@ class Settings:
     meta_page_id: str | None = None
     meta_app_id: str | None = None
     max_daily_ad_spend_eur: float = 0.0  # hard cap; 0 = no live spend
+    cassette_mode: str = "off"  # off | record | replay (see cassette.py)
+    cassette_dir: Path = REPO_ROOT / "tests" / "cassettes"
+    viewer_cache_dir: Path | None = None  # cached viewer answers (see sim/viewer.py); None = no cache
 
 
 def _clean(value: str | None) -> str:
@@ -45,6 +48,13 @@ def _float(name: str, default: float) -> float:
         return float(raw)
     except ValueError:
         raise ValueError(f"{name} must be a number, got {raw!r}") from None
+
+
+def _viewer_cache_dir(raw: str) -> Path | None:
+    """WHYNOT_VIEWER_CACHE: a folder, "off" to disable, or empty for the default data/cache/viewers."""
+    if raw.lower() == "off":
+        return None
+    return Path(raw) if raw else REPO_ROOT / "data" / "cache" / "viewers"
 
 
 def load_settings() -> Settings:
@@ -68,4 +78,7 @@ def load_settings() -> Settings:
         meta_page_id=_clean(os.getenv("META_PAGE_ID")) or None,
         meta_app_id=_clean(os.getenv("META_APP_ID")) or None,
         max_daily_ad_spend_eur=_float("MAX_DAILY_AD_SPEND_EUR", 0.0),
+        cassette_mode=_clean(os.getenv("WHYNOT_CASSETTE")) or "off",
+        cassette_dir=Path(_clean(os.getenv("WHYNOT_CASSETTE_DIR")) or REPO_ROOT / "tests" / "cassettes"),
+        viewer_cache_dir=_viewer_cache_dir(_clean(os.getenv("WHYNOT_VIEWER_CACHE"))),
     )

@@ -5,7 +5,7 @@ How the code is organised, the rules every change follows, and what "done" means
 ## One command
 
 ```bash
-./scripts/check.sh      # lint (ruff) + types (mypy) + tests with coverage (pytest); CI runs exactly this
+./scripts/check.sh      # lint (ruff) + types (mypy) + tests with coverage (pytest -n auto); CI runs exactly this
 ```
 
 CI (`.github/workflows/ci.yml`) runs it on every push to `master` and on every pull request. A red CI blocks the merge.
@@ -18,8 +18,10 @@ The package follows the agency loop. Each stage reads and writes plain data (dat
 src/whynot/
   cli.py               `whynot create ...` (entry point)
   config.py            settings from .env (one place)
-  costs.py             prices + append-only cost ledger
+  costs.py             prices + append-only cost ledger + spend report (`whynot costs`)
   models.py            ModelClient: the ONLY way to call a model (logs cost of every call, run budget)
+  cassette.py          recorded model answers: WHYNOT_CASSETTE=record|replay|off (replay = $0, offline)
+  budget.py            per-command model cap: estimate refused before running, hard stop during it
   jsonio.py            JSON out of model answers
   agency/
     create.py          the `create` pipeline: stages, run folder, resume, events
@@ -45,16 +47,20 @@ src/whynot/
     arena.py           fair feeds: brand name, head-to-head slots, placebos, bias flag
     personas.py        personas allocated from real reach data
     feed.py            market feeds (balanced exposure) and candidate feeds
-    viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs
+    viewer.py          viewer agents: prompt, strict JSON parsing, retries, parallel runs, answer cache
     scores.py          per-ad scores (preference lift, intent, objections)
+    tournament.py      round-robin games between our variants, Bradley-Terry ranking with CIs
+    relevance.py       hard feeds: same-language, long-running, on-topic competitor ads first
   run/
     autopilot.py       autonomy levels, caps, approval rules, loser/fatigue review, action log
     campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
     meta.py            Marketing API client (the only code that writes to an ad account)
     publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
   validate/
-    stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test
+    stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry
     longevity.py       R3: simulator vs Ad Library longevity
+    retest.py          test-retest noise floor: the smallest simulated difference reported as real
+    bias.py            bias suite: twins differing in one attribute (name, length, emoji, label) + position
 web/                   client platform (Next.js): lib/runs.ts reads run folders, lib/start.ts starts the engine,
                        components/AgencyRoom.tsx shows a run; tests in web/test (vitest)
 scripts/               thin command-line entry points (argparse); no logic that isn't in src/

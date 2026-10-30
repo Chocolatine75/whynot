@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from whynot.config import REPO_ROOT, load_settings
+from whynot.costs import TEAM_BUDGET_USD
 from whynot.run.autopilot import Policy
 
 
@@ -83,6 +84,23 @@ def _publish(args: argparse.Namespace) -> int:
     return 0 if state.status in ("published", "active") else 2
 
 
+def _iso_day(value: str) -> str:
+    from datetime import date
+
+    try:
+        return date.fromisoformat(value).isoformat()
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"not a date (YYYY-MM-DD): {value!r}") from None
+
+
+def _costs(args: argparse.Namespace) -> int:
+    from whynot.costs import collect_ledgers, format_report, spend_report
+
+    report = spend_report(collect_ledgers(Path(args.outputs)), since=args.since, budget_usd=args.budget)
+    print(format_report(report))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -114,6 +132,12 @@ def main(argv: list[str] | None = None) -> int:
     pub.add_argument("--activate", action="store_true", help="switch everything to ACTIVE after publishing")
     pub.add_argument("--activate-only", action="store_true", help="activate what an earlier run published")
     pub.set_defaults(func=_publish)
+
+    co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
+    co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")
+    co.add_argument("--budget", type=float, default=TEAM_BUDGET_USD, help="team model budget to the deadline, USD")
+    co.add_argument("--outputs", default=str(REPO_ROOT / "outputs"), help="folder holding costs.jsonl and runs/")
+    co.set_defaults(func=_costs)
     args = p.parse_args(argv)
     return int(args.func(args))
 

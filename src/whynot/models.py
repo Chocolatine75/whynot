@@ -4,18 +4,23 @@
 Baseten. Every call records a `CostEvent` with the module that made it, so the
 cost counter is real and every run can be audited.
 
+Chat calls can be recorded and replayed for free (`cassette.py`,
+`WHYNOT_CASSETTE=record|replay|off`); spending is capped per command (`budget.py`).
+
 Rule: never call the OpenAI SDK directly elsewhere in the code base.
 """
 
 import base64
 import mimetypes
-import threading
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from openai import OpenAI
 
+from whynot.budget import Budget, BudgetExceeded
+from whynot.cassette import Cassette, CassetteMissing, Recording, request_key
 from whynot.config import Settings, load_settings
 from whynot.costs import CostEvent, CostLedger, check_priced, image_cost, segment_cost, token_cost
 
@@ -26,12 +31,11 @@ IMAGE = "muse-image-1.0"
 SAM = "sam-3.1"
 
 
+__all__ = ["BudgetExceeded", "ChatResult", "MissingKey", "ModelClient", "TruncatedOutput", "image_data_url"]
+
+
 class MissingKey(RuntimeError):
     """Raised when a call needs an API key that is not set in .env."""
-
-
-class BudgetExceeded(RuntimeError):
-    """The run's model budget is spent: no further call is made."""
 
 
 class TruncatedOutput(RuntimeError):
@@ -59,7 +63,7 @@ def image_data_url(source: str | Path | bytes, mime: str | None = None) -> str:
 class ChatResult:
     text: str
     cost: CostEvent
-    raw: Any
+    raw: Any  # the SDK response; None when replayed from a cassette
     finish_reason: str | None = None
 
 
@@ -86,25 +90,45 @@ def _usage_tokens(usage: Any) -> tuple[int, int, int, int]:
 
 class ModelClient:
     def __init__(self, settings: Settings | None = None, ledger: CostLedger | None = None,
-                 meta: OpenAI | None = None, baseten: OpenAI | None = None, *, budget_usd: float | None = None):
+                 meta: OpenAI | None = None, baseten: OpenAI | None = None, *, budget_usd: float | None = None,
+                 cassette: Cassette | None = None):
         """`budget_usd`: hard cap on what this client may spend; calls stop once it is reached
-        (a call already in flight can overshoot by its own cost)."""
+        (a call already in flight can overshoot by its own cost). `cassette`: default from the settings."""
         self.settings = settings or load_settings()
         self.ledger = ledger or CostLedger(self.settings.cost_log)
         self._meta = meta
         self._baseten = baseten
-        self.budget_usd = budget_usd
-        self.spent_usd = 0.0
-        self._spent_lock = threading.Lock()
+        self.budget = Budget(budget_usd)
+        s = self.settings
+        self.cassette = cassette or Cassette(s.cassette_dir, s.cassette_mode, secrets=(
+            s.model_api_key, s.baseten_api_key, s.fb_token, s.meta_token, s.meta_sandbox_token))
+
+    @property
+    def budget_usd(self) -> float | None:
+        return self.budget.max_usd
+
+    @property
+    def spent_usd(self) -> float:
+        return self.budget.spent
 
     def _check_budget(self) -> None:
-        if self.budget_usd is not None and self.spent_usd >= self.budget_usd:
-            raise BudgetExceeded(f"model budget of ${self.budget_usd:.2f} spent (${self.spent_usd:.3f})")
+        self.budget.check()
 
     def _record(self, event: CostEvent) -> CostEvent:
-        with self._spent_lock:
-            self.spent_usd += event.usd
+        self.budget.add(event.usd)
         return self.ledger.record(event)
+
+    @property
+    def viewer_model(self) -> str:
+        """The model id viewer calls go to (part of every viewer cache key)."""
+        if self.settings.viewer_backend == "baseten":
+            return self.settings.baseten_model
+        return self.settings.viewer_model
+
+    def _refuse_in_replay(self, model: str, module: str) -> None:
+        """Only chat answers are recorded; replay must never fall through to the network."""
+        if self.cassette.replaying:
+            raise CassetteMissing(f"{module}: {model} calls are not recorded in cassettes; replay mode refuses them")
 
     # --- clients -----------------------------------------------------------
 
@@ -130,11 +154,11 @@ class ModelClient:
 
     def chat(self, messages: list[dict], *, module: str, model: str = SPARK, **kwargs) -> ChatResult:
         """Chat completion on the Meta Model API (Spark, Spark Contributor, Wonder)."""
-        return self._chat(self.meta, model, messages, module, **kwargs)
+        return self._chat(lambda: self.meta, model, messages, module, **kwargs)
 
     def open_chat(self, messages: list[dict], *, module: str, **kwargs) -> ChatResult:
         """Chat completion on Muse Spark Open (open weights, served by Baseten)."""
-        return self._chat(self.baseten, self.settings.baseten_model, messages, module, **kwargs)
+        return self._chat(lambda: self.baseten, self.settings.baseten_model, messages, module, **kwargs)
 
     def viewer_chat(self, messages: list[dict], *, module: str = "viewers", **kwargs) -> ChatResult:
         """Chat for viewer agents, on the backend chosen by VIEWER_BACKEND.
@@ -151,9 +175,28 @@ class ModelClient:
             return self.chat(messages, module=module, model=self.settings.viewer_model, **kwargs)
         raise ValueError(f"unknown VIEWER_BACKEND: {backend!r}")
 
-    def _chat(self, client: OpenAI, model: str, messages: list[dict], module: str, **kwargs) -> ChatResult:
+    def _chat(self, client: Callable[[], OpenAI], model: str, messages: list[dict], module: str,
+              **kwargs) -> ChatResult:
         check_priced(model)
-        self._check_budget()
+        key = request_key(model, messages, kwargs)
+        raw: Any = None
+        if self.cassette.replaying:  # never the network, never the budget: the answer was paid for once
+            rec = self.cassette.load(key, model=model, module=module)
+            event = self._record(CostEvent(module=module, model=model, usd=0.0, source="cassette"))
+        else:
+            self._check_budget()
+            rec, event, raw = self._call_api(client(), model, messages, module, **kwargs)
+            if self.cassette.recording:
+                self.cassette.put(key, rec)
+        if rec.finish_reason == "length" and not rec.text.strip():
+            raise TruncatedOutput(
+                f"{model} used all {rec.output_tokens} output tokens ({rec.reasoning_tokens} reasoning) before "
+                "answering; raise max_tokens")
+        return ChatResult(text=rec.text, cost=event, raw=raw, finish_reason=rec.finish_reason)
+
+    def _call_api(self, client: OpenAI, model: str, messages: list[dict], module: str,
+                  **kwargs) -> tuple[Recording, CostEvent, Any]:
+        """One billed chat call: the answer, its logged cost, and the SDK response."""
         response = client.chat.completions.create(model=model, messages=messages, **kwargs)  # type: ignore[arg-type]
         input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)
         event = self._record(CostEvent(
@@ -165,18 +208,15 @@ class ModelClient:
         if not response.choices:
             raise RuntimeError(f"{model} returned no choices")
         choice = response.choices[0]
-        text = choice.message.content or ""
-        finish = getattr(choice, "finish_reason", None)
-        if finish == "length" and not text.strip():
-            raise TruncatedOutput(
-                f"{model} used all {output_tokens} output tokens ({reasoning} reasoning) before answering; "
-                "raise max_tokens")
-        return ChatResult(text=text, cost=event, raw=response, finish_reason=finish)
+        rec = Recording(model, module, choice.message.content or "", getattr(choice, "finish_reason", None),
+                        input_tokens, cached, output_tokens, reasoning)
+        return rec, event, response
 
     # --- images ------------------------------------------------------------
 
     def image(self, prompt: str, *, module: str, n: int = 1, size: str = "auto", **kwargs) -> ImageResult:
         """Generate images with Muse Image. Billed per image returned."""
+        self._refuse_in_replay(IMAGE, module)
         self._check_budget()
         response = self.meta.images.generate(model=IMAGE, prompt=prompt, n=n, size=size,
                                              response_format="b64_json", **kwargs)
@@ -201,6 +241,7 @@ class ModelClient:
         }
         if include_confidence:
             request["extra_body"] = {"include_confidence": "true"}
+        self._refuse_in_replay(SAM, module)
         self._check_budget()
         chunks: list[str] = []
         ok = False

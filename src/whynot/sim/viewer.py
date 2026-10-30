@@ -10,12 +10,23 @@ and which ad of the feed they prefer.
 Ads are shown with neutral labels (A1, A2, ...) in a per-viewer random order.
 Answers are strict JSON, validated; a malformed answer is retried once, then
 counted as a failure rather than guessed.
+
+Valid answers are cached on disk (`ViewerCache`), keyed by the exact request:
+persona, feed items in the order this viewer sees them, prompt, model and
+parameters. A view is never paid twice; a hit is logged at $0 (source "cache").
+`draw` asks for a fresh, independent answer to the same request (test-retest).
 """
 
+import os
+import tempfile
+import threading
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
+from whynot.cassette import request_key
+from whynot.costs import CostEvent
 from whynot.jsonio import JSONExtractError, extract_json
 from whynot.models import ModelClient
 from whynot.sim.feed import Feed, order_for
@@ -156,29 +167,91 @@ def parse_reactions(text: str, labels: dict[str, str], *, feed_id: str, persona_
     return reactions
 
 
+class ViewerCache:
+    """Valid viewer answers on disk, one file per request key. Atomic writes: threads and runs can share it."""
+
+    def __init__(self, folder: Path):
+        self.folder = Path(folder)
+        self.hits = 0
+        self.misses = 0
+        self._lock = threading.Lock()
+
+    def get(self, key: str) -> str | None:
+        p = self.folder / f"{key}.txt"
+        text = p.read_text(encoding="utf-8") if p.exists() else None
+        with self._lock:
+            if text is None:
+                self.misses += 1
+            else:
+                self.hits += 1
+        return text
+
+    def put(self, key: str, text: str) -> None:
+        self.folder.mkdir(parents=True, exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=self.folder, prefix=".tmp-", suffix=".txt")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(text)
+        os.replace(tmp, self.folder / f"{key}.txt")
+
+    def size(self) -> tuple[int, int]:
+        """(answers stored, bytes on disk)."""
+        files = list(self.folder.glob("*.txt")) if self.folder.exists() else []
+        return len(files), sum(f.stat().st_size for f in files)
+
+
 class Viewer:
     def __init__(self, client: ModelClient, *, max_tokens: int = 6000, retries: int = 1,
-                 reasoning_effort: str | None = None):
+                 reasoning_effort: str | None = None, cache: ViewerCache | None = None, draw: int = 0):
+        """`cache`: default from the settings (WHYNOT_VIEWER_CACHE); `draw` > 0 asks for fresh answers."""
         # Muse Spark reasons ~2k tokens per feed before answering (observed); keep headroom.
         self.client = client
         self.max_tokens = max_tokens
         self.retries = retries
         self.reasoning_effort = reasoning_effort
+        self.draw = draw
+        if cache is None:
+            folder = getattr(getattr(client, "settings", None), "viewer_cache_dir", None)
+            cache = ViewerCache(folder) if folder else None
+        self.cache = cache
+
+    def _key(self, messages: list[dict], params: dict[str, Any]) -> str:
+        model = getattr(self.client, "viewer_model", "unknown")
+        return request_key(model, messages, {**params, "draw": self.draw})
+
+    def _log_hit(self) -> None:
+        ledger = getattr(self.client, "ledger", None)
+        if ledger is not None:
+            ledger.record(CostEvent(module="viewers", model=getattr(self.client, "viewer_model", "unknown"),
+                                    usd=0.0, source="cache"))
 
     def react(self, persona: Persona, feed: Feed, *, feed_id: str) -> tuple[list[Reaction], float]:
-        """Reactions of one persona to one feed, plus the $ spent (retries included)."""
+        """Reactions of one persona to one feed, plus the $ spent (retries included; $0 on a cache hit)."""
         seen = order_for(feed, f"{feed_id}|{persona.id}")
         messages, labels = build_messages(persona, seen)
+        params: dict[str, Any] = {"max_tokens": self.max_tokens}
+        if self.reasoning_effort:
+            params["reasoning_effort"] = self.reasoning_effort
+        key = self._key(messages, params) if self.cache else ""
+        if self.cache and (cached := self.cache.get(key)) is not None:
+            try:
+                reactions = parse_reactions(cached, labels, feed_id=feed_id, persona_id=persona.id)
+                self._log_hit()
+                return reactions, 0.0
+            except ViewerParseError:
+                pass  # a damaged entry: ask again and overwrite it
         spent = 0.0
         last_error: Exception | None = None
         for _ in range(self.retries + 1):
-            extra = {"reasoning_effort": self.reasoning_effort} if self.reasoning_effort else {}
-            result = self.client.viewer_chat(messages, max_tokens=self.max_tokens, **extra)
+            result = self.client.viewer_chat(messages, **params)
             spent += result.cost.usd
             try:
-                return parse_reactions(result.text, labels, feed_id=feed_id, persona_id=persona.id), spent
+                reactions = parse_reactions(result.text, labels, feed_id=feed_id, persona_id=persona.id)
             except ViewerParseError as exc:
                 last_error = exc
+                continue
+            if self.cache:  # only valid answers: a bad one must be asked again, not replayed
+                self.cache.put(key, result.text)
+            return reactions, spent
         raise ViewerParseError(f"{last_error} (after {self.retries + 1} tries)", usd=spent)
 
 

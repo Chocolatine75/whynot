@@ -101,6 +101,7 @@ class CostEvent:
     audio_seconds: float = 0.0
     ok: bool = True
     ts: float = field(default_factory=time.time)
+    source: str = "api"  # "api" (billed), "cassette" (replayed recording, $0) or "cache" (cached viewer answer, $0)
 
 
 class CostLedger:
@@ -131,3 +132,77 @@ class CostLedger:
         for e in self.events():
             totals[e.module] = totals.get(e.module, 0.0) + e.usd
         return totals
+
+
+# --- spend report (`whynot costs`) -------------------------------------------------------
+
+TEAM_BUDGET_USD = 60.0  # Meta Model API budget to the deadline, both people together (ROADMAP.md)
+
+
+def collect_ledgers(outputs: Path) -> list[tuple[str, CostEvent]]:
+    """(run, event) for every call logged under `outputs/`: scripts' ledger and each run folder's ledger.
+
+    The run is the run folder's name, or "scripts" for `outputs/costs.jsonl`.
+    """
+    outputs = Path(outputs)
+    found: list[tuple[str, CostEvent]] = [("scripts", e) for e in CostLedger(outputs / "costs.jsonl").events()]
+    for path in sorted(outputs.glob("runs/*/costs.jsonl")):
+        found += [(path.parent.name, e) for e in CostLedger(path).events()]
+    return found
+
+
+@dataclass(frozen=True)
+class SpendReport:
+    usd: float
+    calls: int  # billed calls (failed ones included: they were billed)
+    free_calls: int  # answers replayed from cassettes or the viewer cache
+    by_day: dict[str, float]  # UTC dates
+    by_module: dict[str, float]
+    by_model: dict[str, float]
+    by_run: dict[str, float]
+    budget_usd: float
+
+    @property
+    def remaining_usd(self) -> float:
+        return self.budget_usd - self.usd
+
+
+def _add(totals: dict[str, float], key: str, usd: float) -> None:
+    totals[key] = totals.get(key, 0.0) + usd
+
+
+def spend_report(events: list[tuple[str, CostEvent]], *, since: str | None = None,
+                 budget_usd: float = TEAM_BUDGET_USD) -> SpendReport:
+    """Totals by day, module, model and run; `since` is an ISO date (UTC), inclusive."""
+    by_day: dict[str, float] = {}
+    by_module: dict[str, float] = {}
+    by_model: dict[str, float] = {}
+    by_run: dict[str, float] = {}
+    usd, calls, free = 0.0, 0, 0
+    for run, e in events:
+        day = time.strftime("%Y-%m-%d", time.gmtime(e.ts))
+        if since and day < since:
+            continue
+        if e.source != "api":
+            free += 1
+            continue
+        calls += 1
+        usd += e.usd
+        for totals, key in ((by_day, day), (by_module, e.module), (by_model, e.model), (by_run, run)):
+            _add(totals, key, e.usd)
+    return SpendReport(usd, calls, free, dict(sorted(by_day.items())), by_module, by_model, by_run, budget_usd)
+
+
+def format_report(r: SpendReport, *, top: int = 10) -> str:
+    def table(title: str, totals: dict[str, float], ordered: bool = False) -> list[str]:
+        rows = totals.items() if ordered else sorted(totals.items(), key=lambda kv: -kv[1])[:top]
+        return [f"\n{title}"] + [f"  {k:<44} ${v:8.3f}" for k, v in rows]
+
+    lines = [f"model spend ${r.usd:.2f} of ${r.budget_usd:.0f} budget · ${r.remaining_usd:.2f} left · "
+             f"{r.calls} billed calls, {r.free_calls} free (cassette/cache)"]
+    if r.usd > 2 / 3 * r.budget_usd:
+        lines.append("! above 2/3 of the budget: only critical-path (★) tasks may spend")
+    lines += table("by day (UTC)", r.by_day, ordered=True)
+    lines += table("by module", r.by_module) + table("by model", r.by_model) + table(f"by run (top {top})", r.by_run)
+    lines.append("\n(this machine's ledgers only: add the other person's total for the team budget)")
+    return "\n".join(lines)

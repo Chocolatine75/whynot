@@ -429,3 +429,13 @@ def test_report_shows_the_evolution_with_images(done):
         if "![" in line:
             path = line.split("](")[1].split(")")[0]
             assert (run / path).exists(), path
+
+
+def test_feeds_use_the_most_relevant_competitors_and_report_language_shortfalls(done):
+    _, _, _, run = done
+    groups = json.loads((run / "simulation.json").read_text())["groups"]
+    by_language = {g["language"]: g["competitors"] for g in groups}
+    assert by_language["en"]["wrong_language"] == 0
+    # the fake market only has English ads: French feeds had to borrow them, and the run says so
+    # (ads too short to tell their language are counted as unknown, not as a mismatch)
+    assert 0 < by_language["fr"]["wrong_language"] <= by_language["fr"]["pool"]

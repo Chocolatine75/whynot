@@ -50,6 +50,8 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | Module | Responsibility | Models / tools |
 |---|---|---|
 | `costs` | Single model-call wrapper; logs tokens, images, $ | code |
+| `models` + `cassette` | The only model client; chat answers recorded once and replayed for free (`WHYNOT_CASSETTE=record\|replay`), replay never touches the network | code |
+| `budget` | Per-command model cap: estimate refused before running, hard stop during the run | code |
 | `agents` | Orchestrator, roles, shared log | Muse Spark |
 | `ingest/adlibrary` | Competitor ads, reach breakdowns, start dates; tokens stripped | Graph API v26 |
 | `ingest/creatives` | Capture images/videos from snapshot pages; transcripts | Muse Spark computer use, Voice Transcribe |
@@ -70,8 +72,10 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `create/guards` | Exact product-pixel check, palette, WCAG legibility, ad-policy (not yet); all mandatory | code (+ Muse Spark for policy) |
 | `sim/personas` | Personas allocated from real reach cells (country × age × gender) | — |
 | `sim/feed` | Market feeds (exposure balanced ±1, least-shown first) and candidate feeds; per-viewer order | — |
-| `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs; backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
+| `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs, answer cache (a view is never paid twice); backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
 | `sim/arena` | Fair feeds for our variants: page-style brand name, two candidate slots per feed, placebos (competitor ads under our name), bias flag | — |
+| `sim/relevance` | Hard feeds: competitor ads ranked by language match, long-running, topic overlap, days; language shortfall reported | — |
+| `sim/tournament` | Round-robin feeds between our variants (+ competitor ads), head-to-head games, Bradley-Terry strengths with bootstrap CIs: a ranking with no ceiling | — |
 | `sim/scores` | Per-ad scores: preference lift vs chance (primary), intent, stop/understood/believed rates, why-not | — |
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |
 | `counterfactual` | Element removal/swap + re-test deltas | SAM 3.1, composer, simfeed |
@@ -79,7 +83,7 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `run/autopilot` | Autonomy levels, caps, fatigue/loser rules, action log; publishing and rotation next | Ads MCP / Marketing API |
 | `report` | Weekly report, approvals | Muse Spark |
 | `calibrate` | Per-business re-weighting from real metrics | code |
-| `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`); backtest, humans, live pilot next | code |
+| `validate` | Stats (`stats.py`), longevity R3 (`longevity.py`), test-retest noise floor (`retest.py`), bias suite (`bias.py`); backtest, humans, live pilot next | code |
 | `web` | Onboarding, Agency room, Report, Arena, Validation page | Next.js |
 
 ## Data contracts (sketch)

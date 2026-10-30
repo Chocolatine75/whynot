@@ -9,6 +9,8 @@ Pure Python, no dependencies, deterministic given a seed.
 - `bootstrap_ci`: confidence interval by resampling ads, for any metric above.
 - `wilson_interval`, `binomial_two_sided_p`: for agreement and preference rates
   out of n paired judgements (R2, R6).
+- `bradley_terry`: strengths from head-to-head outcomes (tournaments between our
+  variants, E3-2); `kendall_tau`: agreement of two rankings.
 """
 
 import math
@@ -119,3 +121,70 @@ def binomial_two_sided_p(successes: int, n: int, p: float = 0.5) -> float:
     probs = [math.comb(n, k) * p**k * (1 - p) ** (n - k) for k in range(n + 1)]
     observed = probs[successes]
     return min(1.0, sum(q for q in probs if q <= observed * (1 + 1e-9)))
+
+
+def kendall_tau(a: Sequence[float], b: Sequence[float]) -> float:
+    """Kendall's tau-b between two score lists: 1 = same order, -1 = reversed, 0 = unrelated."""
+    if len(a) != len(b):
+        raise ValueError("a and b must have the same length")
+    concordant = discordant = ties_a = ties_b = 0
+    for i in range(len(a)):
+        for j in range(i + 1, len(a)):
+            da, db = a[i] - a[j], b[i] - b[j]
+            if da == 0 and db == 0:
+                continue
+            if da == 0:
+                ties_a += 1
+            elif db == 0:
+                ties_b += 1
+            elif (da > 0) == (db > 0):
+                concordant += 1
+            else:
+                discordant += 1
+    denom = math.sqrt((concordant + discordant + ties_a) * (concordant + discordant + ties_b))
+    if denom == 0:
+        raise ValueError("tau undefined: one of the lists is constant")
+    return (concordant - discordant) / denom
+
+
+Outcome = tuple[str, str, float]  # (a, b, score of a): 1 = a won, 0 = b won, 0.5 = tie
+
+
+def bradley_terry(outcomes: Sequence[Outcome], items: Sequence[str] | None = None, *, prior: float = 1.0,
+                  iterations: int = 500, tol: float = 1e-10) -> dict[str, float]:
+    """Log-strengths (mean 0) fitted by the MM algorithm (Hunter 2004); P(a beats b) = 1 / (1 + e^(sb - sa)).
+
+    `prior`: each item also plays `prior` virtual games (half won) against a reference of strength 0.
+    It keeps strengths finite when an item wins or loses every game, and pulls items seen in few
+    games towards average: a variant with 2 wins out of 2 is not declared infinitely good.
+    """
+    names = sorted(set(items or []) | {x for a, b, _ in outcomes for x in (a, b)})
+    if not names:
+        raise ValueError("no items")
+    if prior <= 0:
+        raise ValueError("prior must be > 0 (strengths are infinite without it for unbeaten items)")
+    for a, b, score in outcomes:
+        if a == b or not 0 <= score <= 1:
+            raise ValueError(f"bad outcome: {(a, b, score)!r}")
+    wins = {n: prior / 2 for n in names}
+    games: dict[tuple[str, str], float] = {}
+    for a, b, score in outcomes:
+        wins[a] += score
+        wins[b] += 1 - score
+        key = (a, b) if a < b else (b, a)
+        games[key] = games.get(key, 0.0) + 1
+    strength = dict.fromkeys(names, 1.0)  # exp(log-strength); the reference stays at 1
+    for _ in range(iterations):
+        denom = {n: prior / (strength[n] + 1.0) for n in names}
+        for (a, b), n_ab in games.items():
+            d = n_ab / (strength[a] + strength[b])
+            denom[a] += d
+            denom[b] += d
+        new = {n: wins[n] / denom[n] for n in names}
+        done = max(abs(math.log(new[n] / strength[n])) for n in names) < tol
+        strength = new
+        if done:
+            break
+    logs = {n: math.log(v) for n, v in strength.items()}
+    mean = sum(logs.values()) / len(logs)
+    return {n: v - mean for n, v in logs.items()}
