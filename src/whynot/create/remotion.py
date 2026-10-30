@@ -93,37 +93,27 @@ def build_props(brief: VideoBrief, *, palette: list[str], app_name: str, screens
     }
 
 
-def render(brief: VideoBrief, out: Path, *, palette: list[str], app_name: str, screens: list[Image.Image],
-           scenes: dict[int, Image.Image], icon: Image.Image | None, rating: float | None,
-           rating_count: int | None, audio: Audio | None = None, poster_at: float = 1.2) -> dict:
-    """Render `out` (.mp4) and `<out>.poster.jpg` with Remotion; returns facts about the file."""
+def render_composition(composition: str, props: dict, files: dict[str, Path | Image.Image], out: Path, *,
+                       poster_at: float = 1.2) -> dict:
+    """Render `composition` with `props`; `files` (public name -> path or image) are copied to a private public
+    dir removed afterwards. Writes `out` (.mp4) and `<out>.poster.jpg`; returns facts about the file."""
     out = Path(out)
     public = out.parent / f".public-{out.stem}"
     if public.exists():
         shutil.rmtree(public)
     public.mkdir(parents=True)
     try:
-        screen_names = []
-        for i, img in enumerate(screens, 1):
-            img.convert("RGB").save(public / f"screen_{i}.png")  # PNG: lossless, the real pixels
-            screen_names.append(f"screen_{i}.png")
-        scene_names = {}
-        for i, img in scenes.items():
-            img.convert("RGB").save(public / f"scene_{i}.jpg", quality=92)
-            scene_names[i] = f"scene_{i}.jpg"
-        icon_name = None
-        if icon is not None:
-            icon.convert("RGBA").save(public / "icon.png")
-            icon_name = "icon.png"
-        if audio and audio.voice_mp3:
-            shutil.copy(audio.voice_mp3, public / "voice.mp3")
-        if audio and audio.music_mp3:
-            shutil.copy(audio.music_mp3, public / "music.mp3")
-        props = build_props(brief, palette=palette, app_name=app_name, screens=screen_names, scenes=scene_names,
-                            icon=icon_name, rating=rating, rating_count=rating_count, audio=audio)
+        for name, src in files.items():
+            if isinstance(src, Image.Image):
+                if name.endswith(".png"):
+                    src.convert("RGBA").save(public / name)
+                else:
+                    src.convert("RGB").save(public / name, quality=92)
+            else:
+                shutil.copy(src, public / name)
         props_path = public / "props.json"
         props_path.write_text(json.dumps(props, ensure_ascii=False))
-        r = subprocess.run(["npx", "remotion", "render", "src/index.ts", "Ad", str(out.resolve()),
+        r = subprocess.run(["npx", "remotion", "render", "src/index.ts", composition, str(out.resolve()),
                             f"--props={props_path.resolve()}", f"--public-dir={public.resolve()}", "--log=error"],
                            cwd=PROJECT, capture_output=True, text=True, timeout=900)
         if r.returncode != 0 or not out.exists():
@@ -134,5 +124,24 @@ def render(brief: VideoBrief, out: Path, *, palette: list[str], app_name: str, s
         shutil.rmtree(public, ignore_errors=True)
     frames, secs = imageio_ffmpeg.count_frames_and_secs(str(out))
     return {"path": out.name, "frames": frames, "seconds": round(secs, 2), "width": 1080, "height": 1920,
-            "fps": FPS, "bytes": out.stat().st_size, "renderer": "remotion",
-            "voice": bool(props["voice"]), "music": bool(props["music"])}
+            "fps": FPS, "bytes": out.stat().st_size, "renderer": "remotion", "composition": composition,
+            "voice": bool(props.get("voice")), "music": bool(props.get("music"))}
+
+
+def render(brief: VideoBrief, out: Path, *, palette: list[str], app_name: str, screens: list[Image.Image],
+           scenes: dict[int, Image.Image], icon: Image.Image | None, rating: float | None,
+           rating_count: int | None, audio: Audio | None = None, poster_at: float = 1.2) -> dict:
+    """Render a classic brief (`Ad` composition)."""
+    files: dict[str, Path | Image.Image] = {f"screen_{i}.png": img for i, img in enumerate(screens, 1)}
+    files |= {f"scene_{i}.jpg": img for i, img in scenes.items()}
+    if icon is not None:
+        files["icon.png"] = icon
+    if audio and audio.voice_mp3:
+        files["voice.mp3"] = audio.voice_mp3
+    if audio and audio.music_mp3:
+        files["music.mp3"] = audio.music_mp3
+    props = build_props(brief, palette=palette, app_name=app_name,
+                        screens=[f"screen_{i}.png" for i in range(1, len(screens) + 1)],
+                        scenes={i: f"scene_{i}.jpg" for i in scenes}, icon="icon.png" if icon is not None else None,
+                        rating=rating, rating_count=rating_count, audio=audio)
+    return render_composition("Ad", props, files, out, poster_at=poster_at)

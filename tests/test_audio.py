@@ -159,3 +159,19 @@ def test_a_guard_that_cannot_run_is_reported_not_hidden(tmp_path):
         raise RuntimeError("503")
     audio, guard = soundtrack(FakeVoice(tmp_path), NS(transcribe=broken), BRIEF, "English", None)
     assert audio.voice_mp3 is not None and guard["checked"] is False and "503" in guard["error"]
+
+
+def test_sound_effects_are_generated_once_per_kind(tmp_path):
+    calls = []
+
+    def handler(request):
+        calls.append(json.loads(request.content))
+        assert request.url.path == "/v1/sound-generation"
+        return httpx.Response(200, content=b"ID3fx")
+
+    el = eleven(tmp_path, handler)
+    assert el.sfx("whoosh").read_bytes() == b"ID3fx" and el.sfx("whoosh").exists()
+    el.sfx("pop")
+    assert len(calls) == 2 and calls[0]["duration_seconds"] == 1.0
+    with pytest.raises(ValueError, match="sound effect"):
+        el.sfx("explosion")

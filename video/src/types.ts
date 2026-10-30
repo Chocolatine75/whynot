@@ -32,3 +32,29 @@ export type AdProps = {
   voice: { src: string; words: Word[] } | null;
   music: { src: string; volume: number } | null;
 };
+
+// --- trend ads: fast shot list (built by src/whynot/create/trend_render.py) ---
+
+export type ShotProps = {
+  visual: "text" | "photo" | "screen" | "mascot";
+  durationInFrames: number;
+  caption: string;
+  move: "punch_in" | "slow_zoom" | "shake" | "slide" | "pop" | "still";
+  sfx: string; // a key of `sfx`, or "none"
+  beat: "trend" | "twist" | "cta";
+  src?: string; // photo, real UI crop, or mascot sticker (files in the public dir)
+  focus?: "top" | "middle" | "bottom" | "full";
+  text?: string;
+};
+
+export type TrendProps = {
+  fps: number;
+  durationInFrames: number;
+  hook: string;
+  shots: ShotProps[];
+  endCard: { durationInFrames: number; appName: string; icon?: string; rating: string; cta: string };
+  look: Look;
+  voice: { src: string; words: Word[] } | null;
+  music: { src: string; volume: number } | null;
+  sfx: Record<string, string>; // name -> file
+};

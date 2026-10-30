@@ -20,10 +20,12 @@ from typing import Any
 from PIL import Image
 
 from whynot.agents.ask import AgentError, ChatClient, Invalid, ask_json
+from whynot.create.trends import FORMATS as TREND_FORMATS
+from whynot.create.trends import NONE
 from whynot.ingest.adlibrary import CompetitorAd
 from whynot.models import SPARK, image_data_url
 
-PROMPT_VERSION = "deconstruct-v1"
+PROMPT_VERSION = "deconstruct-v2"  # v2: trend_format
 
 PITCHES = ("curiosity", "problem_solution", "transformation", "social_proof", "tutorial", "offer", "humor",
            "fear_of_missing_out", "authority", "emotional_story")
@@ -46,7 +48,8 @@ Look at the image and the copy and return JSON only:
   "emotional_pitch": "<one of: {pitches}>",
   "creative_style": "<one of: {styles}>",
   "promise": "<the main benefit promised, max 15 words>",
-  "audience": "<who this ad seems to speak to, max 15 words>"
+  "audience": "<who this ad seems to speak to, max 15 words>",
+  "trend_format": "<the viral format it follows, one of: {formats}; or none>"
 }}"""
 
 
@@ -63,6 +66,7 @@ class Deconstruction:
     creative_style: str
     promise: str
     audience: str
+    trend_format: str = NONE  # a viral format from `create/trends.py`, or "none"
     palette: list[str] = field(default_factory=list)  # measured from the pixels
     prompt_version: str = PROMPT_VERSION
 
@@ -104,6 +108,11 @@ def validate(data: Any) -> dict[str, Any]:
     if cta is not None and not isinstance(cta, str):
         raise Invalid("'cta' must be a string or null")
     out["cta"] = " ".join(cta.split())[:40] if cta and cta.strip() else None
+    trend = data.get("trend_format", NONE)
+    allowed_trends = {f.id for f in TREND_FORMATS} | {NONE}
+    if trend not in allowed_trends:
+        raise Invalid(f"'trend_format' must be one of {sorted(allowed_trends)}, got {trend!r}")
+    out["trend_format"] = trend
     for key, allowed in (("emotional_pitch", PITCHES), ("creative_style", STYLES)):
         value = data.get(key)
         if value not in allowed:
@@ -155,7 +164,8 @@ def deconstruct_one(client: ChatClient, ad: CompetitorAd, image: Path, fmt: str,
     text = PROMPT.format(advertiser=ad.page_name or "unknown", format=fmt,
                          video_note=": the image is the video's first frame" if fmt == "video" else "",
                          body=(ad.bodies or [""])[0][:600] or "(none)", title=(ad.titles or [""])[0][:120] or "(none)",
-                         pitches=", ".join(PITCHES), styles=", ".join(STYLES))
+                         pitches=", ".join(PITCHES), styles=", ".join(STYLES),
+                         formats=", ".join(f"{f.id} ({f.name})" for f in TREND_FORMATS))
     messages: list[dict[str, Any]] = [{"role": "system", "content": SYSTEM},
                 {"role": "user", "content": [{"type": "text", "text": text},
                                              {"type": "image_url", "image_url": {"url": image_data_url(image)}}]}]

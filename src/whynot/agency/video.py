@@ -84,12 +84,12 @@ def soundtrack(voice: ElevenLabs, model: Any, b: brief.VideoBrief, language: str
     return remotion.Audio(chosen.mp3, words(chosen.characters, chosen.starts, chosen.ends), music), guard
 
 
-def scene_image(model: ModelClient, prompt: str, folder: Path) -> Image.Image:
-    """A generated background for a scene, cached by prompt."""
-    key = hashlib.sha256(f"{SCENE_STYLE}|{prompt}".encode()).hexdigest()[:24]
+def scene_image(model: ModelClient, prompt: str, folder: Path, *, style: str = SCENE_STYLE) -> Image.Image:
+    """A generated background for a scene, cached by prompt and style."""
+    key = hashlib.sha256(f"{style}|{prompt}".encode()).hexdigest()[:24]
     path = folder / f"{key}.png"
     if not path.exists():
-        result = model.image(f"{prompt}. {SCENE_STYLE}", module="scenes", size="1024x1536")
+        result = model.image(f"{prompt}. {style}", module="scenes", size="1024x1536")
         folder.mkdir(parents=True, exist_ok=True)
         with Image.open(io.BytesIO(base64.b64decode(result.images_b64[0]))) as im:
             im.convert("RGB").save(path)

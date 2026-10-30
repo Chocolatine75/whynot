@@ -126,10 +126,16 @@ def _video(args: argparse.Namespace) -> int:
     elif not args.silent:
         print("  (no ELEVENLABS_API_KEY in .env: videos without voice-over or music)")
     try:
-        report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
-                             voice=voice, voice_id=settings.elevenlabs_voice_id,
-                             cfg=VideoConfig(n_videos=args.n, renderer=args.renderer))
-    except BudgetExceeded as exc:
+        if args.style == "trend":
+            from whynot.agency.trend_video import make_trend_videos
+            report = make_trend_videos(run_dir, model, cfg=VideoConfig(n_videos=args.n), voice=voice,
+                                       voice_id=settings.elevenlabs_voice_id, token=settings.fb_token or "",
+                                       renderer_factory=factory)
+        else:
+            report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
+                                 voice=voice, voice_id=settings.elevenlabs_voice_id,
+                                 cfg=VideoConfig(n_videos=args.n, renderer=args.renderer))
+    except (BudgetExceeded, RuntimeError) as exc:
         print(f"✗ {exc}", file=sys.stderr)
         return 1
     print(f"\n✓ {len(report['videos'])} video(s) in {run_dir / 'videos'} · model cost ${report['usd']:.2f}")
@@ -176,6 +182,8 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--renderer", choices=["remotion", "builtin"], default="remotion",
                    help="remotion: voice, captions, music (needs `cd video && npm install`); builtin: silent")
     v.add_argument("--silent", action="store_true", help="no voice-over or music")
+    v.add_argument("--style", choices=["trend", "classic"], default="trend",
+                   help="trend: viral formats turned into ads (fast cuts, Remotion); classic: storyboard ads")
     v.set_defaults(func=_video)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")

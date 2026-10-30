@@ -1,0 +1,194 @@
+"""Trend ads: the format library, 'trending now' from the Ad Library, trend shot lists, SAM cut-outs, props."""
+
+import json
+from dataclasses import replace
+from datetime import date, timedelta
+from types import SimpleNamespace as NS
+
+import pytest
+from PIL import Image
+
+from strategy_fixture import ADS, APP, COUNTRIES, strategy_json
+from whynot.agents.ask import Invalid
+from whynot.agents.deconstruct import Deconstruction, validate
+from whynot.agents.director import Context
+from whynot.agents.strategist import Sources
+from whynot.agents.strategist import make_validator as strategy_validator
+from whynot.agents.trend_brief import END_CARD_SECONDS, TrendBrief, make_validator
+from whynot.assets.cutouts import MIN_MASCOT_SHARE, cutouts, find, ui_crop
+from whynot.create.remotion import FPS, Audio
+from whynot.create.trend_render import build_props, shot_frames
+from whynot.create.trends import BY_ID, FORMATS, trending
+from whynot.ingest.adlibrary import CompetitorAd
+
+STRATEGY = strategy_validator(Sources.build(APP, ADS), COUNTRIES)(strategy_json())
+CTX = Context(STRATEGY, APP.name, APP.description, ("Rival Lingo",), ("#F5FAFF", "#0B1D33", "#1E6FD9"), "s.png")
+TODAY = date(2026, 10, 30)
+
+
+def test_the_library_is_well_formed():
+    assert len(FORMATS) >= 10 and len(BY_ID) == len(FORMATS)
+    for f in FORMATS:
+        assert f.beats and f.why and set(f.needs) <= {"text", "screen", "mascot", "photo", "voice"}
+
+
+def test_deconstruction_accepts_only_known_formats():
+    base = {"hook": "h", "visual_subject": "v", "text_overlays": [], "cta": None, "emotional_pitch": "humor",
+            "creative_style": "mixed", "promise": "p", "audience": "a"}
+    assert validate({**base, "trend_format": "pov"})["trend_format"] == "pov"
+    assert validate(base)["trend_format"] == "none"
+    with pytest.raises(Invalid, match="trend_format"):
+        validate({**base, "trend_format": "dance_challenge"})
+
+
+def ad(i, page, start_days_ago):
+    return CompetitorAd(str(i), page, page, ["x"], [], TODAY - timedelta(days=start_days_ago), None, [], None, [], None)
+
+
+def dec(i, fmt):
+    return Deconstruction(str(i), "x", "static", "h", "v", [], None, "humor", "mixed", "p", "a", trend_format=fmt)
+
+
+def test_trending_counts_what_competitors_started_recently():
+    ads = [ad(1, "A", 3), ad(2, "B", 5), ad(3, "A", 40), ad(4, "C", 2), ad(5, "D", 90), ad(6, "E", 1)]
+    decons = {"1": dec(1, "pov"), "2": dec(2, "pov"), "3": dec(3, "pov"), "4": dec(4, "rating"),
+              "5": dec(5, "starter_pack"), "6": dec(6, "none")}
+    sig = trending(decons, ads, as_of=TODAY)
+    assert [s.format for s in sig] == ["pov", "rating", "starter_pack"]  # new ads first; "none" ignored
+    pov = sig[0]
+    assert (pov.ads, pov.new_ads, pov.advertisers) == (3, 2, 2) and pov.share_new == pytest.approx(2 / 3, abs=1e-3)
+    assert sig[2].new_ads == 0
+
+
+def shot(**kw):
+    base = {"visual": "text", "text": "Six tones", "caption": "", "seconds": 1.2, "move": "punch_in",
+            "sfx": "whoosh", "beat": "trend"}
+    return {**base, **kw}
+
+
+GOOD = {"id": "tell_me_tones", "hook": "Tell me you're learning Vietnamese",
+        "shots": [shot(), shot(visual="photo", prompt="A man frowning at a bowl of pho in a busy street",
+                               caption="ordering pho", seconds=1.5),
+                  shot(text="Ma ma ma ma", seconds=1.0, move="shake", sfx="record_scratch"),
+                  shot(visual="photo", prompt="Grandma laughing at a family dinner", caption="grandma laughing"),
+                  shot(text="Wrong tone again", seconds=1.4), shot(visual="photo", prompt="Late night study desk",
+                                                                   caption="late night practice", seconds=1.6),
+                  shot(visual="screen", screen=2, focus="middle", caption="hear the Southern voice", beat="twist",
+                       seconds=1.8, sfx="ding"),
+                  shot(visual="screen", screen=1, focus="top", caption="then say it", beat="twist", seconds=1.6),
+                  shot(text="Start free", beat="cta", seconds=1.2, sfx="pop")],
+        "voice": "Tell me you're learning Vietnamese without telling me.", "cta": "Start free", "music": "playful"}
+
+
+def check(data, mascot=False):
+    return make_validator(CTX, BY_ID["tell_me_without"], "heritage_learner", "southern_accent", 3,
+                          has_mascot=mascot)(data)
+
+
+def test_a_good_trend_brief():
+    b = check(GOOD)
+    assert isinstance(b, TrendBrief) and len(b.shots) == 9 and b.format == "tell_me_without"
+    assert b.seconds == pytest.approx(sum(s["seconds"] for s in GOOD["shots"]) + END_CARD_SECONDS)
+    assert TrendBrief.from_json(json.loads(json.dumps(b.to_json()))) == b
+
+
+def with_shot(i, **kw):
+    d = json.loads(json.dumps(GOOD))
+    for j in (i if isinstance(i, tuple) else (i,)):
+        d["shots"][j].update(kw)
+    return d
+
+
+@pytest.mark.parametrize("data, error", [
+    (with_shot(1, prompt="A man holding a phone with the app"), "phone"),
+    (with_shot(1, prompt="A street with a big neon sign"), "sign"),
+    (with_shot((6, 7), visual="text", text="Our app"), "twist must show the real app"),
+    (with_shot((6, 7), beat="trend"), "twist must show"),
+    (with_shot(8, beat="trend"), "never back"),
+    (with_shot(0, seconds=3.0), "seconds"),
+    (with_shot(0, visual="mascot"), "no mascot"),
+    (with_shot(6, screen=9), "screen number"),
+    ({**GOOD, "shots": GOOD["shots"][:5]}, "8 to 14"),
+    ({**GOOD, "hook": "Learn Vietnamese in 10 minutes"}, "number"),
+    ({**GOOD, "voice": "Rival Lingo can't do this."}, "competitor"),
+])
+def test_bad_trend_briefs_are_refused(data, error):
+    with pytest.raises(Invalid, match=error):
+        check(data)
+
+
+def test_the_trend_must_be_most_of_the_video():
+    d = json.loads(json.dumps(GOOD))
+    for s in d["shots"][3:6]:
+        s["beat"] = "twist"
+    with pytest.raises(Invalid, match="trend is only"):
+        check(d)
+
+
+def test_mascot_shots_are_allowed_when_the_app_has_one():
+    assert check(with_shot(0, visual="mascot"), mascot=True).shots[0].visual == "mascot"
+
+
+def test_props_keep_shot_lengths_and_stretch_for_a_long_voice():
+    b = check(GOOD)
+    imgs = {i: f"shot_{i}.jpg" for i, s in enumerate(b.shots) if s.visual != "text"}
+    p = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images=imgs, icon=None,
+                    rating=None, rating_count=None, audio=None, sfx={"whoosh": "sfx_whoosh.mp3"})
+    assert [s["durationInFrames"] for s in p["shots"]] == [round(s.seconds * FPS) for s in b.shots]
+    assert p["shots"][2]["sfx"] == "none"  # record_scratch was not generated: no dangling sound
+    assert p["durationInFrames"] == sum(s["durationInFrames"] for s in p["shots"]) + round(END_CARD_SECONDS * FPS)
+    from whynot.audio.captions import Word
+    long = Audio(voice_mp3=__file__, words=[Word("w", 0, 20.0)])
+    assert sum(shot_frames(b, 20.0)) >= (20.0 + 0.5) * FPS
+    p2 = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images=imgs, icon=None,
+                     rating=None, rating_count=None, audio=long, sfx={})
+    assert p2["voice"]["src"] == "voice.mp3"
+    with pytest.raises(ValueError, match="shot 2"):
+        build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images={}, icon=None,
+                    rating=None, rating_count=None, audio=None, sfx={})
+
+
+class Sam:
+    """Fake SAM: answers with boxes in the probe frame, counts calls."""
+
+    def __init__(self, boxes):
+        self.boxes, self.calls = boxes, 0
+
+    def segment(self, url, concept, *, module):
+        self.calls += 1
+        return NS(text="".join(f"<|box;x1={a};y1={b};x2={c};y2={d};w=800;h=1600|>" for a, b, c, d in
+                               self.boxes.get(concept, [])))
+
+
+def test_cutouts_map_sam_boxes_back_to_original_pixels_and_cache_them(tmp_path):
+    shot_img = Image.new("RGB", (1600, 3200), (200, 50, 50))  # probed at 800x1600: boxes are doubled back
+    sam = Sam({"phone screen": [(100, 300, 700, 1500)], "cartoon mascot": [(0, 1000, 300, 1400), (10, 10, 20, 20)]})
+    found = find(sam, shot_img, "phone screen", tmp_path)
+    assert found[0].box == (200, 600, 1400, 3000)
+    find(sam, shot_img, "phone screen", tmp_path)
+    assert sam.calls == 1  # cached
+    cut = cutouts(sam, [shot_img], tmp_path)
+    assert cut.mascot is not None and cut.mascot.size == (600, 800)  # the big one; the tiny icon is ignored
+    assert cut.screens[0].size == ui_crop(shot_img, (200, 600, 1400, 3000)).size
+    assert MIN_MASCOT_SHARE > (20 * 20) / (800 * 1600)
+
+
+def test_ui_crop_keeps_the_app_pixels():
+    img = Image.new("RGB", (100, 200))
+    for x in range(100):
+        for y in range(200):
+            img.putpixel((x, y), (x, y % 256, 7))
+    crop = ui_crop(img, (10, 20, 90, 180))
+    x0, y0 = 10 + round(80 * 0.035), 20 + round(160 * 0.035 * 0.6)
+    assert crop.getpixel((0, 0)) == img.getpixel((x0, y0)) and crop.getpixel((5, 9)) == img.getpixel((x0 + 5, y0 + 9))
+
+
+def test_no_mascot_when_sam_finds_none(tmp_path):
+    cut = cutouts(Sam({"phone screen": [(0, 0, 800, 1600)]}), [Image.new("RGB", (800, 1600))], tmp_path)
+    assert cut.mascot is None and cut.screens[0].size[0] < 800
+
+
+def test_trend_dataclass_roundtrip_keeps_optional_fields():
+    b = check(GOOD)
+    s = replace(b.shots[6], focus="bottom")
+    assert s.focus == "bottom" and s.screen == 2
