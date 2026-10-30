@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 echo "== lint (ruff)";   uv run ruff check
 echo "== types (mypy)";  uv run mypy
 echo "== tests + coverage (pytest, no network)"
-uv run pytest -q --cov --cov-report=term
+uv run pytest -q -n auto --cov --cov-report=term  # parallel: ~25 s instead of ~95 s
 if [ -d web/node_modules ]; then
   echo "== web: types + tests"
   (cd web && npm run -s typecheck && npm test --silent)

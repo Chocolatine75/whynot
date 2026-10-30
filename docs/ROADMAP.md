@@ -102,7 +102,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [x] **E0-4** `whynot costs` report (A) — *Oct 30: `uv run whynot costs --since 2026-10-29`.*
   - *Done when:* totals by day, module, model and run, plus remaining budget vs the $60 cap.
   - *Tests:* unit on a recorded log.
-- [ ] **E0-5** Fast CI (both)
+- [ ] **E0-5** Fast CI (both) — *Oct 30: `pytest -n auto` in `check.sh` (Python tests 96 s → 25 s locally, 3 runs green); replay tests run in CI; `live` skipped. Left: visual tests (lane B), CI time measured on GitHub.*
   - *Done when:* Python tests in parallel (`pytest -n auto`); CI < 4 min; replay and visual tests in CI; `live` and `eval` never run in CI.
   - *Tests:* the CI run itself.
 - [ ] **E0-6** Mutation testing on the critical modules (A)

@@ -5,7 +5,7 @@ How the code is organised, the rules every change follows, and what "done" means
 ## One command
 
 ```bash
-./scripts/check.sh      # lint (ruff) + types (mypy) + tests with coverage (pytest); CI runs exactly this
+./scripts/check.sh      # lint (ruff) + types (mypy) + tests with coverage (pytest -n auto); CI runs exactly this
 ```
 
 CI (`.github/workflows/ci.yml`) runs it on every push to `master` and on every pull request. A red CI blocks the merge.
