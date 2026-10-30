@@ -183,31 +183,34 @@ class ModelClient:
         if self.cassette.replaying:  # never the network, never the budget: the answer was paid for once
             rec = self.cassette.load(key, model=model, module=module)
             event = self._record(CostEvent(module=module, model=model, usd=0.0, source="cassette"))
-            text, finish, output_tokens, reasoning = rec.text, rec.finish_reason, rec.output_tokens, \
-                rec.reasoning_tokens
         else:
             self._check_budget()
-            raw = client().chat.completions.create(model=model, messages=messages, **kwargs)  # type: ignore[arg-type]
-            input_tokens, cached, output_tokens, reasoning = _usage_tokens(raw.usage)
-            event = self._record(CostEvent(
-                module=module, model=model,
-                usd=token_cost(model, input_tokens, cached, output_tokens),
-                input_tokens=input_tokens, cached_tokens=cached, output_tokens=output_tokens,
-                reasoning_tokens=reasoning,
-            ))
-            if not raw.choices:
-                raise RuntimeError(f"{model} returned no choices")
-            choice = raw.choices[0]
-            text = choice.message.content or ""
-            finish = getattr(choice, "finish_reason", None)
+            rec, event, raw = self._call_api(client(), model, messages, module, **kwargs)
             if self.cassette.recording:
-                self.cassette.put(key, Recording(model, module, text, finish, input_tokens, cached, output_tokens,
-                                                 reasoning))
-        if finish == "length" and not text.strip():
+                self.cassette.put(key, rec)
+        if rec.finish_reason == "length" and not rec.text.strip():
             raise TruncatedOutput(
-                f"{model} used all {output_tokens} output tokens ({reasoning} reasoning) before answering; "
-                "raise max_tokens")
-        return ChatResult(text=text, cost=event, raw=raw, finish_reason=finish)
+                f"{model} used all {rec.output_tokens} output tokens ({rec.reasoning_tokens} reasoning) before "
+                "answering; raise max_tokens")
+        return ChatResult(text=rec.text, cost=event, raw=raw, finish_reason=rec.finish_reason)
+
+    def _call_api(self, client: OpenAI, model: str, messages: list[dict], module: str,
+                  **kwargs) -> tuple[Recording, CostEvent, Any]:
+        """One billed chat call: the answer, its logged cost, and the SDK response."""
+        response = client.chat.completions.create(model=model, messages=messages, **kwargs)  # type: ignore[arg-type]
+        input_tokens, cached, output_tokens, reasoning = _usage_tokens(response.usage)
+        event = self._record(CostEvent(
+            module=module, model=model,
+            usd=token_cost(model, input_tokens, cached, output_tokens),
+            input_tokens=input_tokens, cached_tokens=cached, output_tokens=output_tokens,
+            reasoning_tokens=reasoning,
+        ))
+        if not response.choices:
+            raise RuntimeError(f"{model} returned no choices")
+        choice = response.choices[0]
+        rec = Recording(model, module, choice.message.content or "", getattr(choice, "finish_reason", None),
+                        input_tokens, cached, output_tokens, reasoning)
+        return rec, event, response
 
     # --- images ------------------------------------------------------------
 

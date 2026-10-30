@@ -120,16 +120,16 @@ def r(feed, ad_id, preferred, position=1, persona="p"):
 def test_effect_and_flag_rules():
     rs = [r(f"F{i}", "x" + TREATED, True) for i in range(30)] + [r(f"G{i}", "x" + CONTROL, True) for i in range(10)]
     result = twin_effect("t", rs, threshold=0.1, alpha=0.05)
-    assert result.effect == pytest.approx(0.25) and result.flagged and result.twin_picks == 40
+    assert result.effect == pytest.approx(0.25) and result.flagged and result.picks == 40
     small = twin_effect("t", rs[:3] + rs[-1:], threshold=0.1, alpha=0.05)  # 3 vs 1: large but could be luck
     assert small.effect == pytest.approx(0.25) and not small.flagged
     nothing = twin_effect("t", [r("F0", "filler", True)], threshold=0.1, alpha=0.05)
-    assert nothing.twin_picks == 0 and not nothing.flagged
+    assert nothing.picks == 0 and not nothing.flagged
 
 
 def test_position_ignores_feeds_of_another_size():
     four = [r("F0", f"a{i}", i == 0, position=i) for i in range(4)]
     three = [r("F1", f"b{i}", i == 0, position=i) for i in range(3)]
     result = position_effect(four + three, 4)
-    assert result.twin_picks == 1 and result.effect == pytest.approx(0.75)
-    assert position_effect([], 4).twin_picks == 0
+    assert result.picks == 1 and result.effect == pytest.approx(0.75)
+    assert position_effect([], 4).picks == 0

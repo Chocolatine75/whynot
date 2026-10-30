@@ -62,7 +62,7 @@ def main() -> int:
                        feeds_per_item=args.feeds_per_item, viewers_per_feed=args.viewers_per_feed)
     for c in result.checks:
         print(f"  {'FLAG' if c.flagged else 'ok':>4}  {c.name:<12} effect {c.effect:+.2f}  p={c.p:.3f}  "
-              f"({c.twin_picks} picks)")
+              f"({c.picks} picks)")
     print(f"spent ${result.usd:.3f} · {result.failures} failed viewers · SIMULATED")
     out = REPO_ROOT / "outputs" / "experiments" / f"bias-{args.run.name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)

@@ -94,7 +94,7 @@ class CheckResult:
     name: str
     effect: float  # treated share of twin picks − 0.5
     p: float
-    twin_picks: int  # views where the viewer picked one of the twins
+    picks: int  # picks counted: of one of the twins (twin checks), of any ad (position)
     views: int
     threshold: float
     alpha: float

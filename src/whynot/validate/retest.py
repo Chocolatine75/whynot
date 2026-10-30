@@ -20,6 +20,7 @@ the two runs is noise, so it sets the smallest difference we may call real:
 All numbers are SIMULATED.
 """
 
+import copy
 import math
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -94,7 +95,7 @@ def retest(viewer: Viewer, personas: list[Persona], feeds: list[Feed], *, viewer
     """Run the feeds again with a fresh draw (and the first time too unless `first` is given), then compare."""
     if first is None:
         first = run_simulation(viewer, personas, feeds, viewers_per_feed=viewers_per_feed)
-    again = Viewer(viewer.client, max_tokens=viewer.max_tokens, retries=viewer.retries,
-                   reasoning_effort=viewer.reasoning_effort, cache=viewer.cache, draw=viewer.draw + 1)
+    again = copy.copy(viewer)  # same model, prompt settings and cache...
+    again.draw = viewer.draw + 1  # ...but a fresh answer, never the cached first one
     second = run_simulation(again, personas, feeds, viewers_per_feed=viewers_per_feed)
     return compare(first.reactions, second.reactions, usd=first.usd + second.usd, **kwargs)
