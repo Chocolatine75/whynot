@@ -29,7 +29,10 @@ from whynot.agents import archetypes, brief
 from whynot.agents.deconstruct import DeconstructionStore, deconstruct_all
 from whynot.agents.director import Context
 from whynot.agents.strategist import Strategy
+from whynot.audio.captions import MAX_WORD_ERROR_RATE, to_wav16k, word_error_rate, words
+from whynot.audio.elevenlabs import DEFAULT_VOICE, ElevenLabs
 from whynot.config import REPO_ROOT
+from whynot.create import remotion
 from whynot.create.locale import LANGUAGES, language_groups
 from whynot.create.video import Assets, Look, render
 from whynot.ingest.adlibrary import CompetitorAd, load_jsonl
@@ -47,6 +50,38 @@ class VideoConfig:
     n_videos: int = 3
     model: str = "muse-spark-1.3"
     capture: bool = True  # capture missing competitor creatives with a headless browser
+    renderer: str = "remotion"  # remotion (voice, captions, music) | builtin (silent, no Node needed)
+
+
+def soundtrack(voice: ElevenLabs, model: Any, b: brief.VideoBrief, language: str,
+               voice_id: str | None) -> tuple[remotion.Audio | None, dict[str, Any]]:
+    """Voice-over + music for a brief, and the voice guard's verdict.
+
+    The guard: Muse Voice Transcribe listens to the voice; if what it hears differs from the checked script
+    by more than `MAX_WORD_ERROR_RATE`, the voice is generated once more with another seed, then dropped
+    (the video keeps its music and on-screen text). If the guard can't run, that is recorded, not hidden."""
+    guard: dict[str, Any] = {"script": b.narration}
+    chosen = None
+    for seed in (7, 8):
+        v = voice.voice(b.narration, voice_id=voice_id or DEFAULT_VOICE, seed=seed)
+        try:
+            heard = model.transcribe(to_wav16k(v.mp3), module="voice_guard", languages=[language])
+        except Exception as exc:  # the guard failing is reported; the voice is kept, flagged unchecked
+            guard.update(checked=False, error=f"{type(exc).__name__}: {exc}"[:200])
+            chosen = v
+            break
+        wer = word_error_rate(b.narration, heard)
+        guard.update(checked=True, heard=heard, word_error_rate=round(wer, 3), seed=seed)
+        if wer <= MAX_WORD_ERROR_RATE:
+            chosen = v
+            break
+    if chosen is None:
+        guard["dropped"] = True
+    seconds = sum(s.seconds for s in b.scenes) + brief.END_CARD_SECONDS + 3
+    music = voice.music(b.music, seconds)
+    if chosen is None:
+        return remotion.Audio(music_mp3=music), guard
+    return remotion.Audio(chosen.mp3, words(chosen.characters, chosen.starts, chosen.ends), music), guard
 
 
 def scene_image(model: ModelClient, prompt: str, folder: Path) -> Image.Image:
@@ -67,8 +102,9 @@ def _as_of(ads: list[CompetitorAd]) -> date:
 
 
 def make_videos(run_dir: Path, model: ModelClient, *, token: str = "", cfg: VideoConfig | None = None,
-                renderer_factory: Callable[[], Renderer] | None = None,
-                say: Callable[[str], None] = print) -> dict[str, Any]:
+                renderer_factory: Callable[[], Renderer] | None = None, voice: ElevenLabs | None = None,
+                voice_id: str | None = None, say: Callable[[str], None] = print) -> dict[str, Any]:
+    """`voice`: an ElevenLabs client for voice-over + music (None: silent videos)."""
     cfg = cfg or VideoConfig()
     run_dir = Path(run_dir)
     out = run_dir / "videos"
@@ -142,15 +178,28 @@ def make_videos(run_dir: Path, model: ModelClient, *, token: str = "", cfg: Vide
                              rating_count=app.get("rating_count"))
     screen_images: list[Image.Image] = [Image.open(p) for p in shots]
     videos = []
+    use_remotion = cfg.renderer == "remotion" and remotion.available()
+    if cfg.renderer == "remotion" and not use_remotion:
+        say("  (Remotion not installed: `cd video && npm install`; rendering with the built-in renderer)")
+    icon = Image.open(run_dir / "assets" / "icon.png")
     for n, p in enumerate(picks.value, 1):
         try:
             b = brief.write_brief(model, ctx, p, by_key[p.archetype], screens, model=cfg.model).value
             scenes = {i: scene_image(model, s.prompt or "", CACHE / "scenes")
                       for i, s in enumerate(b.scenes) if s.kind == "scene"}
             name = f"{n}-{b.id}"  # two briefs may pick the same id: never overwrite a video
-            facts = render(b, look, Assets(screen_images, scenes), out / f"{name}.mp4")
-            videos.append({"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg"})
-            say(f"  ✓ {name}: {facts['seconds']} s — \"{b.hook}\"")
+            sound, guard = (soundtrack(voice, model, b, ctx.language, voice_id) if voice and use_remotion
+                            else (None, {"skipped": "no voice client" if not voice else "built-in renderer"}))
+            if use_remotion:
+                facts = remotion.render(b, out / f"{name}.mp4", palette=brand["palette"], app_name=look.app_name,
+                                        screens=screen_images, scenes=scenes, icon=icon, rating=app.get("rating"),
+                                        rating_count=app.get("rating_count"), audio=sound)
+            else:
+                facts = render(b, look, Assets(screen_images, scenes), out / f"{name}.mp4")
+            videos.append({"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg",
+                           "voice_guard": guard})
+            say(f"  ✓ {name}: {facts['seconds']} s — \"{b.hook}\"" + (" · voice + captions + music"
+                                                                     if facts.get("voice") else ""))
         except Exception as exc:  # one failed brief must not lose the others
             report["failures"].setdefault("videos", {})[p.archetype] = f"{type(exc).__name__}: {exc}"[:400]
             say(f"  ✗ {p.archetype}: {exc}")

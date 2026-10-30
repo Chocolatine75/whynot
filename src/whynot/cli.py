@@ -118,9 +118,17 @@ def _video(args: argparse.Namespace) -> int:
         except ImportError:  # pragma: no cover - optional dependency group
             print("  (capture skipped: run with `uv run --group capture` to fetch competitor creatives)")
     model = ModelClient(settings, budget_usd=args.budget_usd)
+    voice = None
+    if settings.elevenlabs_api_key and not args.silent:
+        from whynot.agency.video import CACHE
+        from whynot.audio.elevenlabs import ElevenLabs
+        voice = ElevenLabs(settings.elevenlabs_api_key, CACHE / "audio")
+    elif not args.silent:
+        print("  (no ELEVENLABS_API_KEY in .env: videos without voice-over or music)")
     try:
         report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
-                             cfg=VideoConfig(n_videos=args.n))
+                             voice=voice, voice_id=settings.elevenlabs_voice_id,
+                             cfg=VideoConfig(n_videos=args.n, renderer=args.renderer))
     except BudgetExceeded as exc:
         print(f"✗ {exc}", file=sys.stderr)
         return 1
@@ -165,6 +173,9 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("-n", type=int, default=3, help="number of videos (one per archetype)")
     v.add_argument("--budget-usd", type=float, default=2.0, help="hard cap on model spend for this command")
     v.add_argument("--no-capture", action="store_true", help="use only competitor creatives already captured")
+    v.add_argument("--renderer", choices=["remotion", "builtin"], default="remotion",
+                   help="remotion: voice, captions, music (needs `cd video && npm install`); builtin: silent")
+    v.add_argument("--silent", action="store_true", help="no voice-over or music")
     v.set_defaults(func=_video)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")

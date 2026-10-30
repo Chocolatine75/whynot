@@ -17,6 +17,7 @@ from whynot.agents.strategist import make_validator as strategy_validator
 from whynot.ingest.adlibrary import CompetitorAd, save_jsonl
 from whynot.ingest.creatives import CreativeStore, Media, Snapshot
 
+BUILTIN = agency_video.VideoConfig(renderer="builtin")
 STRATEGY = strategy_validator(Sources.build(APP, ADS), COUNTRIES)(strategy_json())
 TODAY = date(2026, 10, 30)
 PITCHES = ["transformation", "transformation", "curiosity", "curiosity", "social_proof", "social_proof"]
@@ -101,7 +102,8 @@ def test_video_pipeline_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr("whynot.ingest.creatives.httpx.Client",
                         lambda **kw: NS(get=lambda url: NS(content=png((10, 10, 10)), raise_for_status=lambda: None)))
     run, world = make_run(tmp_path), World()
-    report = agency_video.make_videos(run, world, token="EAAtoken", renderer_factory=Browser, say=lambda s: None)
+    report = agency_video.make_videos(run, world, token="EAAtoken", renderer_factory=Browser, say=lambda s: None,
+                                      cfg=BUILTIN)
     assert len(report["videos"]) == 3 and not report["failures"].get("videos")
     assert len({v["file"]["path"] for v in report["videos"]}) == 3  # same brief id, three files
     assert {p["archetype"] for p in report["picks"]} == {f"{p}:app_screen" for p in set(PITCHES)}
@@ -115,7 +117,7 @@ def test_video_pipeline_end_to_end(tmp_path, monkeypatch):
 
     # a second run reuses captures, deconstructions, screen descriptions and scene images
     again = World()
-    agency_video.make_videos(run, again, renderer_factory=Browser, say=lambda s: None)
+    agency_video.make_videos(run, again, renderer_factory=Browser, say=lambda s: None, cfg=BUILTIN)
     assert "deconstruct" not in again.calls and "scenes" not in again.calls
     assert again.calls.count("brief") == 3  # only the briefs are written again
 
@@ -125,5 +127,5 @@ def test_one_failed_brief_does_not_lose_the_others(tmp_path, monkeypatch):
     monkeypatch.setattr("whynot.ingest.creatives.httpx.Client",
                         lambda **kw: NS(get=lambda url: NS(content=png((10, 10, 10)), raise_for_status=lambda: None)))
     report = agency_video.make_videos(make_run(tmp_path), World(broken_brief=True), renderer_factory=Browser,
-                                      say=lambda s: None)
+                                      say=lambda s: None, cfg=BUILTIN)
     assert len(report["videos"]) == 2 and list(report["failures"]["videos"]) == ["curiosity:app_screen"]
