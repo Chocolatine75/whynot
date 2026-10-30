@@ -1,0 +1,11 @@
+{
+ "key": "062cb2e74b0b8b55b97373617b7ddb85",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"says best game 2026 but looks like some cheap mobile clone, just another ad for a pay to win game\", \"intent\": \"wouldn't click, not downloading that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird AI looking girl and vague feel better waffle, no clue what it actually is and feels like scammy wellness app\", \"intent\": \"no way I'd click that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and about bible prophets, not my language and not into religious stuff at all\", \"intent\": \"just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a cheap stick-on mirror from a dropship page, probably falls off and doesn't actually fit any car properly\", \"intent\": \"might look for a second cause I drive but wouldn't buy from this ad\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's Temu spam with the code and link, always cheap quality and I hate those ads\", \"intent\": \"definitely not downloading Temu for boots\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2126,
+ "cached_tokens": 256,
+ "output_tokens": 1173,
+ "reasoning_tokens": 787
+}

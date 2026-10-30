@@ -1,0 +1,11 @@
+{
+ "key": "d41fe239f004d3d2867f59f652aba173",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another Temu one shouting about free stuff, looks like clickbait and I don't trust that £0 nonsense\", \"intent\": \"I wouldn't click, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get what it is but £1799 is still a lot and you can't trust a receipt photo from an ad\", \"intent\": \"I might remember the name but I wouldn't click to book anything\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all mixed up Spanish and French and I haven't a clue what it's actually selling\", \"intent\": \"I wouldn't click as I don't know what language it's for or what I'd be signing up to\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian so I have no idea what they're trying to tell me\", \"intent\": \"I definitely wouldn't click as it's not even in English\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a phone gadget but I don't need another bit of tat and Temu puts me off\", \"intent\": \"I wouldn't click, I have no use for a selfie grip\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1567,
+ "cached_tokens": 128,
+ "output_tokens": 841,
+ "reasoning_tokens": 446
+}

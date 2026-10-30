@@ -1,0 +1,11 @@
+{
+ "key": "f7cc4d46d3612249e02282ba9987659e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está todo en tailandés y la imagen borrosa con una oveja no me dice nada, no es para mí\", \"intent\": \"No haría clic porque no entiendo nada y no necesito editor de Reels\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No me interesa para nada este rollo de historias BoyxBoy gay, no es mi público\", \"intent\": \"Paso de largo, no voy a hacer clic en esto\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Es una tontería para el móvil de iconos de batería, no voy a pagar por eso\", \"intent\": \"Quizás lo miraría por curiosidad pero no lo instalaría\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Anuncio en tailandés y japonés para aprender tailandés, no tiene sentido para mí en España\", \"intent\": \"No pienso hacer clic porque no quiero aprender tailandés\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No necesito aprender japonés y ya hay mil apps de idiomas, paso\", \"intent\": \"No lo descargaría, no me interesa\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1669,
+ "cached_tokens": 256,
+ "output_tokens": 574,
+ "reasoning_tokens": 178
+}

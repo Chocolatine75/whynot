@@ -1,0 +1,11 @@
+{
+ "key": "61b6983f56fa0cfc92a79df8567dc9ff",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 5, \"why\": \"Creative clearly demonstrates the leveled reading product with audio-highlighting but the primary text is generic AI-like motivation with spammy emojis and weak CTA, typical of average-performing education ads that get tested but rarely become long-term evergreen winners.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 562,
+ "cached_tokens": 128,
+ "output_tokens": 443,
+ "reasoning_tokens": 374
+}

@@ -1,0 +1,11 @@
+{
+ "key": "4e30360d16b7ef2b47427c3815523f31",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a student looking for tutoring work, and the £30 an hour claim feels like overpromising.\", \"intent\": \"I wouldn't click as it's not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't understand what the robot has to do with learning a language and it looks like AI nonsense.\", \"intent\": \"I might have looked but the weird image puts me off clicking.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Dating apps like this are always full of fake profiles and I don't trust them.\", \"intent\": \"I paused for a second but I wouldn't click or sign up.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks creepy and a bit seedy with that AI woman on a train, not for me at all.\", \"intent\": \"I scrolled straight past and definitely wouldn't click.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's mostly in Thai so I can't read it and I don't need English lessons.\", \"intent\": \"No reason to click as it's not aimed at me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1763,
+ "cached_tokens": 128,
+ "output_tokens": 748,
+ "reasoning_tokens": 368
+}

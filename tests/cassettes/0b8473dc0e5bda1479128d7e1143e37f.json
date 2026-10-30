@@ -1,0 +1,11 @@
+{
+ "key": "0b8473dc0e5bda1479128d7e1143e37f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"c'est encore une pub pour chatbot IA sexy avec un perso anime, ça fait un peu creepy et pas du tout pour moi\", \"intent\": \"Je ne cliquerais pas, je n'ai pas besoin d'une copine virtuelle.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"le texte est en français mais l'image fait trop fausse générée par IA et c'est une appli pour coiffure de femme, ça ne me concerne pas\", \"intent\": \"Je passerais mon chemin, aucun intérêt pour moi.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"encore Tipsy, pub un peu trash avec le côté fantasme addictif, ça me met mal à l'aise et ça donne pas confiance\", \"intent\": \"Je zapperais direct sans cliquer.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"je n'ai pas prévu d'apprendre le japonais et le mec avec son micro a l'air d'une pub TikTok bidon\", \"intent\": \"Je ne téléchargerais pas l'app.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est tout en grec je comprends rien, ça a l'air d'être pour apprendre l'anglais mais je suis en France\", \"intent\": \"Je scrollerais sans même essayer de traduire.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 0,
+ "output_tokens": 673,
+ "reasoning_tokens": 243
+}

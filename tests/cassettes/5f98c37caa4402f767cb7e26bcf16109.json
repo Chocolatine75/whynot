@@ -1,0 +1,11 @@
+{
+ "key": "5f98c37caa4402f767cb7e26bcf16109",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I don't really understand it and becoming an AI expert in 28 days with 15 minutes a day sounds like a scam\", \"intent\": \"I would not click at all, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in dating apps and I just scroll past these\", \"intent\": \"I would not click, I don't need it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo already but I'm not looking to order anything right now\", \"intent\": \"I would not click now, maybe another time if I need delivery\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same as before, just another Deliveroo ad, nothing new to make me order\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Italian so I don't understand it and I don't trust these wellness app ads\", \"intent\": \"I would not click, language not for me and not interested\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 648,
+ "cached_tokens": 0,
+ "output_tokens": 850,
+ "reasoning_tokens": 472
+}

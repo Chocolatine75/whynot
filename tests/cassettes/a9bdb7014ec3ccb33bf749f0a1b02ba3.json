@@ -1,0 +1,11 @@
+{
+ "key": "a9bdb7014ec3ccb33bf749f0a1b02ba3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton stuff is overpriced and I'm not paying for another subscription fitness app\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero need to learn Khmer, completely irrelevant to me\", \"intent\": \"No chance I'd download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a cheap dropship ad and I don't trust the seller name\", \"intent\": \"Might have a quick look but probably wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Heard Deliveroo pay is terrible and wear and tear on your bike isn't worth it\", \"intent\": \"Not clicking, not looking for a gig like that right now\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not my genre at all, cheesy YA romance isn't for me\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 736,
+ "cached_tokens": 0,
+ "output_tokens": 661,
+ "reasoning_tokens": 309
+}

@@ -1,0 +1,11 @@
+{
+ "key": "145efdc854272da3d2a6df1e68b62234",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese so I have no idea what it's really offering and free trial without a card sounds dodgy\", \"intent\": \"I would definitely not click, it's not for me and looks a bit scammy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm always wary of these online mental health quizzes that claim to fix everything, feels a bit gimmicky\", \"intent\": \"I might have a quick look but I wouldn't pay for it without knowing more\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I can't afford a Peloton even on finance and I don't have the space for one\", \"intent\": \"I wouldn't click, it's just too expensive for me right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is for businesses importing lights, nothing to do with me at all\", \"intent\": \"I would just scroll straight past, totally irrelevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job so it's of no use to me\", \"intent\": \"I wouldn't click as I'm not job hunting\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 710,
+ "cached_tokens": 0,
+ "output_tokens": 695,
+ "reasoning_tokens": 310
+}

@@ -1,0 +1,11 @@
+{
+ "key": "0e974944c627ea3a9ffbe6b79d51fa2f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Title is keyword-stuffed SEO spam and the primary text is generic discount bait with no product benefit, hook, or credibility, leading to very low CTR and relevance scores.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 310,
+ "cached_tokens": 128,
+ "output_tokens": 204,
+ "reasoning_tokens": 148
+}

@@ -1,0 +1,11 @@
+{
+ "key": "4bc1c54e50460942d2db5bb4928f4b82",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not my thing at all, I don't sew and don't need craft stuff\", \"intent\": \"would not click or buy, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and dramatic, looks like a classic scam health miracle patch trying to scare diabetics\", \"intent\": \"would not click, definitely not buying a medical patch from a Facebook ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy, why show me UK teeth offer in pounds, useless targeting\", \"intent\": \"would not click, not relevant and don't trust this kind of clinics\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what this is, some fantasy story ad, not interested in these cheap games\", \"intent\": \"would not click, looks like spammy novel game ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"text is in Chinese/Japanese characters, no clue what it says and I don't need another video editor\", \"intent\": \"would keep scrolling, not going to click something I can't read\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3135,
+ "cached_tokens": 0,
+ "output_tokens": 577,
+ "reasoning_tokens": 196
+}

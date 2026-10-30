@@ -1,0 +1,11 @@
+{
+ "key": "6e4f2d08d5c2da50dea6444c2f897f6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image of a woman in the rain has nothing to do with an app called Cleanup, looks like random fake ad, I'm not downloading that\", \"intent\": \"I would not click or buy, looks like scammy app ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get it's a foldable fan but I don't need it right now and these TikTok gadgets are usually cheap crap that breaks\", \"intent\": \"I might watch the video for a sec but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly some cringe werewolf romance novel ad for women, totally not for me\", \"intent\": \"I would keep scrolling immediately, no interest at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another AI spam app that wants my photos and then charges me, plus dancing baby videos are stupid\", \"intent\": \"No way I would click this, I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish and I'm in Spain, and it's Temu which I don't trust, aggressive sale nonsense\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1861,
+ "cached_tokens": 0,
+ "output_tokens": 632,
+ "reasoning_tokens": 235
+}

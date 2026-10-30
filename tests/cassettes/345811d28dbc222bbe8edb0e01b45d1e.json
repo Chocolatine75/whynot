@@ -1,0 +1,11 @@
+{
+ "key": "345811d28dbc222bbe8edb0e01b45d1e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another generic mental health app promising to fix everything with a 3 min quiz, looks like scammy subscription\", \"intent\": \"would not click, I just scroll past these self-care ads\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and I don't speak French, plus I don't need an AI language app right now\", \"intent\": \"would not click because I didn't even understand it properly\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"glowing valve caps look cheap and gimmicky, probably break in a week and I don't trust random dropship stuff\", \"intent\": \"might laugh but would not buy or click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in Spanish or English so I have no idea what it's really saying and I'm not looking for English lessons\", \"intent\": \"would just keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a toddler and Temu ads are always low quality spam anyway\", \"intent\": \"would not click, not relevant to me at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 931,
+ "cached_tokens": 128,
+ "output_tokens": 691,
+ "reasoning_tokens": 309
+}

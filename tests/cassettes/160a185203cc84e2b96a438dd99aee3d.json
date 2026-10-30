@@ -1,0 +1,11 @@
+{
+ "key": "160a185203cc84e2b96a438dd99aee3d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"just a random mobile game ad, I don't play survival games and it looks cheap\",\"intent\":\"I kept scrolling, not interested at all\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"I'm not really religious and I don't trust these paid Christian guides, feels like they just want my email to sell more\",\"intent\":\"I didn't click, not for me\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"I know these AI dance videos, it's always low quality and then they ask for a subscription\",\"intent\":\"I scrolled past immediately\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"it was in French so I read it but it felt very long and pushy with all the checkmarks, and I don't want to pay for something I can find for free\",\"intent\":\"I paused a second but didn't click to learn more\",\"intent_score\":2},{\"ad\":\"A5\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"way too long story for a miracle patch, the whole doctor and sister-in-law story feels made up and I don't trust health products sold like this on Facebook\",\"intent\":\"I started reading then realized it was an ad and definitely wouldn't buy\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6449,
+ "cached_tokens": 0,
+ "output_tokens": 696,
+ "reasoning_tokens": 350
+}

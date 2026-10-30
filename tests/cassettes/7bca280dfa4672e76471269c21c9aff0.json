@@ -1,0 +1,11 @@
+{
+ "key": "7bca280dfa4672e76471269c21c9aff0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English, looks like Czech or something, instant scroll past\", \"intent\": \"Wouldn't click, not for me and I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and it's super long religious stuff, not relevant to me at all\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton bikes are way too expensive and I don't have space, 30 day trial sounds like hassle to return\", \"intent\": \"Might have a quick look but definitely not buying\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like dodgy Temu spam, don't trust it and that £0 offer is clearly clickbait\", \"intent\": \"Would keep scrolling, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and it's another one of those AI get rich quick courses, seems scammy\", \"intent\": \"No chance I'd click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1157,
+ "cached_tokens": 0,
+ "output_tokens": 660,
+ "reasoning_tokens": 294
+}

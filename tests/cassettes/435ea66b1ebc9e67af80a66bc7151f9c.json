@@ -1,0 +1,11 @@
+{
+ "key": "435ea66b1ebc9e67af80a66bc7151f9c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a wholesale B2B ad for women's handbags, I've got zero use for it and it's not even aimed at me\", \"intent\": \"No chance I'd click or buy, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and dramatic, classic scary health scam story trying to sell patches, I'm 30 and don't have neuropathy and I don't trust random nurse stories flogging stuff\", \"intent\": \"Definitely not clicking, just scrolled past after seeing how long it was\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't know what the drink is, looks like some Chinese herbal tea, not interested and never heard of Joybuy\", \"intent\": \"Wouldn't click or buy, maybe paused half a second on the price then kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about astrology chats, not relevant to me at all and I don't believe in that stuff\", \"intent\": \"No interest in clicking or buying\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew and don't need a sewing kit, ad is clearly for older women or crafty people, not me\", \"intent\": \"Wouldn't click or buy, scrolled straight past\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9463,
+ "cached_tokens": 256,
+ "output_tokens": 596,
+ "reasoning_tokens": 174
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9e981082407ed64c8f7cca84788f447b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic spammy copy with a confusing/misleading 'get £0' claim plus low-quality clickbait UGC will drive cheap clicks but poor conversion, negative feedback and policy risk, so it burns out fast and never becomes an evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 463,
+ "cached_tokens": 128,
+ "output_tokens": 447,
+ "reasoning_tokens": 375
+}

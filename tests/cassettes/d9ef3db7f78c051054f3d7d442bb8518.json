@@ -1,0 +1,11 @@
+{
+ "key": "d9ef3db7f78c051054f3d7d442bb8518",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic spammy copy with search-code CTA and hashtag stuffing paired with a cluttered, niche UGC display-cab image lacks a clear product hook, benefit, or targeting to sustain CTR/ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 470,
+ "cached_tokens": 128,
+ "output_tokens": 310,
+ "reasoning_tokens": 245
+}

@@ -144,8 +144,8 @@ def capture(ads: Iterable[CompetitorAd], store: CreativeStore, *, token: str, re
             response = http.get(media.url)
             response.raise_for_status()
             jpeg, w, h = shrink(response.content, max_side)
-            info = Captured("video" if media.poster or snap.has_video else "image", w, h, hashlib.sha256(jpeg).hexdigest(),
-                            urlsplit(media.url).hostname or "")
+            kind = "video" if media.poster or snap.has_video else "image"
+            info = Captured(kind, w, h, hashlib.sha256(jpeg).hexdigest(), urlsplit(media.url).hostname or "")
             store.put(ad.id, jpeg, info)
             report.captured[ad.id] = info
         except Exception as exc:  # one bad page must not stop a capture of hundreds

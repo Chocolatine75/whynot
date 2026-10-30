@@ -1,0 +1,11 @@
+{
+ "key": "a44d7aa8f92bef2682dca093e91d6d4a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Irresistible low-friction offer + challenge hook in native Hinglish with broad mass-market appeal makes this a classic high-CTR, low-CAC control creative for Astrotalk.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 278,
+ "cached_tokens": 128,
+ "output_tokens": 239,
+ "reasoning_tokens": 181
+}

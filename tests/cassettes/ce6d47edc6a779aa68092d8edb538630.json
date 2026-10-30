@@ -1,0 +1,11 @@
+{
+ "key": "ce6d47edc6a779aa68092d8edb538630",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't need to learn Thai and it's just a generic language app ad, got no reason to download it\", \"intent\": \"would just scroll past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks cool with the fireworks but it's just a gimmicky birthday card and probably overpriced plus the reviews look fake\", \"intent\": \"might watch the clip for a sec but wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same Ling app as before just Japanese this time, not trying to learn a language rn\", \"intent\": \"would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and about learning English which I already speak so totally irrelevant\", \"intent\": \"would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a thirst trap ad for an AI girlfriend chat thing, seems a bit cringe and probably a scam to get money\", \"intent\": \"definitely wouldn't click or use the code\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 128,
+ "output_tokens": 576,
+ "reasoning_tokens": 200
+}

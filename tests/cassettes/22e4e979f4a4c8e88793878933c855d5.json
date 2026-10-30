@@ -1,0 +1,11 @@
+{
+ "key": "22e4e979f4a4c8e88793878933c855d5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-ticket dropship gadget with fake urgency, scammy domain/name, and unpolished copy drives cheap impulse clicks but lacks trust, margin, and differentiation to sustain profitable scaling for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 649,
+ "cached_tokens": 128,
+ "output_tokens": 402,
+ "reasoning_tokens": 341
+}

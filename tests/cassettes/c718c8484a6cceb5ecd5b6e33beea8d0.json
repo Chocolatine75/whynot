@@ -1,0 +1,11 @@
+{
+ "key": "c718c8484a6cceb5ecd5b6e33beea8d0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says sea shells but the photo is a metal piece, makes no sense and Alibaba B2B is not for me\", \"intent\": \"I would just scroll past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's in pounds and I'm in Italy, plus I don't trust these big discounts on teeth aligners, looks like a trick\", \"intent\": \"I might glance but I wouldn't click, not relevant here\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job, it's not for me at all\", \"intent\": \"I would keep scrolling, I don't need this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't want to finance a bike on payments\", \"intent\": \"I wouldn't click, I have no interest in buying one\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title is about printer ink but image is a yellow work jacket, totally confusing and random\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1939,
+ "cached_tokens": 0,
+ "output_tokens": 671,
+ "reasoning_tokens": 293
+}

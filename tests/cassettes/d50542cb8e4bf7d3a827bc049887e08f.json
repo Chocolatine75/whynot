@@ -1,0 +1,11 @@
+{
+ "key": "d50542cb8e4bf7d3a827bc049887e08f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Blurry generic car footage with heavy text overlay and vague trendy-tools claim lacks a clear hook, benefit, or branding and will likely suffer low CTR and high fatigue, making it unlikely to be a long-term evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 443,
+ "cached_tokens": 128,
+ "output_tokens": 263,
+ "reasoning_tokens": 197
+}

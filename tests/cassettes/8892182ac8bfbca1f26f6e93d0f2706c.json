@@ -1,0 +1,11 @@
+{
+ "key": "8892182ac8bfbca1f26f6e93d0f2706c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a business, I don't need to source from China, just a random wooden cabinet\", \"intent\": \"I would keep scrolling, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Cantonese, totally irrelevant for me\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand Russian and I don't trust these fix-your-phone ads\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy, not the UK, and I don't need A-Level tutoring for a child\", \"intent\": \"I would ignore it, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The pasta characters are funny but I doubt an app quiz will fix stress, seems gimmicky\", \"intent\": \"I might pause to look but I wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1901,
+ "cached_tokens": 128,
+ "output_tokens": 661,
+ "reasoning_tokens": 303
+}

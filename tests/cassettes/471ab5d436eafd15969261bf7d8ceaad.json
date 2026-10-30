@@ -1,0 +1,11 @@
+{
+ "key": "471ab5d436eafd15969261bf7d8ceaad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy, offer is UK and I don't need aligners at 52, feels like expensive cosmetic stuff\", \"intent\": \"Would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a random piece of furniture and hashtags, I don't source from factories, total spam to me\", \"intent\": \"Would not click, nothing to do with my life\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer and not going to London for B2B expo, B2B spam\", \"intent\": \"Would not click, not my field\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long sob story to sell patches, looks like classic health scam using fake doctor and miracle cure\", \"intent\": \"Would not click or buy, don't trust these miracle neuropathy patches\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology and ex coming back, I don't believe in this stuff at all\", \"intent\": \"Would not click, not interested in astrology\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7565,
+ "cached_tokens": 0,
+ "output_tokens": 594,
+ "reasoning_tokens": 215
+}

@@ -1,0 +1,11 @@
+{
+ "key": "aca3893c6fedc8aa3aa09ed7a3b5ab48",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need an expensive exercise bike, I have no space for it and the financing stuff just sounds like a trap\", \"intent\": \"I wouldn't click, I'm not in the market for a Peloton at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Astrology chat about my ex sounds like total scam and not relevant to me\", \"intent\": \"I would definitely not click on this astrology ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A toothbrush with a built-in camera is just weird and gimmicky, I don't need that and it looks expensive\", \"intent\": \"I wouldn't click, my normal electric toothbrush is fine\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and this whole Revelation dictionary thing is not for me at all\", \"intent\": \"I would scroll past and never click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like just another generic mobile town-builder ad, probably pay-to-win\", \"intent\": \"I might click out of curiosity to see the game but probably wouldn't install\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2138,
+ "cached_tokens": 0,
+ "output_tokens": 709,
+ "reasoning_tokens": 323
+}

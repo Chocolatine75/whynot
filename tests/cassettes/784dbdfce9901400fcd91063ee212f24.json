@@ -1,0 +1,11 @@
+{
+ "key": "784dbdfce9901400fcd91063ee212f24",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign writing and some sports car, I haven't a clue what it's selling and I'm too old to be making reels\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a sewing gadget but I don't do sewing and it looks like cheap tat from the ad\", \"intent\": \"I wouldn't click, nothing for me to buy there\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and about phone battery emojis with Halloween, absolute nonsense for me\", \"intent\": \"Not interested in the slightest so I'd keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Cantonese at my age and I'm not downloading another app\", \"intent\": \"I wouldn't click as I don't need to learn that language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Filthy looking advert on the beach about intimate waxing, not decent and not for a man my age\", \"intent\": \"I would definitely not click on that smut\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1694,
+ "cached_tokens": 128,
+ "output_tokens": 777,
+ "reasoning_tokens": 394
+}

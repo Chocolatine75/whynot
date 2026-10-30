@@ -1,0 +1,11 @@
+{
+ "key": "e3930ac42abeceabcd9be045dea1668b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like some AI cartoon and very vague, feel better how? Not for a man my age, just wellness nonsense for young people.\", \"intent\": \"I would just scroll past, nothing there for me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in German and it's trying to teach English, I am English so it's completely irrelevant to me.\", \"intent\": \"No reason to click, I don't need to learn my own language.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and the photo looks odd and cut out, not trustworthy.\", \"intent\": \"I would not click, not something I need at 65.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense at all, a cartoon wizard cat and talk of wearing red, looks like a silly kids game.\", \"intent\": \"I would ignore it completely, not my sort of thing.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read the language and it seems to be another learn English advert which I don't need.\", \"intent\": \"I would scroll on by, nothing to offer me.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1710,
+ "cached_tokens": 0,
+ "output_tokens": 778,
+ "reasoning_tokens": 383
+}

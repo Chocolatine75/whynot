@@ -1,0 +1,11 @@
+{
+ "key": "d32014a0b2ea6d5db3dc1a215f8c6576",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, low-AOV commoditized car gadget with weak, feature-stuffed copy, no clear hook, offer, or differentiation will struggle with CTR and CAC to sustain profitable FB/IG scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 294,
+ "cached_tokens": 128,
+ "output_tokens": 317,
+ "reasoning_tokens": 256
+}

@@ -1,0 +1,11 @@
+{
+ "key": "35f87be53fbbcd8fc7c35836946984e7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-effort copy with no hook, benefit, or differentiation will likely have weak CTR and CVR and be quickly outperformed by more compelling creatives.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 264,
+ "cached_tokens": 128,
+ "output_tokens": 250,
+ "reasoning_tokens": 196
+}

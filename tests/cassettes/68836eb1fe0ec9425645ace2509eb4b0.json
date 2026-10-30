@@ -1,0 +1,11 @@
+{
+ "key": "68836eb1fe0ec9425645ace2509eb4b0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like overpriced pseudoscience biohacking kit and I don't trust all the EMF nervous system claims\", \"intent\": \"wouldn't click or buy, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish so not relevant to me and I don't need an English course anyway\", \"intent\": \"would definitely not click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"the Halloween story hook caught my eye for a sec but it's clearly just pushing another AI chat app\", \"intent\": \"might have paused briefly but wouldn't click or use the code\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's a B2B wholesale listing for garage lights, nothing to do with me\", \"intent\": \"no reason to click, scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another generic AI language app ad, there are hundreds and I don't need one\", \"intent\": \"wouldn't click or buy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 790,
+ "cached_tokens": 128,
+ "output_tokens": 622,
+ "reasoning_tokens": 252
+}

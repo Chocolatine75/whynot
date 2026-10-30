@@ -1,0 +1,11 @@
+{
+ "key": "96ca2ff0825d5ac91314124cb956c842",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap Temu tat, the title is gibberish and I don't trust the quality at all\", \"intent\": \"Would not click, have no interest and don't trust Temu shoes.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into astrology or kundali stuff at all, feels like a scam to get you paying after the free chat\", \"intent\": \"Would definitely not click, not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and very long, I'm not religious anyway so I'd just scroll straight past\", \"intent\": \"Would not click as I don't understand it properly and it's not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Temu ad, don't believe the sofa would actually look like that and tired of seeing Temu spam\", \"intent\": \"Would not click, not looking for a sofa and wouldn't buy one off Temu.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish even though it says United Kingdom, just looks like spam and I don't know what it's selling\", \"intent\": \"Would not click, no idea what the offer is and don't trust it.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1302,
+ "cached_tokens": 128,
+ "output_tokens": 682,
+ "reasoning_tokens": 276
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5a6f9ba314d1efda0611fd12019c64ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not into sewing and looks like cheap Amazon dropship stuff, not for me\", \"intent\": \"wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"says nothing, just generic fast delivery waffle with no actual product\", \"intent\": \"no reason to click, completely vague\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"massive scary wall of text trying to sell a patch, feels like a scam preying on old people, way too long to read\", \"intent\": \"definitely wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't believe in astrology and ad's not even in English properly\", \"intent\": \"wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a wholesale B2B bag listing, nothing to do with me\", \"intent\": \"no need to click, not shopping for bulk handbags\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7966,
+ "cached_tokens": 256,
+ "output_tokens": 571,
+ "reasoning_tokens": 213
+}

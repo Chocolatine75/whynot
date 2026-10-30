@@ -1,0 +1,11 @@
+{
+ "key": "062d5aa33a56e112c23af26c33264dda",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a spammy dating ad, probably bots or paid subs, not trusting it\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a rider job and I don't want a side gig on a bike\", \"intent\": \"I wouldn't click because I don't need the job right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not buying an expensive exercise bike, just not for me\", \"intent\": \"I wouldn't click, I'm not in the market for a Peloton\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"massive scary health story that feels fake and trying to sell patches, not relevant to me at all\", \"intent\": \"I definitely wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"same bike ad again, still not interested\", \"intent\": \"I wouldn't click, I already ignored the last one\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3011,
+ "cached_tokens": 0,
+ "output_tokens": 740,
+ "reasoning_tokens": 381
+}

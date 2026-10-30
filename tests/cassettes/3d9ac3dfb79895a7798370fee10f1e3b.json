@@ -1,0 +1,11 @@
+{
+ "key": "3d9ac3dfb79895a7798370fee10f1e3b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't wear those caps and it looks like cheap tat from abroad, wouldn't trust the quality\", \"intent\": \"I would not click or buy these at my age.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, nothing to do with me in England\", \"intent\": \"I would definitely not click, it's not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't trust these app banks and I'm not interested in football money gimmicks\", \"intent\": \"I would not click or open a Revolut account.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Filthy looking cartoon nonsense for youngsters, completely inappropriate for me\", \"intent\": \"I would never click on something so smutty.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read what it says and I don't need to learn a language with a robot\", \"intent\": \"I would not click, it's not relevant to me at all.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1664,
+ "cached_tokens": 128,
+ "output_tokens": 706,
+ "reasoning_tokens": 341
+}

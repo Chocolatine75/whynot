@@ -1,0 +1,11 @@
+{
+ "key": "67faf62ab6e87bea127308284aa3f0ed",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a cheap dropship ad and the image is just a bandana not a cycling cap, don't cycle anyway\", \"intent\": \"No way I'm clicking that random seller.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery job right now and the pay is supposed to be rubbish\", \"intent\": \"Might keep it in mind but not clicking to apply.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Khmer and don't trust these language app ads\", \"intent\": \"Not clicking, totally irrelevant to me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a cheesy teen romance drama ad, definitely not for me\", \"intent\": \"Would scroll straight past, not interested.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have Peloton and don't want another fitness subscription\", \"intent\": \"No interest in clicking for a workout program.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1690,
+ "cached_tokens": 256,
+ "output_tokens": 586,
+ "reasoning_tokens": 231
+}

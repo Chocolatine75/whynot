@@ -1,0 +1,11 @@
+{
+ "key": "86dc7cc71f2604b3703a3a2b8a1b3fb9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic puzzle game ad, seen loads of them and I'm not into number merge games\", \"intent\": \"I wouldn't click, I'd just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and about hairstyles, not for me at all\", \"intent\": \"I wouldn't click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and don't care about ex coming back stuff\", \"intent\": \"I definitely wouldn't click or pay for a chat\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese and I don't understand what it's actually selling without effort\", \"intent\": \"I wouldn't click as it's not aimed at me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm a young guy, anti-aging neck device is irrelevant to me and feels like a dodgy influencer ad\", \"intent\": \"I wouldn't buy or click, just scrolled past quickly\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1735,
+ "cached_tokens": 128,
+ "output_tokens": 531,
+ "reasoning_tokens": 169
+}

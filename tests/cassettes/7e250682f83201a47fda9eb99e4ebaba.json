@@ -1,0 +1,11 @@
+{
+ "key": "7e250682f83201a47fda9eb99e4ebaba",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Overtly sexual and policy-violating clickbait creative with crude overlay text will trigger ad rejection, account bans, and negative feedback, making sustained long-term scaling impossible.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 485,
+ "cached_tokens": 128,
+ "output_tokens": 253,
+ "reasoning_tokens": 197
+}

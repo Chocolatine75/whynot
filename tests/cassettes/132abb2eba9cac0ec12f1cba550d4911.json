@@ -1,0 +1,11 @@
+{
+ "key": "132abb2eba9cac0ec12f1cba550d4911",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"image is just a black and white photo of a mum and baby with 11:11 on it, nothing to do with language learning or World Cup AI stuff, looks like clickbait and I don't trust it\", \"intent\": \"I wouldn't click, it's confusing and feels scammy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says toilet roll holder but picture is a chair, makes no sense and I don't need either anyway\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get what it's selling but I don't have a kid doing A-Levels so it's not for me and free trials like this always turn into hard selling\", \"intent\": \"I wouldn't click as it's not relevant to me right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French which I don't speak and I'm not into religious prophecy books\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"text is in Thai and the picture is a dirty portable toilet, no idea what it's actually for and it looks gross\", \"intent\": \"I definitely wouldn't click on that\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2492,
+ "cached_tokens": 128,
+ "output_tokens": 762,
+ "reasoning_tokens": 354
+}

@@ -1,0 +1,11 @@
+{
+ "key": "55700a4597e1e2b827f18bef2b19f70a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this is trying to sell, weird alien thing just confused me and I'm not learning Japanese\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy AI chatbot anime girlfriend thing, definitely not for me and feels a bit sad\", \"intent\": \"I wouldn't click or download this in a million years\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu quality and I hate these pushy code ads, probably cheap tat\", \"intent\": \"I wouldn't click, I scroll straight past Temu ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like another miracle cure for pets, I'd be worried about giving my dog random drops without a vet\", \"intent\": \"I wouldn't buy this, I'd ask my vet instead\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for business buyers and suppliers, nothing to do with my everyday life\", \"intent\": \"I wouldn't click as it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1943,
+ "cached_tokens": 128,
+ "output_tokens": 787,
+ "reasoning_tokens": 411
+}

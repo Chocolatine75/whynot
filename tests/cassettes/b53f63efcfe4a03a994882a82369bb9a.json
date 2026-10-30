@@ -1,0 +1,11 @@
+{
+ "key": "b53f63efcfe4a03a994882a82369bb9a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a delivery rider job, all in English and I'm in Spain, no need\", \"intent\": \"Would not click, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropship spam for a car mirror, don't trust the seller and that link\", \"intent\": \"Would not click or buy, ignore it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what the game is, just says best game 2026, looks generic\", \"intent\": \"Would not click, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Astrology stuff not for me and it's clearly for India, not relevant here\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Thai and don't want another language app ad\", \"intent\": \"Would not click or download\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 596,
+ "cached_tokens": 0,
+ "output_tokens": 898,
+ "reasoning_tokens": 549
+}

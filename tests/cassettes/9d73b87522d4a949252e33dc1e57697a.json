@@ -1,0 +1,11 @@
+{
+ "key": "9d73b87522d4a949252e33dc1e57697a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a dog and that NEVER claim is so obviously fake, just feels like cheap dropship stuff\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Why is it in Spanish if it's Temu UK? Just looks spammy and I avoid Temu ads anyway\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like another annoying fitness app that will charge you monthly and do nothing\", \"intent\": \"I wouldn't click, I've seen too many like this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's for business buyers and suppliers, has nothing to do with me so I just scrolled past\", \"intent\": \"Not for me so I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Felt a bit ick and cringey, like a seedy AI boyfriend chat thing, don't want that on my feed\", \"intent\": \"Made me scroll faster, definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 680,
+ "cached_tokens": 0,
+ "output_tokens": 784,
+ "reasoning_tokens": 407
+}

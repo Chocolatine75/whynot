@@ -1,0 +1,11 @@
+{
+ "key": "449ea8bc2c2c12b88cea568828d17291",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic 'get latest price' CTA plus hashtag-stuffed, corporate boilerplate copy paired with a flat product-on-white image lacks hook, social proof, and scroll-stopping creative, predicting low CTR and ROAS so it would be killed quickly, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 681,
+ "cached_tokens": 128,
+ "output_tokens": 428,
+ "reasoning_tokens": 352
+}

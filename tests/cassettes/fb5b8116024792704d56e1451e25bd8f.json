@@ -1,0 +1,11 @@
+{
+ "key": "fb5b8116024792704d56e1451e25bd8f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-effort creative with mismatched Armenian copy, cramped illegible text overlay, and weak CTA/value proposition will get low CTR and poor conversion, quickly killed by optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 612,
+ "cached_tokens": 128,
+ "output_tokens": 279,
+ "reasoning_tokens": 221
+}

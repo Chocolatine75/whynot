@@ -1,0 +1,11 @@
+{
+ "key": "63a2d78ea9a80b024ba67f0eed9f1ed7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I haven't got room for one anyway, just feels like a posh gym advert\", \"intent\": \"Wouldn't click or buy, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Huge wall of text sob story that looks totally fake and I'm 30 with no foot pain, instant scroll past\", \"intent\": \"Would definitely not click, zero relevance and feels like a scam.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust the from £4 a day thing, always hides finance and I hate dentist spam\", \"intent\": \"Probably wouldn't click unless my teeth were really bothering me.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"\", \"intent\": \"Might have a quick look as I actually use Vinted to flog old stuff.\", \"intent_score\": 3}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just another random AI app ad, I've got ChatGPT already and don't need another one\", \"intent\": \"Would not click, not interested in downloading another AI app.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3857,
+ "cached_tokens": 0,
+ "output_tokens": 973,
+ "reasoning_tokens": 595
+}

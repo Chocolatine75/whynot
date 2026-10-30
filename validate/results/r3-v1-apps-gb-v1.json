@@ -1,0 +1,146 @@
+{
+  "simulated": true,
+  "experiment": "R3 v1",
+  "date": "2026-10-30",
+  "design": {
+    "countries": [
+      "GB"
+    ],
+    "long_days": 60,
+    "short_days": 14,
+    "per_advertiser": 4,
+    "feed_size": 5,
+    "appearances": 3,
+    "viewers_per_feed": 3,
+    "personas": 30,
+    "primary": "within-advertiser AUC of preference lift (viewers-image)"
+  },
+  "viewer": {
+    "backend": "baseten",
+    "model": "meta-models/muse-spark-open-1026",
+    "reasoning_effort": "low"
+  },
+  "sample": {
+    "ads": 186,
+    "advertisers": 44,
+    "videos_as_poster": 138
+  },
+  "results": [
+    {
+      "name": "viewers-text",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.517,
+      "within_ci": [
+        0.436,
+        0.598
+      ],
+      "pooled_auc": 0.508,
+      "pooled_ci": [
+        0.428,
+        0.592
+      ],
+      "failures": 0
+    },
+    {
+      "name": "viewers-text (intent)",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.521,
+      "within_ci": [
+        0.426,
+        0.606
+      ],
+      "pooled_auc": 0.523,
+      "pooled_ci": [
+        0.449,
+        0.597
+      ],
+      "failures": 0,
+      "usd": 0.286
+    },
+    {
+      "name": "viewers-image",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.414,
+      "within_ci": [
+        0.363,
+        0.473
+      ],
+      "pooled_auc": 0.46,
+      "pooled_ci": [
+        0.384,
+        0.538
+      ],
+      "failures": 0
+    },
+    {
+      "name": "viewers-image (intent)",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.464,
+      "within_ci": [
+        0.391,
+        0.531
+      ],
+      "pooled_auc": 0.476,
+      "pooled_ci": [
+        0.407,
+        0.551
+      ],
+      "failures": 0,
+      "usd": 0.0
+    },
+    {
+      "name": "judge-text",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.464,
+      "within_ci": [
+        0.374,
+        0.552
+      ],
+      "pooled_auc": 0.494,
+      "pooled_ci": [
+        0.421,
+        0.575
+      ],
+      "failures": 0,
+      "usd": 0.051
+    },
+    {
+      "name": "judge-image",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.463,
+      "within_ci": [
+        0.37,
+        0.564
+      ],
+      "pooled_auc": 0.471,
+      "pooled_ci": [
+        0.391,
+        0.545
+      ],
+      "failures": 0,
+      "usd": 0.006
+    },
+    {
+      "name": "baseline: shorter copy",
+      "ads": 186,
+      "advertisers": 44,
+      "within_auc": 0.624,
+      "within_ci": [
+        0.519,
+        0.732
+      ],
+      "pooled_auc": 0.561,
+      "pooled_ci": [
+        0.477,
+        0.644
+      ]
+    }
+  ],
+  "usd": 0.343
+}

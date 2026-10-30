@@ -1,0 +1,11 @@
+{
+ "key": "c738d341bf655bbbf671bb2e2bc9f835",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says shoes but image is a pink plush doll box, total mismatch and Temu spam text looks scammy\", \"intent\": \"No way I'm clicking Temu trash like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian and I don't understand it, plus the title has nothing to do with the video\", \"intent\": \"Not clicking something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology predicting when I'll buy a car is nonsense and I don't believe in kundli stuff\", \"intent\": \"Definitely not wasting time on a fake free chat\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's completely in French which I don't speak and I'm not into religious study books\", \"intent\": \"Would just scroll past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The sexy supermarket image feels cheap and baity and I don't buy the 7 day transformation promise\", \"intent\": \"Probably not click, maybe curious but looks like another scam fitness app\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2441,
+ "cached_tokens": 256,
+ "output_tokens": 647,
+ "reasoning_tokens": 267
+}

@@ -1,0 +1,11 @@
+{
+ "key": "65a4abb8e949f92375a3d2a114991ad2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I have no idea what it's actually selling and I don't trust Temu links with codes like that\", \"intent\": \"I wouldn't click because I don't understand it and I'm not shopping for a vanity\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian I think so I can't read any of it and it just looks like a weird language app ad\", \"intent\": \"I wouldn't click because it's not in English and not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's one of those cringey werewolf romance story ads that looks like clickbait and the image of a kid eating has nothing to do with it\", \"intent\": \"I wouldn't click because those stories are never good and it feels scammy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks like just another ad-filled number puzzle game that would get annoying with pop-ups\", \"intent\": \"I might not click now but I'd consider trying it if I was bored\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as the other one, it's in a different language I don't speak so I just scroll past\", \"intent\": \"I wouldn't click because I can't understand what it's offering\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1885,
+ "cached_tokens": 256,
+ "output_tokens": 756,
+ "reasoning_tokens": 340
+}

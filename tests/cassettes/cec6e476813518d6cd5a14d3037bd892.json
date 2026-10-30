@@ -1,0 +1,11 @@
+{
+ "key": "cec6e476813518d6cd5a14d3037bd892",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-effort AI creative with gibberish Portuguese overlay text and no clear hook/offer will drive low CTR and fast creative fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 471,
+ "cached_tokens": 128,
+ "output_tokens": 284,
+ "reasoning_tokens": 234
+}

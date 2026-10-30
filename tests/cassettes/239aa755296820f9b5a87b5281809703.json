@@ -1,0 +1,11 @@
+{
+ "key": "239aa755296820f9b5a87b5281809703",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Czech or something, not English, and I don't need an English learning app anyway\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and it's about bible prophecies which is not for me at all\", \"intent\": \"I would not click, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the title says wallet case but the picture is privacy screen protectors, looks confusing and cheap Temu stuff I don't trust\", \"intent\": \"I wouldn't click or buy, seems dodgy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"another foreign language ad for learning English, I'm already English, feels spammy\", \"intent\": \"No chance I'd click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's at least in English but it's Temu and I don't need a phone filter kit, seems gimmicky\", \"intent\": \"I wouldn't click to buy, maybe paused a second then kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2593,
+ "cached_tokens": 128,
+ "output_tokens": 869,
+ "reasoning_tokens": 493
+}

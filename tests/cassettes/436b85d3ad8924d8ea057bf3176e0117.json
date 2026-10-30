@@ -1,0 +1,11 @@
+{
+ "key": "436b85d3ad8924d8ea057bf3176e0117",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Aesthetic-led premium positioning with a generic feature list and no strong pain point, offer, proof, or direct-response hook is unlikely to sustain profitable cold-traffic ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 333,
+ "cached_tokens": 128,
+ "output_tokens": 399,
+ "reasoning_tokens": 341
+}

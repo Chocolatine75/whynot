@@ -1,0 +1,11 @@
+{
+ "key": "d1c2885d10de6fb0231427323cb827ae",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Full spoiler plot dump kills curiosity loop with no hook/CTA and AI-looking uncanny creative will get low CTR and quick fatigue despite popular billionaire/baby trope.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 533,
+ "cached_tokens": 128,
+ "output_tokens": 271,
+ "reasoning_tokens": 216
+}

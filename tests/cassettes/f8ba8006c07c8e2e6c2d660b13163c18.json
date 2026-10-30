@@ -1,0 +1,11 @@
+{
+ "key": "f8ba8006c07c8e2e6c2d660b13163c18",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"carina ma sembra una di quelle app che poi ti riempie di pubblicità o ti chiede di pagare, non ho bisogno di un tamagotchi per ricordarmi di pulire casa\", \"intent\": \"Non clicco, magari cerco recensioni prima ma di sicuro non scarico subito.\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"vivo in Italia e questa è un'offerta per il Regno Unito, quindi è totalmente inutile per me\", \"intent\": \"Non clicco, l'ho scrollata via subito.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non mi interessa personalizzare il telefono con Stitch e questi widget, troppa roba che poi rallenta tutto\", \"intent\": \"Non clicco, non è per me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"testo lunghissimo che fa leva sulla paura per venderti un cerotto miracoloso, queste cose non mi convincono per niente e poi non ho neuropatia\", \"intent\": \"Non clicco e non comprerei mai una cosa così da un annuncio su Facebook.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"può essere utile ma sembra un gadget cinese economico che poi si rompe o non si aggancia bene alla mia macchina\", \"intent\": \"Forse guardo il video per curiosità ma non compro.\", \"intent_score\": 2}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9021,
+ "cached_tokens": 128,
+ "output_tokens": 711,
+ "reasoning_tokens": 268
+}

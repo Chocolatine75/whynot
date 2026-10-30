@@ -1,0 +1,11 @@
+{
+ "key": "50ce5ca0e6809192c0a4543e1991631a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Copy and creative are misaligned — feed text sells premium design/battery life while the image pushes a confusing/creepy 'built-in camera' USP with generic, repetitive press logos — creating unclear positioning and low trust that rarely sustains ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 699,
+ "cached_tokens": 256,
+ "output_tokens": 297,
+ "reasoning_tokens": 224
+}

@@ -1,0 +1,11 @@
+{
+ "key": "8a3bb5fb9a48cf5cf8370dc0678fe7fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Seasonal mismatch (New Year title vs Summer text) and unsubstantiated 'best price in the U.K.' claim signal sloppy, low-trust creative likely to suffer poor CTR, ad disapprovals and ASA complaints.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 293,
+ "cached_tokens": 128,
+ "output_tokens": 229,
+ "reasoning_tokens": 162
+}

@@ -1,0 +1,11 @@
+{
+ "key": "cc957c2dfdd475cd069ce39715723bb1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in polacco, non è per l'Italia e poi è Temu, non mi fido per niente\", \"intent\": \"non cliccherei mai, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non credo all'astrologia e mi sembra solo un modo per spillare soldi con la storia dell'ex\", \"intent\": \"non ci cliccherei, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"mi alleno già in un altro modo e Peloton costa troppo, poi è pubblicità per UK non per qui\", \"intent\": \"potrei guardare un secondo ma non comprerei\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in spagnolo e poi promette di diventare ricca con l'IA in 28 giorni, sembra una truffa\", \"intent\": \"non lo aprirei, non mi fido\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sono A-Level inglesi, vivo in Italia e non ho figli, non c'entra niente con me\", \"intent\": \"scrollo oltre senza cliccare\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 739,
+ "cached_tokens": 0,
+ "output_tokens": 934,
+ "reasoning_tokens": 541
+}

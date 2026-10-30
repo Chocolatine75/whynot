@@ -1,0 +1,11 @@
+{
+ "key": "6941fe5ff2fe913199ec6985a2ff2c9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"gross old foot pic caught my eye but it's a scary scammy health wall of text, I'm 30 not diabetic and I don't trust miracle patches like this\", \"intent\": \"definitely not clicking, just scrolled past after seeing it's a miracle cure ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"it's actually clear what it does but I don't need more plastic containers for the fridge right now\", \"intent\": \"might be useful but I wouldn't buy, just kept scrolling\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's women's leopard print clothes from Temu, nothing to do with me\", \"intent\": \"swiped straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"why show me a dentist chair? I'm not a dentist or buying medical equipment\", \"intent\": \"ignored completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese, I live in Italy and I don't understand it and it's an app ad anyway\", \"intent\": \"scrolled past instantly\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4782,
+ "cached_tokens": 0,
+ "output_tokens": 745,
+ "reasoning_tokens": 368
+}

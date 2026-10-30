@@ -1,0 +1,11 @@
+{
+ "key": "06dee17e857ed5ecb6138d5df8f8cf72",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Title is an unedited internal file name with no hook or value proposition for Home Tableware, indicating an unfinished catalog test that would be quickly killed for low CTR.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 278,
+ "cached_tokens": 128,
+ "output_tokens": 287,
+ "reasoning_tokens": 233
+}

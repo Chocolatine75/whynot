@@ -1,0 +1,11 @@
+{
+ "key": "c34fa2a70e6311f686bfda105263c379",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like one of those super cheesy fake soap opera apps, totally unrealistic story and probably pay to watch each episode\", \"intent\": \"would not click, I always skip these drama ads\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French, I don't understand French well and I'm not looking for religious courses anyway\", \"intent\": \"would not click, not for me and not in my language\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another AI English app ad, so generic and I don't trust it will really teach me anything\", \"intent\": \"would not click, I already ignore these language app ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu always says prices slashed but quality is poor and shipping takes forever, I don't trust it\", \"intent\": \"might look on Temu but not from this ad, probably not buying\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's just a silly phone game ad, I don't play these bus puzzle games\", \"intent\": \"would not click or download, not interested in games\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1332,
+ "cached_tokens": 0,
+ "output_tokens": 691,
+ "reasoning_tokens": 302
+}

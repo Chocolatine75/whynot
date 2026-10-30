@@ -1,0 +1,11 @@
+{
+ "key": "76d4569bcdeeaadf5a0a313750001c12",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I see Deliveroo ads all the time, nothing new or interesting and I don't need delivery right now\", \"intent\": \"I would not click, I just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and it looks like one of those scammy AI get-rich-quick ads\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Generic dating app ad with no real info, I don't trust these and I'm not looking\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Italian so I don't really understand it and I don't trust wellness apps with a 3 minute quiz\", \"intent\": \"I might have paused for a second but I would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the first one, just another Deliveroo ad I've already seen\", \"intent\": \"I would not click, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 648,
+ "cached_tokens": 128,
+ "output_tokens": 860,
+ "reasoning_tokens": 487
+}

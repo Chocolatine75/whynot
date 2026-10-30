@@ -1,0 +1,11 @@
+{
+ "key": "9765609838824cc8b791a0cb16e78173",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish, can't understand a word and it just looks like Temu spam\", \"intent\": \"No chance I'd click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like another cheap Temu copy, don't need anything and don't believe the fast delivery claim\", \"intent\": \"Wouldn't click, nothing I'm looking to buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's kinda cute but I don't need a toy blanket and it looks like cheap dropship stuff\", \"intent\": \"Might pause for a second but definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English so I have no idea what it's even advertising\", \"intent\": \"Scroll straight past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read it, it's in Thai and I don't need an English course anyway\", \"intent\": \"Not clicking, completely irrelevant\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 621,
+ "cached_tokens": 128,
+ "output_tokens": 974,
+ "reasoning_tokens": 615
+}

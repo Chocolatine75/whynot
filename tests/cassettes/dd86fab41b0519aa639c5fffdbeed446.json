@@ -1,0 +1,11 @@
+{
+ "key": "dd86fab41b0519aa639c5fffdbeed446",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Overblown 'parle comme un natif dès aujourd'hui' claim plus cheap fake-UGC/AI robot creative destroys trust, invites rejections/negative comments and will burn out in days, not months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 469,
+ "cached_tokens": 128,
+ "output_tokens": 314,
+ "reasoning_tokens": 249
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e76b3699f8477ce73d3f7c3accfad3df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic low-trust creative with spammy emojis, heavy text-in-image, and vague promise has poor thumb-stop and relevance, unlikely to sustain efficient CPA beyond initial testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 456,
+ "cached_tokens": 128,
+ "output_tokens": 495,
+ "reasoning_tokens": 439
+}

@@ -1,0 +1,11 @@
+{
+ "key": "d41f94903d69060889019b99d2d403f0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another AI girlfriend chatbot ad, feels lonely and a bit sad, not for me at all\", \"intent\": \"I would just scroll past, zero interest in talking to a bot.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's clearly an ad for a filter app with a fake before/after, probably paywalled and full of ads\", \"intent\": \"I wouldn't click, I don't need a hairstyle app.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"super cringe and horny bait, feels like a scammy adult game that will ask for money immediately\", \"intent\": \"I would not click, this kind of ad actually makes me trust the app less.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Japanese right now, and there are a million language apps\", \"intent\": \"I would keep scrolling, not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Greek, I don't understand anything, definitely not targeted to me\", \"intent\": \"I would ignore it completely.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 128,
+ "output_tokens": 657,
+ "reasoning_tokens": 273
+}

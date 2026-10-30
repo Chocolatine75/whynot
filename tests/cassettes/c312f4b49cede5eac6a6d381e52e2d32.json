@@ -1,0 +1,11 @@
+{
+ "key": "c312f4b49cede5eac6a6d381e52e2d32",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Major disconnect between 'cycling sports cap' copy and the low-quality streetwear bandana image kills relevance and trust, signaling a generic dropshipper creative that rarely sustains long-term spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 463,
+ "cached_tokens": 128,
+ "output_tokens": 218,
+ "reasoning_tokens": 158
+}

@@ -1,0 +1,11 @@
+{
+ "key": "d1688b9723f0e4b8ef96c9b969bef4ac",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"my teeth are fine and that £4 a day claim sounds like BS, just another finance trap\", \"intent\": \"no chance I'm clicking, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like every other spammy dating ad, probably fake profiles and a paywall\", \"intent\": \"might have a quick look but probably wouldn't bother signing up\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"massive wall of text trying to scare you, I'm not diabetic and it feels like a scam for old people\", \"intent\": \"didn't read it properly and definitely wouldn't buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"why is this ad on my feed, I don't need a toilet roll holder from Alibaba\", \"intent\": \"just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French so no idea what it's on about and not religious anyway\", \"intent\": \"ignored it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3552,
+ "cached_tokens": 128,
+ "output_tokens": 733,
+ "reasoning_tokens": 371
+}

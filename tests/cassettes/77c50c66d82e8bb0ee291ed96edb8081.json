@@ -1,0 +1,11 @@
+{
+ "key": "77c50c66d82e8bb0ee291ed96edb8081",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 22 why would I care about neuropathy and Gabapentin, this is like a huge scary essay for old people and feels super scammy with the patch link\", \"intent\": \"Definitely wouldn't click, just scrolled past this wall of text\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's just Temu spam and that code thing is annoying, don't trust the quality will be anything like the picture\", \"intent\": \"Might look at the boots but wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"psychic readings are just fake and cringe, not paying for someone to guess stuff\", \"intent\": \"Would never click this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£30 an hour sounds too good and I'm not sure I'm qualified enough to tutor GCSEs properly plus seems like one of those ads that overpromises\", \"intent\": \"Might click to see what it's about if I'm looking for a side job\", \"intent_score\": 3}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a men's aluminium wallet and don't care about RFID stuff\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9222,
+ "cached_tokens": 7424,
+ "output_tokens": 579,
+ "reasoning_tokens": 179
+}

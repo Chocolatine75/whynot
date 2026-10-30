@@ -1,0 +1,11 @@
+{
+ "key": "fd0f446fd95edd491cdc62835de68fba",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No entiendo nada, está en tailandés o no sé qué idioma y no me interesa un editor de Reels\", \"intent\": \"No haría click, paso directo\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No es para mí, no me van las historias BoyxBoy y suena a app de roleplay rara\", \"intent\": \"No clicaría, no es mi rollo\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Me da igual personalizar los iconos de la batería, parece una tontería y seguro que es de pago\", \"intent\": \"No lo instalaría, como mucho miraría un segundo y sigo bajando\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No quiero aprender japonés ahora y paso de descargar otra app que luego te pide suscripción\", \"intent\": \"No haría click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está en japonés, no entiendo nada y no me interesa\", \"intent\": \"Ignorarlo y seguir scrolleando\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 611,
+ "cached_tokens": 0,
+ "output_tokens": 696,
+ "reasoning_tokens": 316
+}

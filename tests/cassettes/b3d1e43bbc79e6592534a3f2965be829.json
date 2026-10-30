@@ -1,0 +1,11 @@
+{
+ "key": "b3d1e43bbc79e6592534a3f2965be829",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and zero interest in counseling training, just felt like church spam\", \"intent\": \"Would not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long, classic fake doctor story trying to sell miracle patches, don't have neuropathy and don't trust this\", \"intent\": \"Would scroll past immediately and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's just rice and I'm in Spain not UK, not relevant and delivery wouldn't apply\", \"intent\": \"Would not click, don't need to order rice online\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Toothbrush with camera sounds gimmicky and probably expensive with a subscription, just another tech brushing scam\", \"intent\": \"Might look for a second but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't have space for a bike, 30 day trial feels like a trap to get you to keep it\", \"intent\": \"Would not click, not interested in buying big fitness equipment\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7604,
+ "cached_tokens": 0,
+ "output_tokens": 672,
+ "reasoning_tokens": 286
+}

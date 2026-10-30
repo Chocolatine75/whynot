@@ -1,0 +1,11 @@
+{
+ "key": "562977f9f3312d3b4828a74cd1d0acd4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not really religious and I'm not looking for a bible study guide, it just doesn't concern me.\", \"intent\": \"I wouldn't click, not interested in this kind of ebook.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi/English mix about Indian astrologers, not for me in France and I don't believe in astrology anyway.\", \"intent\": \"I would just scroll past, nothing to do with me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks practical for keeping fruit fresh but I don't trust the 50% OFF and Top Rated badge, probably cheap plastic and dropshipping.\", \"intent\": \"I might look at the comments or price but I wouldn't buy right away.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Those AI baby dance videos are everywhere, looks gimmicky and I don't want to install another app.\", \"intent\": \"I wouldn't click, I just find it annoying.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Dating app ad with 'singles in your area' feels fake and a bit creepy, I don't trust it.\", \"intent\": \"I definitely wouldn't click on this ad.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2177,
+ "cached_tokens": 128,
+ "output_tokens": 640,
+ "reasoning_tokens": 239
+}

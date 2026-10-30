@@ -1,0 +1,11 @@
+{
+ "key": "a2035ee56725d1c1b91beddf7462ac4d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Curiosity hook may drive initial clicks but niche camera-gimmick + membership friction and weak mass-desire to see teeth up-close rarely sustains profitable ROAS in saturated electric brush market.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 339,
+ "cached_tokens": 128,
+ "output_tokens": 352,
+ "reasoning_tokens": 293
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9a170f0e05fa8b8aa04eceb6736c626f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in another language, probably Filipino, so I have no idea what it's offering and the guy in the image doesn't tell me anything\", \"intent\": \"Would not click, not for me and I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Camera toothbrush seems like a gimmick and overpriced, plus I don't want a membership just to have my teeth checked\", \"intent\": \"Might look it up out of curiosity but definitely not buying right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not a youth leader, this has zero relevance to my life\", \"intent\": \"Would scroll past immediately, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's for UK and requires a Peloton bike/hardware plus 45 pounds a month, I don't have Peloton and it's too expensive\", \"intent\": \"Would not click, I'm in Germany and not going to pay that\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird psychic clickbait with a scary bridal image, feels like a scam and not trustworthy at all\", \"intent\": \"Would definitely not click or pay for a psychic reading\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2108,
+ "cached_tokens": 256,
+ "output_tokens": 644,
+ "reasoning_tokens": 233
+}

@@ -1,0 +1,11 @@
+{
+ "key": "8d3b881d8e27cd7387897b327d5a59de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and the title is just word salad, looks like cheap rubbish that'll fall apart\", \"intent\": \"Wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Actually quite nice but I don't need a bird bath and seems like a faff to clean\", \"intent\": \"Stopped to have a look but wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai, no idea what it's about so just ignored it\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic Temu ad, sick of seeing them\", \"intent\": \"No chance I'd click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Temu spam with a code to search, feels dodgy\", \"intent\": \"Kept scrolling, wouldn't click the video\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 754,
+ "cached_tokens": 128,
+ "output_tokens": 817,
+ "reasoning_tokens": 470
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1e8703ac9c5a22e6d6987efbaf30aabc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, spammy hashtag-stuffed copy with no hook, benefit, or proof signals low CTR/CVR and would be killed quickly, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 274,
+ "cached_tokens": 128,
+ "output_tokens": 262,
+ "reasoning_tokens": 208
+}

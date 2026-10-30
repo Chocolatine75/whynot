@@ -1,0 +1,11 @@
+{
+ "key": "fa3b3aaecf98483fd4f7eb54d5605913",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Keyword-stuffed, SEO-style title with generic B2B marketplace text has no hook, offer, or angle, indicating a low-CTR auto-generated catalog ad that would be killed quickly on performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 284,
+ "cached_tokens": 128,
+ "output_tokens": 302,
+ "reasoning_tokens": 243
+}

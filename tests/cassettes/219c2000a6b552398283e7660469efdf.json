@@ -1,0 +1,11 @@
+{
+ "key": "219c2000a6b552398283e7660469efdf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another AI photo editor ad, don't need a Halloween template and it looks spammy\", \"intent\": \"wouldn't click, no interest in it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't sew and not buying craft kits off a random ad\", \"intent\": \"would definitely not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these singles nearby ads always look fake and scammy, don't trust dating apps like this\", \"intent\": \"might have glanced but wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Khmer, completely irrelevant to me\", \"intent\": \"would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't believe in astrology stuff and not paying to ask about an ex\", \"intent\": \"would scroll past without clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 645,
+ "cached_tokens": 128,
+ "output_tokens": 862,
+ "reasoning_tokens": 525
+}

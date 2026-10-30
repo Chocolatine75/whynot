@@ -1,0 +1,11 @@
+{
+ "key": "f309278a4b1f0637a61e6d79bb3c4f58",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not trying to learn Thai and I get loads of language app ads, just scrolled past\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the text was cut off and weird and it looked a bit scammy/cheap, not interested in a belt\", \"intent\": \"Definitely wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German so I couldn't even read it properly, and I'm not doing fasting challenges\", \"intent\": \"No way I'd click, I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a bank and I see Revolut ads all the time, just don't need another finance app right now\", \"intent\": \"Might have paused but wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English and looks like just another video editing app I don't need\", \"intent\": \"I wouldn't click, I have no idea what it does\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 0,
+ "output_tokens": 586,
+ "reasoning_tokens": 209
+}

@@ -1,0 +1,11 @@
+{
+ "key": "75a194a99ac1e6ea04e195d0030b6b6d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"camera on a toothbrush that goes to a dentist feels really weird and invasive, plus I don't trust random no.1 claims\", \"intent\": \"might google it later but wouldn't click the ad\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like spammy astrology bait with the free chat thing, not for me at all\", \"intent\": \"just scrolled past instantly\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and just shows a blurry bin, no idea what it's selling\", \"intent\": \"ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Portuguese and looks like a weird AI generated image, not relevant to me\", \"intent\": \"didn't stop, just swiped past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and scary health story and I'm 22, this isn't for me and feels like it's trying to trick me into buying patches\", \"intent\": \"definitely wouldn't click, just wanted to get off that page\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7198,
+ "cached_tokens": 128,
+ "output_tokens": 545,
+ "reasoning_tokens": 165
+}

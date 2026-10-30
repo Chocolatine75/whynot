@@ -1,0 +1,11 @@
+{
+ "key": "762511eb293c97e47688c224ef14683b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a generic dropship cap ad pretending to be news, don't need it and don't trust it\", \"intent\": \"wouldn't click, not buying a random cycling cap from an ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a Deliveroo job right now, pay and conditions seem rough\", \"intent\": \"might glance but wouldn't apply\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"no reason to learn Khmer, irrelevant to me\", \"intent\": \"would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"teen romance novel ad not for me, feels cheesy and over-dramatic\", \"intent\": \"would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is expensive and pushy, not interested in another subscription fitness thing\", \"intent\": \"wouldn't click, maybe least annoying but still no\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 736,
+ "cached_tokens": 128,
+ "output_tokens": 606,
+ "reasoning_tokens": 255
+}

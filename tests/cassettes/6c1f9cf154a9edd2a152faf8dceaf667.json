@@ -1,0 +1,11 @@
+{
+ "key": "6c1f9cf154a9edd2a152faf8dceaf667",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese which I don't understand and the image is a scary AI dog monster, looks like clickbait spam\", \"intent\": \"I would definitely not click, it feels scammy and not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's for learning Thai in Japanese, I don't speak either and I'm not trying to learn Thai right now\", \"intent\": \"I wouldn't click because the language isn't relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"This is so creepy trying to secretly track someone without them knowing, super toxic and invasive and the product looks like a cheap AirTag ripoff\", \"intent\": \"I would never buy this kind of spy tracker\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and I'm not looking for a biblical guide, not interested in paying for an ebook like that\", \"intent\": \"I would just scroll past, not going to click learn more\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks like a cute game but I know these ads make it look better than it really is and I don't want another ad-filled game\", \"intent\": \"I might be slightly tempted but I wouldn't click right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1919,
+ "cached_tokens": 256,
+ "output_tokens": 669,
+ "reasoning_tokens": 258
+}

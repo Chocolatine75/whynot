@@ -1,0 +1,11 @@
+{
+ "key": "ad207dae673b4e197948da47c45c5062",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another one of those subscription app scams, free quiz then charges you monthly, don't trust it\", \"intent\": \"I wouldn't click, got no interest in paying for a happiness plan\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"total gibberish title and nothing to do with me, I'm not a garage\", \"intent\": \"I wouldn't click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job at my age\", \"intent\": \"I wouldn't click as I'm not job hunting for that kind of work\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese or something, can't even understand it so just scrolled past\", \"intent\": \"I wouldn't click, don't know what it's even for\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton bikes are way too expensive even on finance and I wouldn't use it enough\", \"intent\": \"I might have a quick look but I wouldn't buy one\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 710,
+ "cached_tokens": 0,
+ "output_tokens": 680,
+ "reasoning_tokens": 311
+}

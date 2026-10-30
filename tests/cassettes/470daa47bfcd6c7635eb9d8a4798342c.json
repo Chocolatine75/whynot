@@ -1,0 +1,11 @@
+{
+ "key": "470daa47bfcd6c7635eb9d8a4798342c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, just some meme about aliens and Japanese grammar, no idea what they're actually selling\", \"intent\": \"Wouldn't click, nothing there for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer or supplier so it's completely irrelevant to me and I'm not trekking to Excel\", \"intent\": \"No chance I'd go or sign up\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those dropship scam ads and I don't trust giving my dog random plant liquid from a weird page\", \"intent\": \"I'd ask a vet instead, not buying this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy AI girlfriend chatbot ad with a gems code, just feels desperate and a bit sad\", \"intent\": \"Definitely not downloading that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu spam with a dodgy code link, I already ignore all Temu stuff\", \"intent\": \"Won't click or download anything\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 808,
+ "cached_tokens": 128,
+ "output_tokens": 619,
+ "reasoning_tokens": 249
+}

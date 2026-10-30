@@ -1,0 +1,11 @@
+{
+ "key": "8618494393f611bde4585f1f5f563800",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat from one of those dropship pages, wouldn't trust it on my car and I've already got proper mirrors\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not into mobile games and that description made no sense to me\", \"intent\": \"No interest in clicking, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a foreign language I don't speak so I just ignored it\", \"intent\": \"I wouldn't click as it's not relevant\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again foreign language, nothing to do with me, clearly mistargeted\", \"intent\": \"No chance I'd click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Stopped because the title was so bizarre I had to reread it, but it's clearly some daft soap opera nonsense I'm not interested in\", \"intent\": \"I wouldn't click, just thought it was odd and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 733,
+ "cached_tokens": 256,
+ "output_tokens": 581,
+ "reasoning_tokens": 213
+}

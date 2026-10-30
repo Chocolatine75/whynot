@@ -1,0 +1,11 @@
+{
+ "key": "4ccbde26c6178491520cbbff5413435b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic cliche copy with no specific offer, benefit, or proof and spammy arrows is classic low-CTR creative that rarely sustains ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 287,
+ "cached_tokens": 128,
+ "output_tokens": 447,
+ "reasoning_tokens": 394
+}

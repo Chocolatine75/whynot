@@ -1,0 +1,11 @@
+{
+ "key": "cf88f030e26daf6bf973e70aa522bafc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and I don't have Peloton equipment, plus £45 a month is way too expensive for me\", \"intent\": \"I would just scroll past, not interested at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image is just black, I don't believe in astrology and this looks like a scam\", \"intent\": \"I would not click, I don't want astrology readings.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for businesses buying wholesale, I'm not a business and I don't need a bag with LOGO on it\", \"intent\": \"I would definitely not click or buy this.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the Hindi text and I think these astrology chat apps are fake and just want money\", \"intent\": \"I would scroll past, it feels clickbaity and not for me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute illustration but I don't trust these ChatGPT-style therapy apps to actually help with anxiety\", \"intent\": \"I might be a little curious but I probably wouldn't pay for it.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1823,
+ "cached_tokens": 0,
+ "output_tokens": 725,
+ "reasoning_tokens": 330
+}

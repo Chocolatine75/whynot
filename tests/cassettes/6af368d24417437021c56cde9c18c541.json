@@ -1,0 +1,11 @@
+{
+ "key": "6af368d24417437021c56cde9c18c541",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in teeth straightening and don't trust the best price claim, feels like expensive upsell\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spammy Temu code with no real offer, I never trust Temu ads\", \"intent\": \"Definitely wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a tradesman and have no need for fire alarm cable\", \"intent\": \"No reason to click at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking for counselling training, just not for me\", \"intent\": \"Wouldn't click, would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do run a bit but that £45 a month membership puts me right off\", \"intent\": \"Might have a quick look but probably wouldn't click through\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 797,
+ "cached_tokens": 128,
+ "output_tokens": 622,
+ "reasoning_tokens": 267
+}

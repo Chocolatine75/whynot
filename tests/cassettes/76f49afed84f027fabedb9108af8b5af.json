@@ -1,0 +1,11 @@
+{
+ "key": "76f49afed84f027fabedb9108af8b5af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just Temu, everyone says it's cheap rubbish and takes ages to arrive, don't trust it\", \"intent\": \"wouldn't click, just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in English so I have no idea what it's trying to sell me\", \"intent\": \"would definitely not click on something I can't read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"psychic reading ads are so scammy and creepy, not paying for that\", \"intent\": \"not interested in psychics at all so wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in a different language and I don't get what it's about\", \"intent\": \"would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't understand it and I don't need an app to learn English anyway\", \"intent\": \"no reason to click, just ignore it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 128,
+ "output_tokens": 648,
+ "reasoning_tokens": 295
+}

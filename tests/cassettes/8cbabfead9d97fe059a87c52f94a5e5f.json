@@ -1,0 +1,11 @@
+{
+ "key": "8cbabfead9d97fe059a87c52f94a5e5f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not interested in an expensive exercise bike and it just looks like an ad for rich people\", \"intent\": \"wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like spammy dating ad, probably bots and fake profiles near me\", \"intent\": \"wouldn't click, don't trust those apps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job right now\", \"intent\": \"might click if I needed a side gig but not now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same bike as before, still not interested and don't want to pay that much\", \"intent\": \"wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and dramatic, feels like a scam miracle cure story and I'm not even diabetic so not relevant to me\", \"intent\": \"definitely wouldn't click or buy, scrolled away as soon as I saw how long it was\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3011,
+ "cached_tokens": 0,
+ "output_tokens": 619,
+ "reasoning_tokens": 250
+}

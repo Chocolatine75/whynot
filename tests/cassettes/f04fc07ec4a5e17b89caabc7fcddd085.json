@@ -1,0 +1,11 @@
+{
+ "key": "f04fc07ec4a5e17b89caabc7fcddd085",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic unbranded dining image with irrelevant overlay text mismatched to astrology offer plus spammy emoji-stuffed Hinglish copy predicts low CTR and quick creative fatigue, unlikely to sustain ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 482,
+ "cached_tokens": 128,
+ "output_tokens": 279,
+ "reasoning_tokens": 216
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e0b1d5639904902abd960aa500ebc379",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Celebrity clickbait with fake BREAKING news and exaggerated claims will trigger disapproval/negative feedback and attract low-intent curiosity clicks that don't convert to paid astrology chats.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 475,
+ "cached_tokens": 128,
+ "output_tokens": 454,
+ "reasoning_tokens": 397
+}

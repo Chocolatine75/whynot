@@ -1,0 +1,11 @@
+{
+ "key": "60ef98250ea2c2252e6b500f9abae187",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Image is text-heavy, low-resolution stick-figure creative with tiny unreadable Turkish copy that violates best practices and will get low CTR and high CPM.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 448,
+ "cached_tokens": 128,
+ "output_tokens": 432,
+ "reasoning_tokens": 383
+}

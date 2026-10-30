@@ -1,0 +1,11 @@
+{
+ "key": "a9ddc9040e3525ea933a03b1dc53f7c9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen loads of these language apps before, not looking to learn a language and don't trust AI lessons\", \"intent\": \"would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks tacky and a bit seedy, not my thing and seems like it'd be a scam to get money\", \"intent\": \"would definitely not click on that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a uni student or tutor so not relevant and £30 an hour sounds too good to be true\", \"intent\": \"would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so I have no idea what it says, clearly not aimed at me\", \"intent\": \"would not click as I can't read it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"these singles nearby ads always look fake and just want your details or money\", \"intent\": \"would not click, don't trust dating app ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 704,
+ "cached_tokens": 128,
+ "output_tokens": 902,
+ "reasoning_tokens": 533
+}

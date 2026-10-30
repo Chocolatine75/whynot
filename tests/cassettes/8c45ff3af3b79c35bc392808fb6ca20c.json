@@ -1,0 +1,11 @@
+{
+ "key": "8c45ff3af3b79c35bc392808fb6ca20c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly phone game ad, looks childish and I'm too old for that time-wasting nonsense\", \"intent\": \"I would not click or buy, not interested in games.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in squiggles I can't read, not meant for me\", \"intent\": \"I would definitely not click as I don't understand it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Foreign language again, no idea what it's selling\", \"intent\": \"I would not click on something I can't read.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat that probably doesn't fit properly and I don't trust car gadgets from Facebook ads\", \"intent\": \"I will not click or buy, I don't need it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Utter rubbish storyline, makes no sense at all and looks creepy\", \"intent\": \"I would not click, I have no interest in this weird drama.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1792,
+ "cached_tokens": 128,
+ "output_tokens": 602,
+ "reasoning_tokens": 238
+}

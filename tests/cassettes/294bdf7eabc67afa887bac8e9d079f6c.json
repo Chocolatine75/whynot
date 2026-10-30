@@ -1,0 +1,11 @@
+{
+ "key": "294bdf7eabc67afa887bac8e9d079f6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed technical title and generic spammy 'download now' text with no hook, benefit, or creative angle guarantees low CTR and CVR versus winning Temu UGC/offer ads.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 309,
+ "cached_tokens": 128,
+ "output_tokens": 315,
+ "reasoning_tokens": 254
+}

@@ -1,0 +1,11 @@
+{
+ "key": "733b51e125704aa1fa239311de72d074",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I see loads of these language apps and that robot picture is odd, I don't need one and don't trust the AI claims\", \"intent\": \"I would just scroll past, not interested in downloading another app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's sleazy and inappropriate, that stepbrother stuff is creepy and not for me at all\", \"intent\": \"I would definitely not click and scrolled past quickly\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for uni students wanting to tutor, I'm in my fifties and not a student so it's irrelevant and sounds too good to be true\", \"intent\": \"I would not click as it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for dating and these apps always seem full of fake profiles and scams\", \"intent\": \"I would ignore it completely, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in another language I can't read, Thai I think, so I have no idea what it's actually offering me\", \"intent\": \"I would scroll straight past as it's not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1763,
+ "cached_tokens": 256,
+ "output_tokens": 808,
+ "reasoning_tokens": 407
+}

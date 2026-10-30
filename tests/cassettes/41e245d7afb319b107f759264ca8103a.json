@@ -1,0 +1,11 @@
+{
+ "key": "41e245d7afb319b107f759264ca8103a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic hype copy with no hook, benefit, offer, or social proof paired with a cluttered, low-readability gameplay screenshot is textbook low-CTR creative that gets killed in testing within days.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 433,
+ "cached_tokens": 128,
+ "output_tokens": 301,
+ "reasoning_tokens": 241
+}

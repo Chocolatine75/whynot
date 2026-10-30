@@ -1,0 +1,11 @@
+{
+ "key": "81a9dbfb21a003ed74bf29ba5c222363",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not buying wholesale handbags, it's clearly a B2B bulk sourcing ad not for a normal bloke like me\", \"intent\": \"No chance I'd click, I have zero need for women's tote bags wholesale\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a mum influencer decluttering toys ad for Vinted, not really aimed at me and feels like every other sponsored mum post\", \"intent\": \"I wouldn't click as I'm not sorting kids toys or looking to sell on Vinted right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian so I have no idea what it's actually offering and I'm not trying to learn English anyway\", \"intent\": \"Definitely wouldn't click when I can't even read the ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Tagalog and it's just a random photo editor hairstyle app which looks spammy\", \"intent\": \"No way I'm downloading a random hairstyle app I can't understand\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Chinese and the image is just a dark blurry photo of lights, I have no clue what the app actually does\", \"intent\": \"Wouldn't click because it tells me nothing useful\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1937,
+ "cached_tokens": 128,
+ "output_tokens": 709,
+ "reasoning_tokens": 294
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e7b2691b32079179bd4d3ef19a165d04",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what Cleanup is meant to do and the picture of a woman in the rain tells me nothing, looks like spam\", \"intent\": \"I would just scroll past it, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"240 dollars is still a lot of money and I don't trust these big sale claims, plus I'm too old to be learning languages on an app\", \"intent\": \"No chance I'd click, I have no need for it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Utter nonsense about alphas and omegas, not a real drama and not something a man my age wants to see\", \"intent\": \"I would scroll straight on, absolute rubbish\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These dating apps are full of fake profiles and scams, I don't want strange women popping up on my feed\", \"intent\": \"I would not click and I don't want to see this again\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says toilet roll holder but the picture is a chair, looks like a dodgy foreign seller and I wouldn't trust the quality\", \"intent\": \"I might have looked at a chair but not from this confusing advert\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1679,
+ "cached_tokens": 0,
+ "output_tokens": 590,
+ "reasoning_tokens": 176
+}

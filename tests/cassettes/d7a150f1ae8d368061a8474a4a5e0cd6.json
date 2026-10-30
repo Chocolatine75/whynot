@@ -1,0 +1,11 @@
+{
+ "key": "d7a150f1ae8d368061a8474a4a5e0cd6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen, high-passion niche (prophecy-curious Christians) with a clear digital bundle offer, detailed benefit-driven long-form copy, and low fulfillment costs are classic ingredients for a durable, profitable prospecting ad in French-speaking markets.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 816,
+ "cached_tokens": 128,
+ "output_tokens": 315,
+ "reasoning_tokens": 246
+}

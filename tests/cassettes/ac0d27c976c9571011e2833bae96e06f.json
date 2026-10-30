@@ -1,0 +1,11 @@
+{
+ "key": "ac0d27c976c9571011e2833bae96e06f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi, not for me, looks like spam with emojis\", \"intent\": \"I scrolled past immediately, definitely not clicking.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need fridge containers and I don't trust these dropshipping ads\", \"intent\": \"I looked for a second but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another astrology ad, I don't believe in this stuff and it's annoying\", \"intent\": \"I just kept scrolling, no interest at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's fashion leopard print from Temu, not for me and Temu feels cheap\", \"intent\": \"I ignored it completely.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese, I don't understand it so I just skipped it\", \"intent\": \"No chance I click an ad I can't even read.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 887,
+ "cached_tokens": 0,
+ "output_tokens": 591,
+ "reasoning_tokens": 241
+}

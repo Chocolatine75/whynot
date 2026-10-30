@@ -1,0 +1,11 @@
+{
+ "key": "279f4914656e47093e64f91781b2db7c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Mismatched bait creative (cheap manicure shaming vs antifungal claim) with gross-out nails and aggressive medical claims will get flagged/rejected for Personal Attributes and Before/After violations and drive low-quality curiosity clicks, not sustainable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 493,
+ "cached_tokens": 128,
+ "output_tokens": 181,
+ "reasoning_tokens": 111
+}

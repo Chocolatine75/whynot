@@ -1,0 +1,11 @@
+{
+ "key": "ec873e1b6e06fcc4aa7b33b5279a3092",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a young girl in a messy bedroom, nothing to do with me at my age, not interested in a self-care pet game\", \"intent\": \"I would keep scrolling, no interest at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak the language and I don't believe in astrology anyway\", \"intent\": \"I wouldn't click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as before, not interested in astrologers and can't understand what it's really offering\", \"intent\": \"I'd scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu pretending to sell Dewalt tools cheap, AI-generated image says not sponsored by Dewalt so it's clearly fake or knock-off\", \"intent\": \"I might look for a second but I wouldn't buy tools from Temu\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Very creepy, one minute it's a luggage tag then the text is in German about secretly tracking someone without them knowing, dodgy and invasive\", \"intent\": \"No chance I'd buy that, seems like a stalking gadget\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2186,
+ "cached_tokens": 128,
+ "output_tokens": 895,
+ "reasoning_tokens": 502
+}

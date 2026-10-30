@@ -1,0 +1,11 @@
+{
+ "key": "f4ba9885d6eb24b3c4e097a40329dac3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and I don't need another card, also linking money to football World Cup means nothing to me\", \"intent\": \"I would not click or download, I have no interest in switching banks\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy so a UK dentist offer is useless to me and £1799 still sounds expensive and fake with that handwritten sign\", \"intent\": \"I would definitely not click for a dentist consultation in another country\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology and kundali means nothing to me, plus the image is just black and looks like spam\", \"intent\": \"I would scroll past immediately and never pay for an astrologer chat\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same UK teeth offer again, not relevant for me in Italy and I don't trust these before-after ads\", \"intent\": \"I would ignore it, I don't need teeth straightening from a UK company\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu is cheap low quality stuff and I don't trust the free gifts, I don't want to waste money on junk\", \"intent\": \"I would not click the link or use the code, I try to avoid Temu\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1652,
+ "cached_tokens": 128,
+ "output_tokens": 884,
+ "reasoning_tokens": 462
+}

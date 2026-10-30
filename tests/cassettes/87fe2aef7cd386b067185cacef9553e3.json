@@ -1,0 +1,11 @@
+{
+ "key": "87fe2aef7cd386b067185cacef9553e3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropshipping ad, I don't need a blanket with cartoon dogs on it and I don't trust the quality\", \"intent\": \"I wouldn't click, it's cute but useless for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor and I'm not religious, this has nothing to do with me\", \"intent\": \"I would definitely not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand what it's for, just two people eating dim sum, and I have no reason to learn Cantonese\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"black image with nothing to see, feels spammy and I don't believe in astrology\", \"intent\": \"I would not click, ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks expensive and gimmicky, I already have an electric toothbrush and don't need a camera for my teeth\", \"intent\": \"I might have paused to look but I wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1920,
+ "cached_tokens": 128,
+ "output_tokens": 653,
+ "reasoning_tokens": 266
+}

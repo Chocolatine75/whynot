@@ -1,0 +1,11 @@
+{
+ "key": "fa8ce22b9d27217db9175c340ee5e248",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's Temu so I don't trust the quality and it will probably look cheap irl\", \"intent\": \"I wouldn't click I just kept scrolling past it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in English so I have no idea what it's trying to sell me\", \"intent\": \"I scrolled straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"psychic ads are so scammy and the image is creepy I don't believe any of it\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in a different language and I don't care about astrology anyway\", \"intent\": \"I didn't stop or click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't understand the language and I already speak English so it's irrelevant\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1596,
+ "cached_tokens": 128,
+ "output_tokens": 684,
+ "reasoning_tokens": 336
+}

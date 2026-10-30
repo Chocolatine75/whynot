@@ -1,0 +1,11 @@
+{
+ "key": "81a0315722ba3b5c8ebe328616236723",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a close up of a tiny electronic thing and the title is all jumbled keywords for businesses, nothing to do with me\", \"intent\": \"Wouldn't click, I have no need to import workshop lights\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish so I can't even read it properly and I already speak English\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those expensive biohacking fads with big health claims I don't trust, and I don't like the half-naked photo\", \"intent\": \"Might be curious but I wouldn't click or buy from an Instagram ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy image made me pause but I have zero interest in an AI chat horror story app\", \"intent\": \"Would not click, not my thing and looks a bit gimmicky\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It says learn English but the picture shows Spanish phrases so it's confusing and looks cheap\", \"intent\": \"Wouldn't click, don't need it and don't trust it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1925,
+ "cached_tokens": 128,
+ "output_tokens": 871,
+ "reasoning_tokens": 475
+}

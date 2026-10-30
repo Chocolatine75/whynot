@@ -1,0 +1,11 @@
+{
+ "key": "9eaa9753fd57c5d131a95cedc7ffc025",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor or church leader so this has nothing to do with me\", \"intent\": \"Would just keep scrolling, not my topic at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Chinese and I don't understand it, just looks like another editor app\", \"intent\": \"Would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have Peloton stuff and 45 pounds a month is way too much\", \"intent\": \"Might glance at it but would not click or buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The text is in Korean so I have no idea what it's really offering\", \"intent\": \"Would ignore and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in Spanish or English and I don't need a video editor right now\", \"intent\": \"Would not click, just scroll past\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 745,
+ "cached_tokens": 0,
+ "output_tokens": 872,
+ "reasoning_tokens": 524
+}

@@ -1,0 +1,11 @@
+{
+ "key": "38879cbadc64f9f409ebb61c30d6829d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says learn a language but text is about AI football photos, feels like scammy clickbait\", \"intent\": \"Would just scroll past, not clicking.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business buying toilet roll holders in bulk, totally irrelevant to me\", \"intent\": \"No interest at all, keep scrolling.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have kids doing A-Levels so not relevant and I don't trust free trial tutoring ads\", \"intent\": \"Not for me so wouldn't click.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious, instantly ignored it\", \"intent\": \"Would scroll straight past.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai script, I have no clue what it even says\", \"intent\": \"No way I'd click something I can't read.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1252,
+ "cached_tokens": 128,
+ "output_tokens": 1028,
+ "reasoning_tokens": 681
+}

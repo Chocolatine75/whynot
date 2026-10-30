@@ -1,0 +1,11 @@
+{
+ "key": "fb73bf7abf6e8f6534535336a7dcd188",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"it's for business buyers in London and I'm not a business buyer and I don't live there, total spam for me\",\"intent\":\"I would just keep scrolling, not for me at all\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's in another language and about astrology for ex coming back, I don't believe in that and it's not relevant\",\"intent\":\"I would not click, I hate these astrology traps\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"the image is a wooden cabinet but the text is about China factories and sourcing, makes no sense and I'm not a shop owner\",\"intent\":\"I would ignore it, zero interest\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"way too long, reads like a fake doctor story to sell me expensive patches and I don't have neuropathy, plus it sounds like medical advice from Facebook which I don't trust\",\"intent\":\"I would definitely not buy and I would not click the link\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"it says it's the cheapest in the UK but I live in Italy so it doesn't help me, and I don't trust cheap online aligners without my dentist\",\"intent\":\"I might notice it but I wouldn't book, maybe I'd ask my own dentist instead\",\"intent_score\":2}],\"preferred\":\"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7565,
+ "cached_tokens": 0,
+ "output_tokens": 733,
+ "reasoning_tokens": 363
+}

@@ -1,0 +1,11 @@
+{
+ "key": "716f1ade6281d6f895235da820ea1cdd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and clearly aimed at old people, I don't have neuropathy and it reads like a scammy fake story trying to sell a patch\", \"intent\": \"Wouldn't click, not relevant to me at all and I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not Christian and not a youth leader, nothing to do with me\", \"intent\": \"Would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer or supplier so not for me\", \"intent\": \"Wouldn't click, no reason to go to a B2B expo\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image is a hi-vis jacket but title is about printer ink, confusing and irrelevant\", \"intent\": \"Would not click, looks like a junk listing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't know the brand and not sure I need that drink, looks like another random dropship ad\", \"intent\": \"Might have paused on the price but wouldn't click or buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5508,
+ "cached_tokens": 0,
+ "output_tokens": 663,
+ "reasoning_tokens": 281
+}

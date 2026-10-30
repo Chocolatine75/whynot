@@ -1,0 +1,11 @@
+{
+ "key": "dc6d59866b93fd4f4f0c5015b429640b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's for businesses buying wholesale, I'm not a shop and I don't need a branded tote like that\", \"intent\": \"I would just scroll past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 65, I don't need teeth straightening and I don't trust cheap dental offers online\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Horribly long and scary, trying to frighten you into buying a patch, I don't believe miracle cures on Facebook and I'd ask my GP not the internet\", \"intent\": \"I definitely would not click or buy anything from this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Dating app ad is not appropriate for me, looks tacky and desperate and I don't trust it\", \"intent\": \"I would scroll straight past and not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just Temu pushing cheap accessories, I don't trust the quality and I'm not into that style\", \"intent\": \"I wouldn't click, I avoid Temu ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9501,
+ "cached_tokens": 0,
+ "output_tokens": 1039,
+ "reasoning_tokens": 647
+}

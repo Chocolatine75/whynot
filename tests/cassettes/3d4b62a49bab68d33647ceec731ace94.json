@@ -1,0 +1,11 @@
+{
+ "key": "3d4b62a49bab68d33647ceec731ace94",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, low-differentiation copy with no hook, social proof, or unique benefit will burn out quickly in the saturated AI beauty/hairstyle niche.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 257,
+ "cached_tokens": 128,
+ "output_tokens": 353,
+ "reasoning_tokens": 301
+}

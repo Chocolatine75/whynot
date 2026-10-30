@@ -1,0 +1,11 @@
+{
+ "key": "39f5faa6bf7a1b48cf7a5f80786c3844",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and I can't afford Peloton anyway, that £45 a month membership plus the machine is way too expensive for me\", \"intent\": \"I wouldn't click or buy, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"title says stone cage gabion basket but the picture is a wicker bench so it makes no sense and I don't trust Temu for big stuff like that\", \"intent\": \"I wouldn't click, looks sketchy and I don't need garden furniture\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just looks like another rubbish mobile game ad, best game 2026 is obviously fake hype so I just scroll past\", \"intent\": \"Wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a B2B business supplier expo in London, I'm not a business buyer so it's completely irrelevant to me\", \"intent\": \"I wouldn't click, nothing to do with my life\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's in a different language and just shows a cute guy to get clicks, I don't want some random AI hairstyle app on my phone\", \"intent\": \"I might pause at the photo but I wouldn't click or download\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2039,
+ "cached_tokens": 128,
+ "output_tokens": 1269,
+ "reasoning_tokens": 848
+}

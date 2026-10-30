@@ -1,0 +1,11 @@
+{
+ "key": "152f42feed6f9fad20c6dab73ceb8e1d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic keyword-stuffed title and spammy discount text with no hook, angle, or social proof will drive low CTR and trust and get killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 304,
+ "cached_tokens": 128,
+ "output_tokens": 272,
+ "reasoning_tokens": 220
+}

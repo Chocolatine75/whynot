@@ -1,0 +1,11 @@
+{
+ "key": "9bdf834fe3433ec9a569a52cb42d228b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long and I haven't got nerve pain so just scrolled past, felt like one of those fake story ads trying to sell patches\", \"intent\": \"wouldn't click or buy, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need teeth straightening and I don't trust these cheap per day offers, always catches\", \"intent\": \"definitely wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"\", \"intent\": \"might click to have a look since I'm always clearing kids stuff\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I haven't got room or time for it\", \"intent\": \"wouldn't click, know I'd never buy it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what it's actually selling, just a black screen with 2022 on it\", \"intent\": \"wouldn't click as I've no clue what it is\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4916,
+ "cached_tokens": 3328,
+ "output_tokens": 618,
+ "reasoning_tokens": 255
+}

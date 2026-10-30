@@ -1,0 +1,11 @@
+{
+ "key": "e9c13011c068e4d11e9231411459b21f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"carino ma sembra un giochino stupido, non ho bisogno di un'altra app che mi ruba tempo\", \"intent\": \"non ci cliccherei, vado avanti\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è per il Regno Unito con prezzi in sterline, io vivo in Italia quindi non mi serve a niente\", \"intent\": \"ignoro completamente, non è per me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non mi fido di queste app per le icone, poi ti riempiono di pubblicità e abbonamenti\", \"intent\": \"non mi interessa personalizzare il telefono così\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"muro di testo lunghissimo che fa leva sulla paura, sembra la solita truffa che vuole venderti un cerotto miracoloso e poi ti dice di non fidarti dei medici\", \"intent\": \"assolutamente non compro niente e non clicco sul link\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non guido tanto e comunque sembra plastica cinese inutile che si rompe subito\", \"intent\": \"scorro oltre, non ne ho bisogno\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7886,
+ "cached_tokens": 0,
+ "output_tokens": 658,
+ "reasoning_tokens": 253
+}

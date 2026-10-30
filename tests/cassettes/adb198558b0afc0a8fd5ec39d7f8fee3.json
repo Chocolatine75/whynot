@@ -1,0 +1,11 @@
+{
+ "key": "adb198558b0afc0a8fd5ec39d7f8fee3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Chinese script I can't read so I just scrolled past, not for me\", \"intent\": \"I wouldn't click or buy as I don't know what it's saying or offering\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it really does and I don't need a hairstyle app\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian which I don't speak, just looked like spam to me\", \"intent\": \"I wouldn't click on something I can't understand\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted but I'm wary of sponsored links from influencers and I don't need to buy toys right now\", \"intent\": \"I might have a look at Vinted later but not through this ad\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly for wholesale businesses not regular shoppers like me, so irrelevant\", \"intent\": \"I wouldn't click as I'm not looking to bulk buy handbags\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 697,
+ "cached_tokens": 128,
+ "output_tokens": 722,
+ "reasoning_tokens": 344
+}

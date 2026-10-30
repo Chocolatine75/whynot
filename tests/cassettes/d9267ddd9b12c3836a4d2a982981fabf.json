@@ -1,0 +1,11 @@
+{
+ "key": "d9267ddd9b12c3836a4d2a982981fabf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly mobile game ad, I see tons of these and I never play them\", \"intent\": \"I would not click, I don't want another game on my phone\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"This is creepy and invasive, spying on someone without consent is wrong and probably illegal, plus it's in German so not for me\", \"intent\": \"Absolutely not, I would never buy something to spy on someone\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Japanese about learning Thai, I don't speak either and I'm not trying to learn Thai\", \"intent\": \"No need to click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and looks like a random streaming app, I don't understand it and I don't trust free trial claims\", \"intent\": \"I would just keep scrolling, not interested\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not religious and not looking for a Christian faith guide, not my thing\", \"intent\": \"I wouldn't click learn more, this is not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 861,
+ "cached_tokens": 128,
+ "output_tokens": 791,
+ "reasoning_tokens": 403
+}

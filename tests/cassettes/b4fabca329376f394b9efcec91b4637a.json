@@ -1,0 +1,11 @@
+{
+ "key": "b4fabca329376f394b9efcec91b4637a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Uses unlicensed Disney IP (Stitch) which drives high niche CTR but guarantees copyright takedown/rejection and prevents compliant long-term scaling despite its aesthetic appeal.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 444,
+ "cached_tokens": 128,
+ "output_tokens": 355,
+ "reasoning_tokens": 305
+}

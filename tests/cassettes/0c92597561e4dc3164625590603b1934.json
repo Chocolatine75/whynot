@@ -1,0 +1,11 @@
+{
+ "key": "0c92597561e4dc3164625590603b1934",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Native UGC-style creative with influencer handle, seasonal styling hook, and trackable search code (ACU670394) is exactly Temu's proven low-CPC engagement formula that they scale as an evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 388,
+ "cached_tokens": 128,
+ "output_tokens": 281,
+ "reasoning_tokens": 216
+}

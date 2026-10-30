@@ -1,0 +1,11 @@
+{
+ "key": "e3097eb38e3638026e1ae5254c591d4c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the title says toilet roll holder but the image is just a chair, looks like a scam or mistake, and I don't need that anyway\", \"intent\": \"I wouldn't click at all, it feels mismatched and untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a language app right now and 240 dollars still feels expensive, plus the image of that guy doesn't tell me anything\", \"intent\": \"I might pause but I wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no idea what Cleanup is or what this law firm does, the stars and text don't match the photo of a woman on the street\", \"intent\": \"I would just scroll past, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"the story sounds super confusing and cheesy with omega alpha stuff, not my kind of drama and looks low quality\", \"intent\": \"I stopped for a second because it was weird but I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"dating apps always say verified and singles near you but I don't trust them and I don't want another one\", \"intent\": \"I wouldn't click now, maybe I'd remember it but probably not\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1680,
+ "cached_tokens": 0,
+ "output_tokens": 753,
+ "reasoning_tokens": 338
+}

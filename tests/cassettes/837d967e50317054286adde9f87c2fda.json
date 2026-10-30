@@ -1,0 +1,11 @@
+{
+ "key": "837d967e50317054286adde9f87c2fda",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap imported tat with a fake 50 percent off sticker, don't need a flimsy fan\", \"intent\": \"Wouldn't click or buy, got fans at home already\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into these survival games, looks for kids\", \"intent\": \"Wouldn't click or download anything\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Dutch or something, not for me and I don't do reels\", \"intent\": \"Would scroll straight past, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"All in foreign writing, no idea what it's selling apart from video stuff which I don't use\", \"intent\": \"Wouldn't click, irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Foreign language again and I don't need a hairstyle app at my age\", \"intent\": \"Would definitely not click or buy\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 708,
+ "cached_tokens": 128,
+ "output_tokens": 706,
+ "reasoning_tokens": 357
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5440dc35bb2bc58df3171a9d8a08678e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Instagram-organic 'link in bio' copy shows amateur media buying, combined with risky unsubstantiated medical claims (0 EMF, nervous system regulation) and a cheap/sexualized low-trust creative that will likely get flagged, low CTR and no sustainable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 581,
+ "cached_tokens": 128,
+ "output_tokens": 330,
+ "reasoning_tokens": 255
+}

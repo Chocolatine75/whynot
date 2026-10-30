@@ -1,0 +1,11 @@
+{
+ "key": "78c4f2b82e637c8b65edcd626da12193",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"ad says toilet roll holder but the picture is just a random dining chair, looks scammy and I don't need bathroom stuff\", \"intent\": \"I wouldn't click or buy, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a fake dating ad with stock photo and catfish vibes, not trusting it and not my type\", \"intent\": \"I wouldn't click, seems dodgy and spammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and don't want to be a biblical counsellor, not relevant to me at all\", \"intent\": \"I wouldn't click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's industrial fire alarm cable for businesses, I have zero use for that\", \"intent\": \"I wouldn't click or buy, totally irrelevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap mobile tower defence clone and it says Best Game 2026 which is nonsense\", \"intent\": \"Probably wouldn't click but might maybe check it if I was bored\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2118,
+ "cached_tokens": 0,
+ "output_tokens": 589,
+ "reasoning_tokens": 204
+}

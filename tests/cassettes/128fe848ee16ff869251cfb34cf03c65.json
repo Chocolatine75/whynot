@@ -1,0 +1,11 @@
+{
+ "key": "128fe848ee16ff869251cfb34cf03c65",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"not for me at all i don't wear turbans and it looked like a cheap dropship ad\",\"intent\":\"wouldn't click i have no need for it\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's all in french and i'm not religious like that so i just scrolled past\",\"intent\":\"would not click not relevant to me\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"i'm not a pastor or church leader so this has literally nothing to do with me\",\"intent\":\"no chance i'd click\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"the image looked so fake and weird with the stomach thing, felt clickbaity and scammy\",\"intent\":\"might have paused to look cos it was weird but definitely wouldn't click\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"i'm 22 i don't have neuropathy and that huge long text ad just put me off instantly\",\"intent\":\"wouldn't click or buy not for me at all\",\"intent_score\":1}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7898,
+ "cached_tokens": 128,
+ "output_tokens": 683,
+ "reasoning_tokens": 368
+}

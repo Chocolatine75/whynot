@@ -1,0 +1,11 @@
+{
+ "key": "408a14d5290d786ba440d43e17b107fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Not my thing at all, it's two anime guys smoking and talking about BoyxBoy, I'm not the target audience\", \"intent\": \"I would definitely not click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a dating app and this looks like spammy clickbait with singles in your area\", \"intent\": \"No chance I would click on this dating ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu quality for a big sofa and I'm not looking to buy furniture right now\", \"intent\": \"I might pause to look at the sofa but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai which I don't understand and I don't need a video editing app\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a plain blue screen with no real information about food or delivery\", \"intent\": \"I wouldn't click, there's nothing to see\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1676,
+ "cached_tokens": 1664,
+ "output_tokens": 880,
+ "reasoning_tokens": 506
+}

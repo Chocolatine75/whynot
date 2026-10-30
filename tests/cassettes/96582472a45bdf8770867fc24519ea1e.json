@@ -1,0 +1,11 @@
+{
+ "key": "96582472a45bdf8770867fc24519ea1e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already know Revolut, seen this ad a thousand times, just another fintech push, nothing new for me to click\", \"intent\": \"I wouldn't click, I already have my bank and don't need another card\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is not for me at all and the image with that text looks cheap and confusing, I just scrolled past\", \"intent\": \"No way I'd click on a nail fungus thing\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese for Brazil/Portugal, not relevant to me in Spain and it looks like clickbait novela spam\", \"intent\": \"I didn't understand it properly and wouldn't click to download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology interview clickbait, I don't know who that person is and I don't believe an astrologer can tell anything\", \"intent\": \"I would never click on astrology chat ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The 45 day battery sounds exaggerated and the dentist-in-your-bathroom claim feels like marketing hype, plus it looks expensive\", \"intent\": \"Maybe I'd watch a second but I wouldn't buy a toothbrush from an ad\", \"intent_score\": 2}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1590,
+ "cached_tokens": 128,
+ "output_tokens": 623,
+ "reasoning_tokens": 210
+}

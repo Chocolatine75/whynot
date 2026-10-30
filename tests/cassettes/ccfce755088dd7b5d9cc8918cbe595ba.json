@@ -1,0 +1,11 @@
+{
+ "key": "ccfce755088dd7b5d9cc8918cbe595ba",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Negative clickbait 'FAKE Astrologer EXPOSED' undermines trust in its own category and mismatches the 'First Chat FREE' offer, driving cheap curious clicks but poor conversion/intent for Astrotalk, so it would be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 445,
+ "cached_tokens": 128,
+ "output_tokens": 261,
+ "reasoning_tokens": 188
+}

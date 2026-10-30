@@ -1,0 +1,11 @@
+{
+ "key": "a355c554bb250a0834173e509af03f2f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Image shows a wooden dining chair while title sells a stainless steel toilet roll holder, creating a complete creative-offer mismatch that kills CTR, relevance score, and conversion rate.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 128,
+ "output_tokens": 183,
+ "reasoning_tokens": 128
+}

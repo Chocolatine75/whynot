@@ -1,0 +1,11 @@
+{
+ "key": "9003bc4a9f9f1f085605ec660639dbf4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"è pubblicità Temu, non mi fido della qualità dei vestiti e non mi piace il leopardato doppio così\", \"intent\": \"non cliccherei, al massimo guarderei l'immagine e scrollerei oltre\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in portoghese, non è per me e non mi interessa un quiz di 3 minuti per l'ansia\", \"intent\": \"non cliccherei mai, ho scrollato subito\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"sembra utile ma ho già contenitori simili e non voglio comprare da un ad sconosciuto con 50% off finto\", \"intent\": \"forse salverei l'idea ma non comprerei ora\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"foto del piede disgustosa e testo lunghissimo e ansiogeno, sembra una truffa che vende cerotti miracolosi, non ho il diabete\", \"intent\": \"non cliccherei assolutamente, mi ha messo disagio\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"è una poltrona da dentista su Alibaba B2B, non c'entra niente con me\", \"intent\": \"non cliccherei, completamente irrilevante\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4782,
+ "cached_tokens": 0,
+ "output_tokens": 815,
+ "reasoning_tokens": 387
+}

@@ -1,0 +1,11 @@
+{
+ "key": "05c47203eaa945d1b48c171978262792",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic marketplace copy with no product, price, offer, or hook to drive CTR/conversion, typical low-performing prospecting filler that gets paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 272,
+ "cached_tokens": 128,
+ "output_tokens": 206,
+ "reasoning_tokens": 155
+}

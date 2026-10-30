@@ -1,0 +1,11 @@
+{
+ "key": "4137f38ca4ccb46d1e6ddae891c6647d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer and I don't live near London, has nothing to do with me\", \"intent\": \"No interest in clicking, not relevant to my life\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird mix of Hindi and English astrology stuff, I don't believe in this at all\", \"intent\": \"Would never click on an astrology ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Alibaba spam as before, just hashtags, looks low quality\", \"intent\": \"Would keep scrolling without a second thought\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long, reads like a fake doctor story to sell patches, I don't have neuropathy and I don't trust these miracle cures\", \"intent\": \"Scrolled a bit then skipped, definitely not buying or clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£4 a day sounds cheap but I know these aligners end up costing thousands with hidden fees, don't trust online dentist ads\", \"intent\": \"Maybe slightly curious but I would not click, I'd ask my own dentist instead\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6039,
+ "cached_tokens": 128,
+ "output_tokens": 786,
+ "reasoning_tokens": 398
+}

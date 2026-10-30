@@ -1,0 +1,11 @@
+{
+ "key": "4cff8e9b1f52e79a4d87c8b85f9de49c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Nothing to do with me at all, looks like industrial cable for electricians, I just scrolled straight past\", \"intent\": \"I would not click or buy, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and Peloton is way too expensive at £45 a month plus the equipment\", \"intent\": \"I might pause on the image but I wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and I don't want biblical counselling training, feels a bit pushy and not for me\", \"intent\": \"I would keep scrolling and not click learn more\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"These £0 Temu ads always seem like a scam and the image with the shouting man puts me off\", \"intent\": \"I would not click, I don't trust Temu offers\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm a bit wary of these teeth straightening offers on Instagram and the £4 a day probably hides extra costs\", \"intent\": \"I might be slightly tempted to look but probably wouldn't book in the end\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2037,
+ "cached_tokens": 256,
+ "output_tokens": 544,
+ "reasoning_tokens": 147
+}

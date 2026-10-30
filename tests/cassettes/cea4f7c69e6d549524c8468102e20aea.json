@@ -1,0 +1,11 @@
+{
+ "key": "cea4f7c69e6d549524c8468102e20aea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Despite strong long-form advertorial copy, the low-quality cracked-phone image is completely incongruent with the neuropathy story, guaranteeing terrible CTR and likely policy rejection so it will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3724,
+ "cached_tokens": 128,
+ "output_tokens": 223,
+ "reasoning_tokens": 166
+}

@@ -1,0 +1,11 @@
+{
+ "key": "f24685e6c56a38b8cabba6d2267e3987",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 6, \"why\": \"Strong affordability anchor (£4/day) + free whitening/consult lowers barrier to lead, but generic text-only description with no proof/creative differentiation rarely sustains months-long scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 260,
+ "cached_tokens": 128,
+ "output_tokens": 308,
+ "reasoning_tokens": 251
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c16ccba3476cfe2734e8aef6714219d3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"sembra clickbait di una serie trash, non mi interessa e non capisco cosa sia Nocturne Judge\", \"intent\": \"non cliccherei mai, non guardo questi drammi sensazionalistici\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non capisco l'ebraico e l'immagine con l'elicottero mi sembra stupida, non uso CapCut\", \"intent\": \"non mi interessa un altro editor video, scrollo oltre\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho nessun motivo per imparare il vietnamita, altra app inutile\", \"intent\": \"non la scaricherei, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in spagnolo e sembra una truffa che usa i nomi di Oxford e Cambridge per sembrare serio\", \"intent\": \"non farei nessun test, non mi fido di queste app per la salute mentale\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"è in francese e non mi fido delle app che cambiano i capelli con l'AI, sembrano sempre fake\", \"intent\": \"forse ero curiosa per un secondo per i capelli ma non cliccherei\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1819,
+ "cached_tokens": 128,
+ "output_tokens": 678,
+ "reasoning_tokens": 264
+}

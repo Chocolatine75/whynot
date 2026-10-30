@@ -1,0 +1,11 @@
+{
+ "key": "40c5838cb2c744ba470f3acc2b5df8ba",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not for me at all, I'm not a uni student looking for tutoring work and that £30 an hour sounds too good to be true\", \"intent\": \"I wouldn't click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another generic language app ad, I've seen loads and they never work\", \"intent\": \"I wouldn't bother clicking, I'm not looking to learn a language right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not single and don't trust these dating apps, feels a bit dodgy\", \"intent\": \"Definitely wouldn't click on a dating ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"quite sleazy and inappropriate, put me off completely and not something I want popping up on my feed\", \"intent\": \"No chance I'd click, I just scrolled past quickly\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Thai or something, I can't read it so I just ignored it\", \"intent\": \"I wouldn't click as I don't understand what it's offering\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 704,
+ "cached_tokens": 128,
+ "output_tokens": 625,
+ "reasoning_tokens": 245
+}

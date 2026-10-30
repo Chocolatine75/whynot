@@ -1,0 +1,11 @@
+{
+ "key": "13622c4f6da04b847b79805581a9f06c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Spammy emoji-stuffed copy with mismatched 10 vs 11 minute claim, generic arrow CTA and cluttered book-in-phone creative looks low-trust and undifferentiated, unlikely to sustain efficient CPI long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 602,
+ "cached_tokens": 128,
+ "output_tokens": 484,
+ "reasoning_tokens": 421
+}

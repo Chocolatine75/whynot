@@ -1,0 +1,11 @@
+{
+ "key": "1fa3686da8227d08e3759a24a7b5074b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't know who that person is and I don't believe in astrology telling you everything from your birthday, seems like clickbait\", \"intent\": \"I wouldn't click, not interested in astrology chats at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That doll washing up is odd and I don't have ADHD, and I don't trust these online mental health plans\", \"intent\": \"I would just scroll past, nothing for me here\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do worry about my dog's itchy ears but I wouldn't buy medicine off an advert on Facebook, I'd go to the vet\", \"intent\": \"I might look but I wouldn't buy it, I'd ask my vet instead\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I don't understand it and I'm too old to be learning languages on an app\", \"intent\": \"I wouldn't click, it's not for me and not in English\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Silly glasses for youngsters messing about, not something a woman my age needs\", \"intent\": \"I wouldn't buy them, I'd just shake my head and scroll on\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1789,
+ "cached_tokens": 128,
+ "output_tokens": 588,
+ "reasoning_tokens": 182
+}

@@ -1,0 +1,11 @@
+{
+ "key": "ebb8540d726285285265970dd8596d6b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, low-effort creative with spammy emoji claims and no hook/CTA or differentiation screams short-lived test that burns out fast.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 163,
+ "reasoning_tokens": 113
+}

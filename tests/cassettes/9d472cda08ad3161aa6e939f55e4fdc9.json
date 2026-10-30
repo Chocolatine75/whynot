@@ -1,0 +1,11 @@
+{
+ "key": "9d472cda08ad3161aa6e939f55e4fdc9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Woman standing on a wet street has nothing to do with a cleanup app, looks like random stock photo spam, not trusting that 70M claim\", \"intent\": \"I wouldn't click, got no idea what it's actually cleaning and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Dutch so I can't understand a word of it and the blurry guy holding a sheep is just weird\", \"intent\": \"Not clicking on something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap AI slop with creepy doll girls and pumpkins, not interested in Halloween filters\", \"intent\": \"I would keep scrolling, no need for this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't care about Stitch widget themes and these apps are always full of ads and subscriptions\", \"intent\": \"I might have glanced but I wouldn't install it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Greek so I have no clue what it's saying, not for me as I'm in the UK\", \"intent\": \"I would just scroll past immediately\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1480,
+ "cached_tokens": 256,
+ "output_tokens": 693,
+ "reasoning_tokens": 299
+}

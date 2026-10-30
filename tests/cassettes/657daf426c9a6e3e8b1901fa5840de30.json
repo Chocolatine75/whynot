@@ -1,0 +1,11 @@
+{
+ "key": "657daf426c9a6e3e8b1901fa5840de30",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and scary, reads like a total scam trying to frighten me into buying patches. Don't trust random 'nurses' selling stuff online.\", \"intent\": \"Wouldn't click, just scrolled past as fast as I could.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish so not even for me, just irrelevant.\", \"intent\": \"Would not click at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I have a dog but I don't trust these miracle natural cures on Facebook, would ask my vet instead.\", \"intent\": \"Might have a look if my dog had that issue but wouldn't buy from an ad.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It does look pretty for the garden but I bet it's cheap plastic and overpriced, and we don't need more garden clutter.\", \"intent\": \"Would maybe click to see the price out of curiosity but not buy.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A camera on a toothbrush seems gimmicky and a bit gross, and £95 is too much for a toothbrush.\", \"intent\": \"Would not click or buy.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8116,
+ "cached_tokens": 128,
+ "output_tokens": 708,
+ "reasoning_tokens": 307
+}

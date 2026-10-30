@@ -1,0 +1,11 @@
+{
+ "key": "3dbb79ba8b3cf7458d9c483fe4cc6c3a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap looking bubble shooter game ad, looks really spammy and nothing special\", \"intent\": \"I wouldn't click it, I get loads of these and never download them\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm sick of Temu ads everywhere and don't trust the quality, feels like junk\", \"intent\": \"No chance I'd click, I just scroll past Temu stuff straight away\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a generic mobile game ad, I've seen a hundred like it and they're never as good as shown\", \"intent\": \"I might have paused for a second but wouldn't bother downloading it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Totally irrelevant to me, why would I need fire alarm cable\", \"intent\": \"I scrolled straight past without even reading it properly\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nicely designed but it's an expensive electric toothbrush I don't need right now and probably overpriced\", \"intent\": \"I stopped to look but wouldn't click to buy, maybe look later if I needed a new brush\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2066,
+ "cached_tokens": 128,
+ "output_tokens": 724,
+ "reasoning_tokens": 333
+}

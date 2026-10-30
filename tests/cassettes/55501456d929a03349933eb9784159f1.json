@@ -1,0 +1,11 @@
+{
+ "key": "55501456d929a03349933eb9784159f1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropship ad and i don't wear turbans, feels a bit random\", \"intent\": \"wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in french so i just scrolled past, not relevant to me anyway\", \"intent\": \"wouldn't click, didn't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i'm not a pastor or church leader so this has nothing to do with me\", \"intent\": \"wouldn't click, not my thing\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like one of those fitness apps that wants you to pay after, bit vague and scammy\", \"intent\": \"might have paused but wouldn't click, don't trust it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and scary, feels like fear-mongering to sell patches and i'm way too young for neuropathy stuff\", \"intent\": \"definitely wouldn't click, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6663,
+ "cached_tokens": 128,
+ "output_tokens": 561,
+ "reasoning_tokens": 190
+}

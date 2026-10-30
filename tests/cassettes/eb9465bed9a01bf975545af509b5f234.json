@@ -1,0 +1,11 @@
+{
+ "key": "eb9465bed9a01bf975545af509b5f234",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Tout est en portugais, je ne comprends rien et je ne cherche pas une appli pour les coiffures\", \"intent\": \"Je ne cliquerais pas, ça ne m'intéresse pas du tout\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Ça fait trop pub miracle pour un appareil cher, je ne crois pas aux promesses et je n'ai pas confiance\", \"intent\": \"Je ne cliquerais pas, je ne veux pas acheter ce genre de gadget\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"C'est juste une pub pour un petit jeu mobile, pas besoin de ça\", \"intent\": \"Je ne cliquerais probablement pas, peut-être par ennui mais sans plus\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en coréen, je ne comprends rien et ça ne me concerne pas\", \"intent\": \"Je ne cliquerais pas du tout\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Encore en portugais, je ne comprends pas et je ne fais pas de quiz comme ça sur une pub\", \"intent\": \"Je ne cliquerais pas, je passerais mon chemin\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 800,
+ "cached_tokens": 0,
+ "output_tokens": 952,
+ "reasoning_tokens": 549
+}

@@ -1,0 +1,11 @@
+{
+ "key": "fdd7392a6bfcf6fc293be288ac3a49d8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Classic high-CTR werewolf rejected-mate-to-royalty trope with stacked curiosity gaps (scars, $100k contract, birthmark mystery) that is a proven evergreen winner for female romance book funnels on Facebook.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 380,
+ "cached_tokens": 128,
+ "output_tokens": 313,
+ "reasoning_tokens": 244
+}

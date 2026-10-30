@@ -1,0 +1,11 @@
+{
+ "key": "48bda22aa38c76cec3dd6873b664ec84",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic spammy duplicate copy with no real offer and a creepy, irrelevant AI Anubis image creates massive message mismatch, low trust and high negative feedback, so it will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 496,
+ "cached_tokens": 128,
+ "output_tokens": 269,
+ "reasoning_tokens": 210
+}

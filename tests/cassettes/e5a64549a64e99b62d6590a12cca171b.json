@@ -1,0 +1,11 @@
+{
+ "key": "e5a64549a64e99b62d6590a12cca171b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not training for anything and I'm not paying £45 a month plus buying the bike, just not for me\", \"intent\": \"I wouldn't click, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spam, £0 gift makes no sense and I don't trust Temu codes\", \"intent\": \"I wouldn't click or buy, looked scammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": true, \"why_not\": \"I have no idea what this cable is for and I don't need industrial stuff\", \"intent\": \"I wouldn't click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need my teeth straightened and £4 a day ads always end up costing more\", \"intent\": \"I wouldn't click, not something I'm looking for\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not religious and I have no interest in becoming a counsellor\", \"intent\": \"I wouldn't click, just not my thing at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 797,
+ "cached_tokens": 128,
+ "output_tokens": 649,
+ "reasoning_tokens": 283
+}

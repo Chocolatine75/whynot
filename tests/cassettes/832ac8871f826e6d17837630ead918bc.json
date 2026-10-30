@@ -1,0 +1,11 @@
+{
+ "key": "832ac8871f826e6d17837630ead918bc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 5, \"why\": \"Classic high-CTR mass-India clickbait (celebrity + FREE + emoji) that will get cheap clicks initially but celebrity implication and overpromise trigger fatigue/rejections, so Astrotalk will iterate it rather than run unchanged for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 297,
+ "cached_tokens": 128,
+ "output_tokens": 362,
+ "reasoning_tokens": 293
+}

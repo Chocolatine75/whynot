@@ -1,0 +1,11 @@
+{
+ "key": "7a636ad627041f744fa64373e485db40",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm a guy in my late 20s, I don't sew and have zero use for needles, just scrolled past\", \"intent\": \"Wouldn't click or buy, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what I'm even buying - some red cans with Chinese writing? Generic delivery ad, instantly skipped\", \"intent\": \"Would not click, I don't know what the product is\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Massive scary wall of text trying to sell patches, obvious fear-mongering health scam and I'm nowhere near the age for neuropathy anyway\", \"intent\": \"Definitely wouldn't click, looks like snake oil\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology chat in another language, not my thing at all and feels like a cash grab\", \"intent\": \"Wouldn't click, no interest in astrology\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Wholesale women's handbags from Alibaba, I'm not a B2B buyer and don't need a tote bag\", \"intent\": \"No chance I'd click, completely irrelevant\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9463,
+ "cached_tokens": 256,
+ "output_tokens": 750,
+ "reasoning_tokens": 355
+}

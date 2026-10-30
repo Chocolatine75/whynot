@@ -1,0 +1,11 @@
+{
+ "key": "ad96a96c09be58b89d26165308ed26af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est tout en grec, je ne comprends rien, ça ne me concerne pas du tout\", \"intent\": \"Je n'ai aucune raison de cliquer, je ne sais même pas ce que ça dit\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Je n'ai pas envie d'apprendre le japonais et la photo du mec n'a rien à voir, ça fait pub bizarre\", \"intent\": \"Je ne cliquerais pas, ça ne m'intéresse pas\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"L'image fait un peu glauque et sexualisée dans le métro, et je n'ai pas envie d'une appli de chatbot coquin\", \"intent\": \"Je ne cliquerais jamais là-dessus, ça me met mal à l'aise\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Encore une pub pour parler à une IA, je trouve ça triste et je n'ai pas besoin de ça pour passer le temps\", \"intent\": \"Je zappe direct, je ne vais pas cliquer\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"L'idée de tester une coiffure c'est sympa mais l'image a l'air générée par IA et je ne fais pas confiance à ce genre d'appli\", \"intent\": \"Peut-être que je regarderais par curiosité mais je ne téléchargerais pas\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 0,
+ "output_tokens": 702,
+ "reasoning_tokens": 257
+}

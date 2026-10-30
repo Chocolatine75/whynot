@@ -1,0 +1,11 @@
+{
+ "key": "a7a520c8ab980ce4992d7abb291e06b8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in vietnamita, non capisco niente e non è per me\", \"intent\": \"non cliccherei, ho scrollato oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sembra la solita pubblicità con influencer e codice sconto, non mi fido e non mi serve un aggeggio antiage per il collo\", \"intent\": \"non comprerei, al massimo guardo due secondi e vado avanti\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non parlo turco/tedesco, non ho capito di cosa si tratta\", \"intent\": \"non cliccherei perché non capisco\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sono in Italia, offerta per UK non mi serve a niente\", \"intent\": \"non cliccherei, non è rilevante per me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non mi interessa imparare il khmer, pubblicità inutile per me\", \"intent\": \"non scaricherei l'app, vado oltre\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 794,
+ "cached_tokens": 0,
+ "output_tokens": 859,
+ "reasoning_tokens": 480
+}

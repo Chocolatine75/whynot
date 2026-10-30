@@ -1,0 +1,11 @@
+{
+ "key": "afb58d769e3584df9ef173545c40cadc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian which I don't understand and I'm already fluent in English so it's not for me\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as the first one but in a different language I don't speak, totally irrelevant\", \"intent\": \"I wouldn't click or buy, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a Temu ad in Spanish and I don't trust Temu quality and I don't need a vanity table\", \"intent\": \"I would ignore it and scroll on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It looks like just another generic number puzzle game ad that will be full of ads\", \"intent\": \"I might glance at it but I wouldn't click to download\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a cringey werewolf romance story ad that looks super cheesy and probably leads to a paywalled story app\", \"intent\": \"I stopped to read the dramatic blurb but I wouldn't click it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1885,
+ "cached_tokens": 256,
+ "output_tokens": 658,
+ "reasoning_tokens": 277
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9f7d0b6f6b10c6fed6c1422c7f06f0e1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says shoes and sneakers but the picture is some pink fluffy doll, makes no sense and looks like dodgy Temu spam\", \"intent\": \"I wouldn't click, it's confusing and I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in astrology or kundali stuff at all, and the image was just black so nothing to look at\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and very religious about biblical prophecies which isn't relevant to me at all\", \"intent\": \"I wouldn't click because I can't even read it properly and I'm not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I wouldn't buy a sofa from Temu, looks cheap and I don't trust the quality and it will be a hassle if it's rubbish\", \"intent\": \"I might pause to look at the sofa but I wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Spanish and the video is just a woman kicking stones in boots, feels like clickbait and has nothing to do with me\", \"intent\": \"I would scroll past, no desire to click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2723,
+ "cached_tokens": 0,
+ "output_tokens": 743,
+ "reasoning_tokens": 331
+}

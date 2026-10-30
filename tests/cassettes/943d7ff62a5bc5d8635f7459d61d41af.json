@@ -1,0 +1,11 @@
+{
+ "key": "943d7ff62a5bc5d8635f7459d61d41af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Cute babies but it's just another AI gimmick, don't trust it and don't need a dancing video\", \"intent\": \"No chance I'd click this, looks spammy.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not relevant to me at all, it's in Hindi and astrology stuff is nonsense to me\", \"intent\": \"Would definitely not click or buy.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Totally irrelevant, I'm not buying industrial cable, just scrolled straight past\", \"intent\": \"No interest whatsoever in buying cable.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The £4 a day thing sounds like it'll end up costing a fortune on finance, don't trust dental ads\", \"intent\": \"Might think about straightening but wouldn't click this ad.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but a smart camera toothbrush seems gimmicky and probably overpriced\", \"intent\": \"Wouldn't buy now but it's the most interesting of the lot.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2188,
+ "cached_tokens": 0,
+ "output_tokens": 762,
+ "reasoning_tokens": 390
+}

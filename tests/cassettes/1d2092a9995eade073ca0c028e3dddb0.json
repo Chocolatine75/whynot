@@ -1,0 +1,11 @@
+{
+ "key": "1d2092a9995eade073ca0c028e3dddb0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy, this is a UK dentist offer in pounds, totally useless to me and I don't trust these big discount signs\", \"intent\": \"I would not click, it's not relevant to where I live\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and feel cheap and spammy, plus this is for UK with a code I can't use\", \"intent\": \"I would just keep scrolling, I don't want more cheap stuff\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what Revolut has to do with football and the text about Americas is confusing, plus I already have a bank\", \"intent\": \"I might have paused on the gold card image but wouldn't click to download\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Again a UK teeth offer, and the collage looks awkward with people pulling their mouths, also New Year but says Summer offer so not credible\", \"intent\": \"I would not click, it's not for me in Italy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology chat apps and the image was just black, looks like a scam to get money after first chat\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1652,
+ "cached_tokens": 128,
+ "output_tokens": 719,
+ "reasoning_tokens": 300
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c80a4805863dc12b02a76422471c607e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic clickbait title with emoji spam and vague 2-word copy provides no hook, value prop, or targeting, driving low-quality clicks and poor retention that can't sustain spend for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 257,
+ "cached_tokens": 128,
+ "output_tokens": 228,
+ "reasoning_tokens": 172
+}

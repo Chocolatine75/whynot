@@ -1,0 +1,11 @@
+{
+ "key": "ea964f81e1d6ff44f178da66bd47b948",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 67, I'm not going to be riding a bike around delivering takeaways in the rain, that's a young man's game\", \"intent\": \"No chance I'd click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Load of nonsense about exes and star signs, don't believe in any of that rubbish\", \"intent\": \"I wouldn't click on this in a million years\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I haven't got a clue what it's really saying, and I don't buy bible studies off Facebook anyway\", \"intent\": \"No, I'd just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a shop, why would I want wholesale handbags from China\", \"intent\": \"Not interested at all, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those silly phone games for kids, I don't do gaming and I don't trust downloading things from ads\", \"intent\": \"Might have glanced but I definitely wouldn't click to try it\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1116,
+ "cached_tokens": 0,
+ "output_tokens": 644,
+ "reasoning_tokens": 259
+}

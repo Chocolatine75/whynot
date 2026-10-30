@@ -1,0 +1,11 @@
+{
+ "key": "0ceff14cefb70166b10a04449b32b31e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in russo non capisco niente e non mi fido di queste app per liberare memoria, sembrano truffe\", \"intent\": \"non cliccherei mai su una cosa del genere\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho figli che fanno A-Level in Inghilterra, non è per me e poi trial gratis vuol sempre dire che poi ti chiedono soldi\", \"intent\": \"non mi interessa non clicco\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sono stufo di queste app per ansia e quiz di 3 minuti, alla fine vogliono solo abbonamento\", \"intent\": \"forse sarei curioso ma non clicco adesso\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non mi serve imparare il cantonese non ho motivo\", \"intent\": \"non clicco non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho un negozio e tutti quegli hashtag mi sembrano spam, non mi ispira fiducia\", \"intent\": \"scorro oltre senza cliccare\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 766,
+ "cached_tokens": 0,
+ "output_tokens": 635,
+ "reasoning_tokens": 252
+}

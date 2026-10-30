@@ -1,0 +1,11 @@
+{
+ "key": "aa797a61a21f0c6432a35a96804cfc83",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and feel cheap and scammy, plus this is for UK only so useless for me in Italy\", \"intent\": \"I would not click or buy, I just scroll past Temu stuff\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already know Revolut and I don't need another bank app just because of World Cup marketing\", \"intent\": \"I might pause for a second because of football but I wouldn't click to download\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology at all and this looks like predatory clickbait\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy so a UK dentist offer is irrelevant to me and the New Year/Summer title is confusing\", \"intent\": \"I would just keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as before, UK teeth straightening ad has nothing to do with me living in Italy\", \"intent\": \"I would ignore it completely and not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 698,
+ "cached_tokens": 0,
+ "output_tokens": 893,
+ "reasoning_tokens": 508
+}

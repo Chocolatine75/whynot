@@ -1,0 +1,11 @@
+{
+ "key": "adae6e8da95311fdc832b981182ea2ea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Too brand-focused and feature-listy with weak CTA and no strong hook, offer, or social proof to sustain profitable direct-response performance in a crowded premium toothbrush market.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 327,
+ "cached_tokens": 128,
+ "output_tokens": 310,
+ "reasoning_tokens": 255
+}

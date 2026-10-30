@@ -1,0 +1,11 @@
+{
+ "key": "eb62274f10f8acfbb095de13fef0dff1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Cheap AI-generated creative with obscured bilingual text, uncanny hand, and unrealistic '4 weeks' fluency claim signals low trust/CTR and quick creative fatigue/ban, not a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 559,
+ "cached_tokens": 128,
+ "output_tokens": 492,
+ "reasoning_tokens": 433
+}

@@ -1,0 +1,11 @@
+{
+ "key": "6f6ff831cd274442fcba26cd90bd29af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai, not Italian, and I don't make reels or collages so I have no use for it\", \"intent\": \"I would not click or buy, I don't need a video editor\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The image is vulgar and creepy on the beach, I don't trust this kind of intimate ad at all\", \"intent\": \"I would definitely not click, it's inappropriate and not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just another silly bubble game ad, I don't play these and they are always annoying\", \"intent\": \"I would not click, I have no interest in these games\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in Italian, looks like Serbian, I don't need to learn English this way\", \"intent\": \"I would not click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, not Italian, and I get too many English learning ads\", \"intent\": \"I would not click or install anything\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1837,
+ "cached_tokens": 256,
+ "output_tokens": 930,
+ "reasoning_tokens": 549
+}

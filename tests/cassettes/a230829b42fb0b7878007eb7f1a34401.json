@@ -1,0 +1,11 @@
+{
+ "key": "a230829b42fb0b7878007eb7f1a34401",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly a wholesale B2B ad with a stock bag image that just says LOGO, not for a normal shopper like me\", \"intent\": \"Wouldn't click, I'm not looking to source handbags in bulk\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English properly and astrology chat isn't my thing, feels like clickbait with the free offer\", \"intent\": \"Wouldn't click, not interested in astrology readings\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and £10.99 for canned drinks seems random, don't trust unknown grocery delivery ads\", \"intent\": \"Probably wouldn't click, might glance but not buying from a site I don't know\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and scary, feels like fear-mongering to sell patches and I'm not the right age for this anyway\", \"intent\": \"Definitely wouldn't click or buy, just scrolled past after seeing how long it was\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I can sew a bit but I don't need a big kit right now and it looks a bit cheap for 48% off\", \"intent\": \"Might save it for later but wouldn't buy right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9463,
+ "cached_tokens": 256,
+ "output_tokens": 606,
+ "reasoning_tokens": 184
+}

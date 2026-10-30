@@ -1,0 +1,11 @@
+{
+ "key": "dc69ef8977e19fab68c6e926db8b6859",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"creepy horror AI chat ad, not interested in chatting with AI characters and the code thing feels like spam\", \"intent\": \"no way I'd click this, too creepy and not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like a random B2B component, nothing to do with me and the title is just keywords\", \"intent\": \"I just scrolled past, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another TipsyChat ad, don't want to chat with AI and don't trust the free gems promo\", \"intent\": \"wouldn't click, I don't need an AI chat app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"the text about secretly tracking someone without them noticing is super creepy and invasive, feels illegal\", \"intent\": \"definitely not buying, I don't want to spy on anyone\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"it's cute but I don't need a birthday card right now and I doubt the fireworks effect is that good in person\", \"intent\": \"might save it for later if I need a gift idea but not buying now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1948,
+ "cached_tokens": 128,
+ "output_tokens": 616,
+ "reasoning_tokens": 220
+}

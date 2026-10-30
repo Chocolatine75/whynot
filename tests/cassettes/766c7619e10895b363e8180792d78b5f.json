@@ -1,0 +1,11 @@
+{
+ "key": "766c7619e10895b363e8180792d78b5f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai so I have no idea what it's actually selling, and the picture is literally a port-a-loo toilet which is gross and off-putting. Why would I want that?\", \"intent\": \"Not a chance, I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title says it's shoes but the picture is some creepy pink doll in a box, so it feels like spam and I don't trust Temu stuff anyway.\", \"intent\": \"I wouldn't click or buy, it looks like a scammy mismatch.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a display cabinet full of anime figures and toy cars, that's not for me at all and the hashtags feel spammy.\", \"intent\": \"No, I kept scrolling, nothing there for me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It is really pretty and perfect for my garden but I've seen these dropship ads before and I bet it either doesn't work properly or costs way more with shipping.\", \"intent\": \"Might click to have a look but probably wouldn't actually buy it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu selling fake or knock-off DeWalt tools and it even says AI-generated imagery at the bottom, so I don't trust it at all and I don't need power tools.\", \"intent\": \"I didn't click, not relevant to me and I don't trust it.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2070,
+ "cached_tokens": 128,
+ "output_tokens": 640,
+ "reasoning_tokens": 185
+}

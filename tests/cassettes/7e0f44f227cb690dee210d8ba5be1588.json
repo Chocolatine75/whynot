@@ -1,0 +1,11 @@
+{
+ "key": "7e0f44f227cb690dee210d8ba5be1588",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a cheap gimmick from a dropship store and probably doesn't work as well irl\", \"intent\": \"I wouldn't click, I'd just buy a normal cute card from Card Factory or Moonpig\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want to chat to AI characters that's so cringe and it feels a bit scammy\", \"intent\": \"Definitely not clicking, I have actual mates to talk to\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn Thai and it's just a random ad with no reason to trust it\", \"intent\": \"Would not click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I have no idea what it's for and it's not relevant to me\", \"intent\": \"Would just scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the Thai one, I'm not learning Japanese and every language app ad looks the same\", \"intent\": \"No chance I'd download it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 0,
+ "output_tokens": 742,
+ "reasoning_tokens": 367
+}

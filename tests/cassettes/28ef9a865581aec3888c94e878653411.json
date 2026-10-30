@@ -1,0 +1,11 @@
+{
+ "key": "28ef9a865581aec3888c94e878653411",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in some foreign language, not even English so nothing to do with me, just another learn English app spam\", \"intent\": \"I wouldn't click, I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Total clickbait nonsense about astrology and celebrities, obviously just trying to get you to pay for chats\", \"intent\": \"I wouldn't click or buy, I don't believe in astrology at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks like a fun card but it's an ad from some random shop and probably costs a fortune with shipping\", \"intent\": \"I wouldn't buy, I might just look for something like that on Amazon if I needed a card.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again it's not in English, looks like the same EWA app just in Italian, not relevant to me\", \"intent\": \"I wouldn't click, I just kept scrolling.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long scary story trying to sell miracle patches, looks like dangerous medical misinformation and a scam\", \"intent\": \"I definitely wouldn't click or buy, I'd never trust health advice from a Facebook ad.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4318,
+ "cached_tokens": 128,
+ "output_tokens": 618,
+ "reasoning_tokens": 208
+}

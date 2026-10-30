@@ -1,0 +1,11 @@
+{
+ "key": "0a3f646b2abbd7a51be06b22d6968cd7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have zero interest in learning Vietnamese, just not relevant to me at all\", \"intent\": \"No chance I'd download it, no need for it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and this just looks like clickbait nonsense\", \"intent\": \"Would not click, complete scam vibes.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Turkish I think, I can't read it and it's not aimed at me\", \"intent\": \"Scrolling straight past, no idea what it's selling.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't have space for an exercise bike\", \"intent\": \"Might glance but definitely not buying.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Same as before, costs too much and I wouldn't use it enough to justify it\", \"intent\": \"Nice ad but no intent to buy.\", \"intent_score\": 2}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1559,
+ "cached_tokens": 128,
+ "output_tokens": 559,
+ "reasoning_tokens": 205
+}

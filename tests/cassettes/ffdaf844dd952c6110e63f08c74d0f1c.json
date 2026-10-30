@@ -1,0 +1,11 @@
+{
+ "key": "ffdaf844dd952c6110e63f08c74d0f1c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"High-curiosity Hindi hook + attractive woman vs AI robot visual creates pattern-interrupt scroll-stop with strong CTR and cheap CPCs in the massive India-learn-English market despite low production value.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 451,
+ "cached_tokens": 128,
+ "output_tokens": 316,
+ "reasoning_tokens": 257
+}

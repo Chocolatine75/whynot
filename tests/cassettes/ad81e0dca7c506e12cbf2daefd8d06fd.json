@@ -1,0 +1,11 @@
+{
+ "key": "ad81e0dca7c506e12cbf2daefd8d06fd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my kind of thing at all, looks like AI fantasy nonsense for teenagers\", \"intent\": \"I wouldn't click, I'm not into fantasy prince dramas\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and the picture is bizarre, a pear in a wedding dress, and I don't trust lemon water fasting claims\", \"intent\": \"I would just scroll past, I'm not clicking on a weight loss ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read Arabic and I have no idea what it's actually selling\", \"intent\": \"I wouldn't click as I don't understand it at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title says storage box but the picture is shoes, so I don't trust it, and it's Temu\", \"intent\": \"I might be curious about the sandals but I wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and looks like a dubbed AI drama, not for me\", \"intent\": \"I wouldn't click, I don't watch foreign novelas\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1882,
+ "cached_tokens": 128,
+ "output_tokens": 709,
+ "reasoning_tokens": 326
+}

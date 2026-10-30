@@ -1,0 +1,11 @@
+{
+ "key": "55d4ea7c6972c1643d9638a310e8a691",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Walls of text trying to scare me, claims a sticking plaster cures nerve pain and asks me to ignore my GP. Looks like an expensive American scam.\", \"intent\": \"Wouldn't click or buy, just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu adverts are everywhere and I don't trust the quality, not looking for accessories anyway.\", \"intent\": \"Would not click, not interested.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too old for braces and don't want adverts messing with my teeth, plus the free whitening sounds like a catch.\", \"intent\": \"Would not click, not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Happily not on the dating scene and these apps are just after money.\", \"intent\": \"Would not click, definitely not for me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Gibberish title about wholesale tote bags, clearly not aimed at me.\", \"intent\": \"Would not click, just scroll past.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7824,
+ "cached_tokens": 128,
+ "output_tokens": 720,
+ "reasoning_tokens": 342
+}

@@ -1,0 +1,11 @@
+{
+ "key": "8905492b446b829742ec22f82a3f497a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"says men's accessories but shows bohemian womens stuff and the text is misspelled, looks dodgy temu junk\", \"intent\": \"wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"don't need braces and that receipt looks fake to make it seem like a big discount\", \"intent\": \"might keep in mind but definitely not clicking now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in hindi and about astrology for jobs, not relevant and i don't believe astrology can help\", \"intent\": \"would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"says sea shells for decoration but shows a weird metal cone thing, makes no sense\", \"intent\": \"no chance i'm clicking on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"peloton bikes are way too expensive even on finance and i don't want monthly payments\", \"intent\": \"not buying but at least the ad is clear\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1935,
+ "cached_tokens": 0,
+ "output_tokens": 605,
+ "reasoning_tokens": 238
+}

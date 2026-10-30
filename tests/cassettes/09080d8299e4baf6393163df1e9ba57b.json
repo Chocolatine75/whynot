@@ -1,0 +1,11 @@
+{
+ "key": "09080d8299e4baf6393163df1e9ba57b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image is a work jacket but the title is about printer ink, it feels like a mistake or scam and I have zero need for either\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute but I don't trust Temu quality and I don't need a display cabinet like that\", \"intent\": \"I might watch the video for a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't really sew and these gadgets never work as well as in the video\", \"intent\": \"I wouldn't click, not useful for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not into AI chat story apps, feels a bit cringe and probably paywalled\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a disgusting toilet picture and the text is in Thai, I have no idea what it's trying to sell me\", \"intent\": \"I would immediately scroll past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1900,
+ "cached_tokens": 128,
+ "output_tokens": 826,
+ "reasoning_tokens": 448
+}

@@ -1,0 +1,11 @@
+{
+ "key": "0e29a61c3b6ccca0a36ec2f593f387f9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic motivational ESL copy with spammy double emojis, vague benefit, and no offer/credibility hook is typical low-CTR creative that gets killed quickly in Korea's competitive English-learning market.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 272,
+ "cached_tokens": 128,
+ "output_tokens": 294,
+ "reasoning_tokens": 237
+}

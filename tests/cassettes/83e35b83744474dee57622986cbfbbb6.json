@@ -1,0 +1,11 @@
+{
+ "key": "83e35b83744474dee57622986cbfbbb6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":5,\"why\":\"Feature-stuffed generic copy with no concrete offer or price and a cluttered bilingual-reader creative is standard for the hyper-competitive language-app vertical and typically burns out quickly without iteration.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 532,
+ "cached_tokens": 128,
+ "output_tokens": 427,
+ "reasoning_tokens": 371
+}

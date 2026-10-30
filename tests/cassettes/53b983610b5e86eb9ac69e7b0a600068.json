@@ -1,0 +1,11 @@
+{
+ "key": "53b983610b5e86eb9ac69e7b0a600068",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not interested in these silly phone games, I just scroll past them\", \"intent\": \"I wouldn't click, it's not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's trying to say to me\", \"intent\": \"I wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign writing, nothing to do with me\", \"intent\": \"I wouldn't click, I can't read it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"They always say never chew through but my daughter's dog destroys everything, I don't trust it and it looks cheap\", \"intent\": \"I might look for a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English, I just swipe on by\", \"intent\": \"I wouldn't click, it's not clear what it is\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 716,
+ "cached_tokens": 128,
+ "output_tokens": 805,
+ "reasoning_tokens": 450
+}

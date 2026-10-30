@@ -1,0 +1,11 @@
+{
+ "key": "883f3a79b0d08480e8b53e07998737fa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer and have zero reason to go to a B2B trade show at ExCeL\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Spanish and the image of a woman kicking gravel has nothing to do with discounts, looks like clickbait dropshipping junk\", \"intent\": \"I wouldn't click Temu ads anyway\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a creepy AI girlfriend chat app and the targeting is cringey and predatory\", \"intent\": \"Definitely wouldn't click or install\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't have a dog and that claim that a toy is indestructible is obviously nonsense\", \"intent\": \"No need for it so I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Weird AI-looking image shaming women's bodies and making fake 4 week promises feels scammy\", \"intent\": \"Would not click, not for me and don't trust it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1996,
+ "cached_tokens": 256,
+ "output_tokens": 736,
+ "reasoning_tokens": 355
+}

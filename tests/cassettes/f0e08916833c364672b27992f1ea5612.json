@@ -1,0 +1,11 @@
+{
+ "key": "f0e08916833c364672b27992f1ea5612",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic gig-economy copy with no specific pay rate, incentive, or creative hook is typical test fodder that gets quickly beaten by specific earning claims and tires fast.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 266,
+ "cached_tokens": 128,
+ "output_tokens": 583,
+ "reasoning_tokens": 529
+}

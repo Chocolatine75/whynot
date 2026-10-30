@@ -1,0 +1,11 @@
+{
+ "key": "6b751412a30467d3a0ad95fda0114ba7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, feature-less copy with no hook, benefit, or differentiation will have low CTR/CVR and be quickly outcompeted by more compelling language-app creatives.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 265,
+ "cached_tokens": 128,
+ "output_tokens": 313,
+ "reasoning_tokens": 259
+}

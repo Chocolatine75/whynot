@@ -1,0 +1,11 @@
+{
+ "key": "6f7d8f04685569312bf634f61e1f96d5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Time-bound event ad with generic free-pass hook will fatigue and require creative refreshes/retargeting variants, so this exact version is unlikely to run unchanged for months even if the campaign continues.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 326,
+ "cached_tokens": 128,
+ "output_tokens": 419,
+ "reasoning_tokens": 359
+}

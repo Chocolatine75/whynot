@@ -1,0 +1,11 @@
+{
+ "key": "608d4048f989f250f3d212ffbe54cda8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too pink and girly, feels targeted at women with relationship anxiety, not for me and looks like a scammy AI chatbot\", \"intent\": \"Not clicking, this is not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a wholesale B2B ad for handbags with a fake LOGO on it, I'm not a business and don't buy bags\", \"intent\": \"I would just scroll past, nothing to buy here.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have Peloton hardware and £45 a month is way too expensive just for a running program\", \"intent\": \"Might look for a second but I wouldn't click or pay for it.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image is just black, nothing to see, and I don't believe in astrology or kundali stuff\", \"intent\": \"I scrolled straight past without even stopping.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about fake astrologers, totally irrelevant to me in France and I don't care about astrology\", \"intent\": \"No chance I click on this astrology ad.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1823,
+ "cached_tokens": 0,
+ "output_tokens": 862,
+ "reasoning_tokens": 459
+}

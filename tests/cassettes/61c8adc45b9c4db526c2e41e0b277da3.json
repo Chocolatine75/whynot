@@ -1,0 +1,11 @@
+{
+ "key": "61c8adc45b9c4db526c2e41e0b277da3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in chatting with AI characters, feels gimmicky and spammy with the coupon code\", \"intent\": \"No way I'm clicking on this AI chat thing\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Japanese right now and I don't trust these apps to make you fluent\", \"intent\": \"I wouldn't click, I'm just scrolling past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in French, I can't understand what it's saying and I don't need English lessons\", \"intent\": \"I would definitely not click, it confused me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute but it's obviously overpriced plastic junk and the video is probably fake\", \"intent\": \"I might watch the video for a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the Japanese one, I have no use for learning Thai and I'm tired of seeing the same app ad\", \"intent\": \"No interest in clicking at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 675,
+ "cached_tokens": 128,
+ "output_tokens": 873,
+ "reasoning_tokens": 497
+}

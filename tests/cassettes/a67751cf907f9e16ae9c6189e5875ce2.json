@@ -1,0 +1,11 @@
+{
+ "key": "a67751cf907f9e16ae9c6189e5875ce2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"My kids are grown up and grandkids not doing A-Levels, so this is of no use to me at all\", \"intent\": \"I would not click or buy, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I can't understand a word of it and I have no interest in AI nonsense\", \"intent\": \"I would scroll straight past and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 65, not interested in Peloton fitness programmes, looks like it's for younger women\", \"intent\": \"I would not click, not for someone like me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish or something, I don't understand it, and I don't trust Temu anyway\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology rubbish about exes, complete nonsense and not relevant to me\", \"intent\": \"I would not click on this in a million years\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2054,
+ "cached_tokens": 256,
+ "output_tokens": 591,
+ "reasoning_tokens": 216
+}

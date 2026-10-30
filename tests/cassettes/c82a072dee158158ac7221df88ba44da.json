@@ -1,0 +1,11 @@
+{
+ "key": "c82a072dee158158ac7221df88ba44da",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"funny image but i dont need to learn japanese, just an ad for an app\", \"intent\": \"wouldnt click, not trying to learn japanese right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like spam with all those hashtags, not relevant to me at all\", \"intent\": \"definitely would not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i dont sew, useless product for me and looks like cheap dropshipping\", \"intent\": \"would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"too generic, seen a hundred AI language ads, dont trust them\", \"intent\": \"no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and not a counselor, nothing to do with me\", \"intent\": \"would not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 829,
+ "cached_tokens": 0,
+ "output_tokens": 525,
+ "reasoning_tokens": 189
+}

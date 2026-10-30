@@ -1,0 +1,11 @@
+{
+ "key": "29da27b425c18a763b663af98bba17c2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not training for a race and Peloton is way too expensive at £45 a month plus the hardware\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and promises a visible transformation in 7 days which is obvious nonsense\", \"intent\": \"I just scrolled past it, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a church leader and this very pushy religious leadership course has nothing to do with me\", \"intent\": \"I would not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those cheap cheesy drama app ads with a ridiculous over-the-top storyline\", \"intent\": \"I stopped to read it because it was so daft but I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a generic matching game ad with no real info, looks like spam\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 909,
+ "cached_tokens": 128,
+ "output_tokens": 661,
+ "reasoning_tokens": 294
+}

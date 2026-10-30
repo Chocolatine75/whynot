@@ -1,0 +1,11 @@
+{
+ "key": "a0277cf3d6d76884e6cfffd083589be5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic wellness clichés and broad benefit bullets with no specific hook, proof, or differentiation will drive low CTR and high CPC in a saturated mental-health niche, rarely sustaining long-term ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 295,
+ "cached_tokens": 128,
+ "output_tokens": 238,
+ "reasoning_tokens": 179
+}

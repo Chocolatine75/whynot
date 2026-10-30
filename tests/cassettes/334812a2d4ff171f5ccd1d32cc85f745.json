@@ -1,0 +1,11 @@
+{
+ "key": "334812a2d4ff171f5ccd1d32cc85f745",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Hard expiry date 'Ends 16th August' plus 'FRIDAY HITS' promo creative makes it a short-term tactical ad that must be paused after the date, impossible to run for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 548,
+ "cached_tokens": 128,
+ "output_tokens": 245,
+ "reasoning_tokens": 184
+}

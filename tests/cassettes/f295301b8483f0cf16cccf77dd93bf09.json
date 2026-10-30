@@ -1,0 +1,11 @@
+{
+ "key": "f295301b8483f0cf16cccf77dd93bf09",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my kind of thing at all, sounds like some odd fantasy game for younger lads\", \"intent\": \"I definitely wouldn't click, no interest whatsoever\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I've no idea what it's on about, just scrolled straight past\", \"intent\": \"I wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read a word of it, looks like Arabic writing, so just ignored it\", \"intent\": \"I wouldn't click on something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sick of Temu ads popping up everywhere and don't trust the quality anyway\", \"intent\": \"I wouldn't buy from Temu, I don't need a storage box\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese I think, not for me, just another app ad\", \"intent\": \"No chance I'd click or download that\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 747,
+ "cached_tokens": 0,
+ "output_tokens": 723,
+ "reasoning_tokens": 361
+}

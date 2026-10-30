@@ -1,0 +1,11 @@
+{
+ "key": "fb7224d7e3aeea453a1f8336a44c6e90",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm too old for silly dress-up glasses and I don't want to buy cheap plastic tat that'll just get binned\", \"intent\": \"I'd just scroll past, no need for them at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"That Peloton bike is far too expensive and I wouldn't be able to use it at my age\", \"intent\": \"I wouldn't click, definitely not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play games on my phone and I don't like these annoying game adverts\", \"intent\": \"I'd ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't trust Temu, I've heard you get rubbish quality and they keep pestering you\", \"intent\": \"I wouldn't click or download anything from them\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I've no idea what this is and it looks like clickbait nonsense that might be a scam\", \"intent\": \"I wouldn't click that link in a million years\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 618,
+ "cached_tokens": 0,
+ "output_tokens": 1214,
+ "reasoning_tokens": 841
+}

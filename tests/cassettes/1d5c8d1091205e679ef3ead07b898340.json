@@ -1,0 +1,11 @@
+{
+ "key": "1d5c8d1091205e679ef3ead07b898340",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed product title and generic B2B platform text with no benefit, offer, or creative hook will drive very low CTR and conversions and be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 277,
+ "cached_tokens": 128,
+ "output_tokens": 218,
+ "reasoning_tokens": 163
+}

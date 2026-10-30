@@ -1,0 +1,11 @@
+{
+ "key": "2c301ee9a435f4efa6c54177a34051a8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in a language I don't understand at all so I just scrolled past, nothing for me\", \"intent\": \"I wouldn't click or buy, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks cute but feels like one of those random dropship ads and I don't trust the site or need it\", \"intent\": \"I paused for a second because it's cute but I wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic shopping ad with no real product, I see these all the time and ignore them\", \"intent\": \"I wouldn't click or buy, just another ad to scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English so I have no idea what it's offering and it's clearly not targeted to me\", \"intent\": \"I wouldn't click or buy, I scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish and I live in the UK so it's irrelevant and I don't really trust Temu ads anyway\", \"intent\": \"I wouldn't click or buy, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 621,
+ "cached_tokens": 128,
+ "output_tokens": 894,
+ "reasoning_tokens": 504
+}

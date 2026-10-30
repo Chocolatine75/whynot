@@ -1,0 +1,11 @@
+{
+ "key": "f4d92e94f490c63b453812e9d7b10bb0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I just scrolled straight past, and I'm not really into religious collections like this anyway\", \"intent\": \"I wouldn't click, it's not for me and I can't read it properly\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Couldn't understand it, looks like French clickbait about an airport and I don't want a language app\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not particularly religious and I get wary of these paid bible guide ads, feels like they're just trying to sell you something\", \"intent\": \"I wouldn't click or buy, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian or something, I have no idea what it says so I just ignored it\", \"intent\": \"I definitely wouldn't click, don't understand a word\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at men in the church to be leaders, I'm a woman and it's got nothing to do with me, bit old fashioned for my taste\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2741,
+ "cached_tokens": 128,
+ "output_tokens": 601,
+ "reasoning_tokens": 201
+}

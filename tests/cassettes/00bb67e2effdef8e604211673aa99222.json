@@ -1,0 +1,11 @@
+{
+ "key": "00bb67e2effdef8e604211673aa99222",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too expensive and I'm not buying a Peloton, just another fitness ad\", \"intent\": \"wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a dodgy dating app, don't trust these singles nearby ads\", \"intent\": \"wouldn't click, scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job right now\", \"intent\": \"might have clicked if I needed work but no need right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the first Peloton one, not interested and can't afford it\", \"intent\": \"kept scrolling, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"massive scary wall of text trying to sell a miracle patch, looks like a scam and nothing to do with me\", \"intent\": \"definitely wouldn't click or buy, just wanted it gone\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4051,
+ "cached_tokens": 128,
+ "output_tokens": 707,
+ "reasoning_tokens": 350
+}

@@ -1,0 +1,11 @@
+{
+ "key": "72961c5523f5ef6a54f338619f68879e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need braces and £1799 is still a lot of money, plus I don't trust the free whitening gimmick\", \"intent\": \"I wouldn't click as I'm not looking for teeth straightening\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian so I have no idea what it's about and it looks a bit dodgy\", \"intent\": \"I would just scroll past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"These Temu £0 things always feel like a scam and you have to spend money anyway\", \"intent\": \"I would not click, I don't bother with Temu\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The picture of an old lady at airport security has nothing to do with learning a language, feels like clickbait\", \"intent\": \"I wouldn't click, I don't need a language app\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need another gadget for my phone and Temu stuff is usually cheap tat\", \"intent\": \"I would keep scrolling, not interested in buying it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1567,
+ "cached_tokens": 128,
+ "output_tokens": 603,
+ "reasoning_tokens": 212
+}

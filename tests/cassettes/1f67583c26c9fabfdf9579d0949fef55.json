@@ -1,0 +1,11 @@
+{
+ "key": "1f67583c26c9fabfdf9579d0949fef55",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Sembra solo clickbait spam, non si capisce cos'è e il titolo con le fiamme non mi ispira fiducia\", \"intent\": \"Non ci cliccherei mai, lo scrollo via subito\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È scritto in ebraico, non capisco nulla e comunque non mi serve un altro editor per video\", \"intent\": \"Non lo apro, non è per me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non ho nessun motivo per imparare il vietnamita, pubblicità totalmente inutile per me\", \"intent\": \"Non lo scaricherei mai\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"È in spagnolo e poi non mi fido di questi test gratuiti per la salute mentale che vogliono solo venderti un abbonamento\", \"intent\": \"Non farei il test, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Mi ha incuriosito la foto dei capelli ma queste app di fotoritocco promettono miracoli e poi ti chiedono soldi\", \"intent\": \"Forse darei un'occhiata ma probabilmente non lo proverei\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 655,
+ "cached_tokens": 0,
+ "output_tokens": 1083,
+ "reasoning_tokens": 676
+}

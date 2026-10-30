@@ -1,0 +1,11 @@
+{
+ "key": "2b20f341af457c7ad57057148debf028",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious at all and not interested in biblical counseling, feels like it's trying to recruit me for a course\", \"intent\": \"Would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long fake doctor story to sell expensive patches, sounds like classic miracle cure scam and I don't trust buying medicine from Instagram\", \"intent\": \"Would not click, just scrolled past after seeing it's an ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like just another cheap app with fake discounts, probably delivery not available where I live anyway\", \"intent\": \"Would not click, I already use my usual supermarket\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't have space for a bike at home\", \"intent\": \"Would not click, not interested in buying exercise equipment\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Gimmicky toothbrush with a camera seems unnecessary and expensive, my normal electric brush is fine\", \"intent\": \"Would not click, just looked for a second and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6078,
+ "cached_tokens": 0,
+ "output_tokens": 621,
+ "reasoning_tokens": 234
+}

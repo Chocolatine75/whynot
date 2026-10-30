@@ -1,0 +1,11 @@
+{
+ "key": "3e411803d5c827db5f2555e4dfe2883e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like something for garages or businesses to import in bulk, nothing to do with me\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish and about learning English, not relevant to me\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do like the idea of red light for relaxation but this sounds too good to be true and probably expensive, plus I don't trust Instagram health claims\", \"intent\": \"I might have a quick look at what it actually is but I'm not buying\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in AI chat or horror stories and the gems thing feels like it'll cost money\", \"intent\": \"No need to click for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already speak English so an app to learn it is pointless for me\", \"intent\": \"I wouldn't click or download\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 790,
+ "cached_tokens": 128,
+ "output_tokens": 556,
+ "reasoning_tokens": 190
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e4c4fc227f4d5ed752fec101eccc097c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 6, \"why\": \"Benefit-stacking list ad is proven for language apps but generic feature dump with weak hook and fake urgency typically fatigues fast without strong creative to sustain months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 347,
+ "cached_tokens": 128,
+ "output_tokens": 249,
+ "reasoning_tokens": 195
+}

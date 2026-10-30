@@ -1,0 +1,11 @@
+{
+ "key": "5bd66d88ab11d5983f7f5d4718566a40",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in Germany so UK Temu ad is useless to me and I don't trust Temu quality anyway\", \"intent\": \"No way I'm searching that code or buying.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this even is, makes no sense at all\", \"intent\": \"I would just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero need to learn Thai, not planning to go there\", \"intent\": \"Not downloading, not interested.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's UK pricing in pounds and I'm in Germany, plus £1800 is way too much\", \"intent\": \"No chance I would click for a consult.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese which I don't speak and I don't need an AI hair app\", \"intent\": \"Definitely not clicking.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 606,
+ "cached_tokens": 128,
+ "output_tokens": 778,
+ "reasoning_tokens": 431
+}

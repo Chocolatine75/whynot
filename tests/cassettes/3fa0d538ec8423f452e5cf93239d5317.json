@@ -1,0 +1,11 @@
+{
+ "key": "3fa0d538ec8423f452e5cf93239d5317",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic dropship product with feature-list copy and no strong hook, proof, or offer makes it unlikely to be a long-term profitable winner against saturation.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 338,
+ "cached_tokens": 128,
+ "output_tokens": 294,
+ "reasoning_tokens": 243
+}

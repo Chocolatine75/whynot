@@ -1,0 +1,11 @@
+{
+ "key": "5347acdf643e9bfb2c98ec95627c4572",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Load of nonsense for kids, chatting to AI characters is not for me at my age.\", \"intent\": \"I would not click or buy, just scrolled past.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't run a car showroom or workshop and the title is gobbledygook.\", \"intent\": \"I would not click, nothing to do with me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same AI chat rubbish as the first one, not interested in making horror stories.\", \"intent\": \"I would not click, scrolled straight on.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks gimmicky and overpriced tat, and I don't trust buying off these Facebook adverts.\", \"intent\": \"I might have paused but I would not buy it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's in German and it's about secretly tracking someone, which is creepy and probably a scam.\", \"intent\": \"I definitely would not click or buy, seems dodgy.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 812,
+ "cached_tokens": 128,
+ "output_tokens": 570,
+ "reasoning_tokens": 195
+}

@@ -1,0 +1,11 @@
+{
+ "key": "b5045e07653ce631f564792ca5474b83",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking for counseling training, just not for me at all\", \"intent\": \"I kept scrolling, I would not click this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Way too long text trying to look like a doctor story, feels like scam health product and I don't have neuropathy anyway\", \"intent\": \"Didn't read it all and would definitely not buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Might be useful but I don't know this app and discounts are usually not that good\", \"intent\": \"Might click to check the app but probably not buy right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a gimmick and expensive plus needs a membership, I don't need a camera on my toothbrush\", \"intent\": \"I wouldn't buy it, maybe curious but not clicking\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't have space for a bike at home\", \"intent\": \"I would not click, not interested in buying a bike\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6078,
+ "cached_tokens": 0,
+ "output_tokens": 693,
+ "reasoning_tokens": 310
+}

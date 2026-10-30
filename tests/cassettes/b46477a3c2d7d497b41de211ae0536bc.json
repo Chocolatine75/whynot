@@ -1,0 +1,11 @@
+{
+ "key": "b46477a3c2d7d497b41de211ae0536bc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Cute, scroll-stopping illustrated grid + ultra-low-friction '10 minutes a day' promise with famous titles drives broad CTR and trial starts in the ex-YU English-learning market despite generic copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 560,
+ "cached_tokens": 128,
+ "output_tokens": 346,
+ "reasoning_tokens": 284
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1f9fb73c97d91a0be995ee00cb334b8d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Hyper-specific aspirational promise (exact month/year of first car) + FREE chat CTA is classic high-CTR curiosity bait for mass India astrology audience and proven evergreen creative pattern.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 449,
+ "cached_tokens": 128,
+ "output_tokens": 256,
+ "reasoning_tokens": 198
+}

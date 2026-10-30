@@ -1,0 +1,11 @@
+{
+ "key": "247736bbfbb875516dad71286db2cf1f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in Spanish, looks like Serbian or Croatian, and I don't need an ad to learn English by reading - feels totally irrelevant to me\", \"intent\": \"I would just keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's clearly a B2B wholesale listing for jewelry rings, I don't buy bulk jewelry and I'm not a business\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The text is in Tagalog or something, I have no idea what it's saying, and the blurry video editor screen looks low quality\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Promise to become an AI expert in 28 days with 15 minutes a day sounds like a total scam, and the cheesy AI cartoon image makes it less credible\", \"intent\": \"I might pause for a second but I definitely wouldn't click or pay\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks like a nice electric toothbrush but I don't need a camera in my toothbrush and it will probably be too expensive anyway\", \"intent\": \"I wouldn't buy now but I might remember the brand if I ever need a new toothbrush\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2114,
+ "cached_tokens": 128,
+ "output_tokens": 837,
+ "reasoning_tokens": 412
+}

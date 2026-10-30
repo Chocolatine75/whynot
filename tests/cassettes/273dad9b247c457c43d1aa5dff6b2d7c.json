@@ -1,0 +1,11 @@
+{
+ "key": "273dad9b247c457c43d1aa5dff6b2d7c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a silly little phone game for kids, not for me at all, I scrolled straight past\", \"intent\": \"I would not click or buy as I don't play these bubble games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign script I can't read, so it means nothing to me\", \"intent\": \"I would not click because I don't know what it is saying\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and about learning English which I already speak, so no use to me\", \"intent\": \"I would not click as I don't need English lessons\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat from one of those adverts and I don't trust it would actually fit my car or be safe\", \"intent\": \"I might have a glance but I would not buy it online from this ad\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That text makes no sense to me with all the omega alpha nonsense, looks like trashy clickbait\", \"intent\": \"I would definitely not click on that drama nonsense\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 733,
+ "cached_tokens": 128,
+ "output_tokens": 637,
+ "reasoning_tokens": 243
+}

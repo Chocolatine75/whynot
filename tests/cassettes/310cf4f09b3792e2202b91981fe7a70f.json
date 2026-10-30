@@ -1,0 +1,11 @@
+{
+ "key": "310cf4f09b3792e2202b91981fe7a70f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Too long, scary story trying to sell me patches for nerves, looks like fake testimonial and I don't trust these miracle cures\", \"intent\": \"I would not click or buy, I don't have this problem and I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not my thing at all, anime fantasy stuff I'm not interested\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm in Italy, this is UK offer with pounds, not relevant for me\", \"intent\": \"I would not click, I don't need teeth straightening\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language and I don't need a video editor\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't sew, my wife might but I have no use for this kit\", \"intent\": \"I wouldn't buy it, maybe show it to my wife but I won't click now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4356,
+ "cached_tokens": 2688,
+ "output_tokens": 630,
+ "reasoning_tokens": 258
+}

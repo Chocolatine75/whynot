@@ -1,0 +1,11 @@
+{
+ "key": "2bd5154637d7fd27ae1bc23bd0c4ffeb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam, looks like cheap junk and those gift codes are always a scam with conditions\", \"intent\": \"I wouldn't click at all, I just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and Revolut's World Cup tie-in feels forced, not switching for that\", \"intent\": \"Might remember it but I wouldn't download right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and the image was just black so looked broken and spammy\", \"intent\": \"No chance I'd click on an astrologer chat\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need teeth straightening and I hate those before/after collage ads\", \"intent\": \"I kept scrolling, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same teeth ad again, second time in a row is annoying and I don't trust that price drop\", \"intent\": \"I ignored it and scrolled past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1652,
+ "cached_tokens": 0,
+ "output_tokens": 740,
+ "reasoning_tokens": 366
+}

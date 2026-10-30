@@ -1,0 +1,11 @@
+{
+ "key": "ad442906284c44b9b0c6131437b3c110",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and the image is a weird AI cartoon of a couple dancing, has nothing to do with AI learning, looks like scammy clickbait\", \"intent\": \"I would not click, I don't speak Spanish and I don't trust become an expert in 28 days promises\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already have an electric toothbrush, 95 pounds is expensive and I don't need a camera in my mouth or another app\", \"intent\": \"I wouldn't click, it's a nice design but not something I need right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu stuff is cheap quality and the ad just says search a code, I don't trust it will look that good in real life\", \"intent\": \"I might watch the video but I wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is a wholesale ad for women's handbags in bulk, I'm not a business and not interested in handbags\", \"intent\": \"I would scroll past immediately, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo but the fees are high and I don't really order burgers and chips like that\", \"intent\": \"I wouldn't order now but it's the most clear and useful ad of the bunch\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1988,
+ "cached_tokens": 128,
+ "output_tokens": 675,
+ "reasoning_tokens": 239
+}

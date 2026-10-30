@@ -1,0 +1,11 @@
+{
+ "key": "d192cc414546f34f52991dcaccdbcbc8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, unsubstantiated claim with cluttered low-res screenshot and weak 'Try it yourself' CTA lacks a clear hook, benefit, or social proof to beat survival-game CPIs and achieve profitable retention.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 436,
+ "cached_tokens": 128,
+ "output_tokens": 301,
+ "reasoning_tokens": 239
+}

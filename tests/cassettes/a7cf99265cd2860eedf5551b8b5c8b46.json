@@ -1,0 +1,11 @@
+{
+ "key": "a7cf99265cd2860eedf5551b8b5c8b46",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Temu spam, that shouting bloke with bags of crisps looks dodgy and I don't trust the free gift nonsense\", \"intent\": \"Wouldn't click, just another Temu scammy ad to scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need teeth straightening and I don't trust those big discount receipts, feels like inflated prices to look like a deal\", \"intent\": \"No chance I'll click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and French and the airport picture has nothing to do with learning a language\", \"intent\": \"Would not click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"All in Russian so I've no idea what it's on about, probably some phone repair thing I don't need\", \"intent\": \"Would definitely not click on something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap plastic Temu gadget I don't need and will break in a week\", \"intent\": \"Might have glanced but wouldn't bother clicking to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1567,
+ "cached_tokens": 256,
+ "output_tokens": 682,
+ "reasoning_tokens": 296
+}

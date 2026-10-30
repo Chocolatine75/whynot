@@ -1,0 +1,11 @@
+{
+ "key": "69a427210096e7b2193f68c396cad6cf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Spammy search-code copy with hashtag stacking and a cheap-looking demo showing attachment but not the cinematic result signals low-trust Temu arbitrage creative with fast fatigue and poor conversion.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 480,
+ "cached_tokens": 128,
+ "output_tokens": 284,
+ "reasoning_tokens": 231
+}

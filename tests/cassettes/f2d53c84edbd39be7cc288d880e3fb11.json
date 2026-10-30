@@ -1,0 +1,11 @@
+{
+ "key": "f2d53c84edbd39be7cc288d880e3fb11",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Cantonese and I'm not looking for a language app at all\", \"intent\": \"I wouldn't click, it's just not relevant to my life\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for pastors and church leaders, I have nothing to do with that so I just scrolled past\", \"intent\": \"I would not click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and that black empty image looks scammy and cheap\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's cute but it looks like a cheap dropshipping site, I don't trust the quality or the website Gratitudet\", \"intent\": \"I might pause to look because it's cute for kids but I wouldn't buy without reviews\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already have an electric toothbrush and 95 pounds is expensive and in pounds not euros, feels irrelevant\", \"intent\": \"I wouldn't click, I don't need this\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1920,
+ "cached_tokens": 0,
+ "output_tokens": 948,
+ "reasoning_tokens": 561
+}

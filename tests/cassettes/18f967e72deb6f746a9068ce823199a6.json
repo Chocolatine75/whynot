@@ -1,0 +1,11 @@
+{
+ "key": "18f967e72deb6f746a9068ce823199a6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"too pink and girly, anxious attachment stuff is not for me and looks like another generic AI therapy app scam\", \"intent\": \"I would just scroll past, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have kids and it's a Temu ad, I don't trust the quality\", \"intent\": \"No need to click, not my target group\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"image caught my eye with the bike at night but the product is cheap plastic glowing caps, seems useless and probably doesn't even glow like that\", \"intent\": \"Might have paused for the picture but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French, I live in Germany and don't speak French, so it's irrelevant\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language, looks like Croatian or something, and I'm not interested in another language app\", \"intent\": \"No interest to click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1885,
+ "cached_tokens": 128,
+ "output_tokens": 636,
+ "reasoning_tokens": 256
+}

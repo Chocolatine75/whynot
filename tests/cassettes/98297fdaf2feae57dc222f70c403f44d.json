@@ -1,0 +1,11 @@
+{
+ "key": "98297fdaf2feae57dc222f70c403f44d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Highly niche yaoi creative with smoking and homoerotic tension risks frequent disapprovals/limited delivery on Meta and has weak broad appeal/CTR to scale profitably for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 470,
+ "cached_tokens": 128,
+ "output_tokens": 324,
+ "reasoning_tokens": 265
+}

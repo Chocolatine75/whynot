@@ -1,0 +1,11 @@
+{
+ "key": "2e55790218d4d746b113b61d499879db",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic corporate copy with no hook, weak CTA 'get latest price', and spammy hashtags predicts low CTR and CVR and would be killed fast in any rigorous ABO/CBO test.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 315,
+ "cached_tokens": 128,
+ "output_tokens": 326,
+ "reasoning_tokens": 267
+}

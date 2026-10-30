@@ -1,0 +1,11 @@
+{
+ "key": "41e6ec8c784f6cfc6f21c4f281ae1089",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't need to learn Thai and the Thai dating thing feels like clickbait, not for me\", \"intent\": \"I wouldn't click, I have no interest in Thai or dating courses\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are always low quality and I don't trust the value or shipping\", \"intent\": \"I would just scroll past, not searching any code\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in Spain so UK teeth offer is useless to me and looks expensive anyway\", \"intent\": \"No chance I'd click for a dentist in another country\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Cute image caught my eye but I have no idea what the game actually is and I don't download random games\", \"intent\": \"I might pause to look but I wouldn't install it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is not in Spanish or English and I don't need an AI hairstyle app\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1560,
+ "cached_tokens": 0,
+ "output_tokens": 777,
+ "reasoning_tokens": 402
+}

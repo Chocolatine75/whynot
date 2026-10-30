@@ -1,0 +1,11 @@
+{
+ "key": "86e320c2e882be1170c0d0bea0d13721",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic 'free AI English' claim in a hyper-competitive vertical drives cheap, low-intent clicks with poor conversion/retention and the Hindi grammar error hurts credibility, so ROAS rarely sustains for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 266,
+ "cached_tokens": 128,
+ "output_tokens": 480,
+ "reasoning_tokens": 416
+}

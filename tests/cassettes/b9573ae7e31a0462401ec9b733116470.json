@@ -1,0 +1,11 @@
+{
+ "key": "b9573ae7e31a0462401ec9b733116470",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic UGC-style text with no price, offer, product USP, or real hook plus a mismatched 'link in bio' CTA for a Facebook feed ad signals low CTR and ROAS, so Temu will kill it fast.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 324,
+ "cached_tokens": 128,
+ "output_tokens": 282,
+ "reasoning_tokens": 217
+}

@@ -1,0 +1,11 @@
+{
+ "key": "b75a3d1957ddf7e948a41ff4732eccbd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a silly phone game for kids, not for me, I don't want adverts chasing me to play games\", \"intent\": \"I would not click, I never play those bubble games on my phone\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks a bit off and those before and after nail cures never work properly, I wouldn't trust it\", \"intent\": \"I would definitely not click or buy this from an advert\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Far too expensive and bulky for my flat and I'm too old for that sort of exercise bike now\", \"intent\": \"I would not click to buy a Peloton, it's not for someone like me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't know what this Alibaba place is and I wouldn't buy jewellery off the internet like that\", \"intent\": \"I would not click, I'm not looking for a ring\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language I can't read so I have no idea what it's about\", \"intent\": \"I would not click as I don't understand a word of it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1901,
+ "cached_tokens": 256,
+ "output_tokens": 698,
+ "reasoning_tokens": 301
+}

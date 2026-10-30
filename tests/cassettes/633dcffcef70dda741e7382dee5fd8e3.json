@@ -1,0 +1,11 @@
+{
+ "key": "633dcffcef70dda741e7382dee5fd8e3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Time-limited Halloween sale ad expiring Nov 2nd cannot run for months without becoming false/misleading and will be turned off after the promotion ends.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 275,
+ "cached_tokens": 128,
+ "output_tokens": 117,
+ "reasoning_tokens": 65
+}

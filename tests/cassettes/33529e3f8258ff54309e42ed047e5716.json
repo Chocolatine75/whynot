@@ -1,0 +1,11 @@
+{
+ "key": "33529e3f8258ff54309e42ed047e5716",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Picture is a hi-vis work jacket but the title is about printer ink, makes no sense and I don't need either\", \"intent\": \"I wouldn't click or buy, it's confusing and not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a little sewing gadget but I don't do sewing, my wife might but I wouldn't order this online\", \"intent\": \"I wouldn't click, not something I need\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just kids toys in a lit up cabinet, not for a man my age and I don't trust Temu anyway\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Why show a dirty portable loo, put me right off, and it's all in foreign writing\", \"intent\": \"I definitely would not click on that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Two young lads in a cartoon looking like that, not appropriate for me, I don't want that on my feed\", \"intent\": \"I would scroll past quickly and not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1899,
+ "cached_tokens": 128,
+ "output_tokens": 721,
+ "reasoning_tokens": 334
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5c884dcce6c1c51c7c2dcba4a76116e5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have zero need to learn Vietnamese and I ignore all these language app ads\", \"intent\": \"Would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and free chat is just a trick to get you to pay\", \"intent\": \"Would definitely not click or talk to an astrologer\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks like a cool gadget but 95 pounds for a toothbrush is too much and I don't trust dentist scans through an app\", \"intent\": \"Might look at it for a second but would not buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz apps all promise the same thing and then want a subscription\", \"intent\": \"Would not click, I don't do these 3 minute quiz funnels\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I just scrolled past, also same as the other one just another paid plan\", \"intent\": \"Would not click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 128,
+ "output_tokens": 665,
+ "reasoning_tokens": 286
+}

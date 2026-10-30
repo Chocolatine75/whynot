@@ -1,0 +1,11 @@
+{
+ "key": "c74911532f5a9b7cc770a88555b3e38d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non mi interessa, sembra un gioco per ragazzini, non ho bisogno di un animale virtuale per stare bene\", \"intent\": \"Non cliccherei, non fa per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È tutto in francese e poi è troppo lungo, ho scrollato subito\", \"intent\": \"Non cliccherei, non capisco e non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Come l'altro, francese e troppo testo, non lo leggo nemmeno\", \"intent\": \"Non cliccherei, passo oltre\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Troppo vago, non si capisce cosa vende, sembra una delle solite app truffa per il benessere\", \"intent\": \"Non cliccherei, non mi fido\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Vado in bici ogni tanto ma non compro cappellini da una pubblicità su Facebook, magari lo cerco in negozio\", \"intent\": \"Forse lo guarderei ma non comprerei da qui\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1662,
+ "cached_tokens": 0,
+ "output_tokens": 621,
+ "reasoning_tokens": 235
+}

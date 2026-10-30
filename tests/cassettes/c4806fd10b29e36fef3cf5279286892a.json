@@ -1,0 +1,11 @@
+{
+ "key": "c4806fd10b29e36fef3cf5279286892a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into sewing at all, this is for mums or grandmas not me, and that 48% off looks like fake discount dropshipping\", \"intent\": \"I wouldn't click or buy this, it's completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and about Bible prophecy, I don't speak French and I'm not religious so I just scrolled straight past\", \"intent\": \"I wouldn't click, I can't even read it and it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and don't know what that drink is, seems random and I don't trust the price or delivery claim\", \"intent\": \"I might look at what Joybuy is but I wouldn't order this drink\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a youth leader or church person, nothing to do with me, just another religious course ad\", \"intent\": \"I wouldn't click, not relevant to my life at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a spammy dating ad with stock photo vibes, don't trust that the profiles are real or local\", \"intent\": \"I wouldn't download it, maybe curious but I don't trust these apps\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2600,
+ "cached_tokens": 0,
+ "output_tokens": 685,
+ "reasoning_tokens": 267
+}

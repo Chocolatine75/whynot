@@ -1,0 +1,11 @@
+{
+ "key": "0ecdbfc4b0022c6da6a063c8de0af983",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I can't read it and I'm not interested in religious prophecy books anyway\", \"intent\": \"I would keep scrolling and not click at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's a horrible picture of a dirty toilet and I don't know what it has to do with a photo app\", \"intent\": \"I would scroll past quickly, definitely not installing it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The title says toilet roll holder but the picture is just a wooden chair, looks like spammy dropshipping\", \"intent\": \"I have no need for this and wouldn't trust the listing\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a kid doing A-Levels right now and these tutoring ads always seem expensive after the free trial\", \"intent\": \"I wouldn't click, maybe I'd save it if I needed tutoring in future\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The text about World Cup AI photos doesn't match the weird mum and baby photo at all, feels like clickbait\", \"intent\": \"I would ignore it and not click try for free\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2492,
+ "cached_tokens": 768,
+ "output_tokens": 794,
+ "reasoning_tokens": 399
+}

@@ -1,0 +1,11 @@
+{
+ "key": "cdef7bed7e619e4120a5ec73d83d930f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic finance-led copy with a pun headline and no specific price, offer, or strong benefit hook is typical test filler that rarely becomes an evergreen winner without iteration.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 260,
+ "cached_tokens": 128,
+ "output_tokens": 310,
+ "reasoning_tokens": 256
+}

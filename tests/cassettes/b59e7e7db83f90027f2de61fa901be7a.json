@@ -1,0 +1,11 @@
+{
+ "key": "b59e7e7db83f90027f2de61fa901be7a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and I don't speak Spanish, plus that bright green owl thing looks a bit cheap and scammy\", \"intent\": \"I wouldn't click as I have no idea what it's really offering me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust those receipt photos, looks faked to make you think it's a big discount and teeth aligners are too expensive anyway\", \"intent\": \"I might have a quick look but I'm not buying expensive teeth stuff off an ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just says IN 2022 on a black background, no clue what it's even selling\", \"intent\": \"I wouldn't click because I don't know what it is\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and I don't trust the quality, and I hate those code spam posts\", \"intent\": \"I wouldn't click, I'm fed up of seeing Temu hauls\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not relevant to me at all, I'm not looking for a delivery rider job\", \"intent\": \"I would just scroll past, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1837,
+ "cached_tokens": 0,
+ "output_tokens": 657,
+ "reasoning_tokens": 258
+}

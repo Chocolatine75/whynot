@@ -1,0 +1,11 @@
+{
+ "key": "3152fb24d2d7a2c4dfb54b4a127d8999",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic motivational copy with spammy emojis and no specific offer, hook, or differentiation will likely get low CTR/CVR and be killed quickly in testing, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 271,
+ "cached_tokens": 128,
+ "output_tokens": 381,
+ "reasoning_tokens": 324
+}

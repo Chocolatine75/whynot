@@ -1,0 +1,11 @@
+{
+ "key": "30bc052a62dcf5836248a3a48d98d840",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"cute wizard image but text makes no sense with it, looks like cheap random game ad, not interested in bubble shooter\", \"intent\": \"no way I click this, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German, I'm in Italy why show me this, and I don't need another English app\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"weird AI looking girl staring at phone, vague feel better message, looks sketchy and not trustworthy\", \"intent\": \"might pause a second but definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero need to learn Thai and the photo looks low effort and strange\", \"intent\": \"not for me, scrolled right past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"language I can't even read, Georgian I think, totally irrelevant to me\", \"intent\": \"I didn't stop, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1711,
+ "cached_tokens": 256,
+ "output_tokens": 598,
+ "reasoning_tokens": 233
+}

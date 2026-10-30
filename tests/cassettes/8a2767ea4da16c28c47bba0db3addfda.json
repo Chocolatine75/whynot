@@ -1,0 +1,11 @@
+{
+ "key": "8a2767ea4da16c28c47bba0db3addfda",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and looks like a generic AI language app, I live in Italy so not relevant and I don't trust these speak like a native in minutes claims\", \"intent\": \"I would just scroll past, not interested in downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seems overhyped and probably expensive, I don't need a camera on my toothbrush and I already have an electric one\", \"intent\": \"I might watch a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this is supposed to be, weird AI image of a girl getting kicked out, looks like a scammy game\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The sexist caption is annoying and it's a dropshipped kitchen gadget I can find anywhere for cheaper\", \"intent\": \"I won't buy this, maybe keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like an ad for some Asian drink I don't know, and the delivery promise seems fake for Italy, plus I'm not ordering drinks online\", \"intent\": \"I wouldn't click, just keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1833,
+ "cached_tokens": 0,
+ "output_tokens": 527,
+ "reasoning_tokens": 121
+}

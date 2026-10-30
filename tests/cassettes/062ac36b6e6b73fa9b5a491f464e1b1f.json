@@ -1,0 +1,11 @@
+{
+ "key": "062ac36b6e6b73fa9b5a491f464e1b1f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is for businesses importing from China, has nothing to do with me, just scrolled straight past\", \"intent\": \"I would not click or buy, it's not for a normal shopper\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropship stuff I've seen on Temu for a quid, don't trust the quality and I don't really sew\", \"intent\": \"I might pause to look but I wouldn't click to buy it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks really nice and aesthetic but these fancy toothbrushes are always overpriced and I don't need a camera on my toothbrush\", \"intent\": \"I probably wouldn't click because I know it'll be expensive\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into astrology at all and a free chat just feels like a trap to get you paying after\", \"intent\": \"I would not click, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and up to 50% off sounds a bit scammy, I'd rather just use Tesco or Sainsbury's\", \"intent\": \"I wouldn't download another app just for this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 820,
+ "cached_tokens": 128,
+ "output_tokens": 849,
+ "reasoning_tokens": 437
+}

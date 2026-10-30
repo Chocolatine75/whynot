@@ -1,0 +1,11 @@
+{
+ "key": "401f198a95261775bb515a656255ab1c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business looking to buy handbags wholesale, just a load of jargon about sourcing, not for me at all\", \"intent\": \"I would just scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu pops up constantly and I don't trust the quality, and I don't need men's accessories anyway\", \"intent\": \"I wouldn't click, I see enough Temu ads\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£4 a day sounds a lot really and I don't trust these promises of free whitening, seems too salesy\", \"intent\": \"I might glance but I wouldn't click to book anything\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a dating app and these free ones always seem a bit dodgy\", \"intent\": \"I would scroll past, definitely not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It went on forever trying to scare me with hospital stories and wheelchair talk, and claims a patch through the skin fixes nerves when pills don't - sounds like nonsense and I'm not buying expensive patches off a random website link\", \"intent\": \"I absolutely would not click or buy, I would report or hide it if I could\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7824,
+ "cached_tokens": 0,
+ "output_tokens": 770,
+ "reasoning_tokens": 354
+}

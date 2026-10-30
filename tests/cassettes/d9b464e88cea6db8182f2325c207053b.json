@@ -1,0 +1,11 @@
+{
+ "key": "d9b464e88cea6db8182f2325c207053b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Spanish copy targeting the UK creates a severe language/audience mismatch that will drive low CTR, poor relevance, and quick pausing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 268,
+ "reasoning_tokens": 224
+}

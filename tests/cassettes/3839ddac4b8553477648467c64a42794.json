@@ -1,0 +1,11 @@
+{
+ "key": "3839ddac4b8553477648467c64a42794",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute and colorful but feels like one of those ads that guilt-trips you about doomscrolling and then pretends an app will fix your life\", \"intent\": \"maybe screenshot to check later but I know I'll never actually download it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"total cliché bad boy good girl story, not my genre and the tattoo line is cringe\", \"intent\": \"would just keep scrolling, not interested in this romance drama\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese and the scary dog statue with blue eyes looks like clickbait, I don't understand what it's selling\", \"intent\": \"definitely not clicking, looks spammy and not for me in France\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"weird AI chatbot with anime girlfriend vibe, I don't want to chat with a fake person even with free gems\", \"intent\": \"no way I'm downloading this, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I use Vinted but this ad is confusing, the title is gibberish and it's just a basket, doesn't make me want to sell\", \"intent\": \"I might pause because the basket is cute but I wouldn't click the ad\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1883,
+ "cached_tokens": 256,
+ "output_tokens": 943,
+ "reasoning_tokens": 525
+}

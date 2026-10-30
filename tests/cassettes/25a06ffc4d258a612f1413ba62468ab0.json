@@ -1,0 +1,11 @@
+{
+ "key": "25a06ffc4d258a612f1413ba62468ab0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"funny meme but I'm not studying Japanese and I don't need another language app\", \"intent\": \"would just scroll past, not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a mum decluttering toys and the UK link makes it irrelevant for me in Italy\", \"intent\": \"would scroll past with no interest to click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like one of those scammy fitness subscription apps that charge you monthly\", \"intent\": \"maybe paused for a second but wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm in Italy, an expo in London in 2026 has nothing to do with me\", \"intent\": \"would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and I don't care about trying hairstyles with an AI app\", \"intent\": \"would ignore and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 700,
+ "cached_tokens": 128,
+ "output_tokens": 940,
+ "reasoning_tokens": 588
+}

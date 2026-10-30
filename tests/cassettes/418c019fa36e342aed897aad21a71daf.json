@@ -1,0 +1,11 @@
+{
+ "key": "418c019fa36e342aed897aad21a71daf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Proven ReelShort enemies-to-lovers/broken-home trauma formula with strong emotional hooks drives high CTR and watch-through for core female 18-44 demo despite edgy copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 571,
+ "cached_tokens": 128,
+ "output_tokens": 381,
+ "reasoning_tokens": 324
+}

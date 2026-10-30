@@ -1,0 +1,11 @@
+{
+ "key": "219beb854dc6366798b03abc07fb9533",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks cute but it feels like one of those dropshipping ads, probably bad quality and overpriced so I wouldn't trust it\", \"intent\": \"I might watch for a second because it's cute but I wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not a pastor, this has nothing to do with me so I just scrolled past\", \"intent\": \"I would not click at all, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Cantonese and I get so many language app ads\", \"intent\": \"I would not click, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and the 'first chat free' always feels like a scam to take your money after\", \"intent\": \"I would not click, it feels predatory\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks nice but 95 pounds is way too expensive for a toothbrush and I don't trust the camera gadget thing\", \"intent\": \"I wouldn't click to buy but I stopped to look because the design is pretty\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 808,
+ "cached_tokens": 128,
+ "output_tokens": 964,
+ "reasoning_tokens": 562
+}

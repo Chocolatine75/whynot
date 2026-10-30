@@ -1,0 +1,11 @@
+{
+ "key": "7ea0283713971e6b0efcdff9441081c7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak Dutch and the image is blurry weird with a man and a sheep, nothing to do with me\", \"intent\": \"I would just scroll straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like creepy AI generated dolls and it's a Halloween ad that's way too busy and fake\", \"intent\": \"I might pause for a second cause it's colourful but I wouldn't click it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Greek so I have no idea what it's saying and I'm not trying to learn English\", \"intent\": \"I wouldn't click at all, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, says Cleanup app but shows a woman walking in the rain, feels like a scam ad\", \"intent\": \"I definitely wouldn't click or download anything from this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's cute with Stitch but I don't really change my phone icons and I don't trust these widget apps\", \"intent\": \"I might look for a second because it's cute but I wouldn't actually click or buy\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1480,
+ "cached_tokens": 256,
+ "output_tokens": 620,
+ "reasoning_tokens": 224
+}

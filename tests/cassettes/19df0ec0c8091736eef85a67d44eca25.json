@@ -1,0 +1,11 @@
+{
+ "key": "19df0ec0c8091736eef85a67d44eca25",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Spammy leet-speak text with no product hook, creative, or value prop indicates low-trust, low-CTR arbitrage creative that gets quickly banned or rotated out, not kept for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 299,
+ "cached_tokens": 128,
+ "output_tokens": 367,
+ "reasoning_tokens": 306
+}

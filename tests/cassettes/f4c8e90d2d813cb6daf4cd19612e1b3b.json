@@ -1,0 +1,11 @@
+{
+ "key": "f4c8e90d2d813cb6daf4cd19612e1b3b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Nothing to do with me, I'm not a business buyer and I don't want to go to a B2B expo in London, just scrolled right past\",\"intent\":\"Wouldn't click, not relevant to me at all\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"The title says ink box for a printer but the picture is a hi-vis jacket, looks scammy and confusing, I wouldn't trust it\",\"intent\":\"Wouldn't click, wouldn't know what I'd actually be buying\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"I don't know what the drink is and I don't recognise Joybuy, not ordering random cans online when I can get it at Tesco\",\"intent\":\"Probably wouldn't click, might have glanced at the price but not interested\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"Huge wall of text, classic sob story to sell a miracle patch, I don't believe a B12 patch through the skin will fix nerve pain and the photo doesn't even match\",\"intent\":\"Definitely wouldn't click or buy, looks like one of those scam health ads\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"I'm not a youth leader or involved in a church like that, so it's just not for me\",\"intent\":\"Wouldn't click, just scrolled past\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5508,
+ "cached_tokens": 256,
+ "output_tokens": 749,
+ "reasoning_tokens": 373
+}

@@ -1,0 +1,11 @@
+{
+ "key": "67133e0fc55ae43f486ef23d8a397618",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm a guy in my early 30s, I don't sew and have zero use for a needle kit, looks like cheap dropship stuff with a fake 48% off tag\", \"intent\": \"I just scrolled straight past it, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks really spammy and fake, 'singles in your area' with that photo screams scam or bots, don't trust random dating app ads\", \"intent\": \"No chance I'd click, seems dodgy as hell\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and about biblical prophecies, I'm not religious and can't even read it properly, totally irrelevant to me\", \"intent\": \"Ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"nothing to do with me, I'm not a youth leader or involved in church ministry, just ad clutter\", \"intent\": \"Wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"never heard of the drink and don't know Joybuy, offer looks okay but I wasn't shopping for this and same-day delivery probably doesn't even cover me\", \"intent\": \"I paused for a second but wouldn't click to buy right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2600,
+ "cached_tokens": 128,
+ "output_tokens": 907,
+ "reasoning_tokens": 485
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5c44d2d7cf49003d986247aa8d6d15a4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Georgian script so I've got no idea what it's selling, looks like some language thing but not for me\", \"intent\": \"wouldn't click because I can't read it and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's some cringey werewolf romance novel ad, totally not my thing and looks like clickbait\", \"intent\": \"definitely not clicking, just scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and it's a Temu ad with a code, I don't trust Temu spam anyway\", \"intent\": \"no chance I'd click a Temu link\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Russian and about learning English, I'm English anyway so pointless for me\", \"intent\": \"would not click, irrelevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another generic merge puzzle game ad, I get loads of these and they're always pay-to-win rubbish\", \"intent\": \"might pause for a second but wouldn't bother downloading it\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 826,
+ "cached_tokens": 128,
+ "output_tokens": 691,
+ "reasoning_tokens": 309
+}

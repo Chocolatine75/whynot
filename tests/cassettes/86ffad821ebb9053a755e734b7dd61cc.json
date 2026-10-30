@@ -1,0 +1,11 @@
+{
+ "key": "86ffad821ebb9053a755e734b7dd61cc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"looks like another generic mobile survival game ad, i don't trust these 'best game' claims and i don't want to install random games\",\"intent\":\"maybe i'd check it out if i'm bored but definitely not clicking now\",\"intent_score\":2},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"i don't believe in astrology at all and this fake whatsapp chat looks super scammy and clickbaity\",\"intent\":\"i would never click on an astrology ad like this\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":true,\"why_not\":\"i already have a job and i'm not looking to become a rider, no need for extra gig work right now\",\"intent\":\"i won't click since i'm not interested in delivery jobs\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's a wholesale B2B ad for women's handbags, totally irrelevant to me and i have no business buying bulk\",\"intent\":\"i have zero reason to click on this\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's completely in French which i don't understand and i'm not religious so a bible study collection is not for me\",\"intent\":\"i would just scroll past this immediately\",\"intent_score\":1}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2357,
+ "cached_tokens": 256,
+ "output_tokens": 794,
+ "reasoning_tokens": 450
+}

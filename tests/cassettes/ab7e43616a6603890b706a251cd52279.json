@@ -1,0 +1,11 @@
+{
+ "key": "ab7e43616a6603890b706a251cd52279",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those spammy dating sites with fake profiles, not trusting the meet and chat for free claim\", \"intent\": \"Wouldn't click, not interested in random dating apps like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not trying to learn a language right now and $240 is still a lot for an app\", \"intent\": \"Would just keep scrolling, no need for it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic so I have no idea what it's actually offering and not relevant to me\", \"intent\": \"Wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Clever idea but feels like a gimmick, don't need to see my teeth on my phone and £95 is steep for a toothbrush\", \"intent\": \"Might look at it out of curiosity but wouldn't buy one\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a side gig riding for Deliveroo, got a proper job already\", \"intent\": \"Would scroll past, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1643,
+ "cached_tokens": 256,
+ "output_tokens": 768,
+ "reasoning_tokens": 378
+}

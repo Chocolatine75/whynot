@@ -1,0 +1,11 @@
+{
+ "key": "7cbe7649ffcc9a14032c091d507ddb4b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"massive wall of text, I'm 22 I don't have neuropathy so instantly irrelevant, felt like a scammy health ad trying to sell magic patches\",\"intent\":\"wouldn't click or buy, scrolled straight past\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's not even in English and the preview is just a blurry bin, no clue what it's selling\",\"intent\":\"not clicking, I don't need a video editor anyway\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"toothbrush that lasts 45 days sounds alright but don't believe the dentist in your bathroom gimmick and it's probably overpriced\",\"intent\":\"might look at it but wouldn't buy, I just get a normal electric toothbrush\",\"intent_score\":2},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"astrology chat is nonsense, don't believe any of it and free chat is obviously a trap to pay after\",\"intent\":\"definitely not clicking that\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"it's in Portuguese about a Brazilian soap opera, nothing to do with me\",\"intent\":\"no interest at all, keep scrolling\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7198,
+ "cached_tokens": 5504,
+ "output_tokens": 744,
+ "reasoning_tokens": 404
+}

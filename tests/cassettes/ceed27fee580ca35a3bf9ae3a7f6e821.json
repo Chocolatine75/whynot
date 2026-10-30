@@ -1,0 +1,11 @@
+{
+ "key": "ceed27fee580ca35a3bf9ae3a7f6e821",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy, price is in pounds and it still looks expensive even with discount, I don't need aligners\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Japanese and I don't trust these language app ads\", \"intent\": \"I would not download the app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute but it's for kids or as a gift and I don't need a blanket like this\", \"intent\": \"I might look for a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image just says In 2022 and tells me nothing about what the app actually does\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"AI girlfriend chat ads feel sketchy and I don't care about the Halloween promo code\", \"intent\": \"I would not click or use the code\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1633,
+ "cached_tokens": 256,
+ "output_tokens": 673,
+ "reasoning_tokens": 311
+}

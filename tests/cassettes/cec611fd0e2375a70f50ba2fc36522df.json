@@ -1,0 +1,11 @@
+{
+ "key": "cec611fd0e2375a70f50ba2fc36522df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"No necesito aprender japonés y el anuncio es muy raro, parece una tontería\", \"intent\": \"No lo clicaría, no me interesa nada el japonés\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Es solo una foto de un mueble viejo y un texto genérico de Alibaba con hashtags, no sé qué me quieren vender\", \"intent\": \"Pasaría de largo sin hacer clic\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No coso ni tengo máquina de coser, esto no es para mí\", \"intent\": \"No lo compraría nunca\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Otro anuncio de IA para idiomas y con un robot raro en la cocina, no me fío y no lo necesito\", \"intent\": \"No haría clic, ya hay mil apps iguales\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No soy consejero ni me interesa formación bíblica de pago por internet\", \"intent\": \"No lo clicaría\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2069,
+ "cached_tokens": 0,
+ "output_tokens": 526,
+ "reasoning_tokens": 156
+}

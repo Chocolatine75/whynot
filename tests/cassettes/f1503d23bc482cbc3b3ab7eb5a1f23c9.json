@@ -1,0 +1,11 @@
+{
+ "key": "f1503d23bc482cbc3b3ab7eb5a1f23c9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the image is just a traffic jam with cars, nothing to do with buses, looks like a cheap puzzle game but not relaxing to me\", \"intent\": \"I wouldn't click, I have zero interest in this kind of mobile game\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Korean so I can't understand anything, and I'm not looking to learn English like this\", \"intent\": \"I would just scroll past, not relevant for me in France\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks gimmicky and a bit too good to be true with all the biohacking claims, plus the photo in a bikini feels like an ad trying too hard\", \"intent\": \"I might hesitate but I wouldn't buy, maybe look up reviews later out of curiosity\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese so I don't really get it, and I don't trust random mental health apps that compare themselves to ChatGPT\", \"intent\": \"I won't click, I don't need an app in a language I don't speak\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the image looks super AI-generated and fake, and it's in Portuguese, not interested in an AI hairstyle thing\", \"intent\": \"I would scroll past, looks cheap and not trustworthy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1888,
+ "cached_tokens": 128,
+ "output_tokens": 842,
+ "reasoning_tokens": 412
+}

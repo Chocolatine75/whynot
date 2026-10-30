@@ -1,0 +1,11 @@
+{
+ "key": "28e84197cf258faf79e73500367227d4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Spammy 0-for-o evasive copy and low-quality awkward UGC creative signals poor CTR/ROAS and high policy/disapproval risk, so it would be killed quickly in optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 484,
+ "cached_tokens": 128,
+ "output_tokens": 265,
+ "reasoning_tokens": 209
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c4e10be73dea0d48afa4ba3b383efbeb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in tedesco, non capisco quasi niente e poi queste app per imparare l'inglese in 10 minuti non mi convincono mai\", \"intent\": \"non ci cliccherei, scrollo oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non ha senso, cosa c'entra wear red ride red con un bubble shooter, sembra spam\", \"intent\": \"assolutamente non ci clicco\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"troppo vago, feel better da cosa? sembra una di quelle app fuffa a pagamento per ansia\", \"intent\": \"non mi interessa cliccare\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"almeno è chiaro che è per imparare il thailandese ma non mi serve proprio a niente al momento\", \"intent\": \"non lo scaricherei\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non capisco nemmeno la lingua, sono caratteri che non ho mai visto, scorro oltre\", \"intent\": \"non ci clicco\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 652,
+ "cached_tokens": 128,
+ "output_tokens": 680,
+ "reasoning_tokens": 301
+}

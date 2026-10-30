@@ -1,0 +1,11 @@
+{
+ "key": "cdb8a838c1d2119a82972a0d26041065",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"weird alien meme but I have zero interest in learning Japanese and it looks like clickbait\", \"intent\": \"I wouldn't click, I don't need a language app right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"that image is so fake and gross AI, feels like scammy body-shaming and impossible promise in 4 weeks\", \"intent\": \"I would never click this, it makes me uncomfortable\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get it's Vinted and selling kids stuff but I'm not decluttering or nesting so not useful to me\", \"intent\": \"I wouldn't click now but it's the only normal ad of them\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's in Spanish and I don't want an AI filter for hairstyles\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer and I'm in Italy, not going to London for a supplier expo\", \"intent\": \"I have no reason to click for a free B2B pass\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1835,
+ "cached_tokens": 0,
+ "output_tokens": 691,
+ "reasoning_tokens": 304
+}

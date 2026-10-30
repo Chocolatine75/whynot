@@ -1,0 +1,11 @@
+{
+ "key": "af1275a836c76b13e8bb512a0ecd773d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Niche B2B product with keyword-stuffed, typo-ridden title and generic marketplace text lacks any hook, benefit, or CTA for a B2C feed, predicting very low CTR and ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 283,
+ "cached_tokens": 128,
+ "output_tokens": 325,
+ "reasoning_tokens": 261
+}

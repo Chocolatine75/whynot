@@ -1,0 +1,11 @@
+{
+ "key": "6137d83f08a4e1b3ed4f640427a7a000",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic, low-effort copy with no hook, benefit proof, CTA or differentiation for a saturated bubble-shooter genre will fatigue and get killed quickly in testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 251,
+ "cached_tokens": 128,
+ "output_tokens": 314,
+ "reasoning_tokens": 263
+}

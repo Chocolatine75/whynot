@@ -1,0 +1,11 @@
+{
+ "key": "a578d086ca02ce5d7c7d1b8ccbf638d0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic overpromise in a hyper-saturated category (AI language apps) with no specific USP, proof, or strong creative hook to sustain CTR/CVR beyond initial testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 284,
+ "cached_tokens": 128,
+ "output_tokens": 317,
+ "reasoning_tokens": 262
+}

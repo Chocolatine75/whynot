@@ -1,0 +1,11 @@
+{
+ "key": "e28989e5a180f90be49317abdae62b89",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"UK financing offer not relevant in France and I don't want an expensive bike on credit\", \"intent\": \"I would not click or buy, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi/English mix about astrology for career, not for me and I don't believe in astrology\", \"intent\": \"I would not click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Receipt looks like a staged ad, and it's a UK price offer not useful in France plus I don't need aligners\", \"intent\": \"I might glance but would not click or book\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text says men's accessories but image shows bohemian women's stuff, looks like cheap Temu spam\", \"intent\": \"I would not click, looks untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says sea shells but image is a metal nozzle, completely confusing and it's B2B anyway\", \"intent\": \"I would not click, totally irrelevant\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1935,
+ "cached_tokens": 0,
+ "output_tokens": 949,
+ "reasoning_tokens": 573
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1e5d2b3b2ef7dc874ea6ca0285b9dc57",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Enemies-to-lovers with possessive, spicy dialogue hook is a proven top-performer for AI romance apps that drives high CTR and retention among a massive female audience.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 463,
+ "cached_tokens": 128,
+ "output_tokens": 286,
+ "reasoning_tokens": 232
+}

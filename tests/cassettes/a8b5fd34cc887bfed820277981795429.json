@@ -1,0 +1,11 @@
+{
+ "key": "a8b5fd34cc887bfed820277981795429",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a scam psychic ad trying to play with emotions, I don't believe in that stuff\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a side job as a delivery rider right now\", \"intent\": \"I wouldn't click because I don't need this job\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's about Bible prophecy which I'm not interested in\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language and it's another psychic ad\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another astrology ad in a language I don't understand, seems spammy\", \"intent\": \"I would not click and just scroll past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1117,
+ "cached_tokens": 0,
+ "output_tokens": 652,
+ "reasoning_tokens": 310
+}

@@ -1,0 +1,11 @@
+{
+ "key": "d49a191a333ff26a33d93a06b647058a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I just scrolled past, and I'm not religious anyway so not for me\", \"intent\": \"No chance I'd click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a random cupboard from Alibaba, looks like a B2B ad not for normal shoppers, feels spammy\", \"intent\": \"Wouldn't click, I don't need wholesale furniture\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Very preachy men's leadership thing, not my beliefs and looks like an expensive church course\", \"intent\": \"Definitely wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a dentist chair for a clinic, why am I being shown this, obviously not for a regular person\", \"intent\": \"No reason to click, I have zero use for it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a close up of a cable, boring and totally irrelevant to me\", \"intent\": \"Wouldn't click, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3037,
+ "cached_tokens": 0,
+ "output_tokens": 650,
+ "reasoning_tokens": 273
+}

@@ -1,0 +1,11 @@
+{
+ "key": "b461228380b5507a6120257df20c1ac6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"just an ad for Deliveroo, I'm not hungry and I try not to order takeaway anyway it's too expensive with the fees\", \"intent\": \"Probably wouldn't click, maybe keep it in mind for Friday but not buying now.\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in another language and looks like one of those AI filter apps I don't trust\", \"intent\": \"No chance I'd click or download this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and sounds like a made up story to sell a miracle patch I don't have neuropathy and wouldn't trust it anyway\", \"intent\": \"I skimmed a bit then scrolled past, definitely not clicking the link.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a runner and don't own a Peloton, plus the subscription is £45 a month so it's not for me\", \"intent\": \"Not interested so I just scrolled on.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it it's in Thai and I'm not looking for a Reels editor\", \"intent\": \"Just scrolled straight past it.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4949,
+ "cached_tokens": 128,
+ "output_tokens": 562,
+ "reasoning_tokens": 167
+}

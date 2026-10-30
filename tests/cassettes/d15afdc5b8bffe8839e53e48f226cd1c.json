@@ -1,0 +1,11 @@
+{
+ "key": "d15afdc5b8bffe8839e53e48f226cd1c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"filthy stuff, not for someone my age and I don't want smut like that on my feed\", \"intent\": \"I would not click on this, absolutely not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the writing is all jumbled up and I don't need a belt like that anyway\", \"intent\": \"I would not buy this, looks cheap\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu and I have no use for a selfie grip\", \"intent\": \"I would not click or buy from Temu\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in a foreign language, means nothing to me\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read it and I'm not trying to learn Thai at my age\", \"intent\": \"I would not click on this at all\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 648,
+ "cached_tokens": 128,
+ "output_tokens": 719,
+ "reasoning_tokens": 365
+}

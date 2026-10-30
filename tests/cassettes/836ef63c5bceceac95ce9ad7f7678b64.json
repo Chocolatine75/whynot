@@ -1,0 +1,11 @@
+{
+ "key": "836ef63c5bceceac95ce9ad7f7678b64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Title describes a wallet phone case but image shows a 4-pack privacy screen protector, creating total product mismatch that will kill CTR and conversion rate.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 646,
+ "cached_tokens": 128,
+ "output_tokens": 224,
+ "reasoning_tokens": 174
+}

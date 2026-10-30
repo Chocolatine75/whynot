@@ -1,0 +1,11 @@
+{
+ "key": "f28ba78b75ff61131101dd46a5f37177",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Wall of text trying to look like a doctor story to sell patches, classic snake oil for neuropathy, I don't trust these miracle cure ads at all and I just scrolled past\", \"intent\": \"No way I'm clicking this, it feels like a scam that preys on sick people\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor and have nothing to do with running a church, totally irrelevant to me\", \"intent\": \"I have no reason to click, not my world at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Weird AI-looking image with a drill and a belly thing, looks fake and clickbaity and not for me anyway\", \"intent\": \"I just kept scrolling, looked gross and scammy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get what it is but I'm not religious and not interested in buying a Bible study collection\", \"intent\": \"I wouldn't click but at least it's clear and honest compared to the others\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a turban cap for women, I'm a man so zero use for me\", \"intent\": \"No intent to click, not relevant\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7898,
+ "cached_tokens": 5504,
+ "output_tokens": 726,
+ "reasoning_tokens": 318
+}

@@ -1,0 +1,11 @@
+{
+ "key": "70b8edd9126bc192ac936beef9a84006",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic clickbait creative/title with no clear hook, offer, or audience targeting suggests poor CTR/CVR and likely quick fatigue or policy flag, not a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 442,
+ "cached_tokens": 128,
+ "output_tokens": 226,
+ "reasoning_tokens": 170
+}

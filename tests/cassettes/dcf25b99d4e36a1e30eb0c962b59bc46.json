@@ -1,0 +1,11 @@
+{
+ "key": "dcf25b99d4e36a1e30eb0c962b59bc46",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm way too young for crepey neck skin stuff and it just feels like a pushy influencer ad for an expensive gadget I don't need\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I get it's a puzzle game but I see these number puzzle ads all the time and I'm not really into them\", \"intent\": \"I wouldn't bother clicking or downloading\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe astrologers can tell me about my ex and it feels a bit scammy and desperate\", \"intent\": \"I wouldn't click, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's actually offering\", \"intent\": \"I wouldn't click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and I'm not looking for a hairstyle app anyway, looks a bit AI and fake\", \"intent\": \"I wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1735,
+ "cached_tokens": 1664,
+ "output_tokens": 636,
+ "reasoning_tokens": 266
+}

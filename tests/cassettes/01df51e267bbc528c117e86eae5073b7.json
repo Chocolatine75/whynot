@@ -1,0 +1,11 @@
+{
+ "key": "01df51e267bbc528c117e86eae5073b7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious at all and I get annoyed by these preachy sponsored posts, just scrolled past\", \"intent\": \"I would not click, not interested\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks practical but I've seen so many of these containers on Instagram and they never work as well as they claim, plus I don't need more plastic stuff\", \"intent\": \"Might save the idea but I wouldn't buy it now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust free dating apps ads, looks generic and probably full of fake profiles\", \"intent\": \"I would not click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These AI dance things are everywhere, it's just a gimmick to get your photos and data\", \"intent\": \"I would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Hindi/English for India, nothing to do with me living in France, zero relevance\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 756,
+ "cached_tokens": 0,
+ "output_tokens": 775,
+ "reasoning_tokens": 404
+}

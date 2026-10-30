@@ -1,0 +1,11 @@
+{
+ "key": "433c3febfd987487976007fabd47d57d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I see Deliveroo ads all the time, I already know it and I'm not ordering anything now\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in religious study courses and it looks like a long sales pitch trying to sell me a PDF\", \"intent\": \"I would not click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but it's just an expensive toothbrush and I don't trust ads like this, my toothbrush is fine\", \"intent\": \"Might look at the picture but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job so it's completely irrelevant to me\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and about astrology, not relevant and I don't believe in that stuff\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 944,
+ "cached_tokens": 0,
+ "output_tokens": 636,
+ "reasoning_tokens": 265
+}

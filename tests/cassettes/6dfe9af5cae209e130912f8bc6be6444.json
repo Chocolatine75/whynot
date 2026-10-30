@@ -1,0 +1,11 @@
+{
+ "key": "6dfe9af5cae209e130912f8bc6be6444",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a dog so it's irrelevant to me and I don't believe any toy is truly indestructible like that\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and Temu ads are always low quality tat, plus the image of a woman kicking gravel has nothing to do with anything\", \"intent\": \"I would not click, just swipe past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's gross body-shaming AI-looking nonsense and the claim about flattening anything in 4 weeks is obviously a scam\", \"intent\": \"I definitely wouldn't click, just felt put off\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a B2B trade show for business buyers and suppliers which has nothing to do with my life\", \"intent\": \"I have no reason to click or get a ticket\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just a creepy AI sexting chatbot ad and it feels a bit predatory and fake\", \"intent\": \"I would not click on it at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1996,
+ "cached_tokens": 128,
+ "output_tokens": 747,
+ "reasoning_tokens": 358
+}

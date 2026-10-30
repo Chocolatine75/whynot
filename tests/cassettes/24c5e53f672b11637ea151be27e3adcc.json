@@ -1,0 +1,11 @@
+{
+ "key": "24c5e53f672b11637ea151be27e3adcc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks tacky and gimmicky, I don't need glowing bits on my car and don't trust cheap plastic tat from an ad\", \"intent\": \"I would just scroll past, definitely not buying these.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not really looking for this kind of thing online, I'd rather get it from my own church if I wanted it\", \"intent\": \"I wouldn't click, it feels like they're trying to sell me something I can get for free.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is far too expensive and I know the monthly payments would still be a lot, no space for it either\", \"intent\": \"I wouldn't click as I can't afford it and don't want to be tempted into finance.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology or kundli telling my future, just feels like a scam to get money\", \"intent\": \"I would keep scrolling and not click on this at all.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English and I'm not interested in AI hair filters\", \"intent\": \"I would ignore it and scroll straight past.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 128,
+ "output_tokens": 745,
+ "reasoning_tokens": 341
+}

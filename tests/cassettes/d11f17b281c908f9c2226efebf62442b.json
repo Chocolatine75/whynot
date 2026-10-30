@@ -1,0 +1,11 @@
+{
+ "key": "d11f17b281c908f9c2226efebf62442b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Ad uses personal-attributes violation ('your mental health') plus unsubstantiated expert/ health claims ('Cognitive Behavior Specialists', 'most popular') that trigger Meta disapprovals and fatigue, and generic benefit bullets lack a differentiated, compliant hook for long-term ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 320,
+ "cached_tokens": 128,
+ "output_tokens": 353,
+ "reasoning_tokens": 277
+}

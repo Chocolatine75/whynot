@@ -1,0 +1,11 @@
+{
+ "key": "7ef37dded0b8b23d342ee659d186c213",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not into astrology stuff and half of its in another language innit, just looks like spam\", \"intent\": \"would just scroll past it, not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"im not religious at all so not for me, feels preachy and boring\", \"intent\": \"wouldnt click learn more, zero interest\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"i already have deliveroo and im not ordering right now, just another delivery ad\", \"intent\": \"might keep it in mind but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"says ends 16th august but ends what? no offer actually shown so cba\", \"intent\": \"would scroll past, cant be bothered\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"psychic reading stuff is proper scammy and cringe, no chance\", \"intent\": \"definitely not clicking that\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 0,
+ "output_tokens": 763,
+ "reasoning_tokens": 406
+}

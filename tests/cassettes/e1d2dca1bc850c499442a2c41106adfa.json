@@ -1,0 +1,11 @@
+{
+ "key": "e1d2dca1bc850c499442a2c41106adfa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business owner and have no interest in meeting suppliers, this is just a boring B2B networking thing that has nothing to do with me\", \"intent\": \"No chance I'd click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have Peloton stuff and £45 a month is mad expensive just for running tips, ads always overhype results\", \"intent\": \"Maybe I'd look if I was training for a half marathon but I wouldn't pay for it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like another cheap spammy mobile survival game, best game 2026 is obviously fake and it'll be full of ads\", \"intent\": \"Probably wouldn't click but might give it a try if I was bored\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a different language so I have no idea what it's saying and I don't need an AI hairstyle app with a random guy's photo\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The title says stone cage gabion but the pic is a wicker bench so it's confusing and I don't need garden furniture from Temu\", \"intent\": \"I wouldn't click or buy this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2039,
+ "cached_tokens": 256,
+ "output_tokens": 925,
+ "reasoning_tokens": 500
+}

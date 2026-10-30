@@ -1,0 +1,11 @@
+{
+ "key": "418a0901c2e5d66d46cbc385a85c873b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for UK and I live in Germany, plus Peloton is way too expensive with that 45 pound membership every month\", \"intent\": \"Would not click, not a runner and not interested in Peloton\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Peloton UK ad, I don't want to finance a bike on credit\", \"intent\": \"Would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute idea but looks like a silly gimmicky game, I don't need a virtual pet to do self care\", \"intent\": \"Might click out of curiosity but definitely wouldn't download or pay\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam and I don't even have that Samsung phone, looks cheap\", \"intent\": \"Would not click, I skip Temu ads on principle\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is in Spanish for UK store while I'm in Germany, makes no sense and it's just Temu junk again\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 634,
+ "cached_tokens": 128,
+ "output_tokens": 696,
+ "reasoning_tokens": 313
+}

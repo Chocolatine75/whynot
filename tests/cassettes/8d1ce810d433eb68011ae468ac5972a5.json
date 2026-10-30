@@ -1,0 +1,11 @@
+{
+ "key": "8d1ce810d433eb68011ae468ac5972a5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Total mismatch between copy (Board, Little Passengers/Wear red, ride red) and creative (wizard cat casting spell) creates confusion with no clear hook, gameplay, or CTA, driving low CTR/CVR.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 444,
+ "cached_tokens": 128,
+ "output_tokens": 256,
+ "reasoning_tokens": 192
+}

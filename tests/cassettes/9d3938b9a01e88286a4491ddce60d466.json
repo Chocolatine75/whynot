@@ -1,0 +1,11 @@
+{
+ "key": "9d3938b9a01e88286a4491ddce60d466",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen Peloton ads a million times, no room for a bike and way too expensive anyway\", \"intent\": \"I just scrolled past it without a second thought\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the foot picture was gross and the text was way too long and scary, felt like a scam trying to frighten people into buying patches\", \"intent\": \"I didn't read it all and definitely wouldn't click a weird medical patch ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a dodgy dating ad, don't trust it at all\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other Peloton one, not interested and can't afford it\", \"intent\": \"I scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job so it's irrelevant to me\", \"intent\": \"I didn't click as it's not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4051,
+ "cached_tokens": 0,
+ "output_tokens": 620,
+ "reasoning_tokens": 257
+}

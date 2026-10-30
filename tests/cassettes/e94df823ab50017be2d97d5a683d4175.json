@@ -1,0 +1,11 @@
+{
+ "key": "e94df823ab50017be2d97d5a683d4175",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another fake cleaner app scam, don't believe the 70M and 4.9 rating and I don't need that stuff\", \"intent\": \"I would just scroll past, no interest in installing it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"cheap AI gimmick, probably wants money or gives you a watermarked video\", \"intent\": \"I wouldn't click, not funny enough to try\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like overpriced dropship stuff with fake 50% off and I don't need a portable fan right now\", \"intent\": \"I might look for a second but wouldn't buy from this random shop\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"ad is in Polish so not for me and I hate Temu spam anyway\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"cringe werewolf romance trash, totally not my thing and looks like clickbait\", \"intent\": \"I would never click on that story\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 840,
+ "cached_tokens": 0,
+ "output_tokens": 939,
+ "reasoning_tokens": 559
+}

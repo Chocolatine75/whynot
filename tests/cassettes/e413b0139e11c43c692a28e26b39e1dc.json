@@ -1,0 +1,11 @@
+{
+ "key": "e413b0139e11c43c692a28e26b39e1dc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says storage box but picture is chunky sandals, looks like a scam and I don't trust Temu quality anyway\", \"intent\": \"Wouldn't click, I don't buy shoes from Temu\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly phone game ad, I'm not interested in games\", \"intent\": \"Would never click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need a massive 5kg bag of rice and never heard of Joybuy, don't trust these welcome offer prices\", \"intent\": \"No need to click, I get my rice at Tesco\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks handy but I doubt it's 47% off and my kitchen is fine as it is, more clutter I don't need\", \"intent\": \"Might have a quick look but almost certainly wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seems gimmicky and cheap, I've already got a fan and it probably wouldn't last\", \"intent\": \"Wouldn't click, not worth the hassle\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2295,
+ "cached_tokens": 256,
+ "output_tokens": 786,
+ "reasoning_tokens": 401
+}

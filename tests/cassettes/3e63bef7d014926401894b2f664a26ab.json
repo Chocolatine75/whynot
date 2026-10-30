@@ -1,0 +1,11 @@
+{
+ "key": "3e63bef7d014926401894b2f664a26ab",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in spagnolo, non è per me e non mi fido di queste app che dicono di essere come Duolingo per il TDAH\", \"intent\": \"Non cliccherei, non mi interessa e non capisco bene la lingua\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"spazzolino troppo caro e pubblicità in inglese con prezzo in sterline, sembra una truffa per farmi comprare\", \"intent\": \"Non comprerei mai uno spazzolino così costoso vista su un annuncio\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho nessun interesse a imparare il vietnamita, pubblicità inutile per me\", \"intent\": \"Non scaricherei l'app, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non credo nell'astrologia e poi è tutto in inglese e indiano, non c'entra niente con me\", \"intent\": \"Non cliccherei mai su una chat con un astrologo\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"queste app per ansia e stress promettono tanto ma poi vogliono solo abbonamenti costosi, non mi fido\", \"intent\": \"Forse farei il quiz per curiosità ma non comprerei il piano\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2120,
+ "cached_tokens": 128,
+ "output_tokens": 795,
+ "reasoning_tokens": 369
+}

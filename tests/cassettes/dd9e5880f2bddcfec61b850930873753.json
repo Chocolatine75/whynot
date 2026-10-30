@@ -1,0 +1,11 @@
+{
+ "key": "dd9e5880f2bddcfec61b850930873753",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't even own that printer, looks like a spare part for a business, nothing to do with me\", \"intent\": \"I wouldn't click, I have no use for it at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I buy shells from Alibaba, I don't need decorations in bulk\", \"intent\": \"I kept scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy and this is in pounds for the UK, and I don't trust these cheap online teeth things\", \"intent\": \"I wouldn't click, not for me and seems not for Italy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another UK ad and Peloton is too expensive, I don't want to finance an exercise bike\", \"intent\": \"No chance I would click or buy this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get what it is but I'm 50, I have a job, I'm not going to start delivering food on a bike\", \"intent\": \"I wouldn't apply but at least I understood what they were offering\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 623,
+ "cached_tokens": 0,
+ "output_tokens": 709,
+ "reasoning_tokens": 322
+}

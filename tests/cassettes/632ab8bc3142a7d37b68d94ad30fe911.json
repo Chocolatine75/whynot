@@ -1,0 +1,11 @@
+{
+ "key": "632ab8bc3142a7d37b68d94ad30fe911",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Extremely generic, low-effort copy with no hook, proof, or differentiation in a saturated AI beauty niche predicts weak CTR and ROAS, so it will likely be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 261,
+ "cached_tokens": 128,
+ "output_tokens": 327,
+ "reasoning_tokens": 267
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c6404469673e3b3bbd43051f249bf54d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"its like a massive scary essay aimed at old people about nerve damage, nothing to do with me and feels super scammy trying to sell patches\", \"intent\": \"definitely wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just temu spam, seen it a million times and i don't trust the app\", \"intent\": \"wouldn't click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"kinda creepy and dramatic, i don't believe psychic stuff and it feels like clickbait\", \"intent\": \"might read the comments for fun but wouldn't pay for a reading\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds too good to be true, £30 an hour seems fake and i bet there's a catch\", \"intent\": \"maybe look it up later but probably not click now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"just a boring wallet ad, i'm not shopping for wallets\", \"intent\": \"wouldn't click, not interested at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8088,
+ "cached_tokens": 0,
+ "output_tokens": 616,
+ "reasoning_tokens": 242
+}

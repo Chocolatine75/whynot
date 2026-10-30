@@ -1,0 +1,11 @@
+{
+ "key": "271cc669913f60fe4b1c206aa76f7880",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says stone gabion cage but image is a wicker bench, feels like scammy Temu mismatch, I don't need this anyway\", \"intent\": \"I wouldn't click, looks confusing and untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like an ad for expensive invisible aligners, I don't need them and the fake receipt thing is annoying\", \"intent\": \"No interest in clicking for teeth straightening\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Peloton but I can't afford a huge bike on finance and I don't have space\", \"intent\": \"Might briefly look but definitely not buying\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"a toothbrush with a camera seems gimmicky and probably expensive with a subscription, don't need it\", \"intent\": \"Interesting idea but I won't click to buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says sea shells but image is a metal cone thing, totally irrelevant for me and B2B anyway\", \"intent\": \"I will scroll past immediately\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2221,
+ "cached_tokens": 0,
+ "output_tokens": 564,
+ "reasoning_tokens": 180
+}

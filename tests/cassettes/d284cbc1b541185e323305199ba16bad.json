@@ -1,0 +1,11 @@
+{
+ "key": "d284cbc1b541185e323305199ba16bad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Nothing to do with me, it's industrial cable for businesses, I just scrolled straight past\", \"intent\": \"I would not click or buy, completely irrelevant\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a Peloton and £45 a month just to use it is ridiculous, not for me\", \"intent\": \"I would not click, I'm not training for a race and don't want a pricey membership\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious in that way and I'm not looking to be a counsellor, feels a bit preachy\", \"intent\": \"I would not click or buy this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and feel spammy, I don't trust the free gift thing and minimum spend tricks\", \"intent\": \"I would not click, I avoid Temu\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Interested in straighter teeth but I don't believe it's really the best price in the UK and £4 a day still adds up very expensive\", \"intent\": \"I might have a quick look but I wouldn't book without a lot more research\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 797,
+ "cached_tokens": 0,
+ "output_tokens": 662,
+ "reasoning_tokens": 259
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9d469164b7bfc0feb24606224ac167ae",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropshipping junk for the car, I don't need a clip-on mirror and I don't trust the safety claim\", \"intent\": \"I wouldn't click, I would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another generic mobile game ad, I don't play these survival games and Best Game 2026 sounds fake\", \"intent\": \"No interest to click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's well targeted in French but I'm not practicing and it looks like a paid digital collection, probably expensive for PDFs\", \"intent\": \"I would not click, not my interest right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I hate Temu spam ads and the code trick, plus it's for UK and women's boots so nothing for me\", \"intent\": \"Definitely wouldn't click on this Temu link\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what it actually does and the AI image feels fake, not trusting a vague feel better app\", \"intent\": \"I wouldn't click, too vague for me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2126,
+ "cached_tokens": 128,
+ "output_tokens": 868,
+ "reasoning_tokens": 481
+}

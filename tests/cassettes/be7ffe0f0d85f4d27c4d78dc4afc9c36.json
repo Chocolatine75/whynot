@@ -1,0 +1,11 @@
+{
+ "key": "be7ffe0f0d85f4d27c4d78dc4afc9c36",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That's for businesses buying workshop lighting in bulk, nothing to do with me, and the title is just keyword spam\", \"intent\": \"I wouldn't click, I have no need for this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish and it's for learning English which I already speak, completely irrelevant to me\", \"intent\": \"I wouldn't click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like overhyped wellness nonsense with too many miracle claims and I don't trust the science or the price\", \"intent\": \"I wouldn't buy this, seems like expensive pseudoscience\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's confusing - says learn English but shows Spanish, and I don't need a language app anyway\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy horror image caught my eye but I have zero interest in an AI chat roleplay app\", \"intent\": \"I might pause for the scary picture but I wouldn't click or buy\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1925,
+ "cached_tokens": 0,
+ "output_tokens": 780,
+ "reasoning_tokens": 401
+}

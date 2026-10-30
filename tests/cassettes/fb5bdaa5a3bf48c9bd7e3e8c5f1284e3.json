@@ -1,0 +1,11 @@
+{
+ "key": "fb5bdaa5a3bf48c9bd7e3e8c5f1284e3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not a business buyer and the image is just a rustic cupboard, has nothing to do with me\", \"intent\": \"Wouldn't click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Weird close-up of a guy's stomach shoving something in his trousers, looks cheap and dropshippy\", \"intent\": \"No chance I'd buy a belt from this ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and clearly AI-generated, looks like spam to me\", \"intent\": \"Would just scroll past, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking to be a counsellor, just not my thing at all\", \"intent\": \"Would not click learn more\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like another generic mobile game ad, don't trust it will be any good\", \"intent\": \"Might pause for a second but wouldn't click to play\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2038,
+ "cached_tokens": 128,
+ "output_tokens": 602,
+ "reasoning_tokens": 237
+}

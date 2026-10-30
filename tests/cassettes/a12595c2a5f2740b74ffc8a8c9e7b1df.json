@@ -1,0 +1,11 @@
+{
+ "key": "a12595c2a5f2740b74ffc8a8c9e7b1df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian and I don't speak Russian, plus it looks like a cheap clickbait video for phone repair\", \"intent\": \"I wouldn't click, I have no idea what it actually offers\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The text is in German which I don't understand well and the image is just sexualized clickbait, no trust in visible transformation in 7 days\", \"intent\": \"I might glance but definitely wouldn't sign up\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and very religious, not my interest at all\", \"intent\": \"I would just scroll past, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says shoes but image is a weird doll toy, looks like a scammy Temu listing with mismatch\", \"intent\": \"No way I would buy this, looks unreliable\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and kundli stuff telling me when I'll buy a car\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2441,
+ "cached_tokens": 128,
+ "output_tokens": 665,
+ "reasoning_tokens": 283
+}

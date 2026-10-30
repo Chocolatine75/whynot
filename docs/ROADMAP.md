@@ -151,7 +151,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 
 ### E2. Validate the simulator against reality (A, ★ the technical hero)
 
-- [ ] **E2-1** ★ R3 at scale: longevity (A) — *v0 measured Oct 30 (text-only, 130 GB ads, 24 advertisers, Muse Spark Open low, $0.88, `validate/results/r3-v0.json`): pooled AUC 0.49 [0.40, 0.58]; within advertiser 0.55 [0.44, 0.66] on 9 advertisers / 84 pairs. **No evidence yet.** Found: `select` does not balance per advertiser (Ling 24 long / 0 short), so the pooled AUC partly measures the brand. Left: only advertisers with both classes, ≥ 25 of them, images (E2-2), single-LLM judge baseline.*
+- [ ] **E2-1** ★ R3 at scale: longevity (A) — *v0 measured Oct 30 (text-only, 130 GB ads, 24 advertisers, Muse Spark Open low, $0.88, `validate/results/r3-v0.json`): pooled AUC 0.49 [0.40, 0.58]; within advertiser 0.55 [0.44, 0.66] on 9 advertisers / 84 pairs. **No evidence yet.** Found: `select` does not balance per advertiser (Ling 24 long / 0 short), so the pooled AUC partly measures the brand. Left: only advertisers with both classes, ≥ 25 of them, images (E2-2), single-LLM judge baseline.* *v1 measured Oct 30 (`validate/results/r3-v1-apps-gb-v1.json`, `scripts/r3_v1.py`, ~$5.6 in all): 186 GB ads, 44 advertisers with both classes, 93 per class, real creatives (138 of 186 are videos, seen as their poster frame). Within-advertiser AUC: viewers text 0.52 [0.44, 0.60], viewers with images 0.41 [0.36, 0.47] (below chance), simple judge text 0.46, judge image 0.46, **shorter copy 0.62 [0.52, 0.73]**. Neither the simulator nor a plain LLM judge predicts longevity; a copy-length heuristic does better. R3 as designed fails its floor (> 0.55).*
   - *Done when:*
     - ≥ 200 ads from ≥ 15 advertisers in ≥ 4 categories, classes balanced per advertiser (long ≥ 60 days active, short ≤ 14 days stopped, pre-registered in `DECISIONS.md` on Oct 28);
     - viewers on Muse Spark Open, low effort;
@@ -162,7 +162,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E2-2** ★ Images in the simulator (A + B)
   - *Done when:* viewers see **the composed image** of our ads and **the real creative** of competitor ads (snapshot capture, E2-3). Text-only mode stays available for comparison. R3 is re-run with images.
   - *Tests:* `our_item` includes the image (unit); a viewer cassette with images; cost per feed with images measured and reported.
-- [ ] **E2-3** Creative capture from Ad Library snapshots (A)
+- [x] **E2-3** Creative capture from Ad Library snapshots (A) — *Oct 30: `ingest/creatives.py`, 295/298 captured (99 %), video ads via poster frame, no URL or token stored.*
   - *Done when:* images (and video first frames) of competitor ads are fetched from snapshot pages without a token in any stored URL, ≥ 90 % success on 100 ads, licence notes in `DECISIONS.md`.
   - *Tests:* contract on recorded snapshot HTML; security (no `access_token` anywhere in the store).
 - [ ] **E2-4** ★ R1 backtest on the partner's history (A, needs P-2)
@@ -401,6 +401,7 @@ If a gate fails: write it in `STATUS.md`, take the next item from the cut list, 
 
 ### Gate log
 
+- **Fri Oct 30, R3 v1 (balanced, 44 advertisers, images, judge baseline): negative.** Nothing model-based beats chance within advertiser; viewers with images are below it (0.41); shorter copy reaches 0.62. Decision needed: R1 (partner's real metrics) and R2 (humans) become the main proofs; R3 is reported as a limit. See DECISIONS.
 - **Fri Oct 30, R3 v0 measured (gate met, result negative):** text-only simulator does not separate long-running from short-lived ads (pooled 0.49, within-advertiser 0.55, CIs include 0.5). Next: balanced-per-advertiser selection, more advertisers, images in the feed, judge baseline — then re-run.
 - **Thu Oct 29 gate (cassettes + cost cap + cache): met Oct 30** (branch `a/lane-a-oct30`): E0-1, E0-2 code done, E0-3 done; a fake-world `create` replays offline at $0. Real cassettes wait for `MODEL_API_KEY`.
 - **Fri Oct 30, lane A:** E3-1 done (hard feeds wired into simulate + evolve); E3-2 and E3-3 code done (tournament τ 0.92, noise floor); E2-6 code done (bias suite); E0-4 done; E0-5 tests 96 s → 25 s. **R3 not measured yet** (E2-1 needs model keys and credits): first task once keys are in `.env`.

@@ -1,0 +1,11 @@
+{
+ "key": "2abb344731d8384f65735e9ce9983097",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Authentic, relatable UGC-style mental-health humor with strong pattern-interrupt messy-room visual drives high engagement/CTR with Gen Z women, a proven evergreen winner for self-care apps like Finch.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 447,
+ "cached_tokens": 128,
+ "output_tokens": 337,
+ "reasoning_tokens": 274
+}

@@ -1,0 +1,11 @@
+{
+ "key": "f20c5b462cfefee1b76097632199a52e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks lovely but I don't really need another garden ornament and I bet it costs a fortune plus wouldn't work when it doesn't rain\", \"intent\": \"I wouldn't buy but I might have a quick look at the price out of curiosity\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"My kids are grown and I don't trust Temu quality, feels like cheap drop-shipped stuff\", \"intent\": \"No need for toddler toys so definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, title says printer ink but picture is a high-vis jacket, looks like a scam listing\", \"intent\": \"Would just scroll straight past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£95 is far too much for a toothbrush and I don't want a camera in my mouth, seems gimmicky\", \"intent\": \"Not for me, I like my normal electric toothbrush\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not learning a language and a young lad on a street doesn't make me trust it, lifetime for $240 still sounds pricey\", \"intent\": \"No interest so I wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2005,
+ "cached_tokens": 128,
+ "output_tokens": 621,
+ "reasoning_tokens": 217
+}

@@ -1,0 +1,11 @@
+{
+ "key": "12ffd0b08d116dbc1c1d4a6359c046e4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not going to finance an overpriced exercise bike, I've got no room for it and don't want another monthly payment\", \"intent\": \"I wouldn't click, I'm not buying a Peloton on finance\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not really religious and it's just trying to sell me a digital ebook, not interested\", \"intent\": \"I wouldn't click or buy this guide\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Total nonsense, an astrologer can't tell me when I'll buy a car and I don't want a free chat that'll end up costing me\", \"intent\": \"I wouldn't click, I don't believe in astrology\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like cheap dropship tat and the image has nothing to do with valve caps, just a woman on a motorbike to get clicks\", \"intent\": \"I wouldn't click, I don't need glowing caps for my tyres\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a foreign language and it's just an AI filter app, looks like spam and not for me\", \"intent\": \"I wouldn't click, I have no use for an AI hairstyle app\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1863,
+ "cached_tokens": 256,
+ "output_tokens": 658,
+ "reasoning_tokens": 254
+}

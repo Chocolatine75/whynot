@@ -1,0 +1,11 @@
+{
+ "key": "89b1a284dbcc10c56ee7dfe82f619abb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not interested in football and I don't want to change banks, just another pushy finance ad\", \"intent\": \"I wouldn't click, I don't need Revolut\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Romanian so not for me and I don't know what they're selling\", \"intent\": \"I wouldn't click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks a bit smutty and seedy, not my sort of thing at all and I don't trust those chat apps\", \"intent\": \"I definitely wouldn't click on that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Probably cheap material and wouldn't look right, and I don't really need one right now\", \"intent\": \"I might have a quick look but I probably wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and not relevant to me\", \"intent\": \"I wouldn't click as it's not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 712,
+ "cached_tokens": 0,
+ "output_tokens": 772,
+ "reasoning_tokens": 410
+}

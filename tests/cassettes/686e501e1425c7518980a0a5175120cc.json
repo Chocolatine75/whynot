@@ -1,0 +1,11 @@
+{
+ "key": "686e501e1425c7518980a0a5175120cc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, random title and 70M users claim sounds fake, not relevant to me\", \"intent\": \"Would just scroll past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Dutch or something, I don't understand it at all\", \"intent\": \"Would ignore it and keep scrolling.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need a Halloween photo editor, looks like cheap spammy ad\", \"intent\": \"No chance I'd click on it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get what it is but I don't care about customising my phone that much and don't trust these widget apps\", \"intent\": \"Might pause for a second but wouldn't download it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Greek, no idea what it's saying and not for me anyway\", \"intent\": \"Would scroll straight past.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 640,
+ "cached_tokens": 128,
+ "output_tokens": 589,
+ "reasoning_tokens": 240
+}

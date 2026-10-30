@@ -1,0 +1,11 @@
+{
+ "key": "9b7868200dd9012ef6f706152c41d773",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, low-hook UGC-style copy with no price, offer, or urgency and a high-friction search-code CTA is typical Temu creative testing fodder that gets killed quickly, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 373,
+ "cached_tokens": 128,
+ "output_tokens": 289,
+ "reasoning_tokens": 226
+}

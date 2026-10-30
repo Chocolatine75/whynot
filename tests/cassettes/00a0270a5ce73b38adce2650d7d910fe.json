@@ -1,0 +1,11 @@
+{
+ "key": "00a0270a5ce73b38adce2650d7d910fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Makes generic, overpromising 'make money with AI quickly' claims with heavy discount pressure that drives cheap clicks but poor intent, refunds, and ad policy risk, leading to fast creative burnout rather than months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 331,
+ "cached_tokens": 128,
+ "output_tokens": 262,
+ "reasoning_tokens": 196
+}

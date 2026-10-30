@@ -1,0 +1,11 @@
+{
+ "key": "00a081066f926f704284ea232aff7e51",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, what is this even about? Looks like a weird game ad, not for me\", \"intent\": \"I would just scroll past, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in German and I live in Italy, plus I don't need an English app and hate these spammy learn English ads\", \"intent\": \"Would not click, irrelevant language and not needed\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Too vague and generic wellness stuff, feels like scammy self-help ad with no real info\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Thai, totally irrelevant to my life\", \"intent\": \"No chance I click, not interested\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read the language at all so I have no idea what it's selling\", \"intent\": \"Would just scroll past without thinking\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 652,
+ "cached_tokens": 128,
+ "output_tokens": 577,
+ "reasoning_tokens": 211
+}

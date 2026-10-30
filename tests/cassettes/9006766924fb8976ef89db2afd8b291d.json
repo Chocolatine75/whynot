@@ -1,0 +1,11 @@
+{
+ "key": "9006766924fb8976ef89db2afd8b291d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Overt sexual bait image is disconnected from the fitness app promise and combined with an impossible 'visible transformation in 7 days' claim guarantees policy flags, negative feedback, and poor qualified conversion, preventing long-term scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 500,
+ "cached_tokens": 128,
+ "output_tokens": 294,
+ "reasoning_tokens": 230
+}

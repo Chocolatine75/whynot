@@ -1,0 +1,11 @@
+{
+ "key": "2b6401c97a5c1b1482e8d4e698bc8acb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen gig-recruitment formula with clear benefit-driven copy (100% tips/extra income), relatable authentic visual, and simple CTA drives consistent low-CPL applications.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 452,
+ "cached_tokens": 128,
+ "output_tokens": 320,
+ "reasoning_tokens": 265
+}

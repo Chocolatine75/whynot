@@ -1,0 +1,11 @@
+{
+ "key": "224c7d4ad9205bc3741dcd9c833f9420",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The picture looks a bit odd with his stomach out and I don't really understand what this belt does, not something I need anyway\", \"intent\": \"I would not click or buy this, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai or Japanese writing so I have no idea what it's saying, I'm not trying to learn Thai at my age\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's one of those raunchy story games with a cartoon man, feels a bit silly and trashy and not aimed at me at all\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"There's foreign writing again and a video of a boxer, I don't make reels or any of that so it's irrelevant to me\", \"intent\": \"I have no reason to click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a phone grip but I don't really take selfies and Temu stuff never seems good quality anyway\", \"intent\": \"I might have paused but I wouldn't buy it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1602,
+ "cached_tokens": 256,
+ "output_tokens": 524,
+ "reasoning_tokens": 119
+}

@@ -1,0 +1,11 @@
+{
+ "key": "eddcb506cc74602134cd343a867dcafb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-ticket dropship product with flat-lay-only creative (no on-head lifestyle proof), truncated AI-sounding copy, and low-trust page name signals weak CTR/CVR unlikely to be profitable long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 534,
+ "cached_tokens": 128,
+ "output_tokens": 295,
+ "reasoning_tokens": 230
+}

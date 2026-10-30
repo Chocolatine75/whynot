@@ -1,0 +1,11 @@
+{
+ "key": "70c1702517e87b26c317c93942ed2ecd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic oversaturated seasonal dropship commodity with weak brand trust, spammy discount creative and no moat that typically burns out in weeks, not months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 590,
+ "cached_tokens": 128,
+ "output_tokens": 306,
+ "reasoning_tokens": 255
+}

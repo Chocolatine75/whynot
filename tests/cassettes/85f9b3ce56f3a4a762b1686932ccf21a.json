@@ -1,0 +1,11 @@
+{
+ "key": "85f9b3ce56f3a4a762b1686932ccf21a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu spam for UK and I'm in Spain, I don't trust Temu quality and I'm not looking for home stuff right now\", \"intent\": \"I would just scroll past, not click or buy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and I'm not religious and it's a long boring text ad, not for me at all\", \"intent\": \"I would keep scrolling, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language I don't speak and I don't need a hairstyle app\", \"intent\": \"I would ignore it and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's wholesale women's handbags for businesses, totally irrelevant to me\", \"intent\": \"I would not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for UK delivery and I'm in Spain so it's useless to me and looks like generic shopping spam\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1146,
+ "cached_tokens": 0,
+ "output_tokens": 700,
+ "reasoning_tokens": 330
+}

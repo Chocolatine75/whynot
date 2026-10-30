@@ -1,0 +1,11 @@
+{
+ "key": "45940c6b9c3243af84403cfb5bffe9e9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Gross foot creative + aggressive disease-cure/misinformation claims will trigger Facebook health/misleading policy disapprovals, high negative feedback, and account bans so it cannot scale for months despite classic fear-based long-form copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2952,
+ "cached_tokens": 2560,
+ "output_tokens": 184,
+ "reasoning_tokens": 121
+}

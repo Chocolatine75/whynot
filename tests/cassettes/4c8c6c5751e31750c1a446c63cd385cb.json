@@ -1,0 +1,11 @@
+{
+ "key": "4c8c6c5751e31750c1a446c63cd385cb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Amateur UGC-style creative with cropped unreadable text, finger occlusion, and generic emoji-stuffed copy signals low CTR and poor conversion, unlikely to survive optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 472,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 289
+}

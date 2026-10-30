@@ -1,0 +1,11 @@
+{
+ "key": "9c023151f60b43c3677c68cc37fd6559",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"c'est Temu, je fais pas confiance et j'ai pas besoin d'une vitrine comme ça\", \"intent\": \"Je ne cliquerais pas, ça fait pub Temu un peu spam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"le titre dit app pour apprendre le thai mais l'image dit thai dating 101 ça n'a pas de sens et ça fait bizarre\", \"intent\": \"Je scrollerais directement sans cliquer\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"j'ai pas de voiture ou moto et les bouchons qui brillent ça fait gadget inutile et un peu dangereux\", \"intent\": \"Je ne cliquerais définitivement pas\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"j'achète déjà du riz jasmine mais je préfère l'acheter au supermarché que sur une nouvelle app\", \"intent\": \"Peut-être je garderais en tête mais je ne téléchargerais pas l'app maintenant\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"j'aime pas les jeux de pub comme ça, ça a l'air ennuyeux et plein de pubs\", \"intent\": \"Je passerais sans installer\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1886,
+ "cached_tokens": 128,
+ "output_tokens": 631,
+ "reasoning_tokens": 227
+}

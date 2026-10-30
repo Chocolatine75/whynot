@@ -1,0 +1,11 @@
+{
+ "key": "cbb2978b0758d52647a336592dd16106",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology and this looks like clickbait with too many emojis, I would just scroll past\", \"intent\": \"I would not click or chat, it's not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It caught my eye because it's in Italian but it feels like another generic self-help app trying to sell me a subscription\", \"intent\": \"I might be slightly curious but I would not start the quiz or pay for it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a fancy toothbrush for £95 in England, I'm in Italy and I don't need a camera on my toothbrush\", \"intent\": \"I would not click to buy, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish so I don't really pay attention, and it looks like the same mental health ad as before\", \"intent\": \"I would not click as it's not in my language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Vietnamese right now, so this ad is totally irrelevant to me\", \"intent\": \"I would not download the app\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 128,
+ "output_tokens": 697,
+ "reasoning_tokens": 296
+}

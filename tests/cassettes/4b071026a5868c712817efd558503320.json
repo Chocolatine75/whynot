@@ -1,0 +1,11 @@
+{
+ "key": "4b071026a5868c712817efd558503320",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another cheap mobile game ad, looks boring and not my thing\", \"intent\": \"would just scroll past, not interested in downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like dropship junk from a dodgy site and i don't need a cup holder\", \"intent\": \"would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read a word of it so no idea what it's selling\", \"intent\": \"would scroll past straight away\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not into astrology and it looks like clickbait\", \"intent\": \"would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so irrelevant to me\", \"intent\": \"would just scroll on\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 706,
+ "cached_tokens": 128,
+ "output_tokens": 524,
+ "reasoning_tokens": 198
+}

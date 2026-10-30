@@ -1,0 +1,11 @@
+{
+ "key": "b5ffb9982a1538a2eb222a4f741a29fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another trash mobile game ad, I never install these time wasters\", \"intent\": \"would never click or download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't care about customizing widgets with cartoon characters, looks childish\", \"intent\": \"no reason to click this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know Peloton is real but I don't want a paid fitness subscription from an ad\", \"intent\": \"might watch a second but definitely not signing up\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"massive wall of text trying to sell a miracle patch, image has nothing to do with feet, feels like classic scam health ad\", \"intent\": \"did not click and would not buy this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"weird AI baby spam, free tutorial bait looks cheap and creepy\", \"intent\": \"would just keep scrolling past it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4800,
+ "cached_tokens": 0,
+ "output_tokens": 610,
+ "reasoning_tokens": 257
+}

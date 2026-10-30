@@ -1,0 +1,11 @@
+{
+ "key": "3be96a3fc093815de2bfa51d699a45e1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, low-effort copy with emoji spam and no clear USP, hook, or differentiator in a saturated puzzle category predicts low CTR and ROAS and fast pausing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 268,
+ "cached_tokens": 128,
+ "output_tokens": 248,
+ "reasoning_tokens": 191
+}

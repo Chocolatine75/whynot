@@ -1,0 +1,11 @@
+{
+ "key": "25e4e2cb93800b40166294bd413b0571",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and this feels like a scam targeting people who are feeling down\", \"intent\": \"I would definitely not click, totally not for me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cool but 95 pounds for a toothbrush is way too much and I don't need a camera for my teeth\", \"intent\": \"I wouldn't buy it, my electric toothbrush is fine.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Cantonese right now so it's irrelevant to me\", \"intent\": \"I wouldn't click or download it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a pastor and not religious, this ad is not meant for me at all\", \"intent\": \"I would just scroll past immediately.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It's cute but looks like cheap dropshipping stuff and probably low quality for the price\", \"intent\": \"I might have paused on the image but I wouldn't buy it.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 808,
+ "cached_tokens": 0,
+ "output_tokens": 759,
+ "reasoning_tokens": 388
+}

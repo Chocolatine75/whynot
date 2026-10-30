@@ -1,0 +1,11 @@
+{
+ "key": "340a38d715861f03000f8862a58f8ce0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Got a gym already and those bikes are stupid expensive, plus don't need a subscription\", \"intent\": \"Wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image doesn't match the text at all and I don't need my teeth straightened\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Had no idea what it's actually for, just says IN 2022 and generic AI stuff\", \"intent\": \"Would not click, looks like spam\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Nothing wrong with it just not selling to me, I'm not decluttering kids toys\", \"intent\": \"Might watch for a second but wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Massive wall of text trying to sell a miracle patch, I'm 30 and don't have nerve pain and it screams scam\", \"intent\": \"Scrolled straight past, definitely not buying\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4916,
+ "cached_tokens": 128,
+ "output_tokens": 698,
+ "reasoning_tokens": 333
+}

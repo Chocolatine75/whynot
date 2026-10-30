@@ -1,0 +1,11 @@
+{
+ "key": "4fb87b4b0d5dd5b330e9e866d83cac34",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Italian and looks like one of those spammy language app ads with too many promises\", \"intent\": \"I wouldn't click, I'm not trying to learn Italian\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German and I'm not interested in fasting challenges, just feels like generic fitness spam\", \"intent\": \"would just scroll straight past, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"not my genre at all, reads like cheesy YA romance and I don't buy books from Instagram ads\", \"intent\": \"no chance I'd click or buy, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"already have Deliveroo installed so no need to click an ad for it\", \"intent\": \"wouldn't click now but it's the only useful one if I was hungry\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"huge wall of text about miracle patches for neuropathy, looks like a total scam and has nothing to do with me\", \"intent\": \"I scrolled past as fast as possible, definitely not buying\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6099,
+ "cached_tokens": 128,
+ "output_tokens": 991,
+ "reasoning_tokens": 605
+}

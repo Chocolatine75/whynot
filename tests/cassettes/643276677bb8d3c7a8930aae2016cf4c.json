@@ -1,0 +1,11 @@
+{
+ "key": "643276677bb8d3c7a8930aae2016cf4c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a bandana not a cycling cap and I don't cycle, just looks like dropship junk\", \"intent\": \"Would keep scrolling, no need for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious, not for me at all\", \"intent\": \"Would scroll past immediately, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again French and Bible study stuff, zero relevance to me\", \"intent\": \"Would ignore and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Vague AI-looking image and generic text, no idea what it actually does\", \"intent\": \"Would not click, looks like another wellness spam app\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Video meme with messy room, didn't get what the app does and these pet games are not my thing\", \"intent\": \"Might watch a second but definitely wouldn't click or download\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2826,
+ "cached_tokens": 128,
+ "output_tokens": 565,
+ "reasoning_tokens": 208
+}

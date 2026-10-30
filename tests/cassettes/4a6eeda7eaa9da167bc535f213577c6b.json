@@ -1,0 +1,11 @@
+{
+ "key": "4a6eeda7eaa9da167bc535f213577c6b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and those big discount claims always feel like bait, plus I don't need a random grocery app\", \"intent\": \"Would just keep scrolling, not downloading another shopping app\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap mobile game spam and I don't play survival games like that\", \"intent\": \"Would ignore it completely and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Feels like a weird AI chatbot ad trying to be sexy-spooky, not interested at all\", \"intent\": \"Would scroll past straight away, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and generic language app ads are everywhere, don't know what makes this one different\", \"intent\": \"Wouldn't click as I wasn't sure what it's actually offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Revolut but I'm wary of switching bank stuff from an Instagram ad\", \"intent\": \"Might have paused but wouldn't click, maybe google it later if I needed it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 647,
+ "cached_tokens": 256,
+ "output_tokens": 681,
+ "reasoning_tokens": 302
+}

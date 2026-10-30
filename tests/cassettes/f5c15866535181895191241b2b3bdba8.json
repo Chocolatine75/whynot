@@ -1,0 +1,11 @@
+{
+ "key": "f5c15866535181895191241b2b3bdba8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into mobile games and these bubble shooter ads are everywhere, just looks like time-wasting nonsense\", \"intent\": \"I wouldn't click, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and I get my rice from Tesco, don't trust the welcome offer price will actually be that\", \"intent\": \"Might have a quick look but probably wouldn't buy from them\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks handy but that 47% off and selling fast feels like pressure selling and it'd probably be flimsy in real life\", \"intent\": \"I wouldn't click now though I do like the idea for the kitchen\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute idea but I've had cheap rechargeable fans before and they never last, plus we don't really need one\", \"intent\": \"I might stop to look but I wouldn't order it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says storage box but picture is of clumpy beige sandals, looks like a scammy Temu listing, put me right off\", \"intent\": \"Absolutely wouldn't click on something that mismatched\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2295,
+ "cached_tokens": 256,
+ "output_tokens": 655,
+ "reasoning_tokens": 247
+}

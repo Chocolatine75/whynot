@@ -1,0 +1,11 @@
+{
+ "key": "a750523493dacfd8b66c85ed23771755",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i dont need a peloton bike, its way too expensive and takes too much space, and these 30 day trials are always hassle to return\", \"intent\": \"would not click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long text, saw neuropathy and doctor story and immediately thought scam supplement ad, not relevant for me anyway\", \"intent\": \"definitely not clicking, scrolled past fast\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and not interested in biblical counseling, nothing for me\", \"intent\": \"no chance i click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks gimmicky and probably overpriced with subscription, dont believe i need a camera on my toothbrush\", \"intent\": \"might have paused to look but would not click or buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"generic food deals ad, dont know the shop and dont trust random new apps\", \"intent\": \"would not click or download\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6078,
+ "cached_tokens": 128,
+ "output_tokens": 656,
+ "reasoning_tokens": 280
+}

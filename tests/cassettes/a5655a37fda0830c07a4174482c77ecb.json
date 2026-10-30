@@ -1,0 +1,11 @@
+{
+ "key": "a5655a37fda0830c07a4174482c77ecb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"l'image bizarre générée par IA d'une poire en robe de mariée me met mal à l'aise et le jeûne à l'eau citronnée ça a l'air dangereux et arnaque, pas confiance\", \"intent\": \"Je ne cliquerais pas, ça a l'air malsain et je ne veux pas de conseils minceur comme ça.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"c'est une pub de roman à l'eau de rose loup-garou super cliché, ce n'est pas du tout mon truc et ça fait très fake\", \"intent\": \"Je scrollerais directement sans cliquer, les histoires de Lycan King ne m'intéressent pas.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est en portugais je ne comprends rien et l'image n'a aucun rapport, je ne sais même pas ce qu'on me vend\", \"intent\": \"Je ne cliquerais pas car je ne comprends pas la langue.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"le titre parle de foot et d'IA mais l'image c'est un bébé sur un visage à 11h11, ça n'a aucun sens, ça fait arnaque\", \"intent\": \"Je ne cliquerais pas, c'est trop confus et bizarre.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"le rangement a l'air pratique mais je ne crois pas au -47% et au 2649 vendus, et je n'ai pas besoin de ça maintenant\", \"intent\": \"Je ne vais pas acheter mais c'est le seul un peu utile à regarder si j'avais besoin de rangement.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1971,
+ "cached_tokens": 128,
+ "output_tokens": 780,
+ "reasoning_tokens": 275
+}

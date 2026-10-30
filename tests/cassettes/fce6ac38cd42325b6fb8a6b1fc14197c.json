@@ -1,0 +1,11 @@
+{
+ "key": "fce6ac38cd42325b6fb8a6b1fc14197c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another Temu spam code, don't trust it and not going to get anything for free\", \"intent\": \"Wouldn't click, just scroll past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking for teeth straightening and these per day prices are never what you actually pay\", \"intent\": \"Would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so no idea what it's properly selling, looks like a language app I don't need\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian or something, no clue what it is and looks a bit dodgy\", \"intent\": \"Would definitely not click on that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"More Temu junk, don't need a selfie thing and fed up with these ads\", \"intent\": \"Would just keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 613,
+ "cached_tokens": 128,
+ "output_tokens": 729,
+ "reasoning_tokens": 376
+}

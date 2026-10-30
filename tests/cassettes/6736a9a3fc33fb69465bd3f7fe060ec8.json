@@ -1,0 +1,11 @@
+{
+ "key": "6736a9a3fc33fb69465bd3f7fe060ec8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Ad promotes covert non-consensual surveillance ('geheimer Detektiv' who will never notice) which violates Meta's surveillance and personal attributes policies and will trigger rejections, negative feedback, and bans before it can scale long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 356,
+ "cached_tokens": 128,
+ "output_tokens": 310,
+ "reasoning_tokens": 243
+}

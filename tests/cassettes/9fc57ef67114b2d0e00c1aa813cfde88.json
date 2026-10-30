@@ -1,0 +1,11 @@
+{
+ "key": "9fc57ef67114b2d0e00c1aa813cfde88",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Evergreen Bible-study niche has demand but text is far too long and salesy for Feed with weak hook/CTA, and the French evangelical TAM for a paid digital commentary on the Minor Prophets is too small/niche to sustain profitable scale for months without rapid fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 764,
+ "cached_tokens": 128,
+ "output_tokens": 537,
+ "reasoning_tokens": 461
+}

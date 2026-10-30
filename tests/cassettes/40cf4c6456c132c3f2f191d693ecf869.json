@@ -1,0 +1,11 @@
+{
+ "key": "40cf4c6456c132c3f2f191d693ecf869",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"ça fait très pub malaisante pour fantasmes d'ados, ça ne m'intéresse pas du tout et ça me met mal à l'aise\", \"intent\": \"je ne cliquerais jamais, ce n'est pas pour moi\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"je n'ai pas besoin d'un faux ami chatbot, et je me méfie de ce genre d'appli qui vole du temps et de l'argent\", \"intent\": \"je scroll sans cliquer, aucun intérêt\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est en grec je ne comprends rien, donc je passe directement\", \"intent\": \"je ne clique pas, ce n'est pas pour moi\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"je n'apprends pas le japonais donc ça ne me concerne pas\", \"intent\": \"je continue de scroller, pas besoin\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"l'idée de tester une coiffure est sympa mais je ne crois pas au résultat aussi parfait et je n'ai pas envie d'installer une appli\", \"intent\": \"peut-être regarder 2 secondes mais je ne cliquerais pas\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 0,
+ "output_tokens": 596,
+ "reasoning_tokens": 184
+}

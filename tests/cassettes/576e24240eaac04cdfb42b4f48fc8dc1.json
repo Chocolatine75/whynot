@@ -1,0 +1,11 @@
+{
+ "key": "576e24240eaac04cdfb42b4f48fc8dc1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic low-effort 'i need this' copy with a cluttered collage image and no offer/angle/CTA signals a lazy dropship test that will burn out quickly on CTR and CVR, not scale for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 525,
+ "cached_tokens": 128,
+ "output_tokens": 319,
+ "reasoning_tokens": 254
+}

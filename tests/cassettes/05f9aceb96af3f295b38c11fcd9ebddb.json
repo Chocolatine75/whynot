@@ -1,0 +1,11 @@
+{
+ "key": "05f9aceb96af3f295b38c11fcd9ebddb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Blank cyan image with no offer, product, or CTA and repetitive generic copy will drive terrible CTR and be killed immediately.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 456,
+ "cached_tokens": 128,
+ "output_tokens": 226,
+ "reasoning_tokens": 184
+}

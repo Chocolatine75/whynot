@@ -1,0 +1,11 @@
+{
+ "key": "fbfe1b097b34ec81d46c1e3411192799",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a fancy expensive toothbrush, my electric one works fine and this looks overpriced\", \"intent\": \"I would not click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish, I'm in France and I don't understand it so I just ignored it\", \"intent\": \"I would not click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is clearly for older women worried about neck wrinkles, not for me at all and looks like a fake influencer ad\", \"intent\": \"No chance I click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks okay for a second but I never download these random hyper-casual games, they're always full of ads\", \"intent\": \"I might have paused but I wouldn't click to install\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic AI app trying to look legit with fake stars, I already have ChatGPT if I need it\", \"intent\": \"I would not click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 871,
+ "cached_tokens": 0,
+ "output_tokens": 874,
+ "reasoning_tokens": 498
+}

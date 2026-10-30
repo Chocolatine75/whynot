@@ -1,0 +1,11 @@
+{
+ "key": "0a307ae16920f372f1e3b04a2e49900b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Total mismatch between shoes title/text and Skull Panda plush image destroys relevance, CTR, and trust and will be killed quickly for poor ROAS and policy/quality flags.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 676,
+ "cached_tokens": 128,
+ "output_tokens": 261,
+ "reasoning_tokens": 206
+}

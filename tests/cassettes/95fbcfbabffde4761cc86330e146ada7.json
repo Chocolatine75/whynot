@@ -1,0 +1,11 @@
+{
+ "key": "95fbcfbabffde4761cc86330e146ada7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and looks like Temu spam with codes and links, nothing to do with me\", \"intent\": \"Would just scroll straight past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't sell stuff on Vinted so zero fees means nothing to me\", \"intent\": \"No reason to click, I'd keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a woman and have no need for a turban cap, obvious ad to ignore\", \"intent\": \"Wouldn't click, just scroll on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Walls of text scare story trying to flog miracle patches, I don't trust medical miracle cures on Facebook and I'd go to my GP instead\", \"intent\": \"Definitely wouldn't click or buy, looks like a scam to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Spanish again about battery emojis and Halloween, total nonsense for me\", \"intent\": \"No chance I'd click, just scroll past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3182,
+ "cached_tokens": 0,
+ "output_tokens": 876,
+ "reasoning_tokens": 500
+}

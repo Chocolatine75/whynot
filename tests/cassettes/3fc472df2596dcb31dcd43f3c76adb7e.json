@@ -1,0 +1,11 @@
+{
+ "key": "3fc472df2596dcb31dcd43f3c76adb7e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"the image is really creepy and gross with the stitched body and has nothing to do with an AI toolkit, just feels like a weird scam ad\", \"intent\": \"I definitely wouldn't click, just scrolled past quickly.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Spanish so not relevant to me and I don't need an AI app to try hairstyles\", \"intent\": \"I wouldn't click, just kept scrolling.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"that description is total nonsense with omegas and alphas and it sounds really cringey and dramatised\", \"intent\": \"No chance I'd watch it, I just cringed and scrolled on.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not learning Japanese and these language app ads always overpromise, not interested\", \"intent\": \"I wouldn't click, not something I need right now.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks quite nice but it's Temu so I don't trust the quality at all and I don't need a sofa anyway\", \"intent\": \"I wouldn't buy it but I did pause to look at the sofa for a sec.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1805,
+ "cached_tokens": 128,
+ "output_tokens": 939,
+ "reasoning_tokens": 537
+}

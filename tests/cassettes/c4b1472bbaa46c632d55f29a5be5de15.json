@@ -1,0 +1,11 @@
+{
+ "key": "c4b1472bbaa46c632d55f29a5be5de15",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Astrology for ex coming back is total scam bait, and it's clearly targeted at India not me\", \"intent\": \"I would just scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in IT so I already use AI tools, and this ad is in Spanish and looks like a generic get-rich-quick course\", \"intent\": \"I wouldn't click, not relevant and seems spammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have kids and I live in Italy, UK A-Levels have nothing to do with me\", \"intent\": \"I would keep scrolling without stopping\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish and it's Temu which I don't trust, just cheap junk spam\", \"intent\": \"I wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is expensive and I don't need a subscription to do push-ups, I can just go to the gym\", \"intent\": \"I might pause but I wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2055,
+ "cached_tokens": 128,
+ "output_tokens": 658,
+ "reasoning_tokens": 283
+}

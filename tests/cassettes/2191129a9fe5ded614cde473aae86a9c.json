@@ -1,0 +1,11 @@
+{
+ "key": "2191129a9fe5ded614cde473aae86a9c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not trying to learn Japanese and these apps always overpromise you won't speak like a local\", \"intent\": \"wouldn't click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"tells me nothing about what it does just says AI toolkit, looks like spam\", \"intent\": \"wouldn't click no reason to\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"title is just word salad omega alpha stuff, looks like cheap AI drama cringe not for me\", \"intent\": \"definitely wouldn't watch or click that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't trust Temu sofas and these fake family reviews are annoying\", \"intent\": \"would scroll past not buying furniture from Temu\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"ad is in Spanish and I don't need a hairstyle app anyway\", \"intent\": \"no chance I'd click it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 746,
+ "cached_tokens": 0,
+ "output_tokens": 775,
+ "reasoning_tokens": 427
+}

@@ -1,0 +1,11 @@
+{
+ "key": "50432a4329c17c184422ec7ad4555f9d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not interested in customizing my phone with Stitch themes, I don't use widgets like this\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long to read and feels like a fake personal story to sell patches, I don't trust miracle neuropathy cures on Facebook\", \"intent\": \"I would not click or buy, looks like a scam\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have Peloton and not looking for a fitness program right now\", \"intent\": \"I would keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Weird AI baby dance thing, looks spammy and low quality\", \"intent\": \"I would ignore it and scroll on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Just a game ad, I don't need another time-waster on my phone\", \"intent\": \"I might look at it for a second but wouldn't download it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4800,
+ "cached_tokens": 128,
+ "output_tokens": 664,
+ "reasoning_tokens": 297
+}

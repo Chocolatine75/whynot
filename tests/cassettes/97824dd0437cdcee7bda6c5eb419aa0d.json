@@ -1,0 +1,11 @@
+{
+ "key": "97824dd0437cdcee7bda6c5eb419aa0d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's clearly for businesses importing lights, not something for me at all, just a close up of a tiny chip so I scrolled straight past\", \"intent\": \"I would not click or buy, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I know Peloton is hugely expensive and I don't trust the whole 'pay later' finance thing, feels like a debt trap\", \"intent\": \"I would not click, I'm not looking for an exercise bike on finance\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The image is a scary snarling dog thing and the text is all in Portuguese so I have no idea what it's offering, looks a bit dodgy\", \"intent\": \"I would definitely not click, looks untrustworthy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The little felt doll is sweet and relatable but I've seen lots of these mental health apps that promise everything and charge you after a quiz\", \"intent\": \"I might be slightly curious but I wouldn't click to buy anything\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's just a recruitment ad for Deliveroo drivers, I'm not looking for a side job like that\", \"intent\": \"I would not click, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1845,
+ "cached_tokens": 128,
+ "output_tokens": 902,
+ "reasoning_tokens": 478
+}

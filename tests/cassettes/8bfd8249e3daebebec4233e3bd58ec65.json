@@ -1,0 +1,11 @@
+{
+ "key": "8bfd8249e3daebebec4233e3bd58ec65",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"AI chat girlfriend type ad, looks spammy and not for me, I don't want to chat with AI characters\", \"intent\": \"I would just scroll past it immediately.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need to learn Japanese, I have no use for it and I don't trust these language app ads anyway\", \"intent\": \"I wouldn't click, no interest in learning Japanese.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in French or English, I think it's Czech, I don't understand what it's selling\", \"intent\": \"I would not click as I don't understand the language.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks fun but it's probably cheap plastic and way overpriced with shipping, seems gimmicky\", \"intent\": \"I might watch the video but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other Ling ad, I don't need to learn Thai and these apps never work that well\", \"intent\": \"I would scroll past, not relevant to me.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 0,
+ "output_tokens": 573,
+ "reasoning_tokens": 189
+}

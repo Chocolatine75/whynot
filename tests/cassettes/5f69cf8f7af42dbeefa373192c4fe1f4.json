@@ -1,0 +1,11 @@
+{
+ "key": "5f69cf8f7af42dbeefa373192c4fe1f4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in a Peloton, far too expensive and I don't want finance on exercise equipment\", \"intent\": \"No chance I'd click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not really religious and looks like just trying to sell a guide\", \"intent\": \"Would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Complete nonsense, don't believe in astrology telling me when I'll buy a car\", \"intent\": \"Definitely not clicking, looks scammy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Tacky plastic tat and I doubt they protect anything properly\", \"intent\": \"No interest in buying glowing valve caps\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and I don't need an AI haircut thing\", \"intent\": \"Scrolled straight past, no idea what it wants\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 128,
+ "output_tokens": 588,
+ "reasoning_tokens": 241
+}

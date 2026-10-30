@@ -1,0 +1,11 @@
+{
+ "key": "c4b92530ea12d54c453b3923b3fa5e89",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Jargon-heavy, convoluted Omegaverse plot (susceptible cycle, Alpha/Omega) is too niche and confusing to maintain the broad, high CTR and ROAS needed for months-long evergreen spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 317,
+ "cached_tokens": 128,
+ "output_tokens": 665,
+ "reasoning_tokens": 601
+}

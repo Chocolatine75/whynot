@@ -1,0 +1,11 @@
+{
+ "key": "2e40b912a8131ba5c343ff9943b9121c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for businesses buying in bulk, not for me popping on to buy a handbag. No use to me at all.\", \"intent\": \"I just scrolled straight past it, nothing to click.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 68, I don't need braces and I don't trust these cheap dental adverts offering free this and that.\", \"intent\": \"Not for me, I wouldn't click.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Far too long and pushy, trying to scare you about your health then sell expensive patches. I don't believe a nurse on Facebook can cure nerve pain with a sticker and I would never buy medicine from an ad like this.\", \"intent\": \"I skimmed a bit then scrolled on, definitely not buying anything.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in dating apps at my age, and I don't trust them anyway.\", \"intent\": \"I ignored it completely.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't shop on Temu, you hear too many stories about poor quality and hassle with returns.\", \"intent\": \"I kept scrolling, no interest.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7823,
+ "cached_tokens": 0,
+ "output_tokens": 814,
+ "reasoning_tokens": 412
+}

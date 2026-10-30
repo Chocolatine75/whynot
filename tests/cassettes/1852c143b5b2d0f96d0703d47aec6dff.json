@@ -1,0 +1,11 @@
+{
+ "key": "1852c143b5b2d0f96d0703d47aec6dff",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-AOV commoditized dropship product with spammy SEO title and cliché emoji copy has no hook, differentiation, or margin to profitably scale on Facebook for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 335,
+ "cached_tokens": 128,
+ "output_tokens": 235,
+ "reasoning_tokens": 178
+}

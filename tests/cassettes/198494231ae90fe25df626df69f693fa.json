@@ -1,0 +1,11 @@
+{
+ "key": "198494231ae90fe25df626df69f693fa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ad from miles away, cheap looking t-shirt and I don't trust the quality, just scrolled on\", \"intent\": \"Wouldn't click, not buying clothes off Temu\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and dramatic, reads like a classic scam health scare story trying to flog patches, don't trust the 'nurse' at all\", \"intent\": \"Definitely not buying and wouldn't click the link\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not involved in any church leadership, nothing to do with me\", \"intent\": \"Would just scroll past, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I haven't got a clue what it's on about, plus the religious stuff isn't for me\", \"intent\": \"Would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get what it is but I'm not looking for a delivery rider job at my age\", \"intent\": \"Might glance but no chance I'd apply\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8529,
+ "cached_tokens": 128,
+ "output_tokens": 650,
+ "reasoning_tokens": 269
+}

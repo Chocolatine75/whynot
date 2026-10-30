@@ -1,0 +1,11 @@
+{
+ "key": "a011ffce5172fdf45e6f9c463733bb34",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is clearly not for me, all pink and talk about anxious attachment, feels like therapy spam for young women\", \"intent\": \"I would never click this, I don't need a chatbot for relationship anxiety\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Spanish and it's about women's hairstyles, has nothing to do with me\", \"intent\": \"Not going to download a hairstyle app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have a job and I'm not going to do food delivery, not interested in gig work\", \"intent\": \"I might look for a second but I wouldn't apply\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Weird close up of nasty nails and that caption feels like a scammy dropship ad\", \"intent\": \"No chance I buy this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a guy talking, I have no idea what he's saying about Japanese and I don't plan to learn it\", \"intent\": \"I wouldn't click to download Ling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1731,
+ "cached_tokens": 0,
+ "output_tokens": 651,
+ "reasoning_tokens": 276
+}

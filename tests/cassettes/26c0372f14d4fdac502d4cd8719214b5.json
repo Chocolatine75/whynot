@@ -1,0 +1,11 @@
+{
+ "key": "26c0372f14d4fdac502d4cd8719214b5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into survival games and it just looks like another cheap mobile game ad\", \"intent\": \"I wouldn't click, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Completely irrelevant to me, I have no idea what that cable is for\", \"intent\": \"Definitely wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but I don't trust the camera scan gimmick and it probably costs a fortune\", \"intent\": \"Might have a quick look but I wouldn't buy without checking reviews\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly bubble game ad, I don't play those\", \"intent\": \"No chance I'd click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu, the quality is rubbish and I hate all the £0 gift spam\", \"intent\": \"I wouldn't click the link, I avoid Temu\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2066,
+ "cached_tokens": 128,
+ "output_tokens": 521,
+ "reasoning_tokens": 159
+}

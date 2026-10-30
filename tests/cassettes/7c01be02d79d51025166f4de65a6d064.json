@@ -1,0 +1,11 @@
+{
+ "key": "7c01be02d79d51025166f4de65a6d064",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business and I'm definitely not buying a toilet roll holder off Alibaba, just instantly scrolled past\", \"intent\": \"I wouldn't click or buy, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and dramatic scary story and it just feels like a scam trying to sell patches, I don't have neuropathy and I don't trust miracle cures like this\", \"intent\": \"I definitely wouldn't click or buy, just scrolled past the wall of text\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French so I have no idea what it's really saying and I'm not religious anyway\", \"intent\": \"I wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I did pause because I've thought about teeth straightening before but £4 a day still sounds expensive and I don't trust ads like this\", \"intent\": \"I might be slightly tempted to look but I wouldn't click this ad, I'd Google it properly instead\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another random dating app ad, seems spammy and I wouldn't trust it\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3552,
+ "cached_tokens": 128,
+ "output_tokens": 583,
+ "reasoning_tokens": 175
+}

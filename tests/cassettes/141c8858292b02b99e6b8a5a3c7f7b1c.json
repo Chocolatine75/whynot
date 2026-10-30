@@ -1,0 +1,11 @@
+{
+ "key": "141c8858292b02b99e6b8a5a3c7f7b1c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a Temu ad for a t-shirt but the picture is fishing lures, looks like a scammy mismatch and I don't trust Temu anyway\", \"intent\": \"I just scrolled straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and fear-mongering, feels like a sales pitch for expensive patches pretending to be a nurse's warning, I don't trust buying medical things off Facebook\", \"intent\": \"I wouldn't click or buy, I'd ask my GP if I was worried\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at men and church leaders, nothing to do with me\", \"intent\": \"I kept scrolling, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and very religious, I couldn't understand it properly and it's not for me\", \"intent\": \"I just swiped past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job and I don't need extra cash like that\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 10055,
+ "cached_tokens": 256,
+ "output_tokens": 658,
+ "reasoning_tokens": 268
+}

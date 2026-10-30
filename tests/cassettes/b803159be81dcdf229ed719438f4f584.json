@@ -1,0 +1,11 @@
+{
+ "key": "b803159be81dcdf229ed719438f4f584",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"It's just a basket picture with a Vinted fee advert, I already know Vinted and I'm not selling anything right now so no reason to click\",\"intent\":\"Not interested in selling at the moment so I'd just scroll past\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"I don't wear turbans or need a hair cap like that, looks like cheap fast fashion from one of those drop-ship shops\",\"intent\":\"I wouldn't click as it's not something I'd ever wear\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"I have no idea what it's actually selling, the text is in Spanish and the image is a cartoon bunny on a phone, not for me at all\",\"intent\":\"I would scroll straight past, confusing advert\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"It's all in Spanish, pushing Temu with a code, I don't trust Temu links and I don't need a vanity table\",\"intent\":\"I'd keep scrolling, I avoid Temu ads completely\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"That horrible foot photo and scary long story trying to frighten people into buying patches, it reads like a fake testimonial and I'm very wary of miracle health claims on Facebook\",\"intent\":\"I definitely wouldn't click or buy, I'd want proper medical advice from my GP not a Facebook patch\",\"intent_score\":1}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4326,
+ "cached_tokens": 128,
+ "output_tokens": 542,
+ "reasoning_tokens": 157
+}

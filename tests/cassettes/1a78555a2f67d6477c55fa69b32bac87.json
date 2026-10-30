@@ -1,0 +1,11 @@
+{
+ "key": "1a78555a2f67d6477c55fa69b32bac87",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and looks like a classic scam story with a fake doctor trying to sell expensive patches, I don't have neuropathy anyway\", \"intent\": \"I would scroll past immediately and definitely not click or buy anything.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor or church leader so this has nothing to do with me\", \"intent\": \"I would not click, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds nice but it's just another fitness app ad, probably wants a subscription and won't do much\", \"intent\": \"I might pause half a second but I wouldn't click to buy.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Religious ad selling Bible study collection, not interested and seems expensive\", \"intent\": \"I would keep scrolling and not click.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a turban cap for women, I'm a man so it's completely useless for me\", \"intent\": \"I would ignore it completely and not click.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6663,
+ "cached_tokens": 5504,
+ "output_tokens": 667,
+ "reasoning_tokens": 292
+}

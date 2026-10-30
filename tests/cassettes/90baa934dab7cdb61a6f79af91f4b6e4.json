@@ -1,0 +1,11 @@
+{
+ "key": "90baa934dab7cdb61a6f79af91f4b6e4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in turco / tedesco, non capisco niente e non mi riguarda\", \"intent\": \"non cliccherei, non è per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non mi interessa imparare il khmer, scrollo oltre\", \"intent\": \"non lo scaricherei mai\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sembra la solita pubblicità mascherata da influencer con codice sconto, non mi fido\", \"intent\": \"forse guarderei il profilo ma non comprerei\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in vietnamita, non capisco\", \"intent\": \"non cliccherei\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sono in Italia non in UK, offerta inutile per me\", \"intent\": \"non prenoterei una visita a Londra\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 794,
+ "cached_tokens": 0,
+ "output_tokens": 625,
+ "reasoning_tokens": 281
+}

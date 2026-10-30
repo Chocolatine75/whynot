@@ -1,0 +1,11 @@
+{
+ "key": "c65c675195665bf329f57c3f2c7afe1a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like an overpriced electric toothbrush with gadgets I don't need, camera in a toothbrush seems gimmicky\", \"intent\": \"I wouldn't click, I already have a toothbrush that works fine\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Spanish so not for me and it looks like another scammy AI course with fake discount\", \"intent\": \"I would just scroll past, not my language\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's clearly for older women worried about neck skin, has nothing to do with me as a young guy\", \"intent\": \"No chance I click on that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"image is just traffic and text is about buses, looks like a dumb mobile game ad\", \"intent\": \"I wouldn't bother clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"creepy weird image with no explanation, no idea what it has to do with an AI toolkit\", \"intent\": \"I wouldn't click, it just looks weird\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2292,
+ "cached_tokens": 128,
+ "output_tokens": 751,
+ "reasoning_tokens": 374
+}

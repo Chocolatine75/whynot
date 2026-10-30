@@ -1,0 +1,11 @@
+{
+ "key": "b7ab10cd362cc313a84dafe32b38ce72",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says t-shirts but picture is fishing lures, looks like scammy Temu rubbish, not for me at all\", \"intent\": \"No chance I'd click, I don't trust Temu and I don't want this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and just a picture of a young lad, nothing to do with me\", \"intent\": \"Wouldn't click, not relevant and I don't want an AI app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't understand the language properly and I don't believe in astrology chats\", \"intent\": \"Definitely not clicking, seems like nonsense\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happily past worrying about exes and I think these astrologer ads are just trying to take your money\", \"intent\": \"Would not click, not interested in astrology\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly aimed at men in church leadership, not me, and looks very American and pushy\", \"intent\": \"No need to click, it's not for me\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 0,
+ "output_tokens": 729,
+ "reasoning_tokens": 344
+}

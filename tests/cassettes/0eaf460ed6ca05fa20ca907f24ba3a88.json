@@ -1,0 +1,11 @@
+{
+ "key": "0eaf460ed6ca05fa20ca907f24ba3a88",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in psychic readings and this feels like a scam trying to play with emotions, plus the image has nothing to do with the text\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job right now so it's not relevant to me\", \"intent\": \"I wouldn't click unless I needed extra work\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French which I don't really read and I'm not interested in buying religious book collections\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's astrology stuff in Hindi and English mixed, not for me at all and looks clickbaity\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another astrology ad, I don't trust these fake exposed dramas, just feels like spam\", \"intent\": \"I would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2175,
+ "cached_tokens": 0,
+ "output_tokens": 637,
+ "reasoning_tokens": 270
+}

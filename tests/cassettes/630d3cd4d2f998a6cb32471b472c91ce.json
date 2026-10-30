@@ -1,0 +1,11 @@
+{
+ "key": "630d3cd4d2f998a6cb32471b472c91ce",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"im not buying wholesale handbags, total b2b spam, just scrolled past\", \"intent\": \"no chance id click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"massive wall of text fearmongering about nerves and gabapentin, im 30 not the target and it screams scam trying to sell patches\", \"intent\": \"definitely not clicking, just skipped it as soon as i saw how long it was\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic ad saying great deals with no actual product, no reason to stop\", \"intent\": \"wouldnt click, tells me nothing\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"astrology chat in hindi, not relevant to me at all and looks clickbaity\", \"intent\": \"no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"i dont sew so i dont need 41 needles, even if its cheap its just clutter\", \"intent\": \"might pause half a sec but wouldnt buy or click\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7966,
+ "cached_tokens": 0,
+ "output_tokens": 678,
+ "reasoning_tokens": 295
+}

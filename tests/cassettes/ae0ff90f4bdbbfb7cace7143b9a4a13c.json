@@ -1,0 +1,11 @@
+{
+ "key": "ae0ff90f4bdbbfb7cace7143b9a4a13c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"huge block of text pretending to be a doctor story selling miracle patches, I have no neuropathy and I don't trust this kind of pseudo-medical scam\", \"intent\": \"not clicking, I scroll past fake miracle cures\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"looks a bit gimmicky with the camera and dentist thing, I already have an electric toothbrush that works fine\", \"intent\": \"maybe curious but I won't click now, not looking to buy a toothbrush\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in my language and I don't believe in astrology, just spam to me\", \"intent\": \"definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese for a soap opera, not for me at all\", \"intent\": \"I just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"video editor ad with a blurry yellow bin, I don't make reels so totally irrelevant\", \"intent\": \"no need to click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7198,
+ "cached_tokens": 5504,
+ "output_tokens": 527,
+ "reasoning_tokens": 153
+}

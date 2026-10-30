@@ -1,0 +1,11 @@
+{
+ "key": "eaef10f0e920a4229a7e8e1564349995",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and the image looks like weird AI, I don't need another photo editor app\", \"intent\": \"I would just keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like another miracle health product with too many promises and a woman half-naked on LEDs, seems gimmicky and expensive\", \"intent\": \"I would not click, I don't trust this kind of biohacking ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a mobile game ad, the picture is just traffic jam and I never play these bus games\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean, I can't understand anything so it's useless for me\", \"intent\": \"I would scroll past immediately, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese again, I can see it's about anxiety but I don't understand and I don't want to do a quiz\", \"intent\": \"I wouldn't click, I don't know this app and the language is wrong\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1888,
+ "cached_tokens": 0,
+ "output_tokens": 866,
+ "reasoning_tokens": 476
+}

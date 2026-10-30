@@ -1,0 +1,11 @@
+{
+ "key": "7e5e5370ac7b3a264e45ed6aaacf3900",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Japanese and I don't need to learn Thai, just scrolled past\", \"intent\": \"Would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"BxB stories are definitely not for me, felt like weird cringe ad\", \"intent\": \"Would not click, not my audience at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Completely in Thai script, no idea what it says so I ignored it\", \"intent\": \"Would not click because I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another language app ad, I don't plan to learn Japanese\", \"intent\": \"Would not click, not interested in language apps\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"In Spanish and about battery emojis, looks like spammy junk\", \"intent\": \"Would not click, looks useless\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 611,
+ "cached_tokens": 0,
+ "output_tokens": 789,
+ "reasoning_tokens": 442
+}

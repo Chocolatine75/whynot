@@ -1,0 +1,11 @@
+{
+ "key": "ea94ae73117a9740aefac10eab15913f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 60, I don't need teeth straightening and that £4 a day is just finance talk, it'll cost a fortune in the end\", \"intent\": \"Wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't play games on my phone and I haven't a clue what this is about\", \"intent\": \"I'd just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and I can just get rice at the supermarket, don't trust the delivery claims\", \"intent\": \"Might look at the price but I wouldn't download the app\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious anyway, nothing to do with me\", \"intent\": \"I wouldn't click, I just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo but I don't use takeaways much and the fees are a rip off\", \"intent\": \"Nice picture but I wouldn't order, maybe later if I was hungry\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2585,
+ "cached_tokens": 128,
+ "output_tokens": 1009,
+ "reasoning_tokens": 626
+}

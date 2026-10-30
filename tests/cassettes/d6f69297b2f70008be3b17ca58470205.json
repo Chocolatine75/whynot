@@ -1,0 +1,11 @@
+{
+ "key": "d6f69297b2f70008be3b17ca58470205",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm 65, I have no interest in chatting to an AI character on my phone, it's for youngsters and looks a bit daft\", \"intent\": \"I would not click at all, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a wholesale advert for car workshop lights in bulk, I've got no use for that at home\", \"intent\": \"I would definitely not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The spooky masked figure put me off and I don't want to make stories with an AI chatbot, creepy nonsense\", \"intent\": \"I would scroll straight past and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks fun for a grandchild but it probably costs a fortune and won't look as good when it arrives\", \"intent\": \"I might have a quick look but probably wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It says to secretly track someone without them noticing, that's sneaky and wrong and the German text makes me not trust it\", \"intent\": \"I would not click, I don't want anything to do with spying on people\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1947,
+ "cached_tokens": 256,
+ "output_tokens": 918,
+ "reasoning_tokens": 518
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9db592ec5852adfe3422fd2d7eceba93",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non capisco questa lingua, sembra serbo o simile, non mi serve e non ho fiducia in queste promesse di imparare in 10 minuti\", \"intent\": \"non cliccherei, non è per me e non capisco cosa vendono\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"è in tedesco, non parlo tedesco, poi queste app d'inglese sono tutte uguali e non funzionano davvero\", \"intent\": \"non cliccherei, al massimo guarderei un secondo l'immagine ma non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"immagine volgare e imbarazzante, sembra schifosa e poco seria, non mi fido di questi prodotti depilazione miracolosi\", \"intent\": \"assolutamente non cliccherei, mi fa venire voglia di segnalarla e scrollare via veloce\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in thai e parla di editing video, non mi serve e non capisco niente\", \"intent\": \"scorrerei oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è solo un giochino di bolle, ne vedo mille così e non ho voglia di installare un'altra app\", \"intent\": \"magari guarderei mezzo secondo ma non cliccherei per scaricarlo\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1837,
+ "cached_tokens": 128,
+ "output_tokens": 846,
+ "reasoning_tokens": 406
+}

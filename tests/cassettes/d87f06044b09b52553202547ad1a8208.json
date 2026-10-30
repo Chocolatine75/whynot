@@ -1,0 +1,11 @@
+{
+ "key": "d87f06044b09b52553202547ad1a8208",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just weird AI Halloween spam and not for me, why would I want a pic that says Rachel\", \"intent\": \"I wouldn't click it, looks creepy and useless to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's literally industrial fire alarm cable, nothing to do with me and looks boring\", \"intent\": \"I definitely wouldn't click or buy this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Hindi and about astrology which I don't believe in, plus the coconut pic is random\", \"intent\": \"I wouldn't click, not relevant at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just a woven basket, I don't need home decor stuff like that\", \"intent\": \"I would just scroll past, not interested in buying.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap Temu tat and I don't really use selfie gadgets\", \"intent\": \"I might look for a second but I wouldn't click to buy.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 128,
+ "output_tokens": 711,
+ "reasoning_tokens": 345
+}

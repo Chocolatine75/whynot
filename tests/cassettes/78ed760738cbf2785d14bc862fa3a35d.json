@@ -1,0 +1,11 @@
+{
+ "key": "78ed760738cbf2785d14bc862fa3a35d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like one of those spammy dating ads with fake profiles, zero trust and I'm not looking for that\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic so I've got no idea what it's actually offering me\", \"intent\": \"Would not click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seems gimmicky and overpriced, don't need to see inside my mouth and probably wouldn't work as well as they claim\", \"intent\": \"Might be curious but wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a side gig like Deliveroo riding, doesn't apply to me right now\", \"intent\": \"Would not click right now\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Language apps always promise a lot and lifetime deals feel pushy, not interested in paying that much\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1643,
+ "cached_tokens": 128,
+ "output_tokens": 554,
+ "reasoning_tokens": 189
+}

@@ -1,0 +1,11 @@
+{
+ "key": "3765a97a76fed429a20bb28a9972985f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a fake dating ad with stock photos trying to get you to sign up and pay\", \"intent\": \"Not clicking that, definitely not my type and looks dodgy as hell.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't sew or do crafts so it's completely useless to me\", \"intent\": \"I have zero use for a sewing kit so I wouldn't buy it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"those AI Halloween doll things are cringey and not for me at all\", \"intent\": \"Wouldn't click, that AI photo stuff is just not my thing.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Khmer and that ad tells me nothing useful\", \"intent\": \"No chance I'm downloading an app to learn a language I'll never use.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't believe in astrology and the ex stuff just feels like a scam to get your money\", \"intent\": \"I wouldn't chat to an astrologer about my ex, total nonsense to me.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1780,
+ "cached_tokens": 128,
+ "output_tokens": 870,
+ "reasoning_tokens": 487
+}

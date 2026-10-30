@@ -1,0 +1,11 @@
+{
+ "key": "16e2ed1d60871023690945ba8bc538a7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's women's chunky heeled sandals but the title says storage box, looks like dodgy Temu listing and nothing to do with me\", \"intent\": \"I wouldn't click, not my size or interest and I don't trust Temu tat\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird AI pear in a wedding dress and it's in French about lemon water fasting, just looks like nonsense weight loss clickbait\", \"intent\": \"No chance, I don't do fad diets and the ad looks fake\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic and I can't understand a word, no idea what it's actually selling\", \"intent\": \"I wouldn't click as I have no clue what it is\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Some fantasy transmigration elf thing, not my sort of show and looks like cheap AI slop\", \"intent\": \"I wouldn't bother clicking, I don't watch those fantasy phone dramas\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and about a Brazilian novela, totally irrelevant to me in the UK\", \"intent\": \"Not clicking, I don't watch novelas and I don't download random apps\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1882,
+ "cached_tokens": 0,
+ "output_tokens": 667,
+ "reasoning_tokens": 258
+}

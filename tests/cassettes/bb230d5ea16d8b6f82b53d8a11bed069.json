@@ -1,0 +1,11 @@
+{
+ "key": "bb230d5ea16d8b6f82b53d8a11bed069",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic wellness benefit stacking and quiz CTA are solid, but mismatched bizarre AI pasta creative with no product connection signals low intent CTR and poor retention, unlikely to be a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 499,
+ "cached_tokens": 128,
+ "output_tokens": 230,
+ "reasoning_tokens": 175
+}

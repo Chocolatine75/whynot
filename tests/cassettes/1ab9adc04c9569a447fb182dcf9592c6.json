@@ -1,0 +1,11 @@
+{
+ "key": "1ab9adc04c9569a447fb182dcf9592c6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"carino ma sembra carissimo e alla fine è solo uno spazzolino, non mi serve\", \"intent\": \"non ci cliccherei, ne ho già uno elettrico che funziona bene\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non cerco questo tipo di contenuti religiosi e sembra un po' pesante da venditore\", \"intent\": \"scrollo oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non cerco lavoro come rider\", \"intent\": \"non fa per me quindi ignoro\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"conosco già Deliveroo e ordino ogni tanto ma non ho bisogno di cliccare sull'annuncio\", \"intent\": \"non clicco ora ma magari ordino più tardi direttamente dall'app\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in un'altra lingua e non credo nell'astrologia per il lavoro\", \"intent\": \"non mi interessa e vado avanti\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 944,
+ "cached_tokens": 0,
+ "output_tokens": 594,
+ "reasoning_tokens": 226
+}

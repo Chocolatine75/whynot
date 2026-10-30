@@ -1,0 +1,11 @@
+{
+ "key": "3002d884cab11d665e50e8d9b9544383",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly game advert trying to get you to download something, I'm not interested in bubble shooter games\", \"intent\": \"I would not click or buy, I have no interest in mobile games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English, I can't understand what it's saying so why would I click\", \"intent\": \"I would not click because I don't know what language this is and I already speak English\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks a bit manky and I don't trust these miracle cure adverts, probably doesn't work and looks a bit scammy\", \"intent\": \"I would not click or buy, I don't need it and wouldn't trust it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for businesses buying in bulk from Alibaba, not for someone like me wanting one ring, and it doesn't look like real gold\", \"intent\": \"I would not click as I'm not a business and don't need to source jewellery\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Far too expensive and I haven't got the space or interest in a Peloton bike cluttering up the house\", \"intent\": \"I would not click to buy, it's not for me at my age and price\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1902,
+ "cached_tokens": 128,
+ "output_tokens": 736,
+ "reasoning_tokens": 316
+}

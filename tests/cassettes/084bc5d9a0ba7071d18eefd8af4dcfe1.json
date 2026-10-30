@@ -1,0 +1,11 @@
+{
+ "key": "084bc5d9a0ba7071d18eefd8af4dcfe1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Load of gibberish about printer ink boxes, absolutely nothing to do with me\", \"intent\": \"I wouldn't click or buy, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew and it looks like cheap plastic tat that probably breaks straight away\", \"intent\": \"I wouldn't click to buy, no use to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like spam asking me to search codes, don't trust these Temu video things\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign writing, no idea what it's on about\", \"intent\": \"I wouldn't click, can't even read it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not for me at all, this boyxboy story stuff is for young people\", \"intent\": \"I would not click on this in a million years\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 764,
+ "cached_tokens": 128,
+ "output_tokens": 748,
+ "reasoning_tokens": 392
+}

@@ -1,0 +1,11 @@
+{
+ "key": "730d5b6a57cb4d69b613ca0077c439ba",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in another language and about astrology which I don't believe in, not for me at all\", \"intent\": \"I wouldn't click, it's completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu and it even says AI-generated imagery at the bottom, looks like a fake Dewalt deal\", \"intent\": \"I wouldn't click, I don't trust Temu tools to be genuine\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The text is in German but it sounds like spying on someone secretly, that's creepy and controlling\", \"intent\": \"Absolutely not, I find that kind of tracker disturbing\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a silly game for young people with a messy bedroom, nothing to do with me\", \"intent\": \"I might pause but I wouldn't download a pet game\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same astrology thing again in a foreign language, I'm not interested in the slightest\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2186,
+ "cached_tokens": 256,
+ "output_tokens": 690,
+ "reasoning_tokens": 311
+}

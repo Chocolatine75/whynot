@@ -1,0 +1,11 @@
+{
+ "key": "ff3bcf8b48cca186d2e592a056e909b9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and scare-mongering, reads like a fake personal story to sell miracle patches - I don't trust medical claims like this on Facebook\", \"intent\": \"Would absolutely not click or buy, I'd scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no idea who Shweta Tiwari is and I'm not interested in astrology chat\", \"intent\": \"No chance I'd click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no clue what it's actually saying\", \"intent\": \"Wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as the other one, it's in Italian, not relevant to me\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute but I wouldn't buy a birthday card from an Instagram ad, probably overpriced and cheap quality\", \"intent\": \"Might watch the video but wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4318,
+ "cached_tokens": 2688,
+ "output_tokens": 467,
+ "reasoning_tokens": 103
+}

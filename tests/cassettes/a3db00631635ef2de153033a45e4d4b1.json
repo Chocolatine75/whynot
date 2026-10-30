@@ -1,0 +1,11 @@
+{
+ "key": "a3db00631635ef2de153033a45e4d4b1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Texto en vietnamita que no entiendo y es una app de peinados para chica, nada que ver conmigo\", \"intent\": \"No har\\u00eda clic, no necesito probar peinados con IA\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Es Temu UK y no vivo en Reino Unido, no me f\\u00edo de esa calidad y no necesito esa estanter\\u00eda\", \"intent\": \"No har\\u00eda clic, paso de Temu\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Anuncio de ortodoncia en UK en libras, vivo en Espa\\u00f1a as\\u00ed que no me sirve y parece caro igual\", \"intent\": \"No har\\u00eda clic porque no es relevante para m\\u00ed\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"No entiendo nada, el texto dice una cosa de ir de rojo y la imagen es un gato mago, parece anuncio raro de juego\", \"intent\": \"Quiz\\u00e1s miraria un segundo pero no har\\u00eda clic para instalar nada\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"No tengo ning\\u00fan inter\\u00e9s en aprender tailand\\u00e9s y el rollo de Thai dating no va conmigo\", \"intent\": \"No descargar\\u00eda la app\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1560,
+ "cached_tokens": 128,
+ "output_tokens": 839,
+ "reasoning_tokens": 384
+}

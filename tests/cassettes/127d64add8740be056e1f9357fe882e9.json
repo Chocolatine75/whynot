@@ -1,0 +1,11 @@
+{
+ "key": "127d64add8740be056e1f9357fe882e9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in russo e non capisco cosa venda, sembra spam per riparare telefoni, non mi fido\", \"intent\": \"Non cliccherei mai, non è per me e sembra poco professionale\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Vivo in Italia, lezioni A-Level inglesi non mi servono, ho superato da tempo l'età per queste cose\", \"intent\": \"Non cliccherei, non ho figli in età A-Level in UK\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Queste app per ansia e procrastinazione promettono troppo con un quiz di 3 minuti, non ci credo\", \"intent\": \"Forse ci darei un'occhiata per curiosità ma non comprerei niente\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Non ho alcun interesse a imparare il cantonese, non mi serve per lavoro o viaggi\", \"intent\": \"Non cliccherei, non è rilevante per me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Foto di un mobile vecchio con hashtag cinesi, non capisco cosa vogliono vendermi e non mi interessa\", \"intent\": \"Scrollo oltre, non ho bisogno di comprare all'ingrosso dalla Cina\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1901,
+ "cached_tokens": 0,
+ "output_tokens": 645,
+ "reasoning_tokens": 225
+}

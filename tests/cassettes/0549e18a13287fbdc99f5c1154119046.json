@@ -1,0 +1,11 @@
+{
+ "key": "0549e18a13287fbdc99f5c1154119046",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap gadget wallet ad, I don't need this and it looks like dropshipping, plus text is badly written\", \"intent\": \"I would keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian, I don't understand anything and it looks like spam or scam\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm wary of these paid mental health apps that promise everything, seems expensive and not trustworthy\", \"intent\": \"I might pause half a second but I wouldn't click\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No explanation of what it does, just AI toolkit with a pumpkin emoji, looks empty and clickbaity\", \"intent\": \"I would scroll past without thinking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Turkish, it's not for me, I live in France and don't need this\", \"intent\": \"I wouldn't click, not relevant\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 729,
+ "cached_tokens": 128,
+ "output_tokens": 745,
+ "reasoning_tokens": 380
+}

@@ -1,0 +1,11 @@
+{
+ "key": "66f0cb59c622804e2b0f5ae4236425ea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":8,\"why\":\"Evergreen faith-based digital offer with strong niche pain-point hook, clear verse-by-verse value prop, and high-margin scalable creative is built for long-term profitable spend in French Christian audience.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1106,
+ "cached_tokens": 128,
+ "output_tokens": 350,
+ "reasoning_tokens": 294
+}

@@ -1,0 +1,11 @@
+{
+ "key": "c6f8823944741ebc29629e0c3d5c7984",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed unreadable title and generic 'Don't miss out' copy with no offer, hook, or benefit shows low-effort testing creative with poor CTR that will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 280,
+ "cached_tokens": 128,
+ "output_tokens": 290,
+ "reasoning_tokens": 230
+}

@@ -1,0 +1,11 @@
+{
+ "key": "b1a47ca01baed8bffad2ea3c057f947e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in astrology at all and free chat always means they'll want money after\", \"intent\": \"Wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Far too long and reads like a made up story to sell patches, I don't trust health claims like this on Facebook\", \"intent\": \"Would not click or buy anything like this online\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking for men's accessories and I don't really trust Temu adverts\", \"intent\": \"No interest so kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health apps all say the same thing and I wouldn't pay for a quiz\", \"intent\": \"Wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Clearly not aimed at me, looks like business equipment\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3813,
+ "cached_tokens": 128,
+ "output_tokens": 831,
+ "reasoning_tokens": 483
+}

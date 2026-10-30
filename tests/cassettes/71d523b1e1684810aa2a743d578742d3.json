@@ -1,0 +1,11 @@
+{
+ "key": "71d523b1e1684810aa2a743d578742d3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a silly phone game, not for me at my age, I don't play these things\", \"intent\": \"I would not click, I have no interest in bus games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign writing I can't read a word of it\", \"intent\": \"I would definitely not click as I don't know what it is\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English so I have no idea what they're selling me\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"They always say indestructible and my neighbour's dog destroys everything, I don't believe it for a second\", \"intent\": \"I might look for a second but I wouldn't buy it off an advert like this\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language and it looks a bit sad and confusing\", \"intent\": \"I would not click, I don't know what it's about\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 715,
+ "cached_tokens": 0,
+ "output_tokens": 626,
+ "reasoning_tokens": 254
+}

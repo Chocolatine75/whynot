@@ -1,0 +1,11 @@
+{
+ "key": "6ec5dff6953a9eddfafc3ad87ca30b68",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English and I don't need a hairstyle app, just a random guy photo\", \"intent\": \"I wouldn't click because I don't understand it and I'm not interested\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like one of those merge story games that is never actually what it shows and looks quite sad\", \"intent\": \"I might pause to look but I wouldn't download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English so I have no idea what it's really saying\", \"intent\": \"I would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English and I don't need to learn English, plus the AI robot thing looks weird\", \"intent\": \"I wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a new wallet and these RFID ads feel like a scammy dropship thing\", \"intent\": \"I wouldn't buy it, I just don't need it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1646,
+ "cached_tokens": 128,
+ "output_tokens": 633,
+ "reasoning_tokens": 270
+}

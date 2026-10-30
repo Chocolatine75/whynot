@@ -1,0 +1,11 @@
+{
+ "key": "ee19a84801e542c0e6b975b57a96cf86",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Novel, highly demonstrable product with a strong visual hook and clear benefit-led copy that drives curiosity clicks and conversions at a mass-market price point.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 353,
+ "cached_tokens": 128,
+ "output_tokens": 221,
+ "reasoning_tokens": 170
+}

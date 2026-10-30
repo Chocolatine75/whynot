@@ -1,0 +1,11 @@
+{
+ "key": "b91ae533d4145ce1d35b8818db32cae0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, emoji-stuffed discount template with no specific product, price, or proof creates banner blindness and low CTR/CVR so it will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 288,
+ "cached_tokens": 128,
+ "output_tokens": 290,
+ "reasoning_tokens": 237
+}

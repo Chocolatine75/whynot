@@ -1,0 +1,11 @@
+{
+ "key": "1b959c6993902fdc5acbaa2b612d08ac",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"massive wall of text fake story trying to sell a miracle patch, not relevant to me at all and screams scam\", \"intent\": \"wouldn't click or buy, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"nothing to do with me, not religious and don't run a youth ministry\", \"intent\": \"would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic shopping ad with no actual product shown, no reason to care\", \"intent\": \"wouldn't click, seen a thousand ads like this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"business expo in London next year, not something I need or want to go to\", \"intent\": \"would not click, not my thing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"random printer ink part, completely irrelevant to me\", \"intent\": \"would not click, no use for it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3982,
+ "cached_tokens": 128,
+ "output_tokens": 715,
+ "reasoning_tokens": 358
+}

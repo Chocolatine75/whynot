@@ -1,0 +1,11 @@
+{
+ "key": "1b1f198addb3b036d5de78be39f3b1ef",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's just a blank teal screen, looks like a glitch and doesn't tell me anything\", \"intent\": \"I just scrolled past, no reason to click on a blank image.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"don't get what it's about and the mix of languages feels random and a bit scammy\", \"intent\": \"Not for me at all, wouldn't click.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and not looking for a bible ebook, just not relevant to me\", \"intent\": \"I kept scrolling, no interest in buying this.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"image is creepy and weird and psychic stuff feels fake and predatory\", \"intent\": \"I paused cos it was weird but definitely wouldn't click for a reading.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's still just a Deliveroo ad trying to sell me stuff and delivery fees are too much\", \"intent\": \"Might make me a bit peckish but I'd just open Uber Eats or Deliveroo myself if I wanted food.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1915,
+ "cached_tokens": 0,
+ "output_tokens": 633,
+ "reasoning_tokens": 244
+}

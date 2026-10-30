@@ -1,0 +1,11 @@
+{
+ "key": "8ff09f9a220aa98ff6b26b49dabfe99d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird clickbaity title about cracking my screen makes no sense, just looks like another rubbish bubble game ad\", \"intent\": \"definitely not clicking, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's temu spam, seen a million of these hauls and don't trust the quality or the free gifts thing\", \"intent\": \"would not click the link, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks nice but probably overpriced electric toothbrush and don't need a camera on it, seems gimmicky\", \"intent\": \"might have a quick look but probably wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"generic survival game ad with no real info, looks low effort and not my thing\", \"intent\": \"not going to click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"nothing to do with me, it's some industrial cable for businesses not a normal shopper\", \"intent\": \"definitely not clicking, totally irrelevant\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 750,
+ "cached_tokens": 0,
+ "output_tokens": 573,
+ "reasoning_tokens": 198
+}

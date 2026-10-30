@@ -1,0 +1,11 @@
+{
+ "key": "66c612c83ba03147abbe61b74e048731",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Ultra-niche B2B industrial product with typo-filled generic copy and non-consumer image is a terrible fit for broad Facebook/Instagram feed, yielding almost no conversions to justify ongoing spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 649,
+ "cached_tokens": 128,
+ "output_tokens": 170,
+ "reasoning_tokens": 114
+}

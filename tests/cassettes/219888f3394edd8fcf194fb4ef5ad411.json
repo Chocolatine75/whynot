@@ -1,0 +1,11 @@
+{
+ "key": "219888f3394edd8fcf194fb4ef5ad411",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not for me at all, looks like bulk trade stuff for garages not a normal shop, just scrolled on\", \"intent\": \"Wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish and about learning English, I'm English, totally irrelevant targeting\", \"intent\": \"No chance I'd click, wrong audience\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like pseudoscience wellness waffle and probably costs a fortune, don't trust the claims\", \"intent\": \"Might have paused but wouldn't buy without proper proof\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Don't need to learn English, I'm fluent, just another language app ad\", \"intent\": \"No need to click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like AI chatbot spam trying to get you to pay for gems, not interested in that\", \"intent\": \"Wouldn't click, maybe mildly creative but not buying\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 790,
+ "cached_tokens": 128,
+ "output_tokens": 768,
+ "reasoning_tokens": 403
+}

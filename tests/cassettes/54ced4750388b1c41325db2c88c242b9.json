@@ -1,0 +1,11 @@
+{
+ "key": "54ced4750388b1c41325db2c88c242b9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another spammy AI app ad, looks cheap and clickbaity, not interested in making baby dance videos\", \"intent\": \"I would just scroll past, I have no use for this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long wall of text, I'm 30 and healthy, this has nothing to do with me and screams scam medical story\", \"intent\": \"I wouldn't even start reading it, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a generic mobile game ad, probably pay-to-win and nothing like the image\", \"intent\": \"I might pause for a second because I like survival games but I wouldn't install it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and it's in English, just not for me\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can read it because it's French but I'm not religious at all so I have no interest in buying a Bible study\", \"intent\": \"I noticed it was in French but I would still scroll past\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7718,
+ "cached_tokens": 0,
+ "output_tokens": 858,
+ "reasoning_tokens": 466
+}

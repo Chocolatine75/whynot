@@ -1,0 +1,11 @@
+{
+ "key": "c8eca61bc888f759f3d63d8975910c7e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need teeth straightening and don't trust the £4 a day best price claim, looks like expensive dental upsell\", \"intent\": \"I wouldn't click, not relevant to me and sounds pricey despite the offer\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in German so I don't know what it's saying and the image is just clickbait in a supermarket, plus 7 day transformation is nonsense\", \"intent\": \"I wouldn't click as it's not in English and looks like dodgy fitness spam\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what Nocturne Judge is meant to be, weird image behind bars with no context\", \"intent\": \"I wouldn't click, looks like low quality drama clickbait\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Ad says cycling cap but image shows a bandana being held, doesn't match and I'm not looking for one anyway\", \"intent\": \"I wouldn't click or buy right now but at least it's a normal product\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Psychic reading stuff is total rubbish and creepy, and image of curtains makes no sense\", \"intent\": \"I definitely wouldn't click, not into psychic nonsense at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1670,
+ "cached_tokens": 128,
+ "output_tokens": 675,
+ "reasoning_tokens": 261
+}

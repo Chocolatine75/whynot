@@ -1,0 +1,11 @@
+{
+ "key": "360219587191ce74315f67ed271d7ea7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I just scrolled past, plus I'm not religious at all\", \"intent\": \"I wouldn't click or buy, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business owner sourcing stuff from China, just feels like spam to me\", \"intent\": \"I would not click, nothing to do with my life\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not in a church and not looking to lead a men's ministry, not my thing at all\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I need a dental chair, I'm not a dentist and it's a B2B ad\", \"intent\": \"I would definitely not click or buy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's fire alarm cable for businesses, totally useless to me, just scrolled on\", \"intent\": \"I wouldn't click, no reason to\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1330,
+ "cached_tokens": 128,
+ "output_tokens": 936,
+ "reasoning_tokens": 571
+}

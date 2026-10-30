@@ -1,0 +1,11 @@
+{
+ "key": "0a1ea79233bbf9aae93d169414471513",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can sew a button but I don't need a big kit and I don't trust these cheap sets from random sellers, it'll be rubbish quality.\", \"intent\": \"I wouldn't click, I have no need for it right now.\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have absolutely no reason to learn Khmer, not relevant to me at all.\", \"intent\": \"I wouldn't click or download the app.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks creepy and AI-generated, I don't want my face edited into that and probably have to pay after.\", \"intent\": \"I wouldn't click, not my thing.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want a dating app ad, feels a bit sketchy and I'm not looking for that.\", \"intent\": \"I wouldn't click, I'd just scroll past.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe astrology can tell you if your ex will come back, just trying to get you to pay for a chat.\", \"intent\": \"I wouldn't click, I don't want to talk to an astrologer.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1780,
+ "cached_tokens": 128,
+ "output_tokens": 588,
+ "reasoning_tokens": 197
+}

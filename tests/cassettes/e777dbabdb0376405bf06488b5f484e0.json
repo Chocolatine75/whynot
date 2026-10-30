@@ -1,0 +1,11 @@
+{
+ "key": "e777dbabdb0376405bf06488b5f484e0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English properly and I don't believe in all that astrology stuff anyway, feels like a scam to get money out of you\", \"intent\": \"I would definitely not click on this.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I see Temu ads all the time and I've heard the quality is rubbish and it's a hassle to return things\", \"intent\": \"I might have a quick look but I'm very unlikely to buy anything.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and it's about secretly tracking someone which is creepy and wrong, I want nothing to do with that\", \"intent\": \"I would scroll straight past and not click.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's clearly a game for kids or young people, not for someone my age, I don't need a virtual pet\", \"intent\": \"I would not click or download this.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the first one, I don't trust these free chat things, they'll just charge you afterwards\", \"intent\": \"I would not click on this at all.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 689,
+ "cached_tokens": 128,
+ "output_tokens": 658,
+ "reasoning_tokens": 267
+}

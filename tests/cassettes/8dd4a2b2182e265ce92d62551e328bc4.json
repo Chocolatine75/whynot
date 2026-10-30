@@ -1,0 +1,11 @@
+{
+ "key": "8dd4a2b2182e265ce92d62551e328bc4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Extremely generic and vague copy with no distinct hook, benefit, proof, or CTA to stand out in the saturated video editor niche, indicating low creative effort and poor long-term viability.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 258,
+ "cached_tokens": 128,
+ "output_tokens": 213,
+ "reasoning_tokens": 154
+}

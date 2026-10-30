@@ -1,0 +1,11 @@
+{
+ "key": "c5f73265378389b36242fe9b28c99f44",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just a weird alien joke with no actual info, not learning Japanese so totally irrelevant to me\", \"intent\": \"I wouldn't click or buy, just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want an AI boyfriend chat thing, feels a bit lonely and creepy and I don't trust what it does with your data\", \"intent\": \"Definitely wouldn't click or download it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm sick to death of Temu ads all over my feed and that weird code link looks really scammy\", \"intent\": \"No chance I'd click it or download the app.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I have a dog but I wouldn't buy some random natural cure off an Instagram ad, I'd just go to the vet if he was itchy\", \"intent\": \"I might have paused to look because of the dog but I wouldn't click to buy.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a trade expo for business buyers and suppliers, nothing to do with me at all\", \"intent\": \"I wouldn't click, not relevant to me in the slightest.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 808,
+ "cached_tokens": 128,
+ "output_tokens": 1103,
+ "reasoning_tokens": 702
+}

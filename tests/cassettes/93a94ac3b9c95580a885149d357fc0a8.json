@@ -1,0 +1,11 @@
+{
+ "key": "93a94ac3b9c95580a885149d357fc0a8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and I never buy spiritual ebooks from Instagram ads, it feels scammy\", \"intent\": \"I would just scroll past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks useful but I can find similar containers cheaper elsewhere and I don't trust the 50% off claim\", \"intent\": \"I might look it up later but I wouldn't buy it directly from this ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This kind of dating ad looks cheap and fake, I don't trust verified profiles claim\", \"intent\": \"I would never click on this, it looks sketchy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what it's selling, babies dancing is weird and I don't want AI videos\", \"intent\": \"I would just keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language for India and I don't believe in astrology anyway\", \"intent\": \"I have zero interest so I wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2177,
+ "cached_tokens": 256,
+ "output_tokens": 604,
+ "reasoning_tokens": 229
+}

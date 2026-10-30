@@ -1,0 +1,11 @@
+{
+ "key": "b8c0b1a8455c113c41dc314198bcef13",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Turkish so I have no idea what it's actually offering me and I'm just going to scroll on\", \"intent\": \"I wouldn't click as it's not in English and not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't speak the language, looks like some wellness quiz but I don't trust these ads anyway\", \"intent\": \"I would not click or buy from this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and about fasting which I'm not interested in, so I just kept scrolling\", \"intent\": \"No chance I would click on something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a Temu ad and I've heard mixed things, I don't really trust the quality and I don't need phone filters\", \"intent\": \"I might have paused but I wouldn't click through to buy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read it at all, looks like an app for editing videos which I don't do\", \"intent\": \"I would definitely not click on this one\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 688,
+ "cached_tokens": 128,
+ "output_tokens": 596,
+ "reasoning_tokens": 214
+}

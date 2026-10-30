@@ -1,0 +1,11 @@
+{
+ "key": "737b2616c5839117f896300fdf18e70f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and about battery icons? Nothing to do with me, I just scrolled straight past.\", \"intent\": \"I wouldn't click, it's not for me and I don't understand it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't wear turbans and it looks like cheap tat from an advert, I wouldn't trust the quality.\", \"intent\": \"I wouldn't click, I have no need for it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted but I'm not selling anything at the moment and I don't need another app.\", \"intent\": \"I wouldn't click right now as I'm not selling, but it's the only normal ad here.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Far too long and scary trying to sell me patches, I don't trust these miracle cures off Facebook and I'd never buy medicine without seeing my GP first.\", \"intent\": \"I definitely wouldn't click or buy, it feels like a scam preying on poorly people.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"More Spanish and codes for Temu, looks like spam and I don't shop on Temu anyway.\", \"intent\": \"I wouldn't click, I don't trust Temu ads.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3181,
+ "cached_tokens": 0,
+ "output_tokens": 813,
+ "reasoning_tokens": 402
+}

@@ -1,0 +1,11 @@
+{
+ "key": "470e8882a400707fcefd2850bdd44353",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic unrelated stock photo with no product UI, benefit, or CTA and vague social-proof copy will drive low CTR/conversion and be paused quickly after testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 334,
+ "cached_tokens": 128,
+ "output_tokens": 266,
+ "reasoning_tokens": 217
+}

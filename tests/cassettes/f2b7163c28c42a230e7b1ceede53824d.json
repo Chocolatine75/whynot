@@ -1,0 +1,11 @@
+{
+ "key": "f2b7163c28c42a230e7b1ceede53824d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not buying random kitchen gadgets from an ad, and the '2649 sold in 24 hours' and 47% off thing feels like fake urgency dropship stuff\", \"intent\": \"No chance I click, I don't need that and I don't trust the seller\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Weird AI image of a fruit in a wedding dress freaked me out and the lemon water fasting claim sounds like bullshit diet scam\", \"intent\": \"Definitely not clicking on a weight loss ad like that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese so I don't understand anything and I don't want a mental health quiz from an ad\", \"intent\": \"Would not click, wrong language and not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a cheesy werewolf romance novel ad, not for me at all and the food image has nothing to do with the story\", \"intent\": \"No interest in clicking for this kind of romance story\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad makes no sense, the text is about World Cup AI photos but the image is a baby on a woman's face with 11:11\", \"intent\": \"Not clicking, looks spammy and confusing\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1971,
+ "cached_tokens": 384,
+ "output_tokens": 735,
+ "reasoning_tokens": 312
+}

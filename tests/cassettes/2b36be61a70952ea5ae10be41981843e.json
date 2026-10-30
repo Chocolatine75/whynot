@@ -1,0 +1,11 @@
+{
+ "key": "2b36be61a70952ea5ae10be41981843e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic get-rich-quick angle with inflated £30/hr promise, emoji-spam copy and zero social proof/trust signals will attract low-quality clicks but poor qualified tutor conversions and quick ad fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 358,
+ "cached_tokens": 128,
+ "output_tokens": 531,
+ "reasoning_tokens": 472
+}

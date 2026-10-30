@@ -1,0 +1,11 @@
+{
+ "key": "871e706d94a6721adb77e5c5cfd39d21",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly targeting women for intimate waxing and the beach photo with that caption is just trashy clickbait, not for me at all\", \"intent\": \"I would not click it, it looks spammy and has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I have no idea what it's really saying and I don't need a collage editor anyway\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap mobile game ad trying to get me to install, I don't play bubble shooters\", \"intent\": \"I wouldn't click, I don't want another time-wasting game on my phone\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in Italian, looks like Serbian or Croatian, and I don't need to learn English this way\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and it's another learn English app ad, I get too many of these\", \"intent\": \"I would not click or install anything\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1837,
+ "cached_tokens": 128,
+ "output_tokens": 962,
+ "reasoning_tokens": 567
+}

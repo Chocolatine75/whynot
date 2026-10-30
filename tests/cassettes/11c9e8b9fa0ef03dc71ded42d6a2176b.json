@@ -1,0 +1,11 @@
+{
+ "key": "11c9e8b9fa0ef03dc71ded42d6a2176b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't buy 5kg bags of rice online, and I've never heard of Joybuy so I don't trust the price or the delivery\", \"intent\": \"No chance I'd click, I just get rice from Tesco\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Nothing to do with me, I don't sew and the ad feels like cheap dropshipping stuff\", \"intent\": \"Would scroll right past it without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a random old cabinet with zero context and spammy hashtags, not even sure what it's selling\", \"intent\": \"Absolutely would not click, looks dodgy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but a toothbrush with a camera seems like a gimmick and probably costs a fortune\", \"intent\": \"Might have a quick look out of curiosity but wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't believe in astrology at all and the image of a coconut means nothing to me\", \"intent\": \"Would ignore it completely and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2679,
+ "cached_tokens": 256,
+ "output_tokens": 585,
+ "reasoning_tokens": 201
+}

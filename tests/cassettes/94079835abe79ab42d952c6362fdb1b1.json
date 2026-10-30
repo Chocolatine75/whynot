@@ -1,0 +1,11 @@
+{
+ "key": "94079835abe79ab42d952c6362fdb1b1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird omega alpha drama soap stuff, totally not for me and looks like trashy clickbait\", \"intent\": \"I just kept scrolling, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what Cleanup even does, just a generic fake 5 star ad\", \"intent\": \"I would not click, looks like spam\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"why am I seeing a toilet paper holder from Alibaba, I don't need it\", \"intent\": \"I scrolled past without thinking about it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another random dating app, probably fake profiles and paywalls\", \"intent\": \"I wouldn't click, I don't trust these ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"$240 is still a lot of money and I don't need a language app right now\", \"intent\": \"I paused to look but I wouldn't buy it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 659,
+ "cached_tokens": 0,
+ "output_tokens": 762,
+ "reasoning_tokens": 406
+}

@@ -1,0 +1,11 @@
+{
+ "key": "ef460ede768d7bd53232a2eb1521fe51",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Complete disconnect between title (gabion stone cage) and image (wicker bench) plus generic spammy copy guarantees low CTR/relevance and quick shutoff.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 675,
+ "cached_tokens": 128,
+ "output_tokens": 177,
+ "reasoning_tokens": 124
+}

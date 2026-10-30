@@ -1,0 +1,11 @@
+{
+ "key": "e2c873c7325f9b7caca90fc4ad6b81af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic benefit-list creative with weak hook, no proof, no mechanism, and 'Click Learn More' CTA is classic low-CTR fodder that rarely sustains ROAS long enough to scale for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 380,
+ "cached_tokens": 128,
+ "output_tokens": 205,
+ "reasoning_tokens": 143
+}

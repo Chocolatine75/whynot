@@ -1,0 +1,11 @@
+{
+ "key": "5e832359dbeaff1cd55768189c83d39d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic overpromised benefit (English in 4 weeks) with no proof, offer, or differentiation typically drives low CTR/high CPA and gets killed fast.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 269,
+ "cached_tokens": 128,
+ "output_tokens": 244,
+ "reasoning_tokens": 192
+}

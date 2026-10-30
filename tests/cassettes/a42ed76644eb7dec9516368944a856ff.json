@@ -1,0 +1,11 @@
+{
+ "key": "a42ed76644eb7dec9516368944a856ff",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just looks like another cheap mobile game ad, says best game 2026 which is obviously not true and i don't play these survival tile games\", \"intent\": \"wouldn't click, not my type of game at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"the image looks weird and AI generated and the text tells me nothing about what it actually does or costs, feels vague and scammy\", \"intent\": \"might have paused but wouldn't click without knowing what it is\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French so i have no idea what it's really selling plus i'm not religious so not relevant to me\", \"intent\": \"scrolled straight past, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i don't even have a car so completely pointless for me and looks like one of those dropshipped car gadgets\", \"intent\": \"no reason to click, don't need it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's Temu so i don't trust the quality will actually look like that and i hate those annoying code spam ads\", \"intent\": \"wouldn't click the link, if i wanted boots i'd look elsewhere not Temu\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2126,
+ "cached_tokens": 128,
+ "output_tokens": 814,
+ "reasoning_tokens": 403
+}

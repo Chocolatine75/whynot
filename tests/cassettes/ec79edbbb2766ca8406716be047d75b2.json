@@ -1,0 +1,11 @@
+{
+ "key": "ec79edbbb2766ca8406716be047d75b2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for teeth straightening and £5.50 a day sounds expensive when you add it up, plus I never trust free whitening offers\", \"intent\": \"I would just keep scrolling past this one\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian so I have no idea what it's even for and it looks a bit spammy\", \"intent\": \"I would not click as I don't know what it is\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another Temu ad, I see them constantly and get £0 makes no sense to me\", \"intent\": \"I would definitely not click on this Temu code\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and I don't speak it so it's not for me\", \"intent\": \"I would scroll straight past as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a selfie grip and I don't trust Temu quality anyway\", \"intent\": \"I would not bother clicking for this\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 613,
+ "cached_tokens": 0,
+ "output_tokens": 635,
+ "reasoning_tokens": 258
+}

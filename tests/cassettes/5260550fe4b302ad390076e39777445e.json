@@ -1,0 +1,11 @@
+{
+ "key": "5260550fe4b302ad390076e39777445e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic promise in a saturated language-app category with vague copy, weak hook, and uncanny AI creative that lacks proof, offer, or differentiation to sustain spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 439,
+ "cached_tokens": 128,
+ "output_tokens": 233,
+ "reasoning_tokens": 180
+}

@@ -1,0 +1,11 @@
+{
+ "key": "afcca327b18fec09b2d3821687706419",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not sure what it's actually offering, just a robot head and a woman cooking, and I don't need a language app anyway\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those AI girlfriend chat scams, a bit creepy and not for me\", \"intent\": \"No chance I'd click on that sort of thing\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at uni students wanting tutoring work, I'm in my fifties so completely irrelevant to me\", \"intent\": \"Definitely wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai or another language I don't speak, so I just ignored it\", \"intent\": \"I just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These dating apps always feel like fake profiles and spam, don't trust it\", \"intent\": \"I wouldn't click, I've seen enough of these ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1763,
+ "cached_tokens": 256,
+ "output_tokens": 570,
+ "reasoning_tokens": 203
+}

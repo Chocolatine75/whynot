@@ -1,0 +1,11 @@
+{
+ "key": "494d2e515046076c2e086a9be394ae9d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a dating app and I don't trust free ones, always feels like a scam or full of fake profiles\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I just scrolled past, not relevant to me at all\", \"intent\": \"I wouldn't click as I can't even read it properly\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a youth leader or involved in church ministry so it has nothing to do with me\", \"intent\": \"No chance I'd click, just not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do a bit of sewing so I paused but it looks like cheap tacky dropshipping stuff and the wording is weird\", \"intent\": \"I might have a quick look but probably wouldn't buy from this random seller\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a generic shopping ad with no actual product, feels spammy and I've never heard of Joybuy\", \"intent\": \"I'd ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1255,
+ "cached_tokens": 128,
+ "output_tokens": 612,
+ "reasoning_tokens": 227
+}

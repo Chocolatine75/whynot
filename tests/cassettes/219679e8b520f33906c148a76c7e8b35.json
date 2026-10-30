@@ -1,0 +1,11 @@
+{
+ "key": "219679e8b520f33906c148a76c7e8b35",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 6, \"why\": \"Hyper-niche BxB/BL angle will drive strong initial CTR and relevance with fandom audience, but generic copy with no hook/offer/creative differentiation rarely sustains months-long scale in the crowded AI companion vertical without iteration.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 285,
+ "cached_tokens": 128,
+ "output_tokens": 386,
+ "reasoning_tokens": 319
+}

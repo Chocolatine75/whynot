@@ -1,0 +1,11 @@
+{
+ "key": "b6ff49cfeacf23a36414b9186e30b158",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"Nothing for me, I'm not buying bohemian women's clothes and it says men's accessories anyway, looks like cheap Temu tat\",\"intent\":\"Not clicking, just scrolled straight past it\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"It's some app for anxious attachment in relationships, aimed at young people, got nothing to do with me at my age\",\"intent\":\"Wouldn't click, not relevant to me at all\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"It's a dentist's chair for sale to businesses, why would I want that on my feed\",\"intent\":\"No chance of clicking, completely irrelevant\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's in another language about astrology and free chat, I don't believe in that stuff and it's clearly not for the UK\",\"intent\":\"Scrolled past without a second thought\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Went on forever with a sob story from America then tries to flog me a magnesium patch, way too long and sounds like snake oil and that link looks dodgy\",\"intent\":\"Definitely not clicking or buying, I don't trust these miracle cure stories\",\"intent_score\":1}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5415,
+ "cached_tokens": 256,
+ "output_tokens": 821,
+ "reasoning_tokens": 470
+}

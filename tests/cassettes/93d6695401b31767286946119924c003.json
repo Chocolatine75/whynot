@@ -1,0 +1,11 @@
+{
+ "key": "93d6695401b31767286946119924c003",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap time-waster puzzle game for kids, I have zero interest in downloading games like this\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"ad says learn English but the image shows Spanish phrases like Buenos dias, looks sloppy and like a scam AI app\", \"intent\": \"I would not click because I don't trust it and I don't need an English tutor\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"cheesy fake drama soap opera, totally over the top story, not my thing at all\", \"intent\": \"I would keep scrolling and never watch this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"title says storage box but image is women's wedge sandals, classic Temu bait and super spammy, I'm a man I don't need this\", \"intent\": \"I would not click, I don't trust Temu ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and I'm in Italy, plus it's religious content I'm not interested in buying\", \"intent\": \"I would scroll right past, not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2572,
+ "cached_tokens": 128,
+ "output_tokens": 646,
+ "reasoning_tokens": 250
+}

@@ -1,0 +1,11 @@
+{
+ "key": "7e014c54f811cdc0674a05cba308d02d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't buy rice like that online and that welcome offer never seems to include delivery, wouldn't bother downloading another app for it.\", \"intent\": \"I wouldn't click, I just get rice at the supermarket.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropship stuff and I don't need a fan like that, probably noisy and breaks quickly.\", \"intent\": \"I wouldn't click or buy, not something I need.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's heeled sandals which are nothing to do with me and I don't trust Temu quality anyway.\", \"intent\": \"I definitely wouldn't click, completely irrelevant to me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Might be handy but I don't believe the 47% off claim and my kitchen is fine as it is, don't need more metal pots on the side.\", \"intent\": \"I wouldn't click to buy, maybe glance but not interested enough.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't want another silly phone game spamming me with ads, not my thing.\", \"intent\": \"I wouldn't click, I don't play these games.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2295,
+ "cached_tokens": 256,
+ "output_tokens": 821,
+ "reasoning_tokens": 422
+}

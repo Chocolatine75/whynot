@@ -1,0 +1,11 @@
+{
+ "key": "fc990a88bcda3e97b7d66c8fb0638133",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen, mass-market Christian niche digital eBook with broad targeting, low price/low-friction offer, and clear benefit-driven creative is a proven long-term winner for faith-based funnels.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 128,
+ "output_tokens": 207,
+ "reasoning_tokens": 148
+}

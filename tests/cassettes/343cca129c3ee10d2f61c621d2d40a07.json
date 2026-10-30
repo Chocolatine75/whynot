@@ -1,0 +1,11 @@
+{
+ "key": "343cca129c3ee10d2f61c621d2d40a07",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That's for dentists and businesses, nothing to do with me. Just jargon.\", \"intent\": \"No reason to click, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Women's leopard print fashion, not for a man my age and I don't trust Temu stuff anyway.\", \"intent\": \"Scrolled straight past, not interested.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a foreign language, Portuguese I think, so I couldn't read it.\", \"intent\": \"Would not click something I can't even understand.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Load of nonsense trying to scare you into buying miracle patches. I don't believe these internet cures and you should see a proper doctor, not buy patches online.\", \"intent\": \"Absolutely would not buy or click, looks like a scam preying on older folks.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Seems handy but I've got enough tubs in the kitchen already, don't need more plastic.\", \"intent\": \"Might look for a second but wouldn't buy.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3274,
+ "cached_tokens": 0,
+ "output_tokens": 580,
+ "reasoning_tokens": 192
+}

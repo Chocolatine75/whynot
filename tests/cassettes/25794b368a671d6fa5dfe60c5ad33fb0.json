@@ -1,0 +1,11 @@
+{
+ "key": "25794b368a671d6fa5dfe60c5ad33fb0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian and I don't speak it, just swiped past.\", \"intent\": \"No chance I'm clicking, not for me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and I'm not doing fasting challenges, just kept scrolling.\", \"intent\": \"Definitely not clicking.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long trying to be a personal story and feels like scare tactics to sell expensive patches, I don't trust medical ads like this on Facebook.\", \"intent\": \"Would not click or buy, I'd ask my GP if I had concerns.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not really into teen romance dramas, bit cheesy for me.\", \"intent\": \"Might look at it briefly but wouldn't buy.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo already, just didn't need a takeaway right now.\", \"intent\": \"Wouldn't click now but I do use Deliveroo sometimes anyway.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6099,
+ "cached_tokens": 0,
+ "output_tokens": 565,
+ "reasoning_tokens": 196
+}

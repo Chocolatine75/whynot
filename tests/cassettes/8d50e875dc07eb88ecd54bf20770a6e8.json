@@ -1,0 +1,11 @@
+{
+ "key": "8d50e875dc07eb88ecd54bf20770a6e8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Spammy emoji-stuffed copy, generic unrealistic promise and weak CTA screams low-quality creative that will get penalized and churned quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 312,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 294
+}

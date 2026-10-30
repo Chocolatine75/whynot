@@ -1,0 +1,11 @@
+{
+ "key": "e531e4d07f3b97c1c5a61057a25aaea5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Vague, generic benefit with no specific hook, proof, or strong CTA makes it look like a disposable test creative, not a proven long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 261,
+ "cached_tokens": 128,
+ "output_tokens": 289,
+ "reasoning_tokens": 240
+}

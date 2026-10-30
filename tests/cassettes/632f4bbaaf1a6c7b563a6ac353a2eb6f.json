@@ -1,0 +1,11 @@
+{
+ "key": "632f4bbaaf1a6c7b563a6ac353a2eb6f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Mismatch between page name (Raffles Academy) and promoted product (EWA), spammy emoji/arrow creative with inflated generic claims and no real offer or differentiation is a low-trust, policy-risk ad unlikely to sustain efficient CPA long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 361,
+ "cached_tokens": 128,
+ "output_tokens": 405,
+ "reasoning_tokens": 334
+}

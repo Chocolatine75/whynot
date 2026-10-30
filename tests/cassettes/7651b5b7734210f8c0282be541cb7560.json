@@ -1,0 +1,11 @@
+{
+ "key": "7651b5b7734210f8c0282be541cb7560",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew at all, not interested in needles, looks like cheap dropship stuff\", \"intent\": \"No way I'd click, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long scary story trying to sell miracle patches, I don't trust health ads like this and I don't have neuropathy\", \"intent\": \"I scrolled past fast, definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in Italy but this is UK pricing in pounds and I don't need braces anyway\", \"intent\": \"Would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like another cheap isekai ad, fantasy spam, I don't trust these apps\", \"intent\": \"Maybe slightly curious but I wouldn't click or install\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is not in Italian or English and the image is dark and means nothing to me\", \"intent\": \"I just scrolled past, no interest\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4356,
+ "cached_tokens": 0,
+ "output_tokens": 854,
+ "reasoning_tokens": 485
+}

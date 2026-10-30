@@ -1,0 +1,11 @@
+{
+ "key": "f9e7f58d12a5f46b818031f30e4fafd6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropship junk and the text is broken, I don't need a belt like that\", \"intent\": \"I wouldn't click or buy, not in the market for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French which I don't speak and it's just another AI filter app\", \"intent\": \"I wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Best Game 2026 is just hype, looks like a generic mobile game ad\", \"intent\": \"I might pause for a second but I wouldn't click to play\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not sourcing products from China for a business, totally irrelevant with spammy hashtags\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and I have no interest in becoming a biblical counsellor\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 769,
+ "cached_tokens": 128,
+ "output_tokens": 823,
+ "reasoning_tokens": 458
+}

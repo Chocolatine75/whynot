@@ -1,0 +1,11 @@
+{
+ "key": "75256b834e53a4400d89ead6e369571a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's all in Hebrew so I've no idea what it's actually selling, and the banner looks like AI nonsense\", \"intent\": \"No chance I'm clicking a weird video editor ad in another language\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and I don't trust their cheap gadget claims to look cinematic\", \"intent\": \"I won't be buying a phone filter off Temu\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Couldn't understand a word of it, not in English\", \"intent\": \"Would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English and it's another mental health quiz app trying to sell me something\", \"intent\": \"I'm not taking a quiz for an app in Portuguese\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and claims minus 12kg in 12 days which is clearly rubbish and unhealthy\", \"intent\": \"I wouldn't click on a fad fasting ad like that\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1642,
+ "cached_tokens": 128,
+ "output_tokens": 667,
+ "reasoning_tokens": 305
+}

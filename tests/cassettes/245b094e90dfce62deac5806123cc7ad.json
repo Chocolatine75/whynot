@@ -1,0 +1,11 @@
+{
+ "key": "245b094e90dfce62deac5806123cc7ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like some cheap dropship scam and the description doesn't even make sense, don't need a belt like that\", \"intent\": \"wouldn't click or buy, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German so I've got no idea what it's actually saying\", \"intent\": \"would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"no reason to learn Thai, never going there and not interested\", \"intent\": \"wouldn't click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it and I don't need another video editing app\", \"intent\": \"would just keep scrolling straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"already seen Revolut everywhere and I've got Monzo already so don't need another banking app\", \"intent\": \"might remember it but wouldn't click right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 0,
+ "output_tokens": 759,
+ "reasoning_tokens": 407
+}

@@ -1,0 +1,11 @@
+{
+ "key": "0788c0df21853eac46b073b5c4454478",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Seasonal 'Summer Offer' hook expires quickly and absolute 'best price in the U.K.' claim risks disapproval/distrust with no proof, preventing long-term evergreen scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 296,
+ "cached_tokens": 128,
+ "output_tokens": 292,
+ "reasoning_tokens": 235
+}

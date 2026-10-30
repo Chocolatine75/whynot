@@ -1,0 +1,11 @@
+{
+ "key": "e078d7830e4e6b063517ab23b7831b64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A toothbrush with a camera feels gimmicky and unnecessary, plus it looks expensive and I don't need another gadget to charge\", \"intent\": \"I wouldn't click, I already have an electric toothbrush that works fine\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious at all and this looks like a heavy American evangelical thing, not for me\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrologers and the screenshot looks fake and a bit scammy\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play these survival games and the image is too cluttered and childish\", \"intent\": \"No interest in downloading or trying it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Nice image but Peloton is way too expensive and this is UK financing which doesn't apply to me in France\", \"intent\": \"I might glance but I would not click to buy\", \"intent_score\": 2}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2138,
+ "cached_tokens": 0,
+ "output_tokens": 651,
+ "reasoning_tokens": 277
+}

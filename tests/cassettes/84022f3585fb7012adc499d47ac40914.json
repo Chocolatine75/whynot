@@ -1,0 +1,11 @@
+{
+ "key": "84022f3585fb7012adc499d47ac40914",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Aesthetic flat-lay with no price/offer/UGC video hook will get saves and comments but not Temu-level direct-response ROAS, and is too seasonal/niche to avoid creative fatigue for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 678,
+ "cached_tokens": 128,
+ "output_tokens": 402,
+ "reasoning_tokens": 338
+}

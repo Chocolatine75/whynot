@@ -1,0 +1,11 @@
+{
+ "key": "33c1eb97412e88c632b18531c9d7be5d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Clickbait 'cracked screen' hook is misleading/policy-risky with low credibility and the generic hypercasual bubble-shooter visual offers no durable USP, leading to fast creative fatigue and unprofitable retention for months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 485,
+ "cached_tokens": 128,
+ "output_tokens": 368,
+ "reasoning_tokens": 303
+}

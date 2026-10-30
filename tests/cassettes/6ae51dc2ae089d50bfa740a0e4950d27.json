@@ -1,0 +1,11 @@
+{
+ "key": "6ae51dc2ae089d50bfa740a0e4950d27",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in France so a UK finance deal is irrelevant to me, and I don't want an expensive exercise bike on credit\", \"intent\": \"I would just keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's partly in another language and about astrology for career advice, I don't believe in that at all\", \"intent\": \"I would ignore it completely and not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm in France not the UK, and I don't trust these cheap aligner ads with free whitening gimmicks\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu UK, I'm in France and I don't trust Temu quality, looks like cheap junk\", \"intent\": \"I would not click, I avoid Temu ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no use for bulk sea shells and it's a B2B platform ad, nothing for me\", \"intent\": \"I would scroll right past it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 619,
+ "cached_tokens": 0,
+ "output_tokens": 779,
+ "reasoning_tokens": 399
+}

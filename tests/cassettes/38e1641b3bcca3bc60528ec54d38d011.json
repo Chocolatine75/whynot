@@ -1,0 +1,11 @@
+{
+ "key": "38e1641b3bcca3bc60528ec54d38d011",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish, I'm in Italy, I don't understand it and Temu ads feel super spammy and low quality anyway\", \"intent\": \"I would not click, it's not for me and I don't trust Temu\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology for my ex and it looks like a fake chat to get money\", \"intent\": \"I would never click on an astrologer ad like this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a normal Peloton ad but I don't have Peloton and training programs are expensive and I can find free workouts\", \"intent\": \"I might pause for a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish, not Italian, and these AI get-rich-quick courses always feel like a scam\", \"intent\": \"I wouldn't click, I'm not interested in a paid AI course\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for UK A-Levels, I live in Italy so it's completely irrelevant to me\", \"intent\": \"I wouldn't click, I don't have a child doing A-Levels\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2055,
+ "cached_tokens": 256,
+ "output_tokens": 743,
+ "reasoning_tokens": 339
+}

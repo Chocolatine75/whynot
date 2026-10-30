@@ -1,0 +1,11 @@
+{
+ "key": "b9507f74527992d98fa0b069b5261ca2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's for wholesale businesses not for me, I don't need bulk handbags\", \"intent\": \"I would just keep scrolling, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just says try it yourself, no idea what the game is actually about\", \"intent\": \"I wouldn't click, looks like another random game ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and very long and religious, not for me at all\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a scam to get money, I don't trust astrologers online\", \"intent\": \"I might pause for a second but I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job right now\", \"intent\": \"I wouldn't click, I don't need it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1117,
+ "cached_tokens": 0,
+ "output_tokens": 706,
+ "reasoning_tokens": 361
+}

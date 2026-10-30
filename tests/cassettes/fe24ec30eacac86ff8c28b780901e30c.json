@@ -1,0 +1,11 @@
+{
+ "key": "fe24ec30eacac86ff8c28b780901e30c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I live in France, this is in pounds for UK delivery, and I don't need a 5kg bag of rice shipped to me\", \"intent\": \"I would not click or buy, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It says learn Thai but the image is about Thai dating, feels clickbaity and I have no interest in learning Thai\", \"intent\": \"I would not click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand what it's actually selling with that motorcycle photo and I don't want glowing caps, plus it says US valves\", \"intent\": \"I would definitely not click or buy this gadget\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another annoying mobile game ad, I don't play these and it looks cheap and addictive\", \"intent\": \"I would scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and I don't trust their quality, I don't need a display cabinet and I hate those spammy Temu video links\", \"intent\": \"I would not click the Temu link\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1886,
+ "cached_tokens": 128,
+ "output_tokens": 819,
+ "reasoning_tokens": 420
+}

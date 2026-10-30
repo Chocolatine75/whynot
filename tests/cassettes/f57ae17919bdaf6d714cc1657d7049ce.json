@@ -1,0 +1,11 @@
+{
+ "key": "f57ae17919bdaf6d714cc1657d7049ce",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in Italian or English, I don't understand what it says, looks like Serbian. I would just scroll past.\", \"intent\": \"I would not click, I don't even know what it's selling to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, I'm in Italy I don't speak German, and it's another annoying English learning app ad.\", \"intent\": \"I would keep scrolling, definitely not installing anything.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These intimate hair removal ads feel scammy and cheap, I don't trust pain-free promises and I don't want to click on this kind of ad.\", \"intent\": \"I might look for a second but I would not click or buy.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai or something, I can't read it at all, so I have no interest.\", \"intent\": \"I would not click, just scroll past it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a game ad trying to get me to play, I don't play these bubble shooter games and I don't want more ads.\", \"intent\": \"I would not click, maybe notice it but keep scrolling.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 673,
+ "cached_tokens": 0,
+ "output_tokens": 791,
+ "reasoning_tokens": 385
+}

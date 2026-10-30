@@ -1,0 +1,11 @@
+{
+ "key": "33ae8cd1beed5641a265d3e9ebcbbe7b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic free-tool hook and low-res meme-style car selfie creative doesn't demonstrate the AI music product or benefit clearly enough to sustain CTR/CVR against saturated AI music competitors.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 454,
+ "cached_tokens": 128,
+ "output_tokens": 343,
+ "reasoning_tokens": 289
+}

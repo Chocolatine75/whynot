@@ -1,0 +1,11 @@
+{
+ "key": "1f6d68c33898f6b92e24085b045446ee",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like spammy temu scam with that weird code link, i just scroll past temu ads instantly\", \"intent\": \"wouldn't click, don't trust temu and hate these code spam posts\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"psychic reading stuff is total bs and that creepy clickbait text is trying too hard\", \"intent\": \"definitely wouldn't click, not paying for a fake psychic chat\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"30 quid an hour just sounds too good to be true, probably loads of hidden catches and competition\", \"intent\": \"might have a quick look if i was desperate for cash at uni but probably wouldn't apply\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long wall of text trying to scare old people and sell patches, nothing to do with me\", \"intent\": \"would just scroll straight past, not reading that essay\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't need a wallet and the ad text is all garbled AI rubbish, looks cheap\", \"intent\": \"wouldn't click, not buying a wallet off a random facebook ad\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8088,
+ "cached_tokens": 0,
+ "output_tokens": 595,
+ "reasoning_tokens": 199
+}

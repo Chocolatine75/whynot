@@ -1,0 +1,11 @@
+{
+ "key": "e6f27b930e3eb8b7e5f6424ad7ef7af3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"no me interesan los juegos de autocuidado y suena a chorrada de app, sigo scrolleando\", \"intent\": \"no haría clic ni lo descargaría\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"es de UK y no vivo allí, además Peloton es carísimo y no voy a financiar una bici\", \"intent\": \"no haría clic, no es para mí\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"es Temu y no me fío nada aunque esté en español, todo es publicidad engañosa y mala calidad\", \"intent\": \"no compraría, como mucho miraría un segundo y seguiría bajando\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"el título es larguísimo y cutre, se nota que es producto barato de Temu y no necesito funda\", \"intent\": \"pasaría de largo sin hacer clic\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"otra vez Peloton UK, 45 libras al mes es una estafa y ni preparo carreras\", \"intent\": \"no haría clic para nada\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 634,
+ "cached_tokens": 128,
+ "output_tokens": 1104,
+ "reasoning_tokens": 709
+}

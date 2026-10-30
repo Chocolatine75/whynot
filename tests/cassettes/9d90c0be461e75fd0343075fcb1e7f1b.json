@@ -1,0 +1,11 @@
+{
+ "key": "9d90c0be461e75fd0343075fcb1e7f1b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 68, my teeth are what they are, not paying £4 a day for braces at my age\", \"intent\": \"Wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, not got a clue what it's on about\", \"intent\": \"Would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Khmer, never heard of it and no use to me\", \"intent\": \"Would not click or download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one not in English, means nothing to me\", \"intent\": \"Would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"That's aimed at women worried about neck skin and sounds like expensive nonsense with a discount code\", \"intent\": \"No chance I'd click or buy that gadget\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 793,
+ "cached_tokens": 128,
+ "output_tokens": 734,
+ "reasoning_tokens": 385
+}

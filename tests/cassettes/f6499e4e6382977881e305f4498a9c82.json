@@ -1,0 +1,11 @@
+{
+ "key": "f6499e4e6382977881e305f4498a9c82",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird coconut image, text in a language I don't understand, looks like astrology scam, not for me at all\", \"intent\": \"No way I would click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a technical industrial cable, I have zero need for this and the title is just jargon\", \"intent\": \"I would just scroll past without a second thought\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The basket is nice but I don't need home decor right now and I don't really trust these catalogue ads\", \"intent\": \"I wouldn't click, maybe glance but not interested in buying\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap Temu gadget spam and I don't need a phone grip\", \"intent\": \"I would keep scrolling, not clicking on Temu stuff\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"AI Halloween photo with kids in costumes and pumpkins, not my thing and feels tacky and fake\", \"intent\": \"No desire to click or try this template\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 128,
+ "output_tokens": 582,
+ "reasoning_tokens": 200
+}

@@ -1,0 +1,11 @@
+{
+ "key": "259883aaf9ff1018e89fd5e0f449b4fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Fake celebrity clickbait violates Meta's sensational/misleading and unauthorized likeness policies, driving high negative feedback, disapprovals, and account risk that prevents sustained scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 290,
+ "cached_tokens": 128,
+ "output_tokens": 261,
+ "reasoning_tokens": 204
+}

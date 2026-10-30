@@ -1,0 +1,11 @@
+{
+ "key": "8fcf3195891a61547a15e062a3601ae0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"le titre dit apprendre une langue, le texte parle de foot avec IA et l'image c'est une maman et un bébé à l'envers, rien à voir, ça fait arnaque bizarre\", \"intent\": \"Je ne cliquerais pas, je ne comprends même pas ce qu'on me vend\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"l'image qui se moque du corps en robe de mariée c'est humiliant et l'eau citron pour maigrir c'est dangereux et bidon\", \"intent\": \"Je ne cliquerais jamais, je ne veux pas soutenir ce genre de pub\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"ça a l'air gadget cheap de pub Facebook avec fausse promo à -47% et je n'ai pas besoin de ça\", \"intent\": \"Je ne l'achèterais pas, je ferais défiler même si c'est un peu utile\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est en portugais pas en français et je ne fais pas confiance à une appli qui se dit ChatGPT pour anxieux\", \"intent\": \"Je ne cliquerais pas, ce n'est pas pour moi et ce n'est même pas dans ma langue\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"c'est une pub pour un roman à l'eau de rose loup-garou, ça ne m'intéresse pas du tout\", \"intent\": \"Je ne cliquerais pas, je ne lis pas ce genre d'histoires\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1971,
+ "cached_tokens": 128,
+ "output_tokens": 984,
+ "reasoning_tokens": 504
+}

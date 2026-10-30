@@ -1,0 +1,11 @@
+{
+ "key": "d1f85921144e1c98597e751693c22e4a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropshipping stuff, I don't need another cup holder for the car\", \"intent\": \"Would not click or buy, totally useless for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Arabic and the text doesn't match the title, looks like spam\", \"intent\": \"Would scroll past immediately, not going to click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't even have a dog and that claim sounds like pure BS marketing\", \"intent\": \"Would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a silly mobile game ad, looks annoying and trying too hard to be funny\", \"intent\": \"Maybe would watch for a second but definitely wouldn't download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have that phone model and Temu is known for low quality stuff\", \"intent\": \"Would not click, just another Temu ad to ignore\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 692,
+ "cached_tokens": 128,
+ "output_tokens": 715,
+ "reasoning_tokens": 352
+}

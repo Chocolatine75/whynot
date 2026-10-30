@@ -1,0 +1,11 @@
+{
+ "key": "762280bc8800e25ccf306a6ae9ceeb12",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"A design-led toothbrush solves a weak, niche aesthetic pain versus proven dental-health benefits, so the curiosity-driven creative will likely get clicks but not efficient purchases to sustain months of spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 693,
+ "cached_tokens": 128,
+ "output_tokens": 315,
+ "reasoning_tokens": 257
+}

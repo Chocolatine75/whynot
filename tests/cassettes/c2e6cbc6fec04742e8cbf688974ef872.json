@@ -1,0 +1,11 @@
+{
+ "key": "c2e6cbc6fec04742e8cbf688974ef872",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need teeth straightening and at 40 odd I'm not paying monthly for invisible braces, just another New Year offer pushing a consult\", \"intent\": \"Wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks shadey as hell, some bloke shouting about free groceries and a Temu code, total scam vibe\", \"intent\": \"No chance I'd click that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's industrial fire alarm cable on Alibaba, absolutely nothing to do with me\", \"intent\": \"Wouldn't click, totally irrelevant\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking to be a counsellor, not interested in biblical training\", \"intent\": \"Would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do a bit of running but not paying £45 a month for Peloton just to train for a race\", \"intent\": \"Might pause on it but wouldn't click through\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2037,
+ "cached_tokens": 128,
+ "output_tokens": 581,
+ "reasoning_tokens": 212
+}

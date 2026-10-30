@@ -1,0 +1,11 @@
+{
+ "key": "2dcf5f0df7ba12f2394567c4336c4e6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and I haven't got Peloton equipment, plus £45 a month is too much just to try it\", \"intent\": \"I would just scroll past, not interested in clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is aimed at men and church leaders, nothing to do with me, so I just ignored it\", \"intent\": \"I would definitely not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's mostly in German and I don't trust these visible transformation in 7 days claims, looks like a scammy fitness app\", \"intent\": \"I wouldn't click, I didn't even understand what it's really offering\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this is meant to be, just matching? Looks like a cheap game ad and I don't play those\", \"intent\": \"I would scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a dramatic made-up story to get you to watch, I know it's not real and I don't watch these cheesy dramas\", \"intent\": \"I might pause for a second because the story is so over the top but I wouldn't click to watch it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 909,
+ "cached_tokens": 128,
+ "output_tokens": 649,
+ "reasoning_tokens": 232
+}

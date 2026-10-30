@@ -1,0 +1,11 @@
+{
+ "key": "be6693562f2a06184fa413b5569f5000",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and super long about Bible prophecies, not my thing at all and feels like a preachy ad trying to sell something.\", \"intent\": \"I would not click, I just scrolled past.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't go cycling and this looks like one of those generic dropship product ads, I don't trust the quality.\", \"intent\": \"No need to click, not relevant for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again in French and same Bible letters topic, way too much text and not interesting for me.\", \"intent\": \"I would definitely not click or buy.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It says nothing concrete, just 'feel better' with sparkles, probably wants a subscription and I don't trust vague wellness apps.\", \"intent\": \"I paused for a second but wouldn't click without knowing what it actually does.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It's cute with the little pet but I don't need another self-care game on my phone, I know I'll delete it after two days.\", \"intent\": \"I liked the idea but I wouldn't download it right now.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1662,
+ "cached_tokens": 0,
+ "output_tokens": 1162,
+ "reasoning_tokens": 755
+}

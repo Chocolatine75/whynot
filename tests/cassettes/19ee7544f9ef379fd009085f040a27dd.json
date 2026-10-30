@@ -1,0 +1,11 @@
+{
+ "key": "19ee7544f9ef379fd009085f040a27dd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need an AI photo editor and Halloween is over, just looks like spammy clickbait\", \"intent\": \"I wouldn't click, not interested in editing photos like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't really customise my phone like that, seems pointless and probably costs money\", \"intent\": \"I wouldn't bother clicking, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Greek except the flag, I can't understand it and I already speak English\", \"intent\": \"Definitely wouldn't click as it's not even in English\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Dutch I think, I have no idea what it's saying, just scrolled straight past\", \"intent\": \"I wouldn't click because I don't know what it's advertising\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It says Cleanup but no idea what it actually does, and I don't trust random 5 star claims\", \"intent\": \"I wouldn't click, I have no clue what the app is for\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 640,
+ "cached_tokens": 128,
+ "output_tokens": 545,
+ "reasoning_tokens": 163
+}

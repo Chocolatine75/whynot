@@ -1,0 +1,11 @@
+{
+ "key": "ba27f71f511dc2ff2bde5f4e48883d91",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Weird AI Halloween dolls with a random name Rachel on a pumpkin, looks creepy and spammy and nothing to do with me\", \"intent\": \"I would not click or buy this at all, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew and don't need a sewing kit, plus it feels like cheap dropship stuff with a fake discount\", \"intent\": \"I would not click or buy, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a scammy dating ad with a fake profile, I don't trust these apps and the women are never really nearby\", \"intent\": \"I would not click or sign up, I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Khmer and the ad doesn't explain why I should, just two girls holding mics\", \"intent\": \"I would not click or download, not relevant to my life\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and I'm not desperate about an ex, feels like a scam to get you to pay for chats\", \"intent\": \"I would not click or chat, not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1780,
+ "cached_tokens": 0,
+ "output_tokens": 913,
+ "reasoning_tokens": 500
+}

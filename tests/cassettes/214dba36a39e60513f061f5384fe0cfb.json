@@ -1,0 +1,11 @@
+{
+ "key": "214dba36a39e60513f061f5384fe0cfb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i've got no plans to learn Thai and I just ignore these language app ads\", \"intent\": \"i wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks gimmicky and overpriced for a card you send once\", \"intent\": \"i might watch the firework bit but i wouldn't buy it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same as the other one, not interested in learning Japanese right now\", \"intent\": \"i wouldn't click or download the app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in English and i already speak English so not for me\", \"intent\": \"i just scrolled straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"AI chat ads always seem a bit dodgy and probably costs money after\", \"intent\": \"i might be curious enough to tap but probably still wouldn't sign up\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 675,
+ "cached_tokens": 256,
+ "output_tokens": 822,
+ "reasoning_tokens": 465
+}

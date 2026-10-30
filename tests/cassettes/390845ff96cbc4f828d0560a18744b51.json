@@ -1,0 +1,11 @@
+{
+ "key": "390845ff96cbc4f828d0560a18744b51",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want some AI app making dance videos of babies, looks like cheap clickbait and probably wants subscription\", \"intent\": \"I would not click or buy this at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Could be handy in summer but I don't trust these random shops and 50% OFF claims, probably junk quality\", \"intent\": \"I wouldn't buy it from this ad, maybe look elsewhere if I needed one\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no idea what Cleanup even does and the image has nothing to do with it, looks like spam\", \"intent\": \"I would just scroll past, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish, I'm in Spain, why am I seeing this, and Temu ads are annoying anyway\", \"intent\": \"I would not click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly a cheesy werewolf romance novel ad, not for me at all\", \"intent\": \"I would never click on this type of story\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1861,
+ "cached_tokens": 1792,
+ "output_tokens": 735,
+ "reasoning_tokens": 346
+}

@@ -1,0 +1,11 @@
+{
+ "key": "cd78604fd404463b780ec7f32035ae9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian so I have no idea what it's actually offering and I'm not trying to learn English anyway\", \"intent\": \"I wouldn't click, I'd just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust these paid faith guides on Facebook and I don't want to pay for something I can read in my own Bible\", \"intent\": \"I might have paused to look but I wouldn't click Learn More\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is clearly aimed at men and church leaders, nothing to do with me, feels a bit preachy\", \"intent\": \"I wouldn't click at all, just scroll on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French so I can't properly read it and I don't buy religious courses from ads\", \"intent\": \"I wouldn't click when I don't even understand the language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and I don't know what the app is or what it costs, and I'm not looking for a language app\", \"intent\": \"I have no reason to click on this\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1367,
+ "cached_tokens": 0,
+ "output_tokens": 694,
+ "reasoning_tokens": 302
+}

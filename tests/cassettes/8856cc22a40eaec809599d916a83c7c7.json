@@ -1,0 +1,11 @@
+{
+ "key": "8856cc22a40eaec809599d916a83c7c7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"tipica trampa de Temu con video clickbait de una tia que no tiene nada que ver con la oferta, no me fio nada\", \"intent\": \"no voy a clicar en Temu ni de broma\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"el titulo dice funda cartera y la imagen son protectores de pantalla, no se aclaran ni ellos, no necesito nada\", \"intent\": \"paso de largo sin clicar\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"es para UK y para gente que corre carreras, no es para mi y Peloton es carisimo con suscripcion\", \"intent\": \"no me interesa clicar para una bici o entreno de running\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"no voy a financiar una bici estatica carisima y menos a plazos, no es mi rollo\", \"intent\": \"no pienso clicar ni comprar\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"parece un juego para adolescentes con dramas de habitacion desordenada, no es para mi\", \"intent\": \"no voy a descargar ese juego\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1950,
+ "cached_tokens": 128,
+ "output_tokens": 711,
+ "reasoning_tokens": 312
+}

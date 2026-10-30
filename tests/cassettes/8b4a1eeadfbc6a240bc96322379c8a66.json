@@ -1,0 +1,11 @@
+{
+ "key": "8b4a1eeadfbc6a240bc96322379c8a66",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic checklist copy with weak 'Click on Learn More' title, no proof/offer/urgency, and broad AI-feel benefits is unlikely to sustain ROAS and avoid fatigue for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 393,
+ "cached_tokens": 128,
+ "output_tokens": 231,
+ "reasoning_tokens": 171
+}

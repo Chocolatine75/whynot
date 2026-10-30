@@ -1,0 +1,11 @@
+{
+ "key": "992752ebb3d2190841c287aee174e777",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en turc, je comprends rien et je suis en France, ça me concerne pas du tout\", \"intent\": \"Je ne vais pas cliquer, je ne comprends même pas ce qu'on me vend\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Encore une app de coaching bien-être qui veut me faire payer un abonnement mensuel, ça sent l'arnaque\", \"intent\": \"Je scroll direct, je ne vais pas faire leur quiz\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Le portefeuille a l'air pas mal mais le texte est mal écrit et j'ai pas confiance dans ces pubs dropshipping\", \"intent\": \"Je ne clique pas maintenant, peut-être je chercherais ce genre de portefeuille sur Amazon si j'en ai besoin\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"On comprend rien, juste 'AI Toolkit' avec des étoiles, ça dit rien du tout\", \"intent\": \"Je zappe, il y a déjà ChatGPT gratuit\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en russe, je ne comprends pas et ça parle de libérer mon téléphone, ça fait spam\", \"intent\": \"Je ne clique surtout pas, ça a l'air louche\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 729,
+ "cached_tokens": 128,
+ "output_tokens": 833,
+ "reasoning_tokens": 415
+}

@@ -1,0 +1,11 @@
+{
+ "key": "28ea6e64a239171bedab73bf6cc3f284",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those cheap AI gimmick apps that just want your photo and then charge you, not interested at all\", \"intent\": \"Wouldn't click, looks spammy and pointless\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Totally irrelevant to me, it's just technical cable specs for trade buyers, I'd just scroll straight past\", \"intent\": \"No reason to click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust the from £4 a day claim and free consult usually means hard sell, plus wary of online teeth straightening\", \"intent\": \"Might have paused for a second but wouldn't click through\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just an overpriced electric toothbrush trying to be fancy, camera attachment seems like a gimmick and I don't need another gadget\", \"intent\": \"No chance I'd buy, would keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not into astrology at all and most of it's not even in English, just not for me\", \"intent\": \"Would ignore and scroll past\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 691,
+ "cached_tokens": 0,
+ "output_tokens": 847,
+ "reasoning_tokens": 452
+}

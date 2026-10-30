@@ -1,0 +1,11 @@
+{
+ "key": "1e398cc5e3508ce5edeed4a36e0306d3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Russian and I don't speak it, just scrolled straight past\", \"intent\": \"I wouldn't click it at all, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English so I have no idea what it's actually selling\", \"intent\": \"I wouldn't click, nothing there for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it and not interested in a hairstyle app anyway\", \"intent\": \"definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just a wholesale handbag listing, I'm not a business and don't need bags\", \"intent\": \"I wouldn't click, just junk ad to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know Vinted but this is just some influencer declutter story, not relevant to me\", \"intent\": \"I might glance but I wouldn't click the link\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 697,
+ "cached_tokens": 128,
+ "output_tokens": 734,
+ "reasoning_tokens": 385
+}

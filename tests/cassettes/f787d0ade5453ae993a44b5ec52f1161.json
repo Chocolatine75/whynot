@@ -1,0 +1,11 @@
+{
+ "key": "f787d0ade5453ae993a44b5ec52f1161",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Meme-style copy is native and relatable but lacks a clear hook, specific benefit, or CTA to drive efficient CTR/CVR for sustained scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 258,
+ "cached_tokens": 128,
+ "output_tokens": 247,
+ "reasoning_tokens": 196
+}

@@ -1,0 +1,11 @@
+{
+ "key": "2c1c7e56dde73bed8b661fa01dea0b9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and very religious, not relevant to me at all, I just scroll past.\", \"intent\": \"I wouldn't click, not interested and not my language.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads everywhere, feels cheap and spammy and I don't trust the quality.\", \"intent\": \"I wouldn't click, I'm not looking for home stuff from Temu.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is not in German or English, no idea what it's really offering, looks sketchy.\", \"intent\": \"I would not click or install this app.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business looking for wholesale bags, totally irrelevant to me.\", \"intent\": \"I would definitely not click on this wholesale bag ad.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a UK shop offer, I live in Germany so delivery likely doesn't apply and I don't need that drink.\", \"intent\": \"No chance I'd click, not relevant for me here.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2386,
+ "cached_tokens": 768,
+ "output_tokens": 730,
+ "reasoning_tokens": 357
+}

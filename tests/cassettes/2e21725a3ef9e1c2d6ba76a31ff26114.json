@@ -1,0 +1,11 @@
+{
+ "key": "2e21725a3ef9e1c2d6ba76a31ff26114",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Silly novelty glasses for youngsters messing about at parties, nothing for me at my age and looks cheap\", \"intent\": \"I would not click or buy, I have no need for dressing up tat\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Those exercise bikes cost a fortune and I wouldn't be able to get on with all that technology, just trying to sell me finance\", \"intent\": \"I would definitely not click, far too expensive and not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These game ads are always popping up trying to get you to download something, I don't trust them\", \"intent\": \"I would not click, I don't want games cluttering my phone\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It says AI-generated and Temu - I've heard you get fakes and poor quality, I don't believe those are real DeWalt for that price\", \"intent\": \"I would not click, I don't trust Temu adverts for tools\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this drama is, looks a bit racy and sensational, not my cup of tea\", \"intent\": \"I would not click, I don't watch these clickbait video things\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1753,
+ "cached_tokens": 128,
+ "output_tokens": 831,
+ "reasoning_tokens": 410
+}

@@ -1,0 +1,11 @@
+{
+ "key": "bc845c292f088d518471a1fec06f5c9e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Russian so I just scrolled past, and I'm already English speaking so English lessons aren't relevant to me\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it at all and second foreign language ad in a row just feels like spam targeting\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and looks like one of those annoying Temu code ads I always ignore\", \"intent\": \"No chance I'd click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"just looks like another cheap generic puzzle game ad that will be full of ads if I download it\", \"intent\": \"Might have paused but wouldn't click to download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cheesy werewolf romance stuff is not my thing and it sounds way too dramatic and fake\", \"intent\": \"Stopped to laugh at it but would not click\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 826,
+ "cached_tokens": 0,
+ "output_tokens": 808,
+ "reasoning_tokens": 444
+}

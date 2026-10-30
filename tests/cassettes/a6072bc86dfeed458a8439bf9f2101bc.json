@@ -1,0 +1,11 @@
+{
+ "key": "a6072bc86dfeed458a8439bf9f2101bc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long, reads like one of those scammy miracle cure stories that goes on forever, I'm not even the target age and I don't trust it\", \"intent\": \"I just kept scrolling, no chance I'd click this.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German so I have no idea what it's actually saying, just scrolled past\", \"intent\": \"Didn't click, not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Italian and looks like another language app ad, I already ignore these\", \"intent\": \"Would not click, just swiped past it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"\", \"intent\": \"Might click if I'm hungry later, it's Deliveroo so I know what it is.\", \"intent_score\": 3}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not into teen romance novels, not for me at all\", \"intent\": \"No interest in clicking, just kept scrolling.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6099,
+ "cached_tokens": 128,
+ "output_tokens": 490,
+ "reasoning_tokens": 128
+}

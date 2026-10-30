@@ -1,0 +1,11 @@
+{
+ "key": "2de3d7b984a94fe6d3f12cabc58e79d2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in teeth straightening and I don't trust the cheapest in the UK claim, plus it's bound to cost a fortune anyway\", \"intent\": \"I wouldn't click, no need for aligners\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks alright but I'm not ordering takeaway right now and Deliveroo fees are a rip off\", \"intent\": \"Might keep in mind for Friday but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious so it's completely irrelevant to me\", \"intent\": \"Would just scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I have no space for an exercise bike, that 30 day trial sounds like hassle to return\", \"intent\": \"No chance I'm clicking to buy a Peloton\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other Peloton ad, not for me and I don't want financing for gym equipment\", \"intent\": \"Would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2401,
+ "cached_tokens": 0,
+ "output_tokens": 748,
+ "reasoning_tokens": 370
+}

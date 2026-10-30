@@ -1,0 +1,11 @@
+{
+ "key": "547bf557b80510d3827f4e0908587431",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Blurry, distorted irrelevant image with heavy Thai text overlay screams low-quality template spam that will suffer low CTR and high CPC, not a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 446,
+ "cached_tokens": 128,
+ "output_tokens": 264,
+ "reasoning_tokens": 214
+}

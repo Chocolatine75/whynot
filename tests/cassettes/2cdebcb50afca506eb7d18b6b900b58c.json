@@ -1,0 +1,11 @@
+{
+ "key": "2cdebcb50afca506eb7d18b6b900b58c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è tutto in portoghese, non capisco e non mi fido di queste pubblicità sulla salute mentale con quiz rapido\", \"intent\": \"Non cliccherei mai, non è per me e non è nella mia lingua\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sembra utile ma sono pubblicità che promettono troppo e non ho bisogno di altri contenitori ora\", \"intent\": \"Forse guarderei ma non comprerei, ho già contenitori simili\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non credo all'astrologia e queste chat gratis poi vogliono sempre soldi\", \"intent\": \"Non mi interessa cliccare, scorro oltre\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"il look è carino ma è Temu, la qualità è dubbia e non voglio comprare fast fashion così\", \"intent\": \"Potrei salvare l'idea outfit ma non comprerei da Temu\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in hindi, non capisco niente quindi vado avanti\", \"intent\": \"Non cliccherei, non capisco nemmeno cosa dice\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 887,
+ "cached_tokens": 0,
+ "output_tokens": 694,
+ "reasoning_tokens": 296
+}

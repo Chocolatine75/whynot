@@ -1,0 +1,11 @@
+{
+ "key": "d1127c3f5078c4c94f9ac67a2e561be1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ad looks super cheap and scammy, that title is broken English and I don't trust Temu shoes quality at all\", \"intent\": \"No way I'd click or buy, I just scroll past Temu stuff\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian, I don't understand it and the 5 star title looks fake, seems shady\", \"intent\": \"Would not click, I don't know what it's even trying to sell me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology at all and this kundli car prediction sounds like nonsense scam\", \"intent\": \"I would not click, not interested in astrology\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and very long religious text, not relevant to me and I'm not religious like that\", \"intent\": \"Would not click, wrong language for me and not interested\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like every other fitness app scam promising visible results in 7 days, probably expensive subscription trap\", \"intent\": \"Probably wouldn't click but at least it's in German and about fitness so I paused for a second\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1201,
+ "cached_tokens": 0,
+ "output_tokens": 788,
+ "reasoning_tokens": 383
+}

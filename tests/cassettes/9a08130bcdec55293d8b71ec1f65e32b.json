@@ -1,0 +1,11 @@
+{
+ "key": "9a08130bcdec55293d8b71ec1f65e32b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not my thing at all, this omega/alpha drama nonsense is confusing and looks cheap, plus it's clearly not for me\", \"intent\": \"I would definitely not click, just scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The image is creepy and has nothing to do with an AI toolkit, feels like clickbait and I don't trust these random AI apps\", \"intent\": \"No way I click on this, looks shady\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu has bad reputation for quality and delivery in France, and I don't need a sofa right now\", \"intent\": \"Probably not click, maybe look if I needed furniture but not buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Spanish and I live in France, plus I don't need an app to try hairstyles\", \"intent\": \"I would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn Japanese and I get too many language app ads\", \"intent\": \"I wouldn't click, just keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1805,
+ "cached_tokens": 128,
+ "output_tokens": 733,
+ "reasoning_tokens": 341
+}

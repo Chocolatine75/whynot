@@ -1,0 +1,11 @@
+{
+ "key": "a309a76aa589f918ccddbd4801681e90",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Extremely vague platitude with no hook, offer, benefit, proof, or CTA to drive clicks or conversions, so CTR/CVR will be too low to scale efficiently.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 267,
+ "reasoning_tokens": 213
+}

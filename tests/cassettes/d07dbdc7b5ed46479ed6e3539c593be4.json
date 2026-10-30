@@ -1,0 +1,11 @@
+{
+ "key": "d07dbdc7b5ed46479ed6e3539c593be4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title is about thick platform sneakers but the image is a weird pink fluffy doll in a box - makes no sense and looks cheap/scammy, plus I don't trust Temu quality\", \"intent\": \"Would just scroll past, not clicking at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The sofa looks nice in the photo but it's from Temu so I doubt it would actually look like that or last, and I’m not shopping for a sofa anyway\", \"intent\": \"Might pause to look at the room but wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology/kundali stuff and the image is just black so nothing to even look at, feels like a cash grab\", \"intent\": \"Would scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French which I don't speak, and I'm not religious so Daniel and the Apocalypse means nothing to me\", \"intent\": \"Would keep scrolling, definitely not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Spanish and the video thumbnail of a woman kicking gravel in heels is just bizarre and a bit tacky, no idea what it's actually selling\", \"intent\": \"Would not click, feels like clickbait\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2723,
+ "cached_tokens": 128,
+ "output_tokens": 623,
+ "reasoning_tokens": 192
+}

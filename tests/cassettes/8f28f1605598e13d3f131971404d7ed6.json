@@ -1,0 +1,11 @@
+{
+ "key": "8f28f1605598e13d3f131971404d7ed6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Niche $10k+ B2B dental equipment with a sterile white-background product shot and keyword-stuffed, benefit-free Alibaba copy will get terrible CTR and zero impulse conversions on a broad B2C feed and be killed within days.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 128,
+ "output_tokens": 462,
+ "reasoning_tokens": 395
+}

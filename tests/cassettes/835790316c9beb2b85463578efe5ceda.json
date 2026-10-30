@@ -1,0 +1,11 @@
+{
+ "key": "835790316c9beb2b85463578efe5ceda",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"l'image est super glauque, un vieux qui recoud un corps, aucun rapport avec une app IA, ça fait spam bizarre je scroll direct\", \"intent\": \"Je ne vais pas cliquer, ça a l'air creepy et pas fiable.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"j'ai déjà une brosse à dents électrique qui marche bien et l'embout caméra je trouve ça gadget et un peu invasif pour le prix\", \"intent\": \"Peut-être je retiens le nom mais je ne cliquerais pas pour acheter maintenant.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est tout en espagnol, je ne parle pas espagnol donc ça ne me concerne pas du tout\", \"intent\": \"Je ne clique pas, ce n'est pas pour moi.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"ça fait très pub d'influenceuse avec code promo, la promesse anti-âge cou froissé avec lumière rouge j'y crois pas trop et c'est cher\", \"intent\": \"Je ne cliquerais pas, j'ai l'impression que ça ne marche pas vraiment.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"je comprends pas le rapport entre le texte sur les bus et l'image d'embouteillage de voitures, et je ne joue pas à ce genre de jeu\", \"intent\": \"Je ne cliquerais pas, ça ne m'intéresse pas.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2292,
+ "cached_tokens": 0,
+ "output_tokens": 762,
+ "reasoning_tokens": 307
+}

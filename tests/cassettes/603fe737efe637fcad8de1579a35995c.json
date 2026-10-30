@@ -1,0 +1,11 @@
+{
+ "key": "603fe737efe637fcad8de1579a35995c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Clear free-value B2B event offer with scarcity, social proof, and direct CTA is a proven evergreen lead-gen formula Alibaba will scale until the Nov 2026 date.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 691,
+ "cached_tokens": 128,
+ "output_tokens": 362,
+ "reasoning_tokens": 305
+}

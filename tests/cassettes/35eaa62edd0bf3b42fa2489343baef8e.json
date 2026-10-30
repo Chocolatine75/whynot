@@ -1,0 +1,11 @@
+{
+ "key": "35eaa62edd0bf3b42fa2489343baef8e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 5, \"why\": \"Generic but functional lead-gen offer with price reframing and double free incentive will drive initial leads but lacks strong hook, proof, or differentiation to sustain performance for months in saturated aligner category.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 262,
+ "cached_tokens": 128,
+ "output_tokens": 510,
+ "reasoning_tokens": 451
+}

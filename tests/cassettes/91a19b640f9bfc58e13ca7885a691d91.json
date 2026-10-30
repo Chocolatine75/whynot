@@ -1,0 +1,11 @@
+{
+ "key": "91a19b640f9bfc58e13ca7885a691d91",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Time-bound event ad for a specific date (Nov 19-20, 2026) expires after the event and cannot be kept running for months as an evergreen performer.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 325,
+ "cached_tokens": 128,
+ "output_tokens": 303,
+ "reasoning_tokens": 249
+}

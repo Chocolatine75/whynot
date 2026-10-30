@@ -1,0 +1,11 @@
+{
+ "key": "0910e088f8d91d653b210b3921cde025",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a side gig as a delivery rider, this is completely irrelevant to me\", \"intent\": \"I would keep scrolling without a second thought.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this product is and I have zero need for printer parts, looks like spam for businesses\", \"intent\": \"I would ignore this completely.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The price sounds too good to be true and I don't trust ads for medical stuff on Instagram\", \"intent\": \"I would not click because I don't need braces and I don't want to be spammed.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why am I being shown sea shells in bulk, totally random and useless for me\", \"intent\": \"I would scroll past immediately.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know Peloton is expensive even with finance and I don't have space for an exercise bike\", \"intent\": \"I might glance at it but I wouldn't click to buy.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 623,
+ "cached_tokens": 0,
+ "output_tokens": 628,
+ "reasoning_tokens": 256
+}

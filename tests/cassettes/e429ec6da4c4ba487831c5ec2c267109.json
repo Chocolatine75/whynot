@@ -1,0 +1,11 @@
+{
+ "key": "e429ec6da4c4ba487831c5ec2c267109",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Duplicate sensationalist clickbait copy with no offer/CTA plus blurry AI-slop image signals low trust, low install-to-retention quality and quick creative fatigue/burnout.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 486,
+ "cached_tokens": 128,
+ "output_tokens": 484,
+ "reasoning_tokens": 428
+}

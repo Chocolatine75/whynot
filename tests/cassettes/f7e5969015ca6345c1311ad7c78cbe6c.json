@@ -1,0 +1,11 @@
+{
+ "key": "f7e5969015ca6345c1311ad7c78cbe6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a wholesale women's handbag for B2B, nothing to do with me, I'm not buying bags in bulk\", \"intent\": \"Would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Tagalog I don't understand and I have zero interest in a hairstyle app\", \"intent\": \"Would not click or download\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's heavy religious content trying to sell bible studies, I just scroll past\", \"intent\": \"Would not click, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a UK shop and a Chinese drink I don't know, looks like another dropship ad with delivery only in selected UK cities\", \"intent\": \"Would not click, not for Spain\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu, I don't trust the quality and I'm tired of seeing their ads everywhere\", \"intent\": \"Might watch half a second but would not click or buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2386,
+ "cached_tokens": 128,
+ "output_tokens": 903,
+ "reasoning_tokens": 526
+}

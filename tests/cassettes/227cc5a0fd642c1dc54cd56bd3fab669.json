@@ -1,0 +1,11 @@
+{
+ "key": "227cc5a0fd642c1dc54cd56bd3fab669",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says wallet phone case but image is privacy screen protectors - looks like cheap Temu dropship spam and I don't trust it\", \"intent\": \"Wouldn't click, I don't need a privacy film and Temu stuff is usually rubbish\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Another Temu ad, that magnetic filter thing looks gimmicky and I don't believe it gives a proper cinematic look\", \"intent\": \"Might have paused to look at the orange phone but wouldn't click or buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and about learning English which I already speak, totally irrelevant to me\", \"intent\": \"Would just scroll straight past, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and about Bible prophecy which I'm not interested in at all\", \"intent\": \"No interest in clicking or buying religious books in another language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Also not in English, another learn English app ad but I don't need it and I can't understand the text\", \"intent\": \"Wouldn't click, nothing for me here\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2593,
+ "cached_tokens": 256,
+ "output_tokens": 831,
+ "reasoning_tokens": 430
+}

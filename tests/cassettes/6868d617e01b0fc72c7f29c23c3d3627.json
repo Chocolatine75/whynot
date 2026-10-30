@@ -1,0 +1,11 @@
+{
+ "key": "6868d617e01b0fc72c7f29c23c3d3627",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another generic mobile scam game, Best Game 2026 means nothing\", \"intent\": \"I would not click, I don't play these tower defense games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Hindi and about astrology which I don't believe in or understand\", \"intent\": \"I would not click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Thai and the image is weird with no context\", \"intent\": \"I would not click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropship mirror from a random page called Britainuk72, don't trust it\", \"intent\": \"I would not buy, I don't need it and wouldn't buy car parts from here\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo is real but I already have a job and I'm not looking to be a rider\", \"intent\": \"I might have a look if I needed extra money but not right now so no click\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1731,
+ "cached_tokens": 0,
+ "output_tokens": 722,
+ "reasoning_tokens": 336
+}

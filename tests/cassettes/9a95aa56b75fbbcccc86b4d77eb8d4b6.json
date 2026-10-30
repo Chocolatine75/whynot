@@ -1,0 +1,11 @@
+{
+ "key": "9a95aa56b75fbbcccc86b4d77eb8d4b6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non guardo questi drama fantasy, mi sembra una storia assurda da pubblicità di gioco scadente\", \"intent\": \"Non cliccherei mai, non è il mio genere\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Vivo in Italia e il prezzo è in sterline per il Regno Unito, non mi riguarda per niente\", \"intent\": \"Non cliccherei perché non potrei usarlo\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Carino ma non cucio quasi mai, ho già l'occorrente base e non voglio comprare un kit inutile\", \"intent\": \"Al massimo salverei il post ma non comprerei ora\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Non capisco la lingua del titolo, sembra cinese, e l'immagine scura non dice nulla\", \"intent\": \"Scorrerei oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Testo lunghissimo e angosciante, sembra una truffa che gioca sulla paura e non mi fido di cerotti miracolosi venduti solo online\", \"intent\": \"Non cliccherei, mi mette ansia e non ho questo problema\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4356,
+ "cached_tokens": 0,
+ "output_tokens": 537,
+ "reasoning_tokens": 126
+}

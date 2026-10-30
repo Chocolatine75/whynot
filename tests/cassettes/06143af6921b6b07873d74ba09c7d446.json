@@ -1,0 +1,11 @@
+{
+ "key": "06143af6921b6b07873d74ba09c7d446",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't really order takeaways on apps, my daughter might but I prefer to cook or phone the local chippy\", \"intent\": \"I would not click, I have no use for Deliveroo\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I haven't a clue what it's trying to sell me, just scrolled straight past\", \"intent\": \"I would definitely not click as I cannot read it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play games on my phone, this is for youngsters not for me\", \"intent\": \"I would not click or download this game\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"At my age I don't need teeth straightening and £4 a day sounds dear, I don't trust these online dentist offers\", \"intent\": \"I would not click, I would see my own dentist if I needed anything\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and up to 50% off always seems too good to be true, worried about quality and hassle returning\", \"intent\": \"I might have a little look but I probably wouldn't buy anything\", \"intent_score\": 2}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1058,
+ "cached_tokens": 128,
+ "output_tokens": 676,
+ "reasoning_tokens": 272
+}

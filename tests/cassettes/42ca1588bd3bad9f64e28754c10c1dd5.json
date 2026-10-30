@@ -1,0 +1,11 @@
+{
+ "key": "42ca1588bd3bad9f64e28754c10c1dd5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Evergreen high-intent Christian study niche with clear pain-point, strong benefit stacking, and polished AI creative suggests proven long-running info-product winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1018,
+ "cached_tokens": 128,
+ "output_tokens": 138,
+ "reasoning_tokens": 88
+}

@@ -1,0 +1,11 @@
+{
+ "key": "78e8a369081faa3fb9fb112847abdec6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-effort copy with hashtag spam, raw app link, and no clear hook or product benefit indicates a mass-tested disposable creative, not a durable evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 311,
+ "cached_tokens": 128,
+ "output_tokens": 277,
+ "reasoning_tokens": 220
+}

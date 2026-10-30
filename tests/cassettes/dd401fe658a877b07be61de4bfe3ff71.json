@@ -1,0 +1,11 @@
+{
+ "key": "dd401fe658a877b07be61de4bfe3ff71",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic brand-platitude copy with no hook, offer, CTA or compelling creative angle will fatigue quickly and fail DR performance thresholds.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 271,
+ "cached_tokens": 128,
+ "output_tokens": 300,
+ "reasoning_tokens": 253
+}

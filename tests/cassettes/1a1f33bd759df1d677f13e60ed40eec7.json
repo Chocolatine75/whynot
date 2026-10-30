@@ -1,0 +1,11 @@
+{
+ "key": "1a1f33bd759df1d677f13e60ed40eec7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Using 'ChatGPT' trademark in the image plus absolute anxiety-curing health claims risks quick disapproval/ban and the generic body copy mismatches the niche anxious-attachment hook, preventing efficient long-term scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 499,
+ "cached_tokens": 128,
+ "output_tokens": 467,
+ "reasoning_tokens": 407
+}

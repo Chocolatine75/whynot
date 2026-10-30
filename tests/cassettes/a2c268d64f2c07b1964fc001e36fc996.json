@@ -1,0 +1,11 @@
+{
+ "key": "a2c268d64f2c07b1964fc001e36fc996",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed AliExpress-style title with generic B2B marketplace text lacks any hook, benefit, or differentiation and will be crushed on CTR and conversion by lifestyle-focused handbag competitors.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 281,
+ "cached_tokens": 128,
+ "output_tokens": 443,
+ "reasoning_tokens": 384
+}

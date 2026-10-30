@@ -1,0 +1,11 @@
+{
+ "key": "1bf028bf57910347ab62ff97886226fa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew, I'm not your target at all, looks like cheap dropshipping gadget for grandmas\", \"intent\": \"I would keep scrolling, I have zero use for a needle threader\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a picture of an old wooden cabinet with a spammy China factory hashtag text, no idea what you want me to do\", \"intent\": \"I would not click, looks like a random B2B supplier post\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"That AI robot phone in a kitchen is weird and cheesy, all language apps say the same AI chat thing now\", \"intent\": \"I might pause on the image but I wouldn't click to try it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's funny with the alien mask but I don't study Japanese so it's not relevant to me\", \"intent\": \"I would not click but I smiled at it for a second before scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and I don't want to be a counselor, this has nothing to do with me\", \"intent\": \"I would scroll past immediately, not interested at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2069,
+ "cached_tokens": 128,
+ "output_tokens": 612,
+ "reasoning_tokens": 208
+}

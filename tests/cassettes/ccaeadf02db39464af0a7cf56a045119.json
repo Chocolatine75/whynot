@@ -1,0 +1,11 @@
+{
+ "key": "ccaeadf02db39464af0a7cf56a045119",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Unrealistic 'experto en 28 días con 15 minutos al día' promise drives clickbait CTR but violates Facebook's Misleading Claims policy and collapses conversion/retention, so it cannot scale profitably for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 278,
+ "cached_tokens": 128,
+ "output_tokens": 406,
+ "reasoning_tokens": 340
+}

@@ -1,0 +1,11 @@
+{
+ "key": "d38f8c89fc2394877f17aacd16372a05",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"hate these pushy teeth straightening ads and don't believe the best price in the UK claim, plus I don't want to be hassled into booking a consult\", \"intent\": \"I would just keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German so I have no idea what it's actually offering and 7 day transformation sounds like complete rubbish anyway\", \"intent\": \"I wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just says Nocturne Judge and click to watch, no idea what it is and looks like clickbait nonsense\", \"intent\": \"No chance I'd click that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"looks okay but I don't really need another cycling cap and not buying random kit from an ad I've never heard of\", \"intent\": \"Might have paused for a second but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"psychic reading stuff is obviously a scam trying to play on emotions, total waste of money\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 717,
+ "cached_tokens": 128,
+ "output_tokens": 624,
+ "reasoning_tokens": 225
+}

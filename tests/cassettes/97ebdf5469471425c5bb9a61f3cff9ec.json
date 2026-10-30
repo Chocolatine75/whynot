@@ -1,0 +1,11 @@
+{
+ "key": "97ebdf5469471425c5bb9a61f3cff9ec",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic 'Oxford/Cambridge free trial' copy is overused in UK tutoring and paired with a low-quality cropped UGC still that lacks a clear benefit hook, so it will get initial clicks but burn out fast on CPL/ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 517,
+ "cached_tokens": 128,
+ "output_tokens": 310,
+ "reasoning_tokens": 240
+}

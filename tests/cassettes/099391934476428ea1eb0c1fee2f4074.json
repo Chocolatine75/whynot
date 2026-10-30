@@ -1,0 +1,11 @@
+{
+ "key": "099391934476428ea1eb0c1fee2f4074",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Vague, low-intent copy with no clear gameplay hook, benefit, or CTA is unlikely to drive sustained profitable ROAS/retention to justify months of spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 259,
+ "cached_tokens": 128,
+ "output_tokens": 446,
+ "reasoning_tokens": 391
+}

@@ -1,0 +1,11 @@
+{
+ "key": "a56b33d2f1850fbf6ebdee1ac8efb0eb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and look cheap, wouldn't trust the quality\", \"intent\": \"No chance I'd click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I had no idea what it was about\", \"intent\": \"I didn't stop to look at it at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Most of it was in another language and I don't believe in astrologers anyway\", \"intent\": \"I just ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe an astrologer can tell you about your ex, feels like a scam\", \"intent\": \"I would not click on that sort of thing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly not aimed at me, it's for men leading a church group\", \"intent\": \"I wouldn't click but it seemed more genuine than the others\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 823,
+ "cached_tokens": 128,
+ "output_tokens": 755,
+ "reasoning_tokens": 399
+}

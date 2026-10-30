@@ -1,0 +1,11 @@
+{
+ "key": "349076f6554f1918a3ecfc7a7ab28043",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en espagnol donc je ne comprends pas bien, et devenir experte en IA en 28 jours avec 15 minutes par jour ça sonne comme une arnaque, l'image bizarre en dessin animé n'aide pas\", \"intent\": \"Je ne cliquerais pas du tout, ça ne m'intéresse pas et je ne fais pas confiance\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Je n'ai pas besoin d'une app de rencontre et ce genre de pub avec 'singles in your area' ça fait très fake et un peu glauque\", \"intent\": \"Je scrollerais direct sans cliquer, je ne suis pas la cible\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"L'image donne faim mais je connais Deliveroo, c'est cher avec les frais et je ne commande pas souvent des fast food\", \"intent\": \"Je ne commanderais pas maintenant mais c'est la seule pub un peu utile\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Il n'y a rien à voir, juste un fond bleu turquoise vide, j'ai cru à un bug et j'ai scrollé\", \"intent\": \"Je ne ferais rien, il n'y a même pas de contenu\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en italien, je ne comprends pas tout et l'image avec des pâtes en personnages est étrange, ça ne me donne pas confiance pour la santé mentale\", \"intent\": \"Je ne cliquerais pas, je passerais à la suite\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1707,
+ "cached_tokens": 128,
+ "output_tokens": 809,
+ "reasoning_tokens": 326
+}

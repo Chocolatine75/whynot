@@ -1,0 +1,11 @@
+{
+ "key": "cfbea9f6be22935916bef2ff3b5f40f3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so I have no idea what it's saying and the photo is a close up of a disgusting portaloo toilet, why would I want that?\", \"intent\": \"No way I'm clicking that weird toilet picture.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the title says toilet roll holder but it's just a picture of a dining chair, looks scammy and nothing to do with me\", \"intent\": \"I just scrolled past, not interested in random Alibaba furniture.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a parent and don't need A-Level tutoring, and I don't trust these free trial then pushy sales ads\", \"intent\": \"I wouldn't click, it's not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it says learn a language and world cup but shows a baby on a woman's head with 11:11, makes zero sense and feels like clickbait\", \"intent\": \"Definitely not clicking, looks spammy and confusing.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and it's heavy religious stuff about Daniel and the apocalypse which I'm just not into\", \"intent\": \"I scrolled straight past, not for me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2492,
+ "cached_tokens": 128,
+ "output_tokens": 771,
+ "reasoning_tokens": 354
+}

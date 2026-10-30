@@ -1,0 +1,11 @@
+{
+ "key": "85c3de864ca4ab99a1790248403d941c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":8,\"why\":\"Hyper-relatable, meme-native creative with ultra-specific pain-point callouts and a free tamagotchi hook drives high CTR/shareability for Finch's core Gen Z anxious/doom-scroller audience despite policy-risky personal-attribute copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 443,
+ "cached_tokens": 128,
+ "output_tokens": 486,
+ "reasoning_tokens": 419
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5a87862fc1dbdca70dc9968fcf0b6ecc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Extremely generic Hebrew copy with no benefit, offer, CTA or differentiation will likely get low CTR and be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 257,
+ "cached_tokens": 128,
+ "output_tokens": 185,
+ "reasoning_tokens": 142
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e55e133a7f925b145f5bb1f59ef9fbd4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Cluttered low-resolution screenshot doesn't clearly demonstrate the simple color-matching mechanic and generic copy offers no strong hook, leading to poor CTR and IPM vs polished puzzle competitors.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 469,
+ "cached_tokens": 128,
+ "output_tokens": 357,
+ "reasoning_tokens": 302
+}

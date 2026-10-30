@@ -1,0 +1,11 @@
+{
+ "key": "ce27708cf4c64797b6c8d0907d3301bd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Vague buzzword copy with fake star-rating title and irrelevant emoji shows no hook, benefit, or CTA and gets killed quickly in testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 262,
+ "reasoning_tokens": 216
+}

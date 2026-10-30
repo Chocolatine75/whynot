@@ -1,0 +1,11 @@
+{
+ "key": "6c40875499c41ee3842b03d6590d8ef1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already know Revolut, I see this ad all the time, nothing new and I don't trust these generic bank ads\", \"intent\": \"I would not click, I have no need to open another bank account right now\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not relevant to me at all and looks like cheap dropshipping product, I don't trust it will work\", \"intent\": \"I would just scroll past, definitely not buying this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese for Brazil and Portugal, not for me here in Spain, I just scrolled on\", \"intent\": \"I would not click or download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Clickbait nonsense about astrology and some celebrity I don't know, feels like a scam to get money\", \"intent\": \"I would not click, I don't believe in astrology chats\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Interesting idea but sounds gimmicky and expensive, I don't believe a toothbrush needs a camera or that a real dentist will check it\", \"intent\": \"I might be a bit curious but I would not click to buy without more proof\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 774,
+ "cached_tokens": 0,
+ "output_tokens": 899,
+ "reasoning_tokens": 490
+}

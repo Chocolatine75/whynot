@@ -1,0 +1,11 @@
+{
+ "key": "ab39e0ecca36c08ad30cfe49d3606fe3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"ça a l'air d'un gadget temu/aliexpress cheap, le compte Britainuk72 fait pas confiance et j'ai pas besoin de ça\", \"intent\": \"je scrolle direct sans cliquer\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"pub de jeu mobile générique sans image ni explication, ça sent l'arnaque à clic\", \"intent\": \"je passe, je joue pas à ce genre de jeux\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"c'est long, trop vendeur, et je suis pas pratiquant donc ça m'intéresse pas de payer pour une collection biblique en ligne\", \"intent\": \"je lis 2 secondes puis je scrolle sans cliquer\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"pub Temu UK avec un code bizarre, je suis en France et j'aime pas Temu, c'est du spam\", \"intent\": \"j'ignore complètement\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"on comprend rien à ce que c'est, trop vague genre appli bien-être, aucune envie de cliquer\", \"intent\": \"je scrolle sans m'arrêter\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1067,
+ "cached_tokens": 0,
+ "output_tokens": 777,
+ "reasoning_tokens": 375
+}

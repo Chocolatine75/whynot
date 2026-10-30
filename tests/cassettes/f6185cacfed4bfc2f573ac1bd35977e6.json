@@ -1,0 +1,11 @@
+{
+ "key": "f6185cacfed4bfc2f573ac1bd35977e6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Screenshot-of-fake-organic-testimonial creative with generic FIRST CHAT FREE hook reads as low-trust engagement bait and risks policy/relevance penalties, driving high CPMs and fatigue that prevents months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 476,
+ "cached_tokens": 128,
+ "output_tokens": 545,
+ "reasoning_tokens": 482
+}

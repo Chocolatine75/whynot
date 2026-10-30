@@ -1,0 +1,11 @@
+{
+ "key": "d7398c29d5a37cdc3a92ffef825918d8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long, looks like a fake scary story to sell some miracle patch, I scrolled immediately\", \"intent\": \"definitely not clicking, I don't have this problem and it looks like a scam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"seems useful but I don't need more plastic containers right now\", \"intent\": \"maybe I'd save it for later but not buying now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not my style at all, leopard print women's outfit, not for me\", \"intent\": \"keep scrolling, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's a dental chair for businesses, completely irrelevant to me\", \"intent\": \"ignore and scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese, I don't understand it, looks like some wellness app ad\", \"intent\": \"scroll past, not for me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3275,
+ "cached_tokens": 0,
+ "output_tokens": 570,
+ "reasoning_tokens": 217
+}

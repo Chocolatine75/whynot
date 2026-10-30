@@ -1,0 +1,11 @@
+{
+ "key": "5732e2c6770f691027a428b619bce761",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"funny alien meme but I don't need to learn Japanese and I don't trust language app ads\", \"intent\": \"I would not click, maybe chuckle and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not the target at all, I don't have kids and don't use Vinted to declutter toys\", \"intent\": \"I would scroll past with no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"weird AI fake image with belly fat suit and very clickbaity claim for moms, not for me and looks like a scam\", \"intent\": \"I definitely would not click or buy anything from this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a B2B expo in London and I'm in Italy, I don't need suppliers or tickets\", \"intent\": \"I would not click, this has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and about a hairstyle app for women, not relevant to me\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1835,
+ "cached_tokens": 128,
+ "output_tokens": 621,
+ "reasoning_tokens": 237
+}

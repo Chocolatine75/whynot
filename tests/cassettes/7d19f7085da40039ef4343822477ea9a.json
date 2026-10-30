@@ -1,0 +1,11 @@
+{
+ "key": "7d19f7085da40039ef4343822477ea9a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap puzzle game ad, I have zero interest in installing these and the image has nothing to do with buses anyway\", \"intent\": \"I would just keep scrolling, not a game for me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The image is creepy and disturbing, an old man stitching a body, what does that have to do with an AI chatbot? Makes me distrust it completely\", \"intent\": \"I would definitely not click, it feels weird and unsafe.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks like a classic influencer scam with typos, and those expensive gadgets never work as shown, I don't believe the discount either\", \"intent\": \"I might pause to look but I wouldn't buy or click the link.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and I'm in France, not relevant to me, plus these 'earn money with AI in 15 minutes' promises are always fake\", \"intent\": \"I would ignore it and scroll past immediately.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks nice but I don't need a new expensive electric toothbrush and the camera thing seems a bit gimmicky and unnecessary\", \"intent\": \"I wouldn't buy now but it's the only one I might look up later if I needed a toothbrush.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2292,
+ "cached_tokens": 128,
+ "output_tokens": 876,
+ "reasoning_tokens": 440
+}

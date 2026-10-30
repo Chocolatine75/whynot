@@ -1,0 +1,11 @@
+{
+ "key": "091341121834c30e239851754583a125",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Extremely generic copy with no hook, differentiation, or creative angle will be crushed by high CPCs and low CTR in the ultra-competitive dating vertical and killed within days.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 250,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 139
+}

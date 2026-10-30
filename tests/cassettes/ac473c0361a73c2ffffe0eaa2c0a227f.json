@@ -1,0 +1,11 @@
+{
+ "key": "ac473c0361a73c2ffffe0eaa2c0a227f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Ultra-niche targeting (Khmer) with generic, low-effort creative and vague promise offers no hook, angle, or differentiation to sustain performance at scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 262,
+ "cached_tokens": 128,
+ "output_tokens": 277,
+ "reasoning_tokens": 223
+}

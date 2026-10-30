@@ -1,0 +1,11 @@
+{
+ "key": "8d6cc0051574ea6376e5f0abeb96a1bb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu cheap tat and that t-shirt slogan doesn't appeal to me at all, I just scroll past Temu ads\", \"intent\": \"No, I wouldn't click or buy, not interested in cheap T-shirts from Temu\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Deliveroo is but I'm not ordering a takeaway right now and delivery fees put me off\", \"intent\": \"Probably not, maybe later but not going to click now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't know what a gabion basket even is and Temu spam again, not relevant to me at all\", \"intent\": \"No, wouldn't click, I have no use for that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese so I've no idea what it's really saying, just kept scrolling\", \"intent\": \"No, wouldn't click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe in astrology and it feels like a scam to get you paying after the free chat\", \"intent\": \"No, I wouldn't click, not for me at all\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 0,
+ "output_tokens": 649,
+ "reasoning_tokens": 251
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9e2ef68f12515f643361618a6130032e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic, jargon-heavy copy with no clear hook, offer, or differentiation is unlikely to beat Peloton's stronger creative controls and will be paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 267,
+ "cached_tokens": 128,
+ "output_tokens": 215,
+ "reasoning_tokens": 165
+}

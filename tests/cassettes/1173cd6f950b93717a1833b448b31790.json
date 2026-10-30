@@ -1,0 +1,11 @@
+{
+ "key": "1173cd6f950b93717a1833b448b31790",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just looks like another silly game advert, nothing to do with me and I don't trust 'Best Game' claims anyway\", \"intent\": \"I would just scroll straight past, I'm not a gamer\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I haven't got a clue what it's really selling, and I'm not paying for bible lessons off Facebook\", \"intent\": \"I would not click, it's not for me and I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seems expensive hidden behind per day price and I don't trust these online teeth companies, I'd go to my own dentist\", \"intent\": \"I wouldn't click, maybe look at my own dentist if I needed it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"We don't really get takeaways much anymore, too expensive and unhealthy, I just cook at home\", \"intent\": \"I might keep it in mind but I wouldn't order right now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of them and up to 50% off sounds like a gimmick, I do my food shopping at Tesco\", \"intent\": \"I wouldn't download another shopping app, no need\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1059,
+ "cached_tokens": 128,
+ "output_tokens": 791,
+ "reasoning_tokens": 380
+}

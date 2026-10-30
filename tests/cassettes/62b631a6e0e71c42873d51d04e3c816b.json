@@ -1,0 +1,11 @@
+{
+ "key": "62b631a6e0e71c42873d51d04e3c816b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Extreme -12kg in 12 days weight-loss claim is a clear Meta policy violation for misleading personal health results and will be disapproved or killed by negative feedback, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 467,
+ "cached_tokens": 128,
+ "output_tokens": 280,
+ "reasoning_tokens": 221
+}

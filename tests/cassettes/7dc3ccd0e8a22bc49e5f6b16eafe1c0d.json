@@ -1,0 +1,11 @@
+{
+ "key": "7dc3ccd0e8a22bc49e5f6b16eafe1c0d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Irrelevant French clickbait image with mismatched Spanish copy drives curiosity clicks but terrible intent match and conversion for a language app, so it will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 444,
+ "cached_tokens": 128,
+ "output_tokens": 320,
+ "reasoning_tokens": 266
+}

@@ -1,0 +1,11 @@
+{
+ "key": "ef79c594b0a0693101b22d294f893a0e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not going to take a quiz from a random Facebook ad about mental health, feels like it will just try to sell me a subscription I don't need\", \"intent\": \"I wouldn't click or buy, not relevant to me and I don't trust these online plans\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a close up of an LED, no idea what it's actually selling to me and I'm not a business importer anyway\", \"intent\": \"No chance I'd click, total waste of time scrolling past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I get it's for Deliveroo riders but I'm in my late 40s with a proper job, I'm not looking to ride a bike delivering food\", \"intent\": \"Wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese, weird scary dog image, looks like clickbait or a scam to get my data\", \"intent\": \"Definitely wouldn't click, looks dodgy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Peloton is but it's far too expensive and I don't want another finance deal on exercise kit I'll not use\", \"intent\": \"I wouldn't click or buy, nice looking ad but not interested in financing a bike\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1845,
+ "cached_tokens": 128,
+ "output_tokens": 650,
+ "reasoning_tokens": 224
+}

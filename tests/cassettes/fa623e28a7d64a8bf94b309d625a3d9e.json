@@ -1,0 +1,11 @@
+{
+ "key": "fa623e28a7d64a8bf94b309d625a3d9e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"High-emotion love/relationship hook + 'First Chat Free' low-friction offer in Hinglish is a proven viral CTR driver for Astrotalk's broad youth audience, built for long-term evergreen performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 289,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 133
+}

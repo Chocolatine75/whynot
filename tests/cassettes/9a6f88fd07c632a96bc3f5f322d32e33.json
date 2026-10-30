@@ -1,0 +1,11 @@
+{
+ "key": "9a6f88fd07c632a96bc3f5f322d32e33",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Gimmicky high-consideration product at £95 with feature-dumping copy, no social proof/testimonial, and a confusing split-screen creative lacks a clear benefit-led hook to sustain profitable ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 538,
+ "cached_tokens": 128,
+ "output_tokens": 364,
+ "reasoning_tokens": 300
+}

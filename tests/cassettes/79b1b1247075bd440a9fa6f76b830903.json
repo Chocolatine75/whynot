@@ -1,0 +1,11 @@
+{
+ "key": "79b1b1247075bd440a9fa6f76b830903",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi, not for me and it looks like clickbait psychic stuff, I don't trust that\", \"intent\": \"No way I'm clicking on an astrology ad.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and about Bible prophecies, I'm not religious and not interested in buying books\", \"intent\": \"I just scrolled past it, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get what it is but I'm not looking for a delivery rider job right now\", \"intent\": \"I paused to look but I'm not going to apply.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another psychic scam ad, feels manipulative and fake\", \"intent\": \"Definitely not clicking on this creepy stuff.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again Hindi mix and astrology about my ex, totally spammy to me\", \"intent\": \"I ignored it and kept scrolling.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1117,
+ "cached_tokens": 0,
+ "output_tokens": 804,
+ "reasoning_tokens": 441
+}

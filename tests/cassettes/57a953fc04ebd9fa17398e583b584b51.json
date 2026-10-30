@@ -1,0 +1,11 @@
+{
+ "key": "57a953fc04ebd9fa17398e583b584b51",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic mismatched copy about design/styling vs math-sum creative with spammy emojis and pay-to-win disclaimer signals low CTR/quality and likely policy fatigue, not a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 453,
+ "cached_tokens": 128,
+ "output_tokens": 298,
+ "reasoning_tokens": 239
+}

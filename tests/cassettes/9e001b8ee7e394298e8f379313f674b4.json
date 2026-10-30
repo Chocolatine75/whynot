@@ -1,0 +1,11 @@
+{
+ "key": "9e001b8ee7e394298e8f379313f674b4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish, not Italian, and it looks like another generic self-help app trying to sell me a subscription\", \"intent\": \"I would not click, I don't need a wellness plan like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Hebrew and I have no idea what it's trying to tell me\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like clickbait spam for some cheap drama, definitely not trustworthy\", \"intent\": \"I would not click on this at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I understood it's to learn Vietnamese but I have zero use for that language and I don't trust these language apps\", \"intent\": \"I might have paused a second but I would not download it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's another AI beauty filter app, not interested at all\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 655,
+ "cached_tokens": 128,
+ "output_tokens": 712,
+ "reasoning_tokens": 343
+}

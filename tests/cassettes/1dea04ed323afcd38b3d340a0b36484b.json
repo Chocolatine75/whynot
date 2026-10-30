@@ -1,0 +1,11 @@
+{
+ "key": "1dea04ed323afcd38b3d340a0b36484b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a 5kg bag of rice and I don't even know what Joybuy is, just looks like another Temu type shop\", \"intent\": \"I wouldn't click, I get my groceries from the supermarket\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a cheap knock-off mobile game, not my thing at all\", \"intent\": \"No chance I'd download this, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The creepy image caught my eye but I have no interest in AI chat horror stories and it feels a bit cringe\", \"intent\": \"I definitely wouldn't click or use the code\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The title is in Spanish but the image has French text about an airport, makes no sense and looks like clickbait\", \"intent\": \"I wouldn't click on this weird ad at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know what Revolut is and I'm not looking to switch banks right now\", \"intent\": \"Might consider it one day but not clicking today\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1644,
+ "cached_tokens": 128,
+ "output_tokens": 621,
+ "reasoning_tokens": 231
+}

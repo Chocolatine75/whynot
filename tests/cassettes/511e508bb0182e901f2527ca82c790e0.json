@@ -1,0 +1,11 @@
+{
+ "key": "511e508bb0182e901f2527ca82c790e0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Feature-stuffed beauty-angle copy lacks a strong pain-point hook, social proof, or compelling direct-response offer to sustain profitable scale for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 359,
+ "cached_tokens": 128,
+ "output_tokens": 419,
+ "reasoning_tokens": 369
+}

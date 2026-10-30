@@ -1,0 +1,11 @@
+{
+ "key": "87329c28abc7dc98b5be32c0a32fa237",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"weird image with his belly out and I don't need a belt like that, looks cheap dropship\", \"intent\": \"No way I'm clicking that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in German and that -12kg in 12 days claim is obvious bollocks\", \"intent\": \"I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"don't need to learn Thai and the Thai dating angle feels a bit cringe\", \"intent\": \"Might be funny but I'm not downloading it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't read it and I don't need another video editor app\", \"intent\": \"Not for me, kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know about Revolut and I'm not opening a new bank account from an ad\", \"intent\": \"I know the brand but wouldn't click right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1459,
+ "cached_tokens": 0,
+ "output_tokens": 674,
+ "reasoning_tokens": 321
+}

@@ -1,0 +1,11 @@
+{
+ "key": "48ed57676653ce9a0584d67c125572f3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 6, \"why\": \"UGC 'THAI DATING 101' hook is a strong curiosity/CTR driver for Thai, but generic primary text/title and dating-intent traffic typically hurts downstream conversion/retention so it gets iterated rather than kept unchanged for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 445,
+ "cached_tokens": 128,
+ "output_tokens": 416,
+ "reasoning_tokens": 346
+}

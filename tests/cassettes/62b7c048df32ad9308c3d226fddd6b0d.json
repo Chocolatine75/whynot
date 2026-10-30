@@ -1,0 +1,11 @@
+{
+ "key": "62b7c048df32ad9308c3d226fddd6b0d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and looks like clickbait fortune telling, nothing to do with me and I don't trust free chat offers\", \"intent\": \"I would just scroll straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Far too long and sob-story, reads like an American sales letter trying to sell a miracle B12 plaster, I don't believe a sticker on your ankle fixes nerve damage and I would trust my GP over this\", \"intent\": \"I would not click or buy, it feels manipulative and medically dodgy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into boho jewellery and Temu quality is hit and miss, not looking to shop for accessories\", \"intent\": \"I might glance but I wouldn't click to shop\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at young people with relationship anxiety, not relevant to me at my age and I don't want an app for it\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a dentist's chair for businesses, absolutely nothing to do with me as a normal shopper\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5415,
+ "cached_tokens": 128,
+ "output_tokens": 859,
+ "reasoning_tokens": 446
+}

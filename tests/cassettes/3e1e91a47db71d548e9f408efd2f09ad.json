@@ -1,0 +1,11 @@
+{
+ "key": "3e1e91a47db71d548e9f408efd2f09ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Extremely long personal-health storytelling copy with disease-treatment claims will get flagged/limited for Personal Attributes and misleading health claims and has terrible feed readability/CTR, so it cannot scale for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3434,
+ "cached_tokens": 128,
+ "output_tokens": 203,
+ "reasoning_tokens": 143
+}

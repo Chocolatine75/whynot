@@ -1,0 +1,11 @@
+{
+ "key": "1daaa6c47701920a17724812651cb85a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Niche personal story with dated seasonal Christmas reference and tagged Oct URL signals a short-term influencer whitelist test, not a broad, evergreen direct-response control that scales for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 335,
+ "cached_tokens": 128,
+ "output_tokens": 511,
+ "reasoning_tokens": 458
+}

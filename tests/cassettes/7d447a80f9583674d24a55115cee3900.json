@@ -1,0 +1,11 @@
+{
+ "key": "7d447a80f9583674d24a55115cee3900",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic motivational promise with no specific offer, differentiation, proof or targeting in the hyper-competitive English-learning niche will drive low CTR/CVR and get killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 270,
+ "cached_tokens": 128,
+ "output_tokens": 342,
+ "reasoning_tokens": 292
+}

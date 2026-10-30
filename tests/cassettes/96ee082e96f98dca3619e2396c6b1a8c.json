@@ -1,0 +1,11 @@
+{
+ "key": "96ee082e96f98dca3619e2396c6b1a8c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's a wholesale B2B ad, I'm not a shop or business, I don't need bulk bags with custom logo\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a cheap ad for a generic mobile game, not my kind of game at all\", \"intent\": \"I kept scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's in French and very pushy religious product, I'm not interested in buying bible studies online\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"the hook about ex feelings got my attention for a second but I don't trust astrologer chats and it's clearly bait with fake reviews\", \"intent\": \"I wouldn't click, I don't believe in it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want a delivery rider side job and I see these Deliveroo ads all the time\", \"intent\": \"I wouldn't apply, just scrolled past\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2357,
+ "cached_tokens": 256,
+ "output_tokens": 847,
+ "reasoning_tokens": 469
+}

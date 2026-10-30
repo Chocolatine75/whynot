@@ -1,0 +1,11 @@
+{
+ "key": "ef68b66f1e593b98b9eae841043aacc7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Ad has a fatal offer-creative mismatch — text/title promise English learning while the image teaches Spanish phrases — causing confusion, low CTR and CVR, so no experienced buyer would scale it.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 450,
+ "cached_tokens": 128,
+ "output_tokens": 195,
+ "reasoning_tokens": 139
+}

@@ -1,0 +1,11 @@
+{
+ "key": "a85d2535279109636f9e462e28089465",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not my kind of story and sounds very dramatic and cheesy, just scrolled past\", \"intent\": \"I would not click or buy, not interested in teen romance books\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is expensive and I don't trust subscription fitness ads, seems like a lot of money\", \"intent\": \"Probably wouldn't click but might remember it vaguely\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job at all, not relevant to me\", \"intent\": \"I would not click, definitely not applying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Khmer and it just looked like a generic app ad\", \"intent\": \"I would not click or download, not relevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a dropship ad pretending to be a review, don't trust the seller\", \"intent\": \"I would not click or buy, wouldn't trust the quality\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 736,
+ "cached_tokens": 0,
+ "output_tokens": 570,
+ "reasoning_tokens": 200
+}

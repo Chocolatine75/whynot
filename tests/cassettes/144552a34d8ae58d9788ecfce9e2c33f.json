@@ -1,0 +1,11 @@
+{
+ "key": "144552a34d8ae58d9788ecfce9e2c33f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Title says 'New Year' while text says 'Summer' offer signals sloppy/outdated creative that kills credibility and relevance, so it would be paused quickly despite UGC-style image.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 478,
+ "cached_tokens": 128,
+ "output_tokens": 285,
+ "reasoning_tokens": 227
+}

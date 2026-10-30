@@ -1,0 +1,11 @@
+{
+ "key": "4932009639d96295e214b078890a0791",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Complete disconnect between title promising multicolor sea shells for decoration and a low-quality packshot of a single brass bead/cone drives near-zero relevance and CTR, so it will be paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 128,
+ "output_tokens": 200,
+ "reasoning_tokens": 141
+}

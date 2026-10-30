@@ -1,0 +1,11 @@
+{
+ "key": "6a21b92a2d53e5d498ec02174fb2896a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's Temu which I don't trust and the title says t-shirt but the picture is a fishing lure, so it looks like a scammy bait-and-switch and I have no idea what I'd actually get\", \"intent\": \"I wouldn't click or buy, looks dodgy and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Again Temu and the title says gabion stone cage but the image is a wicker bench, so I don't know what they're selling and I don't trust it'll be any good\", \"intent\": \"No chance I'd click, it's confusing and looks unreliable\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"The image is just a blank turquoise screen so there's nothing to look at and I already know Deliveroo, I don't need an ad to tell me\", \"intent\": \"I wouldn't click, I just scrolled past the blank image\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a black blank image and it's about astrology and kundali which is not for me at all, total nonsense to me\", \"intent\": \"Definitely wouldn't click or pay for an astrology chat\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese which I don't speak and it's about anxiety chat, not relevant to me and I don't know the brand\", \"intent\": \"I wouldn't click because I can't understand it and don't need it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2064,
+ "cached_tokens": 0,
+ "output_tokens": 796,
+ "reasoning_tokens": 345
+}
