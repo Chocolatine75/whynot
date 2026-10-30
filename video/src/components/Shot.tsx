@@ -41,8 +41,9 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
     visual = (
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 60%, ${look.accent} 0%, ${look.fg} 85%)`,
         justifyContent: "center", alignItems: "center" }}>
-        <Img src={staticFile(shot.src ?? "")} style={{ width: 760, borderRadius: 60, border: "14px solid #FFFFFF",
-          boxShadow: "0 30px 80px rgba(0,0,0,0.45)", transform: `${transform} rotate(${-3 + 6 * p}deg)` }} />
+        <Img src={staticFile(shot.src ?? "")} style={{ height: 1150, objectFit: "contain",
+          filter: "drop-shadow(0 0 0 #fff) drop-shadow(6px 0 0 #fff) drop-shadow(-6px 0 0 #fff) drop-shadow(0 6px 0 #fff) drop-shadow(0 -6px 0 #fff) drop-shadow(0 30px 40px rgba(0,0,0,0.45))",
+          transform: `${transform} rotate(${-3 + 6 * p}deg)` }} />
       </AbsoluteFill>
     );
   } else {

@@ -87,3 +87,18 @@ def parse(text: str) -> tuple[list[Box], list[MaskRecord]]:
                 raise
             raise SamParseError(f"malformed {kind} record: {exc!r}") from None
     return boxes, masks
+
+
+def decode_mask(mask: MaskRecord) -> bytes:
+    """Row-major raster of 0/1 bytes, `height × width`, decoded with Meta's official parser.
+
+    Observed on real images: the raster covers the matching box (its aspect ratio, long side up to 1024),
+    so it is resized to the box to cut the object out of the frame."""
+    from meta_sam_parser import SegmentationMask, decode_mask_to_raster
+
+    encoding = {"~": "lossless", "!": "one_bit"}.get(mask.encoding)
+    if encoding is None:
+        raise SamParseError(f"unknown mask encoding {mask.encoding!r}")
+    # the parser expects the marker as the payload's first character
+    return bytes(decode_mask_to_raster(SegmentationMask(encoding, mask.encoding + mask.payload, mask.width,  # type: ignore[arg-type]
+                                                        mask.height)))

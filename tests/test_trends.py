@@ -192,3 +192,16 @@ def test_trend_dataclass_roundtrip_keeps_optional_fields():
     b = check(GOOD)
     s = replace(b.shots[6], focus="bottom")
     assert s.focus == "bottom" and s.screen == 2
+
+
+def test_a_masked_mascot_is_cut_out_on_transparency(tmp_path):
+    from whynot.assets.cutouts import Found, cut_out
+    img = Image.new("RGB", (400, 400), (0, 200, 0))
+    mask = Image.new("L", (100, 100), 0)
+    mask.paste(255, (25, 25, 75, 75))  # the character is the middle half of its box
+    mask.save(tmp_path / "m.png")
+    out = cut_out(img, Found((100, 100, 300, 300), 0.25, tmp_path / "m.png"))
+    assert out.mode == "RGBA" and all(abs(n - 100) <= 2 for n in out.size)  # trimmed to the character (±edge blur)
+    assert out.getpixel((50, 50))[3] == 255
+    plain = cut_out(img, Found((100, 100, 300, 300), 0.25, None))
+    assert plain.size == (200, 200) and plain.getpixel((0, 0))[3] == 255  # no mask: the box
