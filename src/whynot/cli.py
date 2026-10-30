@@ -1,4 +1,4 @@
-"""Command line: `whynot create ...` (and `whynot daily` next)."""
+"""Command line: `whynot create`, `whynot video`, `whynot publish`, `whynot costs`."""
 
 import argparse
 import sys
@@ -101,6 +101,33 @@ def _costs(args: argparse.Namespace) -> int:
     return 0
 
 
+def _video(args: argparse.Namespace) -> int:
+    from whynot.agency.video import VideoConfig, make_videos
+    from whynot.models import BudgetExceeded, ModelClient
+
+    run_dir = Path(args.run)
+    if not (run_dir / "strategy.json").exists():
+        print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
+        return 1
+    settings = load_settings()
+    factory = None
+    if not args.no_capture:
+        try:
+            from whynot.ingest.creatives import PlaywrightRenderer
+            factory = PlaywrightRenderer
+        except ImportError:  # pragma: no cover - optional dependency group
+            print("  (capture skipped: run with `uv run --group capture` to fetch competitor creatives)")
+    model = ModelClient(settings, budget_usd=args.budget_usd)
+    try:
+        report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
+                             cfg=VideoConfig(n_videos=args.n))
+    except BudgetExceeded as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    print(f"\n✓ {len(report['videos'])} video(s) in {run_dir / 'videos'} · model cost ${report['usd']:.2f}")
+    return 0 if report["videos"] else 2
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -132,6 +159,13 @@ def main(argv: list[str] | None = None) -> int:
     pub.add_argument("--activate", action="store_true", help="switch everything to ACTIVE after publishing")
     pub.add_argument("--activate-only", action="store_true", help="activate what an earlier run published")
     pub.set_defaults(func=_publish)
+
+    v = sub.add_parser("video", help="video ads for a run, from the market's winning ad archetypes")
+    v.add_argument("run", help="the run folder (outputs/runs/...)")
+    v.add_argument("-n", type=int, default=3, help="number of videos (one per archetype)")
+    v.add_argument("--budget-usd", type=float, default=2.0, help="hard cap on model spend for this command")
+    v.add_argument("--no-capture", action="store_true", help="use only competitor creatives already captured")
+    v.set_defaults(func=_video)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")
