@@ -239,10 +239,12 @@ class Viewer:
                 return reactions, 0.0
             except ViewerParseError:
                 pass  # a damaged entry: ask again and overwrite it
+        # the draw reaches the cassette key too, so a retest never replays the first answer
+        call: dict[str, Any] = {**params, **({"draw": self.draw} if self.draw else {})}
         spent = 0.0
         last_error: Exception | None = None
         for _ in range(self.retries + 1):
-            result = self.client.viewer_chat(messages, **params)
+            result = self.client.viewer_chat(messages, **call)
             spent += result.cost.usd
             try:
                 reactions = parse_reactions(result.text, labels, feed_id=feed_id, persona_id=persona.id)

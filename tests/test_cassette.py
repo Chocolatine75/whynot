@@ -141,3 +141,47 @@ def test_a_whole_create_run_replays_identically_without_network(tmp_path):
         assert image.read_bytes() == (tmp_path / "b" / "run" / "ads" / image.name).read_bytes()
     replayed = [json.loads(line) for line in (tmp_path / "b" / "costs.jsonl").read_text().splitlines()]
     assert replayed and all(e["usd"] == 0 and e["source"] == "cassette" for e in replayed)
+
+
+def test_each_draw_has_its_own_recording_and_the_draw_never_reaches_the_api(tmp_path):
+    """Regression: draws shared one cassette key, so a retest replayed the first answer (noise floor 0)
+    and recording draw 1 overwrote draw 0."""
+    meta = FakeOpenAI()
+    rec = client(tmp_path, "record", meta=meta)
+    meta.chat._resp.choices[0].message.content = "first"
+    rec.chat(MSGS, module="viewers", max_tokens=100)
+    meta.chat._resp.choices[0].message.content = "second"
+    rec.chat(MSGS, module="viewers", max_tokens=100, draw=1)
+    assert all("draw" not in call for call in meta.chat.calls)  # an internal knob, not an API parameter
+    assert len(list((tmp_path / "cassettes").glob("*.json"))) == 2
+
+    play = client(tmp_path, "replay")
+    assert play.chat(MSGS, module="viewers", max_tokens=100).text == "first"
+    assert play.chat(MSGS, module="viewers", max_tokens=100, draw=1).text == "second"
+
+
+def test_a_retest_viewer_asks_for_a_new_draw(tmp_path):
+    from whynot.sim.viewer import Viewer
+
+    seen = []
+
+    class Spy:
+        settings = None
+
+        def viewer_chat(self, messages, **kwargs):
+            seen.append(kwargs.get("draw", 0))
+            raise RuntimeError("stop here")
+
+    for draw in (0, 1):
+        with pytest.raises(RuntimeError):
+            Viewer(Spy(), cache=None, draw=draw).react(*_one_feed(), feed_id="f1")
+    assert seen == [0, 1]
+
+
+def _one_feed():
+    from whynot.sim.feed import Feed, FeedItem
+    from whynot.sim.personas import Persona
+
+    persona = Persona("p1", "US", "25-34", "female")
+    feed = Feed([FeedItem("a1", "Brand", "Hi", "Hello there"), FeedItem("a2", "Other", "Buy", "Buy this")])
+    return persona, feed

@@ -178,7 +178,10 @@ class ModelClient:
     def _chat(self, client: Callable[[], OpenAI], model: str, messages: list[dict], module: str,
               **kwargs) -> ChatResult:
         check_priced(model)
-        key = request_key(model, messages, kwargs)
+        # `draw` > 0 asks for another, independent answer to the same request (test-retest): it is part of
+        # the cassette key but never sent to the API. draw 0 keeps the keys of existing recordings.
+        draw = kwargs.pop("draw", 0)
+        key = request_key(model, messages, {**kwargs, "draw": draw} if draw else kwargs)
         raw: Any = None
         if self.cassette.replaying:  # never the network, never the budget: the answer was paid for once
             rec = self.cassette.load(key, model=model, module=module)
