@@ -250,7 +250,8 @@ def save_jsonl(ads: list[CompetitorAd], path: Path) -> Path:
 
 def load_jsonl(path: Path) -> list[CompetitorAd]:
     ads: list[CompetitorAd] = []
-    for line in Path(path).read_text(encoding="utf-8").splitlines():
+    # split on "\n" only: ad copy can hold U+2028 / U+0085, which splitlines() treats as line ends
+    for line in Path(path).read_text(encoding="utf-8").split("\n"):
         if not line.strip():
             continue
         d = json.loads(line)
