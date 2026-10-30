@@ -399,6 +399,11 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 
 If a gate fails: write it in `STATUS.md`, take the next item from the cut list, and never lower a target silently.
 
+### Gate log
+
+- **Thu Oct 29 gate (cassettes + cost cap + cache): met Oct 30** (branch `a/lane-a-oct30`): E0-1, E0-2 code done, E0-3 done; a fake-world `create` replays offline at $0. Real cassettes wait for `MODEL_API_KEY`.
+- **Fri Oct 30, lane A:** E3-1 done (hard feeds wired into simulate + evolve); E3-2 and E3-3 code done (tournament τ 0.92, noise floor); E2-6 code done (bias suite); E0-4 done; E0-5 tests 96 s → 25 s. **R3 not measured yet** (E2-1 needs model keys and credits): first task once keys are in `.env`.
+
 ## 4. Cut list (in order) and never-cut list
 
 Cut, in order:
