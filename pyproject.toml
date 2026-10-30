@@ -24,6 +24,10 @@ dev = [
     "ruff>=0.17.3",
     "types-pyyaml>=6.0.12.20260906",
 ]
+# creative capture from Ad Library snapshot pages (headless Chromium): `uv run --group capture ...`
+capture = [
+    "playwright>=1.64",
+]
 
 [build-system]
 requires = ["hatchling"]

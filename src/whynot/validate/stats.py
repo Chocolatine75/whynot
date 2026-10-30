@@ -101,6 +101,48 @@ def auc_ci(scores: Sequence[float], labels: Sequence[bool], **kwargs) -> tuple[f
                         len(scores), **kwargs)
 
 
+def stratified_auc(scores: Sequence[float], labels: Sequence[bool], strata: Sequence[str]) -> float:
+    """AUC counting only pairs (positive, negative) from the same stratum (e.g. the same advertiser).
+
+    Answers "within one advertiser, does the score rank its lasting ads above its short-lived ones?",
+    so a score that only recognises the brand gets no credit. Ties count half. Strata with one class
+    only contribute nothing."""
+    if not len(scores) == len(labels) == len(strata):
+        raise ValueError("scores, labels and strata must have the same length")
+    by: dict[str, tuple[list[float], list[float]]] = {}
+    for s, y, g in zip(scores, labels, strata, strict=True):
+        by.setdefault(g, ([], []))[0 if y else 1].append(s)
+    wins = pairs = 0.0
+    for pos, neg in by.values():
+        for p in pos:
+            for q in neg:
+                pairs += 1
+                wins += 1.0 if p > q else 0.5 if p == q else 0.0
+    if not pairs:
+        raise ValueError("no stratum has both a positive and a negative")
+    return wins / pairs
+
+
+def stratified_auc_ci(scores: Sequence[float], labels: Sequence[bool], strata: Sequence[str],
+                      **kwargs) -> tuple[float, float]:
+    """Bootstrap CI resampling whole strata (advertisers), since items of one stratum are not independent."""
+    groups: dict[str, list[int]] = {}
+    for i, g in enumerate(strata):
+        groups.setdefault(g, []).append(i)
+    keys = sorted(groups)
+
+    def metric(idx: list[int]) -> float:
+        s, y, g = [], [], []
+        for copy, k in enumerate(idx):
+            for i in groups[keys[k]]:
+                s.append(scores[i])
+                y.append(labels[i])
+                g.append(f"{copy}")  # a stratum drawn twice counts as two strata
+        return stratified_auc(s, y, g)
+
+    return bootstrap_ci(metric, len(keys), **kwargs)
+
+
 def wilson_interval(successes: int, n: int, z: float = 1.959964) -> tuple[float, float]:
     """95 % Wilson score interval for a proportion."""
     if n <= 0 or not 0 <= successes <= n:

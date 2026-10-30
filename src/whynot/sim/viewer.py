@@ -100,8 +100,9 @@ def render_feed(feed: Feed) -> tuple[str, dict[str, str]]:
 def build_messages(persona: Persona, feed: Feed) -> tuple[list[dict], dict[str, str]]:
     text, labels = render_feed(feed)
     content: list[dict[str, Any]] = [{"type": "text", "text": INSTRUCTIONS.format(n=len(feed), ads=text)}]
-    for item in feed:
-        if item.image_url:
+    for i, item in enumerate(feed, start=1):
+        if item.image_url:  # each image right after its label, so the viewer can't mix them up
+            content.append({"type": "text", "text": f"Image of [A{i}]:"})
             content.append({"type": "image_url", "image_url": {"url": item.image_url}})
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": SYSTEM.format(who=persona.describe())},

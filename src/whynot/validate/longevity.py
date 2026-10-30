@@ -81,6 +81,43 @@ def select(ads: list[CompetitorAd], *, as_of: date, per_class: int, long_days: i
     return chosen
 
 
+def select_paired(ads: list[CompetitorAd], *, as_of: date, per_advertiser: int = 4, long_days: int = 60,
+                  short_days: int = 14, seed: int = 0) -> list[LabelledAd]:
+    """R3 v1 selection: only advertisers with both classes, the same number of each per advertiser.
+
+    v0 (`select`) balanced the classes overall, so one brand could fill a class alone (Ling: 24 long,
+    0 short) and the test partly measured the brand. Here every advertiser contributes
+    k = min(its long, its short, `per_advertiser`) ads of each class, deduplicated by copy."""
+    if per_advertiser < 1:
+        raise ValueError("per_advertiser must be at least 1")
+    seen: set[tuple[str, str]] = set()
+    pos: dict[str, list[CompetitorAd]] = {}
+    neg: dict[str, list[CompetitorAd]] = {}
+    for ad in ads:
+        if not (ad.bodies and ad.bodies[0].strip()):
+            continue
+        key = _copy_key(ad)
+        if key in seen:
+            continue
+        lab = label(ad, as_of=as_of, long_days=long_days, short_days=short_days)
+        if lab is None:
+            continue
+        seen.add(key)
+        (pos if lab else neg).setdefault(key[0], []).append(ad)
+    rng = random.Random(seed)
+    chosen: list[LabelledAd] = []
+    for adv in sorted(set(pos) & set(neg)):
+        k = min(len(pos[adv]), len(neg[adv]), per_advertiser)
+        chosen += [LabelledAd(a, True) for a in rng.sample(sorted(pos[adv], key=lambda a: a.id), k)]
+        chosen += [LabelledAd(a, False) for a in rng.sample(sorted(neg[adv], key=lambda a: a.id), k)]
+    rng.shuffle(chosen)
+    return chosen
+
+
+def advertiser(ad: CompetitorAd) -> str:
+    return _copy_key(ad)[0]
+
+
 @dataclass
 class LongevityResult:
     n_long: int
