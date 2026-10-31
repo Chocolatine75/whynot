@@ -65,7 +65,7 @@ mode, end date, naming yes/no).
 
 - `uv run whynot daily outputs/runs/<run>` (one day, today; real account). Read
   `outputs/runs/<run>/agency/reports/<day>.md`, send him the report, act on his blocks.
-- Video ads are not published by the daily loop yet (E14-10): new videos wait in "Waiting for your approval".
+- New video ads are published by the daily loop (one ad set each, the plan's persona targeting) when the autopilot allows it; in `propose` mode they wait in "Waiting for your approval" until `--approve`.
 - Anything odd → `whynot stop` first, questions after.
 
 ## 5. After

@@ -128,7 +128,7 @@ def test_two_runs_at_the_same_time_are_impossible(tmp_path):
                 policy=AUTOPILOT, strategy=STRATEGY, say=lambda s: None)
 
 
-def test_on_the_real_account_pauses_go_to_meta_and_unbuilt_video_launches_wait(tmp_path):
+def test_on_the_real_account_pauses_go_to_meta_and_launches_wait_without_a_publisher(tmp_path):
     from types import SimpleNamespace as NS
 
     from whynot.agency.daily import MetaLauncher
@@ -140,7 +140,7 @@ def test_on_the_real_account_pauses_go_to_meta_and_unbuilt_video_launches_wait(t
     assert calls == [("123", "PAUSED")]
     rep = run_day(tmp_path, DAY0, source=SimulatedAccount(), producer=Producer(), launcher=launcher,
                   policy=AUTOPILOT, strategy=STRATEGY, say=lambda s: None)
-    assert not rep.live and rep.waiting_approval and "E14-10" in rep.failures[0]
+    assert not rep.live and rep.waiting_approval and "no video publisher" in rep.failures[0]
 
 
 def test_a_failed_idea_is_replaced_the_same_day_and_never_retried(tmp_path):
