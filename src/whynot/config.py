@@ -29,6 +29,7 @@ class Settings:
     meta_sandbox_ad_account_id: str | None = None
     meta_page_id: str | None = None
     meta_app_id: str | None = None
+    partner_ad_account_id: str | None = None  # read-only unless the owner approves live actions
     max_daily_ad_spend_eur: float = 0.0  # hard cap; 0 = no live spend
     cassette_mode: str = "off"  # off | record | replay (see cassette.py)
     cassette_dir: Path = REPO_ROOT / "tests" / "cassettes"
@@ -79,6 +80,7 @@ def load_settings() -> Settings:
         meta_sandbox_ad_account_id=_clean(os.getenv("META_SANDBOX_AD_ACCOUNT_ID")) or None,
         meta_page_id=_clean(os.getenv("META_PAGE_ID")) or None,
         meta_app_id=_clean(os.getenv("META_APP_ID")) or None,
+        partner_ad_account_id=_clean(os.getenv("PARTNER_AD_ACCOUNT_ID")) or None,
         max_daily_ad_spend_eur=_float("MAX_DAILY_AD_SPEND_EUR", 0.0),
         cassette_mode=_clean(os.getenv("WHYNOT_CASSETTE")) or "off",
         cassette_dir=Path(_clean(os.getenv("WHYNOT_CASSETTE_DIR")) or REPO_ROOT / "tests" / "cassettes"),

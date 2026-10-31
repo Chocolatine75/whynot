@@ -60,6 +60,7 @@ src/whynot/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry
     longevity.py       R3: simulator vs Ad Library longevity
     retest.py          test-retest noise floor: the smallest simulated difference reported as real
+    backtest.py        R1: the partner's past ads ranked blind vs their real CTR (pre-registered pairs)
     bias.py            bias suite: twins differing in one attribute (name, length, emoji, label) + position
 web/                   client platform (Next.js): lib/runs.ts reads run folders, lib/start.ts starts the engine,
                        components/AgencyRoom.tsx shows a run; tests in web/test (vitest)
