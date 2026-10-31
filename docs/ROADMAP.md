@@ -15,7 +15,7 @@ The bar is `TARGETS.md`. This file is how we get there. `PLAN.md` keeps the mile
 - **Video ads are now the core output (new epic E14, mostly done):** `whynot video RUN` makes trend-jacking ads (a viral format, then the app as the twist), with real UI cut out by SAM 3.1, Muse Image photos, a young creator voice plus native voices (dialogue), word-by-word captions, sound effects, music, rendered with Remotion. VietBuddy: 3 ads in ~5 min for ~$0.30.
 - **Simulator validation (R3) failed twice** (v0, v1 on 44 advertisers with images and a judge baseline): nothing model-based beats chance; shorter copy does (0.62). Reported as a limit; E2-10 market-trained judge postponed after the demo work.
 - **Partner (VietBuddy) available Monday Nov 2 only:** R1 backtest and pilot launch that day.
-- **Next (in order):** E14-8 selling structure (demo, proof, transformation, offer) → E9 platform showing the agency at work (video pipeline live, Remotion Player) → partner Monday → demo video.
+- **Next (in order):** E14-10 videos published to Meta (the daily loop's last missing link) → real footage (Pexels) and TikTok trends if Apify access → E9 platform showing the agency at work → partner Monday → demo video. Done since: E14-8 ads that sell, E8-2/E8-3 daily loop.
 
 ### Baseline (Oct 29)
 
@@ -311,10 +311,10 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 - [ ] **E8-1** ★ Finish real publishing (B)
   - *Done when:* the remaining `ads` step succeeds on a real account (Matteo's once Meta clears it, or the partner's, PAUSED, with consent). `META_APIS.md` lists every error seen and the fix.
   - *Tests:* `test_publish` gains the real error shapes we saw (1885183, 1341012, 1359188, 2490592) with clear messages.
-- [ ] **E8-2** ★ Read real metrics (B)
+- [x] **E8-2** ★ Read real metrics (B) — *Oct 31: `run/insights.py` (Insights API per ad and day, cursors not token URLs, junk numbers as 0, provisional recent days) + a labelled simulated account; property test on totals.*
   - *Done when:* `run/insights.py` reads the Insights API per ad and day (spend, impressions, clicks, CTR, installs, CPA), handles attribution delays, and never stores tokens.
   - *Tests:* contract on recorded insights responses; property (sums per day match totals).
-- [ ] **E8-3** ★ `whynot daily` (B)
+- [x] **E8-3** ★ `whynot daily` (B) — *Oct 31: `agency/daily.py` + `agency/memory.py` + `agency/ideas.py`: results → pause losers/tired (decide + log) → ideas (exploit what sells in a new format, explore far away, never an idea twice, backups when one fails) → videos told past hooks → launch within cap/autonomy → report. Lock against concurrent runs; cap property over random results. Simulated week on VietBuddy: 4 days, 3 ads live, $0.57. Publishing videos to Meta still E14-10.*
   - *Done when:* metrics → autopilot rules (pause losers, keep winners, fatigue) → new variants from the evolution → simulate → publish within caps → daily report. Every action goes through `decide()` and is logged. It runs from cron or the web app.
   - *Tests:*
     - e2e on a fake Meta with 7 simulated days of metrics: losers paused, cap never exceeded (property over random metric series);
@@ -434,6 +434,7 @@ If a gate fails: write it in `STATUS.md`, take the next item from the cut list, 
 
 ### Gate log
 
+- **Sat Oct 31, daily loop (E8-2, E8-3) done** on a simulated account: memory, idea planner (exploit/explore, never twice), backups. Found on the real run: a failed idea was retried every day (fixed: recorded as failed, backups fill the slot) and 34 % exploit rounded to 0 with one slot (fixed).
 - **Sat Oct 31, E14-8 done:** ads go trend → twist → demo (≥ 25 %, ≥ 2 real screens, a tap) → a verified 4-5★ App Store review quoted word for word → transformation → offer from the store page ("Free to download"); the creator names the app. Voice guard taught spoken forms (wanna, lowkey, fifty/50, VietBuddy/Viet buddy) after it dropped a correct voice.
 - **Sat Oct 31:** trend video ads with voice, dialogue and native voices done (E14-1..7); harsh sound effects removed, transitions fixed. Matteo: "much better, but it doesn't sell yet" → E14-8 next.
 - **Fri Oct 30, replan:** the partner is only available Mon Nov 2. R1 (needs only his past ads) moves to Monday, same day; the pilot launches Monday and shows 1–2 days of results, presented as a start with predictions published before. R3 failed (v0, v1), so validation rests on E2-10 (market-trained judge), R2 (humans) and R1. Arena (E9-3) cut: the product is the agency for a real client.
