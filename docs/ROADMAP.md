@@ -319,7 +319,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
   - *Tests:*
     - e2e on a fake Meta with 7 simulated days of metrics: losers paused, cap never exceeded (property over random metric series);
     - a cap breach is impossible, even under concurrent runs (lock test).
-- [ ] **E8-4** ★ Predictions published before results (B + A, R5)
+- [ ] **E8-4** ★ Predictions published before results (B + A, R5) — *Oct 31: `whynot predict RUN --name` (`validate/predictions.py`): ranking per ad set with image hashes, no copy, canonical SHA-256, never rewritten, `--verify`; `scripts/compare_predictions.py` reads Insights and scores pairs within ad sets outside the noise (rule fixed in the file). Left: freeze on Monday, post the hash, compare after the pilot.*
   - *Done when:* before the pilot launches, the simulator's ranking of the pilot's ads is committed with a hash and a timestamp (git commit + a public post). After N days it is compared with real metrics.
   - *Tests:* the comparison script on synthetic outcomes.
 - [ ] **E8-5** Weekly report with approve / block (B)

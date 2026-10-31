@@ -228,6 +228,31 @@ def _stop(args: argparse.Namespace) -> int:
     return 0 if report.ok else 2
 
 
+def _predict(args: argparse.Namespace) -> int:
+    from whynot.validate.predictions import PredictionError, build, freeze, verify
+
+    if args.verify:
+        ok = verify(Path(args.verify), args.sha or "")
+        print("✓ the file matches the published hash" if ok else "✗ the file does NOT match the hash")
+        return 0 if ok else 1
+    if not args.run or not args.name:
+        print("✗ give a run folder and --name (or --verify FILE --sha HASH)", file=sys.stderr)
+        return 1
+    run_dir = Path(args.run)
+    try:
+        doc = build(json.loads((run_dir / "plan.json").read_text()), run_dir, name=args.name)
+        path, sha = freeze(doc, Path(args.out))
+    except (OSError, PredictionError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    n = sum(len(s["ads"]) for s in doc["ad_sets"])
+    print(f"✓ {n} ads ranked in {len(doc['ad_sets'])} ad set(s), frozen at {doc['created_at']}\n  {path}\n"
+          f"  sha256 {sha}\n\nCommit and push the file, then post BEFORE activating the ads:\n"
+          f"  \"Our simulator's ranking of the ads we launch today, frozen before any result: sha256 {sha[:16]}… "
+          f"We'll compare with the real CTRs in a few days, whatever they say.\"")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -294,6 +319,14 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("--by", required=True, metavar="NAME", help="who pulls the switch (logged)")
     st.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
     st.set_defaults(func=_stop)
+
+    pr = sub.add_parser("predict", help="freeze the simulator's ranking of a run's planned ads (post the hash)")
+    pr.add_argument("run", nargs="?", help="the run folder whose plan.json to rank")
+    pr.add_argument("--name", help="name of the prediction file, e.g. pilot-2026-11-02 (never overwritten)")
+    pr.add_argument("--out", default=str(REPO_ROOT / "validate" / "predictions"))
+    pr.add_argument("--verify", metavar="FILE", help="check a prediction file against its published hash")
+    pr.add_argument("--sha", help="with --verify: the published sha256")
+    pr.set_defaults(func=_predict)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")
