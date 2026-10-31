@@ -1,0 +1,11 @@
+{
+ "key": "71c86c0aa9e7ce89c11fc1e3a05cf67b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is clearly not for me, it's a cutesy tamagotchi thing for young people with anxiety, feels gimmicky\", \"intent\": \"I would just scroll past, no interest in a self-care game\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a wholesale B2B ad for a single gold ring, I'm not a jewelry reseller and I don't wear this\", \"intent\": \"I wouldn't click, I have no use for Alibaba bulk jewelry\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's completely in Thai so I have no idea what it's saying, why show it to me in France\", \"intent\": \"I wouldn't click on an ad I can't even read\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in pounds for UK GCSE tutoring, I'm in France and not a student looking for a tutoring side job, looks like spam\", \"intent\": \"I would ignore it, not relevant to my age or location\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Revolut and I don't need another bank account right now\", \"intent\": \"I wouldn't click now but it's the only ad that looked professional and relevant\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1843,
+ "cached_tokens": 0,
+ "output_tokens": 637,
+ "reasoning_tokens": 230
+}

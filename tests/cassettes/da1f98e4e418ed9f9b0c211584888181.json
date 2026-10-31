@@ -1,0 +1,11 @@
+{
+ "key": "da1f98e4e418ed9f9b0c211584888181",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a spammy dating ad, probably fake profiles and will ask for money\", \"intent\": \"I would not click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't do any sewing or crafting so it's completely irrelevant to me\", \"intent\": \"I would not click or buy, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these free things never end up actually free, just want your data\", \"intent\": \"I wouldn't click, maybe paused for a second then kept scrolling\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Khmer, just not relevant at all\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology stuff and it looks like it will charge you after the first chat\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 645,
+ "cached_tokens": 128,
+ "output_tokens": 695,
+ "reasoning_tokens": 339
+}

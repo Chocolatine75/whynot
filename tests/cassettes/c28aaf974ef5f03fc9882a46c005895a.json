@@ -1,0 +1,11 @@
+{
+ "key": "c28aaf974ef5f03fc9882a46c005895a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"The image is just weird with his stomach out and I don't need a belt like that\", \"intent\": \"I wouldn't click or buy this at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and the image looks like fake AI cartoon stuff, not for me\", \"intent\": \"I wouldn't click or try this app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another spammy mobile game calling itself best game, I don't play them\", \"intent\": \"I might have glanced at it but I wouldn't click to play\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a wholesale furniture thing for businesses, nothing to do with me\", \"intent\": \"I wouldn't click or buy as it's not relevant\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and I'm not looking to become a counsellor, not interested\", \"intent\": \"I wouldn't click or sign up for the training\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2038,
+ "cached_tokens": 128,
+ "output_tokens": 531,
+ "reasoning_tokens": 173
+}

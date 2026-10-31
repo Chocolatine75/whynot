@@ -1,0 +1,11 @@
+{
+ "key": "6275097430bebb10a346ce3325407487",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another dropship ad with fake personal review, I don't need a cycling cap right now\", \"intent\": \"I wouldn't click, maybe I'd glance but keep scrolling\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and I'm not interested in religious study collections, just scrolled past\", \"intent\": \"I would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"again French, same religious stuff, not for me at all\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"too vague, just 'feel better' says nothing, looks like generic wellness app ad\", \"intent\": \"I would not click, no interest\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute idea but I don't need a self-care pet game, probably just another app trying to get subscriptions\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1662,
+ "cached_tokens": 0,
+ "output_tokens": 827,
+ "reasoning_tokens": 471
+}

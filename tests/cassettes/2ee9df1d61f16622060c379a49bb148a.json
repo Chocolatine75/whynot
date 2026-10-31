@@ -1,0 +1,11 @@
+{
+ "key": "2ee9df1d61f16622060c379a49bb148a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and these huge 50% off claims never include anything good, I just get my food shop from Tesco anyway\", \"intent\": \"No I wouldn't click, just scrolled past it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into AI chat horror stuff, feels a bit gimmicky and aimed at teens not me\", \"intent\": \"Definitely wouldn't click or use it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's half in Spanish so I had no clue what app it actually is or why I'd want it\", \"intent\": \"No, wouldn't click, just ignored it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen Revolut ads a million times, I'm happy with my bank and tired of fintech ads pushing me\", \"intent\": \"No need to click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't play those survival mobile games, looked like another cheap game ad\", \"intent\": \"Wouldn't click, not my thing\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 647,
+ "cached_tokens": 128,
+ "output_tokens": 910,
+ "reasoning_tokens": 532
+}

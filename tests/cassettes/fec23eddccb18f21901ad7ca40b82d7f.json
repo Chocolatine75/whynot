@@ -1,0 +1,11 @@
+{
+ "key": "fec23eddccb18f21901ad7ca40b82d7f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice in a perfect garden shot but I don't have a garden like that and no idea what it actually costs or if it just overflows and gets manky\", \"intent\": \"No chance I'm clicking to buy a bird bath off an Instagram ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Temu spam again, says click video link and search a code, no clue what it's actually selling, cabinet or figures, just junk\", \"intent\": \"Would scroll straight past this Temu stuff\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Says AI-generated imagery right at the bottom so it's not even real stock, definitely a scam and not real DeWalt\", \"intent\": \"Wouldn't click, looks dodgy as hell even if I like tools\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai and the picture is a dirty portaloo, no idea what it's trying to sell me and don't care\", \"intent\": \"No way I'm tapping on a toilet photo ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title is about platform sneakers but image is some pink creepy doll box, makes no sense and screams scam Temu listing\", \"intent\": \"Would ignore it completely, not clicking at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2070,
+ "cached_tokens": 128,
+ "output_tokens": 594,
+ "reasoning_tokens": 174
+}

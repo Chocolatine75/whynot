@@ -1,0 +1,11 @@
+{
+ "key": "174bba2cc966ae6511160363cf247b97",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just looks like spam with all those hashtags, not for normal shoppers like me, why would I need wholesale from China\", \"intent\": \"wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's clearly aimed at men/church leaders not me and feels a bit preachy and pushy\", \"intent\": \"would keep scrolling, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's literally fire alarm cable specs, I have zero use for that and it's boring tech jargon\", \"intent\": \"definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French so I can't even read it properly and I'm not that religious anyway\", \"intent\": \"would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"why am I being shown a dental chair? I'm not a dentist and Alibaba feels a bit dodgy for big purchases\", \"intent\": \"no chance I'd click or buy this\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1330,
+ "cached_tokens": 128,
+ "output_tokens": 621,
+ "reasoning_tokens": 250
+}

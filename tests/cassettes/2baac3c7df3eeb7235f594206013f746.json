@@ -1,0 +1,11 @@
+{
+ "key": "2baac3c7df3eeb7235f594206013f746",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"massive scary wall of text trying to sell a miracle patch, not relevant to me and feels like a scam\", \"intent\": \"would just keep scrolling, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish and I'm in the UK, not trying to learn English\", \"intent\": \"would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks nice but I don't have a garden and don't need a bird bath\", \"intent\": \"might watch a second but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't have a dog so totally irrelevant\", \"intent\": \"wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"camera toothbrush is a cool gimmick but £95 is a lot and I don't really need it\", \"intent\": \"might click to see what it is but probably wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9251,
+ "cached_tokens": 7424,
+ "output_tokens": 640,
+ "reasoning_tokens": 288
+}

@@ -1,0 +1,11 @@
+{
+ "key": "4e4a525f82cd5793addc42a500c16a86",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks pretty but that Britainuk72 name looks like a dropship scam and there's no price, probably cheap plastic rubbish that won't work in real rain\", \"intent\": \"Might have a quick look if I see it cheaper elsewhere but wouldn't buy from this ad\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust Temu quality for kids toys and I'm too old for toddler stuff anyway\", \"intent\": \"Just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this is, some printer part, nothing to do with me\", \"intent\": \"No reason to click at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£95 is a lot for a toothbrush and why would I want to film my own teeth, seems a bit gimmicky\", \"intent\": \"Wouldn't buy but I did pause to read it out of curiosity\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not trying to learn a language and $240 is still a lot of money even on sale\", \"intent\": \"Not for me so I kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 870,
+ "cached_tokens": 128,
+ "output_tokens": 615,
+ "reasoning_tokens": 225
+}

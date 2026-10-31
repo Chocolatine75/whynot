@@ -1,0 +1,11 @@
+{
+ "key": "6aa3cfb64942520a20cd7cdc1fbb4718",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Copy is badly truncated and incomplete in multiple places with a generic dropshipper handle, signaling an unoptimized amateur setup unlikely to sustain profitable ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 361,
+ "cached_tokens": 128,
+ "output_tokens": 311,
+ "reasoning_tokens": 258
+}

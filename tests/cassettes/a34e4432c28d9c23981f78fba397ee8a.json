@@ -1,0 +1,11 @@
+{
+ "key": "a34e4432c28d9c23981f78fba397ee8a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and this feels like a scam to get you to pay after the first chat\", \"intent\": \"I would not click, I'm not interested in kundali readings\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business, I don't need wholesale handbags with custom logos\", \"intent\": \"I would just scroll past, this is not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have Peloton equipment and 45 pounds a month is way too expensive and it's for the UK anyway\", \"intent\": \"I wouldn't click, I'm not training for a race\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It sounds nice but there are so many of these apps and I doubt a 3-minute quiz will really help with anxiety\", \"intent\": \"I might pause to look but I wouldn't click to buy or take the quiz\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I already saw this ad above and I don't understand Hindi so I just scrolled past\", \"intent\": \"I would definitely not click on this one\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 688,
+ "cached_tokens": 0,
+ "output_tokens": 877,
+ "reasoning_tokens": 485
+}

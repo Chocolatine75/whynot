@@ -1,0 +1,11 @@
+{
+ "key": "695d73f5b0048ac7c6c2daca0e3504fb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese, I don't understand anything, not for me at all\", \"intent\": \"I would just keep scrolling, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The banner is funny but it's an ad for another video editor, I already have CapCut and I don't need ads for this\", \"intent\": \"I might look for a second but I wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Fantasy transmigration story, not my kind of thing and looks like cheap AI drama\", \"intent\": \"I would scroll past, not interested in watching this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Romanian I think, I don't understand the text and I don't need to learn English like this\", \"intent\": \"I wouldn't click, just ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Something about astrology exposed but I don't believe in astrology and the language is not French\", \"intent\": \"I would not click, I don't care about astrology chats\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1611,
+ "cached_tokens": 0,
+ "output_tokens": 735,
+ "reasoning_tokens": 354
+}

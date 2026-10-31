@@ -1,0 +1,11 @@
+{
+ "key": "88c2e141da28a448dcd19e00c5f37829",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic AI-like vague benefit-bullets, promise-heavy copy with no proof/offer/urgency, and cluttered text-heavy creative are classic low-CTR, low-conversion patterns that rarely sustain months of profitable spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 683,
+ "cached_tokens": 128,
+ "output_tokens": 263,
+ "reasoning_tokens": 196
+}

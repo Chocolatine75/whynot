@@ -1,0 +1,11 @@
+{
+ "key": "da5b5c81f0c3f65433efd3629edd78b7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in psychic readings, feels like a scam targeting vulnerable people, and the image has nothing to do with the text\", \"intent\": \"I would not click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and I don't pay for this kind of ebook guide\", \"intent\": \"I would keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image is just a blank blue square, doesn't make me want anything, and the text is too generic\", \"intent\": \"I would not click, nothing to see here\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same psychic app as before, I don't trust astrology and the mix of English and Hindi isn't relevant to me in France\", \"intent\": \"I wouldn't click, I'd scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"At least the image is clear with food and drink, but I wasn't planning to order Deliveroo\", \"intent\": \"I wouldn't order now but it's the only ad that actually caught my eye\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1915,
+ "cached_tokens": 0,
+ "output_tokens": 653,
+ "reasoning_tokens": 267
+}

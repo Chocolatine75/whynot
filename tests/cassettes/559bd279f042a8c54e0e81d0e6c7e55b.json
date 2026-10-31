@@ -1,0 +1,11 @@
+{
+ "key": "559bd279f042a8c54e0e81d0e6c7e55b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I just scrolled straight past, no idea what it's actually selling\", \"intent\": \"Wouldn't click, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and it's about learning English which I don't need\", \"intent\": \"No reason to click on this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I've seen Peloton before but I can't afford it and have nowhere to put a bike, just not relevant\", \"intent\": \"Might pause to look but definitely wouldn't buy.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's super religious, I'm not religious so I just ignored it\", \"intent\": \"Would not click, zero interest.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and feel really scammy, don't trust the free gift thing\", \"intent\": \"Would not click, I avoid Temu.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1157,
+ "cached_tokens": 0,
+ "output_tokens": 953,
+ "reasoning_tokens": 594
+}

@@ -1,0 +1,11 @@
+{
+ "key": "f20e6f10ac6b2acecd0657fa4e6d5935",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen loads of these wellness apps promising to fix anxiety with a quick quiz then trapping you in a subscription\", \"intent\": \"I would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks nice but I don't need a fancy expensive toothbrush and a camera in my mouth is a bit much\", \"intent\": \"I would not click to buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just seen the same ad and I'm not paying a premium for a toothbrush when my electric one works fine\", \"intent\": \"I would keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"totally irrelevant to me, looks like printer parts for a business\", \"intent\": \"I would not click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and not looking to train as a counsellor\", \"intent\": \"I would not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 875,
+ "cached_tokens": 128,
+ "output_tokens": 789,
+ "reasoning_tokens": 436
+}

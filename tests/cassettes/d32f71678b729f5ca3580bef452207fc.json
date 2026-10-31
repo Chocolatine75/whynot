@@ -1,0 +1,11 @@
+{
+ "key": "d32f71678b729f5ca3580bef452207fc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in arabo, non capisco niente e poi il titolo dice photo editor e il testo parla di musica, sembra truffa o spam\", \"intent\": \"Non ci cliccherei assolutamente.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non mi serve, sembra uno di quei gadget inutili che si rompono subito e non mi fido di questi negozi\", \"intent\": \"Lo scorro oltre, non mi interessa comprarlo.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sembra carino per passare il tempo ma sono pubblicità di giochini che poi ti bombardano di annunci e non voglio installare niente\", \"intent\": \"Forse guarderei due secondi il video ma non lo scaricherei.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"È Temu, qualità pessima e il titolo è lunghissimo e confusionario, non mi fido a dare i dati\", \"intent\": \"Non comprerei mai una cover così online.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non ho un cane quindi non mi riguarda e poi ogni orsetto dicono indistruttibile e invece lo distruggono\", \"intent\": \"Lo ignoro e continuo a scorrere.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 692,
+ "cached_tokens": 0,
+ "output_tokens": 898,
+ "reasoning_tokens": 479
+}

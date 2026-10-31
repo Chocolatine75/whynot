@@ -1,0 +1,11 @@
+{
+ "key": "f5314af493d07e9a08be63db9ae744c9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't need an ink box or a high-vis jacket and the title doesn't match the picture at all, looks like junk spam from Alibaba.\", \"intent\": \"I would scroll straight past and not click.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says sea shells for decoration but shows a metal nozzle thing, totally irrelevant to me and makes no sense.\", \"intent\": \"No reason to click, I would ignore it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need teeth straightening at my age and I don't trust these cheap finance offers on Instagram.\", \"intent\": \"I would not click for a consultation.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It's clear it's for a Peloton bike on finance but I'm not interested in buying expensive exercise equipment.\", \"intent\": \"I might look for a second but I wouldn't click to buy.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a rider job, I'm too old for that and I have a proper job already.\", \"intent\": \"I would just keep scrolling, not apply.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1939,
+ "cached_tokens": 0,
+ "output_tokens": 796,
+ "reasoning_tokens": 410
+}

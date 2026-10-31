@@ -1,0 +1,11 @@
+{
+ "key": "a0b9c9f20dbbe7de6f70347ca2ea8009",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Hyper-tropey rejected-mate to Lycan King contract-marriage hook is a proven viral click-driver for paranormal romance readers that consistently delivers cheap CTR and ROAS despite generic image.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 565,
+ "cached_tokens": 128,
+ "output_tokens": 401,
+ "reasoning_tokens": 342
+}

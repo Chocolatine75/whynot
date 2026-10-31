@@ -1,0 +1,11 @@
+{
+ "key": "114cc91aaf9c53c5f77e008044bfca3d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another annoying bubble game ad, I see these all the time and I don't play mobile games\", \"intent\": \"I would just scroll past, not interested in downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"This is creepy, it's about secretly tracking someone without them knowing, that's stalking and totally unethical\", \"intent\": \"I would never click on this, it feels dangerous and invasive\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak Japanese or Thai and I have no reason to learn Thai, so this is not for me\", \"intent\": \"I wouldn't click, it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese which I don't understand and the scary dog image has nothing to do with the text, looks like spam\", \"intent\": \"I would scroll right past, I don't trust this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and I don't want to buy a digital ebook about the Bible\", \"intent\": \"I would not click learn more, it's not my beliefs\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1919,
+ "cached_tokens": 0,
+ "output_tokens": 733,
+ "reasoning_tokens": 344
+}

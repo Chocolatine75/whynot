@@ -1,0 +1,11 @@
+{
+ "key": "3d49127685a3e627b89475a1273b4d22",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't have a dog so totally irrelevant, and looks like one of those dodgy dropship pet cures\", \"intent\": \"wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Polish so I have no idea what it's actually saying, not for me\", \"intent\": \"wouldn't click, ignored it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and scary, reads like a fake nurse story trying to sell me patches\", \"intent\": \"definitely wouldn't click or buy, seems like a scam\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"actually kind of cool but £95 is a lot for a toothbrush and I don't need a camera in my mouth\", \"intent\": \"might look it up later but wouldn't buy right now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"live in a flat with no garden so a bird bath is useless to me\", \"intent\": \"wouldn't click, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8116,
+ "cached_tokens": 128,
+ "output_tokens": 636,
+ "reasoning_tokens": 265
+}

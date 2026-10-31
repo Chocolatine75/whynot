@@ -1,0 +1,11 @@
+{
+ "key": "9d25be0903a3bfbb7910465a50b2ff36",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic 'Try Now' title with 5-star emojis and minimal Japanese text offers no distinct hook or value prop for competitive language-learning market, indicating low long-term ROAS potential.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 257,
+ "cached_tokens": 128,
+ "output_tokens": 236,
+ "reasoning_tokens": 178
+}

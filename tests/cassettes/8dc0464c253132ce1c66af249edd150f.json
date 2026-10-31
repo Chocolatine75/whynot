@@ -1,0 +1,11 @@
+{
+ "key": "8dc0464c253132ce1c66af249edd150f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic wellness claims with no specific hook, proof, or urgency will fatigue quickly and is unlikely to sustain efficient CTR/CVR for months in a competitive mental-health niche.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 331,
+ "cached_tokens": 128,
+ "output_tokens": 351,
+ "reasoning_tokens": 297
+}

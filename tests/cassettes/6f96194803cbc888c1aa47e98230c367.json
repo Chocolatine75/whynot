@@ -1,0 +1,11 @@
+{
+ "key": "6f96194803cbc888c1aa47e98230c367",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Total creative-offer mismatch: the copy pushes a specific £4/day invisible aligner deal but the dark, cluttered, unreadable phone-chat screenshot shows no aligners, smile transformation, or offer, guaranteeing low CTR and CVR so it would be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 479,
+ "cached_tokens": 128,
+ "output_tokens": 385,
+ "reasoning_tokens": 310
+}

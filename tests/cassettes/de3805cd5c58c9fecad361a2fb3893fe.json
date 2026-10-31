@@ -1,0 +1,11 @@
+{
+ "key": "de3805cd5c58c9fecad361a2fb3893fe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Dutch, not French, I don't understand what it's selling and I don't need a reel editor\", \"intent\": \"I would just keep scrolling, not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Psychic reading ads are scammy, I don't believe this stuff at all\", \"intent\": \"Definitely not clicking on a psychic ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi, I don't understand it, not for me\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another ad not in French or English, I can't read it so I ignore it\", \"intent\": \"No chance I click on something I can't understand\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam, I don't trust the quality and I hate those search code videos\", \"intent\": \"I might pause half a second then keep scrolling, not buying\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 0,
+ "output_tokens": 607,
+ "reasoning_tokens": 250
+}

@@ -1,0 +1,11 @@
+{
+ "key": "b80949ed505f50d02cf6d04bc98b0589",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic low-effort UGC affiliate creative with no price/offer, weak CTA ('link in bio/search code'), and stock-toy image lacks thumb-stopping hook or direct-response reason to buy, so it will burn out fast.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 509,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 275
+}

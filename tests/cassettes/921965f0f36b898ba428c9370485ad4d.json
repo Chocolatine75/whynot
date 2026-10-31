@@ -1,0 +1,11 @@
+{
+ "key": "921965f0f36b898ba428c9370485ad4d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and looks like a weird AI cartoon image, not a real photo editor - I wouldn't trust it\", \"intent\": \"I wouldn't click, it's not relevant to me and looks a bit scammy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Awkward image of a man showing his stomach, and I don't need a belt like that - just trying to scroll past quickly\", \"intent\": \"I would just keep scrolling, definitely not buying or clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a picture of a wooden cabinet for businesses sourcing from China, nothing to do with me\", \"intent\": \"I wouldn't click, it's not for an everyday shopper like me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in biblical counselling training, feels quite heavy and preachy for my feed and I'm not religious like that\", \"intent\": \"I wouldn't click learn more, just scroll on past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just another cheap mobile game ad with cartoon bears, I never click on these game ads\", \"intent\": \"I wouldn't click or download, I don't play those games\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2038,
+ "cached_tokens": 256,
+ "output_tokens": 619,
+ "reasoning_tokens": 216
+}

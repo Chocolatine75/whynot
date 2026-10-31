@@ -1,0 +1,11 @@
+{
+ "key": "62d965d29d3fefea530318299e74dbca",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have Deliveroo and I'm not hungry right now so no reason to click\", \"intent\": \"I wouldn't click unless I actually wanted to order food\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird mix of English and Hindi and I don't believe in astrology chat things feels scammy\", \"intent\": \"definitely not clicking on a psychic chat ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious at all so this is just not for me at all\", \"intent\": \"would just keep scrolling past this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"feels really manipulative and clickbaity trying to get insecure people to pay for psychic readings\", \"intent\": \"no way I'm clicking this I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"just saw the same Deliveroo ad above and I'm not ordering anything\", \"intent\": \"would ignore it same as the first one\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 0,
+ "output_tokens": 645,
+ "reasoning_tokens": 282
+}

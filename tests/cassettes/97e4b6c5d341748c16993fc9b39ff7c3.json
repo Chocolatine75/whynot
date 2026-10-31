@@ -1,0 +1,11 @@
+{
+ "key": "97e4b6c5d341748c16993fc9b39ff7c3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Seasonal Halloween angle is not evergreen for months-long spend and Bugs Bunny IP infringes copyright inviting disapproval, plus mismatched creative/text signals low-quality evergreen potential.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 452,
+ "cached_tokens": 128,
+ "output_tokens": 304,
+ "reasoning_tokens": 252
+}

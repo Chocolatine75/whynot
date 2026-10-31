@@ -1,0 +1,11 @@
+{
+ "key": "5d0db61589ec40c2879271d8ecb7702a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"creepy AI sexting vibe with the stepbrother stuff and the image looks AI and a bit seedy, not something I'd ever tap on\", \"intent\": \"I wouldn't click, it's not for me at all and feels a bit gross\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"makes no sense - Spanish text, random woman kicking stones in heels, what is it even selling? boots? Temu?\", \"intent\": \"I wouldn't click because I have no idea what I'm clicking on\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"don't have a dog and I never trust those 'indestructible' toy claims, they always get destroyed in 5 minutes anyway\", \"intent\": \"I wouldn't buy, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"the before/after with the weird belly fat costume is so fake and scammy and the shaming language puts me off\", \"intent\": \"I wouldn't click, looks like a fad diet scam\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's clearly for business owners and suppliers, nothing to do with me so I'd just scroll past\", \"intent\": \"I wouldn't click as it's not relevant to my life\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1996,
+ "cached_tokens": 128,
+ "output_tokens": 802,
+ "reasoning_tokens": 390
+}

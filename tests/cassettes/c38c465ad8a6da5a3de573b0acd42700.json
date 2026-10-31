@@ -1,0 +1,11 @@
+{
+ "key": "c38c465ad8a6da5a3de573b0acd42700",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks tacky and a bit seedy, not my sort of drama and I don't trust these click to watch now ads\", \"intent\": \"I wouldn't click it, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and it even says AI-generated imagery, I don't believe those big savings are real DeWalt\", \"intent\": \"I wouldn't buy tools from Temu, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is far too expensive and I haven't got the room or the knees for that sort of thing\", \"intent\": \"I wouldn't click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly phone game advert, I don't play these bubble games\", \"intent\": \"I wouldn't download it, I just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Gave me a little chuckle but I don't need novelty glasses, total waste of money\", \"intent\": \"I wouldn't buy them but it was the only one that made me smile\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1754,
+ "cached_tokens": 128,
+ "output_tokens": 722,
+ "reasoning_tokens": 336
+}

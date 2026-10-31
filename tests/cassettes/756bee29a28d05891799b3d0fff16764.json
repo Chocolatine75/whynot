@@ -1,0 +1,11 @@
+{
+ "key": "756bee29a28d05891799b3d0fff16764",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a cheap kids phone game ad, not something I play\", \"intent\": \"I would just scroll past, not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another AI English app, there are thousands and I don't need it\", \"intent\": \"I wouldn't click, I already know English enough\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This trashy soap opera drama ads are everywhere and look so fake\", \"intent\": \"No way I click on this melodrama\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Temu spam and why UK store? I don't trust Temu quality anyway\", \"intent\": \"I would keep scrolling and not open Temu\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and about religion, not for me at all\", \"intent\": \"I don't understand it and I'm not interested\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1332,
+ "cached_tokens": 128,
+ "output_tokens": 633,
+ "reasoning_tokens": 289
+}

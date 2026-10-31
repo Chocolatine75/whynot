@@ -1,0 +1,11 @@
+{
+ "key": "5cc09611322dbbc4065992a150cd8395",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Creative shows only 'IN 2022' on a black grainy background with no product, benefit, CTA or hook, paired with vague/generic copy and fake-review title, guaranteeing poor CTR and conversion and immediate scale-down.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 440,
+ "cached_tokens": 128,
+ "output_tokens": 255,
+ "reasoning_tokens": 191
+}

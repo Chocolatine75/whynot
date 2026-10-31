@@ -1,0 +1,11 @@
+{
+ "key": "73338266d13696c0814e5b4933b2ad13",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"cute but i get too many self-care game ads, i won't stick with it and don't need another app\", \"intent\": \"i would just keep scrolling, not download it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it sounds super cliché bad boy saves good girl story and i don't really trust these romance book ads\", \"intent\": \"i might pause to read but i wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in portuguese so i don't understand it and it looks like clickbait spam\", \"intent\": \"i scrolled right past without even reading properly\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"creepy AI chatbot trying to be a fake boyfriend, no thanks and the invitation code makes it look shady\", \"intent\": \"definitely not clicking, makes me uncomfortable\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"i already know and use vinted but i don't need to sell anything right now so no reason to click\", \"intent\": \"i like vinted but i wouldn't click now, maybe later if i sell\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 824,
+ "cached_tokens": 128,
+ "output_tokens": 622,
+ "reasoning_tokens": 233
+}

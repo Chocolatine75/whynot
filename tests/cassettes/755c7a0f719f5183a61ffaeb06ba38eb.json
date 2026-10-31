@@ -1,0 +1,11 @@
+{
+ "key": "755c7a0f719f5183a61ffaeb06ba38eb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title is gibberish and looks like cheap Temu junk, I don't trust the quality or the sizing\", \"intent\": \"I wouldn't click, I just scrolled straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's another Temu ad and I don't believe a sofa that cheap would be any good or even arrive properly\", \"intent\": \"No interest in clicking, I'm not buying furniture off Temu.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into astrology or kundali readings and free chat just means they'll try to charge you after\", \"intent\": \"I wouldn't click, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I have no idea what it's really saying and I'm not buying religious books from an ad\", \"intent\": \"I didn't click and just kept scrolling.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and it's Temu again, feels spammy and irrelevant to me in the UK\", \"intent\": \"Definitely wouldn't click or buy anything.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1302,
+ "cached_tokens": 128,
+ "output_tokens": 794,
+ "reasoning_tokens": 409
+}

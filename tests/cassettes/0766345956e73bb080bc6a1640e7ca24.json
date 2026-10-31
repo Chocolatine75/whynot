@@ -1,0 +1,11 @@
+{
+ "key": "0766345956e73bb080bc6a1640e7ca24",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Hindi and about astrology and exes coming back, total scam vibe and not for me at all\", \"intent\": \"I wouldn't click, I don't believe in that stuff\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and I don't need a bible ebook, just not relevant to me\", \"intent\": \"I wouldn't click, not interested in this at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a blank blue screen, no info about what's actually on offer\", \"intent\": \"I wouldn't click, there's literally nothing to look at\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do use Deliveroo but the fees are a rip off so I probably wouldn't order anyway\", \"intent\": \"Might click if I was hungry but probably wouldn't actually order\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird psychic ad with a creepy wedding dress image, feels like clickbait nonsense\", \"intent\": \"I wouldn't click, looks dodgy and not relevant\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1915,
+ "cached_tokens": 0,
+ "output_tokens": 699,
+ "reasoning_tokens": 321
+}

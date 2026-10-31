@@ -1,0 +1,11 @@
+{
+ "key": "6866410fef9ed0b02ff6685450e5ff99",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Thai so I have no idea what it's saying and the image is just a blurry bloke with a sheep, nothing to do with me\", \"intent\": \"I wouldn't click, I don't even know what it's advertising\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like one of those cringey self-care game ads for girls and I'm not into the whole pet tamagotchi thing\", \"intent\": \"Not gonna download it, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already see Revolut ads everywhere and I don't need another bank card just for the World Cup\", \"intent\": \"Might look later but definitely not clicking now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's just a gold ring on Alibaba, I'm not buying jewellery and that's wholesale stuff anyway\", \"intent\": \"No chance I'm clicking that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£30 an hour sounds too good to be true and I don't want the hassle of tutoring kids\", \"intent\": \"I paused to read it but wouldn't apply\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1843,
+ "cached_tokens": 0,
+ "output_tokens": 777,
+ "reasoning_tokens": 386
+}

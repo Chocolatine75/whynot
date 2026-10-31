@@ -1,0 +1,11 @@
+{
+ "key": "eea70eb30620bb6a3e4228c3857b7248",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Obvious Duolingo trademark/copycat owl infringement plus misleading medical claims for ADHD citing Oxford/Cambridge will get flagged for IP and Personal Health policy violations and killed quickly, preventing long-term spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 697,
+ "cached_tokens": 128,
+ "output_tokens": 248,
+ "reasoning_tokens": 187
+}

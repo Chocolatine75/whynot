@@ -1,0 +1,11 @@
+{
+ "key": "7049685d721d0b6eeb9022b6fb57702a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen loads of these AI language apps, they never work as well as they claim and I'm not looking for one\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy and seedy, that whole AI boyfriend fantasy stuff is not for me at all, felt a bit predatory\", \"intent\": \"Definitely wouldn't click, scrolled past quickly\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at uni students wanting tutoring work, not relevant to me at 52, and £30 an hour sounds too good to be true\", \"intent\": \"No reason to click on it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust dating apps like this, always feels like scams or fake profiles\", \"intent\": \"Would not click or download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no idea what it's offering me\", \"intent\": \"I just scrolled straight past\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 704,
+ "cached_tokens": 128,
+ "output_tokens": 647,
+ "reasoning_tokens": 276
+}

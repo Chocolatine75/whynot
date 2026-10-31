@@ -1,0 +1,11 @@
+{
+ "key": "8b3cc924bd892c0a036b4f83bc0b1aca",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Everything is in Thai, I don't understand anything and the image of a guy with a sheep is weird\", \"intent\": \"I would just keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing, gay anime chat stories with AI, feels cringe and not for me\", \"intent\": \"No way I would click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a battery icon pack, looks gimmicky and probably full of ads or paid\", \"intent\": \"Might look for a second but I wouldn't download it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another language learning app ad, I see them all the time and I don't need Japanese\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same Ling app but now with Japanese and Thai text, confusing and not relevant to me\", \"intent\": \"I wouldn't click, not interested\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1669,
+ "cached_tokens": 0,
+ "output_tokens": 653,
+ "reasoning_tokens": 287
+}

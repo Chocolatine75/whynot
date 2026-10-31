@@ -1,0 +1,11 @@
+{
+ "key": "87f9ecd80d87307a4f98dd4818bf7a85",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Turkish, I haven't a clue what it's saying, so I just scrolled on\", \"intent\": \"No, wouldn't click as I don't understand it at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, nothing to do with me, and I'm not interested in fasting challenges anyway\", \"intent\": \"No, would not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read a word of it, looks like some editing app but not for me\", \"intent\": \"No interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know Temu ads are everywhere and I don't trust the quality, just feels cheap and too good to be true\", \"intent\": \"Might have paused but wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another foreign language one, looks like some wellness quiz but I don't understand it\", \"intent\": \"Would not click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 688,
+ "cached_tokens": 0,
+ "output_tokens": 508,
+ "reasoning_tokens": 151
+}

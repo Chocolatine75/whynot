@@ -1,0 +1,11 @@
+{
+ "key": "504aa9dd120cdd1999b5aa5c47c01b49",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not looking for a second job as a rider, sounds like hard work for little money and I already have a job\", \"intent\": \"I wouldn't click, not interested in delivering food\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is confusing, title says ink box but image is a high-vis jacket, looks like spam and I don't need either\", \"intent\": \"I would just scroll past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Price in pounds not euros so not for Italy, and I don't trust these aligner ads, the final price is always higher than advertised\", \"intent\": \"I wouldn't click, I don't need teeth straightening\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says sea shells but image is a small metal piece, complete nonsense and irrelevant to me\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Too expensive and I don't want to finance an exercise bike on credit, I can just go to the gym or ride outside\", \"intent\": \"I wouldn't click, not going to buy a Peloton\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1939,
+ "cached_tokens": 0,
+ "output_tokens": 911,
+ "reasoning_tokens": 513
+}

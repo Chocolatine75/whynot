@@ -1,0 +1,11 @@
+{
+ "key": "762eb13a2995648b7794e52cc5a369f2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Extremely generic CTA headline and vague AI-benefit text with no distinct hook, offer, proof, or differentiation in a hyper-competitive language-learning category unlikely to sustain CTR and conversion to remain active for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 259,
+ "cached_tokens": 128,
+ "output_tokens": 258,
+ "reasoning_tokens": 194
+}

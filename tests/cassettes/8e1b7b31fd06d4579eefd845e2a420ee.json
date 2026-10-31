@@ -1,0 +1,11 @@
+{
+ "key": "8e1b7b31fd06d4579eefd845e2a420ee",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just another Revolut ad, I've seen it a thousand times and I already use a normal bank, don't need it\", \"intent\": \"No, I would keep scrolling, not interested in opening another account\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Portuguese about a Brazilian novela, has nothing to do with me and looks like clickbait\", \"intent\": \"I would not click, I don't watch novelas and it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a gross nail fungus thing aimed at women getting nails done, not relevant to me at all\", \"intent\": \"Definitely not clicking or buying this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"45 days battery sounds exaggerated and I don't need a camera toothbrush, seems like a gimmick and probably expensive\", \"intent\": \"I might pause for a second but I wouldn't buy it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Clickbait astrology ad using some celebrity drama, I don't believe in astrology and hate these ads\", \"intent\": \"I would scroll past immediately, no chance I click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1590,
+ "cached_tokens": 0,
+ "output_tokens": 669,
+ "reasoning_tokens": 270
+}

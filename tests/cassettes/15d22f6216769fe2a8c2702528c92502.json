@@ -1,0 +1,11 @@
+{
+ "key": "15d22f6216769fe2a8c2702528c92502",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's all in French and I'm not religious so I just scrolled past, not for me at all\",\"intent\":\"I wouldn't click or buy this at all\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"I don't believe in astrology and the text is in Hindi, so I have zero interest\",\"intent\":\"I would never click on a psychic astrology ad\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"I'm not looking for a delivery side gig and Deliveroo pay is known to be pretty bad\",\"intent\":\"Probably wouldn't click but I at least paused to see what it was\",\"intent_score\":2},{\"ad\":\"A4\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"This psychic clickbait stuff feels super scammy and creepy, I don't trust it\",\"intent\":\"Definitely not clicking this psychic reading nonsense\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"Another astrology ad in a language I don't understand and I don't believe in it anyway\",\"intent\":\"No chance I click on this\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2175,
+ "cached_tokens": 0,
+ "output_tokens": 610,
+ "reasoning_tokens": 293
+}

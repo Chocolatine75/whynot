@@ -1,0 +1,11 @@
+{
+ "key": "5d85755d34493594cdd670a8610e2ab1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in turco/tedesco non ho capito niente solo che sembra triste in ospedale, non è per me\", \"intent\": \"non cliccherei mai, non parlo quella lingua e mi mette ansia\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"enensima app per lingue, non mi interessa il khmer e non mi fido\", \"intent\": \"non scaricherei, scorro oltre\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"pubblicità di prodotto miracoloso antiage, sembra finta e poi devo comprare un aggeggio costosissimo\", \"intent\": \"non comprerei, mi sembra una truffa da influencer\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in vietnamita non capisco nulla anche se l'immagine è triste\", \"intent\": \"non cliccherei perché non è rilevante per me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è per il Regno Unito con prezzi in sterline e non mi serve allineare i denti ora\", \"intent\": \"non prenoterei, scorro oltre\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1748,
+ "cached_tokens": 256,
+ "output_tokens": 679,
+ "reasoning_tokens": 284
+}

@@ -1,0 +1,11 @@
+{
+ "key": "580c43448ff1aced65806be45fb6f21f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sono in Italia, questo è per UK e sembra dropshipping cinese, poi quel '2649 sold' è super fake e non mi serve davvero\", \"intent\": \"non ci cliccherei, scorro oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sembra troppo bello per essere vero, uno spazzolino con dentista a casa e telecamera? puzza di truffa costosa e non mi fido\", \"intent\": \"non lo comprerei mai senza recensioni vere\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non si capisce nemmeno che gioco è, solo 'matching' generico, sembra noioso e pieno di pubblicità nonostante dica il contrario\", \"intent\": \"lo ignoro completamente\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è un sito UK, io vivo in Italia non mi arriva niente e poi è solo un ad generico senza prodotti\", \"intent\": \"non clicco perché non è per me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è in francese ma io sono in Italia, perché me lo fai vedere? e poi di app per imparare le lingue con l'AI ce ne sono mille, non ci credo più\", \"intent\": \"non lo scaricherei, scorro oltre\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 793,
+ "cached_tokens": 0,
+ "output_tokens": 738,
+ "reasoning_tokens": 311
+}

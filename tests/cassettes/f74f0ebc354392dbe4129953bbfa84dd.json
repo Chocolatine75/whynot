@@ -1,0 +1,11 @@
+{
+ "key": "f74f0ebc354392dbe4129953bbfa84dd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Complete product mismatch - title/text advertises men's graphic T-shirts while image shows fishing lures - destroys relevance, CTR, and trust, guaranteeing rapid shutoff, not months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 670,
+ "cached_tokens": 128,
+ "output_tokens": 185,
+ "reasoning_tokens": 130
+}

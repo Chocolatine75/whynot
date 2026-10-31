@@ -1,0 +1,11 @@
+{
+ "key": "2a99e0a92118d2f11561a0191618e9d5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Combines a zero-friction FREE offer with a highly specific, aspirational and tangible curiosity hook (car purchase timing) that has massive broad appeal in India and drives cheap clicks.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 264,
+ "cached_tokens": 128,
+ "output_tokens": 302,
+ "reasoning_tokens": 245
+}

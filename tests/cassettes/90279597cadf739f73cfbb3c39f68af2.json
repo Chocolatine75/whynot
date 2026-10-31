@@ -1,0 +1,11 @@
+{
+ "key": "90279597cadf739f73cfbb3c39f68af2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and this feels very preachy, not for me at all\", \"intent\": \"I would just keep scrolling, no interest in clicking.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in French or English and it's about astrology which I don't believe in anyway\", \"intent\": \"I would ignore it completely.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks useful for keeping fruit fresh but I doubt it works that well and I don't need more plastic containers\", \"intent\": \"I might look at it for a second but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seems gimmicky and probably wants my photos or a paid subscription after\", \"intent\": \"I have no desire to click on this.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a dating app and I don't trust these ads\", \"intent\": \"I would scroll past without clicking.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 756,
+ "cached_tokens": 0,
+ "output_tokens": 687,
+ "reasoning_tokens": 329
+}

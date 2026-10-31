@@ -1,0 +1,11 @@
+{
+ "key": "78b2da4c74170ecfbd3e0fc84c1605b7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another fitness ad and it's for the UK with a £45 a month subscription, I'm in Spain and not paying that\", \"intent\": \"Would not click, I don't need Peloton\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean, I have no idea what it says\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand Chinese, instantly scrolled past\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not my language, looks like some video editor spam\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor and not interested in church training stuff\", \"intent\": \"Would not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 745,
+ "cached_tokens": 0,
+ "output_tokens": 756,
+ "reasoning_tokens": 433
+}

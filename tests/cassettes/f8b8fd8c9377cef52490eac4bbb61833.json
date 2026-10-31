@@ -1,0 +1,11 @@
+{
+ "key": "f8b8fd8c9377cef52490eac4bbb61833",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Gimmick with the camera, looks expensive and I don't need another electric toothbrush, my current one works fine\", \"intent\": \"I wouldn't click, maybe look at it for a second but not buying\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a delivery rider job at my age, not relevant to me at all\", \"intent\": \"Would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language I don't understand and astrology stuff is nonsense to me anyway\", \"intent\": \"Would ignore it completely and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a solid blue screen, doesn't tell me anything, looks like a broken ad\", \"intent\": \"Would scroll past instantly\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Interesting topic but feels like a heavy sales pitch for a PDF and I don't want to pay for something I can read about elsewhere\", \"intent\": \"Might be tempted to click learn more out of curiosity but probably wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2184,
+ "cached_tokens": 256,
+ "output_tokens": 614,
+ "reasoning_tokens": 236
+}

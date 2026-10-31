@@ -1,0 +1,11 @@
+{
+ "key": "e68409538fb7fa67009ee9cc096760a1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":8,\"why\":\"Rides the massive evergreen AI-for-beginners trend with a low-friction 15-min/day promise, recognizable tool logos for credibility, and aggressive 50% OFF urgency that typically drives strong CTR and front-end conversions in LATAM/Spanish markets.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 697,
+ "cached_tokens": 128,
+ "output_tokens": 295,
+ "reasoning_tokens": 226
+}

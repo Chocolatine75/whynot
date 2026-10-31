@@ -1,0 +1,11 @@
+{
+ "key": "24aab794d360615bba5ca72364c3a611",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in spagnolo, non capisco bene e non mi fido di questi test gratis per la salute mentale\", \"intent\": \"non ci cliccherei, non è nella mia lingua e sembra poco serio\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"uno spazzolino a 95 sterline con telecamera mi sembra inutile e troppo costoso\", \"intent\": \"non lo comprerei, ho già il mio spazzolino elettrico\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho alcun interesse a imparare il vietnamita\", \"intent\": \"non scaricherei mai l'app, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non credo agli astrologi e sembra una truffa con la chat gratis\", \"intent\": \"non ci cliccherei assolutamente\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"mi interessa ma sono stanca di questi quiz di 3 minuti che poi vogliono venderti un abbonamento\", \"intent\": \"forse ci darei un'occhiata ma senza comprare nulla\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 128,
+ "output_tokens": 720,
+ "reasoning_tokens": 335
+}

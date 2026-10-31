@@ -1,0 +1,11 @@
+{
+ "key": "ae1d556863cec1beb5fb385f3e70197f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è tutto in arabo non capisco niente e poi il titolo dice foto editor ma il testo parla di musica, sembra spam\", \"intent\": \"Non clicco, non mi interessa e non mi fido\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho nemmeno la macchina e questi gadget da auto sembrano tutti fragili e inutili\", \"intent\": \"Non comprerei mai, scorro oltre\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"è colorato ma odio queste pubblicità di giochini, poi sono tutti pieni di pubblicità e non sono così belli\", \"intent\": \"Forse lo guarderei un secondo ma non lo scarico\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"il titolo parla di una cover ma l'immagine è una pellicola privacy, è confusionario e Temu non mi ispira fiducia\", \"intent\": \"Non ci clicco, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"carinissimi i cani ma quel 'mai più distrutto' è una bugia, tutti i giochini si rompono\", \"intent\": \"Mi fermo a guardare il video perché amo i cani ma non lo comprerei\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1827,
+ "cached_tokens": 256,
+ "output_tokens": 672,
+ "reasoning_tokens": 260
+}

@@ -1,0 +1,11 @@
+{
+ "key": "52f98605319ac99bdcf5fbf6a06f9d0d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropship tat and I have no need for joke glasses, the caption is cringe too\", \"intent\": \"I wouldn't click, I'd just scroll past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't get what it actually does and the AI image looks weird and fake, I don't trust AI language apps\", \"intent\": \"I wouldn't click, it feels like just another scammy app ad.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"the red light mat looks like pseudoscience wellness nonsense and probably costs a fortune\", \"intent\": \"I wouldn't click or buy, it seems gimmicky and unsafe.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read the language and I'm not looking to learn English that way anyway\", \"intent\": \"I wouldn't click, it's not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I get it's a matching numbers puzzle but I already have games and free games are full of ads\", \"intent\": \"I might consider it if I was bored but I probably wouldn't click right now.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1894,
+ "cached_tokens": 256,
+ "output_tokens": 967,
+ "reasoning_tokens": 576
+}

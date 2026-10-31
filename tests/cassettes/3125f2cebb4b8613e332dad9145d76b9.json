@@ -1,0 +1,11 @@
+{
+ "key": "3125f2cebb4b8613e332dad9145d76b9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says t-shirt but picture is a fishing lure, looks like dodgy Temu bait-and-switch and I don't trust the quality\", \"intent\": \"I wouldn't click or buy anything from Temu like that.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about astrology which I have zero interest in, not for me at all\", \"intent\": \"I would just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't understand the language and I don't believe astrology can get your ex back anyway\", \"intent\": \"No chance I'd click on an astrologer ad.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in a foreign language and I'm not looking for a hairstyle editing app\", \"intent\": \"I'd keep scrolling, not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not in church leadership and it looks like over-the-top American religious marketing, not something I'd pay for\", \"intent\": \"I wouldn't click, it's not relevant to my life.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 0,
+ "output_tokens": 979,
+ "reasoning_tokens": 600
+}

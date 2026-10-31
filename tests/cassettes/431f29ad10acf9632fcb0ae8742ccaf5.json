@@ -1,0 +1,11 @@
+{
+ "key": "431f29ad10acf9632fcb0ae8742ccaf5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Nothing to do with me, I don't need men's accessories and Temu stuff is cheap tat anyway\", \"intent\": \"No, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seems like another app trying to get money out of you for things you can just talk to a friend about\", \"intent\": \"No, not for me at my age\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English properly and I don't believe in astrology charts, total nonsense\", \"intent\": \"No, scrolled on\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Very long story trying to sell a miracle patch, I've seen these before and my GP would tell me off for buying things online like this, sounds too good to be true\", \"intent\": \"No, I wouldn't click it, I'd ask my doctor or pharmacist first not buy from Facebook\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for dentists not normal people, nothing to do with me\", \"intent\": \"No, scrolled past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3812,
+ "cached_tokens": 128,
+ "output_tokens": 739,
+ "reasoning_tokens": 356
+}

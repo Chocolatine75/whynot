@@ -1,0 +1,11 @@
+{
+ "key": "f21e186fcba1ab509e5b84b87501f1e6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and Peloton is super expensive, plus this is UK and I'm in Spain so not relevant\", \"intent\": \"I would just scroll past, not going to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a language I don't understand and the guy in the image has nothing to do with me, I don't need a hairstyle app\", \"intent\": \"Wouldn't click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The camera toothbrush looks like a gimmick and you need to pay for membership for the dentist scans, seems overpriced\", \"intent\": \"Might look for a second but I wouldn't buy or click\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a pastor or youth leader, this is totally not for me and feels very preachy\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Psychic reading ads always feel like a scam and this one is creepy and vague\", \"intent\": \"No chance I click on this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2108,
+ "cached_tokens": 0,
+ "output_tokens": 863,
+ "reasoning_tokens": 477
+}

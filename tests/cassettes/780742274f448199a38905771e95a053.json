@@ -1,0 +1,11 @@
+{
+ "key": "780742274f448199a38905771e95a053",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean or something, not for me and I already speak English anyway\", \"intent\": \"I just scrolled straight past it, nothing to do with me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one not in English, looks like some language app but I don't know what it's saying\", \"intent\": \"No reason to click, didn't understand a word of it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These indestructible dog toy claims are always rubbish, dogs destroy everything eventually\", \"intent\": \"I might watch the dogs for a second but I'm not buying it.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Says it's about buses but the picture is just a traffic jam, looks boring and I don't play these games\", \"intent\": \"I wouldn't bother clicking, not my sort of game.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Foreign language again and looks a bit depressing with the old couple, not interested\", \"intent\": \"Kept scrolling, not relevant to me at all.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1775,
+ "cached_tokens": 128,
+ "output_tokens": 608,
+ "reasoning_tokens": 228
+}

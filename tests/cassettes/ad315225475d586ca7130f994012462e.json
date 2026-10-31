@@ -1,0 +1,11 @@
+{
+ "key": "ad315225475d586ca7130f994012462e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai and I'm not making videos or reels, nothing to do with me\", \"intent\": \"Wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu tat, cheap phone gadget I don't need and I don't trust the quality\", \"intent\": \"No I wouldn't buy that rubbish\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird cartoon romance thing for teenagers, not my cup of tea and looks a bit sleazy\", \"intent\": \"Definitely not clicking that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm not learning Thai and it's in Japanese, completely irrelevant\", \"intent\": \"No reason to click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a gimmick belt with no buckle, looks like nonsense and probably poor quality\", \"intent\": \"I might have glanced but I wouldn't buy it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1602,
+ "cached_tokens": 256,
+ "output_tokens": 614,
+ "reasoning_tokens": 262
+}

@@ -1,0 +1,11 @@
+{
+ "key": "575041973e0b2350658bd43927d31dc3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"encore un truc detox citron à la mode, ça a l'air dangereux et pas sérieux, je fais confiance à mon médecin pas à une pub Insta\", \"intent\": \"je ne cliquerais pas, ça sent l'arnaque régime miracle\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"c'est une pub pour une romance loup-garou, ce n'est pas du tout mon genre et ça fait très fake\", \"intent\": \"je scrolle direct sans cliquer\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"c'est en portugais et c'est une app de quiz pour anxiété, je ne comprends pas pourquoi on me montre ça\", \"intent\": \"je ne clique pas à cause de la langue et je ne fais pas confiance à ces apps\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"je ne comprends pas le rapport entre apprendre une langue et des photos de foot avec IA, ça a l'air trompeur\", \"intent\": \"je ne clique pas, ça ne m'intéresse pas\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"ça pourrait être utile mais ça fait très pub dropshipping AliExpress avec le compteur de ventes bidon, je n'achète pas ça ici\", \"intent\": \"peut-être regarder vite mais je n'achèterais pas sur cette pub\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 931,
+ "cached_tokens": 0,
+ "output_tokens": 822,
+ "reasoning_tokens": 381
+}

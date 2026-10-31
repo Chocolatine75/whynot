@@ -1,0 +1,11 @@
+{
+ "key": "d9e810598740994ff6e6c54818205304",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I have no idea what it's really selling and I wouldn't trust a health plan I can't even read\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks expensive even at £5.50 a day and I don't trust these online teeth straightening offers, seems like a lot of hassle\", \"intent\": \"I might look but I wouldn't book anything from an Instagram ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No idea what it actually does and I don't need another AI chatbot thing cluttering my phone\", \"intent\": \"I wouldn't click on it at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere, it's cheap tat and I don't trust the quality or the free gift codes\", \"intent\": \"I always scroll straight past Temu ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job and it's not relevant to me at all\", \"intent\": \"I wouldn't click as it's not for me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 702,
+ "cached_tokens": 128,
+ "output_tokens": 568,
+ "reasoning_tokens": 185
+}

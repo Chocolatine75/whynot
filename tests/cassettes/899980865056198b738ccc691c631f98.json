@@ -1,0 +1,11 @@
+{
+ "key": "899980865056198b738ccc691c631f98",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like another Temu-style cheap food delivery app ad, don't trust the 50% off claim and don't want another app\", \"intent\": \"Would just keep scrolling, not downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't sew and never will, completely irrelevant to me\", \"intent\": \"Scroll straight past without a second thought\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business looking to source from China, this ad isn't for me at all\", \"intent\": \"Would not click, not relevant\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but it's just an overpriced electric toothbrush, I don't need a camera on it and don't believe it's worth it\", \"intent\": \"Might pause to look at the design but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe in astrology at all, feels like a scam to get you hooked on paid chats\", \"intent\": \"Would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 820,
+ "cached_tokens": 0,
+ "output_tokens": 632,
+ "reasoning_tokens": 259
+}

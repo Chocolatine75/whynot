@@ -1,0 +1,11 @@
+{
+ "key": "3b3f846e70b572c8ba2e4b5d8bbb7619",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks kinda cute but these self-care game apps always get boring after like 2 days and then nag you to pay\", \"intent\": \"might have a quick look at the comments but I wouldn't download it rn\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"this is for businesses buying wholesale jewellery, nothing to do with me and looks a bit dodgy\", \"intent\": \"definitely not clicking, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I already have Monzo and I'm sick of seeing Revolut ads everywhere, don't need another bank account\", \"intent\": \"not clicking, I ignore all these finance app ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£30 an hour sounds way too good to be true and I'm not really qualified to tutor anyone for GCSEs/A-Levels\", \"intent\": \"tempted to click to see if it's legit but probably wouldn't apply\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's completely in Thai so I have no clue what it's even advertising\", \"intent\": \"just scrolled past, no idea what it is\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 708,
+ "cached_tokens": 128,
+ "output_tokens": 849,
+ "reasoning_tokens": 455
+}

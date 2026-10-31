@@ -1,0 +1,11 @@
+{
+ "key": "6c24e480dac5b47bc8cafe5cbd935a69",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Long-form fake-doctor disease-cure advertorial with unsubstantiated transdermal nutrient claims will be quickly flagged/banned for Personal Health policy violations and has terrible thumb-stop and CTR, so it won't survive optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5826,
+ "cached_tokens": 5376,
+ "output_tokens": 177,
+ "reasoning_tokens": 112
+}

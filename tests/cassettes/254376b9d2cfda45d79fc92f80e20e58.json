@@ -1,0 +1,11 @@
+{
+ "key": "254376b9d2cfda45d79fc92f80e20e58",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic saturated dropship wallet with garbled/truncated AI copy, spammy seller handle, and low-quality UGC creative signals poor CTR/trust and will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 538,
+ "cached_tokens": 128,
+ "output_tokens": 243,
+ "reasoning_tokens": 187
+}

@@ -1,0 +1,11 @@
+{
+ "key": "86855c44d6e2620e0988603224e003f0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my kind of game, I don't play self-care pet sims, feels a bit cringe for me\", \"intent\": \"I would just keep scrolling, not interested in downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"The image is just a weird file name and I don't have anything to sell right now\", \"intent\": \"I wouldn't click, I know Vinted already but this ad gives me no reason to\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like those AI girlfriend chatbot ads, super sketchy and I don't trust where my data goes\", \"intent\": \"Definitely wouldn't click, I find this kind of app a bit desperate and creepy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese, I don't understand what it's even offering and I don't want a random streaming app\", \"intent\": \"I would scroll past immediately since it's not in French or English\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a YA romance novel, really not my audience and the story sounds super cliché\", \"intent\": \"I have zero interest in clicking to buy this book\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 824,
+ "cached_tokens": 0,
+ "output_tokens": 629,
+ "reasoning_tokens": 233
+}

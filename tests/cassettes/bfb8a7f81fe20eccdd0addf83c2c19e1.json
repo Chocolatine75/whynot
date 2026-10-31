@@ -1,0 +1,11 @@
+{
+ "key": "bfb8a7f81fe20eccdd0addf83c2c19e1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I would never buy a big furniture like a sofa from Temu, it looks cheap and I don't trust the quality at all\", \"intent\": \"I won't click, I don't need a sofa and it feels scammy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I have no idea what it's trying to sell me and I'm not interested in a boxing video editor\", \"intent\": \"I just scrolled past without even thinking about it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image is just a blank blue screen so there's nothing to see, it's lazy and boring\", \"intent\": \"I didn't click, I already know Deliveroo\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not into AI BxB chat stories, it looks a bit weird and probably just wants money\", \"intent\": \"I wouldn't click on this, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Those 'singles in your area' dating ads always feel fake and creepy, I don't trust them\", \"intent\": \"I would never click on a random dating app like that\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1676,
+ "cached_tokens": 128,
+ "output_tokens": 1107,
+ "reasoning_tokens": 709
+}

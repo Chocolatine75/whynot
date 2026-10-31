@@ -1,0 +1,11 @@
+{
+ "key": "9efe787c8ff2711e73378d3311c13b54",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Vague, low-urgency wellness copy with no strong hook, offer, or proof typically yields low CTR/CVR and is quickly replaced by stronger performers.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 256,
+ "cached_tokens": 128,
+ "output_tokens": 380,
+ "reasoning_tokens": 327
+}

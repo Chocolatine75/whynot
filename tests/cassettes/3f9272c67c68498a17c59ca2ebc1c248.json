@@ -1,0 +1,11 @@
+{
+ "key": "3f9272c67c68498a17c59ca2ebc1c248",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what a kundli is and astrology predicting when I'll buy a car just sounds like nonsense\", \"intent\": \"I would definitely not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"way too expensive and I have no room for a Peloton even with a trial\", \"intent\": \"I wouldn't click, I'm not looking for an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Turkish and it's about learning English which I already speak\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Vietnamese right now\", \"intent\": \"I wouldn't click or download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"same as the other Peloton one, not interested in buying a bike and seen it already\", \"intent\": \"I would just keep scrolling past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 605,
+ "cached_tokens": 128,
+ "output_tokens": 859,
+ "reasoning_tokens": 505
+}

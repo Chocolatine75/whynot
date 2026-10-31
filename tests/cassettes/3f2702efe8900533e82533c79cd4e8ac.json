@@ -1,0 +1,11 @@
+{
+ "key": "3f2702efe8900533e82533c79cd4e8ac",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"My teeth are fine at my age and I don't trust these finance deals, looks expensive even with the discount and probably has hidden costs\", \"intent\": \"I wouldn't click, I'm not looking for braces or aligners\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a delivery rider job, not relevant to me at all\", \"intent\": \"I would just scroll past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a black screen saying IN 2022, I have no idea what it's selling or what it does\", \"intent\": \"I wouldn't click because I don't understand what it's for\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I can't read it and I'm not interested in a test for ADHD\", \"intent\": \"I would ignore it as it's not in English\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu, seen too many bad reviews about cheap tat and I don't want to download the app\", \"intent\": \"I might watch for a second but I definitely wouldn't buy\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1837,
+ "cached_tokens": 128,
+ "output_tokens": 742,
+ "reasoning_tokens": 351
+}

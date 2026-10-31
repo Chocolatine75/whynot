@@ -1,0 +1,11 @@
+{
+ "key": "d75ea77c4bfba5bbdf26ba00d88a0420",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic vague benefit with emoji and no USP, offer, or proof in a hyper-competitive video editor niche will not sustain efficient CTR/CVR.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 260,
+ "cached_tokens": 128,
+ "output_tokens": 197,
+ "reasoning_tokens": 147
+}

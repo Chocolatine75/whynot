@@ -1,0 +1,11 @@
+{
+ "key": "83dada5d6a3a8fd1d45972eb0164371e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"we don't have space or money for a Peloton and I see these bike ads constantly, just scrolled on\", \"intent\": \"wouldn't click, not in the market for exercise equipment\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"massive scary story trying to sell miracle patches and telling me doctors are lying, felt like a scam preying on ill people\", \"intent\": \"would definitely not click or buy, don't trust it at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap spammy dating bait, not clicking that\", \"intent\": \"would not click, seems dodgy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"same Peloton ad as before, second time in a row so I just ignored it\", \"intent\": \"would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job so not relevant to me\", \"intent\": \"would not click or apply\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3011,
+ "cached_tokens": 0,
+ "output_tokens": 716,
+ "reasoning_tokens": 354
+}

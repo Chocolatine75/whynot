@@ -1,0 +1,11 @@
+{
+ "key": "fecb3f2a4750b271d847594d5404c933",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"High-curiosity, emotionally charged hook with open loop + irresistible 'FREE' offer in the proven viral psychic/astrology vertical drives extremely high CTR and cheap conversions.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 297,
+ "cached_tokens": 128,
+ "output_tokens": 298,
+ "reasoning_tokens": 243
+}

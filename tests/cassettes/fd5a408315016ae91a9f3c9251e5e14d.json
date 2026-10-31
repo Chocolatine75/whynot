@@ -1,0 +1,11 @@
+{
+ "key": "fd5a408315016ae91a9f3c9251e5e14d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like cheap dropshipping spam, totally irrelevant for me and those hashtags look scammy\", \"intent\": \"I would definitely not click, I have no business sourcing anything from China\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic AI language app ad, seen a hundred of these and don't trust it works\", \"intent\": \"I wouldn't click, I don't need another subscription app\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Funny meme but I'm not learning Japanese so no reason to click\", \"intent\": \"I might not click but I smiled at it while scrolling\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew at all, completely irrelevant product for me\", \"intent\": \"I would not click or buy this ever\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Very religious and preachy, not my thing and feels like expensive paid course spam\", \"intent\": \"I would not click, not interested in biblical counseling training\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 829,
+ "cached_tokens": 0,
+ "output_tokens": 594,
+ "reasoning_tokens": 229
+}

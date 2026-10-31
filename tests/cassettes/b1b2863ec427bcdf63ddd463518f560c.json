@@ -1,0 +1,11 @@
+{
+ "key": "b1b2863ec427bcdf63ddd463518f560c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap mobile survival ad, nothing new and I don't play these games\", \"intent\": \"I would just keep scrolling without clicking.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and this ex thing feels like clickbait scam\", \"intent\": \"I would ignore it completely, not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job right now and I have a main job already\", \"intent\": \"I might pause to read it but I wouldn't apply.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's a wholesale B2B ad for handbags, totally irrelevant to me as a guy\", \"intent\": \"I would scroll past immediately.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's in French and it's religious study material, not something I'm interested in buying\", \"intent\": \"I would scroll past, it's not for me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1117,
+ "cached_tokens": 0,
+ "output_tokens": 568,
+ "reasoning_tokens": 210
+}

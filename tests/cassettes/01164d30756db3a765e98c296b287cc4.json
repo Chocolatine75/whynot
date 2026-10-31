@@ -1,0 +1,11 @@
+{
+ "key": "01164d30756db3a765e98c296b287cc4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Seasonal 'Summer' framing is not evergreen and will fatigue quickly, and exaggerated claims ('best price in UK'/'cheapest') plus typo ('alignigers') hurt trust and compliance for long-term scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 586,
+ "cached_tokens": 128,
+ "output_tokens": 350,
+ "reasoning_tokens": 286
+}

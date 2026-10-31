@@ -1,0 +1,11 @@
+{
+ "key": "ec4365fc95992ea0ae274a1ca7dd36c1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Temu ads are everywhere, it's always spammy cheap stuff, I have zero trust and no idea what they're even selling here\", \"intent\": \"I would definitely not click or search that code.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Thai, it's completely irrelevant to me so I just scrolled past\", \"intent\": \"I wouldn't click, I don't need a language app right now.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't care about car accessories and this glowing thing looks super gimmicky and cheap\", \"intent\": \"I would not click, I don't need this at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for the UK and says huge deals but it's just another shopping app ad, not for me in France\", \"intent\": \"I wouldn't click or download the app.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's just another mobile game ad, I never download these and they are always annoying\", \"intent\": \"I might watch half a second but I would not click to install.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 0,
+ "output_tokens": 696,
+ "reasoning_tokens": 310
+}

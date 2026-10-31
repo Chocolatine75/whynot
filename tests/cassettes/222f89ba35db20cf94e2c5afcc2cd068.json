@@ -1,0 +1,11 @@
+{
+ "key": "222f89ba35db20cf94e2c5afcc2cd068",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Clear problem/solution demo creative will get initial CTR but highly commoditized, low-AOV kitchen gadget with no moat against Amazon/Temu will fatigue and lose margin quickly, preventing months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 704,
+ "cached_tokens": 256,
+ "output_tokens": 236,
+ "reasoning_tokens": 174
+}

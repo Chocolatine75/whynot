@@ -1,0 +1,11 @@
+{
+ "key": "b6a2a8eedb565e0d136ba25b2c9b9d90",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so not for me, and those master AI in 15 mins ads always feel like a scam\", \"intent\": \"Would not click, it's not in English and I don't want an AI course\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language, it's not English and I'm not looking to learn English anyway\", \"intent\": \"Would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't have space for a bike, 30 day trial sounds like hassle to return\", \"intent\": \"Might pause to look at the picture but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and I'm not religious, totally irrelevant to me\", \"intent\": \"Would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam, that £0 free stuff thing is never actually free and looks really clickbaity\", \"intent\": \"Would not click, don't trust Temu ads like this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2397,
+ "cached_tokens": 128,
+ "output_tokens": 627,
+ "reasoning_tokens": 248
+}

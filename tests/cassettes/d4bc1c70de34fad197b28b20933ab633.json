@@ -1,0 +1,11 @@
+{
+ "key": "d4bc1c70de34fad197b28b20933ab633",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic mobile game ad, looks boring and probably full of ads\", \"intent\": \"I wouldn't click, I don't play these bubble games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Clickbait image has nothing to do with valve caps, feels scammy and useless\", \"intent\": \"No way I'm clicking on this weird ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no reason to learn Thai and I hate these talking head language app ads\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu quality is usually trash and I don't trust it\", \"intent\": \"Might look for a second because the display cabinet is cool but I wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in pounds for the UK and I'm in France so it's irrelevant to me\", \"intent\": \"I wouldn't click, wrong country and I don't need 5kg of rice\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1886,
+ "cached_tokens": 128,
+ "output_tokens": 678,
+ "reasoning_tokens": 308
+}

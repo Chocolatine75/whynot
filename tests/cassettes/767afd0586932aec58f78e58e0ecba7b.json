@@ -1,0 +1,11 @@
+{
+ "key": "767afd0586932aec58f78e58e0ecba7b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't study Japanese and memes about grammar don't make me want an app\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"lazy workout apps always want a subscription and I don't trust them\", \"intent\": \"I would not click, I already ignore fitness ads\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I like Vinted but this feels like a UK influencer ad not useful for me in Italy and I don't have kids stuff to sell\", \"intent\": \"I might pause to look but I wouldn't click the link\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's in Spanish and these AI hairstyle apps look scammy and want money\", \"intent\": \"I would keep scrolling and not download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"this is for business buyers in London, has nothing to do with me\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 700,
+ "cached_tokens": 0,
+ "output_tokens": 696,
+ "reasoning_tokens": 336
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e6d6bae1533f5cbf2b3670e1c60c03a7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est tout en grec, je ne comprends rien du tout donc j'ai direct scrollé\", \"intent\": \"Je ne vais clairement pas cliquer sur une pub que je ne comprends même pas\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Je n'ai aucune envie d'apprendre le japonais et j'en ai marre des pubs pour applis\", \"intent\": \"Je ne cliquerais pas, ça ne m'intéresse pas du tout\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Ça a l'air super glauque et un peu gênant comme concept, ça me met mal à l'aise\", \"intent\": \"Je ne cliquerai jamais là-dessus, ce n'est pas du tout pour moi\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Encore une pub pour parler à une IA, ça fait un peu triste et fake, je n'ai pas confiance\", \"intent\": \"Je ne veux pas parler à un chatbot, je vais juste passer mon chemin\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"C'est marrant pour tester une coiffure mais je me méfie, ça doit être bourré de pubs et d'abonnements cachés\", \"intent\": \"Je pourrais être tentée de jeter un oeil par curiosité mais je ne l'installerais probablement pas\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 128,
+ "output_tokens": 709,
+ "reasoning_tokens": 267
+}

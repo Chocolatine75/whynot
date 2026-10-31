@@ -1,0 +1,11 @@
+{
+ "key": "de6c66be86d7d4aef6e1f4bc9d0366d5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English and not something I need, just swiped past\", \"intent\": \"wouldn't click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"seen a million Deliveroo ads, nothing special and I wasn't ordering anyway\", \"intent\": \"might keep in mind but wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and peloton is too expensive, just not for me\", \"intent\": \"wouldn't click, would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so I have no idea what it's selling, instant scroll\", \"intent\": \"wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long fake story vibe, I'm 30 and don't have neuropathy and it feels like a scam health patch ad\", \"intent\": \"definitely wouldn't click or buy, just scrolled past the wall of text\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3785,
+ "cached_tokens": 128,
+ "output_tokens": 617,
+ "reasoning_tokens": 254
+}

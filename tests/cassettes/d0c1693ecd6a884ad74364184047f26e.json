@@ -1,0 +1,11 @@
+{
+ "key": "d0c1693ecd6a884ad74364184047f26e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic static image with no before/after, demo, or strong hook will get cheap clicks but not sustained conversions to survive months of optimization and creative fatigue in a competitive AI app vertical.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 446,
+ "cached_tokens": 128,
+ "output_tokens": 408,
+ "reasoning_tokens": 353
+}

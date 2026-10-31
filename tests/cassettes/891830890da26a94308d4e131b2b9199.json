@@ -1,0 +1,11 @@
+{
+ "key": "891830890da26a94308d4e131b2b9199",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Textbook high-drama omegaverse BL hook stacking betrayal, pregnancy, revenge, and rut/susceptible-cycle tropes with an attractive Alpha lead drives obsessive binge-installs and strong ROAS in its proven niche despite alienating broad audiences.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 502,
+ "cached_tokens": 128,
+ "output_tokens": 349,
+ "reasoning_tokens": 276
+}

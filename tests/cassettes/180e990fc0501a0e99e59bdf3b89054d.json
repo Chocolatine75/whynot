@@ -1,0 +1,11 @@
+{
+ "key": "180e990fc0501a0e99e59bdf3b89054d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese I don't understand it, and the free 3 days thing looks like a scam to get me to subscribe\", \"intent\": \"Definitely not clicking, I have no idea what this is\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Japanese about learning Thai, nothing to do with me, I just scrolled past\", \"intent\": \"No reason to click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I saw the translation is about a hidden GPS tracker to spy on your partner, that's super creepy and toxic, I don't want that\", \"intent\": \"I would never buy something to spy on someone, it's invasive\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not really interested in religious ads like this, feels very preachy and I'm not looking for a faith guide right now\", \"intent\": \"I wouldn't click learn more, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks like a silly little game but probably full of ads and not as good as it looks\", \"intent\": \"Maybe I'd click to see the game if I'm bored but probably not download\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 861,
+ "cached_tokens": 0,
+ "output_tokens": 774,
+ "reasoning_tokens": 374
+}

@@ -1,0 +1,11 @@
+{
+ "key": "6fb3b10cfc3f8a5b569912e5ca68faef",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Ça fait un peu glauque et vulgaire, ce genre de chat IA avec des mecs sexy ça ne m'intéresse pas du tout, j'ai passé direct.\", \"intent\": \"Non je ne cliquerai jamais sur ce truc, ce n'est pas pour moi.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Encore la même app Tipsy, les anime et les chatbots c'est pas mon truc et je ne fais pas confiance à ces fausses conversations.\", \"intent\": \"Je ne vais pas l'installer, je n'ai pas besoin d'un ami virtuel.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est tout en grec, je ne comprends rien, je vis en France donc aucun intérêt pour moi.\", \"intent\": \"Je ne vais pas cliquer sur une pub que je ne comprends même pas.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Je n'ai pas envie d'apprendre le japonais et la photo du monsieur ne donne pas envie, ça fait pub bidon.\", \"intent\": \"Je ne téléchargerai pas l'app, je n'en ai aucune utilité.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"L'image fait très fausse, on dirait un dessin Pixar, et je ne crois pas à ces apps qui changent de coiffure, ça ne sert à rien.\", \"intent\": \"Je ne cliquerai pas, même si c'est en français ça ne m'attire pas.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1734,
+ "cached_tokens": 0,
+ "output_tokens": 814,
+ "reasoning_tokens": 346
+}

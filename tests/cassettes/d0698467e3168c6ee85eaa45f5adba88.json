@@ -1,0 +1,11 @@
+{
+ "key": "d0698467e3168c6ee85eaa45f5adba88",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Looks nice but feels like an overpriced gimmick - I don't need a camera on my toothbrush and 45 days battery sounds too good to be true\",\"intent\":\"Might look at it for a second but I wouldn't click to buy, my Oral-B is fine\",\"intent_score\":2},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"Totally irrelevant to me, I have no idea what that printer part is and I just scrolled straight past\",\"intent\":\"Definitely wouldn't click, nothing to do with me\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"These mental health app ads always feel like a subscription trap and I don't trust a 3-minute quiz to fix anxiety\",\"intent\":\"Would not click, I'd just keep scrolling\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"I'm not religious and not looking to do counselling training, so it's just not aimed at me at all\",\"intent\":\"Would not click or buy, just scroll past\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Same as the first one, looks fancy but probably costs a fortune and I don't need another expensive gadget in the bathroom\",\"intent\":\"Might pause on the image but I wouldn't click through to buy\",\"intent_score\":2}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 875,
+ "cached_tokens": 128,
+ "output_tokens": 898,
+ "reasoning_tokens": 537
+}

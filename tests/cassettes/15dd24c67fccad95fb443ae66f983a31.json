@@ -1,0 +1,11 @@
+{
+ "key": "15dd24c67fccad95fb443ae66f983a31",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"That's tacky young people's nonsense, not for me at my age, just looks like smut\", \"intent\": \"I wouldn't click on that in a million years.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's aimed at men and churches trying to sell leadership courses, nothing to do with me\", \"intent\": \"I wouldn't click learn more as it's not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like a daft made-up soap opera advert trying to get me to watch something\", \"intent\": \"I would just scroll past, not interested in that kind of drama.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and just pushing Temu cheap stuff I don't trust\", \"intent\": \"I wouldn't click as I can't understand it and I don't use Temu.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Actually looks useful but I've already got sewing needles, I don't need 41 of them\", \"intent\": \"I might have a little look but I probably wouldn't buy.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 981,
+ "cached_tokens": 0,
+ "output_tokens": 541,
+ "reasoning_tokens": 163
+}

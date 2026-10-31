@@ -1,0 +1,11 @@
+{
+ "key": "6da33b0a3624b14e277955144fb133f1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's completely in French which I don't speak and I'm not interested in buying religious studies.\", \"intent\": \"I would definitely not click, just scroll past.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like generic Temu spam and I don't trust the quality or the UK link while I'm in Germany.\", \"intent\": \"I would not click or buy, I avoid Temu ads.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Tagalog/Filipino so I have no idea what it says and I don't need a hairstyle app.\", \"intent\": \"I would not click, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a B2B wholesale ad for handbags, nothing for a normal private buyer like me.\", \"intent\": \"I would not click, I have no use for this.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's targeting the UK with same-day delivery there, so it's useless for me in Germany.\", \"intent\": \"I would not click or buy, not applicable to me.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1146,
+ "cached_tokens": 0,
+ "output_tokens": 831,
+ "reasoning_tokens": 445
+}

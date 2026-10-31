@@ -1,0 +1,11 @@
+{
+ "key": "c9492699bfed75365ebeccf701abfa06",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Hindi so I've got no idea what it's saying and not for me anyway\", \"intent\": \"I wouldn't click as I don't need to learn English\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't speak Turkish and the ad looks depressing, nothing to do with me\", \"intent\": \"No chance I'd click something I can't read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Language is in Tagalog and it's just some random guy photo, looks like spam\", \"intent\": \"I wouldn't download a random photo editing app from an ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird image of someone getting kicked out, no clue what the game actually is\", \"intent\": \"I wouldn't click because it looks cheap and confusing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these wallets before, looks dropshipped and I don't need a new wallet\", \"intent\": \"I might have a quick look but probably wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1646,
+ "cached_tokens": 128,
+ "output_tokens": 649,
+ "reasoning_tokens": 283
+}

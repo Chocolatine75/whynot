@@ -1,0 +1,11 @@
+{
+ "key": "61a52b9a42a8f44188d5d0668cc18996",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic copy with no specific benefit or CTA and a low-energy, non thumb-stopping creative lacks a strong hook or social proof to sustain long-term performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 452,
+ "cached_tokens": 128,
+ "output_tokens": 216,
+ "reasoning_tokens": 164
+}

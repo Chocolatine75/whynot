@@ -1,0 +1,11 @@
+{
+ "key": "fb77cd9b13052b815a6f8b2884c8bb97",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam, don't trust the quality and I don't need a storage box from UK\", \"intent\": \"I would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Another AI app promising to teach English, probably costs money and doesn't work well\", \"intent\": \"I would not click, I already know enough English\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Looks like a silly kids game, not for me at all\", \"intent\": \"I would not click on this game\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Ridiculous soap opera story, these mini dramas are all clickbait and trash\", \"intent\": \"I stopped for a second because the title was absurd but did not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and I'm in Italy, plus not interested in buying religious books online\", \"intent\": \"I scrolled past without clicking\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1332,
+ "cached_tokens": 128,
+ "output_tokens": 762,
+ "reasoning_tokens": 403
+}

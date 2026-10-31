@@ -1,0 +1,11 @@
+{
+ "key": "8e204b2b866737feb4596ecd27d31487",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Vague, spammy generic copy with no clear product, benefit, offer, or hook and irrelevant hashtags signals low-effort test creative that consistently gets killed quickly, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 285,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 281
+}

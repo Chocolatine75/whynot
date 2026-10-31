@@ -1,0 +1,11 @@
+{
+ "key": "8d93156efa57125dd107d827d2589afa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Spammy, overpromising copy (emoji-stuffed 'become advanced by 2026 in 15 min/day') mismatched with cheap, text-heavy, low-trust creative (10 vs 15 min, obscure Animal Farm excerpt) predicts low CTR, high negative feedback and fast fatigue, not a months-long evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 128,
+ "output_tokens": 430,
+ "reasoning_tokens": 339
+}

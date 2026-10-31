@@ -1,0 +1,11 @@
+{
+ "key": "4b7c84a40bf1629a7eff0cc25f9405f7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's a temu ad and looks cheap/boring, I don't need a phone grip thing\", \"intent\": \"wouldn't click it, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"cute basket but I'm not looking to buy home stuff right now\", \"intent\": \"I use Vinted anyway so maybe I'd save it but not buying\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"totally irrelevant, it's like industrial cable for businesses nothing to do with me\", \"intent\": \"definitely not clicking, just scrolled\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks super AI and cringe and spammy, halloween is over as well\", \"intent\": \"no I wouldn't try it, looks tacky\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and about astrology and a coconut, not for me at all\", \"intent\": \"no chance I'd chat to an astrologer\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 128,
+ "output_tokens": 728,
+ "reasoning_tokens": 367
+}

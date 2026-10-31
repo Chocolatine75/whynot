@@ -1,0 +1,11 @@
+{
+ "key": "856c6ab1882734e84f27c1a0ef219adb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm a man, I don't do manicures and I don't have fungus issues, looks like cheap dropship stuff anyway\", \"intent\": \"I would keep scrolling without clicking, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish, I'm in Italy and I'm a middle-aged man, hairstyle app is useless for me\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Japanese and I ignore these language app ads\", \"intent\": \"I would scroll past immediately, no intention to download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too girly and aimed at young anxious women, not relevant and feels like another useless wellness app\", \"intent\": \"I would not click, definitely not my thing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job at my age but at least it's a real offer\", \"intent\": \"I wouldn't apply but I might glance for a second out of curiosity\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1731,
+ "cached_tokens": 0,
+ "output_tokens": 656,
+ "reasoning_tokens": 272
+}

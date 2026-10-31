@@ -1,0 +1,11 @@
+{
+ "key": "5ecd1bc2e59e54ba35eb784908f5eff8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Non credo nell'astrologia e non mi interessa, sembra spam per gente disperata per amore o lavoro\", \"intent\": \"Non cliccherei mai, non è roba per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"La pubblicità con la pasta animata è cringe e queste app per ansia sono tutte uguali, vogliono solo venderti abbonamento\", \"intent\": \"Non lo scaricherei, al massimo curioso ma non clicco\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"95 sterline per uno spazzolino è folle, ho già lo spazzolino elettrico e funziona bene\", \"intent\": \"Non lo comprerei, troppo caro per quello che fa\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in spagnolo quindi non capisco bene, e sembra una copia di Duolingo che promette di curare l'ADHD, poco credibile\", \"intent\": \"Non cliccherei, non è nella mia lingua e non mi fido\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Non ho nessun motivo per imparare il vietnamita, non mi serve a niente\", \"intent\": \"Non lo scaricherei, inutile per me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2120,
+ "cached_tokens": 256,
+ "output_tokens": 598,
+ "reasoning_tokens": 178
+}

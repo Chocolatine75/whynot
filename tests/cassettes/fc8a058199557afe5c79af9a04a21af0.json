@@ -1,0 +1,11 @@
+{
+ "key": "fc8a058199557afe5c79af9a04a21af0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic copy with no hook, differentiation, or proof in a highly saturated language-learning market will be quickly outcompeted by stronger creatives.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 254,
+ "cached_tokens": 128,
+ "output_tokens": 260,
+ "reasoning_tokens": 211
+}

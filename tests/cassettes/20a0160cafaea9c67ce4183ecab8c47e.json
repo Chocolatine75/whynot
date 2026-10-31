@@ -1,0 +1,11 @@
+{
+ "key": "20a0160cafaea9c67ce4183ecab8c47e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Unrealistic \\\"visible transformation in just 7 days\\\" claim risks Facebook disapproval and destroys credibility, while generic feature-list copy lacks proof, differentiation, or strong hook to sustain long-term performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 315,
+ "cached_tokens": 128,
+ "output_tokens": 220,
+ "reasoning_tokens": 159
+}

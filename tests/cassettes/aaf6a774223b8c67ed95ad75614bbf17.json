@@ -1,0 +1,11 @@
+{
+ "key": "aaf6a774223b8c67ed95ad75614bbf17",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è un muro di testo infinito, non ho questo problema e sembra la solita storia inventata per vendermi un cerotto, troppo lungo non ho voglia di leggere\", \"intent\": \"non cliccherei mai, non è per me e mi sembra poco affidabile\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non gioco a questi giochini, pubblicità di un gioco noiosissima\", \"intent\": \"non lo scaricherei, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"\", \"intent\": \"potrei cliccare per curiosità perché Stitch è carino ma probabilmente non compro niente\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non capisco cosa c'entrano i bambini con il titolo, sembra spam o truffa con quel Free Tutorial scritto così\", \"intent\": \"non cliccherei, non mi fido\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"sono già iscritta in palestra e non voglio un altro abbonamento costoso\", \"intent\": \"non comprerei ora, al massimo guardo ma senza impegno\", \"intent_score\": 2}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4800,
+ "cached_tokens": 3328,
+ "output_tokens": 685,
+ "reasoning_tokens": 296
+}

@@ -1,0 +1,11 @@
+{
+ "key": "853a6f3869b3b8cad2ec5ba680b8ac9d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":4,\"why\":\"Clickbait 'cracked screen' hook may drive cheap initial clicks but vague/translated copy and no clear USP attract low-intent installs with poor retention and fast creative fatigue, so it rarely scales for months in hyper-competitive casual gaming.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 300,
+ "cached_tokens": 128,
+ "output_tokens": 563,
+ "reasoning_tokens": 496
+}

@@ -1,0 +1,11 @@
+{
+ "key": "da2af425251db8cf604d65362324a61e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic corporate tagline with no specific hook, offer, pain-point, or CTA will drive low CTR and weak conversion, so a performance team would pause it quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 269,
+ "cached_tokens": 128,
+ "output_tokens": 272,
+ "reasoning_tokens": 221
+}

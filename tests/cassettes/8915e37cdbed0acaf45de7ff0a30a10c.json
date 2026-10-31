@@ -1,0 +1,11 @@
+{
+ "key": "8915e37cdbed0acaf45de7ff0a30a10c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Absolute unprovable claim 'NEVER' invites negative comments/videos disproving it and Facebook policy issues, while generic handle, emoji bullet benefits, and no offer/social proof signal low-trust dropship creative that fatigues quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 272,
+ "cached_tokens": 128,
+ "output_tokens": 279,
+ "reasoning_tokens": 210
+}

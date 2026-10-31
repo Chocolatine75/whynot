@@ -1,0 +1,11 @@
+{
+ "key": "cda6cff777c4a20498767ac78f1aa9e1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Weight-loss implication ('perte de poids') risks ad rejection/limited delivery under Meta's Personal Attributes and Health policies and the vague 'water + lemon' hook is weak with no strong offer or social proof to sustain long-term ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 296,
+ "cached_tokens": 128,
+ "output_tokens": 365,
+ "reasoning_tokens": 296
+}

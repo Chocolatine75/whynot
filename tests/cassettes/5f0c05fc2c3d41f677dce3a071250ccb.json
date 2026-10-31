@@ -1,0 +1,11 @@
+{
+ "key": "5f0c05fc2c3d41f677dce3a071250ccb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in spagnolo, non mi interessa e sembra una di quelle app truffa che sfruttano l'ADHD con la storia di Oxford e Cambridge\", \"intent\": \"non ci cliccherei mai, non è per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"testo in ebraico non capisco niente, e poi il banner con l'elicottero sembra finto fatto con l'AI\", \"intent\": \"non scaricherei un altro editor video a caso\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"solito dramma clickbait, non guardo queste serie spazzatura\", \"intent\": \"scrollo oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho nessun motivo per imparare il vietnamita, pubblicità inutile per me\", \"intent\": \"non la scaricherei mai\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in francese e poi è chiaramente un'immagine AI, non mi fido di queste app di fotoritocco\", \"intent\": \"non mi interessa provare tagli di capelli virtuali\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1819,
+ "cached_tokens": 256,
+ "output_tokens": 983,
+ "reasoning_tokens": 588
+}

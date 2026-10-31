@@ -1,0 +1,11 @@
+{
+ "key": "eda2e5ad1dffa6f52ed3eb9a6a222836",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Ultra-cheap impulse gimmick with AI-spam copy and a dark lifestyle image that fails to clearly show the product or its glow effect, driving low CTR, low CVR, and unscalable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 575,
+ "cached_tokens": 128,
+ "output_tokens": 295,
+ "reasoning_tokens": 230
+}

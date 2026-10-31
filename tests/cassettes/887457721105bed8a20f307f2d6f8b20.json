@@ -1,0 +1,11 @@
+{
+ "key": "887457721105bed8a20f307f2d6f8b20",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"BxB romance AI chat is just not for me, not interested in that at all\", \"intent\": \"I would not click, not my thing\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu sofa looks cheap and I don't trust the quality, plus I don't need a sofa\", \"intent\": \"I wouldn't buy, maybe I'd glance but no click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I have no idea what it's saying, and I don't need a video editor\", \"intent\": \"I would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like spammy fake dating app ad, don't trust verified profiles claim\", \"intent\": \"I wouldn't click, seems sketchy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image is just a solid blue color with no info, nothing to look at\", \"intent\": \"I wouldn't click, didn't even get what it's for\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1676,
+ "cached_tokens": 128,
+ "output_tokens": 622,
+ "reasoning_tokens": 262
+}

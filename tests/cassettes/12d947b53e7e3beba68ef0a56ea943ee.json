@@ -1,0 +1,11 @@
+{
+ "key": "12d947b53e7e3beba68ef0a56ea943ee",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like another cheap mobile tower defense game, I don't play these and Best Game 2026 is just marketing BS\", \"intent\": \"No I would just keep scrolling, not interested in mobile games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's for UK and Peloton is super expensive at 45 pounds a month, I'm in France and not training for a race\", \"intent\": \"I wouldn't click, I already run on my own without a pricey subscription\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in French or English, I have no idea what it says and I don't need an AI hairstyle app\", \"intent\": \"Definitely not, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says stone cage basket but image shows a wicker bench, makes no sense and I don't trust Temu anyway\", \"intent\": \"I would not click, looks scammy and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a B2B expo in London for business buyers, has nothing to do with me living in France\", \"intent\": \"No interest, I would not get a ticket\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2039,
+ "cached_tokens": 128,
+ "output_tokens": 894,
+ "reasoning_tokens": 483
+}

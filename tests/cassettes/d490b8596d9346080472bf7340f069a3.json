@@ -1,0 +1,11 @@
+{
+ "key": "d490b8596d9346080472bf7340f069a3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Tagalog or something, I have no idea what it says and I don't need a video editor\", \"intent\": \"No chance I click something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Spanish ad promising AI expert in 28 days with 15 mins a day sounds like scammy bullshit\", \"intent\": \"I would not click this get-rich-quick style AI ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not my language and I already speak English, not interested\", \"intent\": \"I would keep scrolling past this foreign language ad\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Alibaba B2B jewelry wholesale is totally irrelevant for me and looks cheap\", \"intent\": \"I would not click, I have no use for bulk jewelry sourcing\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but I don't need a fancy expensive electric toothbrush with a camera\", \"intent\": \"I might pause to look but I would not buy or click through\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 693,
+ "cached_tokens": 0,
+ "output_tokens": 631,
+ "reasoning_tokens": 257
+}

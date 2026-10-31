@@ -1,0 +1,11 @@
+{
+ "key": "2d5e607661d5721ee1fd1ae50a7c17b4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I already speak English so it's not for me, and the image shows Spanish not English so it looks dodgy\", \"intent\": \"I wouldn't click, I don't need to learn English\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this is even advertising, some cartoon wizard thing with nonsense text, just looks like spammy game ad\", \"intent\": \"Not going to click, I have no interest in this game\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I've got no clue what it's saying, I'm just scrolling past foreign ads\", \"intent\": \"I wouldn't click as I can't read it and don't need a language app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another foreign language ad I can't understand, completely irrelevant to me\", \"intent\": \"No chance I'll click, I don't know what it's for\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a decent running ad but I haven't got a Peloton and that £45 a month membership puts me off, feels pricey\", \"intent\": \"Might glance but I wouldn't click to buy right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1765,
+ "cached_tokens": 128,
+ "output_tokens": 703,
+ "reasoning_tokens": 306
+}

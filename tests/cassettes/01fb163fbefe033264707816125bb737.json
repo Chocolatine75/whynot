@@ -1,0 +1,11 @@
+{
+ "key": "01fb163fbefe033264707816125bb737",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean so I've got no idea what it's selling\", \"intent\": \"Wouldn't click as I don't understand it at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read it, looks like Greek, not for me\", \"intent\": \"No interest in clicking something I can't read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"No dog and I don't believe any toy is indestructible anyway\", \"intent\": \"Might glance but definitely wouldn't buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Just another silly phone game advert, I'm too old for that nonsense\", \"intent\": \"No desire to click or download a game\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like Turkish or German mix, not relevant to me\", \"intent\": \"Would scroll straight past, not clicking\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 716,
+ "cached_tokens": 0,
+ "output_tokens": 642,
+ "reasoning_tokens": 306
+}

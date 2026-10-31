@@ -1,0 +1,11 @@
+{
+ "key": "6c450fd962a8adbe7b0a1bc76e7a36f8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Load of fantasy gibberish about princes and elves, absolutely not my thing and looks cheap\", \"intent\": \"Wouldn't click, I have no interest in that sort of programme\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese, I'm in the UK so nothing to do with me, just scrolled straight past\", \"intent\": \"Wouldn't download or click as I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Arabic so I don't know what it's actually offering, plus I don't trust random AI apps\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's another fad diet promising weight loss with lemon water, sounds like nonsense and potentially unsafe\", \"intent\": \"Might have paused but definitely wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu, I've heard the quality is rubbish and I don't need another storage box, just trying to get me to spend\", \"intent\": \"I won't be clicking to shop though I at least knew what it was selling\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 747,
+ "cached_tokens": 128,
+ "output_tokens": 749,
+ "reasoning_tokens": 355
+}

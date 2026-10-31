@@ -1,0 +1,11 @@
+{
+ "key": "2bcb8daef36e75318840a6e3a8d368ca",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a Temu ad for a garden cage thing from the UK, looks like cheap spam and I don't need it at all\", \"intent\": \"Would not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Alibaba B2B sea shells for decorations, nothing to do with me and looks like bulk business stuff\", \"intent\": \"Would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The camera toothbrush idea is weird and gimmicky, don't believe it actually helps or that dentist scans are useful\", \"intent\": \"Might have paused to look but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for invisible aligners in the UK with pounds pricing and I live in Spain so it's useless for me\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is too expensive even on finance and the ad is for UK anyway\", \"intent\": \"Would not click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 724,
+ "cached_tokens": 0,
+ "output_tokens": 625,
+ "reasoning_tokens": 254
+}

@@ -1,0 +1,11 @@
+{
+ "key": "eb6c54c53ad476cf4dcdfed68b110ce8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want to finance an expensive bike on credit, sounds like a debt trap\", \"intent\": \"I would just scroll past, not interested in buying gym equipment on finance\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap plastic tat and a bit chavvy, not for me\", \"intent\": \"I wouldn't click, I have no need for glowing valve caps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It seems sincere but I'm not sure I need to pay for a guide I could find at church\", \"intent\": \"I might have a little look but probably wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and that free chat will just try to charge me\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language so I don't know what it's even offering\", \"intent\": \"I wouldn't click as it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 804,
+ "cached_tokens": 0,
+ "output_tokens": 576,
+ "reasoning_tokens": 209
+}

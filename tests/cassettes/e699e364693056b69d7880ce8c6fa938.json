@@ -1,0 +1,11 @@
+{
+ "key": "e699e364693056b69d7880ce8c6fa938",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Strong niche curiosity hook (666/dragon/beast) but cluttered AI image with heavy text, generic 'Click Learn More' title, and overly long feature-list copy signals amateur info-product creative that will fatigue quickly, not scale as an evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 795,
+ "cached_tokens": 384,
+ "output_tokens": 441,
+ "reasoning_tokens": 368
+}

@@ -1,0 +1,11 @@
+{
+ "key": "96dd1d5f4401b44cecb3f72c3f8b20de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Mismatch between copy targeting uni students and creative of older woman plus exaggerated/misleading income claim ('£30/hour as soon as tomorrow') and spammy emojis will trigger low trust, poor lead quality, and Meta ad policy flags for Employment/Misleading claims, so it won't scale for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 543,
+ "cached_tokens": 128,
+ "output_tokens": 324,
+ "reasoning_tokens": 246
+}

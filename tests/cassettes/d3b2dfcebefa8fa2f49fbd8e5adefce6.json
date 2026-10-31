@@ -1,0 +1,11 @@
+{
+ "key": "d3b2dfcebefa8fa2f49fbd8e5adefce6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Hyper-specific, high-stakes, emotionally relatable failure story for Vietnamese caregivers in Australia creates a strong curiosity gap and pain-point hook that typically drives high CTR and conversions for language apps.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 467,
+ "cached_tokens": 128,
+ "output_tokens": 434,
+ "reasoning_tokens": 376
+}

@@ -1,0 +1,11 @@
+{
+ "key": "77103fa95b583925a43807379c15e975",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another generic puzzle game ad, looks cheap and not my type of game at all\", \"intent\": \"Wouldn't click, I never play these merge puzzle games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese, no idea what it says so just scrolled past\", \"intent\": \"No chance I'd click something I can't even read\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe in astrology and not bothered about my ex, feels like a scam to get you paying\", \"intent\": \"Definitely not clicking on an astrologer chat\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese or something, couldn't understand it so kept scrolling\", \"intent\": \"Would not click an ad I don't understand\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's for crepey neck skin for older women, not relevant to me at all and looks like overpriced influencer junk\", \"intent\": \"No way I'm buying a red light face device\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 752,
+ "cached_tokens": 128,
+ "output_tokens": 585,
+ "reasoning_tokens": 215
+}

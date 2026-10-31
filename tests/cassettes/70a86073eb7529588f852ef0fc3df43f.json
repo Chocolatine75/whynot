@@ -1,0 +1,11 @@
+{
+ "key": "70a86073eb7529588f852ef0fc3df43f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Low-effort clickbait selfie with no product demo, no before/after transformation, and mismatched overlay text fails to sell the hairstyle benefit and will burn out quickly from poor CTR/ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 446,
+ "cached_tokens": 128,
+ "output_tokens": 234,
+ "reasoning_tokens": 173
+}

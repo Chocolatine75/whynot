@@ -1,0 +1,11 @@
+{
+ "key": "749154194b1c34c6cfed1d48afe40516",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic vague wellness copy with no offer, hook, or CTA paired with an uncanny AI sad-girl image will get low CTR and conversion and be turned off quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 438,
+ "cached_tokens": 128,
+ "output_tokens": 250,
+ "reasoning_tokens": 195
+}

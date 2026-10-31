@@ -1,0 +1,11 @@
+{
+ "key": "0a19a92dab31efce655befd24de657b2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Spammy low-effort dropship copy ('I need this', fire emoji, Get your👉) and generic mirror-clip creative from untrustworthy page name signals low CTR, high negative feedback, and quick abandonment rather than a durable evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 447,
+ "cached_tokens": 128,
+ "output_tokens": 235,
+ "reasoning_tokens": 161
+}

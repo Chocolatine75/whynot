@@ -1,0 +1,11 @@
+{
+ "key": "2534aff5c04878d89e71fc8de1334abd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"massive wall of text trying to scare me about neuropathy and then selling a patch, sounds like total quackery and not real medical advice, wouldn't trust it at all\", \"intent\": \"no way I'd click or buy this, looks like a scam preying on worried people\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and I'm not religious like that, just scrolled straight past\", \"intent\": \"would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ad, cheap t-shirt I don't need and I don't trust Temu quality anyway\", \"intent\": \"might glance but definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's church leadership training for men, nothing to do with me so I just ignored it\", \"intent\": \"would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not looking for a delivery rider job, not relevant to me\", \"intent\": \"would not click or apply\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8529,
+ "cached_tokens": 128,
+ "output_tokens": 624,
+ "reasoning_tokens": 252
+}

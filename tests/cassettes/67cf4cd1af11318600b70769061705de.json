@@ -1,0 +1,11 @@
+{
+ "key": "67cf4cd1af11318600b70769061705de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"not interested in halloween filters and it looks like another ai app trying to get you to pay after\",\"intent\":\"would not click, just scrolled past\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"literally just a bunch of cable specs, nothing to do with me and looks dead boring\",\"intent\":\"would definitely not click\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"dont believe in astrology stuff and its clearly targeted at india not me\",\"intent\":\"would not click at all\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":true,\"why_not\":\"i know vinted already and dont really sell stuff atm so no need to click now\",\"intent\":\"might keep it in mind but wouldnt click right now\",\"intent_score\":2},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"looks like cheap temu spam and those selfie grips are rubbish\",\"intent\":\"would not click or buy\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 642,
+ "cached_tokens": 128,
+ "output_tokens": 647,
+ "reasoning_tokens": 353
+}

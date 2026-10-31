@@ -1,0 +1,11 @@
+{
+ "key": "6825852491a98872bb2a58c658891f6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está en tailandés, no entiendo nada, parece una app para videos y no me interesa\", \"intent\": \"No haría click, sigo haciendo scroll\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No es para mí, historias boyxboy no me interesan nada y suena raro\", \"intent\": \"No clickaría, no es mi tipo de contenido\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Entiendo que es para personalizar iconos pero no pago por esas tonterías y Halloween ya pasó\", \"intent\": \"No lo compraría, no necesito cambiar los iconos de la batería\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está en japonés, no entiendo qué pone y no quiero aprender tailandés\", \"intent\": \"No haría click, lo ignoro\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No necesito aprender japonés ahora y hay mil apps gratis, no voy a pagar por esta\", \"intent\": \"No le daría a descargar, paso de largo\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 611,
+ "cached_tokens": 128,
+ "output_tokens": 586,
+ "reasoning_tokens": 202
+}

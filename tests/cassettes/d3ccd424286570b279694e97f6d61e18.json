@@ -1,0 +1,11 @@
+{
+ "key": "d3ccd424286570b279694e97f6d61e18",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Truncated bullet text and generic dropshipper formatting signals low CTR and poor optimization, unlikely to sustain profitable ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 350,
+ "cached_tokens": 128,
+ "output_tokens": 233,
+ "reasoning_tokens": 186
+}

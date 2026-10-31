@@ -1,0 +1,11 @@
+{
+ "key": "057808cff5c47d12f15ea845d53c0555",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a picture of lots of traffic, nothing to do with buses really and I don't play these silly phone games\", \"intent\": \"I wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language, I haven't a clue what it's on about\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English so means nothing to me, and I don't need to learn English\", \"intent\": \"No reason to click on it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"No toy is indestructible, my daughter's lab would have it in bits in five minutes, claims like never chew through are nonsense\", \"intent\": \"I might pause for the dogs but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one not in English, looks like some language app but it's Greek to me\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1775,
+ "cached_tokens": 0,
+ "output_tokens": 618,
+ "reasoning_tokens": 244
+}

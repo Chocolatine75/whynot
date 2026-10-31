@@ -1,0 +1,11 @@
+{
+ "key": "dba8acb1aa1c9865d9f5a61702885457",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese and I don't speak it, looks like some therapy ChatGPT thing but not for me\", \"intent\": \"I wouldn't click because I can't read it and I don't need a mental health app like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The text talks about buses but the image is just a traffic jam of colorful cars, makes no sense and looks like a cheap game ad\", \"intent\": \"I might pause for a second but I wouldn't download it, not my kind of game\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Garbled text and weird AI image, looks low quality and I don't need a hairstyle app\", \"intent\": \"Not clicking, this ad is irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like overpriced influencer biohacking stuff, I don't trust the health claims and I don't need it\", \"intent\": \"I wouldn't buy it, too expensive gimmick and I don't believe it works like they say\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Korean, I'm in France and I don't need an English reading course\", \"intent\": \"I will just scroll past, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1888,
+ "cached_tokens": 128,
+ "output_tokens": 793,
+ "reasoning_tokens": 378
+}

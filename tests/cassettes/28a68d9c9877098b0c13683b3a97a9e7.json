@@ -1,0 +1,11 @@
+{
+ "key": "28a68d9c9877098b0c13683b3a97a9e7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic saturated dropship car gadget with weak differentiation, low perceived value, and defensive 'what you actually receive' disclaimer signals poor quality, high returns, and unscalable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 479,
+ "cached_tokens": 128,
+ "output_tokens": 195,
+ "reasoning_tokens": 137
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e9a535de102c2c6509417788f765f335",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Way too long and scary - trying to frighten you about tingling and wheelchairs just to flog patches, doesn't feel like a real nurse and I don't trust supplement ads that claim to fix everything\",\"intent\":\"I would scroll straight past it, not clicking\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's all in French and it's religious study material which is not for me, I just kept scrolling\",\"intent\":\"I wouldn't click, not relevant to me\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"The title says men's t-shirts but the picture is fishing lures, feels like dodgy Temu spam and I don't trust them anyway\",\"intent\":\"I wouldn't click, looks like a scammy mismatch\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"It's aimed at men to be church leaders, nothing to do with me and not something I'm interested in\",\"intent\":\"I wouldn't click, not for me\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"I'm not looking for a delivery rider job, not relevant to me at all\",\"intent\":\"I wouldn't click, not looking for work like that\",\"intent_score\":1}],\"preferred\":\"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 10055,
+ "cached_tokens": 7424,
+ "output_tokens": 604,
+ "reasoning_tokens": 258
+}

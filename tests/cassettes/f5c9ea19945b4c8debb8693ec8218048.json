@@ -1,0 +1,11 @@
+{
+ "key": "f5c9ea19945b4c8debb8693ec8218048",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic, low-effort copy with no specific product, hook, or urgency will be quickly outcompeted by more targeted creative and killed early.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 252,
+ "cached_tokens": 128,
+ "output_tokens": 218,
+ "reasoning_tokens": 170
+}

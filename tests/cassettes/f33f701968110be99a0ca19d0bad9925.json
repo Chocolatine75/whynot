@@ -1,0 +1,11 @@
+{
+ "key": "f33f701968110be99a0ca19d0bad9925",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The image is a hi-vis jacket but the title is about an Epson ink maintenance box, totally mismatched and nothing to do with me, looks like a scam dropship ad\", \"intent\": \"I would definitely not click or buy this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is about football AI photos but the image is a creepy upside down baby on a mum's face with 11:11, makes no sense and feels clickbaity\", \"intent\": \"I wouldn't click, I don't care about AI football templates\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish so I have no idea what it's really selling, not relevant to me in the UK\", \"intent\": \"I would scroll straight past and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute toys but it's Temu and I don't trust the quality for kids' toys and it's clearly an influencer ad\", \"intent\": \"I might save the idea for inspiration but I wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says toilet roll holder but the picture is just a wooden dining chair, confusing and not something I'm shopping for\", \"intent\": \"I would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2034,
+ "cached_tokens": 128,
+ "output_tokens": 820,
+ "reasoning_tokens": 401
+}

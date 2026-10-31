@@ -1,0 +1,11 @@
+{
+ "key": "322eb5127fbd81b283c97104f434cc7c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another bank ad i've seen a thousand times, i already have a bank and don't need Revolut\", \"intent\": \"I would just keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"minus 12kg in 12 days with water fasting is dangerous bullshit and it's in German anyway\", \"intent\": \"I would not click, looks like a scammy health claim\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i have zero interest in learning Thai or Thai dating, not for me at all\", \"intent\": \"I would keep scrolling, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"weird close up of a guy's stomach, feels like cheap dropshipping gadget i don't need\", \"intent\": \"I would not click, I don't need a belt like that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"everything is in Chinese, i can't understand what it's selling and i don't care about video editing apps\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1459,
+ "cached_tokens": 128,
+ "output_tokens": 600,
+ "reasoning_tokens": 224
+}

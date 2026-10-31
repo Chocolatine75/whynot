@@ -1,0 +1,11 @@
+{
+ "key": "19cf8bc93f86397bbcb7702cd5d8b214",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and £45 a month is ridiculous, I just scroll past these fitness ads\", \"intent\": \"I wouldn't click at all, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for men and church leaders, has absolutely nothing to do with me so I ignored it\", \"intent\": \"I would definitely not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German so I don't know what it says and the picture is tacky and sleazy with the woman posed like that, plus 7 day transformation is nonsense\", \"intent\": \"I would not click, felt a bit gross\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I paused because the snowy eviction scene looked odd but I have no idea what the game is, looks like cheap AI rubbish\", \"intent\": \"I wouldn't click, looks like a scammy game ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's one of those over-dramatic AI soap stories, looks trashy and unbelievable, not my thing\", \"intent\": \"I wouldn't click, I don't watch these silly dramas\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1968,
+ "cached_tokens": 0,
+ "output_tokens": 819,
+ "reasoning_tokens": 416
+}

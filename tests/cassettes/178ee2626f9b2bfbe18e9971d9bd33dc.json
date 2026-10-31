@@ -1,0 +1,11 @@
+{
+ "key": "178ee2626f9b2bfbe18e9971d9bd33dc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Busy, text-heavy infographic creative with generic benefit bullets and no social proof/credibility looks like low-trust info-product spam that drives cheap clicks but poor conversion and quick fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 637,
+ "cached_tokens": 128,
+ "output_tokens": 324,
+ "reasoning_tokens": 268
+}

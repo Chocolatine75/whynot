@@ -1,0 +1,11 @@
+{
+ "key": "98cb57996c67117227d142c7c9602b2b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":4,\"why\":\"Static illustration with tiny unreadable bilingual text and generic 60M-users/5-min claims lacks video/UGC hook and thumb-stop power in a hyper-competitive language niche, so it will likely get mediocre CTR and be replaced by video/movie-clip winners within weeks.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 546,
+ "cached_tokens": 128,
+ "output_tokens": 613,
+ "reasoning_tokens": 541
+}

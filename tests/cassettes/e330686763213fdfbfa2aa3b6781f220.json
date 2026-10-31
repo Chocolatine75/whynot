@@ -1,0 +1,11 @@
+{
+ "key": "e330686763213fdfbfa2aa3b6781f220",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English, looks like Croatian, nothing to do with me and I don't need to learn English\", \"intent\": \"Wouldn't click at all, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says learn English but image is all Spanish phrases, confusing and irrelevant as I already speak English\", \"intent\": \"No chance I'd click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another foreign one in Italian, don't understand it and don't need a language app\", \"intent\": \"Just ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get it's a running programme but Peloton means expensive kit and £45 a month membership, I'm not paying that\", \"intent\": \"Might have paused but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Cute wizard image but the text makes no sense and I don't play these bubble shooter games\", \"intent\": \"No interest in clicking or downloading\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1765,
+ "cached_tokens": 256,
+ "output_tokens": 592,
+ "reasoning_tokens": 220
+}

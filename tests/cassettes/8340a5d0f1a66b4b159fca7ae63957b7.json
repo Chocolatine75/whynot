@@ -1,0 +1,11 @@
+{
+ "key": "8340a5d0f1a66b4b159fca7ae63957b7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I do buy jasmine rice but I've never heard of Joybuy, don't trust random grocery apps and that welcome offer probably has catches, I just get it at Tesco\", \"intent\": \"I wouldn't click, I'll just buy rice where I normally shop\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"That image is creepy and I hate AI chat story ads, not for me at all and it feels like spam\", \"intent\": \"Definitely not clicking, I scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all mixed languages, Spanish title, French text, English airport - I have no idea what it's actually selling\", \"intent\": \"Would not click, too confusing and I don't need a language app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen Revolut ads a million times, I already have a bank and I don't trust switching to an app bank from an ad\", \"intent\": \"No chance I'm clicking, I'm not changing banks because of Instagram\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play these survival phone games, looks like another ad that will be nothing like the gameplay\", \"intent\": \"Not interested at all, I never download game ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1644,
+ "cached_tokens": 128,
+ "output_tokens": 589,
+ "reasoning_tokens": 173
+}

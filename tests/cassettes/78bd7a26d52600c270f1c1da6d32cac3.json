@@ -1,0 +1,11 @@
+{
+ "key": "78bd7a26d52600c270f1c1da6d32cac3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and don't need another fintech app, just feels like generic hype\", \"intent\": \"I wouldn't click, maybe I'd google it later if I needed it but not from this ad\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and looks like weird AI slop, totally not for me\", \"intent\": \"I would just scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Obvious clickbait with celebrity name and astrology is nonsense to me\", \"intent\": \"I would not click or buy, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have nail fungus and the ad looks cheap and scammy\", \"intent\": \"I would keep scrolling, not relevant for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds too good to be true and I don't need a smart toothbrush with a camera\", \"intent\": \"I might watch for a second but wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1590,
+ "cached_tokens": 256,
+ "output_tokens": 733,
+ "reasoning_tokens": 365
+}

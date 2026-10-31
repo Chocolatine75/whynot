@@ -1,0 +1,11 @@
+{
+ "key": "bfb9d8f319639cc3a4a263702f619d41",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic price-led claim with duplicate title/text, no differentiation, social proof, or strong creative hook will burn out fast in the hyper-competitive UK aligner market and struggle to sustain ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 294,
+ "cached_tokens": 128,
+ "output_tokens": 387,
+ "reasoning_tokens": 325
+}

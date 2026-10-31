@@ -1,0 +1,11 @@
+{
+ "key": "129b8afb71c1d1cbbd55dcb715db4124",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"totally irrelevant to me, it's industrial cable stuff and waffly technical jargon, not for normal shoppers\", \"intent\": \"would definitely not click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks really spammy and cheap, I don't want to upload my photos to some random AI thing\", \"intent\": \"would not click or use it at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's a nice looking toothbrush but feels very overpriced and gimmicky with the camera, I don't need that\", \"intent\": \"might have paused to look but wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"wary of these cheap aligner ads, £4 a day sounds like there's hidden costs and I'd rather see my own dentist\", \"intent\": \"would not click, don't trust it enough\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not into astrology at all and most of it's in another language so it means nothing to me\", \"intent\": \"would just scroll past without a second thought\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 691,
+ "cached_tokens": 128,
+ "output_tokens": 855,
+ "reasoning_tokens": 467
+}

@@ -1,0 +1,11 @@
+{
+ "key": "9012a14572bf8c29f857bcc6854d1cb0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 5, \"why\": \"Offer is clear with low-friction CTA (price point + free consult/whitening) but copy/creative is generic and undifferentiated in a saturated category, so it will likely get tested but not become a long-term control.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 274,
+ "cached_tokens": 128,
+ "output_tokens": 298,
+ "reasoning_tokens": 229
+}

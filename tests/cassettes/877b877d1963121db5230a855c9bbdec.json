@@ -1,0 +1,11 @@
+{
+ "key": "877b877d1963121db5230a855c9bbdec",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Non ho una stampante Epson e comunque Alibaba mi sembra solo per aziende, non per me\", \"intent\": \"Assolutamente non ci cliccherei, non è roba per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È il solito spam di Temu, non si capisce nemmeno cosa vendono e non mi fido di questi link\", \"intent\": \"Scrollo oltre senza pensarci, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Carino ma sembra una di quelle cinesate che poi nella realtà non funzionano così bene e non cucio abbastanza\", \"intent\": \"Forse guarderei il video per curiosità ma non lo comprerei\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sembra una chat AI un po' cringe a pagamento e non voglio abbonamenti strani\", \"intent\": \"Potrei essere curiosa di cliccare ma poi non mi iscriverei mai\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È tutto in tailandese, non capisco niente e non mi serve un'altra app di editing\", \"intent\": \"Lo ignoro completamente e vado avanti\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 765,
+ "cached_tokens": 128,
+ "output_tokens": 701,
+ "reasoning_tokens": 297
+}

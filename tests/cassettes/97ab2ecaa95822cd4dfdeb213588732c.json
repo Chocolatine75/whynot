@@ -1,0 +1,11 @@
+{
+ "key": "97ab2ecaa95822cd4dfdeb213588732c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer or supplier, nothing to do with me and it's over a year away\", \"intent\": \"I wouldn't click, completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and it's Temu, I always scroll past Temu ads\", \"intent\": \"No chance I'd click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy AI girlfriend advert, looks sleazy and desperate\", \"intent\": \"Definitely not clicking, just scrolled past quickly\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a dog and no toy is indestructible anyway\", \"intent\": \"I wouldn't buy but it was the least annoying to look at\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another boring fitness app ad, I've seen loads like it\", \"intent\": \"Wouldn't click, not interested\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 680,
+ "cached_tokens": 128,
+ "output_tokens": 1151,
+ "reasoning_tokens": 803
+}

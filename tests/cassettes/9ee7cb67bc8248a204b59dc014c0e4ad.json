@@ -1,0 +1,11 @@
+{
+ "key": "9ee7cb67bc8248a204b59dc014c0e4ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen high-anxiety career hook + irresistible FIRST CHAT FREE offer in relatable Hinglish gives Astrotalk broad appeal and low CAC, making it a proven keeper despite astrology niche fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 291,
+ "cached_tokens": 128,
+ "output_tokens": 295,
+ "reasoning_tokens": 234
+}

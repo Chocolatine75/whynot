@@ -1,0 +1,11 @@
+{
+ "key": "313497aeb744483a7adbf7edd269c457",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Creative-value prop mismatch (battery life in image vs dentist/camera in copy) with kitchen-sink claims and low-quality podcast screenshot creates confusion and low credibility, likely killing CTR/CVR and not surviving optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 514,
+ "cached_tokens": 128,
+ "output_tokens": 388,
+ "reasoning_tokens": 326
+}

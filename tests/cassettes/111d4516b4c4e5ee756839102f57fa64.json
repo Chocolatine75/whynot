@@ -1,0 +1,11 @@
+{
+ "key": "111d4516b4c4e5ee756839102f57fa64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Evergreen, high-passion French Christian niche with clear pain-point (understanding prophecy) and low-ticket digital offer can sustain profitable ROAS for months despite long text-heavy creative.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 728,
+ "cached_tokens": 128,
+ "output_tokens": 328,
+ "reasoning_tokens": 269
+}

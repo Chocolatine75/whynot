@@ -1,0 +1,11 @@
+{
+ "key": "45298c89465cf38f6af033db28e4874b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Shaming comparative creative calling CapCut users clowns drives negative comments/hides and violates best practices with no value prop, benefit, or CTA, so it will be killed quickly despite AI wtf factor.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 442,
+ "cached_tokens": 128,
+ "output_tokens": 395,
+ "reasoning_tokens": 333
+}

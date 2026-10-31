@@ -1,0 +1,11 @@
+{
+ "key": "c11b25b2998da7be065220cc1d92979a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen a million of these quiz apps, feels generic and spammy\", \"intent\": \"would not click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and about hairstyles, not for me\", \"intent\": \"would not click, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have a job in IT, I don't need to deliver food\", \"intent\": \"would not click, not looking for a side gig\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropshipping stuff and kinda gross\", \"intent\": \"would not click or buy, I'd go to a pharmacy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not interested in learning Japanese right now\", \"intent\": \"would not click, maybe curious but not enough to download\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 128,
+ "output_tokens": 552,
+ "reasoning_tokens": 215
+}

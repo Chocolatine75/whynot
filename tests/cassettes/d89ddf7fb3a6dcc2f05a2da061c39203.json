@@ -1,0 +1,11 @@
+{
+ "key": "d89ddf7fb3a6dcc2f05a2da061c39203",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Ad literally offers £0 with no product, value prop, or creative hook, so CTR/CVR will be near zero and it will be paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 278,
+ "cached_tokens": 128,
+ "output_tokens": 280,
+ "reasoning_tokens": 228
+}

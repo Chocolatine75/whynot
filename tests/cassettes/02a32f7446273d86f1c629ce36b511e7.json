@@ -1,0 +1,11 @@
+{
+ "key": "02a32f7446273d86f1c629ce36b511e7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Multiple typos ('creppy', 'Inti Aging', 'theraphy'), broken CTA/hashtags, and a finger-obscured image with no product or clear before/after will kill trust and CTR for a beauty device, so it won't scale long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 583,
+ "cached_tokens": 128,
+ "output_tokens": 210,
+ "reasoning_tokens": 134
+}

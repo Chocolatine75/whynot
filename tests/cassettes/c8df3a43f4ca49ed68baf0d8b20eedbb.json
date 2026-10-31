@@ -1,0 +1,11 @@
+{
+ "key": "c8df3a43f4ca49ed68baf0d8b20eedbb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Too vague and fluffy, says nothing at all. Just another wellness app trying to sell me something.\", \"intent\": \"I would just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German so I've no idea what it's on about, and I'm English anyway.\", \"intent\": \"I would ignore it completely.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've no interest in learning Thai at my age, not going to Thailand.\", \"intent\": \"I would not click or download it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a silly kids game with nonsense text, nothing for me.\", \"intent\": \"I might have paused but I wouldn't click it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't read a word of it, looks like foreign squiggles to me.\", \"intent\": \"I would scroll past without a second thought.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 651,
+ "cached_tokens": 128,
+ "output_tokens": 613,
+ "reasoning_tokens": 263
+}

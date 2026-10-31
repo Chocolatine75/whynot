@@ -1,0 +1,11 @@
+{
+ "key": "5a43dedca00aaea703df1d234d822c6a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic low-quality restaurant image shows no app, outcome, or hook and copy is vague with no benefit or differentiation, driving low CTR and conversion.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 450,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 149
+}

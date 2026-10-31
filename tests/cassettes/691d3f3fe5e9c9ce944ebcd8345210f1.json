@@ -1,0 +1,11 @@
+{
+ "key": "691d3f3fe5e9c9ce944ebcd8345210f1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the title says sea shells but the picture is like a weird metal cone thing so it just looks off and I don't need decorations anyway\", \"intent\": \"I would just keep scrolling and not click on it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"I love that boho aesthetic but it's Temu and the text says men's accessories which doesn't match at all so I don't trust it\", \"intent\": \"I might pause to look at the outfit but I wouldn't click to shop.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's tempting cause I want straighter teeth but £1799 is still so much money and I'm not sure it's legit or worth finance\", \"intent\": \"I wouldn't buy now but I might click to see what the free consult actually includes.\", \"intent_score\": 3}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't really believe astrology can sort my job problems and it feels like a fake testimonial to get you to pay later\", \"intent\": \"I would scroll past and not click at all.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I can't afford a Peloton even with financing and I don't have room for an exercise bike in my flat\", \"intent\": \"I would skip it, not interested in buying or clicking.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1935,
+ "cached_tokens": 128,
+ "output_tokens": 710,
+ "reasoning_tokens": 290
+}

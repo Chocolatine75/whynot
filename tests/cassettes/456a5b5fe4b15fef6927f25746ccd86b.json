@@ -1,0 +1,11 @@
+{
+ "key": "456a5b5fe4b15fef6927f25746ccd86b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into survival games at all, just looks like another spammy mobile game ad\", \"intent\": \"I wouldn't click, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is completely irrelevant to me, I have no idea what this cable is for and it's clearly for businesses\", \"intent\": \"I would definitely not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks quite nice and eco-friendly but I don't trust expensive toothbrush ads on here and I bet it's way overpriced\", \"intent\": \"I might look it up out of curiosity but I wouldn't buy from the ad\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks cheap and annoying, I hate these daft game ads that try to be funny\", \"intent\": \"I wouldn't click, I'd just scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm fed up of seeing Temu ads everywhere and I don't trust the quality or the free gift codes\", \"intent\": \"I wouldn't click, I avoid Temu on principle\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 750,
+ "cached_tokens": 128,
+ "output_tokens": 620,
+ "reasoning_tokens": 231
+}

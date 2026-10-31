@@ -1,0 +1,11 @@
+{
+ "key": "80fb47618bbf612949d52d8edd8edf68",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another cheap Temu t-shirt ad, looks like tat and I don't trust the quality or the massive discounts\", \"intent\": \"No chance I'd click or buy this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in proper English and it's about astrology which I have zero interest in\", \"intent\": \"Would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't believe in astrologers telling you about your ex, total nonsense to me\", \"intent\": \"Not clicking this at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not even in English so I just scrolled straight past it\", \"intent\": \"No intent to click or download\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It sounds like an expensive church course trying to sell me something, not relevant to me right now\", \"intent\": \"Might have paused but wouldn't click through\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 823,
+ "cached_tokens": 128,
+ "output_tokens": 556,
+ "reasoning_tokens": 206
+}

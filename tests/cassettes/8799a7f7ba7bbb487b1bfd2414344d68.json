@@ -1,0 +1,11 @@
+{
+ "key": "8799a7f7ba7bbb487b1bfd2414344d68",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"that caption 'told her to stop leaving lids' feels annoying and sexist and the 2649 sold and 47% off screams cheap dropshipping, plus I don't really need it\", \"intent\": \"I might look at it for a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird claim about a dentist in my bathroom and the image of two guys with a podcast doesn't explain anything, feels gimmicky\", \"intent\": \"I would just scroll past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"the image is sad and dramatic but has nothing to do with a matching game, looks like clickbait and I don't play those games\", \"intent\": \"I stopped because of the image but I wouldn't click or download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's a UK shop and offer, I live in Italy so it's useless to me and I don't know that drink\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and I'm in Italy, I don't need an AI tutor and the street interview looks fake\", \"intent\": \"I wouldn't click, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1833,
+ "cached_tokens": 128,
+ "output_tokens": 934,
+ "reasoning_tokens": 513
+}

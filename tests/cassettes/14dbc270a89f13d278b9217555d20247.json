@@ -1,0 +1,11 @@
+{
+ "key": "14dbc270a89f13d278b9217555d20247",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat dropshipped for Halloween, and the image with the caption is a bit cringey\", \"intent\": \"No chance I'd buy these daft glasses, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another AI language app saying it's not like the others, zero reason to trust it and the image is weird\", \"intent\": \"Wouldn't bother clicking, I've seen a million of these\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's just a blatant ad for a number puzzle game that will be full of ads and in-app purchases\", \"intent\": \"Might play it for a sec if I was bored but not downloading it from an ad\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't even read the title it's in Armenian or something, no idea what it's selling\", \"intent\": \"Not clicking something I can't understand at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Red light biohacking stuff sounds like overpriced pseudoscience and the claims about EMF and nervous system put me off\", \"intent\": \"Definitely not buying an expensive light mat off Instagram\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1894,
+ "cached_tokens": 256,
+ "output_tokens": 712,
+ "reasoning_tokens": 310
+}

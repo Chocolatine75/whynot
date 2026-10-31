@@ -1,0 +1,11 @@
+{
+ "key": "fdae845e4d5d4b71b150301439a95e9b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in glowing valve caps, looks gimmicky and cheap tat from a random seller\", \"intent\": \"I wouldn't click or buy, I don't need car accessories like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not very religious and I don't pay for digital ebooks from Facebook ads\", \"intent\": \"I wouldn't click to buy but I paused to read what it was about\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is far too expensive even on finance and I've seen too many ads pushing buy now pay later\", \"intent\": \"I wouldn't click, I'm not looking for an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe astrology can predict when I'll buy a car and the calendar image makes no sense\", \"intent\": \"I wouldn't click or chat, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and I don't know what the app actually does or if it's safe\", \"intent\": \"I wouldn't click, I just scrolled past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1863,
+ "cached_tokens": 384,
+ "output_tokens": 561,
+ "reasoning_tokens": 179
+}

@@ -1,0 +1,11 @@
+{
+ "key": "72c718b2ba42a03a28b03c1b17e2bf6e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a spare part for a printer I don't have on a B2B site I never use, total scroll past\", \"intent\": \"No chance I'd click this, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a toilet roll holder and looks like a wholesale Alibaba ad, not shopping for bathroom stuff\", \"intent\": \"Wouldn't click, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't have a toddler and don't trust Temu ads anyway, feels like spam\", \"intent\": \"Definitely not clicking or buying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says learn a language but text is about AI World Cup photos, makes no sense and looks clickbaity\", \"intent\": \"Might have paused for the football bit but wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Polish, I don't understand it so just scrolled past\", \"intent\": \"No interest to click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 718,
+ "cached_tokens": 128,
+ "output_tokens": 590,
+ "reasoning_tokens": 223
+}

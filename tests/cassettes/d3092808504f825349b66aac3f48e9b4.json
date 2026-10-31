@@ -1,0 +1,11 @@
+{
+ "key": "d3092808504f825349b66aac3f48e9b4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap tat from one of those pop up shops and I don't need a turban cap anyway\", \"intent\": \"I wouldn't click, no need for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English so I've no idea what it's saying, just scrolled past\", \"intent\": \"I would not click as it's not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not interested in Revolut or football and I don't trust banks on the internet\", \"intent\": \"I would not click or download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"filthy looking nonsense, not appropriate and nothing to do with me at my age\", \"intent\": \"I definitely would not click on that smut\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English, just scrolled straight past it\", \"intent\": \"I would not click as I don't understand it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 711,
+ "cached_tokens": 128,
+ "output_tokens": 606,
+ "reasoning_tokens": 249
+}

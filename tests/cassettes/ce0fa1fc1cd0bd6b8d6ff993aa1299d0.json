@@ -1,0 +1,11 @@
+{
+ "key": "ce0fa1fc1cd0bd6b8d6ff993aa1299d0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Highly visual, demonstrable novelty impulse-buy with evergreen birthday demand and giftable wow-factor that consistently drives low-CAC impulse sales despite sloppy copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 507,
+ "cached_tokens": 128,
+ "output_tokens": 224,
+ "reasoning_tokens": 171
+}

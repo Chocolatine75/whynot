@@ -1,0 +1,11 @@
+{
+ "key": "c892351ecfcf79dcd7f622b0b0691a05",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Strong curiosity-driven hook and clear problem/solution visual gives high CTR potential, but subscription friction and lack of social proof/UGC will likely cap CVR from scaling for months without iteration.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 705,
+ "cached_tokens": 128,
+ "output_tokens": 431,
+ "reasoning_tokens": 372
+}

@@ -1,0 +1,11 @@
+{
+ "key": "05b24bb2f66a8d24cf0eae1e4546dcb7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese, I don't understand anything, wrong targeting for me in Italy\", \"intent\": \"I would just scroll past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's an ad for old women's neck wrinkles and red light scam, I'm a young guy I don't care at all\", \"intent\": \"I would not click, totally irrelevant and looks like fake influencer promo\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Turkish or something, I can't read it and the image is just a sad old couple\", \"intent\": \"I would keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Teeth straightening ad for the UK and I'm in Italy, plus I don't need it and don't trust these offers\", \"intent\": \"I wouldn't click, not relevant where I live\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I learn Khmer, I have zero reason to learn that language\", \"intent\": \"I would not download it, no interest at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1748,
+ "cached_tokens": 128,
+ "output_tokens": 815,
+ "reasoning_tokens": 434
+}

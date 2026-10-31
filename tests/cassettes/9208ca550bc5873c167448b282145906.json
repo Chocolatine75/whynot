@@ -1,0 +1,11 @@
+{
+ "key": "9208ca550bc5873c167448b282145906",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic copy with hashtags and search-code CTA looks like low-effort disposable Temu spam with weak hook/offer and no direct response driver, the type Temu churns daily not scales for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 283,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 279
+}

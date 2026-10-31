@@ -1,0 +1,11 @@
+{
+ "key": "e4e773a85dde0f76f7bb83bb2aca7325",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need braces and £5.50 a day sounds expensive when you add it up, I don't trust these online teeth places\", \"intent\": \"I would just keep scrolling and not click at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job at my age and in this weather, not for me\", \"intent\": \"I would not click as it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it actually does, just says AI toolkit, looks vague and a bit spammy\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I can't understand it and why is it being shown to me in the UK\", \"intent\": \"I would scroll straight past as I don't know what it's for\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I see Temu ads constantly and don't trust the quality, just cheap stuff and discount codes\", \"intent\": \"I would not click or download anything\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 702,
+ "cached_tokens": 128,
+ "output_tokens": 692,
+ "reasoning_tokens": 308
+}

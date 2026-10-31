@@ -1,0 +1,11 @@
+{
+ "key": "c230f69de471e643583d0200a666e619",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Niche B2B-to-church offer with long, generic feature-list copy, weak 'Click Learn More' title, and no social proof, offer, or clear hook makes sustained profitable ROAS at scale unlikely.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 414,
+ "cached_tokens": 128,
+ "output_tokens": 278,
+ "reasoning_tokens": 213
+}

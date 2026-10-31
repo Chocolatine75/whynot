@@ -1,0 +1,11 @@
+{
+ "key": "b3b7b4b994eb48652f2956b004bc840d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read any of the text, it's not in English so I have no idea what it's actually for\", \"intent\": \"I wouldn't click, it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a cute blanket but looks like cheap dropship stuff and I don't need another random blanket\", \"intent\": \"I might pause to look because it's cute but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and I don't want to order random drinks online for delivery\", \"intent\": \"No interest in clicking, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"All the text is in Thai so I don't know what they're selling me\", \"intent\": \"Wouldn't click, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish and looks like a shouty Temu ad, I just ignore Temu ads\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1947,
+ "cached_tokens": 0,
+ "output_tokens": 545,
+ "reasoning_tokens": 176
+}

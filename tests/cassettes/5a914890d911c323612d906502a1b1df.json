@@ -1,0 +1,11 @@
+{
+ "key": "5a914890d911c323612d906502a1b1df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says stone cage gabion basket but image is a wicker bench, looks like scammy Temu listing and it's UK only anyway.\", \"intent\": \"I wouldn't click, I don't trust it and I don't need garden furniture.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad says sea shells for decoration but picture is some metal cone thing, makes no sense and Alibaba is for bulk business orders.\", \"intent\": \"No chance I'm clicking, nothing relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Camera toothbrush idea is kinda gross and gimmicky, and the membership dentist scan probably costs a lot extra.\", \"intent\": \"Maybe I'd watch for a second out of curiosity but I'm not buying a toothbrush with a camera.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£1799 for aligners is way too expensive even with finance, and I'm in Spain so UK offer is useless to me.\", \"intent\": \"I won't click, I don't need aligners and I hate those pushy finance ads.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is super expensive and the finance thing just means debt, plus I don't want an exercise bike at home.\", \"intent\": \"Definitely not clicking, not interested in Peloton at all.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2221,
+ "cached_tokens": 0,
+ "output_tokens": 803,
+ "reasoning_tokens": 376
+}

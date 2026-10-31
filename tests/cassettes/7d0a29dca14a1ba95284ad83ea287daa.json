@@ -1,0 +1,11 @@
+{
+ "key": "7d0a29dca14a1ba95284ad83ea287daa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere, looks cheap and low quality, don't trust it\", \"intent\": \"No chance I'm clicking or buying from Temu\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds too good to be true with the free whitening and £5.50 a day will have hidden costs\", \"intent\": \"Wouldn't click, don't need braces anyway\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not really in English and I don't believe in astrology stuff\", \"intent\": \"Definitely not clicking on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"why would I want sea shells for decoration, completely irrelevant to me\", \"intent\": \"No interest at all, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton bikes are way too expensive even on finance, not for me right now\", \"intent\": \"Might watch the video but wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 619,
+ "cached_tokens": 0,
+ "output_tokens": 636,
+ "reasoning_tokens": 282
+}

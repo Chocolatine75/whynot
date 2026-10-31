@@ -1,0 +1,11 @@
+{
+ "key": "7df95344ed5d244064ab5052c26370b4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, overpromising app-install copy with no unique hook or proof will drive cheap clicks but poor retention/ROAS and fatigue quickly in competitive language-learning auction.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 329,
+ "cached_tokens": 128,
+ "output_tokens": 382,
+ "reasoning_tokens": 328
+}

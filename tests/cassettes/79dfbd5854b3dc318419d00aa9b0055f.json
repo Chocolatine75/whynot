@@ -1,0 +1,11 @@
+{
+ "key": "79dfbd5854b3dc318419d00aa9b0055f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just another Temu ad with a code and £0 gift nonsense, I scroll straight past these they feel spammy\", \"intent\": \"I wouldn't click, I don't trust Temu offers like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£5.50 a day sounds expensive when you add it up and free whitening offers always have a catch\", \"intent\": \"I might have a look but I wouldn't book anything from an Instagram ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so I haven't got a clue what it's actually offering me\", \"intent\": \"I wouldn't click because I don't know what I'd be signing up for\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian and says free your phone, looks dodgy and I don't trust it not to be a scam\", \"intent\": \"Definitely wouldn't click, looks unsafe\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Temu ad, I'm fed up seeing them and I don't need a selfie grip\", \"intent\": \"No chance I'd buy this, just annoying now\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 613,
+ "cached_tokens": 128,
+ "output_tokens": 631,
+ "reasoning_tokens": 241
+}

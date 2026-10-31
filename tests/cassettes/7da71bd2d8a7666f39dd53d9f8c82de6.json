@@ -1,0 +1,11 @@
+{
+ "key": "7da71bd2d8a7666f39dd53d9f8c82de6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Massive relevance disconnect between advertiser/CTA (Learn A New Language/Try for free) and body copy (AI World Cup supporter photos) signals bait-and-switch clickbait that will drive low CTR, poor conversion and quick policy/algorithm suppression.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 286,
+ "cached_tokens": 128,
+ "output_tokens": 257,
+ "reasoning_tokens": 185
+}

@@ -1,0 +1,11 @@
+{
+ "key": "5ff373dc3d91d7d6a583e2dbb25d72e0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"just says stars and AI toolkit with a pumpkin emoji, tells me nothing and looks like spam\", \"intent\": \"I wouldn't click, it looks vague and scammy.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Spanish so I just scrolled past, not for me\", \"intent\": \"I wouldn't click because I don't understand it and don't need a hairstyle app.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"the story sounds so dramatic and messy but it's clearly just a cheesy advert for a drama app, probably rubbish acting\", \"intent\": \"I might be tempted to click just to see what the drama is but I probably wouldn't bother.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"every language app claims you'll speak like a local and it's never true, and I don't trust the 5 star rating\", \"intent\": \"I wouldn't click right now as I'm not trying to learn Japanese.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu for big furniture like sofas and the post feels like a fake review\", \"intent\": \"I definitely wouldn't click or buy a sofa from Temu.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 746,
+ "cached_tokens": 128,
+ "output_tokens": 843,
+ "reasoning_tokens": 444
+}

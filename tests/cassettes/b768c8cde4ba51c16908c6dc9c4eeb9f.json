@@ -1,0 +1,11 @@
+{
+ "key": "b768c8cde4ba51c16908c6dc9c4eeb9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Image is confusing, low-quality and disconnected from the astrology/FREE CHAT offer with no clear benefit or credibility, likely causing low CTR and poor conversion despite strong text hook.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 644,
+ "cached_tokens": 128,
+ "output_tokens": 251,
+ "reasoning_tokens": 194
+}

@@ -1,0 +1,11 @@
+{
+ "key": "283f22cfa9653a7be81f986f6e679eec",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen loads of these wellness quiz ads, feels generic and probably just trying to sell me a subscription\", \"intent\": \"I would just keep scrolling, not interested in clicking.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"creepy intimate waxing ad with emojis, looks cheap and a bit scammy\", \"intent\": \"Definitely not clicking, just scrolled past fast.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French so I have no idea what it's really saying, also lemon water fasts sound like nonsense\", \"intent\": \"Would not click as it's not in English.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks a bit silly and probably makes you pay after or steals your photos\", \"intent\": \"Might have paused for a second but wouldn't click to try it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English so irrelevant to me, I don't know what it's offering\", \"intent\": \"I would just scroll past with no interest.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 684,
+ "cached_tokens": 0,
+ "output_tokens": 582,
+ "reasoning_tokens": 211
+}

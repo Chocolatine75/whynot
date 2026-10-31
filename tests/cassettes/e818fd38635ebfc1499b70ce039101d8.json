@@ -1,0 +1,11 @@
+{
+ "key": "e818fd38635ebfc1499b70ce039101d8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu quality, it'll look nothing like that in real life and leopard print like that is a bit much for me\", \"intent\": \"Might save the colour palette for inspo but definitely not clicking to buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It says toilet roll holder but the picture is just a dining chair, looks like a scammy dropship ad\", \"intent\": \"Not clicking, nothing to do with me anyway\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and dramatic, feels like a fake personal story trying to sell me miracle patches I don't need and don't trust\", \"intent\": \"Scrolled straight past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not into astrology and have no idea what it's actually offering\", \"intent\": \"Wouldn't click, just ignored it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Religious study stuff isn't for me at all\", \"intent\": \"No chance I'd click or buy this\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5591,
+ "cached_tokens": 128,
+ "output_tokens": 809,
+ "reasoning_tokens": 429
+}

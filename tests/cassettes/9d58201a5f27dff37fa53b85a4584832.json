@@ -1,0 +1,11 @@
+{
+ "key": "9d58201a5f27dff37fa53b85a4584832",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Makes unapproved medical claims about curing fungus which will trigger Facebook policy rejections, account bans, and low trust, making sustained profitable scaling almost impossible.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 308,
+ "cached_tokens": 128,
+ "output_tokens": 302,
+ "reasoning_tokens": 250
+}

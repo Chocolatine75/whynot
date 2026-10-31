@@ -1,0 +1,11 @@
+{
+ "key": "fa0e488b8947e939293fe3b7d9123364",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me at all, I don't play these self-care tamagotchi games and the text feels a bit preachy and patronizing\", \"intent\": \"I would just keep scrolling past this one\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a photo of a basket with a weird file-name title, I don't get what I'm supposed to do and I don't sell on Vinted\", \"intent\": \"No reason to click on a random basket\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly an AI girlfriend chatbot ad with anime girl, feels creepy and desperate, not interested at all\", \"intent\": \"Definitely not clicking that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and the image is some screaming Anubis dog, looks like cheap clickbait for a streaming app, I don't trust it\", \"intent\": \"I wouldn't click, I don't even understand what it's offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a cheesy teen romance drama ad, not my genre at all and looks like one of those low budget ReelShort things\", \"intent\": \"I'll just scroll past, not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1883,
+ "cached_tokens": 128,
+ "output_tokens": 1042,
+ "reasoning_tokens": 635
+}

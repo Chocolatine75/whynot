@@ -1,0 +1,11 @@
+{
+ "key": "891f7d4336cc444a77fd6831477ad867",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is clearly aimed at men and church leaders, nothing to do with me and I have no interest in buying training for a men's ministry.\", \"intent\": \"I would not click at all, not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't own Peloton equipment and not prepping for a race, plus that £45 a month membership puts me off straight away.\", \"intent\": \"I wouldn't click, it's too expensive and not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It reads like a made-up soap opera plot to get me to watch, I don't trust these dramatic story ads and I wouldn't pay to watch it.\", \"intent\": \"I might pause to read the story but I wouldn't click to watch.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's mostly in German so I don't understand it properly and that 7 day transformation claim sounds like nonsense.\", \"intent\": \"I would just scroll past without clicking.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no idea what this actually is, just says matching with no ads, looks cheap and vague.\", \"intent\": \"I wouldn't click, I don't need another matching game.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 909,
+ "cached_tokens": 128,
+ "output_tokens": 749,
+ "reasoning_tokens": 339
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1d6b4eb79e889dd89f81ce1e5b44d166",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious at all and zero interest in buying a bible study book about revelations\", \"intent\": \"wouldn't click, not my thing\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"massive wall of text fake personal story trying to sell me magnesium patches for nerve pain I don't have, obvious scam\", \"intent\": \"would scroll straight past and definitely not buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's womens leopard print clothes on Temu, nothing to do with me and I don't trust Temu ads anyway\", \"intent\": \"would keep scrolling, no interest\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a boring toilet roll holder and it's a B2B Alibaba ad, totally irrelevant\", \"intent\": \"would ignore completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Hindi and about astrology which I don't believe in, would just scroll past\", \"intent\": \"would not click\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4141,
+ "cached_tokens": 128,
+ "output_tokens": 650,
+ "reasoning_tokens": 290
+}

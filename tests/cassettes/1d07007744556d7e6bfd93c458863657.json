@@ -1,0 +1,11 @@
+{
+ "key": "1d07007744556d7e6bfd93c458863657",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic, benefit-free copy with no hook, proof, or CTA will be ignored in the saturated video-editor category and killed after testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 256,
+ "cached_tokens": 128,
+ "output_tokens": 270,
+ "reasoning_tokens": 225
+}

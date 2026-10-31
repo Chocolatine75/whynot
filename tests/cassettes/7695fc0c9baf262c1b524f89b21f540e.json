@@ -1,0 +1,11 @@
+{
+ "key": "7695fc0c9baf262c1b524f89b21f540e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Everything is in Chinese, I can't read it and I don't need a reels editing app with a random sports car\", \"intent\": \"I just scrolled past, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Cantonese, not useful for me at all\", \"intent\": \"Would not download it, not interested\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't really sew and it looks like one of those cheap dropshipping gadgets that won't work that well\", \"intent\": \"Maybe I'd watch a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Battery emojis with Halloween theme, seems childish and useless, I don't want to pay for icons\", \"intent\": \"No way I'm clicking for battery widgets\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The image is gross and creepy with his hand there and that vulgar text, totally put me off and I don't trust these intimate hair removal ads\", \"intent\": \"Absolutely not clicking, it made me uncomfortable and I kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1695,
+ "cached_tokens": 128,
+ "output_tokens": 978,
+ "reasoning_tokens": 591
+}

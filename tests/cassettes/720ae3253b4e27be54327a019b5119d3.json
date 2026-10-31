@@ -1,0 +1,11 @@
+{
+ "key": "720ae3253b4e27be54327a019b5119d3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just stars and 'AI Toolkit' tells me nothing, looks like another random chatbot ad\", \"intent\": \"I would keep scrolling, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks nice but I already have an electric toothbrush and I don't really believe the plant-based eco claim, plus it seems expensive\", \"intent\": \"I wouldn't click, maybe look at it for a second then scroll past\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and I'm in France I don't understand it well, and also I get too many AI course ads\", \"intent\": \"I would just scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Feels like a fake influencer testimonial trying to sell me an expensive gadget with a discount code, I don't trust it will work\", \"intent\": \"I wouldn't click or buy, looks too scammy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play these bus puzzle games, not interested at all\", \"intent\": \"I would just scroll past, not my type of game\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 871,
+ "cached_tokens": 0,
+ "output_tokens": 714,
+ "reasoning_tokens": 325
+}

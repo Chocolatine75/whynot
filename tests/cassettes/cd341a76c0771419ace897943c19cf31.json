@@ -1,0 +1,11 @@
+{
+ "key": "cd341a76c0771419ace897943c19cf31",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not my thing, looks like a cringey self-help game for teens and the image is just a messy room\", \"intent\": \"I would not click or buy this, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is super expensive and then you still pay 45 a month, not worth it and I don't have space for a bike\", \"intent\": \"I would not click, I am not going to finance an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"looks like clickbait Temu spam, the video of a woman kicking rocks has nothing to do with super oferta, I don't trust it\", \"intent\": \"I would not click, I avoid Temu ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"title says wallet phone case but image shows screen privacy film, confusing and looks cheap, don't need it\", \"intent\": \"I would not click, I don't buy phone stuff from Temu\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and Peloton always requires an expensive membership\", \"intent\": \"I would scroll past, not interested in Peloton running programs\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1950,
+ "cached_tokens": 256,
+ "output_tokens": 1037,
+ "reasoning_tokens": 628
+}

@@ -1,0 +1,11 @@
+{
+ "key": "929c6ff524cd930ceeec6e4a8b76f021",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":4,\"why\":\"Generic motivational copy and a cluttered, gimmicky book-mockup creative lacks a specific offer, strong hook or proof to beat Polish language-learning CPMs and sustain CPA for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 459,
+ "cached_tokens": 128,
+ "output_tokens": 478,
+ "reasoning_tokens": 422
+}

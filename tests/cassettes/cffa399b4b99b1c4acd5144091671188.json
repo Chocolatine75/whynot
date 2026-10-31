@@ -1,0 +1,11 @@
+{
+ "key": "cffa399b4b99b1c4acd5144091671188",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Serbian or something, I don't understand anything, not for me in Spain\", \"intent\": \"I would just scroll past, definitely not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"This is for businesses buying jewelry in bulk, I'm not a shop, nothing to do with me\", \"intent\": \"No reason to click, not buying rings wholesale\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is in Tagalog, I don't understand it and I don't need a video editor anyway\", \"intent\": \"Would ignore and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like typical scam promise, become an AI expert in 28 days with 15 minutes a day is impossible\", \"intent\": \"I might have looked for a second because it's in Spanish but I wouldn't click or pay\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks nice but I already have an electric toothbrush and this one looks expensive for what it is\", \"intent\": \"Probably wouldn't buy but it's the only one that looked somewhat interesting\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 693,
+ "cached_tokens": 128,
+ "output_tokens": 848,
+ "reasoning_tokens": 466
+}

@@ -1,0 +1,11 @@
+{
+ "key": "6d94a3b5b0aed8c0a5773579d0754ed2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Extremely generic motivational copy with no offer, USP, or scroll-stopping hook and random emojis will get low CTR and fatigue fast, never surviving months of optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 322,
+ "cached_tokens": 128,
+ "output_tokens": 341,
+ "reasoning_tokens": 285
+}

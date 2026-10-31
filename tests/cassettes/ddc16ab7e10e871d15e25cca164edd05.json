@@ -1,0 +1,11 @@
+{
+ "key": "ddc16ab7e10e871d15e25cca164edd05",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just some weird fantasy story ad, not interested at all, looks like spammy mobile game story\", \"intent\": \"I would just scroll past, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Vietnamese I think, I don't understand a word of it\", \"intent\": \"No reason to click since I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"also not in French or English, no idea what it says\", \"intent\": \"Would just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Hebrew text, I can't read it and I don't need a video editor\", \"intent\": \"Not clicking on something I don't understand\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like it's in Hindi, not for me and I don't believe in astrology anyway\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 657,
+ "cached_tokens": 128,
+ "output_tokens": 595,
+ "reasoning_tokens": 246
+}

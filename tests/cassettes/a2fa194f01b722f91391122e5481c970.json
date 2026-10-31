@@ -1,0 +1,11 @@
+{
+ "key": "a2fa194f01b722f91391122e5481c970",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Low-quality blurry selfie creative with spammy fake 5-star claim and clickbait Russian 'phone frozen?' hook signals a scammy cleaner/app ad that will get poor CTR, negative feedback, and likely account bans, not long-term scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 448,
+ "cached_tokens": 128,
+ "output_tokens": 296,
+ "reasoning_tokens": 225
+}

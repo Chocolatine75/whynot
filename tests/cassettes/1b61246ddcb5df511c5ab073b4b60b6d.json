@@ -1,0 +1,11 @@
+{
+ "key": "1b61246ddcb5df511c5ab073b4b60b6d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic duplicated UGC image has zero Khmer language, cultural, or benefit demonstration to match the 'speak like a local' promise and spammy 'Try Now' title gives no reason to click, so CTR and conversion will be too low to survive optimization.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 447,
+ "cached_tokens": 128,
+ "output_tokens": 309,
+ "reasoning_tokens": 238
+}

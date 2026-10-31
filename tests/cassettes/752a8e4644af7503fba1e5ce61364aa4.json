@@ -1,0 +1,11 @@
+{
+ "key": "752a8e4644af7503fba1e5ce61364aa4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Hits proven high-CTR isekai power-fantasy tropes (transmigration, foresight, elf warrior, demon conspiracy, world-saving) with clear escalation for core male fantasy demo, but slightly clunky/translation-heavy title limits broad breakthrough potential.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 310,
+ "cached_tokens": 128,
+ "output_tokens": 458,
+ "reasoning_tokens": 383
+}

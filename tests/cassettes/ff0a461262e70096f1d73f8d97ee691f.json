@@ -1,0 +1,11 @@
+{
+ "key": "ff0a461262e70096f1d73f8d97ee691f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's just a solid blue-green screen, nothing to see, looks like a glitch and the text is generic anyway\", \"intent\": \"I wouldn't click, there's literally nothing to look at.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious at all and this looks like one of those overhyped American bible courses trying to sell fear\", \"intent\": \"I would definitely not buy or click, not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"a camera in a toothbrush seems gimmicky and gross and probably expensive for no real benefit\", \"intent\": \"I might have looked for a second out of curiosity but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have a normal job, I don't need a gig delivering food, this is not relevant to me\", \"intent\": \"I wouldn't click, not looking for a side hustle.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology for career advice and the fake testimonial post looks super scammy\", \"intent\": \"I wouldn't click, astrology is nonsense to me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2184,
+ "cached_tokens": 256,
+ "output_tokens": 581,
+ "reasoning_tokens": 186
+}

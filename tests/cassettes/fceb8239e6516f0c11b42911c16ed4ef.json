@@ -1,0 +1,11 @@
+{
+ "key": "fceb8239e6516f0c11b42911c16ed4ef",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Obvious AI artifacts (deformed hand/fingers, uncanny faces) plus age-shaming copy triggers mockery/negative comments and destroys trust, preventing sustainable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 483,
+ "cached_tokens": 128,
+ "output_tokens": 250,
+ "reasoning_tokens": 194
+}

@@ -1,0 +1,11 @@
+{
+ "key": "2a7f5c2a2298157f55cb132b34cca9a9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"The title says learn a language but the text is about AI football photos, it makes no sense and looks like spam\",\"intent\":\"I would not click I don't care about AI templates\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Lemon water fasting will not make you lose weight like that, it's just another detox scam and it sounds dangerous\",\"intent\":\"I would keep scrolling and not click on this\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"My kitchen is messy but this looks like cheap dropshipping and the '2649 sold' is obviously fake urgency\",\"intent\":\"Maybe I'd check the price but I wouldn't buy I don't trust the quality\",\"intent_score\":2},{\"ad\":\"A4\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's in Portuguese I don't understand anything\",\"intent\":\"I would just scroll past\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"This werewolf romance story is ridiculous and not for me, it looks like cheap clickbait\",\"intent\":\"I would definitely not click on this kind of story\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 931,
+ "cached_tokens": 128,
+ "output_tokens": 815,
+ "reasoning_tokens": 494
+}

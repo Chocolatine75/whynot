@@ -1,0 +1,11 @@
+{
+ "key": "390bff9e5f2ac91c3ef7cf386e90b2e8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image was just a solid turquoise colour with nothing on it, so I scrolled straight past - no reason to stop and I've seen Deliveroo ads a hundred times anyway.\", \"intent\": \"I wouldn't click as there's nothing to look at and I don't need a takeaway right now.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It says it's a men's t-shirt but the picture is of fishing lures in someone's hand, so it looks like a scam listing and I don't trust Temu tat.\", \"intent\": \"I wouldn't click because the product and image don't match and I don't need it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a black screen with nothing to see and I don't believe in astrology or kundali readings, free chat just means they'll charge you after.\", \"intent\": \"I wouldn't click, not interested in fortune telling at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says it's a stone cage gabion basket but shows a grey wicker bench, so I have no idea what they're actually selling and wouldn't trust the quality.\", \"intent\": \"I wouldn't click as it's confusing and I don't need garden walls.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese which I don't speak, and the image says ChatGPT for anxious attachment which sounds a bit dodgy and not for me.\", \"intent\": \"I wouldn't click because I can't understand it and I'm not looking for an app like that.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2064,
+ "cached_tokens": 128,
+ "output_tokens": 698,
+ "reasoning_tokens": 232
+}

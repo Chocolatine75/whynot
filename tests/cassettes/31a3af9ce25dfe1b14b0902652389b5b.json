@@ -1,0 +1,11 @@
+{
+ "key": "31a3af9ce25dfe1b14b0902652389b5b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title says it's a storage box but the picture is clearly women's platform sandals, so it looks like a scam or a mistake and I have no use for women's shoes anyway.\", \"intent\": \"I would just scroll past because I don't trust it and don't need it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It says learn English easily but the notebook is full of Spanish phrases like Buenos dias, so it makes no sense and I don't need an English course.\", \"intent\": \"I have no reason to click, I would keep scrolling.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's just another cheap mobile puzzle game ad, I don't play these bus sorting games and I'm tired of them.\", \"intent\": \"I might glance at it but I definitely won't install it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"This over-the-top soap opera story with billionaire heir looks completely fake and cheesy, not something I would ever watch.\", \"intent\": \"I might stop for a second to laugh at the drama but I won't click.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's all in French about Bible studies on Paul's letters, I'm not interested in religious courses and it's not even in Italian.\", \"intent\": \"I would ignore it completely as it's not for me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2572,
+ "cached_tokens": 128,
+ "output_tokens": 736,
+ "reasoning_tokens": 306
+}

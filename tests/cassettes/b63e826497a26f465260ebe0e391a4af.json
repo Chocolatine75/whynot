@@ -1,0 +1,11 @@
+{
+ "key": "b63e826497a26f465260ebe0e391a4af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another generic hypercasual game ad, says Best Game 2026 but means nothing\", \"intent\": \"I wouldn't click on it, I don't care about these games.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and astrology is not my thing, feels like spam\", \"intent\": \"I would definitely not click or chat.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no need to learn Thai and I ignore these language app ads\", \"intent\": \"I have no intention to download or try it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropshipping stuff for the car, I don't trust the quality or the seller\", \"intent\": \"I wouldn't buy it, maybe I'd look at it for a second but not click.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job right now and I know it's hard work for little pay\", \"intent\": \"I wouldn't apply now but it's the only ad that seemed real and useful.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 596,
+ "cached_tokens": 128,
+ "output_tokens": 927,
+ "reasoning_tokens": 549
+}

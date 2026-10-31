@@ -1,0 +1,11 @@
+{
+ "key": "1635554fd42d1be969d101d549c4c16f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":8,\"why\":\"Classic high-converting direct-response formula with strong price anchoring (£4000 to £1799), risk-reversal (0% finance + free whitening/consult), and authentic low-fi creative that consistently drives cheap leads for high-ticket dental.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 459,
+ "cached_tokens": 128,
+ "output_tokens": 473,
+ "reasoning_tokens": 405
+}

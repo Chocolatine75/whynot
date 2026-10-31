@@ -1,0 +1,11 @@
+{
+ "key": "e7e440e3f6b9137cdaf4baaa39232900",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I just scrolled straight past, no idea what it's even selling\", \"intent\": \"I wouldn't click, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like another cheesy AI filter ad, probably wants you to pay after one free try\", \"intent\": \"I wouldn't click, not interested in Halloween templates.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't speak Greek so I ignored it completely\", \"intent\": \"Definitely wouldn't click, can't understand it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No clue what Cleanup actually is from that, too vague and looks like spam\", \"intent\": \"I wouldn't click, don't know what I'd be getting.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know these widget apps are usually subscription traps and full of ads\", \"intent\": \"Probably wouldn't click but it looked slightly more useful than the others.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 640,
+ "cached_tokens": 128,
+ "output_tokens": 735,
+ "reasoning_tokens": 378
+}

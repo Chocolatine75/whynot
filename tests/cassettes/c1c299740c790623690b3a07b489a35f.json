@@ -1,0 +1,11 @@
+{
+ "key": "c1c299740c790623690b3a07b489a35f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Title advertises a storage/makeup box while the image shows platform sandals, a complete product-creative mismatch that kills CTR, relevance, and trust so it would be paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 660,
+ "cached_tokens": 128,
+ "output_tokens": 258,
+ "reasoning_tokens": 203
+}

@@ -1,0 +1,11 @@
+{
+ "key": "db3a387d5398436cf8167bcd27dacf1f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Hyper-seasonal Halloween creative with personalized name is not evergreen and will fatigue/expire after October, so it cannot be kept running for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 437,
+ "cached_tokens": 128,
+ "output_tokens": 163,
+ "reasoning_tokens": 113
+}

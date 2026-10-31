@@ -1,0 +1,11 @@
+{
+ "key": "9994f421e40b42cf5780fe42710131cd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"its aimed at men/church leaders to build a mens ministry, not for me at all and feels very preachy\", \"intent\": \"would not click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"why am i being shown a dental chair, its a random B2B alibaba ad with nothing to do with me\", \"intent\": \"would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"its fire alarm cable for businesses, totally irrelevant and looks like spam\", \"intent\": \"would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"vague spammy alibaba hashtag stuff, no real product and i dont trust it\", \"intent\": \"would scroll straight past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"its in French so i cant even read it properly and im not looking for bible study courses\", \"intent\": \"would not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1330,
+ "cached_tokens": 0,
+ "output_tokens": 705,
+ "reasoning_tokens": 351
+}

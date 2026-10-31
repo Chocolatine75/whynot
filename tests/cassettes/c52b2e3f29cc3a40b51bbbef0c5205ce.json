@@ -1,0 +1,11 @@
+{
+ "key": "c52b2e3f29cc3a40b51bbbef0c5205ce",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"Proven high-CTR 'FREE' hook on a massive evergreen pain point (love/career) for Astrotalk's broad India audience that has scaled this exact offer for years.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 259,
+ "cached_tokens": 128,
+ "output_tokens": 276,
+ "reasoning_tokens": 217
+}

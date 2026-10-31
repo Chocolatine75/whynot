@@ -1,0 +1,11 @@
+{
+ "key": "b4b7ab027e5441cc8c98f309bfe68e67",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic 'FREE' AI hook with an uncanny, low-quality AI-generated image (melted hands/fingers) drives cheap curiosity clicks but poor conversion and high negative feedback, so it burns out quickly and is not kept long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 438,
+ "cached_tokens": 128,
+ "output_tokens": 262,
+ "reasoning_tokens": 193
+}

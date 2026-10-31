@@ -1,0 +1,11 @@
+{
+ "key": "ec2b672babac1c3ead04a5e2a038fe82",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic free-tool copy with advertiser/product mismatch (Photo Editor selling music generation) and no hook, proof, or differentiation will drive low-intent clicks and poor conversion/retention, killing long-term ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 269,
+ "cached_tokens": 128,
+ "output_tokens": 321,
+ "reasoning_tokens": 260
+}

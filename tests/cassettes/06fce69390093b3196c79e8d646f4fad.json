@@ -1,0 +1,11 @@
+{
+ "key": "06fce69390093b3196c79e8d646f4fad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says toilet roll holder but image is just a chair, looks like spam/dropship mismatch and I'm not sourcing B2B anyway\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Not interested in religious counseling training and I don't trust ads promising to fix anxiety/grief with a paid course\", \"intent\": \"I would not click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's industrial fire alarm cable on Alibaba, I have zero need for B2B cable sourcing\", \"intent\": \"I would scroll right past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like another generic survival clickbait game and best game 2026 claim is obviously fake\", \"intent\": \"Might look for a second but I wouldn't click to install\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Dating app ads with random women's photos feel scammy and I don't trust nearby singles apps\", \"intent\": \"I would not click, seems sketchy\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2118,
+ "cached_tokens": 0,
+ "output_tokens": 717,
+ "reasoning_tokens": 335
+}

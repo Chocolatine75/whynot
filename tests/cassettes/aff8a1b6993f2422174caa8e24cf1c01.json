@@ -1,0 +1,11 @@
+{
+ "key": "aff8a1b6993f2422174caa8e24cf1c01",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't do any sewing and I've got no use for a kit like that, gift or not.\", \"intent\": \"I wouldn't click or buy, not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not involved in running a church men's group and it looks like an expensive American course being sold hard.\", \"intent\": \"I wouldn't click, it's not relevant to me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like AI nonsense and a tawdry chat app for kids, nothing I want to see.\", \"intent\": \"I would not click this in a million years.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is in Spanish and it's just a Temu vanity table, not interested and I don't trust Temu.\", \"intent\": \"I would keep scrolling without clicking.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's one of those daft over-the-top soap drama adverts, looks completely made up and cheap.\", \"intent\": \"I wouldn't click or watch it.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2221,
+ "cached_tokens": 128,
+ "output_tokens": 612,
+ "reasoning_tokens": 237
+}

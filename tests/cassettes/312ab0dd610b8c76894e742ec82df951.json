@@ -1,0 +1,11 @@
+{
+ "key": "312ab0dd610b8c76894e742ec82df951",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Hard-dated Halloween promotion with 'Until Nov 2nd' in both copy and creative guarantees it will be paused after the sale ends and cannot run as an evergreen winner for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 460,
+ "cached_tokens": 128,
+ "output_tokens": 294,
+ "reasoning_tokens": 235
+}

@@ -1,0 +1,11 @@
+{
+ "key": "2c3d7f028b467deee27a7d959c736f25",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Je ne joue pas à ce genre de jeux, ça a l'air cheap et c'est juste une pub pour installer un truc, aucun intérêt pour moi\", \"intent\": \"Je scroll direct, je ne cliquerais pas du tout\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Je suis croyante mais je me méfie de ces ebooks payants sur la foi, on trouve ça gratuitement à l'église ou dans la Bible, ça sent l'arnaque marketing\", \"intent\": \"Je ne cliquerais pas, peut-être regarder l'image une seconde et passer\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Ça m'énerve ces trucs IA avec des bébés, je trouve ça un peu glauque et je n'ai pas envie de donner mes photos à une appli inconnue\", \"intent\": \"Je ne cliquerai pas, je veux juste que ça disparaisse de mon feed\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Ça pourrait m'intéresser sur le fond mais le texte est interminable et je suis sûre que c'est pour vendre une collection très chère, je préfère en parler avec mon prêtre\", \"intent\": \"Je ne cliquerais pas maintenant, au mieux je le garde en tête mais sans plus\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Texte beaucoup trop long et dramatique, la fausse histoire du médecin avec sa belle-sœur, ça fait très arnaque santé miracle et je n'ai pas cette maladie de toute façon\", \"intent\": \"Je ne cliquerais pas, je ne fais pas confiance à ce genre de pub santé sur Facebook\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7718,
+ "cached_tokens": 0,
+ "output_tokens": 825,
+ "reasoning_tokens": 317
+}

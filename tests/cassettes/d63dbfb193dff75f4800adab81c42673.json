@@ -1,0 +1,11 @@
+{
+ "key": "d63dbfb193dff75f4800adab81c42673",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and that slashed prices thing is just pushy, I don't trust the quality and I wasn't looking for a storage box\", \"intent\": \"No, I would just keep scrolling past this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't play these bubble games and these ads are always annoying\", \"intent\": \"Not for me at all, I wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and 50% off sounds like a gimmick, plus I do my food shop at normal supermarkets\", \"intent\": \"I might have a quick look at the name but I wouldn't download the app\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"My kitchen is already sorted and it looks cheap and flimsy, and the 2649 sold feels made up\", \"intent\": \"I wouldn't buy it but I did pause to look at it properly\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"We don't get that hot here to need a special fan and it looks like tat that would break in a week\", \"intent\": \"No need for it, I wouldn't click to buy\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 893,
+ "cached_tokens": 0,
+ "output_tokens": 629,
+ "reasoning_tokens": 227
+}

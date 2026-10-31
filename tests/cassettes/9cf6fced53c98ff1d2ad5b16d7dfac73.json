@@ -1,0 +1,11 @@
+{
+ "key": "9cf6fced53c98ff1d2ad5b16d7dfac73",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a jumble of little cars on a motorway, looks like a silly game for youngsters, not for me\", \"intent\": \"I would not click, I have no interest in bus games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language I can't read, not meant for me\", \"intent\": \"I would not click as I don't understand what it's saying\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again foreign writing, looks like another language app advert, not relevant to me in England\", \"intent\": \"I would scroll on by, I don't need it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've had dogs all my life and no toy is indestructible, that claim is nonsense and I don't trust it\", \"intent\": \"I might pause for the dogs but I wouldn't buy from an advert like this\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak the language and the picture of a worried old couple is sad, I don't want to click on something confusing\", \"intent\": \"I would not click, it puts me off feeling I might misunderstand something important\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1774,
+ "cached_tokens": 0,
+ "output_tokens": 575,
+ "reasoning_tokens": 173
+}

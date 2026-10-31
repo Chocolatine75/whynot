@@ -1,0 +1,11 @@
+{
+ "key": "9eb3c50fb4e2d3fbf3c02cb738b86d78",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I've no clue what it's on about, and I don't make collages or reels anyway\", \"intent\": \"Wouldn't click, just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Temu ad for cheap tat, I don't need a selfie grip and don't trust the quality\", \"intent\": \"I wouldn't click or buy, not interested at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Some AI chat romance nonsense, really not for me and looks a bit seedy\", \"intent\": \"Definitely wouldn't click on that.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Japanese about learning Thai, nothing to do with me\", \"intent\": \"No chance I'd click it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap elastic that probably won't last, and I don't need a new belt from an ad like this\", \"intent\": \"I wouldn't buy it, might glance but that's it.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 649,
+ "cached_tokens": 128,
+ "output_tokens": 1152,
+ "reasoning_tokens": 786
+}

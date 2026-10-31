@@ -1,0 +1,11 @@
+{
+ "key": "39a6674c9c0fe7f310817fd6f45e62a8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Halloween-specific hook is purely seasonal and becomes irrelevant after October, making it impossible to run profitably as an evergreen control for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 252,
+ "cached_tokens": 128,
+ "output_tokens": 332,
+ "reasoning_tokens": 283
+}

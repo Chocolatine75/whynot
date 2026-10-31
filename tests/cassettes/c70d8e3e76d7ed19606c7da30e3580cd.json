@@ -1,0 +1,11 @@
+{
+ "key": "c70d8e3e76d7ed19606c7da30e3580cd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic dropship kitchen gadget with inflated social proof (2,649 sold), awkward AI-like copy, and hashtag spam signals low trust and poor compliance, unlikely to sustain profitable ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 378,
+ "cached_tokens": 128,
+ "output_tokens": 228,
+ "reasoning_tokens": 168
+}

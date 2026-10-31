@@ -1,0 +1,11 @@
+{
+ "key": "d8e0a374e4140c917b5beab5c8088e39",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Strong pattern-interrupt hook and highly differentiated USP (camera + real dentist in app) should drive thumb-stop and CTR, despite unsubstantiated #1 claim risking skepticism/comments.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 329,
+ "cached_tokens": 128,
+ "output_tokens": 551,
+ "reasoning_tokens": 493
+}

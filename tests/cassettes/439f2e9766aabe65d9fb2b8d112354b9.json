@@ -1,0 +1,11 @@
+{
+ "key": "439f2e9766aabe65d9fb2b8d112354b9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I haven't got a clue what it's selling, just looks like some religious books. Not for me.\", \"intent\": \"I wouldn't click or buy, it's not relevant to me and I don't speak French.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious so a biblical guide to the fruit of the spirit means nothing to me, just another church ad to scroll past.\", \"intent\": \"No chance I'd click, I have no interest in buying a religious ebook.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian or something with a cartoon man, I don't understand what I'm meant to do and I already speak English anyway.\", \"intent\": \"I would not click, the language barrier puts me off completely.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks very over the top with the lion and the beard, and it's about men's ministry leadership which has nothing to do with my life.\", \"intent\": \"I wouldn't click or buy, it's clearly aimed at church leaders not me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Image shows an airport but the text is in Spanish about speaking with AI, doesn't match and feels like clickbait so I don't trust it.\", \"intent\": \"I might pause to look at the picture but I wouldn't click through to anything.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2741,
+ "cached_tokens": 128,
+ "output_tokens": 662,
+ "reasoning_tokens": 228
+}

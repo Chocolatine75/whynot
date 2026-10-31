@@ -1,0 +1,11 @@
+{
+ "key": "f42b098e2e441b32deeec733d2eae0d4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a business and I'm not sourcing products from China, not relevant to me and looks like generic spam\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Cantonese, zero interest\", \"intent\": \"I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian and says nothing clear about what it does, looks suspicious\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for UK parents with kids doing A-Levels, I'm in Italy and it's not for me\", \"intent\": \"I would scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Italian and about anxiety which is relevant but I don't trust these quiz apps and don't want to pay for a subscription\", \"intent\": \"I might read it for a second but I wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 766,
+ "cached_tokens": 128,
+ "output_tokens": 744,
+ "reasoning_tokens": 377
+}

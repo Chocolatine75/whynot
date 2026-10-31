@@ -1,0 +1,11 @@
+{
+ "key": "41cee21dcd800205a582c3945309dc40",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust Temu for DeWalt tools, it even says AI-generated imagery and not sponsored by DeWalt, so it's probably cheap rubbish\", \"intent\": \"I would not click or buy, I have no need for power tools and I don't trust the offer\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand what this is about with the messy room and younger me, and a self-care pet game is not for me at my age\", \"intent\": \"I would not click, it's clearly aimed at youngsters not me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and about astrology which I don't believe in, plus a strange picture of a coconut\", \"intent\": \"I would not click, astrology is not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The text about secretly tracking someone as a hidden detective is very creepy and wrong, even though the tag for not losing things could be handy\", \"intent\": \"I might have looked to find something to not lose my keys but the sneaky tracking put me right off\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"More astrology talk and I can't make out what's going on in the picture with the lady on the yellow chair\", \"intent\": \"I would not click, I'm not interested in chatting with an astrologer\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2185,
+ "cached_tokens": 128,
+ "output_tokens": 902,
+ "reasoning_tokens": 458
+}

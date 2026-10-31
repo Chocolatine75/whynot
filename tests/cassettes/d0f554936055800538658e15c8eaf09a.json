@@ -1,0 +1,11 @@
+{
+ "key": "d0f554936055800538658e15c8eaf09a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says it's a t-shirt but the picture is fishing lures, looks like dodgy Temu drop-ship nonsense, I don't trust Temu anyway\", \"intent\": \"I wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Walls of scary text trying to flog magnesium patches, classic fear-mongering health scam and way too long to read\", \"intent\": \"I definitely wouldn't click or buy anything from that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not in any church leadership, nothing to do with me\", \"intent\": \"I wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French, I don't read French and not interested in bible study courses\", \"intent\": \"I wouldn't click, just ignored it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a gig economy delivery job on a bike, got a proper job already\", \"intent\": \"I wouldn't click as I don't need extra work like that\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 10055,
+ "cached_tokens": 0,
+ "output_tokens": 608,
+ "reasoning_tokens": 222
+}

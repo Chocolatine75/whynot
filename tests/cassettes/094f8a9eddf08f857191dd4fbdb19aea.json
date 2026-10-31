@@ -1,0 +1,11 @@
+{
+ "key": "094f8a9eddf08f857191dd4fbdb19aea",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need an expensive exercise bike and I don't trust Peloton pricing, just scrolled past\", \"intent\": \"Wouldn't click, not looking for a bike and can't afford it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Way too long to read and honestly felt like a fake story trying to sell a miracle patch, not relevant to me anyway\", \"intent\": \"Wouldn't click, seems like health scam stuff\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need teeth straightening and that advert looks cheap, just ignored it\", \"intent\": \"Wouldn't click, not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"\", \"intent\": \"Might click to have a quick look at Vinted since I use it occasionally\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a black screen with text, no idea what it's selling so I scrolled on\", \"intent\": \"Wouldn't click, no clue what it is\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4916,
+ "cached_tokens": 256,
+ "output_tokens": 583,
+ "reasoning_tokens": 222
+}

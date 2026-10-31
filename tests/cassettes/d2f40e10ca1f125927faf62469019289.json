@@ -1,0 +1,11 @@
+{
+ "key": "d2f40e10ca1f125927faf62469019289",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sono in Italia, un'offerta in sterline per il Regno Unito non mi serve a niente. E poi non mi fido di queste pubblicità di denti online\", \"intent\": \"Non cliccherei, ho scrollato oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sono stufa di vedere Temu ovunque, sono solo spam e quei regali a 0 euro non sono mai veri\", \"intent\": \"Non cliccherei mai su un link Temu\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Conosco Revolut ma questa pubblicità sui Mondiali sembra solo hype per farmi scaricare l'app, non ne ho bisogno ora\", \"intent\": \"Forse ci penserei ma non clicco adesso\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"È la seconda volta la stessa clinica, sempre in UK, non è per me e sembra poco seria con tutti questi sconti\", \"intent\": \"Ignorata completamente\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Non capisco cosa sia kundali, non è roba per me, e queste cose di astrologia a pagamento mi sembrano una truffa\", \"intent\": \"Non cliccherei, mi ha solo incuriosito un secondo per stranezza\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 698,
+ "cached_tokens": 0,
+ "output_tokens": 1124,
+ "reasoning_tokens": 697
+}

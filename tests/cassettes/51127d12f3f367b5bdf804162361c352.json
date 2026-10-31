@@ -1,0 +1,11 @@
+{
+ "key": "51127d12f3f367b5bdf804162361c352",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into phone games and I don't care about someone else's high score, just looks like a time-waster\", \"intent\": \"I would keep scrolling and not click on it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I have no idea what it's selling me and it's not for me\", \"intent\": \"I wouldn't click as I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These miracle cure ads always look a bit dodgy and I'd rather go to the chemist than buy something like this off Facebook\", \"intent\": \"I might pause to look but I wouldn't buy it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That title is just a jumble of words and it's wholesale business stuff, nothing to do with me\", \"intent\": \"I'd scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Peloton is but those bikes are far too expensive and I've got nowhere to put one\", \"intent\": \"I wouldn't click because I'm not looking for exercise equipment\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 662,
+ "cached_tokens": 128,
+ "output_tokens": 699,
+ "reasoning_tokens": 315
+}

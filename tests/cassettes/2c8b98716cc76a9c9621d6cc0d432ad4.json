@@ -1,0 +1,11 @@
+{
+ "key": "2c8b98716cc76a9c9621d6cc0d432ad4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Cheap gimmicky dropship impulse product with overhyped glow claims, generic copy, and untrustworthy advertiser name signals low CTR/ROAS and quick ad fatigue/ban, not a long-term winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 390,
+ "cached_tokens": 128,
+ "output_tokens": 193,
+ "reasoning_tokens": 128
+}

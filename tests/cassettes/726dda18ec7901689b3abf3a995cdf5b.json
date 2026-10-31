@@ -1,0 +1,11 @@
+{
+ "key": "726dda18ec7901689b3abf3a995cdf5b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like another cheap match-3 game ad, very spammy and i don't believe the no ads bit anyway\", \"intent\": \"No I wouldn't click, I have enough games and this looks boring\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I just scrolled straight past it\", \"intent\": \"Definitely not clicking as I can't even read what it's for\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English and confusing, not relevant to me at all\", \"intent\": \"I would not click or buy this, I don't know what it's saying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a dropship scam wallet and the description is all garbled with emojis, feels cheap\", \"intent\": \"No chance I'd buy a wallet from a random ad like this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language so I have no idea and just kept scrolling\", \"intent\": \"I would not click because it's not even in English\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 692,
+ "cached_tokens": 128,
+ "output_tokens": 769,
+ "reasoning_tokens": 392
+}

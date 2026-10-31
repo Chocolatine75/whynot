@@ -1,0 +1,11 @@
+{
+ "key": "32205a692bc42820b02287059852a6aa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Heavy text-overlay cartoon creative with unrealistic fluency promises (perfect English in 10-15 mins/day) drives low CTR, negative comments, and poor install-to-paid conversion, causing quick fatigue and shutdown.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 514,
+ "cached_tokens": 128,
+ "output_tokens": 369,
+ "reasoning_tokens": 306
+}

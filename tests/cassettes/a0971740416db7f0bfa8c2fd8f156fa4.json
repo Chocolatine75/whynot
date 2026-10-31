@@ -1,0 +1,11 @@
+{
+ "key": "a0971740416db7f0bfa8c2fd8f156fa4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's about Bible prophets, not for me at all, I just scrolled past\", \"intent\": \"I would not click, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says cycling cap but the image is a guy with a bandana thing, looks like a cheap dropship ad and I'm not into cycling\", \"intent\": \"I wouldn't click or buy it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again in French about Paul's letters, totally not my interest and I don't understand French well\", \"intent\": \"No reason to click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Very vague, just a cartoon girl with a phone, no idea what it actually does or costs\", \"intent\": \"I wouldn't click, looks generic\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The messy room meme made me pause for a second but I don't need another self-care pet game on my phone\", \"intent\": \"I might watch the video but I wouldn't download or buy anything\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2826,
+ "cached_tokens": 128,
+ "output_tokens": 715,
+ "reasoning_tokens": 334
+}

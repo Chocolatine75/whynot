@@ -1,0 +1,11 @@
+{
+ "key": "ca28263a487a05ba3a2fee5ff1fe705c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Blurry, low-quality creative showing a generic editor UI with no clear before/after, benefit, or hook is unlikely to hold attention or convert efficiently enough to justify long-term spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 441,
+ "cached_tokens": 128,
+ "output_tokens": 397,
+ "reasoning_tokens": 342
+}

@@ -1,0 +1,11 @@
+{
+ "key": "559f7ce417dc31f3edd55d242c717c96",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious like that and it looks like a paid course trying to sell ebooks, plus way too much text\", \"intent\": \"I would just scroll past, no click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Also religious and now in English so even less for me, feels like another ebook scam\", \"intent\": \"I would not click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a cheap mobile game ad I've seen a thousand times, don't trust it and don't want to download anything\", \"intent\": \"I might look for a second but I wouldn't click to try it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Cute babies but I don't get what it does - dance video or tutorial? Feels clickbaity and maybe AI scams for my photos\", \"intent\": \"I wouldn't click, I'd keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm 30, I don't have neuropathy and this is a huge scary wall of text trying to sell patches, looks like fake doctor story\", \"intent\": \"I would definitely not click or buy, just skip it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7718,
+ "cached_tokens": 0,
+ "output_tokens": 1027,
+ "reasoning_tokens": 623
+}

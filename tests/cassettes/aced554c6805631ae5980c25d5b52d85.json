@@ -1,0 +1,11 @@
+{
+ "key": "aced554c6805631ae5980c25d5b52d85",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"just says takeaways delivered, no deal or discount shown so no reason to tap\", \"intent\": \"I wouldn't click, I already have Deliveroo installed if I need it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's a Temu ad and looks dropshippy, don't trust the quality will be any good\", \"intent\": \"Might watch the video for a second but wouldn't click the link or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm not a business looking to bulk buy handbags, totally irrelevant to me\", \"intent\": \"Would just scroll straight past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and I don't speak it, plus looks like one of those scammy AI course ads\", \"intent\": \"Wouldn't click at all, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£95 for a toothbrush is way too much and I don't need a camera in my mouth\", \"intent\": \"Wouldn't buy, my normal electric toothbrush does the job fine\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 128,
+ "output_tokens": 599,
+ "reasoning_tokens": 210
+}

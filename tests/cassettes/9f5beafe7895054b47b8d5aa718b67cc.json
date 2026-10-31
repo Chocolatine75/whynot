@@ -1,0 +1,11 @@
+{
+ "key": "9f5beafe7895054b47b8d5aa718b67cc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Georgian or something, not for me at all and looks like a cheap language app ad\", \"intent\": \"I wouldn't click, I already speak English and I don't need this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's one of those cringe werewolf romance novel ads, totally not my thing and looks made up\", \"intent\": \"I'd just scroll straight past, not interested in reading that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a Temu vanity table in Spanish, I'm not looking for furniture and I don't trust Temu ads\", \"intent\": \"I wouldn't click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again it's in Russian, trying to teach English but I don't need it and it feels like spam\", \"intent\": \"I'd ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get it's a number puzzle game but I never download these ad games and they get boring fast\", \"intent\": \"I might pause for a second but I wouldn't click to install it\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1885,
+ "cached_tokens": 256,
+ "output_tokens": 731,
+ "reasoning_tokens": 343
+}

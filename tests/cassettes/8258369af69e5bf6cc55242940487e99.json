@@ -1,0 +1,11 @@
+{
+ "key": "8258369af69e5bf6cc55242940487e99",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Makes unsubstantiated medical/health claims for pets with generic AI-sounding copy and a low-trust dropship-style page name, likely to face policy disapproval, low CTR, and poor conversion.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 347,
+ "cached_tokens": 128,
+ "output_tokens": 257,
+ "reasoning_tokens": 195
+}

@@ -1,0 +1,11 @@
+{
+ "key": "876d52cb0c76ab7f48f52256247c54b2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"this is clearly not for me, some gay omegaverse drama, the text makes no sense and the image says divorcing my impotent alpha, cringe\", \"intent\": \"I would never click this, just scroll past fast.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"generic ad with no info, just a random woman on the street, what does cleanup even do\", \"intent\": \"No reason to click, looks like spam.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"title says toilet roll holder but image is a wooden chair, looks like cheap dropshipping scam\", \"intent\": \"I would not click, I don't trust it at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these dating apps are always fake, verified or not it's full of bots and then they ask for money\", \"intent\": \"Maybe I'd be curious for a second but I wouldn't click or install.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"$240 for lifetime is still a lot and I don't need a language app right now\", \"intent\": \"I will just keep scrolling, not interested.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1680,
+ "cached_tokens": 128,
+ "output_tokens": 935,
+ "reasoning_tokens": 544
+}

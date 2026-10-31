@@ -1,0 +1,11 @@
+{
+ "key": "e35330ad71c99c830c74bb634c7194ee",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"È Temu UK, non mi serve e non mi fido della qualità, sembra solo fast fashion economico\", \"intent\": \"Non cliccherei, ho scrollato oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in portoghese non capisco bene e non cerco app per ansia così a caso\", \"intent\": \"Assolutamente non cliccherei\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Carini ma non ho bisogno di altri contenitori di plastica e sembrano troppo pubblicizzati\", \"intent\": \"Magari li guarderei ma non comprerei ora\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Post lunghissimo che fa paura, sembra una truffa per vendere cerotti miracolosi e non sono il target\", \"intent\": \"Ho saltato subito senza leggere tutto\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sono una poltrona da dentista per aziende, non c'entra niente con me\", \"intent\": \"Non cliccherei mai\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3275,
+ "cached_tokens": 0,
+ "output_tokens": 897,
+ "reasoning_tokens": 522
+}

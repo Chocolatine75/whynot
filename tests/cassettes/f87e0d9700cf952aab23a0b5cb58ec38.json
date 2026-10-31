@@ -1,0 +1,11 @@
+{
+ "key": "f87e0d9700cf952aab23a0b5cb58ec38",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Unrealistic overpromise (advanced English in months with 15 min/day) with generic spammy emoji copy and weak 'Try Now' CTA destroys credibility and retention, so ROAS will collapse after initial novelty.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 285,
+ "cached_tokens": 128,
+ "output_tokens": 330,
+ "reasoning_tokens": 266
+}

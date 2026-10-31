@@ -1,0 +1,11 @@
+{
+ "key": "943c2369f03debf470a5a83adcbdf428",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English so I just scrolled past, no idea what it's actually for\", \"intent\": \"I wouldn't click because I don't understand it at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no clue what Pure matching experience means, looks like a spammy game ad\", \"intent\": \"I wouldn't click, I have no interest and it looks a bit dodgy.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language so I just ignored it\", \"intent\": \"I wouldn't click because I can't understand what it's selling.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English, I just kept scrolling\", \"intent\": \"I wouldn't click since I don't know what it says.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like one of those cheap dropship wallets, I've seen loads of these and don't need a new wallet\", \"intent\": \"I wouldn't buy, I don't need it and I don't trust ads like this.\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 692,
+ "cached_tokens": 0,
+ "output_tokens": 680,
+ "reasoning_tokens": 313
+}

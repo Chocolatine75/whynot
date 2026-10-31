@@ -1,0 +1,11 @@
+{
+ "key": "ea5b4ddea22cdf53d9fce6f91e17cb4a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Heavy disease-cure/medical before-after claims (reversing numbness, filament scores 3→6/10) will trigger rapid Facebook ad disapprovals, account flags, and low trust/high refunds, preventing long-term scale despite strong copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5536,
+ "cached_tokens": 128,
+ "output_tokens": 255,
+ "reasoning_tokens": 186
+}

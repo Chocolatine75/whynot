@@ -1,0 +1,11 @@
+{
+ "key": "36ca4dfb81b378739613593414458dd2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like spammy AI junk that wants your photos, seen loads of these\", \"intent\": \"Wouldn't click, not interested in making silly videos\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English and not into astrology stuff for career advice\", \"intent\": \"Would definitely not click, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a tradesman or buying fire alarm cables, nothing to do with me\", \"intent\": \"No reason to click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£4 a day sounds expensive over time and I don't trust these online straightening offers\", \"intent\": \"Might have paused but wouldn't click or book anything from an advert\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks nice but I don't need a fancy expensive toothbrush, my normal electric one is fine\", \"intent\": \"Probably wouldn't click, but it's the least annoying ad of the bunch\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 691,
+ "cached_tokens": 0,
+ "output_tokens": 613,
+ "reasoning_tokens": 244
+}

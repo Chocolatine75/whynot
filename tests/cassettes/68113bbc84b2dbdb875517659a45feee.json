@@ -1,0 +1,11 @@
+{
+ "key": "68113bbc84b2dbdb875517659a45feee",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen this Revolut ad 100 times already, I have a bank and don't need another fintech app pushing me\", \"intent\": \"I would just scroll past, not interested in switching banks\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Portuguese about some novela, has nothing to do with me in Germany\", \"intent\": \"I would ignore it completely and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"obvious clickbait with fake celebrity drama and astrology is total nonsense scam\", \"intent\": \"I would not click, looks like a scam to get money\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap dropship health scam and I don't have that problem anyway\", \"intent\": \"I would scroll past, don't trust random health products on Instagram\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"camera toothbrush sounds gimmicky and probably expensive, doubt a real dentist actually checks it\", \"intent\": \"I might look at it for a second out of curiosity but wouldn't buy it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 774,
+ "cached_tokens": 0,
+ "output_tokens": 673,
+ "reasoning_tokens": 293
+}

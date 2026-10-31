@@ -1,0 +1,11 @@
+{
+ "key": "b98ce3ae70e249b9240e159c1d74d678",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non mi interessa questo genere fantasy con elfi e prìncipi, sembra un romanzo trash per adolescenti\", \"intent\": \"Non cliccherei mai, non è il mio genere\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sono in Italia, non nel Regno Unito, e comunque non mi fido di queste pubblicità per i denti a basso prezzo\", \"intent\": \"Non ho bisogno di apparecchio e comunque è per UK\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Carino ma non cucio molto e ho già aghi a casa, non comprerei altro\", \"intent\": \"Potrei guardarlo un secondo ma non comprerei\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È tutto in cinese, non ho capito a cosa serve e non mi serve un'altra app per video\", \"intent\": \"Scorro oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sembra una truffa lunghissima che fa leva sulla paura, non credo a questi cerotti miracolosi e diffido dei consigli medici su Facebook\", \"intent\": \"Non cliccherei e non comprerei mai un prodotto così senza parlare con un medico vero\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3135,
+ "cached_tokens": 0,
+ "output_tokens": 614,
+ "reasoning_tokens": 198
+}

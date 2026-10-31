@@ -1,0 +1,11 @@
+{
+ "key": "fae40c622c147939647f8b1178a8923f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and reads like a fake doctor story trying to sell me expensive patches, total scam vibe\", \"intent\": \"would not click or buy, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German and that weight loss claim looks like crash diet nonsense anyway\", \"intent\": \"would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Italian so I have no idea what it's really selling and I don't need a language app\", \"intent\": \"would not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a blank teal screen with Deliveroo logo, nothing to actually look at and I already have the app if I need it\", \"intent\": \"might use Deliveroo another time but wouldn't click this ad\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"not into cheesy wattpad style teen romance ads, feels clickbaity\", \"intent\": \"would not click or buy\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7158,
+ "cached_tokens": 5504,
+ "output_tokens": 592,
+ "reasoning_tokens": 221
+}

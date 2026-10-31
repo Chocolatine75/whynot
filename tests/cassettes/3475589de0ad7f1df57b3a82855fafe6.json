@@ -1,0 +1,11 @@
+{
+ "key": "3475589de0ad7f1df57b3a82855fafe6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Nothing to do with me, I'm retired not a business buyer and I don't want to trek to Excel London for a sales pitch\",\"intent\":\"I would not click, not relevant to me at all\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"It's a young mum flogging kids toys on Vinted, not for me and looks like a paid influencer post\",\"intent\":\"I would keep scrolling, I have no use for it\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's all in Spanish which I don't speak, and I don't want an AI app messing with photos\",\"intent\":\"I would ignore it completely\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Sounds like another fitness app trying to take a subscription, I'm wary of these claims at my age\",\"intent\":\"I might pause but I wouldn't click or buy without my doctor's advice\",\"intent_score\":2},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"I'm not learning Japanese and the alien joke means nothing to me\",\"intent\":\"I would scroll straight past it\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 699,
+ "cached_tokens": 0,
+ "output_tokens": 827,
+ "reasoning_tokens": 501
+}

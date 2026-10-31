@@ -1,0 +1,11 @@
+{
+ "key": "7a9b99ac8b5608ecd5ef94feed292765",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"astrology clickbait nonsense with a celebrity I've never heard of, not interested at all\", \"intent\": \"wouldn't click this in a million years\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another mental health app trying to flog a subscription via a free quiz, don't trust it\", \"intent\": \"no intention to click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"silly novelty glasses for kids parties, nothing to do with me\", \"intent\": \"definitely not clicking to buy tat like that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"wouldn't buy pet medicine off an Instagram ad, looks like snake oil and I'd go to the vet\", \"intent\": \"might have paused as a dog lover but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French so I haven't got a clue and I'm not trying to learn a language\", \"intent\": \"would just scroll past, not for me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 836,
+ "cached_tokens": 0,
+ "output_tokens": 1090,
+ "reasoning_tokens": 723
+}

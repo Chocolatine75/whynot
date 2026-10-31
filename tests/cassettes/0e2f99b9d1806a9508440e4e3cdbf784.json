@@ -1,0 +1,11 @@
+{
+ "key": "0e2f99b9d1806a9508440e4e3cdbf784",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Feels like a total scam to get you hooked and then pay, I don't believe in astrology for ex stuff\", \"intent\": \"I would definitely not click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't really play survival games and this looks generic\", \"intent\": \"I would just keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too long, too religious and pushy, I just skip these kinds of ads\", \"intent\": \"I would not click, I have no interest in buying a Bible study PDF\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's for the UK and I don't want an expensive Peloton bike anyway\", \"intent\": \"I would not click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks pretty but probably way too expensive for a toothbrush and I don't need a fancy one\", \"intent\": \"I might look at it for a second because the design is nice but I wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 898,
+ "cached_tokens": 0,
+ "output_tokens": 650,
+ "reasoning_tokens": 272
+}

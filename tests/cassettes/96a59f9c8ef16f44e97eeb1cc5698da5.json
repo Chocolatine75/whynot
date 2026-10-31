@@ -1,0 +1,11 @@
+{
+ "key": "96a59f9c8ef16f44e97eeb1cc5698da5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu junk, don't trust the quality and sick of their ads everywhere\", \"intent\": \"Wouldn't click, not buying cheap t-shirts like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea why I'd want a metal stone cage and it's Temu again so no chance\", \"intent\": \"No interest at all, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo, just not ordering takeaway right now and fees are too high\", \"intent\": \"Might keep in mind but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Astrology is nonsense and that first chat free is just a trick to get money\", \"intent\": \"Absolutely no way I'd click on that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese or something, not for me and looks like another wellness app advert\", \"intent\": \"Wouldn't click when I can't even read it properly\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 0,
+ "output_tokens": 666,
+ "reasoning_tokens": 300
+}

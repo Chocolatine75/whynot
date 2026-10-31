@@ -1,0 +1,11 @@
+{
+ "key": "c4837c83573dedd05e4d24053eb40221",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Sea shells in bulk? I have no idea why this is showing to me, looks like stuff for a shop, not for me\", \"intent\": \"I kept scrolling, I have absolutely no need for this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The price is in pounds so not for Italy, and these teeth ads always feel a bit scammy to me\", \"intent\": \"I paused for a second but I would not click, I don't trust these online dentist offers\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a second job as a rider and I already have Deliveroo on my phone\", \"intent\": \"I scrolled past immediately, not relevant for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't want another monthly payment, plus I don't have space for a bike\", \"intent\": \"I ignored it, I'm not going to finance an exercise bike\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another Alibaba ad with a super technical title, I don't even know what this product is\", \"intent\": \"I just scrolled past, completely irrelevant and looks like spam\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 623,
+ "cached_tokens": 0,
+ "output_tokens": 822,
+ "reasoning_tokens": 413
+}

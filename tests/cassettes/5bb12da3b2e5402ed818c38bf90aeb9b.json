@@ -1,0 +1,11 @@
+{
+ "key": "5bb12da3b2e5402ed818c38bf90aeb9b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Je ne suis pas du tout croyante, ça ne me concerne pas et le post est beaucoup trop long, j'ai scrollé direct\",\"intent\":\"Je ne cliquerais jamais, ce n'est pas pour moi du tout\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Encore un truc religieux, en anglais en plus, je ne suis pas la cible\",\"intent\":\"Je ne cliquerais pas, aucun intérêt pour moi\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Juste une image de jeu avec zéro info, ça a l'air cheap et fake best game 2026\",\"intent\":\"Peut-être je jetterais un oeil 2 secondes mais je ne téléchargerais pas\",\"intent_score\":2},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Ça a l'air marrant mais je me méfie de ces applis IA qui te volent tes photos ou te font payer après\",\"intent\":\"Je ne cliquerais pas maintenant, trop peur que ce soit une arnaque ou payant\",\"intent_score\":2},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"Mur de texte énorme, j'ai vu neuropathy et j'ai scrollé, ça sent l'arnaque qui veut vendre un patch miracle\",\"intent\":\"Je ne cliquerais définitivement pas, trop long et trop vendeur pour être crédible\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6449,
+ "cached_tokens": 0,
+ "output_tokens": 735,
+ "reasoning_tokens": 349
+}

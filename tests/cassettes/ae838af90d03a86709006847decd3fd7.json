@@ -1,0 +1,11 @@
+{
+ "key": "ae838af90d03a86709006847decd3fd7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a toilet roll holder for professionals/B2B on Alibaba, nothing for me, I just scrolled past\", \"intent\": \"I wouldn't click, I have no need for this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking for counseling training, feels like a paid course ad\", \"intent\": \"I wouldn't click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Fire alarm cable, totally irrelevant B2B stuff for me\", \"intent\": \"I wouldn't click, not my job or need\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a generic mobile game ad, 'Best Game 2026' means nothing and probably low quality\", \"intent\": \"I paused half a second but wouldn't click\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Dating app 'singles nearby' always feels like scam or fake profiles, don't trust it\", \"intent\": \"I would not click, I ignore these ads\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 697,
+ "cached_tokens": 0,
+ "output_tokens": 961,
+ "reasoning_tokens": 592
+}

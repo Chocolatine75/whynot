@@ -1,0 +1,11 @@
+{
+ "key": "4c240c0e46e5cccf4a3b046f7f384a83",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está en serbio o croata, no entiendo nada y no quiero aprender inglés así, no es para mí\", \"intent\": \"No haría clic, sigo desplazándome porque no es en mi idioma\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Es un anillo suelto en fondo blanco y dice B2B, parece venta al por mayor, no compro joyas así\", \"intent\": \"No haría clic, no necesito anillos y no soy empresa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Otro cepillo eléctrico caro con cámara, suena a gadget innecesario y muy caro que no necesito\", \"intent\": \"Probablemente no haga clic, ya tengo cepillo y no me fío de estas marcas de Instagram\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Está en otro idioma y el vídeo se ve borroso y cutre, no me dice nada\", \"intent\": \"No haría clic, no edito vídeos para viralizar nada\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Promesa de hacerte experto en IA en 28 días con 15 minutos es humo total y la imagen rara de IA no ayuda\", \"intent\": \"No pienso hacer clic, estas apps son estafa y spam\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2114,
+ "cached_tokens": 128,
+ "output_tokens": 810,
+ "reasoning_tokens": 380
+}

@@ -1,0 +1,11 @@
+{
+ "key": "08793dcc3ccf93444a6e3a5374725076",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into astrology or kundali stuff at all, feels like a scam to get you to pay after the first free chat\", \"intent\": \"I wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu furniture looks cheap and I don't trust the quality, and I don't need a new sofa\", \"intent\": \"Might look for a second but I wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and the video of a woman kicking stones has nothing to do with a super offer, looks like clickbait\", \"intent\": \"No chance I'd click on that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French which I don't speak and I'm not religious anyway so not relevant to me\", \"intent\": \"I just kept scrolling, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says shoes but the picture is a pink plush toy box, completely mismatched so I don't trust it\", \"intent\": \"I wouldn't click or buy from Temu like this\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2723,
+ "cached_tokens": 128,
+ "output_tokens": 786,
+ "reasoning_tokens": 396
+}

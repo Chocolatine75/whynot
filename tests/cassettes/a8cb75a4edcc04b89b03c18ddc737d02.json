@@ -1,0 +1,11 @@
+{
+ "key": "a8cb75a4edcc04b89b03c18ddc737d02",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Vague clickbait curiosity-gap copy with overpromised pain-free intimate depilation claim drives low-quality clicks, poor conversion and negative feedback, leading to high CPMs/ban and quick shutdown, not long-term scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 300,
+ "cached_tokens": 128,
+ "output_tokens": 389,
+ "reasoning_tokens": 323
+}

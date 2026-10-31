@@ -1,0 +1,11 @@
+{
+ "key": "6322185c3d6613a60b9ec46ab7fb60de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and have nothing to do with running a church, this is completely irrelevant to me\", \"intent\": \"Not going to click, has nothing to do with my life\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean which I can't read and I'm not trying to learn English that way\", \"intent\": \"Would just scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't own Peloton stuff and 45 pounds a month is way too expensive for a running app\", \"intent\": \"Might look at it for a second but definitely not clicking to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it actually does, title is in Chinese and the image is just some lights, looks like spam\", \"intent\": \"No reason to click, would ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another generic video editor ad in a language I don't understand, I already have apps for that\", \"intent\": \"Would not click or download\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1876,
+ "cached_tokens": 128,
+ "output_tokens": 548,
+ "reasoning_tokens": 172
+}

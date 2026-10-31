@@ -1,0 +1,11 @@
+{
+ "key": "eb25f4fd0a4e17248898e5b6de354562",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't play these self-care pet games, it's for kids or young girls, not for me\", \"intent\": \"I kept scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's about bible studies, I'm not religious and I don't understand French well\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as before, French bible ad, not for me and I can't read it properly\", \"intent\": \"Scrolled past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just a generic AI image and vague text about feeling better, looks like spam\", \"intent\": \"No reason to click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I bike sometimes but I don't need a bandana cap, I already have one\", \"intent\": \"I looked for a second but wouldn't buy it\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2826,
+ "cached_tokens": 256,
+ "output_tokens": 571,
+ "reasoning_tokens": 218
+}

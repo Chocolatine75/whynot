@@ -1,0 +1,11 @@
+{
+ "key": "3f6946d3171939011e9b869cc8630e1f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Seasonal Halloween hook expires immediately after Oct 31 so it cannot run for months, and the generic copy with creator code lacks evergreen value prop and differentiation to sustain long-term performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 280,
+ "cached_tokens": 128,
+ "output_tokens": 296,
+ "reasoning_tokens": 238
+}

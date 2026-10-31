@@ -1,0 +1,11 @@
+{
+ "key": "1a71ddd8577b51ce8821d6b51bd34c80",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Halloween-specific angle is highly seasonal and not evergreen, so it will be paused after October despite possible short-term CTR lift.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 267,
+ "cached_tokens": 128,
+ "output_tokens": 194,
+ "reasoning_tokens": 147
+}

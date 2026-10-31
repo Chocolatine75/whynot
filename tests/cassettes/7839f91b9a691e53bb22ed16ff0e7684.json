@@ -1,0 +1,11 @@
+{
+ "key": "7839f91b9a691e53bb22ed16ff0e7684",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Czech or something, not for me, I've got no need to learn English via another language\", \"intent\": \"Wouldn't click, it's not targeting me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's about bible prophecy books which I'm not into anyway\", \"intent\": \"No chance I'd click this, irrelevant\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't want a Peloton, too expensive and don't have space, and I don't trust the hassle-free return thing\", \"intent\": \"Might pause to look but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu spam vibe, that £0 claim looks like clickbait and I don't trust it\", \"intent\": \"Would scroll past, not clicking for a dodgy code\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and looks like another AI get-rich-quick course advert\", \"intent\": \"Wouldn't click, not in English and not interested\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2397,
+ "cached_tokens": 128,
+ "output_tokens": 706,
+ "reasoning_tokens": 333
+}

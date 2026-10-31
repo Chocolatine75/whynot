@@ -1,0 +1,11 @@
+{
+ "key": "4b4acd6608bd41a661bc02566adf71e5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Keyword-stuffed title, truncated/broken ad copy, and generic dropshipper branding (#hashtags, emojis) signal low CTR and poor conversion that won't sustain months of spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 353,
+ "cached_tokens": 128,
+ "output_tokens": 193,
+ "reasoning_tokens": 137
+}

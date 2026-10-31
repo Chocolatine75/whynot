@@ -1,0 +1,11 @@
+{
+ "key": "c83d87100fbf17964e020b1e359bcda7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish and looks like generic Temu spam, nothing to do with me\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what the drink actually is and I don't trust these random shops\", \"intent\": \"I might glance at the price but I wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a kids blanket with cartoon toys, totally not for me\", \"intent\": \"I would not click on this at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a language I can't read and it's about learning English which I don't need\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Foreign language ad for English lessons, not relevant to me in the UK\", \"intent\": \"I wouldn't click on this\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1947,
+ "cached_tokens": 128,
+ "output_tokens": 849,
+ "reasoning_tokens": 501
+}

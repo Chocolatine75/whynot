@@ -1,0 +1,11 @@
+{
+ "key": "0a8f2d4de09b947c77692e0e20623634",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"At my age I don't need teeth straighteners and I don't trust £4 a day offers, always a catch\", \"intent\": \"I wouldn't click or buy, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in foreign language, not English, I scrolled straight past\", \"intent\": \"I wouldn't click, I can't even read it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I need to learn Khmer, complete waste of time for me\", \"intent\": \"I wouldn't click or download anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another foreign one I can't understand, not relevant to me in England\", \"intent\": \"I wouldn't click, no idea what it's about\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is for women's crepey neck skin, nothing to do with me and looks like influencer nonsense\", \"intent\": \"I wouldn't click, it's not for an old bloke\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1747,
+ "cached_tokens": 256,
+ "output_tokens": 505,
+ "reasoning_tokens": 142
+}

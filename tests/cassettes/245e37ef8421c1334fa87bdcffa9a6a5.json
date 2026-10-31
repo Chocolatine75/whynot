@@ -1,0 +1,11 @@
+{
+ "key": "245e37ef8421c1334fa87bdcffa9a6a5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 9, \"why\": \"This is an automated evergreen Alibaba catalog/prospecting ad run on massive B2B awareness budgets, not a performance DTC creative, so it stays live for months regardless of weak keyword-stuffed title and generic packshot.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 650,
+ "cached_tokens": 128,
+ "output_tokens": 516,
+ "reasoning_tokens": 449
+}

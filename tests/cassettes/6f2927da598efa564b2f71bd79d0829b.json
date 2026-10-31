@@ -1,0 +1,11 @@
+{
+ "key": "6f2927da598efa564b2f71bd79d0829b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and looks like something for youngsters with their phones, not for me at all\", \"intent\": \"I just scrolled straight past it, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't wear those turban caps and I don't trust the quality from these random adverts\", \"intent\": \"No interest in buying a cap like that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Vinted well enough but I wasn't looking to sell anything right now\", \"intent\": \"I might have a look at Vinted another time but not from this ad\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"That long scary story trying to sell a miracle patch, I don't believe a patch can fix nerve damage and I'd never buy health stuff off Facebook without my GP\", \"intent\": \"I definitely would not click or buy, it feels like frightening people to make money\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and just trying to get me onto Temu which I've heard mixed things about\", \"intent\": \"I scrolled on, not interested in a vanity table from Temu\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4325,
+ "cached_tokens": 0,
+ "output_tokens": 610,
+ "reasoning_tokens": 206
+}

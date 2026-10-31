@@ -1,0 +1,11 @@
+{
+ "key": "a0e0ea04f8f37e6e6de679db52cfb79e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Major disconnect between premium beauty positioning/copy and low-fi messy male UGC creative that fails to demonstrate the camera tech benefit or aspirational skincare-like aesthetic needed to convert at £95.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 544,
+ "cached_tokens": 128,
+ "output_tokens": 276,
+ "reasoning_tokens": 222
+}

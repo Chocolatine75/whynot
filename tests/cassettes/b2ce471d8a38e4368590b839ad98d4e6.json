@@ -1,0 +1,11 @@
+{
+ "key": "b2ce471d8a38e4368590b839ad98d4e6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about astrology, not for me at all, I don't believe in kundali stuff and it feels like a scam\", \"intent\": \"I would just scroll past, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks useful but I don't need fridge containers right now and I can just use normal ones\", \"intent\": \"Might watch for a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same astrology ad as before, plus the image is just black so it looks broken and spammy\", \"intent\": \"No interest to click or try\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's winter clothes with leopard print, I'm a guy so totally irrelevant and I don't trust Temu quality\", \"intent\": \"I would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese not Italian, I don't understand it properly and looks like another AI therapy scam\", \"intent\": \"I wouldn't click, not for me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2127,
+ "cached_tokens": 0,
+ "output_tokens": 945,
+ "reasoning_tokens": 567
+}

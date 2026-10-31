@@ -1,0 +1,11 @@
+{
+ "key": "307c6b95f238ed084ccc0803310009d4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic vague title and text plus creative-product mismatch (yoga stretch to sell Bike+) dilutes the strong risk-reversal offer, causing low CTR and CVR versus focused evergreen winners.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 447,
+ "cached_tokens": 128,
+ "output_tokens": 344,
+ "reasoning_tokens": 288
+}

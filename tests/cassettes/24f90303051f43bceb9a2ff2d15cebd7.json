@@ -1,0 +1,11 @@
+{
+ "key": "24f90303051f43bceb9a2ff2d15cebd7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's UK pricing and needs a monthly membership plus the bike, way too expensive and not for me right now\", \"intent\": \"I would not click or buy, it's not relevant to me in Spain\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language and I don't need an AI hairstyle app\", \"intent\": \"I would just scroll past, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks gimmicky and probably expensive with the membership, not convinced I need a camera on my toothbrush\", \"intent\": \"I might watch the video for a second but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not involved in church or youth ministry so this has nothing to do with me\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Psychic readings feel like a scam to take your money and I don't trust it\", \"intent\": \"I would not click, I don't want a psychic reading\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 869,
+ "cached_tokens": 0,
+ "output_tokens": 722,
+ "reasoning_tokens": 345
+}

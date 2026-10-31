@@ -1,0 +1,11 @@
+{
+ "key": "9d88662209a00d18faf4288f7d8fde7a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Hyper-niche Oxford Half tie-in limits audience scale and evergreen potential and the £45/mo hardware-locked offer creates massive friction for cold feed conversion.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 487,
+ "cached_tokens": 128,
+ "output_tokens": 230,
+ "reasoning_tokens": 178
+}

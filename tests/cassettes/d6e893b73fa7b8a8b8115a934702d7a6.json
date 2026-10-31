@@ -1,0 +1,11 @@
+{
+ "key": "d6e893b73fa7b8a8b8115a934702d7a6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen these Deliveroo deal posts before and they always have mad delivery fees and restrictions, not actually a good deal\", \"intent\": \"I wouldn't click right now but might order Deliveroo later if I was actually hungry\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a Temu ad and they always look cheap and scammy plus I don't need some filter for my phone\", \"intent\": \"Definitely not clicking a Temu link\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a wholesale women's handbag for businesses, has nothing to do with me at all\", \"intent\": \"Would never click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish which I don't speak and the cartoon image has nothing to do with AI, looks like AI slop\", \"intent\": \"No chance I'm clicking this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£95 for a toothbrush is taking the piss and I don't trust the camera gimmick, seems overpriced\", \"intent\": \"I wouldn't buy this I'd just stick with my normal toothbrush\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1988,
+ "cached_tokens": 0,
+ "output_tokens": 893,
+ "reasoning_tokens": 497
+}

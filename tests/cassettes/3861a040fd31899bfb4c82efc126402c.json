@@ -1,0 +1,11 @@
+{
+ "key": "3861a040fd31899bfb4c82efc126402c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in German and it's super creepy about secretly tracking someone, while the image is just a Smart Tag to not lose stuff - feels shady and illegal, I don't want that\", \"intent\": \"No way I would click, I don't need a stalker tracker\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks like a basic bubble shooter ad, I get it but I have enough games and I don't really need another time waster\", \"intent\": \"I might not click now but it's the only one that looks harmless if I was bored\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not looking for a bible ebook, just not for me\", \"intent\": \"Would not click, not interested in a Christian guide\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Japanese about learning Thai, I live in France and don't speak either of those, totally irrelevant to me\", \"intent\": \"No interest to click, I don't need to learn Thai right now\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Text is in Portuguese promising free episodes but the image is a scary Anubis dog monster, looks like cheap clickbait and probably a scam\", \"intent\": \"Definitely not clicking, I don't trust it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1919,
+ "cached_tokens": 128,
+ "output_tokens": 686,
+ "reasoning_tokens": 261
+}

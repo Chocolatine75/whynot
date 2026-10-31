@@ -1,0 +1,11 @@
+{
+ "key": "6fe0a72c71d6a348beac830144b1941b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Image is completely black, so nothing to look at, and I don't believe in kundali astrology anyway.\", \"intent\": \"I wouldn't click, astrology ads like this feel scammy.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a wholesale bag for business, I just want one bag for myself and that green colour is not my style.\", \"intent\": \"No need to click, I'm not a retailer.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and the £45 a month membership is too expensive and it's for the UK.\", \"intent\": \"I might look but I wouldn't buy anything.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The pink characters are cute but it looks like another paid chat app pretending to be therapy.\", \"intent\": \"I might be curious but I won't take the quiz or pay.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi which I don't understand and I don't trust astrology videos like this.\", \"intent\": \"I would just keep scrolling.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1823,
+ "cached_tokens": 0,
+ "output_tokens": 583,
+ "reasoning_tokens": 204
+}

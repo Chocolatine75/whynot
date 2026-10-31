@@ -1,0 +1,11 @@
+{
+ "key": "803857c2701a7287a4676c7c90a57034",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Makes disallowed personalized health claims ('Supere a ansiedade') likely to trigger disapproval/poor delivery, and uses generic checklist copy with no proof, hook, or differentiation to sustain CTR/CPA for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 314,
+ "cached_tokens": 128,
+ "output_tokens": 362,
+ "reasoning_tokens": 298
+}

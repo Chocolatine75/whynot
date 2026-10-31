@@ -1,0 +1,11 @@
+{
+ "key": "e8438834fd658c032539cc0334407825",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like cheap AI clickbait, probably free then charges you, and I have no use for dancing baby videos\", \"intent\": \"No way I'm clicking that, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's industrial cable for electricians, absolutely nothing to do with me\", \"intent\": \"Didn't stop, would never click something like this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust these cheap aligner offers, always hidden costs and my teeth are fine anyway\", \"intent\": \"Not clicking for a free consult\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A toothbrush with a camera is a gimmick and will be overpriced, my Oral-B does the job\", \"intent\": \"Would not click to buy an expensive toothbrush\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about astrology for career advice, I don't believe in that and it's not relevant\", \"intent\": \"Scrolled straight past without a second thought\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2188,
+ "cached_tokens": 128,
+ "output_tokens": 1076,
+ "reasoning_tokens": 700
+}

@@ -1,0 +1,11 @@
+{
+ "key": "3521e68405f412b5bf4b4671c9388c15",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another generic mental health app ad promising everything, feels scammy and I don't trust a 3-minute quiz\", \"intent\": \"I would just scroll past and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a toddler and it's UK Temu stuff, totally irrelevant to me and I don't trust Temu anyway\", \"intent\": \"No interest, keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap plastic junk that won't really glow and I don't need it\", \"intent\": \"Might look for a second because it's funny but would never buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French, why am I seeing this in Germany, instant scroll\", \"intent\": \"Would not click, don't understand it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in German or English, no idea what it says\", \"intent\": \"Ignore completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 931,
+ "cached_tokens": 128,
+ "output_tokens": 669,
+ "reasoning_tokens": 313
+}

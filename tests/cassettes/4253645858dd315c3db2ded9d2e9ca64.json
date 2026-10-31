@@ -1,0 +1,11 @@
+{
+ "key": "4253645858dd315c3db2ded9d2e9ca64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not trying to learn Japanese, the alien meme is a bit cringe and I don't need another language app.\", \"intent\": \"I wouldn't click, just scrolled past after a quick look.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Nothing to do with me, I'm not a business buyer or supplier and I don't care about Alibaba expos.\", \"intent\": \"I would keep scrolling and not click for tickets.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't have a dog with yeast issues and I wouldn't trust some random drops off Facebook anyway, looks like snake oil.\", \"intent\": \"I wouldn't click or buy, just ignored it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Weird AI girlfriend chatbot thing, not my thing at all and looks a bit creepy and desperate.\", \"intent\": \"I would not click or download it.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu, I don't trust the quality and I'm sick of these code spam ads, plus I'm not buying women's boots.\", \"intent\": \"I would not click the link or download the app.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1943,
+ "cached_tokens": 0,
+ "output_tokens": 590,
+ "reasoning_tokens": 200
+}

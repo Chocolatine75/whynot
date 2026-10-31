@@ -1,0 +1,11 @@
+{
+ "key": "f446078ed86e6a8f20a10210cac3f17a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a cable for fire alarms on Alibaba, totally irrelevant to me and looks like industrial B2B stuff.\", \"intent\": \"I would scroll straight past, I have no need for it at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute babies but it's clearly cheap clickbait AI spam and I don't trust turning my photos into videos.\", \"intent\": \"I wouldn't click because it looks scammy and I don't want to give it my photos.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It looks expensive for a toothbrush and I don't need a camera on it, my electric toothbrush is fine.\", \"intent\": \"I might look but I wouldn't buy, it's a premium gimmick I don't need.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen these aligner ads before and £4 a day adds up, plus I don't trust a free consult to not be pushy sales.\", \"intent\": \"I wouldn't click right now as I'm not looking to straighten my teeth.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and about astrology for career advice, not relevant to me and I don't believe in that.\", \"intent\": \"I would ignore and keep scrolling, defintely not for me.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2188,
+ "cached_tokens": 128,
+ "output_tokens": 704,
+ "reasoning_tokens": 280
+}

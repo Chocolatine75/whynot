@@ -1,0 +1,11 @@
+{
+ "key": "b8514e2080f0a3592cbb105aee95e9a5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Time-bound World Cup tie-in with vague financial benefit and no concrete offer cannot run evergreen for months and lacks a strong performance hook.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 270,
+ "cached_tokens": 128,
+ "output_tokens": 258,
+ "reasoning_tokens": 213
+}

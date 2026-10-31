@@ -1,0 +1,11 @@
+{
+ "key": "b21669d327c051f4ff358f5a0350a3ad",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want to go into finance for an exercise bike, seems very expensive and I wouldn't use it enough to justify it\", \"intent\": \"I wouldn't click, not interested in buying a Peloton on credit\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Nothing to do with me, I don't ride a motorbike and glowing valve caps seem a bit tacky and pointless\", \"intent\": \"I would just scroll past, definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not sure about paying for a digital ebook from an ad, could be a scam or just trying to get my details\", \"intent\": \"I might be a bit curious but I wouldn't click Learn More\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology or kundli telling me when I'll buy a car, feels like nonsense to get money out of me\", \"intent\": \"I wouldn't click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a different language and I don't trust these AI photo apps with my photos\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1863,
+ "cached_tokens": 256,
+ "output_tokens": 606,
+ "reasoning_tokens": 210
+}

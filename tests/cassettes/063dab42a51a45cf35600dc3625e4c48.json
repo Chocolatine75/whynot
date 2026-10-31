@@ -1,0 +1,11 @@
+{
+ "key": "063dab42a51a45cf35600dc3625e4c48",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird AI image of someone getting kicked out, no idea what matching story means and looks a bit depressing\", \"intent\": \"I would just scroll past, not interested in a random matching game\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English so I have no clue what it's actually offering apart from a photo of a random guy\", \"intent\": \"I wouldn't click because it's not relevant to me and I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"All in Turkish, I can't read it, and the image of a sad older couple feels a bit exploitative\", \"intent\": \"I would keep scrolling, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a cheap dropship wallet ad with broken English and spammy hashtags, don't trust the quality\", \"intent\": \"I might pause for a second but I definitely wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English and the robot woman talking thing is a bit creepy and not relevant to me\", \"intent\": \"I would scroll straight past, no need to learn English\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1646,
+ "cached_tokens": 128,
+ "output_tokens": 691,
+ "reasoning_tokens": 292
+}

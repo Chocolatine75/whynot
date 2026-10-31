@@ -1,0 +1,11 @@
+{
+ "key": "49b689c0385d8e7a83b780d09e5a95f0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic static image and weak 'top my high score' challenge with spammy advertiser name lacks video proof, strong hook, or differentiation to achieve competitive CPI/ROAS in crowded puzzle genre.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 433,
+ "cached_tokens": 128,
+ "output_tokens": 307,
+ "reasoning_tokens": 250
+}

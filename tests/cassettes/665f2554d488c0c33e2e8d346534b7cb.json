@@ -1,0 +1,11 @@
+{
+ "key": "665f2554d488c0c33e2e8d346534b7cb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Complete audience/creative mismatch (men's accessories copy vs bohemian women's image) plus cheap-looking creative with typo 'Accesories' signals low CTR/CVR and quick kill by Temu's rigorous testing system.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 618,
+ "cached_tokens": 128,
+ "output_tokens": 231,
+ "reasoning_tokens": 166
+}

@@ -1,0 +1,11 @@
+{
+ "key": "dfc2b410b980d5a4526f80b39861a376",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic, spam-coded Temu UGC with weak hook, hard-sell overlay text, and hashtag-stuffed copy screams low-trust dropship and will burn out with poor CTR/CVR, not become an evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 558,
+ "cached_tokens": 128,
+ "output_tokens": 263,
+ "reasoning_tokens": 194
+}

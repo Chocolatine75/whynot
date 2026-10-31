@@ -1,0 +1,11 @@
+{
+ "key": "fdf03d189cf76ff844a80e6a0d78b777",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business owner sourcing furniture from China, this has nothing to do with me\", \"intent\": \"I would just scroll past, not relevant at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"every language app says it's not like the other apps, looks like cheap AI generated ad\", \"intent\": \"I wouldn't click, I don't need another language app right now\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's funny but I still don't really believe any app makes Japanese grammar easy, just a meme ad\", \"intent\": \"I might click out of curiosity because it made me laugh but probably not buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew and this is clearly targeted at older women, not for me\", \"intent\": \"I would keep scrolling, no use for this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and have no interest in becoming a biblical counselor\", \"intent\": \"I would ignore this ad completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2069,
+ "cached_tokens": 256,
+ "output_tokens": 532,
+ "reasoning_tokens": 164
+}

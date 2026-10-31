@@ -1,0 +1,11 @@
+{
+ "key": "6da27a55bf51e6e5976d94ca602816df",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap temu tat and i don't need a selfie grip, just scrolled past\", \"intent\": \"wouldn't click, definitely not buying that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"i already use vinted so nothing new, no reason to click right now\", \"intent\": \"might keep it in mind but wouldn't click from this ad\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"literally have no idea what this is, fire alarm cable?? not for me at all\", \"intent\": \"absolutely not clicking, totally irrelevant\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"don't trust random ai editor apps and halloween stuff is over now anyway\", \"intent\": \"wouldn't click, seems like it'll ask for money after\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i don't really believe in astrology and it's clearly not aimed at me\", \"intent\": \"no chance i'd click or chat to them\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 642,
+ "cached_tokens": 0,
+ "output_tokens": 671,
+ "reasoning_tokens": 310
+}

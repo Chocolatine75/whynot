@@ -1,0 +1,11 @@
+{
+ "key": "1ff11c744e91fdeb397e12bf2b1e1541",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"astrology to get your ex back is obvious scam, not for me at all, just scrolled past\", \"intent\": \"would not click, zero interest in astrology chats\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business buyer and I'm in Italy, not going to London for an expo\", \"intent\": \"would not click but at least it looked like a real event\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like spammy dropshipping ad with a wall of hashtags, not trustworthy\", \"intent\": \"would not click, ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long fake emotional doctor story to sell patches, classic health scam vibe and I'm not the target anyway\", \"intent\": \"would not click or buy, scrolled away as soon as I saw it was selling something\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's for UK and I'm living in Italy so irrelevant, plus teeth ads are always pushy\", \"intent\": \"would not click, not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6039,
+ "cached_tokens": 0,
+ "output_tokens": 778,
+ "reasoning_tokens": 394
+}

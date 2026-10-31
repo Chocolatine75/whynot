@@ -1,0 +1,11 @@
+{
+ "key": "ace1fc90e46e608aeb3c37292840be26",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It's just another mobile puzzle ad, looks a bit fun but I know these games are full of ads and never as satisfying as they look\", \"intent\": \"I might watch for a second but I wouldn't download it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Korean, I have no idea what it's really offering and I'm in France anyway\", \"intent\": \"I just scrolled past without thinking about it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Red light therapy stuff always feels scammy and overpriced, and the link in bio discount code makes me trust it even less\", \"intent\": \"I wouldn't click or buy, not convinced at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese so I barely understand it, and I don't want to do a random 3-minute quiz for mental health\", \"intent\": \"I kept scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again it's in Portuguese and I don't really need an AI hairstyle app\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 800,
+ "cached_tokens": 0,
+ "output_tokens": 870,
+ "reasoning_tokens": 482
+}

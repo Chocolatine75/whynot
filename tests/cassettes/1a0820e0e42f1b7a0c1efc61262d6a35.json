@@ -1,0 +1,11 @@
+{
+ "key": "1a0820e0e42f1b7a0c1efc61262d6a35",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious at all and I never buy those religious ebooks, looks like just another ad trying to sell a PDF\", \"intent\": \"I would just scroll past, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and for India, not relevant to me in France, and I don't believe in astrology\", \"intent\": \"I would not click, it's not even targeting me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a cheap gimmick and probably not actually free, I don't trust these AI apps\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"All these dating apps feel fake and scammy with stock photos and I don't trust random dating ads\", \"intent\": \"I wouldn't click, maybe I'd look for a second then ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It actually looks useful but I don't need new containers right now and I can find them cheaper elsewhere\", \"intent\": \"I wouldn't buy now but I might remember it if I needed them\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2177,
+ "cached_tokens": 256,
+ "output_tokens": 872,
+ "reasoning_tokens": 482
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e9f0d3a855520e9dcd84a48b71896b97",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic which I don't speak so I have no idea what it's actually saying, looks a bit dodgy and spammy too\", \"intent\": \"I wouldn't click or buy, it's not for me at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I hate these dating ads, they feel scammy and fake and I'm not looking for that anyway\", \"intent\": \"I would definitely not click on a dating app ad like this.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a second job riding a bike, totally irrelevant to me\", \"intent\": \"I would just scroll straight past, no interest in applying.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's an interesting idea but £95 is a lot for a toothbrush and I don't really need to see my teeth on camera\", \"intent\": \"I might have a little look but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a language learning app and $240 even on sale is way too expensive\", \"intent\": \"I wouldn't click, not interested in paying that much.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1643,
+ "cached_tokens": 128,
+ "output_tokens": 635,
+ "reasoning_tokens": 241
+}

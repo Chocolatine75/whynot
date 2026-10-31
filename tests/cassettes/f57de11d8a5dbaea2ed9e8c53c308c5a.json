@@ -1,0 +1,11 @@
+{
+ "key": "f57de11d8a5dbaea2ed9e8c53c308c5a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what Cleanup is and 70M users sounds like made up nonsense, just scrolled past\", \"intent\": \"I would not click or buy this, it looks like spam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"240 dollars is still a lot of money and these lifetime deals never turn out to be lifetime\", \"intent\": \"I would not click, I have no need for learning languages like that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Complete gibberish about omegas and alphas, not for me at all, looks like trashy nonsense\", \"intent\": \"Definitely would not click on this rubbish\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"At my age I don't want a dating app and nothing is really free, they'll want your money or details\", \"intent\": \"I would not click or download this app\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a toilet roll holder and this is for businesses buying in bulk, not for me\", \"intent\": \"I would not click, I can get one at B&Q if I needed it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 658,
+ "cached_tokens": 128,
+ "output_tokens": 663,
+ "reasoning_tokens": 268
+}

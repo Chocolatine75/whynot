@@ -1,0 +1,11 @@
+{
+ "key": "0ef638a03e31991ccdf76cad2385f021",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"High-friction code-search CTA with zero product value proposition, benefit, or urgency is classic low-CTR spam-style creative that Temu would quickly iterate out.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 329,
+ "cached_tokens": 128,
+ "output_tokens": 296,
+ "reasoning_tokens": 243
+}

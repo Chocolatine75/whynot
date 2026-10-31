@@ -1,0 +1,11 @@
+{
+ "key": "b1c99759d3d10d2f5162885501f5266d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious at all and I have zero interest in biblical counselling training, it's nothing to do with me\", \"intent\": \"I would definitely not click, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's literally a cable for businesses, why am I seeing this, totally irrelevant\", \"intent\": \"I scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks so sketchy and desperate, definitely not trusting a random dating ad like that\", \"intent\": \"no way I'd click on that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap survival spam game and I don't believe it's the best game anything\", \"intent\": \"I wouldn't click, maybe vaguely looked but not interested\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"the title says toilet roll holder but the picture is a chair so it's confusing and I don't need either\", \"intent\": \"I just ignored it\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2118,
+ "cached_tokens": 0,
+ "output_tokens": 533,
+ "reasoning_tokens": 170
+}

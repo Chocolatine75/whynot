@@ -1,0 +1,11 @@
+{
+ "key": "1ff183cd6ffff8ec5fd1d9d8c460272d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like one of those miracle cures, I wouldn't give my dog something off Facebook without asking the vet first\", \"intent\": \"I would not click or buy, I just scrolled on past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I had no idea what it was really offering and I'm not trying to learn a language anyway\", \"intent\": \"I would not click or buy, I didn't even stop to read it properly.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Total clickbait and I don't believe an astrologer can tell you anything from your birthday, just nonsense\", \"intent\": \"I would definitely not click, I don't trust that sort of thing at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These online mental health plans always want money after the free quiz and I'd rather talk to my GP if I needed help\", \"intent\": \"I wouldn't click to buy, but it made me pause for a second more than the others.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Just silly novelty glasses, nothing I need or would ever wear at my age\", \"intent\": \"I would not click or buy, not for me at all.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 836,
+ "cached_tokens": 0,
+ "output_tokens": 1030,
+ "reasoning_tokens": 616
+}

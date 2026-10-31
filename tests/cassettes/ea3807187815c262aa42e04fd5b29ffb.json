@@ -1,0 +1,11 @@
+{
+ "key": "ea3807187815c262aa42e04fd5b29ffb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Creative (B&W mother/baby lockscreen wallpaper) has zero relevance to the copy about AI World Cup supporter photos, signaling low-quality clickbait with poor CTR and conversion that will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 471,
+ "cached_tokens": 128,
+ "output_tokens": 286,
+ "reasoning_tokens": 224
+}

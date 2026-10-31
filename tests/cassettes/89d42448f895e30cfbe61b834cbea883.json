@@ -1,0 +1,11 @@
+{
+ "key": "89d42448f895e30cfbe61b834cbea883",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed title with no value prop or offer and an abstract macro component image provides no context, benefit, or hook to earn clicks and conversions in a competitive feed.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 641,
+ "cached_tokens": 128,
+ "output_tokens": 281,
+ "reasoning_tokens": 225
+}

@@ -1,0 +1,11 @@
+{
+ "key": "554e1ff52c979d9dfb2d671b8ef889d0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Event-specific tie-in (Oxford Half) and generic training copy makes it highly time-bound and not evergreen enough to run unchanged for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 487,
+ "cached_tokens": 128,
+ "output_tokens": 177,
+ "reasoning_tokens": 128
+}

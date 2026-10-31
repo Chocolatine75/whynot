@@ -1,0 +1,11 @@
+{
+ "key": "35821c25184bbf53f6b10c788bd08aac",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what Cleanup even is, just a fake looking 5 star rating, feels like a scammy app ad\", \"intent\": \"would not click, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like dropshipping junk and I don't need a fan right now, don't trust the 50% off claim\", \"intent\": \"maybe would look at it for a second but would not buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's clearly a trashy werewolf romance story ad, not for me at all\", \"intent\": \"didn't stop scrolling, zero interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these AI photo apps always want your data or subscription after, seems funny but not trustworthy\", \"intent\": \"might be curious but wouldn't click because I don't want to give my photos\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"ad is in Polish and says United Kingdom but I'm in Spain, looks like random Temu spam\", \"intent\": \"scrolled past immediately, wouldn't click Temu ads\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 840,
+ "cached_tokens": 128,
+ "output_tokens": 882,
+ "reasoning_tokens": 493
+}

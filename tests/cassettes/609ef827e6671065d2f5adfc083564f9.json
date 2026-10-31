@@ -1,0 +1,11 @@
+{
+ "key": "609ef827e6671065d2f5adfc083564f9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English and I don't need a hairstyle app, picture is just a young man means nothing to me\", \"intent\": \"I wouldn't click at all, it's not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology chats and it's in another language with emojis, feels like spam\", \"intent\": \"I would just scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title says men's t-shirts but the picture is fishing lures, looks dodgy and cheap from Temu\", \"intent\": \"I definitely wouldn't buy, I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want an astrologer telling me about my ex, it's nonsense\", \"intent\": \"No chance I'd click on that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's for church men's leaders and I'm not one, not relevant to me at all\", \"intent\": \"I wouldn't click, it's not aimed at me\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2063,
+ "cached_tokens": 128,
+ "output_tokens": 651,
+ "reasoning_tokens": 279
+}

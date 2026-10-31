@@ -1,0 +1,11 @@
+{
+ "key": "75c2123a1118add27931e7ccc3b774b3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not into astrology at all and that clickbait celebrity headline just looks like spam, wouldn't trust it\", \"intent\": \"Would definitely not click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English and I don't need a language app anyway\", \"intent\": \"No interest, kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Massive scary wall of text trying to sell expensive patches, feels like a total scam preying on diabetics and I don't have neuropathy\", \"intent\": \"Would not click the link, just wanted to get past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again not in English and I have no use for another subscription app\", \"intent\": \"No chance I'd click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks cute but overpriced gimmick for a card you can get in any shop, and I don't need one right now\", \"intent\": \"Might watch the video for a second but wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3278,
+ "cached_tokens": 128,
+ "output_tokens": 679,
+ "reasoning_tokens": 303
+}

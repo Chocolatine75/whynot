@@ -1,0 +1,11 @@
+{
+ "key": "6329a1ed03f56915ee6e390092aee80b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've got an electric toothbrush already, don't need a camera on it - feels like overpriced design wank for something that just cleans teeth\", \"intent\": \"Wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title is about an Epson ink box but image is a hi-vis jacket, looks dodgy and completely irrelevant to me\", \"intent\": \"Would not click at all, looks like a glitchy Alibaba listing\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing at all, I'm not anxiously attached and that ChatGPT for anxious attachment line feels cringey\", \"intent\": \"No chance I'd click, not aimed at me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not religious and I've got zero interest in becoming a biblical counsellor\", \"intent\": \"Would not click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the first one, it looks nice but way too expensive for a toothbrush and I don't need a camera on it\", \"intent\": \"Might have paused for a second but wouldn't click to buy\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2477,
+ "cached_tokens": 128,
+ "output_tokens": 805,
+ "reasoning_tokens": 402
+}

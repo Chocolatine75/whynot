@@ -1,0 +1,11 @@
+{
+ "key": "7c5e181a94c1cb6b8ab3c30816df8e9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Dutch and it's about making reels, not for me at all\", \"intent\": \"I wouldn't click it, totally irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't understand the language and I think astrology stuff is all scams anyway\", \"intent\": \"No chance I'm clicking a psychic ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and look cheap, don't trust the quality\", \"intent\": \"Might pause to look at the room but wouldn't buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"creepy psychic ad trying to scare me into clicking, just feels like a scam\", \"intent\": \"I definitely wouldn't click that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Hindi and for learning English which I already speak so useless to me\", \"intent\": \"No reason to click at all\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1596,
+ "cached_tokens": 128,
+ "output_tokens": 671,
+ "reasoning_tokens": 321
+}

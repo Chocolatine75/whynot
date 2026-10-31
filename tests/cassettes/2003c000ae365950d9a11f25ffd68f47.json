@@ -1,0 +1,11 @@
+{
+ "key": "2003c000ae365950d9a11f25ffd68f47",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è in russo, non capisco niente e non mi fido, sembra spam per liberare memoria\", \"intent\": \"non cliccherei mai, vado oltre\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sono scettica su queste app per ansia e quiz, sembrano tutte uguali e poi vogliono abbonamento\", \"intent\": \"forse lo guarderei un attimo ma non farei il quiz\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho un'azienda e non compro dalla Cina, non è per me\", \"intent\": \"scorro oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è per genitori in UK con figli che fanno A-Level, io vivo in Italia non mi serve\", \"intent\": \"non mi interessa e non clicco\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non devo imparare il cantonese, pubblicità inutile per me\", \"intent\": \"ignoro e continuo a scorrere\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 766,
+ "cached_tokens": 128,
+ "output_tokens": 655,
+ "reasoning_tokens": 284
+}

@@ -1,0 +1,11 @@
+{
+ "key": "19d90018bbd28e1a097eb2e0a9c28f36",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The caption is all about sourcing from China suppliers and business stuff which has nothing to do with me, and the picture is just a rustic sideboard with no price or info.\", \"intent\": \"No reason to click, not a business buyer and it tells me nothing useful.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can already sew a button and I don't trust these cheap discounted kits, seen them fall apart and 41 vs 37 pieces is confusing.\", \"intent\": \"Might save it for a gift idea for my mum but I wouldn't buy it right now.\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks nice but why does a toothbrush need a camera, seems gimmicky and probably really expensive and faffy.\", \"intent\": \"Might click to see the price out of curiosity but I wouldn't buy it.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology at all and the image of a coconut with a woman talking doesn't make sense to me.\", \"intent\": \"Would just scroll straight past, not for me.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do actually buy rice but I get it at Tesco, I'm not downloading a new app just for this and 5kg is too much for me.\", \"intent\": \"Wouldn't click now but I'd remember Joybuy if I needed cheap groceries later.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2679,
+ "cached_tokens": 256,
+ "output_tokens": 604,
+ "reasoning_tokens": 156
+}

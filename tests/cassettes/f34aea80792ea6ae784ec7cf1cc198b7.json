@@ -1,0 +1,11 @@
+{
+ "key": "f34aea80792ea6ae784ec7cf1cc198b7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking to get aligners right now and I don't trust 'UK's cheapest' claims, seems like there'll be hidden costs\", \"intent\": \"Might save it for later but wouldn't click or book right now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The title says toilet roll holder but the picture is a wooden chair, looks like a dodgy dropship ad and nothing to do with me\", \"intent\": \"Would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious, so it's not relevant to me at all\", \"intent\": \"Would ignore and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The gross foot photo put me off and it's a massive scary health story trying to sell me patches, I don't trust it and it's not for someone my age\", \"intent\": \"Definitely wouldn't click, too long and feels like a scam\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a spammy dating ad with random older women, I don't trust these free chat apps\", \"intent\": \"Would not click, I just scroll past dating ads\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4983,
+ "cached_tokens": 0,
+ "output_tokens": 779,
+ "reasoning_tokens": 375
+}

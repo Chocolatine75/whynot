@@ -1,0 +1,11 @@
+{
+ "key": "6a634896aad3e2b53c36c70ea111330f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't even have an Epson printer, this is totally irrelevant business supply stuff, just scrolled past\", \"intent\": \"No chance I'd click this, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I have no idea what it's really offering, and I don't need a video editor anyway\", \"intent\": \"Would definitely not click, just kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get what it is but I don't sew, feels like cheap dropshipping gadget that will break\", \"intent\": \"Might have paused half a second but I wouldn't buy it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just generic Temu spam with hashtags and no real product shown, I hate these ads\", \"intent\": \"No way I'm clicking a Temu link like that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"This is gay romance AI chat, not my thing at all so zero interest\", \"intent\": \"I would not click or use this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 765,
+ "cached_tokens": 0,
+ "output_tokens": 656,
+ "reasoning_tokens": 278
+}

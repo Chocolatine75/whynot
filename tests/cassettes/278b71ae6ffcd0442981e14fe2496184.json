@@ -1,0 +1,11 @@
+{
+ "key": "278b71ae6ffcd0442981e14fe2496184",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust a ChatGPT for anxious attachment, feels gimmicky and those relationship coaching ads are always trying to sell me a subscription\", \"intent\": \"I wouldn't click, I'd just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Why would I want a camera on my toothbrush and it looks really expensive for what it is\", \"intent\": \"I would not click or buy one\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same toothbrush again, just shaming me about an ugly toothbrush and a camera toothbrush seems unnecessary and unhygienic\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The title is about printer ink but the picture is a hi-vis jacket, makes no sense and not relevant to me at all\", \"intent\": \"I would not click on this confusing ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not looking to become a counselor, this isn't for me\", \"intent\": \"I would not click learn more\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2477,
+ "cached_tokens": 0,
+ "output_tokens": 657,
+ "reasoning_tokens": 272
+}

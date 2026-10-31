@@ -1,0 +1,11 @@
+{
+ "key": "1ec7513d031f60594a3da35761ecb6a4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Generic, feature-focused copy with no hook, benefit specificity, social proof, or CTA differentiation suggests average CTR/CVR that gets paused during creative testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 259,
+ "cached_tokens": 128,
+ "output_tokens": 188,
+ "reasoning_tokens": 137
+}

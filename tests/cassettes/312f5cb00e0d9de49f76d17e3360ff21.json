@@ -1,0 +1,11 @@
+{
+ "key": "312f5cb00e0d9de49f76d17e3360ff21",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"cute gimmick but I don't need a birthday card now and it looks like cheap dropshipping stuff that will cost too much\", \"intent\": \"I'd watch two seconds and keep scrolling, no click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm not a business, this is B2B workshop lighting spam, totally irrelevant to me\", \"intent\": \"I would scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"another AI girlfriend chat ad, super cringe and spammy with the code promo\", \"intent\": \"I wouldn't click, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"text in German while I'm in Italy, and it's creepy spy-on-your-partner stuff that feels illegal and scammy\", \"intent\": \"Definitely not clicking or buying this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"creepy image got my attention but it's just another TipsyChat ad, I don't want AI chat horror stories\", \"intent\": \"I might pause for the image but I won't click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1948,
+ "cached_tokens": 0,
+ "output_tokens": 1088,
+ "reasoning_tokens": 706
+}

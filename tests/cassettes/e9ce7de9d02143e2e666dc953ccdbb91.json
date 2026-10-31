@@ -1,0 +1,11 @@
+{
+ "key": "e9ce7de9d02143e2e666dc953ccdbb91",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so I have no idea what it's saying, just scrolled straight past\", \"intent\": \"wouldn't click cause I can't even read it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another wellness app ad trying too hard to be relatable, not for me\", \"intent\": \"no chance I'm downloading a self care pet game\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I already have a bank and Revolut ads are everywhere, don't trust the hype around World Cup promos\", \"intent\": \"might think about it but probably wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business buying wholesale jewellery, totally irrelevant to me\", \"intent\": \"definitely not clicking on Alibaba rings\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£30 an hour sounds too good to be true and I cba tutoring kids, seems like a hassle\", \"intent\": \"maybe I'd save it to look at later but probably not apply\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 708,
+ "cached_tokens": 0,
+ "output_tokens": 656,
+ "reasoning_tokens": 284
+}

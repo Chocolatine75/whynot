@@ -1,0 +1,11 @@
+{
+ "key": "15751003b55c9ca47cebb6051259a199",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Viral ADHD doll creative mismatches generic self-care copy with no ADHD mention and typo ('a women'), creating low trust and poor message match that prevents efficient scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 505,
+ "cached_tokens": 128,
+ "output_tokens": 387,
+ "reasoning_tokens": 333
+}

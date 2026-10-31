@@ -178,3 +178,14 @@ def test_save_and_load_roundtrip(tmp_path):
     assert loaded[1].stop_date == date(2026, 7, 1)
     assert loaded[0].reach_breakdown == ads[0].reach_breakdown
     assert TOKEN not in path.read_text()
+
+
+@pytest.mark.parametrize("sep", [" ", " ", "\x85", "\x0b", "\x1c"])
+def test_copy_with_unicode_line_separators_survives_a_roundtrip(tmp_path, sep):
+    """Regression: str.splitlines() also splits on U+2028 and friends, which real ad copy contains, so one
+    ad was read as two broken lines (JSONDecodeError on 64,500 R3 ads)."""
+    raw = raw_ad("1")
+    raw["ad_creative_bodies"] = [f"Line one{sep}line two"]
+    path = save_jsonl([parse_ad(raw), parse_ad(raw_ad("2"))], tmp_path / "ads.jsonl")
+    loaded = load_jsonl(path)
+    assert [a.id for a in loaded] == ["1", "2"] and loaded[0].bodies == [f"Line one{sep}line two"]

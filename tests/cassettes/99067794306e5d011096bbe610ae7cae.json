@@ -1,0 +1,11 @@
+{
+ "key": "99067794306e5d011096bbe610ae7cae",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm far too old for this sort of thing and it looks like nonsense to me, chatting to AI characters instead of real people\", \"intent\": \"I would not click this at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Just says In 2022 on a black screen, no idea what it's selling or what a toolkit is meant to do\", \"intent\": \"I would scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"My teeth are fine at my age and I don't trust these big discounts and finance plans, feels like a trick\", \"intent\": \"I might have a quick look but I wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a children's blanket with cartoon teddies, nothing to do with me and looks cheap\", \"intent\": \"I wouldn't click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not planning to learn Japanese at 68 and I don't need another app on my phone\", \"intent\": \"I would just keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1632,
+ "cached_tokens": 0,
+ "output_tokens": 671,
+ "reasoning_tokens": 294
+}

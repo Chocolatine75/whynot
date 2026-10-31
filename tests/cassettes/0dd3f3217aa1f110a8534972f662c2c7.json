@@ -1,0 +1,11 @@
+{
+ "key": "0dd3f3217aa1f110a8534972f662c2c7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Not religious and not interested in buying a bible study pdf, looks like overhyped money-grab religious ebook.\",\"intent\":\"Not clicking, not my thing at all.\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Way too long fake personal story to sell a patch, screams scam and don't trust miracle health claims on Facebook.\",\"intent\":\"Wouldn't click, just scrolled past the wall of text.\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"It's women's leopard print winter clothes from Temu, nothing to do with me so no reason to look.\",\"intent\":\"No need to click, not buying women's fashion.\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"Ad title says toilet roll holder but image is a dining chair, looks like weird dropship spam so ignored it.\",\"intent\":\"Not clicking on a confusing random product ad.\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's in Hindi and about astrology which I don't believe in anyway, so just scrolled on.\",\"intent\":\"No interest in an astrology chat ad.\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5591,
+ "cached_tokens": 128,
+ "output_tokens": 584,
+ "reasoning_tokens": 253
+}

@@ -1,0 +1,11 @@
+{
+ "key": "532bca619094fa4b8d321ba1512214f1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no reason to learn Cantonese, not useful for my life in France, just another language app ad\", \"intent\": \"I would just keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a pastor or church leader, this is completely not for me\", \"intent\": \"I would ignore it immediately, it's not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology like that and FREE chat always feels like a scam to get money after\", \"intent\": \"I would not click, I don't trust these astrology ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cute but seems like cheap dropshipping and probably bad quality, I don't need it\", \"intent\": \"I might pause on the cute photo but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A toothbrush with a camera seems gimmicky and expensive, and £95 is a lot for a toothbrush\", \"intent\": \"I might look for a second but I wouldn't click to buy\", \"intent_score\": 2}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 808,
+ "cached_tokens": 128,
+ "output_tokens": 688,
+ "reasoning_tokens": 298
+}

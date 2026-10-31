@@ -1,0 +1,11 @@
+{
+ "key": "8f9854cd160d2af850bfaea99ad559b8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like another cheap grocery app push, don't trust the up to 50% off claim and I don't need another shopping app\", \"intent\": \"Wouldn't click, I do my food shop at Tesco as usual\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Seen loads of these gadget fans, overpriced plastic tat and that 50% off is never real\", \"intent\": \"Might have a quick look but wouldn't buy one\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Temu spam and it's a storage box for makeup, nothing to do with me\", \"intent\": \"No chance I'd click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't need kitchen clutter like that and that 2,649 sold nonsense puts me off\", \"intent\": \"Would just scroll past, wife sorts the kitchen stuff\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks alright for wasting 5 minutes but probably full of ads and in-app purchases\", \"intent\": \"Might click to see it on the app store but probably wouldn't install\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 893,
+ "cached_tokens": 128,
+ "output_tokens": 634,
+ "reasoning_tokens": 248
+}

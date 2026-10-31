@@ -1,0 +1,11 @@
+{
+ "key": "8ef42d367945f803650c553517f95f9f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology at all, this looks like a scam to get you into a paid chat after the first free one\", \"intent\": \"I would not click, I have zero interest in kundli predictions\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's completely in Russian and I don't understand it, plus it looks like clickbait\", \"intent\": \"I wouldn't click because I can't understand what it's offering\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and it's very heavy religious content which is not relevant to me, also way too much text\", \"intent\": \"I would just scroll past, not interested in buying a bible study collection\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"The title says shoes but the image is a pink plush doll, it's clearly misleading Temu dropshipping junk\", \"intent\": \"I wouldn't click, I don't trust Temu ads like this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The photo is obvious bait with the woman and that 7-day body transformation promise is fake, plus the text is in German\", \"intent\": \"I stopped for a second on the image but I wouldn't click or pay for the app\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2441,
+ "cached_tokens": 128,
+ "output_tokens": 817,
+ "reasoning_tokens": 404
+}

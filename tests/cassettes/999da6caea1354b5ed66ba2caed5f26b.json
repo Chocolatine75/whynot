@@ -1,0 +1,11 @@
+{
+ "key": "999da6caea1354b5ed66ba2caed5f26b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Deliveroo is but I don't need a takeaway right now and I'm trying to cut back on them anyway\", \"intent\": \"I wouldn't click, just kept scrolling past it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are always popping up with cheap tat and I don't trust the quality\", \"intent\": \"Definitely not clicking on a Temu t-shirt ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology and it feels a bit predatory targeting people who are struggling\", \"intent\": \"I would not click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea why I'm being shown a stone cage thing and I don't need anything for the garden\", \"intent\": \"No chance I'd click on that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I just ignored it\", \"intent\": \"Wouldn't click as it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 748,
+ "cached_tokens": 128,
+ "output_tokens": 581,
+ "reasoning_tokens": 212
+}

@@ -1,0 +1,11 @@
+{
+ "key": "e23c80204849cf0281534d4e20165598",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"promette di parlare come un nativo in pochi minuti, sembra la solita truffa delle app AI\", \"intent\": \"non cliccherei, magari curioso ma non mi fido\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"spazzolino con dentista a casa e telecamera mi sembra inutile e troppo caro, solo marketing\", \"intent\": \"non comprerei mai, ho gia uno spazzolino elettrico\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non si capisce cos'e, solo scritto matching free no ads, sembra gioco scadente\", \"intent\": \"scrollo oltre senza cliccare\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non mi interessa un porta utensili, non cucino cosi tanto e occupa solo spazio\", \"intent\": \"non cliccherei, non ne ho bisogno\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"è un negozio UK, vivo in Italia quindi consegna veloce non vale per me\", \"intent\": \"non cliccherei, non mi serve\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 793,
+ "cached_tokens": 0,
+ "output_tokens": 898,
+ "reasoning_tokens": 518
+}

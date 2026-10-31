@@ -1,0 +1,11 @@
+{
+ "key": "9947022b7dfa841eb389db975d0df432",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm not a business owner and don't want to bulk buy from Alibaba, the text is just generic sourcing spam\", \"intent\": \"No need to click, I'm not sourcing furniture wholesale\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly not for me, I'm not a man and not running a church men's group, feels very preachy and over the top\", \"intent\": \"Would definitely not click, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no idea why I'm being shown industrial fire alarm cable, totally irrelevant B2B stuff\", \"intent\": \"No chance I'd click on cable specs\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I can't really read it and I'm not religious anyway\", \"intent\": \"Would not click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I need a dentist chair, I'm not a dentist and it's obviously a B2B wholesale ad\", \"intent\": \"Absolutely not clicking to buy medical equipment\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3037,
+ "cached_tokens": 256,
+ "output_tokens": 631,
+ "reasoning_tokens": 249
+}

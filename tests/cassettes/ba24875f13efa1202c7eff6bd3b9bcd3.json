@@ -1,0 +1,11 @@
+{
+ "key": "ba24875f13efa1202c7eff6bd3b9bcd3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and I don't need a language app, just scroll past\", \"intent\": \"No chance I click, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language at all and I don't use these learning apps\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The bike video caught my eye but the glowing caps look cheap and useless, I don't trust that ad\", \"intent\": \"I wouldn't buy it, maybe look at the bike but not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like therapy spam for anxious girls, not for me and I don't trust it\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a toddler and it's just Temu junk anyway\", \"intent\": \"I wouldn't click or buy\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1885,
+ "cached_tokens": 128,
+ "output_tokens": 563,
+ "reasoning_tokens": 213
+}

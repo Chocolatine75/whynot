@@ -1,0 +1,11 @@
+{
+ "key": "6104820fc70af29401d1c5a5cb78cc1d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Spanish and looks like Temu spam, I don't trust Temu and have no idea what it's actually selling\", \"intent\": \"Would definitely not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Russian so I couldn't read it and I already speak English so not relevant\", \"intent\": \"Would not click at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I know it's one of those cheesy clickbait story apps and the story sounds ridiculous, not paying to read it\", \"intent\": \"Might have paused to read the drama but would not click through\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just looks like another generic ad for a puzzle game I've seen a hundred times, not interested\", \"intent\": \"Would not click, I don't download game ads\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Can't understand the language and it's not for me\", \"intent\": \"Definitely would not click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 826,
+ "cached_tokens": 0,
+ "output_tokens": 631,
+ "reasoning_tokens": 264
+}

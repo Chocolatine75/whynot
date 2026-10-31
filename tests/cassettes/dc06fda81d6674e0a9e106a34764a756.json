@@ -1,0 +1,11 @@
+{
+ "key": "dc06fda81d6674e0a9e106a34764a756",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen this type of Deliveroo ad a million times, nothing new and I don't need a takeaway right now\", \"intent\": \"I wouldn't click, I'd just keep scrolling\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Vietnamese and I have no idea what it's actually offering\", \"intent\": \"definitely not clicking, looks spammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"massive wall of text that screams scam advert trying to look like a real story, not relevant to me at all and trying to sell me a patch\", \"intent\": \"would not click, scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not training for a race and don't have a Peloton and that £45 a month puts me off instantly\", \"intent\": \"not clicking, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai, no clue what it says and looks like some random app ad\", \"intent\": \"wouldn't click at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3785,
+ "cached_tokens": 0,
+ "output_tokens": 627,
+ "reasoning_tokens": 249
+}

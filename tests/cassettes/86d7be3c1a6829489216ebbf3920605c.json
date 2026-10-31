@@ -1,0 +1,11 @@
+{
+ "key": "86d7be3c1a6829489216ebbf3920605c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like influencer biohacking nonsense trying to flog an expensive mat, all that nervous system regulation waffle puts me off\", \"intent\": \"No chance I'm clicking or buying that.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish so not relevant to me at all, just scrolled straight past\", \"intent\": \"Wouldn't click, not for me.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy image caught my eye but it's just another AI chatbot ad pushing gems, not interested in making horror stories\", \"intent\": \"Might pause on the image but wouldn't click through.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a B2B parts ad for a car workshop light, nothing to do with me\", \"intent\": \"No reason to click.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says learn English but the picture is teaching Spanish, looks cheap and confusing\", \"intent\": \"Wouldn't bother clicking.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1925,
+ "cached_tokens": 384,
+ "output_tokens": 629,
+ "reasoning_tokens": 263
+}

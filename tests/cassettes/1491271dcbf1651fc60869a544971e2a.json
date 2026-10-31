@@ -1,0 +1,11 @@
+{
+ "key": "1491271dcbf1651fc60869a544971e2a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't sew at all and it looks like cheap dropshipping stuff\", \"intent\": \"Would not click or buy, zero interest.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Spammy Alibaba ad with a wall of hashtags, no idea what it's actually selling\", \"intent\": \"Would not click, looks like scammy B2B spam.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Super generic AI language app ad, seen a thousand like it\", \"intent\": \"Would not click, not convincing at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Funny meme but I'm not trying to learn Japanese right now\", \"intent\": \"Might stop to look at the meme but wouldn't click to buy.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not looking to be a counsellor\", \"intent\": \"Would not click, not for me.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 829,
+ "cached_tokens": 128,
+ "output_tokens": 810,
+ "reasoning_tokens": 462
+}

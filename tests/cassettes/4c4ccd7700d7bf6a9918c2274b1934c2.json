@@ -1,0 +1,11 @@
+{
+ "key": "4c4ccd7700d7bf6a9918c2274b1934c2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I'm not a business and don't need bulk sea shells, totally irrelevant to me\", \"intent\": \"I wouldn't click because it's wholesale decor stuff I have no use for\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's Temu and it's for men's accessories so not for me, I scroll past Temu ads anyway\", \"intent\": \"I wouldn't click or buy, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£5.50 a day still sounds expensive and I don't trust Instagram teeth ads, looks scammy\", \"intent\": \"I might be curious but I wouldn't click to book anything right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and about astrology for jobs, not my thing\", \"intent\": \"I wouldn't click, I just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive even on finance and I don't have space for a bike\", \"intent\": \"I wouldn't click, not buying a Peloton\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 619,
+ "cached_tokens": 0,
+ "output_tokens": 490,
+ "reasoning_tokens": 114
+}

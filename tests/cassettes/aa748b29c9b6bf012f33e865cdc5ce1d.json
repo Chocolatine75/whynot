@@ -1,0 +1,11 @@
+{
+ "key": "aa748b29c9b6bf012f33e865cdc5ce1d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've seen this Revolut ad a thousand times, I already have a bank and I don't trust these fintech promises\", \"intent\": \"I wouldn't click, I'm not looking to change banks.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German and I'm not interested in fasting challenges anyway\", \"intent\": \"I would just keep scrolling past it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have zero need to learn Thai and these language app ads are always spammy\", \"intent\": \"I wouldn't click or download it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropshipping junk with a badly written ad, I don't need a belt\", \"intent\": \"I wouldn't click, it looks untrustworthy.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in French or English so I have no idea what it's actually for\", \"intent\": \"I would ignore it and keep scrolling.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 643,
+ "cached_tokens": 0,
+ "output_tokens": 799,
+ "reasoning_tokens": 443
+}

@@ -1,0 +1,11 @@
+{
+ "key": "03c34afd5c11779638b6684c871b72de",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"astrology stuff is total bs and I don't care about my ex, just cringe ad\", \"intent\": \"would never click on this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish and I'm in Italy, looks like a scammy get-rich-quick AI course\", \"intent\": \"scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I don't have kids and not in the UK so completely irrelevant to me\", \"intent\": \"not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish and it's Temu spam, I don't trust it\", \"intent\": \"keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do some home workouts but Peloton is expensive and this is for UK anyway\", \"intent\": \"maybe curious but wouldn't click now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 739,
+ "cached_tokens": 0,
+ "output_tokens": 719,
+ "reasoning_tokens": 383
+}

@@ -1,0 +1,11 @@
+{
+ "key": "bb544bcea763c3760e39a0100a4073d3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic gimmick copy with weak CTA and no clear benefit, hook, or social proof will get curiosity clicks but poor conversion/retention and quick creative fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 245,
+ "reasoning_tokens": 191
+}

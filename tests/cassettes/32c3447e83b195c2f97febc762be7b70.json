@@ -1,0 +1,11 @@
+{
+ "key": "32c3447e83b195c2f97febc762be7b70",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long wall of text, clearly some miracle cure scam for old people, nothing to do with me and sounds fake as hell\", \"intent\": \"not a chance I'm clicking that, looks like proper dodgy health scam\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"it's a women's turban cap, literally nothing to do with me, just scrolled straight past\", \"intent\": \"would never click or buy this, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and about bible letters, not interested and didn't even try to read it\", \"intent\": \"definitely not clicking, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's for pastors to get church members, I'm not a church leader so it's completely irrelevant to me\", \"intent\": \"would not click, nothing to do with my life\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"weird AI-looking image and scammy 'flatten FUPA in 4 weeks' claim, just looks like clickbait for mums\", \"intent\": \"might have paused at the weird picture but no way I'm clicking or buying\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7898,
+ "cached_tokens": 5504,
+ "output_tokens": 640,
+ "reasoning_tokens": 235
+}

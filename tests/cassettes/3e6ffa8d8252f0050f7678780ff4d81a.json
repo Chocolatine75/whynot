@@ -1,0 +1,11 @@
+{
+ "key": "3e6ffa8d8252f0050f7678780ff4d81a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Non ho nessun motivo per imparare il vietnamita, non mi serve a niente\", \"intent\": \"Non ci cliccherei, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in inglese e sembra per indiani, chat con astrologo non mi interessa per niente\", \"intent\": \"Scorro oltre senza guardare\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Uno spazzolino a 95 sterline mi sembra una truffa, ne ho già uno che funziona e non mi fido\", \"intent\": \"Non lo comprerei mai a quel prezzo\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Queste app per ansia e stress promettono troppo, quiz di 3 minuti sembra solo marketing per farti pagare\", \"intent\": \"Forse darei un'occhiata per curiosità ma non credo comprerei\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"È in spagnolo, non capisco bene e non mi riguarda\", \"intent\": \"Lo salto subito\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2120,
+ "cached_tokens": 128,
+ "output_tokens": 520,
+ "reasoning_tokens": 143
+}

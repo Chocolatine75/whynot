@@ -1,0 +1,11 @@
+{
+ "key": "66ba6670adc7b8a0ef8ef4fd501e847d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sono in Italia, offerta per UK non mi serve, e poi non mi fido di queste pubblicità per i denti su Instagram\", \"intent\": \"Non cliccherei, non è per me e ho già il mio dentista\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Sembra spam, solo hashtag cinesi e fornitori, non capisco a chi serve\", \"intent\": \"Scrollo oltre subito, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"È una fiera a Londra per aziende, non c'entro niente e non vado a Londra per questo\", \"intent\": \"Non cliccherei, non è roba per me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Muro di testo infinito, storia della cognata, puzza di truffa per vendere cerotti miracolosi, ho smesso di leggere dopo due righe\", \"intent\": \"Assolutamente non cliccherei, queste storie lunghe mi fanno scappare\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Oroscopo e ex che ritorna, metà in inglese metà in hindi, non ci credo e non mi interessa\", \"intent\": \"Non cliccherei mai, passo oltre\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 6039,
+ "cached_tokens": 128,
+ "output_tokens": 735,
+ "reasoning_tokens": 312
+}

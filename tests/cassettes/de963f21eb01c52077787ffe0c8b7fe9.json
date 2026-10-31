@@ -1,0 +1,11 @@
+{
+ "key": "de963f21eb01c52077787ffe0c8b7fe9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Overhyped 'indestructible' claim with scammy page name and low-res blurry creative destroys trust and drives returns/complaints, so it gets killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 457,
+ "cached_tokens": 128,
+ "output_tokens": 232,
+ "reasoning_tokens": 179
+}

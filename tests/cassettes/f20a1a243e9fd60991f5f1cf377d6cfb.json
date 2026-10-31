@@ -1,0 +1,11 @@
+{
+ "key": "f20a1a243e9fd60991f5f1cf377d6cfb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a wallet for men and I don't need one, looks like cheap dropshipping stuff I've seen a hundred times\", \"intent\": \"I wouldn't click, I don't need a men's wallet\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Russian, I don't understand anything and it looks a bit scammy\", \"intent\": \"I would just scroll past, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"The ADHD thing caught my eye but I don't trust these paid self-care quiz apps, they always want your money\", \"intent\": \"I might have paused on it but I wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Creepy weird image of an old man sewing a body, has nothing to do with an AI app, made me uncomfortable\", \"intent\": \"I would definitely not click on this, looks strange\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Turkish, I can't read it and I'm not looking to learn English anyway\", \"intent\": \"I would just keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1788,
+ "cached_tokens": 128,
+ "output_tokens": 615,
+ "reasoning_tokens": 231
+}

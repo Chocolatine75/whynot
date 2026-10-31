@@ -1,0 +1,11 @@
+{
+ "key": "bb930911adffd2b01a436897927ecf7c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Vietnamese and I don't care about AI hairstyles, just looks like spam\", \"intent\": \"I would keep scrolling, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu for UK and I live in Spain, I don't trust Temu quality anyway\", \"intent\": \"I would not click, I ignore all Temu ads\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for the UK and way too expensive, I don't need teeth straightening\", \"intent\": \"I would scroll past, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what this game is, the text makes no sense to me\", \"intent\": \"I would just scroll past this dumb game ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and I don't want another language app\", \"intent\": \"I would not download it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 606,
+ "cached_tokens": 0,
+ "output_tokens": 582,
+ "reasoning_tokens": 224
+}

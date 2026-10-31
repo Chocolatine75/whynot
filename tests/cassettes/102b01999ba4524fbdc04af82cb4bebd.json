@@ -1,0 +1,11 @@
+{
+ "key": "102b01999ba4524fbdc04af82cb4bebd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Graphic/gory stitched-body horror image is irrelevant to AI chatbot, violates Meta's shocking content policy and will be disapproved/penalized with terrible CTR, never scaling for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 543,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 140
+}

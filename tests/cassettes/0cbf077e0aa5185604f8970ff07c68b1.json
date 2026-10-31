@@ -1,0 +1,11 @@
+{
+ "key": "0cbf077e0aa5185604f8970ff07c68b1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai, I don't understand anything and I don't need a reel editor\", \"intent\": \"I just scrolled past it without paying attention.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly an ad for women about intimate waxing, has nothing to do with me and looks spammy\", \"intent\": \"I would not click, it's not for me and I don't trust these ads.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another silly game ad trying to get me to install something, I don't play these games\", \"intent\": \"I might pause a second but I would not click to play.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the language, looks like another English course ad\", \"intent\": \"I would ignore it and keep scrolling.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in German, I can guess it's an English app but I don't need it\", \"intent\": \"I have no interest in clicking an app in another language.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 673,
+ "cached_tokens": 0,
+ "output_tokens": 850,
+ "reasoning_tokens": 478
+}

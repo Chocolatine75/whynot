@@ -1,0 +1,11 @@
+{
+ "key": "9d95147f744dab6482df24fd52d607b8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen high-intent faith niche with strong direct-response copy, clear digital product offer and broad French-speaking Christian audience supports sustained ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1054,
+ "cached_tokens": 640,
+ "output_tokens": 202,
+ "reasoning_tokens": 153
+}

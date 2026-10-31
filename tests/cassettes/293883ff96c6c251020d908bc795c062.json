@@ -1,0 +1,11 @@
+{
+ "key": "293883ff96c6c251020d908bc795c062",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en turc je crois, je ne comprends rien, ce n'est pas pour moi\", \"intent\": \"Je scroll direct, je ne vais pas cliquer\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"On dirait une pub générique pour une IA, je ne sais pas ce que ça fait vraiment et j'en ai pas besoin\", \"intent\": \"Je ne cliquerais pas, ça a l'air spammy\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Le portefeuille a l'air cheap style dropshipping et je n'ai pas besoin de ça, je ne fais pas confiance\", \"intent\": \"Je ne cliquerais pas, ça ne m'intéresse pas\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Le self-care m'intéresse un peu mais ça fait très pub attrape-couillon avec quiz gratuit, je ne fais pas confiance\", \"intent\": \"Peut-être je m'arrêterais une seconde mais je ne cliquerais pas\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en russe, je ne comprends pas et ça ne me concerne pas\", \"intent\": \"Je scroll sans cliquer\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 729,
+ "cached_tokens": 0,
+ "output_tokens": 768,
+ "reasoning_tokens": 362
+}

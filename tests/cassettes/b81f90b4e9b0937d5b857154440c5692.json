@@ -1,0 +1,11 @@
+{
+ "key": "b81f90b4e9b0937d5b857154440c5692",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like an expensive hipster toothbrush, I have a normal electric one that works fine, don't need to display it\", \"intent\": \"would not click, not going to pay premium for a toothbrush\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job, not relevant to me at all\", \"intent\": \"would scroll past immediately\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's half in Hindi and about astrology for career, not for me and I don't believe in that stuff\", \"intent\": \"would ignore and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo already, I use it sometimes but I don't need an ad to order\", \"intent\": \"might remember it when I want takeaway but wouldn't click now\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and pushy, looks like american religious marketing trying to sell me a PDF\", \"intent\": \"would not click, not interested\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 944,
+ "cached_tokens": 0,
+ "output_tokens": 635,
+ "reasoning_tokens": 261
+}

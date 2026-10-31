@@ -1,0 +1,11 @@
+{
+ "key": "c867c7d86166a2de93e80404061a6741",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Ultra-seasonal Halloween hook and creepy niche image will see CTR and relevance collapse after October 31, making a months-long evergreen run impossible despite short-term holiday spike.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 488,
+ "cached_tokens": 128,
+ "output_tokens": 330,
+ "reasoning_tokens": 275
+}

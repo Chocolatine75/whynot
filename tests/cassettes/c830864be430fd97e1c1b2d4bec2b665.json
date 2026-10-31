@@ -1,0 +1,11 @@
+{
+ "key": "c830864be430fd97e1c1b2d4bec2b665",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those cheesy ReelShort dramas, not my thing and I don't trust the ads for them - seems a bit trashy and aimed at teenagers\", \"intent\": \"I wouldn't click, not interested in teen romance stories\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I know Peloton is expensive and I'm not looking for a fitness programme right now, just another workout ad to scroll past\", \"intent\": \"Might be useful for someone else but I wouldn't click right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a side hustle as a delivery rider, not relevant to me at all\", \"intent\": \"I definitely wouldn't click, I don't need a Deliveroo job\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Why would I need to learn Khmer, totally random and I don't trust these language app ads anyway\", \"intent\": \"I would just scroll past, no use for it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't cycle and it looks like a dropship product, looks cheap and not breathable despite what it says\", \"intent\": \"I wouldn't click or buy, not interested in cycling gear\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1690,
+ "cached_tokens": 128,
+ "output_tokens": 680,
+ "reasoning_tokens": 269
+}

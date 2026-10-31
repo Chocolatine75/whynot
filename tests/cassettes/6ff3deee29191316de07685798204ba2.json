@@ -1,0 +1,11 @@
+{
+ "key": "6ff3deee29191316de07685798204ba2",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks cute but I don't need another app guilt-tripping me about cleaning, and it feels a bit childish for me\", \"intent\": \"I would just keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Vinted and use it sometimes, but I don't need a basket right now so no reason to click\", \"intent\": \"I might look if I needed home stuff but not now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too teenage drama for me and these ReelShort ads always look cheap and overdramatic\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"An AI chatbot to chat with? That's weird and a bit creepy, I don't trust these apps with data\", \"intent\": \"No way I'm downloading this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese and I have no idea what show this scary dog statue is for, looks like clickbait\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1883,
+ "cached_tokens": 128,
+ "output_tokens": 630,
+ "reasoning_tokens": 250
+}

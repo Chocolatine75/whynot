@@ -1,0 +1,11 @@
+{
+ "key": "cb4789054987d08e5416150b91221b67",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Weird low-res meme creative with cropped overlay text and no clear value proposition or CTA will get cheap curiosity clicks but not efficient conversions to justify long-term spend.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 431,
+ "cached_tokens": 128,
+ "output_tokens": 250,
+ "reasoning_tokens": 197
+}

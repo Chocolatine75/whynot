@@ -1,0 +1,11 @@
+{
+ "key": "05f849fcc1541b0a08c6ab18df8314eb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Creative is dark, low-quality and completely unrelated to a video/photo editor with generic copy that fails to demonstrate any product benefit, use case, or differentiation, guaranteeing poor CTR and conversion.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 443,
+ "cached_tokens": 128,
+ "output_tokens": 249,
+ "reasoning_tokens": 191
+}

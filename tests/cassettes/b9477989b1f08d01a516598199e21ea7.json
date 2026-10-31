@@ -1,0 +1,11 @@
+{
+ "key": "b9477989b1f08d01a516598199e21ea7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed, hyper-niche B2B title with generic marketplace copy offers no hook, social proof, or benefit for a broad Facebook feed, guaranteeing low CTR and ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 277,
+ "cached_tokens": 128,
+ "output_tokens": 365,
+ "reasoning_tokens": 306
+}

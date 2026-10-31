@@ -1,0 +1,11 @@
+{
+ "key": "edd4a87c306a94a50091f60254c7f1a5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"way too long, massive wall of fear-mongering text and I'm in my late 20s so neuropathy isn't relevant to me, obvious scam trying to sell expensive patches\", \"intent\": \"would not click or buy, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Polish so I have no idea what it actually says, not for me\", \"intent\": \"would not click, ignored it as it's not in English\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks nice but I don't have a garden and it seems like a cheap gimmick that probably doesn't work as well as the video shows\", \"intent\": \"might look at the picture for a second but wouldn't click to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a dog so it's completely irrelevant, and I don't trust random pet supplements on Facebook anyway\", \"intent\": \"would not click or buy, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"actually kind of interesting tech but £95 for a toothbrush is way too much and I don't need a camera in my mouth, seems gimmicky\", \"intent\": \"might click to see how the camera thing works out of curiosity but definitely wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 8116,
+ "cached_tokens": 128,
+ "output_tokens": 731,
+ "reasoning_tokens": 303
+}

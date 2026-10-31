@@ -1,0 +1,11 @@
+{
+ "key": "4913214e7df2eaf24b2e004fa22a76b5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own bank and I'm not interested in football, this looks like just hype to get me to download another app\", \"intent\": \"I would not click, I don't need a new bank account\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I have no idea what it's really offering me, I just scrolled past\", \"intent\": \"I would not click as I don't understand the language and don't need to learn English\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This looks weird and a bit smutty with that cartoon man, definitely not for me and feels like a scam game\", \"intent\": \"I would never click on this, not appropriate at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a head covering but I don't know the quality or if it would suit me and I don't trust buying clothes from a random ad\", \"intent\": \"I might have a quick look but probably wouldn't buy from here\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Another one not in English with a robot, no idea what it's about so I just ignored it\", \"intent\": \"I would not click, it's not relevant to me\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1665,
+ "cached_tokens": 256,
+ "output_tokens": 761,
+ "reasoning_tokens": 346
+}

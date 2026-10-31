@@ -1,0 +1,11 @@
+{
+ "key": "4e07c112a9da0ad3476cb29bfbbb8453",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French which I don't really understand and it's about Bible prophecies which is not for me at all\", \"intent\": \"I would definitely not click or buy this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Half of it is in Hindi so I don't get it and I don't believe in astrology anyway\", \"intent\": \"I would not click on this ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already have work and I don't want to do bike delivery in all weather for probably low pay\", \"intent\": \"I would probably not click but it's the only one that makes sense to me\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Psychic reading ads feel super scammy and manipulative, I don't trust that stuff\", \"intent\": \"I would not click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't understand the Hindi mix and I'm not interested in an ex coming back predictions\", \"intent\": \"I would not click this\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1117,
+ "cached_tokens": 0,
+ "output_tokens": 791,
+ "reasoning_tokens": 420
+}

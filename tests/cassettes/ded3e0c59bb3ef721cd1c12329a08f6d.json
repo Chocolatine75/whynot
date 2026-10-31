@@ -1,0 +1,11 @@
+{
+ "key": "ded3e0c59bb3ef721cd1c12329a08f6d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Nothing but a silly phone game for kids, not for someone my age and I don't trust these game ads\", \"intent\": \"I wouldn't click at all, it's of no interest to me.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I can't properly understand it and I wouldn't buy religious books from a Facebook advert anyway\", \"intent\": \"I would just scroll past without clicking.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm happy with my own dentist and I don't trust these cheap straightening deals advertised online\", \"intent\": \"I wouldn't click, I'd rather see a proper dentist I know.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks tasty but the delivery fees are dear and I try not to have too much takeaway\", \"intent\": \"I might have a glance but I wouldn't order today.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Good price on the rice but I've never heard of Joybuy and I don't want to download another shopping app\", \"intent\": \"I might be slightly tempted to look but probably wouldn't buy.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2585,
+ "cached_tokens": 256,
+ "output_tokens": 973,
+ "reasoning_tokens": 587
+}

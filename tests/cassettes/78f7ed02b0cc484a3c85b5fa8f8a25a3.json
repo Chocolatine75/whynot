@@ -1,0 +1,11 @@
+{
+ "key": "78f7ed02b0cc484a3c85b5fa8f8a25a3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Niche appeal but wall-of-text, feature-list copy with weak 'Click Learn More' title and zero social proof/testimony will fatigue quickly and struggle to maintain thumb-stop CTR and ROAS at scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 505,
+ "cached_tokens": 128,
+ "output_tokens": 351,
+ "reasoning_tokens": 289
+}

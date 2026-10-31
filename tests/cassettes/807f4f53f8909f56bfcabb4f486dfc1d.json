@@ -1,0 +1,11 @@
+{
+ "key": "807f4f53f8909f56bfcabb4f486dfc1d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"this is clearly for women, intimate waxing has nothing to do with me and looks like cheap dropshipping scam\", \"intent\": \"I would not click, not relevant for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai, I don't understand a word, just another video editor app\", \"intent\": \"I would not click because I don't understand it and I don't need it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic mobile game ad trying to bait me, I don't play these bubble games\", \"intent\": \"I might look for a second but I would not click or install\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak this language, Serbian or something, and I'm not trying to learn English\", \"intent\": \"I would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in German, I live in Italy and I don't need an English learning app\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 673,
+ "cached_tokens": 128,
+ "output_tokens": 749,
+ "reasoning_tokens": 372
+}

@@ -1,0 +1,11 @@
+{
+ "key": "29e679a4120e614c333c27725d1b9c5c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap mobile survival game spam, not interested in this genre\", \"intent\": \"I would keep scrolling, definitely not downloading it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like dropship junk from Instagram, don't trust it fits every car and don't need it\", \"intent\": \"I might watch a second but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider side job right now\", \"intent\": \"I would scroll past, not applying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai and the ad looks weird and low effort\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Hindi about astrology, totally not relevant to me and I don't believe in it\", \"intent\": \"I would skip it immediately\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1731,
+ "cached_tokens": 128,
+ "output_tokens": 619,
+ "reasoning_tokens": 266
+}

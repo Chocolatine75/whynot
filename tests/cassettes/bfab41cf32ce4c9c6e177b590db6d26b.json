@@ -1,0 +1,11 @@
+{
+ "key": "bfab41cf32ce4c9c6e177b590db6d26b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"Not religious and I have zero interest in becoming a counselor, just scrolled past.\",\"intent\":\"No way I'm clicking, not for me at all.\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"Massive wall of text that looks like a fake doctor story to sell miracle patches, I don't trust this at all.\",\"intent\":\"Would not click or buy, looks like a scam.\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":true,\"understood\":true,\"believed\":true,\"why_not\":\"I don't need 5kg of rice and I don't know this shop, so no reason to order.\",\"intent\":\"Might remember the price but not clicking to buy.\",\"intent_score\":2},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"Peloton is way too expensive and I don't have space for a bike, just kept scrolling.\",\"intent\":\"Not clicking, not interested in buying a bike.\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"A toothbrush with a camera seems like a gimmick and probably expensive with a subscription, don't need it.\",\"intent\":\"No interest in clicking to learn more.\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7604,
+ "cached_tokens": 0,
+ "output_tokens": 563,
+ "reasoning_tokens": 238
+}

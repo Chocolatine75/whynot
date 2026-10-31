@@ -1,0 +1,11 @@
+{
+ "key": "4d330ca0ce5c52ea8487a159a1d1ea77",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic dropship copy with broken English, incomplete CTA, and unbranded page signals a low-trust product tester that rarely sustains profitable ROAS long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 262,
+ "cached_tokens": 128,
+ "output_tokens": 311,
+ "reasoning_tokens": 260
+}

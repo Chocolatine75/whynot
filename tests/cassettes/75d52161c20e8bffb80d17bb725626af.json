@@ -1,0 +1,11 @@
+{
+ "key": "75d52161c20e8bffb80d17bb725626af",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need wholesale handbags and this is B2B bulk buying, nothing for me\", \"intent\": \"I would not click it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a language I don't understand and I don't need a hairstyle app\", \"intent\": \"I would keep scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French so not for Spain and I'm not looking to buy bible study collections from an ad\", \"intent\": \"I might pause to look but I would not click to buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It says UK delivery and same-day areas, I'm in Spain so it's useless to me\", \"intent\": \"I would not click because it doesn't deliver to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just another Temu video ad, looks cheap and spammy and I don't trust it\", \"intent\": \"I would ignore it and keep scrolling\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1146,
+ "cached_tokens": 128,
+ "output_tokens": 851,
+ "reasoning_tokens": 482
+}

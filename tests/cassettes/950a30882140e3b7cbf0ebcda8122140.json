@@ -1,0 +1,11 @@
+{
+ "key": "950a30882140e3b7cbf0ebcda8122140",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic low-effort UGC with vague POV hook and awkward search-code CTA is typical Temu disposable churn creative that will fatigue fast, not a proven evergreen winner worth scaling for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 468,
+ "cached_tokens": 128,
+ "output_tokens": 288,
+ "reasoning_tokens": 228
+}

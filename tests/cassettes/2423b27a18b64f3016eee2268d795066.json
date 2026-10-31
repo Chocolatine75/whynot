@@ -1,0 +1,11 @@
+{
+ "key": "2423b27a18b64f3016eee2268d795066",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The image is completely black so nothing to see, and I don't believe in astrology or kundali nonsense\", \"intent\": \"I wouldn't click, it's not for me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Looks useful enough for keeping fruit fresh but I've got plenty of tubs already and don't need more\", \"intent\": \"Might have a quick look but I probably wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in a foreign language I can't read, probably Portuguese, so I just scrolled past\", \"intent\": \"No interest in clicking something I can't even understand\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"More astrology rubbish and I don't know who that lady is, just trying to get money out of you\", \"intent\": \"I would not click on this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's leopard print clothes from Temu, nothing to do with me as an older chap\", \"intent\": \"Definitely not clicking, not for me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2126,
+ "cached_tokens": 0,
+ "output_tokens": 657,
+ "reasoning_tokens": 278
+}

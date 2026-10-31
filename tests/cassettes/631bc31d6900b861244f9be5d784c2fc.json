@@ -1,0 +1,11 @@
+{
+ "key": "631bc31d6900b861244f9be5d784c2fc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"High-arousal AI-generated eviction/shaming image is completely incongruent with generic 'Free and No Ads' matching copy, driving junk curiosity clicks with high negative feedback and terrible ROAS/retention so it gets paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 438,
+ "cached_tokens": 128,
+ "output_tokens": 385,
+ "reasoning_tokens": 319
+}

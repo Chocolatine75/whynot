@@ -1,0 +1,11 @@
+{
+ "key": "93772e83d7f6037c2eb36670121e4866",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":7,\"why\":\"Strong risk-reversal 30-day trial offer from a major brand is a proven evergreen converter, though the generic habit-building hook and bike/yoga creative mismatch limit breakout potential.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 460,
+ "cached_tokens": 128,
+ "output_tokens": 358,
+ "reasoning_tokens": 304
+}

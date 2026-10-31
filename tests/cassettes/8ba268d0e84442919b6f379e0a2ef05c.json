@@ -1,0 +1,11 @@
+{
+ "key": "8ba268d0e84442919b6f379e0a2ef05c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Extremely generic copy with no hook, proof, or differentiation will drive low CTR and high CPA and be paused quickly in testing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 249,
+ "cached_tokens": 128,
+ "output_tokens": 381,
+ "reasoning_tokens": 336
+}

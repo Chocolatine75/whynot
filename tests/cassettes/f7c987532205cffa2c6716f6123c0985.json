@@ -1,0 +1,11 @@
+{
+ "key": "f7c987532205cffa2c6716f6123c0985",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another cheap annoying mobile game ad, not interested in bubble pop games\", \"intent\": \"I wouldn't click, I'd just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's Temu, I don't trust it and I hate all the spammy haul ads with codes\", \"intent\": \"Definitely not clicking or buying from Temu\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what the game actually is, just a generic survival title with no gameplay\", \"intent\": \"Wouldn't bother clicking, looks boring\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"completely irrelevant to me, why am I being shown industrial fire alarm cable\", \"intent\": \"No chance I'm clicking this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"toothbrush with a camera seems gimmicky and overpriced, probably expensive for what it is\", \"intent\": \"Might have a quick look out of curiosity but wouldn't buy\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 750,
+ "cached_tokens": 128,
+ "output_tokens": 728,
+ "reasoning_tokens": 364
+}

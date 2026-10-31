@@ -1,0 +1,11 @@
+{
+ "key": "865b020d352f1a4ff2eeb1526de72c81",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Viral novelty gift has short-term impulse appeal but spammy copy, hashtag stuffing, and low-trust dropship presentation typically fatigue and kill ROAS quickly, preventing months-long scaling.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 322,
+ "cached_tokens": 128,
+ "output_tokens": 465,
+ "reasoning_tokens": 406
+}

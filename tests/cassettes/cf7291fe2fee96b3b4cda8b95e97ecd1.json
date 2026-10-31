@@ -1,0 +1,11 @@
+{
+ "key": "cf7291fe2fee96b3b4cda8b95e97ecd1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"troppo lungo, non ho letto tutto, sembra una storia inventata per vendermi un cerotto e poi non ho questa neuropatia\", \"intent\": \"non cliccherei mai, sembra una truffa sulla salute\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non gioco a queste cose sul telefono, è pubblicità di un giochino\", \"intent\": \"non mi interessa scaricarlo\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non mi serve cambiare le icone, mi va bene il telefono così com'è\", \"intent\": \"non clicco, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"queste cose con l'AI per fare video divertenti non mi fiderei a caricare la mia foto\", \"intent\": \"non lo proverei\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"non sono interessata al fitness ora e Peloton costa troppo\", \"intent\": \"non cliccherei, passo oltre\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3741,
+ "cached_tokens": 0,
+ "output_tokens": 538,
+ "reasoning_tokens": 173
+}

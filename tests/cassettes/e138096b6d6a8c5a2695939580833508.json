@@ -1,0 +1,11 @@
+{
+ "key": "e138096b6d6a8c5a2695939580833508",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like one of those expensive biohacking scams, way too many buzzwords like nervous system regulation and all the health claims feel made up\", \"intent\": \"I wouldn't click, red light mat seems gimmicky and probably costs a fortune.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it's just cheap novelty glasses, funny for a second but I don't need them and the quote on the image is a bit cringe\", \"intent\": \"I might laugh but I wouldn't buy, I've got no use for them.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"no idea what it's actually offering, just a robot face saying it's not like other apps tells me nothing\", \"intent\": \"I wouldn't click, too vague and I don't want another AI language app.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"looks like a decent time-waster puzzle but I've got too many game ads already and it will probably be full of ads\", \"intent\": \"I might be tempted to try it when bored but probably wouldn't bother downloading.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in a foreign language so I have no clue what it's saying and the cartoon image doesn't make me want to learn\", \"intent\": \"I wouldn't click as it's not relevant to me at all.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1894,
+ "cached_tokens": 384,
+ "output_tokens": 798,
+ "reasoning_tokens": 369
+}

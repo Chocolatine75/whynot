@@ -1,0 +1,11 @@
+{
+ "key": "9ba2bdcd95cacf4a8f1d5f0895e6f693",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"way too long, read like a made up story to sell some dodgy magnesium patch, I'm 29 and don't have neuropathy and don't trust miracle cure ads\",\"intent\":\"I wouldn't click or buy, just scrolled past after realising it was a sales pitch\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"not religious and not a youth leader so nothing to do with me, just an ad for church training\",\"intent\":\"I wouldn't click, not relevant to me at all\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"just a random drink deal ad, didn't need anything and delivery thing only in selected cities anyway\",\"intent\":\"I might have glanced but wouldn't click to buy\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"it's a B2B expo for business buyers and suppliers, I'm not one so no reason to go\",\"intent\":\"I wouldn't click, not for me\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"the picture is a hi-vis jacket but the title is about printer ink, looked like a messed up listing so I didn't trust it\",\"intent\":\"I wouldn't click, looks like a scam or wrong image\",\"intent_score\":1}],\"preferred\":\"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5508,
+ "cached_tokens": 3328,
+ "output_tokens": 536,
+ "reasoning_tokens": 185
+}

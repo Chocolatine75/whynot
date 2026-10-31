@@ -1,0 +1,11 @@
+{
+ "key": "8e3bd0506ebbd3ff50360381e684cb7a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"its temu spam for women's boots which i dont need and i dont trust temu links\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"weird psychic ad that looks creepy and has nothing to do with me\", \"intent\": \"Not clicking, not interested in psychic readings at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds too good to be true and i bet its not actually 30 quid an hour easy\", \"intent\": \"Might be tempted to look but probably wouldn't actually apply\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"massive wall of text about neuropathy for old people, not relevant to me at all\", \"intent\": \"Didn't read it and definitely wouldn't buy patches from it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"wallet looks kinda cool but i don't need a new one and it seems overhyped\", \"intent\": \"I wouldn't buy it now, maybe I'd save it for later\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9222,
+ "cached_tokens": 128,
+ "output_tokens": 606,
+ "reasoning_tokens": 233
+}

@@ -1,0 +1,11 @@
+{
+ "key": "055c0b1629073f7c5092452ed3c72386",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's all in Turkish I think so I have no idea what it's actually selling, just some cartoon man and lots of foreign text\",\"intent\":\"I wouldn't click as it's not in English and not relevant to me\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"The text on the image says minus 12kg in 12 days water fasting which sounds dangerous and impossible and it's in German anyway\",\"intent\":\"I would not click, that claim puts me off completely\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"I can see the CapCut banner but the rest is in another language and it's just a weird helicopter picture, nothing to do with me\",\"intent\":\"I would just scroll past, I don't make videos like that\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"It's Temu and I don't trust them and I don't need camera filters for my phone\",\"intent\":\"I wouldn't click, I don't buy phone gadgets from Temu\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"It's another language, Portuguese maybe, and looks like an AI mental health app which I'm not interested in\",\"intent\":\"I wouldn't click as I can't even read what it's offering\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1642,
+ "cached_tokens": 256,
+ "output_tokens": 645,
+ "reasoning_tokens": 291
+}

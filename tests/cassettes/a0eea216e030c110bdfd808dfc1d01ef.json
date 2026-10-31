@@ -1,0 +1,11 @@
+{
+ "key": "a0eea216e030c110bdfd808dfc1d01ef",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic saturated dropship product with spammy emoji-stuffed copy, hashtag spam, and low-trust page name 'Britainuk.3' signals poor CTR/ROAS and quick creative fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 405,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 134
+}

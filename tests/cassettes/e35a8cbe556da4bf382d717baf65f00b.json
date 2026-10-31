@@ -1,0 +1,11 @@
+{
+ "key": "e35a8cbe556da4bf382d717baf65f00b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"just another cheap dropship wallet ad, I've seen a thousand of these and I don't need a new wallet\",\"intent\":\"I wouldn't click, no need for it.\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"it's clearly targeted at UK students and I'm in France, so not relevant to me at all and looks like gig hype\",\"intent\":\"I wouldn't click, not for me.\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"I don't believe in psychic readings and the emotional bait text feels manipulative\",\"intent\":\"I wouldn't click, not interested in that stuff.\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"it's just temu spam with a referral code and typo trick, I don't trust it\",\"intent\":\"I wouldn't click, I ignore Temu ads.\",\"intent_score\":1},{\"ad\":\"A5\",\"stopped\":true,\"understood\":false,\"believed\":false,\"why_not\":\"way too long and scary fear-mongering text to sell patches, and the image of a McDonald's burger has nothing to do with it so I don't trust it at all\",\"intent\":\"I wouldn't click, it feels like a scam health ad.\",\"intent_score\":1}],\"preferred\":\"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9222,
+ "cached_tokens": 128,
+ "output_tokens": 502,
+ "reasoning_tokens": 169
+}

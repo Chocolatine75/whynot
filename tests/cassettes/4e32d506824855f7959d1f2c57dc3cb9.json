@@ -1,0 +1,11 @@
+{
+ "key": "4e32d506824855f7959d1f2c57dc3cb9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another generic bubble game ad, i've seen a thousand like it and i don't play these\", \"intent\": \"i would just scroll past, not gonna click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like cheap aliexpress gadget, tacky and probably doesn't even glow that well, total waste of money\", \"intent\": \"definitely not buying, kept scrolling after a second\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"i have zero need to learn Thai, not relevant to me at all living in France\", \"intent\": \"would not click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't even tell what it's selling, just spammy Temu tags and search code, i hate these ads\", \"intent\": \"i ignore all Temu ads on principle, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's for UK delivery so useless for me in France and looks like another Temu-type shop\", \"intent\": \"no reason to click, not for my country\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 0,
+ "output_tokens": 885,
+ "reasoning_tokens": 507
+}

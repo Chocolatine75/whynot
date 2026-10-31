@@ -1,0 +1,11 @@
+{
+ "key": "7efecdaf6ffb6c535f5f8e8f560b9a64",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"High CTR bait using DeWalt trademarks with AI-faked product and 'not sponsored' disclaimer risks policy takedown, user complaints and poor post-click conversion so wouldn't survive as a months-long evergreen control.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 623,
+ "cached_tokens": 128,
+ "output_tokens": 391,
+ "reasoning_tokens": 331
+}

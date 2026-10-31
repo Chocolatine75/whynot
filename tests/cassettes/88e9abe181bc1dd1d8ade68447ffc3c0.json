@@ -1,0 +1,11 @@
+{
+ "key": "88e9abe181bc1dd1d8ade68447ffc3c0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 7, \"why\": \"Classic curiosity + transformation UGC hook for a proven high-intent beauty use case (hairstyle) that consistently drives low CPC and high CTR for AI photo apps.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 269,
+ "cached_tokens": 128,
+ "output_tokens": 409,
+ "reasoning_tokens": 354
+}

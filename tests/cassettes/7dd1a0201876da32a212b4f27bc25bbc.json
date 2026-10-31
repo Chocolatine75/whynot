@@ -1,0 +1,11 @@
+{
+ "key": "7dd1a0201876da32a212b4f27bc25bbc",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and it's Temu anyway, not interested in a vanity table and I don't trust those codes\", \"intent\": \"I wouldn't click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I can see it's a basket for sale but I've got no use for it and I don't sell on Vinted\", \"intent\": \"I wouldn't click or buy, nothing I need\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a women's turban cap, completely irrelevant to me\", \"intent\": \"I wouldn't click, not for me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and scare-mongering, reads like a fake miracle cure story trying to flog expensive patches instead of seeing a proper doctor\", \"intent\": \"I definitely wouldn't buy it, I'd ignore it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's some cartoon battery icon for kids phones, nothing to do with me\", \"intent\": \"I wouldn't click, just junk to me\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4326,
+ "cached_tokens": 128,
+ "output_tokens": 613,
+ "reasoning_tokens": 235
+}

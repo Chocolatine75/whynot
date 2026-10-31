@@ -1,0 +1,11 @@
+{
+ "key": "6ae9aa2ca2b64073763b4bb1903d3292",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Extremely low-quality blurry warped creative with generic Dutch copy looks unprofessional and will quickly be killed due to poor CTR and conversion as an ad for a video editing tool.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 445,
+ "cached_tokens": 128,
+ "output_tokens": 265,
+ "reasoning_tokens": 208
+}

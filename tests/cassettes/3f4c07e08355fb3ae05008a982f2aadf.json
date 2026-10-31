@@ -1,0 +1,11 @@
+{
+ "key": "3f4c07e08355fb3ae05008a982f2aadf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in German and I don't understand it, and I get a lot of these English-learning app ads that all promise the same thing\", \"intent\": \"I wouldn't click, it's not for me and I don't understand what it's selling exactly\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The picture is cute but the text makes no sense to me and I have no idea what it's even advertising, looks like a weird game\", \"intent\": \"I wouldn't click, maybe it's a game but I don't get what it wants from me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Feels like another generic wellness AI app and the image looks a bit AI and sad, I don't trust these feel better apps\", \"intent\": \"I might pause on it but I wouldn't download it, doesn't feel trustworthy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no interest in learning Thai and the image is random and low quality, just another language app ad\", \"intent\": \"I wouldn't click, learning Thai is completely irrelevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read the language at all so I just scrolled past, looks like another English book app\", \"intent\": \"I wouldn't click because I don't even know what it says\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1711,
+ "cached_tokens": 128,
+ "output_tokens": 936,
+ "reasoning_tokens": 511
+}

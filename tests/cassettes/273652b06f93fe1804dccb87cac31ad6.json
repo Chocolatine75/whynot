@@ -1,0 +1,11 @@
+{
+ "key": "273652b06f93fe1804dccb87cac31ad6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Spammy invitation-code creative with vague 'not a real person' AI-companion hook is low-CTR, low-trust, and high policy-risk for Facebook dating/companionship ads and will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 499,
+ "cached_tokens": 128,
+ "output_tokens": 392,
+ "reasoning_tokens": 327
+}

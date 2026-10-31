@@ -1,0 +1,11 @@
+{
+ "key": "7802c27bd04610a8752fb2040fca26ef",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Extremely high-risk for FB ad policy violations (personal health attributes, fear-mongering, deceptive disease claims, and unproven transdermal magnesium efficacy) guarantees disapproval/ban before it can scale, despite classic long-form scare copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7870,
+ "cached_tokens": 7424,
+ "output_tokens": 229,
+ "reasoning_tokens": 157
+}

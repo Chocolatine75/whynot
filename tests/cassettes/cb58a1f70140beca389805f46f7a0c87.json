@@ -1,0 +1,11 @@
+{
+ "key": "cb58a1f70140beca389805f46f7a0c87",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's for the UK and I'm in France, plus it looks like generic spam with all the emojis, I scrolled straight past\", \"intent\": \"I would not click or buy, it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have no interest in learning Thai and I never click these language app ads\", \"intent\": \"I would not click, I don't need this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Weird title about fluorescent valve caps news? Looks like cheap gadget dropshipping, not trustworthy at all\", \"intent\": \"I would definitely not click or buy this glowing plastic stuff\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Just another little stress-relief game ad, I see hundreds of these and I don't play that kind of game\", \"intent\": \"I might have paused for half a second but I would not click to download\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's Temu, I don't trust it and the text says nothing about what I'm actually buying, just search a code\", \"intent\": \"I would not click, I avoid Temu ads completely\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 751,
+ "cached_tokens": 128,
+ "output_tokens": 734,
+ "reasoning_tokens": 332
+}

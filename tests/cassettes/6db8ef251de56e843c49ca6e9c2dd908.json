@@ -1,0 +1,11 @@
+{
+ "key": "6db8ef251de56e843c49ca6e9c2dd908",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, AI-sounding benefit list with weak 'Click Learn More' title, no hook, proof, or specific outcome, likely gets low CTR/CVR and is iterated out quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 360,
+ "cached_tokens": 128,
+ "output_tokens": 421,
+ "reasoning_tokens": 363
+}

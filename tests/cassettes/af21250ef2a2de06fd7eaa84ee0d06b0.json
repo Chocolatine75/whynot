@@ -1,0 +1,11 @@
+{
+ "key": "af21250ef2a2de06fd7eaa84ee0d06b0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Turkish, I have no idea what it's actually saying apart from apparently learning English, so I just scrolled straight past\", \"intent\": \"I definitely wouldn't click as it's not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe an astrologer or kundli can tell me when I'll buy a car, feels like clickbait and a bit scammy\", \"intent\": \"I wouldn't click or pay for an astrology chat\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have zero interest in learning Vietnamese right now so just not for me\", \"intent\": \"I wouldn't click, no need for this app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton bikes are way too expensive and I don't have the space or money for one even with a trial\", \"intent\": \"I might pause to look at the picture but I wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same as the other one, peloton is too pricey and I saw the previous ad so I just scrolled past this one\", \"intent\": \"I wouldn't click on this one\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 605,
+ "cached_tokens": 128,
+ "output_tokens": 769,
+ "reasoning_tokens": 367
+}

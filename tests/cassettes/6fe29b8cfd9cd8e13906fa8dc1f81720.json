@@ -1,0 +1,11 @@
+{
+ "key": "6fe29b8cfd9cd8e13906fa8dc1f81720",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's a B2B sourcing ad for a toilet roll holder but the picture is a dining chair, makes no sense and has nothing to do with me.\", \"intent\": \"No interest in clicking or buying, not relevant at all.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Way too long and scary health story, I'm not diabetic and don't have neuropathy, feels like a scammy miracle patch trying to sell to vulnerable people.\", \"intent\": \"Would definitely not click, just scrolled past as soon as I saw the foot photo.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's all in French and very religious, I'm not looking for bible study books.\", \"intent\": \"No chance I'd click or buy.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Teeth aligners are tempting but I've seen too many ads like this, don't trust the 'cheapest in the UK' claim and know it'll be expensive anyway.\", \"intent\": \"Might be slightly curious but wouldn't click right now, maybe look properly later.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Dating apps like this always seem spammy and fake, not interested in random chat ads.\", \"intent\": \"Would not click at all.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4983,
+ "cached_tokens": 256,
+ "output_tokens": 703,
+ "reasoning_tokens": 288
+}

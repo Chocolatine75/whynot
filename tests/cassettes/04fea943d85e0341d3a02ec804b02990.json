@@ -1,0 +1,11 @@
+{
+ "key": "04fea943d85e0341d3a02ec804b02990",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Thai so I have no idea what it's selling, not relevant to me\", \"intent\": \"I wouldn't click as I don't understand it and don't need English lessons\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't believe in astrology and it looks a bit clickbaity and not for me\", \"intent\": \"I wouldn't click because I'm not interested in astrology chats\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It looks cheap and flimsy and I don't trust these car gadget ads to actually work\", \"intent\": \"I might have a quick look but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I can't read the language at the top so I don't know what it's about\", \"intent\": \"I wouldn't click because I have no idea what it's offering\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It just looks like another annoying mobile game ad that will be full of ads\", \"intent\": \"I won't click because I don't play these bus puzzle games\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1870,
+ "cached_tokens": 256,
+ "output_tokens": 619,
+ "reasoning_tokens": 243
+}

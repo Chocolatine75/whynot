@@ -1,0 +1,11 @@
+{
+ "key": "24a4d3fb8bbb2c17cf94165f521a26db",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Repurposed TikTok copy with multiple typos ('creppy', 'Inti Aging', 'redlighttheraphy'), wrong-platform CTA ('link in my bio'), and spammy hashtags signals low-trust, low-quality creative unlikely to sustain ROAS for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 398,
+ "cached_tokens": 128,
+ "output_tokens": 282,
+ "reasoning_tokens": 206
+}

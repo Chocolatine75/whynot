@@ -1,0 +1,11 @@
+{
+ "key": "97279941d2dba4d1c7801112a89c450b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Makes an aggressive age/body-shaming claim with fake/shocking visuals promising unrealistic 4-week results, guaranteeing ad rejections, negative feedback, and bans rather than durable ROAS.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 441,
+ "cached_tokens": 128,
+ "output_tokens": 244,
+ "reasoning_tokens": 186
+}

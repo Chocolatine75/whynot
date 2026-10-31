@@ -1,0 +1,11 @@
+{
+ "key": "c3c354c3e7a0148846b3205403aa3e33",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Keyword-stuffed, incoherent title with generic B2B boilerplate text has no hook, offer, or benefit and signals a low-effort catalog/DSP prospecting ad that typically gets ignored and paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 275,
+ "cached_tokens": 128,
+ "output_tokens": 199,
+ "reasoning_tokens": 133
+}

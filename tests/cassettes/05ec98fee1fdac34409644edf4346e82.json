@@ -1,0 +1,11 @@
+{
+ "key": "05ec98fee1fdac34409644edf4346e82",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic low-effort creative with no hook, broad undifferentiated copy, and dated design will drive low-quality clicks and poor downstream conversion, leading to quick fatigue and pausing.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 434,
+ "cached_tokens": 128,
+ "output_tokens": 431,
+ "reasoning_tokens": 373
+}

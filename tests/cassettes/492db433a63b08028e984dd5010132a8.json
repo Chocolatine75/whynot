@@ -1,0 +1,11 @@
+{
+ "key": "492db433a63b08028e984dd5010132a8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just looks like cheap dropship stuff, don't need a blanket and don't trust the site\", \"intent\": \"i would keep scrolling, not interested in buying\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English so i have no idea what it's selling\", \"intent\": \"i wouldn't click because i can't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish and temu spam, i ignore temu ads\", \"intent\": \"no chance i would click on this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"never heard of joybuy and i don't want that drink, price doesn't seem like a deal\", \"intent\": \"maybe glance but i wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not in English so not relevant to me\", \"intent\": \"i would just scroll past\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1947,
+ "cached_tokens": 128,
+ "output_tokens": 602,
+ "reasoning_tokens": 263
+}

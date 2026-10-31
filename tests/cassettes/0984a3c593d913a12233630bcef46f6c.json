@@ -1,0 +1,11 @@
+{
+ "key": "0984a3c593d913a12233630bcef46f6c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":1,\"why\":\"Ad promotes non-consensual surveillance/stalking of a partner which is explicitly prohibited by Meta's Personal Attributes/Surveillance policy and will be disapproved/banned quickly, preventing any long-term run.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 541,
+ "cached_tokens": 128,
+ "output_tokens": 307,
+ "reasoning_tokens": 249
+}

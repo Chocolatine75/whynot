@@ -1,0 +1,11 @@
+{
+ "key": "d5736a6f4480192fe8fb39cea1e8c4f8",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è tutto in russo e non capisco cosa vuole, sembra spam per il telefono\", \"intent\": \"non cliccherei mai, non è per me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"l'immagine con la pasta animata è strana e non mi fido di queste app che promettono di risolvere ansia con un quiz di 3 minuti\", \"intent\": \"forse lo salverei per dopo ma non cliccherei ora\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non ho un'azienda e non mi interessa comprare all'ingrosso dalla Cina\", \"intent\": \"non fa per me quindi vado oltre\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sono in Italia, gli A-Level inglesi non mi servono e non ho figli in quell'età\", \"intent\": \"non cliccherei perché non è rilevante per me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"non ho bisogno di imparare il cantonese, non mi serve a niente\", \"intent\": \"non scaricherei l'app\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1901,
+ "cached_tokens": 0,
+ "output_tokens": 737,
+ "reasoning_tokens": 352
+}

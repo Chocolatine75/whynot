@@ -1,0 +1,11 @@
+{
+ "key": "05368d1eaf97b76ae67a02eabb8b0636",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like spammy dating ad, I get loads of these and don't trust them\", \"intent\": \"Wouldn't click, not looking for a dating app like this\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's mostly in Arabic which I don't read and I don't know what it's actually offering\", \"intent\": \"Would just scroll past, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Interesting idea but £95 is a lot for a toothbrush and not sure the camera is actually useful\", \"intent\": \"Might have a quick look out of curiosity but probably wouldn't buy\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a delivery rider job so not relevant to me\", \"intent\": \"No need to click, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Don't need a language learning app right now and $240 is still expensive\", \"intent\": \"Wouldn't click through as I'm not learning a language at the moment\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 689,
+ "cached_tokens": 128,
+ "output_tokens": 667,
+ "reasoning_tokens": 299
+}

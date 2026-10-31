@@ -1,0 +1,11 @@
+{
+ "key": "00b78e22dddde761b8035dba79d09102",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 1, \"why\": \"Time-bound headline 'Ends 16th August' makes it impossible to run for months without looking expired and killing performance.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 258,
+ "cached_tokens": 128,
+ "output_tokens": 133,
+ "reasoning_tokens": 88
+}

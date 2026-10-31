@@ -1,0 +1,11 @@
+{
+ "key": "ec5633d6701b67e0f378035766f56659",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not for me at all, it's aimed at women and intimate waxing stuff - just scrolled past\", \"intent\": \"I wouldn't click or buy this, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like another generic mental health app trying to flog a subscription, don't trust these quiz ads\", \"intent\": \"I wouldn't click, I don't want another app for anxiety\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Turkish so I have no idea what it's actually offering me\", \"intent\": \"I wouldn't click because I can't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just looks like cheap gimmicky AI spam, not interested in making dance videos\", \"intent\": \"I wouldn't click or try it, seems pointless\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in French and it's about lemon water fasting, sounds like fad diet nonsense\", \"intent\": \"I wouldn't click, not trying to do some lemon fast\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 684,
+ "cached_tokens": 0,
+ "output_tokens": 658,
+ "reasoning_tokens": 287
+}

@@ -1,0 +1,11 @@
+{
+ "key": "567c36f64ae5dcc9c1aa73b2f84c121d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks cute but looks like one of those cheap dropship ads and i definitely don't need another blanket\", \"intent\": \"i wouldn't click, just kept scrolling\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Georgian i think, not in English so nothing to do with me\", \"intent\": \"i would scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Polish and for Temu which i don't trust anyway\", \"intent\": \"i wouldn't click, i just ignore Temu ads\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic shopping ad, doesn't tell me what they're actually selling and i've never heard of Joybuy\", \"intent\": \"i wouldn't click, not interested\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Thai so i have no idea what it's saying and not relevant to me\", \"intent\": \"i would just scroll past without clicking\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 621,
+ "cached_tokens": 128,
+ "output_tokens": 829,
+ "reasoning_tokens": 472
+}

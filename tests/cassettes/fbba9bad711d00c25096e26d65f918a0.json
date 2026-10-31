@@ -1,0 +1,11 @@
+{
+ "key": "fbba9bad711d00c25096e26d65f918a0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Truncated generic dropship copy with no hook, social proof, or clear benefit makes low CTR and poor conversion likely, so it will be killed quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 297,
+ "cached_tokens": 128,
+ "output_tokens": 196,
+ "reasoning_tokens": 144
+}

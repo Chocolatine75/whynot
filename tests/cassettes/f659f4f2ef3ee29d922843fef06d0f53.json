@@ -1,0 +1,11 @@
+{
+ "key": "f659f4f2ef3ee29d922843fef06d0f53",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not for me at my age and I don't trust these cheap aligner offers, seems like hidden costs\", \"intent\": \"I would just scroll past, no interest in clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a generic game ad with no real info, I don't play these tap games\", \"intent\": \"I wouldn't click, not my thing at all\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of them and 50% off sounds like clickbait, wary of new food apps\", \"intent\": \"I might glance but I wouldn't download or buy anything\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I've got no idea what it's actually selling\", \"intent\": \"I would scroll straight past without clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I do use Deliveroo occasionally but that offer has already ended so no point\", \"intent\": \"I wouldn't click now as the deal is expired\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1059,
+ "cached_tokens": 128,
+ "output_tokens": 649,
+ "reasoning_tokens": 282
+}

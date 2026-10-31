@@ -1,0 +1,11 @@
+{
+ "key": "8c020dc03e8943a15d129585fed56854",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Non mi interessa personalizzare icone e widget, è roba per ragazzini, scrollo oltre\", \"intent\": \"Non cliccherei mai, non mi serve\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Muro di testo lunghissimo, sembra la solita storia finta per vendere un cerotto miracoloso, non mi fido di questi consigli medici su Facebook\", \"intent\": \"Non cliccherei, mi puzza di truffa\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Palestra e Peloton costano troppo e non compro abbonamenti da un annuncio\", \"intent\": \"Forse lo guarderei ma non clicco\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Sembra spam e poi vogliono i miei dati o l'abbonamento\", \"intent\": \"Non clicco su queste app stupide\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"È solo un giochino per far perdere tempo, ne ho già troppi sul telefono\", \"intent\": \"Non lo scaricherei\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3741,
+ "cached_tokens": 0,
+ "output_tokens": 674,
+ "reasoning_tokens": 290
+}

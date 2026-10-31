@@ -1,0 +1,11 @@
+{
+ "key": "bddcedfe7767b389f7c4623611f0861f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 4, \"why\": \"Classic dropship gadget ad with weak hook and generic benefits drives cheap clicks but low trust/conversion and high churn, rarely sustaining months of profitable scale.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 559,
+ "cached_tokens": 128,
+ "output_tokens": 160,
+ "reasoning_tokens": 109
+}

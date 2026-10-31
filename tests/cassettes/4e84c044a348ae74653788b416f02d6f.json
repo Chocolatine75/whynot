@@ -1,0 +1,11 @@
+{
+ "key": "4e84c044a348ae74653788b416f02d6f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and I don't trust the quality, plus that link looks spammy\", \"intent\": \"I would just keep scrolling, definitely not clicking the link.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai so I have no idea what it's saying\", \"intent\": \"I scrolled past immediately since I can't read it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I already know Deliveroo and I use Uber Eats instead, not tempted right now\", \"intent\": \"I might remember it if I'm hungry later but I won't click now.\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing at all, BxB stories and AI chat apps feel weird and a bit cringe\", \"intent\": \"I would scroll past fast, no interest in clicking.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust free dating apps ads, they always feel scammy or full of fake profiles\", \"intent\": \"I wouldn't click, I'm not looking for an app like that from an ad.\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 722,
+ "cached_tokens": 128,
+ "output_tokens": 697,
+ "reasoning_tokens": 316
+}

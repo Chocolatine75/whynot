@@ -1,0 +1,11 @@
+{
+ "key": "b2bb098775af2e2fc74be31f2a621884",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't really trust Temu clothes, the quality looks cheap and I don't need leopard print puffer stuff\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"completely irrelevant to me, I'm not buying trade toilet roll holders\", \"intent\": \"no chance I'd click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long and rambling, felt like one of those fake story ads trying to sell dodgy B12 patches and I'm not 64 with neuropathy\", \"intent\": \"definitely wouldn't click, just skipped past the wall of text\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"not into astrology and the text wasn't even in English properly\", \"intent\": \"ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not religious and not looking for a bible study guide on Revelation\", \"intent\": \"wouldn't click at all\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4141,
+ "cached_tokens": 0,
+ "output_tokens": 631,
+ "reasoning_tokens": 270
+}

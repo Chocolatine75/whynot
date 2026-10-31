@@ -1,0 +1,11 @@
+{
+ "key": "e41502a5c3bdbd32c4a0ed51b65bc388",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Full plot spoiler including the happy ending kills curiosity/click intent and reads like a dense synopsis with no hook, CTA, or visual hook, predicting poor CTR and quick fatigue.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 348,
+ "cached_tokens": 128,
+ "output_tokens": 318,
+ "reasoning_tokens": 261
+}

@@ -1,0 +1,11 @@
+{
+ "key": "522ad1347f9e19b097bf9f8157594d34",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen gig-economy recruitment offer with clear, benefit-driven copy (flexibility + extra income) and relatable lifestyle creative is a proven always-on workhorse, even if execution is generic.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 451,
+ "cached_tokens": 128,
+ "output_tokens": 223,
+ "reasoning_tokens": 163
+}

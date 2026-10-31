@@ -1,0 +1,11 @@
+{
+ "key": "4c27c83b9c251f8decf51399c1a41758",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's an ad for a toilet roll holder but the picture is a chair so I was confused, and Alibaba is for businesses buying in bulk anyway, not for me\", \"intent\": \"I wouldn't click, I just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not interested in Revelation or Bible study resources, this has nothing to do with me\", \"intent\": \"I kept scrolling, no reason to click learn more\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ads are everywhere and the quality always looks a bit iffy, I don't trust it'll look like the picture when it arrives\", \"intent\": \"I paused to look at the outfit because it's cute but I wouldn't click or buy from Temu\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and about astrology which I don't follow, plus it looked quite clickbaity\", \"intent\": \"I didn't stop, I just swiped past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's an essay trying to sell a nerve pain patch and the photo is just a blurry phone screen so it feels dodgy and like a scam, way too long for an ad\", \"intent\": \"I skimmed the first bit and scrolled on, definitely wouldn't click the link or buy it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5591,
+ "cached_tokens": 256,
+ "output_tokens": 637,
+ "reasoning_tokens": 198
+}

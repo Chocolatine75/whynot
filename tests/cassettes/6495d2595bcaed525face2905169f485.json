@@ -1,0 +1,11 @@
+{
+ "key": "6495d2595bcaed525face2905169f485",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Creepy sexualised beach photo and weird caption, nothing to do with me and feels spammy, just scrolled straight past\", \"intent\": \"I wouldn't click or buy this at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's clearly aimed at anxious women about relationships, not relevant to me and I don't trust these mental health quiz apps\", \"intent\": \"I wouldn't click this, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Turkish so I have no idea what it's actually selling, definitely not for me in the UK\", \"intent\": \"I wouldn't click as I can't even read it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute babies but I don't need an AI dance app and it looks like clickbait\", \"intent\": \"I might have paused but I wouldn't click or buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Bizarre AI pear in a wedding dress has nothing to do with lemon water fasting, looks like nonsense and I don't believe fad diets\", \"intent\": \"I wouldn't click this, looks dodgy\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1638,
+ "cached_tokens": 1536,
+ "output_tokens": 622,
+ "reasoning_tokens": 231
+}

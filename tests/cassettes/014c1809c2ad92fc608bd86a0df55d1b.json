@@ -1,0 +1,11 @@
+{
+ "key": "014c1809c2ad92fc608bd86a0df55d1b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Estoy harto de anuncios de Temu y no me fio, parece estafa y ademas pone United Kingdom\", \"intent\": \"No haria clic, paso directamente\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Titulo larguisimo y spamero, no necesito una funda y Temu me da mala espina\", \"intent\": \"No clicaria, me parece basura\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"No corro ni preparo carreras y Peloton es carisimo con esa cuota de 45 al mes\", \"intent\": \"No me interesa hacer clic\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"No quiero financiar una bici tan cara ni pagar suscripciones, no es para mi\", \"intent\": \"No clicaria\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Parece un juego chorra para niños, no necesito cuidar una mascota virtual para cuidarme\", \"intent\": \"Quizas miraria por curiosidad pero no lo descargaria\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 634,
+ "cached_tokens": 128,
+ "output_tokens": 688,
+ "reasoning_tokens": 315
+}

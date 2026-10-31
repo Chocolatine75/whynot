@@ -1,0 +1,11 @@
+{
+ "key": "11d3b18ed8e5df5c18ab2c13f5b9ce96",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Copy is generic and vague with no strong hook, offer, or urgency, and the mandatory £45/mo membership disclaimer creates immediate friction that will drag down CTR and conversion for a cold race-training audience.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 302,
+ "cached_tokens": 128,
+ "output_tokens": 187,
+ "reasoning_tokens": 126
+}

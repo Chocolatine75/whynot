@@ -1,0 +1,11 @@
+{
+ "key": "f3f5ff9b495c55228e174355d628ccfa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"It's just rice and I've never heard of Joybuy, I can get this at Tesco or an Asian supermarket without downloading another app\", \"intent\": \"Might remember it if I need rice but not clicking now\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like a cheap mobile game advert, says nothing about gameplay and I don't trust these survival games\", \"intent\": \"Not going to try it, just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"The text about learning a language has nothing to do with the airport security photo, feels like clickbait\", \"intent\": \"Definitely not clicking on a weird bait ad like that\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Seen Revolut ads millions of times, don't need another bank account and it's just a black card on a black background\", \"intent\": \"No chance I'm signing up from this\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Creepy horror image made me stop but it's just an AI chatbot promo, not actually interested in making stories with it\", \"intent\": \"Won't click, maybe a bit curious but not for me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1644,
+ "cached_tokens": 128,
+ "output_tokens": 638,
+ "reasoning_tokens": 239
+}

@@ -1,0 +1,11 @@
+{
+ "key": "67f1646dd380846fa4391b1e235f6413",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":8,\"why\":\"Evergreen hyper-niche faith offer with a crystal-clear transformation and direct-response long-form copy that reliably converts passionate French Christian audiences at low CAC for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1154,
+ "cached_tokens": 128,
+ "output_tokens": 387,
+ "reasoning_tokens": 338
+}

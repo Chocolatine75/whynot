@@ -1,0 +1,11 @@
+{
+ "key": "3cc1bdc16ae37876f36ab006c094d20d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't believe in astrology or kundali stuff, just feels like a scam to get you to pay after\", \"intent\": \"I would definitely not click on this.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Wouldn't trust a big sofa from Temu, probably cheap quality and a nightmare if you need to return it\", \"intent\": \"I wouldn't click or buy, I'd just keep scrolling.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish so not relevant to me in the UK, just looks like spam\", \"intent\": \"I would not click on it at all.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in French and very religious which isn't for me, I just scrolled right past\", \"intent\": \"I have no interest in clicking this.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another Temu ad, looks generic and cheap and I don't need trainers like that\", \"intent\": \"I wouldn't click or buy this.\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1302,
+ "cached_tokens": 0,
+ "output_tokens": 937,
+ "reasoning_tokens": 569
+}

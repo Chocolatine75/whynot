@@ -1,0 +1,11 @@
+{
+ "key": "f5a0b3995ec8a0801211627dc7ed1bc7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Trying to sell me an Epson ink box but showing a hi-vis work jacket, just looks like scammy dropshipping nonsense, nothing to do with me anyway\", \"intent\": \"I wouldn't click or buy, I don't own that printer and I don't trust the mismatch\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says toilet roll holder but the picture is a dining chair, so I have no idea what I'd actually get and I don't need either\", \"intent\": \"I wouldn't click, it's clearly a broken listing and I have no need for it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a toddler and Temu ads are always low quality tat that falls apart, just feels like sponsored spam\", \"intent\": \"I wouldn't click or buy, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"The text is about football AI photos but the image is a baby lying on its mum's face with 11:11 on it, makes zero sense and looks creepy\", \"intent\": \"I definitely wouldn't click, looks misleading and weird\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Polish so I can't even read it properly, and it's about learning English which I already speak\", \"intent\": \"I wouldn't click because it's not meant for me and I don't understand the language\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2034,
+ "cached_tokens": 128,
+ "output_tokens": 735,
+ "reasoning_tokens": 294
+}

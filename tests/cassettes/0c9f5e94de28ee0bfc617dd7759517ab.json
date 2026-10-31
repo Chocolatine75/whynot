@@ -1,0 +1,11 @@
+{
+ "key": "0c9f5e94de28ee0bfc617dd7759517ab",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says ink box for Epson printer but picture is a hi-vis work jacket, looks like dodgy mismatched Alibaba spam so I don't trust it at all\", \"intent\": \"Wouldn't click or buy, absolutely nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"A camera on a toothbrush feels like a gimmicky privacy nightmare and it'll cost a fortune just to look pretty on the sink\", \"intent\": \"Might glance at it but wouldn't buy, my normal electric toothbrush is fine\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and have no interest in becoming a counsellor, feels like American evangelical stuff not for me\", \"intent\": \"Would just keep scrolling, not relevant to my life\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Pink cartoon blob about anxious attachment and giving him space, feels patronising and aimed at teenage girls not a bloke my age\", \"intent\": \"No chance I'd click, looks like cash-grab AI therapy nonsense\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Same Tooth Fairy ad again, still don't need a posh aluminium brush with a camera and I don't care about bathroom aesthetic\", \"intent\": \"Would scroll past, getting bored of seeing the same ad twice\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2477,
+ "cached_tokens": 0,
+ "output_tokens": 950,
+ "reasoning_tokens": 521
+}

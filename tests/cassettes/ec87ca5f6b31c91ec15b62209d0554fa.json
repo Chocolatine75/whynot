@@ -1,0 +1,11 @@
+{
+ "key": "ec87ca5f6b31c91ec15b62209d0554fa",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"lovely idea for the garden but looks like cheap tat that wouldn't last and probably doesn't work that well with just rain\", \"intent\": \"I wouldn't click or buy, not something I need\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"my kids are grown up and I don't trust Temu quality especially for children's things\", \"intent\": \"I would just scroll past it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"completely irrelevant to me, no idea what that printer part even is\", \"intent\": \"I would definitely not click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not trying to learn a language and these sale countdowns always put me off\", \"intent\": \"I wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"seems gimmicky and overpriced, I don't want to film my teeth while brushing and send it to an app\", \"intent\": \"I wouldn't click, seems a bit weird to me\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 870,
+ "cached_tokens": 512,
+ "output_tokens": 920,
+ "reasoning_tokens": 554
+}

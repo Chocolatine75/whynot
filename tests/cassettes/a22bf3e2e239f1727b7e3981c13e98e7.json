@@ -1,0 +1,11 @@
+{
+ "key": "a22bf3e2e239f1727b7e3981c13e98e7",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic AI-generated fantasy visual and convoluted, jargon-heavy synopsis with no hook, benefit, or CTA is classic low-CTR/ROAS tester that gets killed quickly, not scaled for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 495,
+ "cached_tokens": 128,
+ "output_tokens": 336,
+ "reasoning_tokens": 276
+}

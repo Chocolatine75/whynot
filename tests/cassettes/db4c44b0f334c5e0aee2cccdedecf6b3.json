@@ -1,0 +1,11 @@
+{
+ "key": "db4c44b0f334c5e0aee2cccdedecf6b3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"not looking to get my teeth done and £4 a day still sounds expensive, just feels like another pushy dentist ad\", \"intent\": \"wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"why am I being shown a toilet roll holder from Alibaba, totally random and not for normal shoppers\", \"intent\": \"definitely wouldn't click, just scrolled straight past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in French and I'm not religious, just not for me at all\", \"intent\": \"would not click, kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"way too long and scary and salesy, reads like a fake personal story to sell patches and I'm not in that age group anyway\", \"intent\": \"would not click, felt like a scam health ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a spammy dating ad, don't trust those nearby singles things\", \"intent\": \"would not click, ignored it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 3552,
+ "cached_tokens": 0,
+ "output_tokens": 694,
+ "reasoning_tokens": 317
+}

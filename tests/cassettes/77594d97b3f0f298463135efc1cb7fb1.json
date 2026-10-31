@@ -1,0 +1,11 @@
+{
+ "key": "77594d97b3f0f298463135efc1cb7fb1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not in English and I have no idea what it's selling, just scrolled straight past\", \"intent\": \"Would not click or buy, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another AI language app ad, looks generic and spammy, I don't need to learn English\", \"intent\": \"Would not click, I don't trust or need AI tutor apps\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again not in English, looks like same app as the first one, irrelevant to me\", \"intent\": \"Would definitely not click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do a bit of running but Peloton is expensive and I don't have their bike, plus that membership fee puts me off\", \"intent\": \"Might have a quick look but very unlikely to buy anything\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Makes no sense, looks like a cheap kids game ad, not interested\", \"intent\": \"Would not click at all\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 811,
+ "cached_tokens": 0,
+ "output_tokens": 731,
+ "reasoning_tokens": 354
+}

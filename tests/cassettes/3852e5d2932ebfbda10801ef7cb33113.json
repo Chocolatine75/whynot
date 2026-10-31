@@ -1,0 +1,11 @@
+{
+ "key": "3852e5d2932ebfbda10801ef7cb33113",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a business looking to source bathroom accessories, totally irrelevant to me\", \"intent\": \"I would just keep scrolling, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"$240 is still a lot of money and I don't trust these lifetime deals\", \"intent\": \"I might look at it for a second but I wouldn't buy right now\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no idea what Cleanup even is and it looks like a scammy generic ad\", \"intent\": \"I would ignore it and scroll past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This strange omega alpha drama story is confusing and not my thing at all\", \"intent\": \"I would definitely not click on this drama ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust free dating apps from ads, feels unsafe and full of fake profiles\", \"intent\": \"I would not click, I don't want to download another dating app\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 659,
+ "cached_tokens": 128,
+ "output_tokens": 818,
+ "reasoning_tokens": 454
+}

@@ -1,0 +1,11 @@
+{
+ "key": "31c30689b6e2816bd59086f827835eaf",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not a runner and Peloton with 45 pound monthly fee plus hardware is way too expensive, just kept scrolling\", \"intent\": \"I would not click because I have no interest in Peloton running programs\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Don't want to finance an overpriced exercise bike on credit, feels like a trap\", \"intent\": \"I would definitely not click to look at bike financing\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Cringe self-care game ad with messy room, not for me as a guy and I don't play pet games\", \"intent\": \"I would not click or download the Finch app\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says phone case but image shows screen privacy film, looks like cheap Temu junk and scammy\", \"intent\": \"I would not click because I don't trust Shoptemu quality\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Weird video of woman kicking stones in heels, Spanish text in Germany makes no sense and looks like clickbait\", \"intent\": \"I would not click this Temu ad, looks sketchy\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1950,
+ "cached_tokens": 128,
+ "output_tokens": 569,
+ "reasoning_tokens": 169
+}

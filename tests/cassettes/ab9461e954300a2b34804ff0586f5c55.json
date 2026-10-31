@@ -1,0 +1,11 @@
+{
+ "key": "ab9461e954300a2b34804ff0586f5c55",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Says it's a men's t-shirt but the picture is a fishing lure, that's just confusing and looks like dodgy Temu bait\", \"intent\": \"I wouldn't click or buy, it's not relevant and I don't trust it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"The image is just a blank blue screen so there's nothing to look at and I don't need a takeaway right now\", \"intent\": \"I wouldn't click, I know Deliveroo but nothing here makes me want to order\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again the title says a stone cage thing and the picture is a garden bench, doesn't match and I don't need either\", \"intent\": \"I wouldn't click or buy, not interested and seems unreliable\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese so I haven't a clue what it's really offering and I'm wary of mental health apps on Facebook\", \"intent\": \"I wouldn't click, it's not in English and not for me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just a black image and astrology stuff, I don't believe in kundali readings and don't want free chat nonsense\", \"intent\": \"I wouldn't click or buy, not my thing at all\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2064,
+ "cached_tokens": 256,
+ "output_tokens": 704,
+ "reasoning_tokens": 286
+}

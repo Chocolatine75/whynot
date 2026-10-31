@@ -1,0 +1,11 @@
+{
+ "key": "451c90a8c7d1dcb8c770e4974c3d7c6b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"its just an expensive electric toothbrush and i already have one, dont need a camera for my teeth and £95 is too much\", \"intent\": \"wouldn't click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"looks like a wholesale bag ad with LOGO placeholder, not for normal shopping and looks dodgy\", \"intent\": \"definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"its Temu and i dont trust it, probably cheap and not even that good\", \"intent\": \"keep scrolling not interested\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"its in spanish and the picture is some cartoon couple in a ballroom, makes no sense for an AI app seems scammy\", \"intent\": \"would not click at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"i like Deliveroo but im skint so wouldnt order just cause of the ad\", \"intent\": \"might pause on it but probably not order\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1988,
+ "cached_tokens": 128,
+ "output_tokens": 609,
+ "reasoning_tokens": 238
+}

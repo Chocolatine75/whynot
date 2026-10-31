@@ -1,0 +1,11 @@
+{
+ "key": "6714702ec5b8101aaf63106c0bebafd1",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"way too long and clearly trying to sell me something innit it's about old people nerve pain not for me at all so i just scrolled\", \"intent\": \"wouldn't click, not relevant to me and looks like a scammy long story ad\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in english so i have no idea what it's saying just kept scrolling\", \"intent\": \"wouldn't click or download, not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds gimmicky and expensive and i don't need a toothbrush with a camera feels like overkill\", \"intent\": \"might have paused to look but wouldn't buy, just use a normal toothbrush\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"i don't believe astrology stuff and free chat is always a trick to get you to pay after\", \"intent\": \"wouldn't click, not into that\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in portuguese and about some brazilian soap opera i've never heard of so no interest\", \"intent\": \"wouldn't click, nothing to do with me\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5958,
+ "cached_tokens": 128,
+ "output_tokens": 561,
+ "reasoning_tokens": 165
+}

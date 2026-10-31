@@ -1,0 +1,11 @@
+{
+ "key": "316f38f6b8bba332ef12be74b4cfda42",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's Temu and it's for UK, I'm in Spain. Don't trust the quality and I'm not looking for this furniture anyway\", \"intent\": \"Would not click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and I'm not religious, this is not for me at all\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't understand the language and I don't need an app to change my hairstyle\", \"intent\": \"Would not click or download\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's a wholesale B2B ad for handbags with a fake logo, I have no business need for this\", \"intent\": \"Would not click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in pounds and says UK delivery, I live in Spain so this offer is useless to me\", \"intent\": \"Would not click\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2386,
+ "cached_tokens": 256,
+ "output_tokens": 602,
+ "reasoning_tokens": 249
+}

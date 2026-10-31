@@ -1,0 +1,11 @@
+{
+ "key": "0b020fde9e22de9b6b79c2463e20accd",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a gig job like Deliveroo, I have a normal job and not interested in delivering\", \"intent\": \"I would just keep scrolling, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap dropshipping gadget, don't trust it fits every car or actually helps with blind spots\", \"intent\": \"Might watch for a second but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Just another mobile survival game ad, looks generic and probably full of ads\", \"intent\": \"No interest in downloading a new game right now\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in another language and about astrology which I don't believe in at all\", \"intent\": \"I scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai and the image is weird, doesn't make me want to try\", \"intent\": \"Wouldn't click download\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1731,
+ "cached_tokens": 128,
+ "output_tokens": 568,
+ "reasoning_tokens": 203
+}

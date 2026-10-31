@@ -1,0 +1,11 @@
+{
+ "key": "cdead4065207854823e92b028357c7a4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"looks like cheap plastic tat from temu, not paying for that\", \"intent\": \"wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another AI language app ad, seen a hundred of them and they never work that well\", \"intent\": \"no chance i'm clicking, don't need it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"not into these candy crush clone merge games, total time waster\", \"intent\": \"kept scrolling without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"can't even read what it says, it's not in english\", \"intent\": \"ignored it and scrolled on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sounds like overpriced wellness scam with all that nervous system regulation stuff, don't trust it\", \"intent\": \"definitely not clicking or buying\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 835,
+ "cached_tokens": 128,
+ "output_tokens": 662,
+ "reasoning_tokens": 319
+}

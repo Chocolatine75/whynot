@@ -1,0 +1,11 @@
+{
+ "key": "5360e1a3201444e7f3f7f1a87413d290",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 5, \"why\": \"Relatable self-aware humor fits the target demo but the vague 'Self Care Pet Game' text lacks a clear benefit/CTA to sustain long-term ROAS vs stronger variants.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 262,
+ "cached_tokens": 128,
+ "output_tokens": 392,
+ "reasoning_tokens": 336
+}

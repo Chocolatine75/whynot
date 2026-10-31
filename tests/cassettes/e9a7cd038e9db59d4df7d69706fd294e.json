@@ -1,0 +1,11 @@
+{
+ "key": "e9a7cd038e9db59d4df7d69706fd294e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Nail fungus repair is not my problem, looks like cheap generic dropship product with too good to be true promises.\", \"intent\": \"I would not click or buy, I just scrolled past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Ad is in Spanish not Italian, and I have no interest in a hairstyle app anyway.\", \"intent\": \"I would not click, it's irrelevant and not in my language.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no need to learn Japanese and I don't trust these language app ads.\", \"intent\": \"I would not click or download it.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Sounds like another subscription trap with a quiz that will try to sell me something expensive.\", \"intent\": \"I might have paused to read it but I would not click the quiz.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm 50 years old, I'm not looking for a gig job riding a bike for deliveries.\", \"intent\": \"I would not click or apply.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 0,
+ "output_tokens": 855,
+ "reasoning_tokens": 477
+}

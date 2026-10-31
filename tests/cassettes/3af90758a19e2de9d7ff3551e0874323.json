@@ -1,0 +1,11 @@
+{
+ "key": "3af90758a19e2de9d7ff3551e0874323",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Hindi and looks like clickbait astrology stuff, I don't believe in that and I don't understand what it's trying to say\", \"intent\": \"I would just keep scrolling, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French and about bible prophets, not relevant to me and I don't understand it\", \"intent\": \"No chance I click, not my language or my interest\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I get what it is but I'm not looking for a delivery rider job right now\", \"intent\": \"I wouldn't click now but at least I understood it unlike the others\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Weird psychic ad trying to be deep, feels scammy and manipulative\", \"intent\": \"Definitely not clicking on a psychic reading ad\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Again astrology in Hindi/English mix, I don't get it and I think it's nonsense\", \"intent\": \"I would ignore it and scroll past\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2175,
+ "cached_tokens": 0,
+ "output_tokens": 677,
+ "reasoning_tokens": 297
+}

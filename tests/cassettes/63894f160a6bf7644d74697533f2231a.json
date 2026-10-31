@@ -1,0 +1,11 @@
+{
+ "key": "63894f160a6bf7644d74697533f2231a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into horoscopes and astrology, just a load of nonsense to me\", \"intent\": \"I wouldn't click, just scrolled straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"We already have plenty of tubs in the fridge and I don't trust these ads to be any good\", \"intent\": \"I had a quick look but I wouldn't buy them\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's not even in English so I've no idea what it's on about\", \"intent\": \"I just scrolled on, nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same astrology rubbish as the first one, not for me at all\", \"intent\": \"I wouldn't click or chat to anyone on there\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's leopard print clothes from Temu, not for a man my age and Temu stuff is cheap tat\", \"intent\": \"I wouldn't click, just kept scrolling\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 886,
+ "cached_tokens": 0,
+ "output_tokens": 848,
+ "reasoning_tokens": 478
+}

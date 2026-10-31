@@ -1,0 +1,11 @@
+{
+ "key": "a6bedb6012b076d13aff9c2e45563103",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Generic screen-recording/screenshot creative with no clear hook, benefit, or CTA will get lost in the hyper-competitive Thai video-editor niche and fatigue quickly, unlikely to be a months-long evergreen winner.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 451,
+ "cached_tokens": 128,
+ "output_tokens": 328,
+ "reasoning_tokens": 268
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1eac782e7413d6af066e45e1b618f3a9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap plastic dropship stuff and I don't need an extra cup holder hanging off my door\", \"intent\": \"I just scrolled past, no reason to click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic so I have no idea what it's actually offering and I don't trust random AI apps\", \"intent\": \"Would not click because I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Cute dogs but I don't believe any toy is really indestructible, it's classic ad exaggeration\", \"intent\": \"I stopped for the dogs but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another annoying mobile game ad with clickbait text, looks cheap and boring\", \"intent\": \"I ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Title says phone case wallet but image shows screen protectors, feels like a scammy Temu listing\", \"intent\": \"No way I'm clicking this confusing Temu ad\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1827,
+ "cached_tokens": 0,
+ "output_tokens": 974,
+ "reasoning_tokens": 601
+}

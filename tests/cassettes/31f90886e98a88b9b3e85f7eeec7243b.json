@@ -1,0 +1,11 @@
+{
+ "key": "31f90886e98a88b9b3e85f7eeec7243b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play games on my phone, just a silly advert for children\", \"intent\": \"I would not click as I have no interest in games\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It made no sense at all with all that omega alpha talk, looks like trashy nonsense\", \"intent\": \"I would definitely not click on this rubbish\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a foreign language so I don't know what it's about and I don't need to learn English\", \"intent\": \"I would not click because it's not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat and I don't trust these car gadgets from Facebook ads\", \"intent\": \"I would not buy this, I don't trust it to be any good\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Same as the other one, it's all in squiggles I can't read\", \"intent\": \"I would scroll straight past it\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 732,
+ "cached_tokens": 128,
+ "output_tokens": 620,
+ "reasoning_tokens": 256
+}

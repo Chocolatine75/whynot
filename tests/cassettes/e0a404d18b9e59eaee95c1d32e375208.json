@@ -1,0 +1,11 @@
+{
+ "key": "e0a404d18b9e59eaee95c1d32e375208",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Portuguese so I have no idea what it's really for and that scary dog monster image looks like clickbait nonsense\", \"intent\": \"I wouldn't click it at all, looks dodgy and not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I get what they're trying to sell but I don't trust these online quiz mental health plans, feels like they'll just charge me\", \"intent\": \"I might have paused to read it but I wouldn't take the quiz or buy anything\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know what Peloton is but I can't afford a fancy bike on finance and I've no room for one anyway\", \"intent\": \"I wouldn't click to buy, it's way too expensive for me right now\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's some B2B workshop light thing, completely irrelevant to me, I scrolled straight past\", \"intent\": \"No reason to click, I don't need industrial lights\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"It's a job ad for riders, I'm not looking for delivery work so not relevant to me\", \"intent\": \"I wouldn't click as I'm not interested in becoming a rider\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1845,
+ "cached_tokens": 0,
+ "output_tokens": 697,
+ "reasoning_tokens": 289
+}

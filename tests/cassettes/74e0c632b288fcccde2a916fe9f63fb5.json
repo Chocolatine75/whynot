@@ -1,0 +1,11 @@
+{
+ "key": "74e0c632b288fcccde2a916fe9f63fb5",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"looks like cheap dropship tat from Temu, don't need novelty glasses and would never pay for shipping\", \"intent\": \"would just scroll past, not clicking\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"seen a million AI language apps, don't trust it will actually make me fluent and hate the subscription trap\", \"intent\": \"would keep scrolling, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"sounds like influencer biohacking nonsense with way too many buzzwords and a discount code, probably expensive and doesn't work\", \"intent\": \"would scroll right past, definitely not buying\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not in English so I have no idea what it's offering me\", \"intent\": \"would ignore completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another annoying merge puzzle game ad, I know it'll be full of ads and microtransactions\", \"intent\": \"wouldn't click, I don't play those games\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 835,
+ "cached_tokens": 128,
+ "output_tokens": 792,
+ "reasoning_tokens": 428
+}

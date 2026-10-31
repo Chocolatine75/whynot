@@ -1,0 +1,11 @@
+{
+ "key": "406ff7ab900806b896511d4e57f8b395",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":3,\"why\":\"Extremely generic 'do more with your money' copy and low-contrast black-on-black product shot with no offer, hook, or clear benefit is unlikely to beat finance CPA targets long-term.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 316,
+ "cached_tokens": 128,
+ "output_tokens": 216,
+ "reasoning_tokens": 158
+}

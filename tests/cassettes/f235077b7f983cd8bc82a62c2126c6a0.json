@@ -1,0 +1,11 @@
+{
+ "key": "f235077b7f983cd8bc82a62c2126c6a0",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just a generic mobile game ad, looks cheap and not interesting\", \"intent\": \"I would just keep scrolling, not going to click it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"sketchy product from random seller, don't trust the quality\", \"intent\": \"I wouldn't click it, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not looking for a delivery rider job right now\", \"intent\": \"No need to click, not relevant for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I have no plans to learn Thai so it's useless to me\", \"intent\": \"I would just ignore and scroll on\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language and about astrology which I don't care about\", \"intent\": \"I stopped for a second because of the language then scrolled away\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 596,
+ "cached_tokens": 0,
+ "output_tokens": 762,
+ "reasoning_tokens": 418
+}

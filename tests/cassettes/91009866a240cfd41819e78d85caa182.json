@@ -1,0 +1,11 @@
+{
+ "key": "91009866a240cfd41819e78d85caa182",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Trop long, mur de texte qui sent l'arnaque, histoire inventée du docteur et sa belle-soeur, je n'ai pas ce problème et je ne crois pas aux patchs miracles\", \"intent\": \"Je scroll direct sans cliquer, ça ne me concerne pas\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Gadget sympa mais cher et inutile, j'ai déjà une brosse électrique qui marche très bien, pas besoin d'une caméra\", \"intent\": \"Je ne cliquerais pas pour acheter, peut-être juste regarder 2 secondes par curiosité\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"L'astrologie ce n'est pas du tout mon truc, le gratuit c'est pour t'attraper et te faire payer après\", \"intent\": \"Je ne cliquerai jamais là-dessus\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"C'est en portugais, je ne comprends rien et ça ne m'intéresse pas, pub mal ciblée\", \"intent\": \"Je scroll sans même m'arrêter\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"En tagalog je crois, je n'ai rien compris et je n'ai pas besoin d'un éditeur vidéo\", \"intent\": \"Aucune envie de cliquer\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 5958,
+ "cached_tokens": 128,
+ "output_tokens": 1135,
+ "reasoning_tokens": 708
+}

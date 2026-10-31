@@ -1,0 +1,11 @@
+{
+ "key": "8a2e8897f3abda990b4e728d83d07737",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"random guy staring at camera has nothing to do with learning Japanese and I don't need to learn Japanese anyway\", \"intent\": \"I just scrolled past, not interested at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it looks cute but these cheap blanket ads never look like the photo and I don't need it\", \"intent\": \"I stopped to look because it's cute but I wouldn't buy it\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need aligners and the price is in pounds anyway, plus I don't trust dentist ads on Instagram\", \"intent\": \"No reason to click, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it just says IN 2022 on a black screen, I have no idea what it's selling and I don't care about AI toolkits\", \"intent\": \"I ignored it completely\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't want to chat with AI characters for Halloween, feels cringe and lonely, and I don't trust these code promos\", \"intent\": \"Definitely wouldn't click or use it\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1633,
+ "cached_tokens": 128,
+ "output_tokens": 851,
+ "reasoning_tokens": 462
+}

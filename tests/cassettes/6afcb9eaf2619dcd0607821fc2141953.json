@@ -1,0 +1,11 @@
+{
+ "key": "6afcb9eaf2619dcd0607821fc2141953",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"far too long to read, wall of text trying to scare you, and it's clearly just pushing some miracle patch at the end\", \"intent\": \"I scrolled straight past it, wouldn't click or buy\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"says men's accessories but picture is women's boho clothes, looks like cheap Temu junk anyway\", \"intent\": \"Not for me, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"too old for braces and don't trust these online dentist deals, must cost a fortune hidden fees\", \"intent\": \"Not interested at my age, wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these dating apps are full of fake profiles and scams, don't trust it\", \"intent\": \"Wouldn't touch it, definitely not clicking\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"it's a wholesale bag advert for businesses, nothing to do with me\", \"intent\": \"No use to me, wouldn't click\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9502,
+ "cached_tokens": 7424,
+ "output_tokens": 655,
+ "reasoning_tokens": 290
+}

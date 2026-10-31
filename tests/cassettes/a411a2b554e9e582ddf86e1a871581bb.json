@@ -1,0 +1,11 @@
+{
+ "key": "a411a2b554e9e582ddf86e1a871581bb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't believe in astrology and that headline looks like total clickbait nonsense\", \"intent\": \"I wouldn't click this in a million years, just more internet rubbish\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Don't need a mental health app and the image of a doll washing up has nothing to do with it\", \"intent\": \"No interest in paying for some plan when I'm not looking for that\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"It's a joke novelty item, looks cheap and I'd never wear it at my age\", \"intent\": \"Might give it a chuckle but definitely not buying daft glasses\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Don't trust these miracle cure drops for dogs off an advert\", \"intent\": \"Wouldn't buy medicine for my dog from Facebook, I'd go to the vet\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so not for me and I don't need an AI language tutor\", \"intent\": \"No chance I'm clicking an ad I can't even read properly\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1790,
+ "cached_tokens": 256,
+ "output_tokens": 748,
+ "reasoning_tokens": 368
+}

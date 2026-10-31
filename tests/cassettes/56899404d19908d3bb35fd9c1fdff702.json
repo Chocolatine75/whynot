@@ -1,0 +1,11 @@
+{
+ "key": "56899404d19908d3bb35fd9c1fdff702",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Language mismatch - Polish copy under 'Temu United Kingdom' advertiser will severely limit relevance and CTR in the UK feed, predicting quick pause.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 262,
+ "cached_tokens": 128,
+ "output_tokens": 133,
+ "reasoning_tokens": 86
+}

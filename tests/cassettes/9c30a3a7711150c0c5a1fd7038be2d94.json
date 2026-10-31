@@ -1,0 +1,11 @@
+{
+ "key": "9c30a3a7711150c0c5a1fd7038be2d94",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not into mobile games and this looks like a silly time-waster ad for kids\", \"intent\": \"I would not click or buy, I just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Never heard of Joybuy and I don't trust these up to 50% off food delivery apps, probably hidden fees\", \"intent\": \"I might have paused but I wouldn't download another shopping app\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"That 2649 sold claim looks completely made up and I don't need another stainless steel thing cluttering the counter\", \"intent\": \"I would not click, it feels like cheap tat from a dropshipper\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't need a portable fan and these always break quickly and are noisy despite what they claim\", \"intent\": \"I would not click or buy, not relevant to me\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't shop on Temu anymore, quality is poor and I hate the pushy prices slashed wording\", \"intent\": \"I would definitely not click or buy from this\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 893,
+ "cached_tokens": 0,
+ "output_tokens": 775,
+ "reasoning_tokens": 379
+}

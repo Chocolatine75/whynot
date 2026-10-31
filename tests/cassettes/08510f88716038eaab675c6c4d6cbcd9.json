@@ -1,0 +1,11 @@
+{
+ "key": "08510f88716038eaab675c6c4d6cbcd9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Evergreen faith-based demand with a broad French-speaking audience, a strong value-stack offer (4 Gospels + Acts bonus), and proven direct-response long-form copy designed for sustained low-CPC engagement and sales.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 772,
+ "cached_tokens": 128,
+ "output_tokens": 271,
+ "reasoning_tokens": 207
+}

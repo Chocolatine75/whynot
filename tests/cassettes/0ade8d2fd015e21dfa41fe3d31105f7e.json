@@ -1,0 +1,11 @@
+{
+ "key": "0ade8d2fd015e21dfa41fe3d31105f7e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 8, \"why\": \"Receipt/price-anchoring creative with large discount, daily-price framing and free whitening consult is a proven scroll-stopping winner in the highly profitable aligner vertical that typically scales for months.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 447,
+ "cached_tokens": 128,
+ "output_tokens": 347,
+ "reasoning_tokens": 287
+}

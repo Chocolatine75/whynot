@@ -1,0 +1,11 @@
+{
+ "key": "6507da988cd8f6584decf57d243038a4",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those cheap dropship gadgets from China, probably doesn't fit properly and would break quickly\", \"intent\": \"Not clicking, I don't need extra stuff in my car\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm a 40 year old guy, I have zero interest in Stitch themes for my phone\", \"intent\": \"Would never click this, totally not for me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Way too much cluttered text and childish drawings, feels like spam and I don't play these games\", \"intent\": \"No chance I click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Huge wall of scary text trying to sell a patch, classic snake oil scam preying on sick people, and the McDonald's photo looks like fake clickbait\", \"intent\": \"Absolutely not buying anything from this, I don't trust it at all\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"These 4 pounds a day offers always hide the real cost, probably a way to get you into an expensive plan\", \"intent\": \"Not interested in clicking, I don't need teeth straightening\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 9021,
+ "cached_tokens": 128,
+ "output_tokens": 570,
+ "reasoning_tokens": 165
+}

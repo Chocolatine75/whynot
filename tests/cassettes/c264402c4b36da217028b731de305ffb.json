@@ -1,0 +1,11 @@
+{
+ "key": "c264402c4b36da217028b731de305ffb",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Expensive exercise bike and it's UK only, I live in Germany and don't want a huge ad/commitment\", \"intent\": \"I would keep scrolling, not interested in buying a Peloton\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Way too long scary health story, feels like fake doctor scam trying to sell patches\", \"intent\": \"I would not click, this looks like predatory health advertising\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I'm not religious and not looking to become a counselor\", \"intent\": \"I would scroll past without clicking\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks gimmicky and probably expensive with a subscription, I don't need a camera on my toothbrush\", \"intent\": \"Might look for a second but wouldn't click to buy\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I don't need 5kg of rice right now and don't know this shop\", \"intent\": \"I wouldn't click, maybe remember if I need rice later\", \"intent_score\": 2}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 7604,
+ "cached_tokens": 128,
+ "output_tokens": 543,
+ "reasoning_tokens": 173
+}

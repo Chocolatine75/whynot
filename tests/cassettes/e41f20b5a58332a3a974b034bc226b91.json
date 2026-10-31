@@ -1,0 +1,11 @@
+{
+ "key": "e41f20b5a58332a3a974b034bc226b91",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic 'FREE 👉' clickbait with vague AI hairstyle promise in a saturated low-retention app vertical drives low-quality clicks and quick creative fatigue, so it's unlikely to be a long-term keeper.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 253,
+ "cached_tokens": 128,
+ "output_tokens": 335,
+ "reasoning_tokens": 272
+}

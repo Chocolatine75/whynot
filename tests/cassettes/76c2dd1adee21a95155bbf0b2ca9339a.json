@@ -1,0 +1,11 @@
+{
+ "key": "76c2dd1adee21a95155bbf0b2ca9339a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I have no interest in chatting to AI characters, looks like something for teenagers and a bit dodgy\", \"intent\": \"I would keep scrolling and not click\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Haven't a clue what an AI toolkit is supposed to do for me, not for my age group\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£5.50 a day sounds dear and I don't trust free offers, too old to be straightening teeth now\", \"intent\": \"I might look for a second but I would not click or buy\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap tat from a funny website, I don't need a toy blanket at my age\", \"intent\": \"I would not click, just scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"No need to learn Japanese, I'm not going to Japan\", \"intent\": \"I would not download it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 592,
+ "cached_tokens": 0,
+ "output_tokens": 874,
+ "reasoning_tokens": 507
+}

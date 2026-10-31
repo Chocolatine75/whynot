@@ -1,0 +1,11 @@
+{
+ "key": "49baa1b5b927bf5df68927a24516d786",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\":[{\"ad\":\"A1\",\"stopped\":false,\"understood\":true,\"believed\":true,\"why_not\":\"ya tengo banco y no necesito otra app fintech que me cobra comisiones después\",\"intent\":\"no haría click, paso de estos anuncios de bancos\",\"intent_score\":1},{\"ad\":\"A2\",\"stopped\":false,\"understood\":false,\"believed\":false,\"why_not\":\"está en portugués y habla de novelas de Brasil, no es para mi nada que ver\",\"intent\":\"no lo abriría ni loco, sigo scrolleando\",\"intent_score\":1},{\"ad\":\"A3\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"no tengo hongos en las uñas y suena a timo de aliexpress que no funciona\",\"intent\":\"no compraría esto nunca\",\"intent_score\":1},{\"ad\":\"A4\",\"stopped\":true,\"understood\":true,\"believed\":false,\"why_not\":\"suena carísimo y a gimmick, no creo que un cepillo venga con dentista de verdad y no voy a pagar suscripción\",\"intent\":\"quizás miraría el video por curiosidad pero no lo compraría\",\"intent_score\":2},{\"ad\":\"A5\",\"stopped\":false,\"understood\":true,\"believed\":false,\"why_not\":\"odio el clickbait de astrología y famosos, es todo humo para sacarte dinero\",\"intent\":\"no haría click, me parece estafa\",\"intent_score\":1}],\"preferred\":\"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 774,
+ "cached_tokens": 128,
+ "output_tokens": 695,
+ "reasoning_tokens": 361
+}

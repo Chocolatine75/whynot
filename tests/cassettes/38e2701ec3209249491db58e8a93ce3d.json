@@ -1,0 +1,11 @@
+{
+ "key": "38e2701ec3209249491db58e8a93ce3d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Generic, spammy copy with search-code CTA and hashtags plus no strong hook, proof, or UGC angle signals low CTR/ROAS creative that Temu-style testers kill quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 295,
+ "cached_tokens": 128,
+ "output_tokens": 367,
+ "reasoning_tokens": 311
+}

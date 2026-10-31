@@ -1,0 +1,11 @@
+{
+ "key": "f49565eec517e957186ef8360d33f336",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another AI language app ad, I've seen loads of these and I don't need to learn English\", \"intent\": \"Wouldn't click, not relevant to me at all\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"No idea what it's trying to say, wear red ride red means nothing to me\", \"intent\": \"Definitely wouldn't click, looks like a weird game ad\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Italian so I have no clue what it's offering\", \"intent\": \"Would just scroll straight past, not for me\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Not in English, can't understand a word of it\", \"intent\": \"No chance I'd click, I'd just keep scrolling\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't want a £45 a month membership\", \"intent\": \"Might glance at it but wouldn't click or buy anything\", \"intent_score\": 1}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 811,
+ "cached_tokens": 0,
+ "output_tokens": 667,
+ "reasoning_tokens": 309
+}

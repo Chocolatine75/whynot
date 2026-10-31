@@ -151,7 +151,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 
 ### E2. Validate the simulator against reality (A, ★ the technical hero)
 
-- [ ] **E2-1** ★ R3 at scale: longevity (A) — *v0 measured Oct 30 (text-only, 130 GB ads, 24 advertisers, Muse Spark Open low, $0.88, `validate/results/r3-v0.json`): pooled AUC 0.49 [0.40, 0.58]; within advertiser 0.55 [0.44, 0.66] on 9 advertisers / 84 pairs. **No evidence yet.** Found: `select` does not balance per advertiser (Ling 24 long / 0 short), so the pooled AUC partly measures the brand. Left: only advertisers with both classes, ≥ 25 of them, images (E2-2), single-LLM judge baseline.*
+- [ ] **E2-1** ★ R3 at scale: longevity (A) — *v0 measured Oct 30 (text-only, 130 GB ads, 24 advertisers, Muse Spark Open low, $0.88, `validate/results/r3-v0.json`): pooled AUC 0.49 [0.40, 0.58]; within advertiser 0.55 [0.44, 0.66] on 9 advertisers / 84 pairs. **No evidence yet.** Found: `select` does not balance per advertiser (Ling 24 long / 0 short), so the pooled AUC partly measures the brand. Left: only advertisers with both classes, ≥ 25 of them, images (E2-2), single-LLM judge baseline.* *v1 measured Oct 30 (`validate/results/r3-v1-apps-gb-v1.json`, `scripts/r3_v1.py`, ~$5.6 in all): 186 GB ads, 44 advertisers with both classes, 93 per class, real creatives (138 of 186 are videos, seen as their poster frame). Within-advertiser AUC: viewers text 0.52 [0.44, 0.60], viewers with images 0.41 [0.36, 0.47] (below chance), simple judge text 0.46, judge image 0.46, **shorter copy 0.62 [0.52, 0.73]**. Neither the simulator nor a plain LLM judge predicts longevity; a copy-length heuristic does better. R3 as designed fails its floor (> 0.55).*
   - *Done when:*
     - ≥ 200 ads from ≥ 15 advertisers in ≥ 4 categories, classes balanced per advertiser (long ≥ 60 days active, short ≤ 14 days stopped, pre-registered in `DECISIONS.md` on Oct 28);
     - viewers on Muse Spark Open, low effort;
@@ -162,7 +162,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E2-2** ★ Images in the simulator (A + B)
   - *Done when:* viewers see **the composed image** of our ads and **the real creative** of competitor ads (snapshot capture, E2-3). Text-only mode stays available for comparison. R3 is re-run with images.
   - *Tests:* `our_item` includes the image (unit); a viewer cassette with images; cost per feed with images measured and reported.
-- [ ] **E2-3** Creative capture from Ad Library snapshots (A)
+- [x] **E2-3** Creative capture from Ad Library snapshots (A) — *Oct 30: `ingest/creatives.py`, 295/298 captured (99 %), video ads via poster frame, no URL or token stored.*
   - *Done when:* images (and video first frames) of competitor ads are fetched from snapshot pages without a token in any stored URL, ≥ 90 % success on 100 ads, licence notes in `DECISIONS.md`.
   - *Tests:* contract on recorded snapshot HTML; security (no `access_token` anywhere in the store).
 - [ ] **E2-4** ★ R1 backtest on the partner's history (A, needs P-2)
@@ -174,6 +174,11 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E2-5** ★ R2 human agreement (A + B)
   - *Done when:* a public, mobile-friendly blind test page (`/judge`): pairs of ads, "which one would you stop on?", no login, one vote per pair per browser, spam guard. ≥ 80 people × 6 pairs by Nov 3. Agreement with the simulator with a Wilson CI.
   - *Tests:* the randomisation (left/right balanced, property); dedup; the analysis script on synthetic votes with a known answer.
+- [ ] **E2-10** ★ Market-trained judge (A) — *added Oct 30 after R3 v1 failed*
+  - *Done when:* ads from the Ad Library (≥ 2,000, ≥ 150 advertisers with both classes) are embedded with Meta's Perception Encoder (open weights, local, $0) plus readable features (hook, price, social proof, format, length); a small head is trained to tell long-running from short-lived ads **within an advertiser**; tested on held-out advertisers only.
+  - *Business metric:* among an advertiser's ads, the share that lasted in the model's top half vs at random ("ads we'd have launched").
+  - *Decision rule (fixed before results):* if top-half survival beats random by **≥ 10 points** on held-out advertisers and the within-advertiser AUC beats shorter copy (0.62), it becomes the agency's gate and a demo number; otherwise it is reported as a limit and R2 + R1 carry the proof.
+  - *Tests:* the advertiser split (property: no advertiser in both train and test); features extracted deterministically; the metric on synthetic data with a known answer.
 - [ ] **E2-6** Bias suite (A) — *code done Oct 30 (`validate/bias.py`, `scripts/bias_suite.py`): brand, length, emoji, label leak, position (language via `translated`). Fake world, 40 seeds: planted biases caught ≥ 92 %, 3 % false alarms. Left: record a real run in cassettes and gate CI on it.*
   - *Done when:* automated checks run on every simulator change:
     - brand name (placebos);
@@ -335,7 +340,7 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 - [ ] **E9-2** ★ Agency room v2 (B)
   - *Done when:* a live agent timeline from `events.jsonl` (E0-7): each step with its inputs, decision, cost, and guard results, expandable; cost counter; failures shown, not hidden.
   - *Tests:* visual; it streams a run in progress (e2e with a fake run writer).
-- [ ] **E9-3** ★ Arena public (B, R11 R12)
+- [ ] ~~**E9-3** ★ Arena public (B, R11 R12)~~ — *cut Oct 30: the product is the agency for a real client; R12 = real businesses on the agency*
   - *Done when:* no account; paste a link → 3 tested concepts in < 5 min (measured p50 and p90). Rate-limited, per-IP budget cap, queue with position, shareable result page. Abuse handling: the link must resolve to a real App Store / Play / Shopify page.
   - *Tests:* load test (10 concurrent runs within budget); the rate limiter (unit); a security test (SSRF: only allowed hosts are fetched).
 - [ ] **E9-4** ★ Validation page (B + A)
@@ -391,16 +396,18 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 |---|---|---|---|---|
 | **Thu Oct 29** | E0-1, E0-2, E0-3, E1-1 | E9-1 starts, E0-5 | P-1 consent, P-2 asked | cassettes + cost cap + cache merged |
 | **Fri Oct 30** | E2-1 R3, E3-1, E3-2, E1-2 | E9-1 done, E5-1, E8-2 | P-2 data in hand, Fireworks workshop | **R3 measured** at any value; landing on real data |
-| **Sat Oct 31** | E2-2 images, E2-4 R1, E3-3 | E8-3 daily, E8-4, E5-2 | **P-3 pilot live** | R1 measured; predictions published; pilot running |
-| **Sun Nov 1** | E4-1, E4-3, E6-1, E7-1 | E9-2, E9-5 judge, E5-3 | P-5 testers start | evolution beats gen 0 (or we say why not); judge page live |
-| **Mon Nov 2** | E7-2 student, E2-6, E6-2 | E9-3 Arena public, E9-4, E9-7 deploy | P-4 businesses | Arena public; a stranger runs it alone |
-| **Tue Nov 3** | E2-9, E6-3 R6, E2-5 analysis | E8-5 report, E9-6, D-2 | pilot results | all R numbers final; reproduce command works |
+| **Sat Oct 31** | **E2-10 market-trained judge** (text, local), decision rule fixed first; E2-4 R1 script ready on partner-shaped fake data | **E9-5 vote page (R2) live**, E9-1 landing on real data | share the vote page (P-5) | E2-10 measured vs its rule; vote page live, first votes |
+| **Sun Nov 1** | E2-10 with images (capture ~3,000 creatives); E2-2 our ads as images; E6-1 evolution gated by the market judge if it passed | E8-2 insights, E8-3 daily (fake Meta), E8-4 prediction publisher, E9-2 agency room | votes ≥ 40 | pilot is plug-and-play on a fake account; the agency's gate is decided |
+| **Mon Nov 2** | **E2-4 R1 on the partner's history, same day**; E7-2 fine-tune only if E2-10 passed | **Partner day:** P-1 consent, P-2 data, E8-4 predictions committed, P-3 pilot launched with his approval; E9-4 validation page; E9-7 deploy | partner | R1 measured; predictions public; pilot live |
+| **Tue Nov 3** | E2-5 R2 analysis, E2-9 reproduce | first pilot metrics (1 day, shown as a start), E8-5 report, D-2 | pilot day 2 | all R numbers final; reproduce command works |
 | **Wed Nov 4** | D-1, D-4 | D-3 video, D-5 submit | post | **submitted before 22:00 Paris** |
 
 If a gate fails: write it in `STATUS.md`, take the next item from the cut list, and never lower a target silently.
 
 ### Gate log
 
+- **Fri Oct 30, replan:** the partner is only available Mon Nov 2. R1 (needs only his past ads) moves to Monday, same day; the pilot launches Monday and shows 1–2 days of results, presented as a start with predictions published before. R3 failed (v0, v1), so validation rests on E2-10 (market-trained judge), R2 (humans) and R1. Arena (E9-3) cut: the product is the agency for a real client.
+- **Fri Oct 30, R3 v1 (balanced, 44 advertisers, images, judge baseline): negative.** Nothing model-based beats chance within advertiser; viewers with images are below it (0.41); shorter copy reaches 0.62. Decision needed: R1 (partner's real metrics) and R2 (humans) become the main proofs; R3 is reported as a limit. See DECISIONS.
 - **Fri Oct 30, R3 v0 measured (gate met, result negative):** text-only simulator does not separate long-running from short-lived ads (pooled 0.49, within-advertiser 0.55, CIs include 0.5). Next: balanced-per-advertiser selection, more advertisers, images in the feed, judge baseline — then re-run.
 - **Thu Oct 29 gate (cassettes + cost cap + cache): met Oct 30** (branch `a/lane-a-oct30`): E0-1, E0-2 code done, E0-3 done; a fake-world `create` replays offline at $0. Real cassettes wait for `MODEL_API_KEY`.
 - **Fri Oct 30, lane A:** E3-1 done (hard feeds wired into simulate + evolve); E3-2 and E3-3 code done (tournament τ 0.92, noise floor); E2-6 code done (bias suite); E0-4 done; E0-5 tests 96 s → 25 s. **R3 not measured yet** (E2-1 needs model keys and credits): first task once keys are in `.env`.

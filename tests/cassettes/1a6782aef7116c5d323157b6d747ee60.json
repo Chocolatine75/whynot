@@ -1,0 +1,11 @@
+{
+ "key": "1a6782aef7116c5d323157b6d747ee60",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not my thing at all, BxB stories AI chat, just not interested and looks kinda cringe\", \"intent\": \"I would definitely not click, just scrolled past\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Temu ad, I don't trust Temu quality especially for a sofa, looks like cheap dropship spam\", \"intent\": \"I would not click or buy anything from Temu\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Thai I think, I have no idea what it says so I just scrolled\", \"intent\": \"I would not click because I don't understand it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Another generic dating app ad, they are all scams or full of bots, no thanks\", \"intent\": \"I would not click or install it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"I know Deliveroo already but I wasn't hungry right now and delivery fees are too high\", \"intent\": \"I might keep it in mind but I wouldn't order right now\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 722,
+ "cached_tokens": 0,
+ "output_tokens": 588,
+ "reasoning_tokens": 209
+}

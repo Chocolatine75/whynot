@@ -1,0 +1,11 @@
+{
+ "key": "4f1018b2a48d45a323829753fa662dbe",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"just another cheap plastic gadget from a random page, I don't need a fan like that and don't trust the 50 percent off claim\", \"intent\": \"I wouldn't click, I have no use for it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in English so I have no idea what it's selling\", \"intent\": \"I wouldn't click as I can't understand it.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Chinese characters, not for me, just scrolled straight past\", \"intent\": \"I definitely wouldn't click on something I can't read.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in another language I don't speak, looks like some app advert\", \"intent\": \"I wouldn't click, not relevant to me at all.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play survival games on my phone, not interested in gaming ads\", \"intent\": \"I wouldn't click, not my sort of thing.\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 708,
+ "cached_tokens": 0,
+ "output_tokens": 688,
+ "reasoning_tokens": 326
+}

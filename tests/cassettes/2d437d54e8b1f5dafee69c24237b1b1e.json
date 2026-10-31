@@ -1,0 +1,11 @@
+{
+ "key": "2d437d54e8b1f5dafee69c24237b1b1e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"That image is a creepy cartoon man with fox ears, looks like some rude dating game for youngsters, not for me at all and a bit off-putting\", \"intent\": \"I would definitely not click on that game advert\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's all about men's ministry leadership training for churches, I'm not a church leader and it's aimed at men anyway\", \"intent\": \"I won't be clicking learn more as it has nothing to do with me\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like one of those daft over-the-top soapy drama apps, probably costs a fortune and never ends properly\", \"intent\": \"I wouldn't click to watch, I don't trust these drama app adverts\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Spanish and trying to send me to Temu with a code, I don't know what it's selling and I don't trust Temu links\", \"intent\": \"I would just scroll past, I'm not going to search a code in another language\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I do like sewing but I don't need another cheap set and that 48% off looks like a fake discount to make you buy\", \"intent\": \"I might have a quick look but I probably wouldn't buy it in the end\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2221,
+ "cached_tokens": 0,
+ "output_tokens": 595,
+ "reasoning_tokens": 161
+}

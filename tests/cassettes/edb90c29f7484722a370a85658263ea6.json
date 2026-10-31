@@ -1,0 +1,11 @@
+{
+ "key": "edb90c29f7484722a370a85658263ea6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":2,\"why\":\"Image shows a chaotic traffic jam with no buses, passengers, or matching mechanic visible, completely failing to visualize the satisfying color-sorting gameplay promised in the ad copy.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 469,
+ "cached_tokens": 128,
+ "output_tokens": 280,
+ "reasoning_tokens": 229
+}

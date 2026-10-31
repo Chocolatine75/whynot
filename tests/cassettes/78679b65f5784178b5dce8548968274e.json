@@ -1,0 +1,11 @@
+{
+ "key": "78679b65f5784178b5dce8548968274e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like a spammy dating ad, don't trust these apps and not looking for this\", \"intent\": \"I wouldn't click, just scrolled past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"Not looking for a delivery rider job right now so irrelevant to me\", \"intent\": \"I wouldn't click as I don't need a side gig at the moment\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Peloton is way too expensive and I don't want a bike in my flat\", \"intent\": \"I wouldn't click, just ignored it and kept scrolling\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Massive scary story trying to sell miracle patches, gross foot photo, totally not relevant to me and feels like a scam\", \"intent\": \"I definitely wouldn't click or buy, just scrolled away quickly\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Same Peloton bike ad again, not interested and can't afford it\", \"intent\": \"I wouldn't click, just scrolled past\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 4051,
+ "cached_tokens": 128,
+ "output_tokens": 783,
+ "reasoning_tokens": 413
+}

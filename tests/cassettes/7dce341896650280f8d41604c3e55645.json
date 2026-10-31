@@ -1,0 +1,11 @@
+{
+ "key": "7dce341896650280f8d41604c3e55645",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Chinese or something foreign, not for me at all\", \"intent\": \"I would just scroll straight past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Clever idea for aging eyes but I don't do sewing, that's the wife's department and looks like cheap tat\", \"intent\": \"I would not click or buy this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's in Spanish about phone battery icons and Halloween, total nonsense for a man my age\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"No interest in learning Cantonese at my age, waste of time\", \"intent\": \"I would not click to download it\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's women's waxing for intimate areas, not appropriate for me and I don't want to see it\", \"intent\": \"I would scroll past and not click\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 740,
+ "cached_tokens": 128,
+ "output_tokens": 690,
+ "reasoning_tokens": 337
+}

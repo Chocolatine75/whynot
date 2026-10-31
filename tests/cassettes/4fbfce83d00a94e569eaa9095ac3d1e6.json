@@ -1,0 +1,11 @@
+{
+ "key": "4fbfce83d00a94e569eaa9095ac3d1e6",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"è tutto in portoghese, non capisco cosa vende esattamente e poi sembra un'app per ansia, non mi fido di queste cose\", \"intent\": \"non ci cliccherei, non è nella mia lingua e non cerco supporto così\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"sembra utile ma ho già contenitori e costa troppo per quello che è, poi con lo sconto 50% mi sembra finto\", \"intent\": \"potrei guardarlo ma non comprerei, non ne ho bisogno ora\", \"intent_score\": 2}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"immagine tutta nera non si vede niente, e non credo all'oroscopo\", \"intent\": \"scorro oltre, non mi interessa\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"è Temu, qualità pessima e non mi fido, poi leopardato ovunque non è il mio stile\", \"intent\": \"non comprerei, al massimo guardo ma non clicco\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"non capisco la lingua e non mi interessa l'astrologia, mi sembra spam\", \"intent\": \"non ci clicco, vado avanti\", \"intent_score\": 1}], \"preferred\": \"A2\"}",
+ "finish_reason": "stop",
+ "input_tokens": 2127,
+ "cached_tokens": 256,
+ "output_tokens": 634,
+ "reasoning_tokens": 221
+}

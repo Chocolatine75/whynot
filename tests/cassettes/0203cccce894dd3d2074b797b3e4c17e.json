@@ -1,0 +1,11 @@
+{
+ "key": "0203cccce894dd3d2074b797b3e4c17e",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"This is smutty nonsense for youngsters, nothing to do with me, and that cartoon picture looks strange\", \"intent\": \"I would not click this at all, it's not appropriate for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": true, \"understood\": false, \"believed\": false, \"why_not\": \"Why is he lifting his shirt and showing his belly, I don't want to see that and I don't need a belt like that\", \"intent\": \"I would keep scrolling, I don't want to buy it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't know what that gadget does and I don't trust Temu adverts\", \"intent\": \"I wouldn't click, I don't need it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in a foreign language and shows a boxer, nothing I want\", \"intent\": \"I would just scroll past\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"I don't speak Thai so this is no use to me at all\", \"intent\": \"I have no reason to click it\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1601,
+ "cached_tokens": 128,
+ "output_tokens": 700,
+ "reasoning_tokens": 332
+}

@@ -1,0 +1,11 @@
+{
+ "key": "3a9101b43b6adb0dafd8c85d46e4212b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\":9,\"why\":\"Taps a massive, evergreen heartbreak/ex-back pain point with a low-friction 'First Chat FREE' hook and native UGC-style creative that historically delivers cheap CTR and conversions for Astrotalk in India.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 474,
+ "cached_tokens": 128,
+ "output_tokens": 299,
+ "reasoning_tokens": 238
+}

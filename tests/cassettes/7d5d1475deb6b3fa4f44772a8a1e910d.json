@@ -1,0 +1,11 @@
+{
+ "key": "7d5d1475deb6b3fa4f44772a8a1e910d",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Serbian or something, not Spanish or English for me, so I have no idea and just scrolled past\", \"intent\": \"I would not click because it's not in my language and I'm not trying to learn English like that\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"Looks like cheap B2B wholesale jewelry spam, nothing for me as a normal buyer\", \"intent\": \"I would not click at all, I don't need rings to resell\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Looks very expensive for a toothbrush and I don't need a camera in my mouth, just seems like a gimmick\", \"intent\": \"I might look but I wouldn't buy, I'm happy with my normal electric toothbrush\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's in Tagalog, not for me here in Spain, so I just ignored it\", \"intent\": \"I would not click because I don't understand it and don't make viral reels\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Becoming an AI expert in 28 days with 15 minutes sounds totally fake and like a scam\", \"intent\": \"I wouldn't click buy, I don't trust these get-expert-quick ads\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 693,
+ "cached_tokens": 128,
+ "output_tokens": 677,
+ "reasoning_tokens": 263
+}

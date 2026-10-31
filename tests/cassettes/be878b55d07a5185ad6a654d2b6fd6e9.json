@@ -1,0 +1,11 @@
+{
+ "key": "be878b55d07a5185ad6a654d2b6fd6e9",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't do sewing at all, not for me and looks like cheap dropship stuff\", \"intent\": \"Wouldn't click, no need for it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in French so I just scrolled past, can't understand it\", \"intent\": \"Wouldn't click because I don't speak French\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Too vague, just says great deals but doesn't show anything actually for sale\", \"intent\": \"No reason to click, looks like spammy shopping site\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Not religious and not a youth leader so completely irrelevant to me\", \"intent\": \"Definitely wouldn't click\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Dating apps are always sketchy and I don't trust free ones with my data\", \"intent\": \"Might have a quick look but probably wouldn't sign up\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1255,
+ "cached_tokens": 0,
+ "output_tokens": 623,
+ "reasoning_tokens": 272
+}

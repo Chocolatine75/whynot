@@ -1,0 +1,11 @@
+{
+ "key": "936560065599f67bfdbb0c864775b006",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 2, \"why\": \"Generic feature-list copy with no hook, weak 'link in bio' CTA, and no pain-point or proof angle to stand out in competitive red light niche.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 396,
+ "cached_tokens": 128,
+ "output_tokens": 334,
+ "reasoning_tokens": 281
+}

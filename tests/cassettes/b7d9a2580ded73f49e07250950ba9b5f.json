@@ -1,0 +1,11 @@
+{
+ "key": "b7d9a2580ded73f49e07250950ba9b5f",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's just a jumble of words about ceiling lights for a workshop, totally irrelevant to me and looks like a trade ad, I just scrolled straight past\", \"intent\": \"Definitely wouldn't click, I have no need for showroom lights\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Peloton is way too expensive and I don't want finance on a bike, ad feels pushy about payments\", \"intent\": \"Would not click or buy, not interested in getting into debt for exercise\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Portuguese so I can't understand it and free trial with no card sounds a bit dodgy anyway\", \"intent\": \"Wouldn't click, I don't know what it is and don't trust it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"These mental health quiz plans always end up wanting money after the free quiz, I'm wary of these claims\", \"intent\": \"Might have paused but wouldn't click through, I don't trust these online plans\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a delivery rider job at all, so it's just not for me\", \"intent\": \"Would not click, not relevant to my life\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 710,
+ "cached_tokens": 0,
+ "output_tokens": 937,
+ "reasoning_tokens": 526
+}

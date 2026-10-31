@@ -1,0 +1,11 @@
+{
+ "key": "a08cfe2d68eb3148e9e2229fabe315c3",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't have a Peloton and £45 a month is way too much, plus I'm not training for a race\", \"intent\": \"I would just keep scrolling past it\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"why is this showing me a metal stone cage thing for the garden, so random and I don't trust Temu stuff anyway\", \"intent\": \"I would definitely not click on this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"looks like a cheap spammy game ad and 'Best Game 2026' feels totally made up\", \"intent\": \"I might pause for a second but I wouldn't download it\", \"intent_score\": 2}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not a business owner and a supplier expo in London has nothing to do with me\", \"intent\": \"I would scroll straight past with no interest\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's not even in English so I have no idea what it's actually trying to sell me\", \"intent\": \"I would ignore it completely\", \"intent_score\": 1}], \"preferred\": \"A3\"}",
+ "finish_reason": "stop",
+ "input_tokens": 723,
+ "cached_tokens": 0,
+ "output_tokens": 817,
+ "reasoning_tokens": 441
+}

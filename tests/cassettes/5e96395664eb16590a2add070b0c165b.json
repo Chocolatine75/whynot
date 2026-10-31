@@ -1,0 +1,11 @@
+{
+ "key": "5e96395664eb16590a2add070b0c165b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Looks like clickbait nonsense, I've no idea what Nocturne Judge is and I don't trust those watch now ads\", \"intent\": \"I wouldn't click it, I'd just scroll straight past it.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I've heard too much about Temu being cheap rubbish and hard to return, I don't trust it\", \"intent\": \"No I wouldn't click or download anything, not interested at all.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": true, \"why_not\": \"A Peloton is far too expensive and I've got nowhere to put it, plus it's not for me\", \"intent\": \"I wouldn't be clicking to buy, it's a lot of money for an exercise bike.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"It's just another daft game advert, I'm not a gamer and it looks annoying\", \"intent\": \"I wouldn't click, I don't play those bubble games on my phone.\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"They look like a cheap bit of fun but I'd never actually order them online, postage would be silly\", \"intent\": \"I wouldn't buy them but it did make me smile for a second.\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 619,
+ "cached_tokens": 128,
+ "output_tokens": 1125,
+ "reasoning_tokens": 725
+}

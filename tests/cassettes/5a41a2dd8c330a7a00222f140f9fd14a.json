@@ -1,0 +1,11 @@
+{
+ "key": "5a41a2dd8c330a7a00222f140f9fd14a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"Looks like cheap plastic tat from one of those dropship places, doubt it would fit my car properly or hold anything without spilling.\", \"intent\": \"I wouldn't click, I've no need for extra cup holders cluttering the car.\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"It's all in Arabic, not a word I can read, so I just scrolled straight past it.\", \"intent\": \"No chance I'd click on something I can't even understand.\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't play these silly bubble games on my phone, just another ad trying to get me to download junk.\", \"intent\": \"I wouldn't bother clicking, games like that are not for me.\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"Says the dog will never chew through it but I've had dogs all my life and they destroy everything, I don't believe that claim for a second.\", \"intent\": \"I might have paused for the dogs but I wouldn't buy it, sounds like nonsense.\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"Title says phone wallet case but picture shows screen protectors, looks dodgy and it's Temu which I've heard bad things about.\", \"intent\": \"I wouldn't click, don't trust it and don't need it.\", \"intent_score\": 1}], \"preferred\": \"A4\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1826,
+ "cached_tokens": 128,
+ "output_tokens": 693,
+ "reasoning_tokens": 272
+}

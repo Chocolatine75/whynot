@@ -1,0 +1,11 @@
+{
+ "key": "87a7ee8008f63229931b2ef892155a1a",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic dark AI image with no eye contact and weak hook has low thumb-stop power and mismatches the spicy romance copy, likely driving high CPM/low CTR and quick fatigue/ban.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 482,
+ "cached_tokens": 128,
+ "output_tokens": 287,
+ "reasoning_tokens": 230
+}

@@ -1,0 +1,11 @@
+{
+ "key": "1e8dc209818fae43851599f19259fe5c",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"it feels like another cutesy mental health game ad that promises a lot but is probably just annoying notifications and in-app purchases\", \"intent\": \"I might be curious to look but I wouldn't actually download it\", \"intent_score\": 2}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's a B2B wholesale ring thing, not for me and the title is just keywords\", \"intent\": \"I wouldn't click, I have no use for this\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": false, \"understood\": true, \"believed\": false, \"why_not\": \"I don't care about Revolut or football and it just feels like a bank trying to be sporty\", \"intent\": \"No chance I'd download it from this\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"£30 an hour sounds too good to be true and I hate these hustle tutoring ads, feels scammy\", \"intent\": \"I might quickly check but probably not apply\", \"intent_score\": 2}, {\"ad\": \"A5\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's all in Thai so I have no idea what it's selling and the image is just a man with a sheep\", \"intent\": \"I would just scroll straight past\", \"intent_score\": 1}], \"preferred\": \"A1\"}",
+ "finish_reason": "stop",
+ "input_tokens": 1843,
+ "cached_tokens": 0,
+ "output_tokens": 602,
+ "reasoning_tokens": 216
+}

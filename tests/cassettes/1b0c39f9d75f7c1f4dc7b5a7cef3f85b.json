@@ -1,0 +1,11 @@
+{
+ "key": "1b0c39f9d75f7c1f4dc7b5a7cef3f85b",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "viewers",
+ "text": "{\"reactions\": [{\"ad\": \"A1\", \"stopped\": false, \"understood\": false, \"believed\": false, \"why_not\": \"it's in Spanish not Italian and I don't need an app to try hairstyles, feels random\", \"intent\": \"No I would not click, not for me\", \"intent_score\": 1}, {\"ad\": \"A2\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I have zero interest in learning Japanese right now\", \"intent\": \"No I would not click or download it\", \"intent_score\": 1}, {\"ad\": \"A3\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"I don't trust these miracle nail fungus cures on Instagram, looks like a scam and I don't have that problem\", \"intent\": \"No I would keep scrolling and not buy it\", \"intent_score\": 1}, {\"ad\": \"A4\", \"stopped\": false, \"understood\": true, \"believed\": true, \"why_not\": \"I'm not looking for a rider job, totally irrelevant to me\", \"intent\": \"No I would not click to apply\", \"intent_score\": 1}, {\"ad\": \"A5\", \"stopped\": true, \"understood\": true, \"believed\": false, \"why_not\": \"these mental health apps always end in a paid subscription after the quiz, I'm wary of it\", \"intent\": \"I might read it for a second but I would not click the quiz\", \"intent_score\": 2}], \"preferred\": \"A5\"}",
+ "finish_reason": "stop",
+ "input_tokens": 672,
+ "cached_tokens": 0,
+ "output_tokens": 803,
+ "reasoning_tokens": 441
+}

@@ -1,0 +1,11 @@
+{
+ "key": "ef259812b99fbed5992aeb38d7deb454",
+ "model": "meta-models/muse-spark-open-1026",
+ "module": "judge",
+ "text": "{\"score\": 3, \"why\": \"Generic, feature-based Thai copy with no hook, benefit, offer, or differentiation in a saturated photo/video editor market will struggle on CTR and conversion and be paused quickly.\"}",
+ "finish_reason": "stop",
+ "input_tokens": 266,
+ "cached_tokens": 128,
+ "output_tokens": 250,
+ "reasoning_tokens": 195
+}
