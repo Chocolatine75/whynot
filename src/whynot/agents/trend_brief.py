@@ -135,7 +135,8 @@ Return JSON only:
 
 TONE = """TONE — non-negotiable. You are not a brand and not a teacher: you are a 19-24 year-old creator talking
 into your phone, telling your friends what happened to you.
-- First person, story energy, run-on and fragments: "so i said ca phe... and she just. kept. talking."
+- First person, story energy, run-on and fragments: "so i said cà phê... and she just. kept. talking."
+- Words of another language keep their accents, even inside an English line: "cà phê sữa đá", never "ca phe sua da".
 - Roast yourself, exaggerate, react: "i was SO cooked", "the way i just nodded", "no because why".
 - Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
 - The app comes in like a friend's tip, never like an ad: "anyway this app has a southern voice and it's
@@ -187,6 +188,30 @@ def _has_marks(text: str) -> bool:
                                                              for c in unicodedata.normalize("NFD", text))
 
 
+# Vietnamese words that English captions kept without their accents (seen: "ca phe sua"). Multi-word phrases
+# or words that are not English, so a plain English word never matches. Extend when a run shows a new one.
+VI_UNACCENTED = {
+    "ca phe": "cà phê", "sua da": "sữa đá", "sua": "sữa", "cam on": "cảm ơn", "xin chao": "xin chào",
+    "bao nhieu": "bao nhiêu", "khong": "không", "troi oi": "trời ơi", "ngon qua": "ngon quá",
+    "ba noi": "bà nội", "ba ngoai": "bà ngoại", "chao ba": "chào bà", "an com": "ăn cơm", "mang ve": "mang về",
+    "o day": "ở đây", "di dau": "đi đâu", "dep qua": "đẹp quá", "nuoc mia": "nước mía", "banh xeo": "bánh xèo",
+}
+_VI_UNACCENTED_RE = re.compile(r"\b(" + "|".join(sorted(map(re.escape, VI_UNACCENTED), key=len, reverse=True))
+                               + r")\b", re.IGNORECASE)
+
+
+def unaccented_vietnamese(text: str) -> list[tuple[str, str]]:
+    """(as written, with its accents) for Vietnamese words written without accents inside another language."""
+    return [(m.group(0), VI_UNACCENTED[m.group(0).lower()]) for m in _VI_UNACCENTED_RE.finditer(text)]
+
+
+def _check_vietnamese_words(text: str, where: str) -> None:
+    found = unaccented_vietnamese(text)
+    if found:
+        fixes = ", ".join(f"'{fix}' not '{bad}'" for bad, fix in found)
+        raise Invalid(f"{where}: Vietnamese words keep their accents even in an English line: {fixes}")
+
+
 def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
     raw = data.get("lines")
     if raw is None and isinstance(data.get("voice"), str):  # a plain voice-over: one line by the creator
@@ -212,6 +237,8 @@ def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
         accent = x.get("accent")
         if lang in NATIVE and accent is not None and accent not in NATIVE[lang]:
             raise Invalid(f"{where}: accent must be one of {sorted(NATIVE[lang])}")
+        if lang != "vi":
+            _check_vietnamese_words(text, where)
         if lang == "vi" and not _has_marks(text):
             raise Invalid(f"{where}: Vietnamese without its accents and tone marks; write it correctly "
                           "(cà phê sữa đá, not ca phe sua da)")
@@ -307,6 +334,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                                   "phone, screen, app, logo, sign or text (show the real app with visual 'screen')")
             elif s["visual"] == "text":
                 text = calm(_words(s.get("text"), 8, f"{where} text"))
+                _check_vietnamese_words(text, f"{where} text")
                 texts[f"proof.card{i}"] = text
             elif s["visual"] == "review":
                 if selling is None or not selling.reviews:
