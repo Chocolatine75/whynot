@@ -173,7 +173,7 @@ def test_sound_effects_are_generated_once_per_kind(tmp_path):
     el = eleven(tmp_path, handler)
     assert el.sfx("whoosh").read_bytes() == b"ID3fx" and el.sfx("whoosh").exists()
     el.sfx("pop")
-    assert len(calls) == 2 and calls[0]["duration_seconds"] == 1.0
+    assert len(calls) == 2 and calls[0]["duration_seconds"] == 0.6  # short: a cut, not a tail of noise
     with pytest.raises(ValueError, match="sound effect"):
         el.sfx("explosion")
 

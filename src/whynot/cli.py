@@ -130,7 +130,7 @@ def _video(args: argparse.Namespace) -> int:
             from whynot.agency.trend_video import make_trend_videos
             report = make_trend_videos(run_dir, model, cfg=VideoConfig(n_videos=args.n), voice=voice,
                                        voice_id=settings.elevenlabs_voice_id, token=settings.fb_token or "",
-                                       renderer_factory=factory)
+                                       renderer_factory=factory, reuse_briefs=args.rerender)
         else:
             report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
                                  voice=voice, voice_id=settings.elevenlabs_voice_id,
@@ -182,6 +182,8 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--renderer", choices=["remotion", "builtin"], default="remotion",
                    help="remotion: voice, captions, music (needs `cd video && npm install`); builtin: silent")
     v.add_argument("--silent", action="store_true", help="no voice-over or music")
+    v.add_argument("--rerender", action="store_true",
+                   help="trend: render the last scripts again (videos/trends.json) without rewriting them")
     v.add_argument("--style", choices=["trend", "classic"], default="trend",
                    help="trend: viral formats turned into ads (fast cuts, Remotion); classic: storyboard ads")
     v.set_defaults(func=_video)

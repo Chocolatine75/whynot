@@ -19,16 +19,22 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
   let rot = 0;
   if (shot.move === "punch_in") scale = interpolate(hit, [0, 1], [1.28, 1.04]) + 0.05 * p;
   if (shot.move === "pop") scale = interpolate(hit, [0, 1], [0.82, 1]) + 0.04 * p;
-  if (shot.move === "slide") x = interpolate(hit, [0, 1], [1080, 0]);
+  // a whip: the new image is already on screen, slightly zoomed so its edges never show, and settles in
+  if (shot.move === "slide") {
+    x = interpolate(hit, [0, 1], [220, 0]);
+    scale = 1.18 - 0.12 * hit + 0.04 * p;
+  }
   if (shot.move === "still") scale = 1.02;
+  if (shot.move === "shake") scale = Math.max(scale, 1.1); // zoomed enough that the shake never shows an edge
   if (shot.move === "shake" && frame < 12) {
     x = (random(`x${index}-${frame}`) - 0.5) * 36;
     y = (random(`y${index}-${frame}`) - 0.5) * 36;
     rot = (random(`r${index}-${frame}`) - 0.5) * 2.5;
   }
   const transform = `translate(${x}px, ${y}px) scale(${scale}) rotate(${rot}deg)`;
-  const flash = shot.sfx === "whoosh" || shot.sfx === "bass_drop" || shot.sfx === "record_scratch";
-  const flashOpacity = flash ? interpolate(frame, [0, 3], [0.85, 0], { extrapolateRight: "clamp" }) : 0;
+  // a light flash on whoosh cuts only: a full white frame is aggressive
+  const flash = shot.sfx === "whoosh";
+  const flashOpacity = flash ? interpolate(frame, [0, 2], [0.3, 0], { extrapolateRight: "clamp" }) : 0;
   const focusY = { top: "0%", middle: "45%", bottom: "100%", full: "30%" }[shot.focus ?? "full"];
 
   let visual: React.ReactNode = null;

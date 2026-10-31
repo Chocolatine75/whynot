@@ -29,12 +29,11 @@ MUSIC_PROMPTS = {
     "dramatic": "Dramatic tense instrumental, pulsing bass and drums, cinematic hits, for a mobile app ad",
 }
 
-SFX_PROMPTS = {  # one short effect per cut type, generated once and reused by every video
-    "whoosh": "Fast whoosh transition swoosh, short, punchy, for a social video cut",
-    "pop": "Short cartoon pop bubble sound, bright, satisfying",
-    "ding": "Bright notification ding, single chime, clean",
-    "record_scratch": "Vinyl record scratch, comedic stop, short",
-    "bass_drop": "Deep cinematic bass drop hit with sub boom, short",
+SFX_PROMPTS = {  # one short, clean effect per cut type, generated once and reused by every video
+    "whoosh": "Soft airy whoosh for a video transition, smooth and subtle, clean studio sound, no distortion, "
+              "no crackle, no vinyl noise",
+    "pop": "Soft bubbly pop, gentle and satisfying, clean, no distortion, no crackle",
+    "ding": "Light pleasant chime, single soft bell tone, clean, no distortion",
 }
 
 
@@ -117,7 +116,7 @@ class ElevenLabs:
         """A short sound effect for a cut (`SFX_PROMPTS`), generated once."""
         if name not in SFX_PROMPTS:
             raise ValueError(f"unknown sound effect {name!r}")
-        body = {"text": SFX_PROMPTS[name], "duration_seconds": 1.0, "prompt_influence": 0.6}
+        body = {"text": SFX_PROMPTS[name], "duration_seconds": 0.6, "prompt_influence": 0.7}
         path = self.cache / f"sfx-{name}-{self._key('sfx', body)}.mp3"
         if not path.exists():
             r = self._post("/sound-generation", body)

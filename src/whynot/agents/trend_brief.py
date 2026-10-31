@@ -27,7 +27,7 @@ from whynot.models import SPARK
 
 VISUALS = ("text", "photo", "screen", "mascot")
 MOVES = ("punch_in", "slow_zoom", "shake", "slide", "pop", "still")
-SFX = ("whoosh", "pop", "ding", "record_scratch", "bass_drop", "none")
+SFX = ("whoosh", "pop", "ding", "none")  # record scratch and bass drop sounded harsh: removed
 FOCUS = ("top", "middle", "bottom", "full")
 BEATS = ("trend", "twist", "cta")
 MOODS = ("upbeat", "calm", "playful", "inspiring", "dramatic")

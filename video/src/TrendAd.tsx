@@ -41,7 +41,7 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       {props.shots.map((s, i) =>
         s.sfx !== "none" && props.sfx[s.sfx] ? (
           <Sequence key={`fx${i}`} from={starts[i]}>
-            <Audio src={staticFile(props.sfx[s.sfx])} volume={0.55} />
+            <Audio src={staticFile(props.sfx[s.sfx])} volume={0.32} />
           </Sequence>
         ) : null,
       )}

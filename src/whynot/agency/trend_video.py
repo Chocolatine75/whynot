@@ -40,7 +40,7 @@ from whynot.audio.captions import (
     word_error_rate,
     words,
 )
-from whynot.audio.elevenlabs import DEFAULT_VOICE, ElevenLabs
+from whynot.audio.elevenlabs import DEFAULT_VOICE, SFX_PROMPTS, ElevenLabs
 from whynot.audio.voices import LANGUAGE_NAMES, cast
 from whynot.create import remotion, trend_render
 from whynot.create.locale import LANGUAGES, language_groups
@@ -191,9 +191,21 @@ def dialogue_track(voice: ElevenLabs, model: Any, b: trend_brief.TrendBrief, ad_
     return out, ws, guard
 
 
+def save_report(out: Path, report: dict[str, Any]) -> Path:
+    """`trends.json`, without ever losing scripts: a run with no video goes to `trends-failed.json`, and the
+    previous good report is archived (`trends-<time>.json`) so its scripts can still be re-rendered."""
+    target = out / "trends.json"
+    if not report.get("videos") and target.exists():
+        target = out / "trends-failed.json"
+    elif target.exists():
+        target.replace(out / f"trends-{int(target.stat().st_mtime * 1000)}.json")
+    target.write_text(json.dumps(report, indent=1, ensure_ascii=False, default=str))
+    return target
+
+
 def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = None, voice: ElevenLabs | None = None,
                       voice_id: str | None = None, token: str = "", renderer_factory: Callable[[], Any] | None = None,
-                      say: Callable[[str], None] = print) -> dict[str, Any]:
+                      reuse_briefs: bool = False, say: Callable[[str], None] = print) -> dict[str, Any]:
     cfg = cfg or VideoConfig()
     run_dir = Path(run_dir)
     out = run_dir / "videos"
@@ -240,19 +252,28 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     groups = language_groups([c.upper() for c in config["countries"]], override=config.get("language"))
     code, countries = next(iter(groups.items()))
     local = localised(strategy, countries)
-    picks = pick_formats(model, local, signals, app=app["name"], description=app["description"],
-                         has_mascot=cut.mascot is not None, n=cfg.n_videos, model=cfg.model).value
-    report["picks"] = picks
+    previous = out / "trends.json"
+    picks: list[dict[str, Any]]
+    if reuse_briefs and previous.exists():  # the same scripts, rendered again (new transitions, sounds...)
+        picks = [{"format": v["brief"]["format"], "persona": v["brief"]["persona"], "angle": v["brief"]["angle"],
+                  "why": v.get("why", ""), "brief": v["brief"]} for v in json.loads(previous.read_text())["videos"]]
+    else:
+        picks = list(pick_formats(model, local, signals, app=app["name"], description=app["description"],
+                                  has_mascot=cut.mascot is not None, n=cfg.n_videos, model=cfg.model).value)
+    report["picks"] = [{k: v for k, v in p.items() if k != "brief"} for p in picks]
     say("formats: " + ", ".join(f"{p['format']} → {p['angle']}" for p in picks))
 
     names = tuple(sorted({a.page_name for a in ads if a.page_name}))
     ctx = Context(local, app["name"], app["description"], names, tuple(brand["palette"][:3]),
                   brand["screenshots"][0], LANGUAGES[code])
     icon = Image.open(run_dir / "assets" / "icon.png")
-    def one(n: int, p: dict[str, str]) -> dict[str, Any]:
-        fmt = trend_brief.get_format(p["format"])
-        b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
-                              has_mascot=cut.mascot is not None, model=cfg.model).value
+    def one(n: int, p: dict[str, Any]) -> dict[str, Any]:
+        if "brief" in p:  # re-render a brief as it is (no rewrite)
+            b = trend_brief.TrendBrief.from_json(p["brief"])
+        else:
+            fmt = trend_brief.get_format(p["format"])
+            b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
+                                  has_mascot=cut.mascot is not None, model=cfg.model).value
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
             if s.visual == "photo":
@@ -274,7 +295,8 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
                 mp3, cap, guard = None, None, {}
             music = voice.music(b.music, b.seconds + 3)
             audio = remotion.Audio(mp3, cap, music, music_volume=0.28)
-            sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name != "none"}
+            # an effect we no longer offer (an older script) is simply left out
+            sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name in SFX_PROMPTS}
         name = f"trend-{n}-{b.id}"
         facts = trend_render.render(b, out / f"{name}.mp4", palette=brand["palette"],
                                     app_name=brand_name(app["name"]), images=imgs, icon=icon,
@@ -297,5 +319,5 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
                 say(f"  ✗ {p['format']}: {exc}")
     report["videos"] = videos
     report["usd"] = round(model.spent_usd - spent0, 4)
-    (out / "trends.json").write_text(json.dumps(report, indent=1, ensure_ascii=False, default=str))
+    save_report(out, report)
     return report

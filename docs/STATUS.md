@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-30
+Last updated: 2026-10-31
 
 ## Where we are
 
@@ -45,6 +45,8 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-31 — Matteo + Claude — Trend ads: creator tone (guide, course words refused, tone critic), eleven_v3 young voice, **dialogue with native Vietnamese voices** (Southern/Northern) checked line by line by Muse Voice Transcribe, mascot cut out with SAM masks (`meta-sam-parser`), videos in parallel, request timeouts, `--rerender`, harsh SFX (record scratch, bass drop) removed, whip/shake without black edges. Lost one set of scripts to a failed re-render → now never overwritten (test). Branch `b/video-ads` (PR #3, stacked on #2). Next: E14-8 selling structure, platform, partner Monday. **Tom: run `cd video && npm install` once for Remotion; `uv run --group capture` for creative capture; ElevenLabs key needed for sound (or `--silent`).**
 
 - 2026-10-30 — Matteo + Claude — **Trend ads with sound** (branch `b/video-ads`): Remotion compositions (`video/`), ElevenLabs voice + music + sound effects, word-by-word captions, voice guard by Muse Voice Transcribe (WER ≤ 0.2), viral format library + 'trending now' from Ad Library dates, trend shot lists (trend → twist with the real app → CTA), SAM 3.1 crops the real UI from store screenshots. VietBuddy: 3 trend ads (POV, Day in the life, This or that), 15-17 s, voice checked (WER 0.10-0.19), **$0.69**. 587 tests. Known: first shot repeats the hook, bubbles can cover UI text, mascot not found ('cartoon mascot'), no competitor ad matched a format. Next: fix those, critic pass, platform.
 

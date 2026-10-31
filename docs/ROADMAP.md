@@ -8,7 +8,16 @@ The bar is `TARGETS.md`. This file is how we get there. `PLAN.md` keeps the mile
 
 ---
 
-## 0. Where we really are (honest baseline, Oct 29)
+## 0. Where we really are
+
+### Update Oct 31 (read this first)
+- **Priority order (Matteo):** the whole automated system and a striking demo first; model training and validation science after. Arena cut (E9-3), 80-voter page dropped (E9-5/P-5 deprioritised).
+- **Video ads are now the core output (new epic E14, mostly done):** `whynot video RUN` makes trend-jacking ads (a viral format, then the app as the twist), with real UI cut out by SAM 3.1, Muse Image photos, a young creator voice plus native voices (dialogue), word-by-word captions, sound effects, music, rendered with Remotion. VietBuddy: 3 ads in ~5 min for ~$0.30.
+- **Simulator validation (R3) failed twice** (v0, v1 on 44 advertisers with images and a judge baseline): nothing model-based beats chance; shorter copy does (0.62). Reported as a limit; E2-10 market-trained judge postponed after the demo work.
+- **Partner (VietBuddy) available Monday Nov 2 only:** R1 backtest and pilot launch that day.
+- **Next (in order):** E14-8 selling structure (demo, proof, transformation, offer) → E9 platform showing the agency at work (video pipeline live, Remotion Player) → partner Monday → demo video.
+
+### Baseline (Oct 29)
 
 What works:
 - `whynot create`: App Store → Scout → Strategist → Director → composer → guards → simulated feed → evolution → plan → report. Tried on 4 real apps, $1.5–5.5 per run.
@@ -174,7 +183,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E2-5** ★ R2 human agreement (A + B)
   - *Done when:* a public, mobile-friendly blind test page (`/judge`): pairs of ads, "which one would you stop on?", no login, one vote per pair per browser, spam guard. ≥ 80 people × 6 pairs by Nov 3. Agreement with the simulator with a Wilson CI.
   - *Tests:* the randomisation (left/right balanced, property); dedup; the analysis script on synthetic votes with a known answer.
-- [ ] **E2-10** ★ Market-trained judge (A) — *added Oct 30 after R3 v1 failed*
+- [ ] **E2-10** Market-trained judge (A) — *added Oct 30 after R3 v1 failed; postponed Oct 31 (system and demo first)*
   - *Done when:* ads from the Ad Library (≥ 2,000, ≥ 150 advertisers with both classes) are embedded with Meta's Perception Encoder (open weights, local, $0) plus readable features (hook, price, social proof, format, length); a small head is trained to tell long-running from short-lived ads **within an advertiser**; tested on held-out advertisers only.
   - *Business metric:* among an advertiser's ads, the share that lasted in the model's top half vs at random ("ads we'd have launched").
   - *Decision rule (fixed before results):* if top-half survival beats random by **≥ 10 points** on held-out advertisers and the within-advertiser AUC beats shorter copy (0.62), it becomes the agency's gate and a demo number; otherwise it is reported as a limit and R2 + R1 carry the proof.
@@ -251,16 +260,16 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
     - formats: 1:1, 4:5, 9:16, each checked;
     - visual review: both of us rate ≥ 4/5 on a sheet of 24 ads.
   - *Tests:* golden image tests (pixel-perfect per template on fixed inputs); guards pass on all; text never overflows (property over random copy lengths and languages including DE and JP).
-- [ ] **E5-3** SAM cutouts as product assets (B)
+- [x] **E5-3** SAM cutouts as product assets (B) — *Oct 31: `assets/cutouts.py`, SAM 3.1 finds the phone screen (UI crop of the original pixels) and the mascot (mask decoded with Meta's `meta-sam-parser`, transparent PNG). Boxes and masks cached.*
   - *Done when:* the SAM 3.1 mask decoder works, the screen is cut out of store screenshots, the pixel guard compares against the cutout, and R8 = 0 px on 100 % of ads.
   - *Tests:* decoder on a known shape (unit); a recorded SAM response (contract); the guard fails on a 1-pixel change (property).
 - [ ] **E5-4** Localised screenshots per storefront (B)
   - *Done when:* French ads use the FR App Store screenshots when they exist, with a fallback to the source language that is logged.
   - *Tests:* contract on recorded FR/US lookups.
-- [ ] **E5-5** Reels: 6 s video (B)
+- [x] **E5-5** Reels: video ads (B) — *superseded by E14: 12-18 s 9:16 ads rendered with Remotion.*
   - *Done when:* ffmpeg composes a 9:16 6 s video (hook frame, screen scroll, CTA) from the same genome, deterministically. Viewers see 3 key frames.
   - *Tests:* same genome → same bytes (hash); duration and resolution checked; guards on every key frame.
-- [ ] **E5-6** Muse Image scenes, never product pixels (B)
+- [x] **E5-6** Muse Image scenes, never product pixels (B) — *Oct 31: photo prompts can never ask for a phone, screen, app, logo, sign or text (validated); cached by prompt.*
   - *Done when:* optional background scenes from Muse Image, with the product composited on top by code; the pixel guard proves the product area is untouched.
   - *Tests:* guard on composed output (property); cassette.
 - [ ] **E5-7** Diversity guard R7 (B)
@@ -390,22 +399,42 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 
 ---
 
+### E14. Video ads that hold a thumb (B, the core output since Oct 30)
+
+Method inspired by VoodRadar (ideas only: no licence, hackathon rule), rebuilt on Meta models.
+
+- [x] **E14-1** Deconstruct competitor ads (Muse Spark vision): hook, visual, overlays, CTA, pitch, style, promise, audience, viral format; palette by code; cached by ad id + prompt version (`agents/deconstruct.py`).
+- [x] **E14-2** Archetypes scored on Ad Library signals (staying power, reach, reuse, breadth), Muse Spark picks what fits the app (`agents/archetypes.py`).
+- [x] **E14-3** Viral format library (12 formats) + "trending now" from competitor start dates (`create/trends.py`). *On VietBuddy's market no competitor ad matched a format: formats picked on fit.*
+- [x] **E14-4** Trend briefs: 8-14 shots of 0.6-2.2 s, trend (≥ 50 %) → twist with the real app → CTA; copy rules; creator tone guide, course/ad words refused, tone critic with one rewrite (`agents/trend_brief.py`).
+- [x] **E14-5** Dialogue with native voices: "me" (young creator) and "them" (a local, in their language, native ElevenLabs voice by accent); each line voiced on its own, checked by Muse Voice Transcribe in its language (`audio/voices.py`, `agency/trend_video.py`).
+- [x] **E14-6** Remotion compositions (`video/`): hard cuts, native caption bubbles, word-by-word captions (natives in yellow), punch-in / shake / whip, sound effects on cuts, ducked music, end card; Pillow fallback without Node.
+- [x] **E14-7** Robustness: model requests time out (3 min), videos made in parallel, a failed run never overwrites the last scripts, `--rerender` renders the same scripts again.
+- [ ] **E14-8** ★ Make it sell: demo of the app in action (≥ 25 % of the time, ≥ 2 real screens), proof (a verified review quote), transformation shot, offer from the store page ("free to start"), the app named in the voice. Enforced by the validator.
+- [ ] **E14-9** Reference ads: the client's best videos (MP4 with consent, `data/private/`) deconstructed into a house style the briefs follow.
+- [ ] **E14-10** Videos in the campaign plan and in publishing (Marketing API video upload, PAUSED).
+- [ ] **E14-11** Critic on keyframes vs the best competitor ads before the final render.
+- [ ] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua").
+
+Tests: `test_deconstruct`, `test_archetypes`, `test_brief`, `test_trends` (formats, trend briefs, tone, dialogue, cut-outs, props, never losing scripts), `test_audio` (voice, music, SFX, dialogue guard, captions), `test_remotion` (props + a real render when Node is installed), `test_video`, `test_video_pipeline`.
+
 ## 3. Day by day (gates are hard)
 
 | Day | Lane A (engine) | Lane B (product) | People | Gate (evening) |
 |---|---|---|---|---|
 | **Thu Oct 29** | E0-1, E0-2, E0-3, E1-1 | E9-1 starts, E0-5 | P-1 consent, P-2 asked | cassettes + cost cap + cache merged |
 | **Fri Oct 30** | E2-1 R3, E3-1, E3-2, E1-2 | E9-1 done, E5-1, E8-2 | P-2 data in hand, Fireworks workshop | **R3 measured** at any value; landing on real data |
-| **Sat Oct 31** | **E2-10 market-trained judge** (text, local), decision rule fixed first; E2-4 R1 script ready on partner-shaped fake data | **E9-5 vote page (R2) live**, E9-1 landing on real data | share the vote page (P-5) | E2-10 measured vs its rule; vote page live, first votes |
-| **Sun Nov 1** | E2-10 with images (capture ~3,000 creatives); E2-2 our ads as images; E6-1 evolution gated by the market judge if it passed | E8-2 insights, E8-3 daily (fake Meta), E8-4 prediction publisher, E9-2 agency room | votes ≥ 40 | pilot is plug-and-play on a fake account; the agency's gate is decided |
-| **Mon Nov 2** | **E2-4 R1 on the partner's history, same day**; E7-2 fine-tune only if E2-10 passed | **Partner day:** P-1 consent, P-2 data, E8-4 predictions committed, P-3 pilot launched with his approval; E9-4 validation page; E9-7 deploy | partner | R1 measured; predictions public; pilot live |
-| **Tue Nov 3** | E2-5 R2 analysis, E2-9 reproduce | first pilot metrics (1 day, shown as a start), E8-5 report, D-2 | pilot day 2 | all R numbers final; reproduce command works |
+| **Sat Oct 31** | review PR #2/#3; E14-12; E2-4 R1 script ready on partner-shaped fake data | E14 trend ads with sound + dialogue (done); **E14-8 selling structure** | — | 3 VietBuddy trend ads that sell |
+| **Sun Nov 1** | E14-11 critic; E1-2 eval of the video pipeline on 5 apps (cheap) | **E9 platform: the agency at work** (pipeline live, Remotion Player, approve), E14-10 videos in the plan | find 2-3 more apps whose founders agree | a stranger sees the agency make ads live |
+| **Mon Nov 2** | **E2-4 R1 on the partner's history, same day** | **Partner day:** consent, data, E14-9 his best videos as reference, predictions committed, pilot launched PAUSED→ACTIVE with his approval; E9-7 deploy | partner | R1 measured; pilot live |
+| **Tue Nov 3** | E2-9 reproduce; validation page with honest limits (R3) | first pilot metrics (1 day, shown as a start), D-2 README, D-3 video draft | pilot day 2 | demo video drafted |
 | **Wed Nov 4** | D-1, D-4 | D-3 video, D-5 submit | post | **submitted before 22:00 Paris** |
 
 If a gate fails: write it in `STATUS.md`, take the next item from the cut list, and never lower a target silently.
 
 ### Gate log
 
+- **Sat Oct 31:** trend video ads with voice, dialogue and native voices done (E14-1..7); harsh sound effects removed, transitions fixed. Matteo: "much better, but it doesn't sell yet" → E14-8 next.
 - **Fri Oct 30, replan:** the partner is only available Mon Nov 2. R1 (needs only his past ads) moves to Monday, same day; the pilot launches Monday and shows 1–2 days of results, presented as a start with predictions published before. R3 failed (v0, v1), so validation rests on E2-10 (market-trained judge), R2 (humans) and R1. Arena (E9-3) cut: the product is the agency for a real client.
 - **Fri Oct 30, R3 v1 (balanced, 44 advertisers, images, judge baseline): negative.** Nothing model-based beats chance within advertiser; viewers with images are below it (0.41); shorter copy reaches 0.62. Decision needed: R1 (partner's real metrics) and R2 (humans) become the main proofs; R3 is reported as a limit. See DECISIONS.
 - **Fri Oct 30, R3 v0 measured (gate met, result negative):** text-only simulator does not separate long-running from short-lived ads (pooled 0.49, within-advertiser 0.55, CIs include 0.5). Next: balanced-per-advertiser selection, more advertisers, images in the feed, judge baseline — then re-run.

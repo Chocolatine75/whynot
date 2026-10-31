@@ -69,7 +69,7 @@ def shot(**kw):
 GOOD = {"id": "tell_me_tones", "hook": "Tell me you're learning Vietnamese",
         "shots": [shot(), shot(visual="photo", prompt="A man frowning at a bowl of pho in a busy street",
                                caption="ordering pho", seconds=1.5),
-                  shot(text="Ma ma ma ma", seconds=1.0, move="shake", sfx="record_scratch"),
+                  shot(text="Ma ma ma ma", seconds=1.0, move="shake", sfx="pop"),
                   shot(visual="photo", prompt="Grandma laughing at a family dinner", caption="grandma laughing"),
                   shot(text="Wrong tone again", seconds=1.4), shot(visual="photo", prompt="Late night study desk",
                                                                    caption="up way too late again", seconds=1.6),
@@ -139,7 +139,7 @@ def test_props_keep_shot_lengths_and_stretch_for_a_long_voice():
     p = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images=imgs, icon=None,
                     rating=None, rating_count=None, audio=None, sfx={"whoosh": "sfx_whoosh.mp3"})
     assert [s["durationInFrames"] for s in p["shots"]] == [round(s.seconds * FPS) for s in b.shots]
-    assert p["shots"][2]["sfx"] == "none"  # record_scratch was not generated: no dangling sound
+    assert p["shots"][2]["sfx"] == "none"  # "pop" was not generated here: no dangling sound
     assert p["durationInFrames"] == sum(s["durationInFrames"] for s in p["shots"]) + round(END_CARD_SECONDS * FPS)
     from whynot.audio.captions import Word
     long = Audio(voice_mp3=__file__, words=[Word("w", 0, 20.0)])
@@ -319,3 +319,26 @@ def test_casting_picks_native_voices_by_language_accent_and_gender():
     assert cast("them", "en", "en", gender="male").voice_id == CREATOR["female"]  # never the creator's own voice
     with pytest.raises(ValueError, match="no native voice"):
         cast("them", "ja", "en")
+
+
+def test_harsh_sound_effects_are_not_offered():
+    from whynot.agents.trend_brief import SFX
+    from whynot.audio.elevenlabs import SFX_PROMPTS
+    assert "record_scratch" not in SFX and "bass_drop" not in SFX
+    assert set(SFX) - {"none"} == set(SFX_PROMPTS)  # every effect a brief can ask for can be generated
+    with pytest.raises(Invalid, match="sfx"):
+        check(with_shot(2, sfx="record_scratch"))
+
+
+def test_a_failed_run_never_overwrites_the_last_good_scripts(tmp_path):
+    """Regression: a re-render that failed wrote an empty trends.json over the scripts Matteo had just watched."""
+    from whynot.agency.trend_video import save_report
+    good = {"videos": [{"brief": {"id": "a"}}]}
+    save_report(tmp_path, good)
+    assert save_report(tmp_path, {"videos": []}).name == "trends-failed.json"
+    assert json.loads((tmp_path / "trends.json").read_text()) == good
+    newer = {"videos": [{"brief": {"id": "b"}}]}
+    save_report(tmp_path, newer)
+    archived = [p for p in tmp_path.glob("trends-*.json") if p.name != "trends-failed.json"]
+    assert json.loads((tmp_path / "trends.json").read_text()) == newer
+    assert len(archived) == 1 and json.loads(archived[0].read_text()) == good
