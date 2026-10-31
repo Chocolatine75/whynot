@@ -174,7 +174,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [x] **E2-3** Creative capture from Ad Library snapshots (A) — *Oct 30: `ingest/creatives.py`, 295/298 captured (99 %), video ads via poster frame, no URL or token stored.*
   - *Done when:* images (and video first frames) of competitor ads are fetched from snapshot pages without a token in any stored URL, ≥ 90 % success on 100 ads, licence notes in `DECISIONS.md`.
   - *Tests:* contract on recorded snapshot HTML; security (no `access_token` anywhere in the store).
-- [ ] **E2-4** ★ R1 backtest on the partner's history (A, needs P-2)
+- [ ] **E2-4** ★ R1 backtest on the partner's history (A, needs P-2) — *Oct 31: ready for Monday (`validate/backtest.py`, `scripts/r1_backtest.py`): Ads Manager CSV (EN/FR) or API read, protocol pre-registered in DECISIONS, blind by construction (tested), numbers-only summary, partner data under `data/private/`. Fake partner: a simulator with the right taste scores ≥ 0.75. Left: run it on his data.*
   - *Done when:*
     - pairwise accuracy of the simulator vs the real metric (CTR, CPA or hook rate) on all pairs of his past ads, blind to outcomes, with a CI;
     - baselines: random, single-LLM judge, longest copy, most recent;
