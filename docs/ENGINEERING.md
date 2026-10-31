@@ -23,7 +23,10 @@ src/whynot/
   cassette.py          recorded model answers: WHYNOT_CASSETTE=record|replay|off (replay = $0, offline)
   budget.py            per-command model cap: estimate refused before running, hard stop during it
   jsonio.py            JSON out of model answers
+  events.py            the agents' shared event log (events.jsonl): one AgentEvent per step, parents, digests, no secrets
   agency/
+    orchestrator.py    `whynot agency`: Meta connection + App Store link → create → publish → daily, resumable,
+                       budget per step, one ad cap for everything (agency/state.json)
     create.py          the `create` pipeline: stages, run folder, resume, events
     report.py          the owner's report (report.md)
   agents/
@@ -57,6 +60,7 @@ src/whynot/
     meta.py            Marketing API client (the only code that writes to an ad account)
     publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
     video_ads.py       the daily loop's video ads to Meta: one ad set per ad, PAUSED then ACTIVE, resumable
+    connect.py         `whynot connect`: the owner's Meta login → ad account + Page found and checked, saved privately
     killswitch.py      `whynot stop`: pause everything whynot created on the account, campaigns first, logged
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry

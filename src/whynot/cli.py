@@ -1,4 +1,5 @@
-"""Command line: `whynot create`, `whynot video`, `whynot daily`, `whynot publish`, `whynot costs`."""
+"""Command line: `whynot connect`, `whynot agency` (everything), and the single steps: `create`, `video`,
+`daily`, `publish`, `stop`, `costs`."""
 
 import argparse
 import json
@@ -145,25 +146,10 @@ def _video(args: argparse.Namespace) -> int:
 
 
 def _video_launcher(client: Any, run_dir: Path, args: argparse.Namespace) -> Any:
-    """The real account's launcher: video ads published with the plan's audiences, or (missing page id or plan)
-    a launcher that leaves new ads waiting, with the reason in the report."""
-    from whynot.agency.create import plan_from_json
-    from whynot.agency.daily import MetaLauncher
-    from whynot.run.meta import MetaError
-    from whynot.run.video_ads import VideoPublisher
+    from whynot.agency.orchestrator import video_launcher
 
-    if not (run_dir / "plan.json").exists():
-        print("! no plan.json: new video ads will wait (no audiences to target)", file=sys.stderr)
-        return MetaLauncher(client)
-    plan = plan_from_json(json.loads((run_dir / "plan.json").read_text()))
-    try:
-        publisher = VideoPublisher(client, run_dir, store_url=plan.store_url, objective=args.objective,
-                                   campaign_name=f"whynot daily · {plan.app_name}")
-    except MetaError as exc:
-        print(f"! {exc}: new video ads will wait", file=sys.stderr)
-        return MetaLauncher(client)
-    return MetaLauncher(client, publisher, audiences={a.audience.persona: a.audience for a in plan.ad_sets},
-                        videos=run_dir / "videos", title=plan.app_name)
+    return video_launcher(client, run_dir, objective=args.objective,
+                          say=lambda m: print(m, file=sys.stderr))
 
 
 def _daily(args: argparse.Namespace) -> int:
@@ -250,6 +236,90 @@ def _stop(args: argparse.Namespace) -> int:
     return 0 if report.ok else 2
 
 
+def _read_token(args: argparse.Namespace) -> str:
+    """The owner's Meta login token: from stdin (the web app pipes it) or an env variable, never from argv
+    (command lines are visible to every process on the machine)."""
+    import os
+
+    if args.token_stdin:
+        return sys.stdin.readline().strip()
+    return (os.getenv(args.token_env) or "").strip()
+
+
+def _connect(args: argparse.Namespace) -> int:
+    from whynot.run.connect import ConnectError, connect
+
+    s = load_settings()
+    try:
+        conn, path = connect(_read_token(args), account_id=args.account, page_id=args.page,
+                             app_id=args.app_id or s.meta_app_id, sandbox=args.sandbox, version=s.fb_api_version)
+    except ConnectError as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    print(f"✓ connected {conn.act} ({conn.account_name}, {conn.currency})"
+          + (f" · Page {conn.page_name} ({conn.page_id})" if conn.page_id else " · no Page yet")
+          + f" · can publish: {'yes' if conn.can_publish else 'no'} · can read results: "
+          + ("yes" if conn.can_read else "no"))
+    for w in conn.warnings:
+        print(f"  ! {w}")
+    print(f"  saved privately (gitignored, mode 600): {path}")
+    print(f"  next: whynot agency <App Store link> --countries FR --daily-cap 20 --connection {path}")
+    return 0
+
+
+def _agency(args: argparse.Namespace) -> int:
+    from datetime import date
+
+    from whynot.agency.orchestrator import AgencyConfig, Orchestrator, default_services
+
+    s = load_settings()
+    services = default_services(s, silent=args.silent)
+    try:
+        if args.resume:
+            orch = Orchestrator.resume(Path(args.resume), services, level=args.level)
+        else:
+            if not args.app or not args.countries or args.daily_cap is None:
+                print("✗ a new agency run needs: the App Store link, --countries and --daily-cap", file=sys.stderr)
+                return 1
+            cap = args.daily_cap
+            if not args.sim and s.max_daily_ad_spend_eur > 0 and cap > s.max_daily_ad_spend_eur:
+                print(f"  cap lowered to MAX_DAILY_AD_SPEND_EUR (€{s.max_daily_ad_spend_eur:.2f}) from .env")
+                cap = s.max_daily_ad_spend_eur
+            extra = {k: v for k, v in {"research_countries": args.research_countries,
+                                       "store_country": args.store_country, "language": args.language,
+                                       "max_angles": args.angles, "variants_per_template": args.variants,
+                                       "generations": args.generations}.items() if v is not None}
+            cfg = AgencyConfig(app_ref=args.app, countries=args.countries, daily_cap_eur=cap,
+                               level=args.level or s.autonomy_level, simulated_account=args.sim,
+                               connection=args.connection, objective=args.objective, budget_usd=args.budget_usd,
+                               publish_static=not args.videos_only, target_live=args.target, max_new=args.new,
+                               budget_per_ad_eur=args.budget_per_ad, create=extra, seed=args.seed)
+            orch = Orchestrator.start(Path(args.out), cfg, services)
+    except (ValueError, FileNotFoundError, RuntimeError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    cfg = orch.cfg
+    account = ("SIMULATED (results invented by a known model, not real)" if cfg.simulated_account
+               else orch.state["account"]["act"])
+    print(f"run folder: {orch.run_dir}\naccount: {account}"
+          f" · autonomy {cfg.level} · ad cap €{cfg.daily_cap_eur:.2f}/day · model budget ${cfg.budget_usd:.2f}")
+    try:
+        result = orch.run(approved_by=args.approve, days=args.days,
+                          today=date.fromisoformat(args.start) if args.start else None)
+    except ValueError as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    if result.status == "error":
+        print(f"\n✗ {result.error}\n  inspect {orch.run_dir}/events.jsonl, fix, then: whynot agency --resume "
+              f"{orch.run_dir}", file=sys.stderr)
+        return 1
+    tail = (" · waiting for your approval: whynot agency --resume "
+            f"{orch.run_dir} --approve <your name>") if result.status == "waiting" else ""
+    print(f"\n{'✓' if result.status == 'done' else '⏳'} agency {result.status} · model cost ${result.usd:.2f} this "
+          f"run{tail}\n  tomorrow: whynot agency --resume {orch.run_dir}")
+    return 0 if result.status == "done" else 2
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -316,6 +386,46 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("--by", required=True, metavar="NAME", help="who pulls the switch (logged)")
     st.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
     st.set_defaults(func=_stop)
+
+    cn = sub.add_parser("connect", help="connect the owner's Meta login: find and check the ad account and Page")
+    tok = cn.add_mutually_exclusive_group()
+    tok.add_argument("--token-stdin", action="store_true", help="read the login token from stdin (web app)")
+    tok.add_argument("--token-env", default="META_USER_TOKEN", help="env variable holding the token")
+    cn.add_argument("--account", help="ad account id, when the login has several")
+    cn.add_argument("--page", help="Facebook Page id the ads speak as, when the login has several")
+    cn.add_argument("--app-id", help="the app registered with Meta (for app_promotion)")
+    cn.add_argument("--sandbox", action="store_true", help="a Marketing API sandbox account (nothing can spend)")
+    cn.set_defaults(func=_connect)
+
+    ag = sub.add_parser("agency", help="the whole agency: App Store link + Meta connection → running campaign")
+    ag.add_argument("app", nargs="?", help="App Store URL or app id (new run)")
+    ag.add_argument("--resume", help="an agency run folder: finished steps are kept, today's day runs")
+    ag.add_argument("--countries", nargs="+", help="campaign countries, e.g. FR or US GB")
+    ag.add_argument("--daily-cap", type=float, help="your hard cap on ad spend per day, EUR, for everything")
+    src = ag.add_mutually_exclusive_group()
+    src.add_argument("--connection", help="the saved Meta connection (from `whynot connect`)")
+    src.add_argument("--sim", action="store_true", help="simulated account: results invented, labelled as such")
+    ag.add_argument("--level", choices=["dry_run", "propose", "autopilot"],
+                    help="autonomy (default: AUTONOMY_LEVEL in .env, else dry_run)")
+    ag.add_argument("--approve", metavar="NAME", help="your approval for the actions waiting on it (logged)")
+    ag.add_argument("--budget-usd", type=float, default=8.0, help="model spend cap for this command, all steps")
+    ag.add_argument("--objective", choices=["traffic", "app_promotion"], default="traffic")
+    ag.add_argument("--videos-only", action="store_true", help="no static image campaign, only daily video ads")
+    ag.add_argument("--target", type=int, default=4, help="video ads running at the same time")
+    ag.add_argument("--new", type=int, default=2, help="new video ads per day at most")
+    ag.add_argument("--budget-per-ad", type=float, default=5.0, help="daily budget per video ad, EUR")
+    ag.add_argument("--days", type=int, default=1, help="with --sim: run this many days in a row")
+    ag.add_argument("--start", help="first day, YYYY-MM-DD (default: today)")
+    ag.add_argument("--research-countries", nargs="+", help="EU/UK countries for Ad Library research")
+    ag.add_argument("--store-country", help="App Store storefront (default us)")
+    ag.add_argument("--language", help="force one ad language")
+    ag.add_argument("--angles", type=int, help="max ad concepts")
+    ag.add_argument("--variants", type=int, help="variants per concept")
+    ag.add_argument("--generations", type=int, help="evolution rounds")
+    ag.add_argument("--seed", type=int, default=0)
+    ag.add_argument("--silent", action="store_true", help="no voice-over or music")
+    ag.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")
+    ag.set_defaults(func=_agency)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")
