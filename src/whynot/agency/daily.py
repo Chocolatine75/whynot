@@ -24,7 +24,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any, Protocol
 
-from whynot.agency.ideas import Idea, plan
+from whynot.agency.ideas import Idea, plan, plan_random
 from whynot.agency.memory import AdRecord, Memory
 from whynot.run.autopilot import (
     AccountState,
@@ -93,6 +93,8 @@ class DailyConfig:
     budget_per_ad_eur: float = 5.0
     rules: Rules = field(default_factory=lambda: Rules(min_spend_eur=10.0))
     formats: list[str] | None = None  # default: the whole library
+    idea_policy: str = "whynot"  # whynot (exploit + explore) | random (no learning: the baseline)
+    folder_name: str = "agency"  # where memory, log and reports go (the selection demo runs two worlds)
 
 
 @dataclass
@@ -140,7 +142,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
             strategy: Any, cfg: DailyConfig | None = None, approved_by: str | None = None,
             say: Callable[[str], None] = print) -> DayReport:
     cfg = cfg or DailyConfig()
-    folder = Path(run_dir) / "agency"
+    folder = Path(run_dir) / cfg.folder_name
     with day_lock(folder):
         memory = Memory(folder / "memory.json")
         log = ActionLog(folder / "actions.jsonl")
@@ -186,8 +188,13 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
         slots = max(0, cfg.target_live - len(budgets) - len(memory.by_status("proposed")))
         want = min(slots, cfg.max_new)
         # backups: when an idea fails to become an ad, the next one takes its slot
-        ideas: list[Idea] = plan(want + BACKUP_IDEAS if want else 0, formats=formats, pairs=_pairs(strategy),
-                                 tried=[(f, p, a) for f, p, a, _ in memory.ideas()], ads=list(memory.ads.values()))
+        tried = [(f, p, a) for f, p, a, _ in memory.ideas()]
+        if cfg.idea_policy == "random":  # the no-learning baseline of the selection demo
+            ideas: list[Idea] = plan_random(want + BACKUP_IDEAS if want else 0, formats=formats, pairs=_pairs(strategy),
+                                            tried=tried, seed=rep.day)
+        else:
+            ideas = plan(want + BACKUP_IDEAS if want else 0, formats=formats, pairs=_pairs(strategy), tried=tried,
+                         ads=list(memory.ads.values()))
         say(f"day {rep.day}: {len(budgets)} live, {slots} free slot(s), {want} new ad(s) to make")
 
         # 4. make one video per idea, until the free slots are filled
@@ -209,7 +216,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
             b = v["brief"]
             key = Path(v["file"]["path"]).stem
             rec = AdRecord(key, rep.day, idea.format, idea.persona, idea.angle, b.get("hook", ""),
-                           voice=b.get("voice", ""), file=v["file"]["path"], why=idea.why)
+                           voice=b.get("voice", ""), file=v["file"]["path"], why=idea.why, parent=idea.parent)
             memory.add(rec)
             avoid.append((rec.hook, rec.voice))
             rep.new.append({"ad": key, "format": idea.format, "persona": idea.persona, "angle": idea.angle,

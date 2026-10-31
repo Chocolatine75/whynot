@@ -5,6 +5,7 @@ import random
 import re
 import subprocess
 from datetime import date
+from pathlib import Path
 from types import SimpleNamespace as NS
 
 import pytest
@@ -91,6 +92,12 @@ def test_partner_data_only_under_private(tmp_path):
         save_history(ads, tmp_path / "history.json")
     path = save_history(ads, tmp_path / "private" / "partner" / "history.json")
     assert load_history(path) == ads
+
+
+def test_macos_system_private_folder_does_not_count():
+    """Regression: on macOS every temp dir is under /private/var/..., so any path passed the guard."""
+    with pytest.raises(HistoryError, match="data/private"):
+        save_history([ad(1, 1000, 10)], Path("/private/var/folders/x/history.json"))
 
 
 def test_the_private_folder_is_never_tracked_by_git():
