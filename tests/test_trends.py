@@ -72,7 +72,7 @@ GOOD = {"id": "tell_me_tones", "hook": "Tell me you're learning Vietnamese",
                   shot(text="Ma ma ma ma", seconds=1.0, move="shake", sfx="record_scratch"),
                   shot(visual="photo", prompt="Grandma laughing at a family dinner", caption="grandma laughing"),
                   shot(text="Wrong tone again", seconds=1.4), shot(visual="photo", prompt="Late night study desk",
-                                                                   caption="late night practice", seconds=1.6),
+                                                                   caption="up way too late again", seconds=1.6),
                   shot(visual="screen", screen=2, focus="middle", caption="hear the Southern voice", beat="twist",
                        seconds=1.8, sfx="ding"),
                   shot(visual="screen", screen=1, focus="top", caption="then say it", beat="twist", seconds=1.6),
@@ -109,8 +109,12 @@ def with_shot(i, **kw):
     (with_shot(0, visual="mascot"), "no mascot"),
     (with_shot(6, screen=9), "screen number"),
     ({**GOOD, "shots": GOOD["shots"][:5]}, "8 to 14"),
-    ({**GOOD, "hook": "Learn Vietnamese in 10 minutes"}, "number"),
+    ({**GOOD, "hook": "Speak Vietnamese in 10 minutes", "voice": "ok so this happened"}, "number"),
     ({**GOOD, "voice": "Rival Lingo can't do this."}, "competitor"),
+    ({**GOOD, "voice": "Improve your skills with daily lessons."}, "course or an ad"),
+    (with_shot(1, caption="master the tones"), "course or an ad"),
+    ({**GOOD, "voice": "so i said ca phe [screams] and she kept going"}, "unknown tags"),
+    ({**GOOD, "voice": "[laughs] no [sighs] why [gasps] bro [groans]"}, "more than 3"),
 ])
 def test_bad_trend_briefs_are_refused(data, error):
     with pytest.raises(Invalid, match=error):
@@ -205,3 +209,55 @@ def test_a_masked_mascot_is_cut_out_on_transparency(tmp_path):
     assert out.getpixel((50, 50))[3] == 255
     plain = cut_out(img, Found((100, 100, 300, 300), 0.25, None))
     assert plain.size == (200, 200) and plain.getpixel((0, 0))[3] == 255  # no mask: the box
+
+
+def test_creator_voice_with_emotion_tags_is_accepted_and_the_meme_line_is_exempt():
+    b = check({**GOOD, "voice": "so i said ca phe... [laughs] and she just. kept. talking. i was SO cooked"})
+    assert "[laughs]" in b.voice  # kept for the voice model; stripped for the copy checks and the guard
+    assert check(GOOD).hook.startswith("Tell me you're learning")  # the trend line itself may say "learning"
+
+
+def _brief_reply(voice):
+    return json.dumps({**GOOD, "voice": voice})
+
+
+def test_a_teacher_tone_is_sent_back_once_and_the_better_take_is_kept():
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    scores = iter([4, 8])
+
+    def reply(messages, module):
+        if module == "tone_critic":
+            return json.dumps({"score": next(scores), "why": "sounds like class", "worst": "ok so this happened"})
+        return _brief_reply("ok so this happened" if len(messages) == 1 else "bro i was SO cooked [laughs]")
+
+    model = ScriptedChat(reply)
+    answer = write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+                   screens=["a", "b", "c"], has_mascot=False)
+    assert "cooked" in answer.value.voice and "4/10 → 8/10" in answer.errors[-1]
+    rewrite_prompt = [c for c in model.calls if c["module"] == "trend_brief"][-1]["messages"][-1]["content"]
+    assert "rated the tone 4/10" in rewrite_prompt and "ok so this happened" in rewrite_prompt
+
+
+def test_a_worse_rewrite_is_not_kept():
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    scores = iter([6, 3])
+    model = ScriptedChat(lambda m, mod: json.dumps({"score": next(scores), "why": "x", "worst": "y"})
+                         if mod == "tone_critic" else _brief_reply("first take" if len(m) == 1 else "second take"))
+    answer = write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+                   screens=["a", "b", "c"], has_mascot=False)
+    assert answer.value.voice == "first take" and "kept 6/10" in answer.errors[-1]
+
+
+def test_a_good_tone_is_not_rewritten():
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    model = ScriptedChat(lambda m, mod: json.dumps({"score": 9, "why": "x", "worst": "y"}) if mod == "tone_critic"
+                         else _brief_reply("no because why did she keep talking"))
+    write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+          screens=["a", "b", "c"], has_mascot=False)
+    assert [c["module"] for c in model.calls] == ["trend_brief", "tone_critic"]

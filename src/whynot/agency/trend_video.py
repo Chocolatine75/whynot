@@ -15,6 +15,7 @@ signals, the picks, the briefs, the voice guard verdicts, failures and cost.
 
 import json
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -175,38 +176,45 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     ctx = Context(local, app["name"], app["description"], names, tuple(brand["palette"][:3]),
                   brand["screenshots"][0], LANGUAGES[code])
     icon = Image.open(run_dir / "assets" / "icon.png")
+    def one(n: int, p: dict[str, str]) -> dict[str, Any]:
+        fmt = trend_brief.get_format(p["format"])
+        b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
+                              has_mascot=cut.mascot is not None, model=cfg.model).value
+        imgs: dict[int, Image.Image] = {}
+        for i, s in enumerate(b.shots):
+            if s.visual == "photo":
+                imgs[i] = scene_image(model, s.prompt or "", CACHE / "scenes", style=PHOTO_STYLE)
+            elif s.visual == "screen" and s.screen:
+                imgs[i] = cut.screens[s.screen - 1]
+            elif s.visual == "mascot" and cut.mascot is not None:
+                imgs[i] = cut.mascot
+        audio, guard, sfx = None, {"skipped": "no voice client"}, {}
+        if voice is not None:
+            v, guard = voice_track(voice, model, b.voice, ctx.language, voice_id) if b.voice else (None, {})
+            music = voice.music(b.music, b.seconds + 3)
+            audio = remotion.Audio(v.mp3 if v else None, words(v.characters, v.starts, v.ends) if v else None,
+                                   music, music_volume=0.28)
+            sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name != "none"}
+        name = f"trend-{n}-{b.id}"
+        facts = trend_render.render(b, out / f"{name}.mp4", palette=brand["palette"],
+                                    app_name=brand_name(app["name"]), images=imgs, icon=icon,
+                                    rating=app.get("rating"), rating_count=app.get("rating_count"),
+                                    audio=audio, sfx=sfx)
+        say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"")
+        return {"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg", "voice_guard": guard,
+                "why": p["why"]}
+
+    # the videos are independent: make them at the same time (about 3× faster than one after the other)
     videos = []
-    for n, p in enumerate(picks, 1):
-        try:
-            fmt = trend_brief.get_format(p["format"])
-            b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
-                                  has_mascot=cut.mascot is not None, model=cfg.model).value
-            imgs: dict[int, Image.Image] = {}
-            for i, s in enumerate(b.shots):
-                if s.visual == "photo":
-                    imgs[i] = scene_image(model, s.prompt or "", CACHE / "scenes", style=PHOTO_STYLE)
-                elif s.visual == "screen" and s.screen:
-                    imgs[i] = cut.screens[s.screen - 1]
-                elif s.visual == "mascot" and cut.mascot is not None:
-                    imgs[i] = cut.mascot
-            audio, guard, sfx = None, {"skipped": "no voice client"}, {}
-            if voice is not None:
-                v, guard = voice_track(voice, model, b.voice, ctx.language, voice_id) if b.voice else (None, {})
-                music = voice.music(b.music, b.seconds + 3)
-                audio = remotion.Audio(v.mp3 if v else None, words(v.characters, v.starts, v.ends) if v else None,
-                                       music, music_volume=0.28)
-                sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name != "none"}
-            name = f"trend-{n}-{b.id}"
-            facts = trend_render.render(b, out / f"{name}.mp4", palette=brand["palette"],
-                                        app_name=brand_name(app["name"]), images=imgs, icon=icon,
-                                        rating=app.get("rating"), rating_count=app.get("rating_count"),
-                                        audio=audio, sfx=sfx)
-            videos.append({"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg",
-                           "voice_guard": guard, "why": p["why"]})
-            say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"")
-        except Exception as exc:  # one failed video must not lose the others
-            report["failures"].setdefault("videos", {})[p["format"]] = f"{type(exc).__name__}: {exc}"[:400]
-            say(f"  ✗ {p['format']}: {exc}")
+    with ThreadPoolExecutor(max_workers=max(1, min(len(picks), 3))) as pool:
+        futures = {pool.submit(one, n, p): p for n, p in enumerate(picks, 1)}
+        for f in futures:
+            p = futures[f]
+            try:
+                videos.append(f.result())
+            except Exception as exc:  # one failed video must not lose the others
+                report["failures"].setdefault("videos", {})[p["format"]] = f"{type(exc).__name__}: {exc}"[:400]
+                say(f"  ✗ {p['format']}: {exc}")
     report["videos"] = videos
     report["usd"] = round(model.spent_usd - spent0, 4)
     (out / "trends.json").write_text(json.dumps(report, indent=1, ensure_ascii=False, default=str))

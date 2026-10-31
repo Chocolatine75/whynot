@@ -18,8 +18,9 @@ from typing import Any
 import httpx
 
 API = "https://api.elevenlabs.io/v1"
-DEFAULT_VOICE = "21m00Tcm4TlvDq8ikWAM"  # a premade voice available on every account ("Rachel")
-VOICE_MODEL = "eleven_multilingual_v2"  # handles every language we advertise in
+DEFAULT_VOICE = "TX3LPaxmHKxFdv7VOQHJ"  # premade "Liam - Energetic, Social Media Creator" (young male)
+YOUNG_VOICES = {"male": "TX3LPaxmHKxFdv7VOQHJ", "female": "cgSgspJ2msm6clMCkdW9"}  # Liam, Jessica (premade)
+VOICE_MODEL = "eleven_v3"  # the most expressive: plays [laughs], [sighs]...; multilingual
 MUSIC_PROMPTS = {
     "upbeat": "Upbeat modern pop instrumental for a mobile app ad, bright synths, light drums, feel-good",
     "calm": "Calm warm acoustic instrumental, soft piano and guitar, gentle, for a mobile app ad",
@@ -79,8 +80,9 @@ class ElevenLabs:
     def voice(self, text: str, *, voice_id: str = DEFAULT_VOICE, model_id: str = VOICE_MODEL,
               seed: int = 7) -> Voice:
         """The narration as an MP3 plus the start/end time of every character."""
-        body = {"text": text, "model_id": model_id, "seed": seed,
-                "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "speed": 1.05}}
+        settings: dict[str, Any] = ({"stability": 0.5} if model_id == "eleven_v3"  # v3: 0 creative, 0.5 natural
+                                    else {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "speed": 1.05})
+        body = {"text": text, "model_id": model_id, "seed": seed, "voice_settings": settings}
         key = self._key(f"voice:{voice_id}", body)
         mp3, meta = self.cache / f"voice-{key}.mp3", self.cache / f"voice-{key}.json"
         if not (mp3.exists() and meta.exists()):

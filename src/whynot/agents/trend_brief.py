@@ -13,6 +13,7 @@ Each shot is one of:
 All words go through the same checks as every ad (`director.CopyRules`).
 """
 
+import json
 import re
 from dataclasses import asdict, dataclass
 from typing import Any
@@ -104,9 +105,26 @@ Return JSON only:
 {{"id": "<snake_case>", "hook": "<first caption, max 8 words, the scroll-stopper>",
   "shots": [{{"visual": "photo", "prompt": "...", "caption": "...", "seconds": 1.2, "move": "punch_in",
              "sfx": "whoosh", "beat": "trend"}}, ...],
-  "voice": "<optional creator-style voice-over across the video, max 40 words, or empty>",
+  "voice": "<the creator's voice-over across the video, max 40 words, emotion tags allowed>",
   "cta": "<end card button, max 4 words>", "music": "<one of {moods}>"}}
-No emoji. Short words. Make it funny or tense, never corporate."""
+{tone}"""
+
+TONE = """TONE — non-negotiable. You are not a brand and not a teacher: you are a 19-24 year-old creator talking
+into your phone, telling your friends what happened to you.
+- First person, story energy, run-on and fragments: "so i said ca phe... and she just. kept. talking."
+- Roast yourself, exaggerate, react: "i was SO cooked", "the way i just nodded", "no because why".
+- Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
+- The app comes in like a friend's tip, never like an ad: "anyway this app has a southern voice and it's
+  actually the only reason grandma understands me now".
+- Captions read like texts: lowercase, short, no full stops.
+- The voice may use up to 3 emotion tags: [laughs], [sighs], [gasps], [whispers], [groans].
+- Never sound like a lesson or a commercial: never use {banned}.
+No emoji in captions."""
+# Words that make a video sound like a language course or an ad, refused in the voice and the captions.
+TEACHER_WORDS = ("learn", "learning", "lesson", "lessons", "practise", "practice", "practicing", "practising",
+                 "improve", "skills", "master", "fluent", "fluently", "effortlessly", "unlock", "journey",
+                 "discover", "boost", "enhance", "perfect your", "start your", "download now", "language skills")
+EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
 
 
 def _words(value: Any, n: int, name: str, *, allow_empty: bool = False) -> str:
@@ -136,8 +154,13 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         if not isinstance(raw, list) or not SHOTS[0] <= len(raw) <= SHOTS[1]:
             raise Invalid(f"'shots' must be a list of {SHOTS[0]} to {SHOTS[1]} shots")
         texts = {"hook.main": hook, "cta.button": cta}
+        tags = re.findall(r"\[[^\]]*\]", voice)
+        if bad := [t for t in tags if t not in EMOTION_TAGS]:
+            raise Invalid(f"'voice' has unknown tags {bad}; allowed: {list(EMOTION_TAGS)}")
+        if len(tags) > 3:
+            raise Invalid("'voice' has more than 3 emotion tags")
         if voice:
-            texts["body.voice"] = voice
+            texts["body.voice"] = re.sub(r"\s*\[[^\]]*\]\s*", " ", voice).strip()
         shots, last_beat = [], 0
         for i, s in enumerate(raw, 1):
             where = f"shot {i}"
@@ -176,6 +199,12 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 raise Invalid(f"{where}: this app has no mascot; use text, photo or screen")
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
                               prompt, text))
+        spoken = " ".join([voice] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
+        allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
+        for w in TEACHER_WORDS:
+            if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
+                raise Invalid(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
+                              "19-24 year-old telling friends what happened")
         trend = sum(s.seconds for s in shots if s.beat == "trend")
         body = sum(s.seconds for s in shots)
         if not any(s.beat == "twist" and s.visual == "screen" for s in shots):
@@ -204,13 +233,61 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         description=" ".join(ctx.store_text.split())[:600], persona=f"{p.name}: {p.description}", angle=a.idea,
         claims="; ".join(c.text for c in s.claims) or "(none)",
         screens="; ".join(f"{i}. {d}" for i, d in enumerate(screens, 1)),
+        tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS)),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot
                      else "The app has no mascot: never use visual 'mascot'."),
         min_shots=SHOTS[0], max_shots=SHOTS[1], s_low=SHOT_SECONDS[0], s_high=SHOT_SECONDS[1],
         visuals=", ".join(VISUALS), moves=", ".join(MOVES), sfx=", ".join(SFX), moods=", ".join(MOODS))
-    return ask_json(client, [{"role": "user", "content": prompt}],
-                    make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot),
-                    module="trend_brief", model=model, repairs=3, max_tokens=6000, reasoning_effort="low")
+    messages: list[dict[str, Any]] = [{"role": "user", "content": prompt}]
+    validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot)
+    first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=3, max_tokens=6000,
+                     reasoning_effort="low")
+    verdict = critique(client, first.value, model=model)
+    if verdict.value["score"] >= MIN_TONE_SCORE:
+        return Answer(first.value, first.usd + verdict.usd, first.attempts, first.raw,
+                      [*first.errors, f"tone {verdict.value['score']}/10"])
+    retry = [*messages, {"role": "assistant", "content": json.dumps(first.raw, ensure_ascii=False)},
+             {"role": "user", "content": f"A 20-year-old TikTok creator rated the tone {verdict.value['score']}/10: "
+                                         f"{verdict.value['why']} Worst line: \"{verdict.value['worst']}\". "
+                                         "Rewrite the whole brief so it sounds like them. Same JSON schema."}]
+    second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
+                      reasoning_effort="low")
+    again = critique(client, second.value, model=model)
+    best, best_score = ((second, again.value["score"]) if again.value["score"] >= verdict.value["score"]
+                        else (first, verdict.value["score"]))
+    usd = first.usd + verdict.usd + second.usd + again.usd
+    return Answer(best.value, usd, first.attempts + second.attempts, best.raw,
+                  first.errors + second.errors + [f"tone {verdict.value['score']}/10 → {again.value['score']}/10, "
+                                                  f"kept {best_score}/10"])
+
+
+MIN_TONE_SCORE = 7
+CRITIC = """You are a 20-year-old who spends hours a day on TikTok and Reels. Read this video's voice-over and
+on-screen captions. Would someone your age actually say this in a video, or does it sound like a teacher, a
+language course or a brand trying too hard? Be harsh.
+
+Voice-over: {voice}
+Captions: {captions}
+
+Return JSON only: {{"score": <1-10, 10 = sounds exactly like a real creator your age>, "why": "<one sentence>",
+"worst": "<the single worst line, verbatim>"}}"""
+
+
+def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> Answer[dict[str, Any]]:
+    """The tone critic: does it sound like a young creator (score 1-10), and the worst line."""
+    def validate(data: Any) -> dict[str, Any]:
+        if not isinstance(data, dict):
+            raise Invalid("answer must be a JSON object")
+        score = data.get("score")
+        if isinstance(score, bool) or not isinstance(score, int) or not 1 <= score <= 10:
+            raise Invalid("'score' must be an integer 1-10")
+        return {"score": score, "why": " ".join(str(data.get("why", "")).split())[:300],
+                "worst": " ".join(str(data.get("worst", "")).split())[:200]}
+
+    captions = " / ".join([brief.hook] + [s.caption for s in brief.shots if s.caption])
+    prompt = CRITIC.format(voice=brief.voice or "(none)", captions=captions)
+    return ask_json(client, [{"role": "user", "content": prompt}], validate, module="tone_critic", model=model,
+                    repairs=1, max_tokens=2000, reasoning_effort="low")
 
 
 def get_format(fid: str) -> Format:

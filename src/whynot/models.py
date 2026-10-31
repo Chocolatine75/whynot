@@ -37,6 +37,7 @@ SPARK_CONTRIBUTOR = "muse-spark-1.3-contributor"  # Meta trains on this data: sy
 WONDER = "muse-wonder-1.0"
 IMAGE = "muse-image-1.0"
 TRANSCRIBE = "muse-voice-transcribe-1.0"
+REQUEST_TIMEOUT_S = 180
 SAM = "sam-3.1"
 
 
@@ -146,8 +147,9 @@ class ModelClient:
         if self._meta is None:
             if not self.settings.model_api_key:
                 raise MissingKey("MODEL_API_KEY is not set in .env")
-            self._meta = OpenAI(api_key=self.settings.model_api_key,
-                                base_url=self.settings.model_base_url)
+            # a hung request must fail, not freeze a run: 3 minutes is far above any normal call
+            self._meta = OpenAI(api_key=self.settings.model_api_key, base_url=self.settings.model_base_url,
+                                timeout=REQUEST_TIMEOUT_S, max_retries=2)
         return self._meta
 
     @property

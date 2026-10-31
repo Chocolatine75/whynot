@@ -175,3 +175,14 @@ def test_sound_effects_are_generated_once_per_kind(tmp_path):
     assert len(calls) == 2 and calls[0]["duration_seconds"] == 1.0
     with pytest.raises(ValueError, match="sound effect"):
         el.sfx("explosion")
+
+
+def test_emotion_tags_are_performed_not_captioned_nor_counted_by_the_guard():
+    from whynot.audio.captions import spoken
+    text = "so i said ca phe [laughs] and she kept going"
+    chars = list(text)
+    t = [i * 0.05 for i in range(len(chars))]
+    assert [w.text for w in words(chars, t, [x + 0.04 for x in t])] == ["so", "i", "said", "ca", "phe", "and", "she",
+                                                                      "kept", "going"]
+    assert spoken(text) == "so i said ca phe and she kept going"
+    assert word_error_rate(text, "so i said ca phe and she kept going") == 0.0

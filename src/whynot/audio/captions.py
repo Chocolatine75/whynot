@@ -26,8 +26,17 @@ class Word:
     end: float
 
 
+TAG = re.compile(r"\[[^\]]*\]")
+
+
+def spoken(script: str) -> str:
+    """The script without emotion tags ([laughs]...): what the voice actually says."""
+    return " ".join(TAG.sub(" ", script).split())
+
+
 def words(characters: list[str], starts: list[float], ends: list[float]) -> list[Word]:
-    """Characters with times → words with times (spaces split words; punctuation stays on its word)."""
+    """Characters with times → words with times (spaces split words; punctuation stays on its word).
+    Emotion tags ([laughs]) are performed, not said: they are left out of the captions."""
     if not len(characters) == len(starts) == len(ends):
         raise ValueError("characters, starts and ends must have the same length")
     out: list[Word] = []
@@ -44,7 +53,7 @@ def words(characters: list[str], starts: list[float], ends: list[float]) -> list
         t1 = e
     if buf:
         out.append(Word(buf, round(t0, 3), round(t1, 3)))
-    return out
+    return [w for w in out if not TAG.fullmatch(w.text) and not (w.text.startswith("[") or w.text.endswith("]"))]
 
 
 def _tokens(text: str) -> list[str]:
@@ -55,7 +64,7 @@ def _tokens(text: str) -> list[str]:
 
 def word_error_rate(reference: str, heard: str) -> float:
     """(substitutions + deletions + insertions) / words in the reference, case and accents ignored."""
-    ref, hyp = _tokens(reference), _tokens(heard)
+    ref, hyp = _tokens(spoken(reference)), _tokens(heard)
     if not ref:
         return 0.0 if not hyp else 1.0
     prev = list(range(len(hyp) + 1))
