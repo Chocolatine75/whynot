@@ -201,6 +201,33 @@ def _daily(args: argparse.Namespace) -> int:
     return 0
 
 
+def _stop(args: argparse.Namespace) -> int:
+    from whynot.run.killswitch import stop
+    from whynot.run.meta import Account, MarketingClient, MetaError
+
+    s = load_settings()
+    live = args.live
+    account = Account(account_id=(s.meta_ad_account_id if live else s.meta_sandbox_ad_account_id) or "",
+                      token=(s.meta_token if live else s.meta_sandbox_token) or "", sandbox=not live)
+    try:
+        client = MarketingClient(account, version=s.fb_api_version)
+        policy = Policy.from_env(s.autonomy_level, s.max_daily_ad_spend_eur)
+        report = stop([Path(r) for r in args.runs], client, by=args.by, policy=policy)
+    except (MetaError, ValueError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    for t in report.paused:
+        print(f"  ⏸ {t.level:<8} {t.meta_id}  ({t.ref})")
+    for meta_id, error in report.failed.items():
+        print(f"  ✗ {meta_id}: {error}", file=sys.stderr)
+    for run in report.skipped:
+        print(f"  • {run}: published to another account, left alone")
+    mode = "LIVE" if live else "SANDBOX"
+    print(f"{'✓' if report.ok else '✗'} {mode} {account.act}: {len(report.paused)} paused, {len(report.failed)} failed "
+          f"in {report.seconds:.1f} s · logged in each run's actions.jsonl")
+    return 0 if report.ok else 2
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -261,6 +288,12 @@ def main(argv: list[str] | None = None) -> int:
     dy.add_argument("--budget-usd", type=float, default=3.0, help="hard cap on model spend for this command")
     dy.add_argument("--silent", action="store_true", help="no voice-over or music")
     dy.set_defaults(func=_daily)
+
+    st = sub.add_parser("stop", help="kill switch: pause every campaign, ad set and ad whynot created, now")
+    st.add_argument("runs", nargs="+", help="run folders (outputs/runs/...) whose objects to pause")
+    st.add_argument("--by", required=True, metavar="NAME", help="who pulls the switch (logged)")
+    st.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
+    st.set_defaults(func=_stop)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")

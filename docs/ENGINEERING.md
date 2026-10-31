@@ -56,6 +56,7 @@ src/whynot/
     campaign.py        campaign plan in Marketing API shape, validated; launch via the autopilot
     meta.py            Marketing API client (the only code that writes to an ad account)
     publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
+    killswitch.py      `whynot stop`: pause everything whynot created on the account, campaigns first, logged
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry
     longevity.py       R3: simulator vs Ad Library longevity

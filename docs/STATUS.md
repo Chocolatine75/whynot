@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-31
+Last updated: 2026-10-31 (evening)
 
 ## Where we are
 
@@ -45,6 +45,8 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-31 — Tom + Claude — Tom takes over both lanes (Matteo out of Claude credits). Reviewed #4/#5: fixed the daily loop saving memory only at the end (a crash after a real launch would launch the same ad again) and `--days` on a real account (would launch tomorrow's ads today), with regression tests. Remotion installed, real render test green. E14-12 accents in captions (`b/E14-12-accents`), E2-4 R1 ready for Monday, protocol pre-registered (`a/E2-4-r1`), E8-6 `whynot stop` + `docs/PILOT.md` (`b/E8-6-kill-switch`). All stacked on `b/daily-loop`. No model spend. **To merge in order: #4, #5, then the three branches.** Waiting: Tom's Meta credits + `MODEL_API_KEY`, Facebook identity check. Next: smoke test, sandbox rehearsal of publish + stop, E14-10 videos to Meta.
 
 - 2026-10-31 — Matteo + Claude — **Daily loop** (branch `b/daily-loop`): `whynot daily RUN [--sim --days N]`. Results (Meta Insights or a labelled simulated account) → memory of every ad and its idea → pause losers/tired ads within the cap → new ideas (exploit what sells in a new format, explore far from everything tried, never twice, backups) → videos that avoid past hooks → launch → daily report in `<run>/agency/reports/`. VietBuddy simulated week: 4 days, $0.57. 660 tests. Missing: publishing videos to Meta (E14-10), platform. Apify (TikTok trends) maybe; Pexels footage next.
 
