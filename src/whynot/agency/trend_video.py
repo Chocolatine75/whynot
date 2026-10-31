@@ -205,94 +205,98 @@ def save_report(out: Path, report: dict[str, Any]) -> Path:
     return target
 
 
-def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = None, voice: ElevenLabs | None = None,
-                      voice_id: str | None = None, token: str = "", renderer_factory: Callable[[], Any] | None = None,
-                      reuse_briefs: bool = False, say: Callable[[str], None] = print) -> dict[str, Any]:
-    cfg = cfg or VideoConfig()
-    run_dir = Path(run_dir)
-    out = run_dir / "videos"
-    out.mkdir(exist_ok=True)
-    app = json.loads((run_dir / "app.json").read_text())
-    brand = json.loads((run_dir / "brand.json").read_text())
-    config = json.loads((run_dir / "config.json").read_text())
-    strategy = Strategy.from_json(json.loads((run_dir / "strategy.json").read_text()))
-    ads = load_jsonl(run_dir / "market_ads.jsonl")
-    spent0 = model.spent_usd
-    report: dict[str, Any] = {"app": app["name"], "failures": {}}
-    if not remotion.available():
-        raise RuntimeError("trend videos need Remotion: run `cd video && npm install`")
+class Studio:
+    """Everything a trend video needs about one app, prepared once: the market and its trending formats,
+    the real UI and mascot cut-outs, the screen descriptions, the strategy context and what sells. `make`
+    then turns one idea (format, persona, angle) into a finished video. Used by `whynot video` and by the
+    daily loop."""
 
-    store = CreativeStore(CACHE / "creatives")
-    missing = [a for a in ads if a.snapshot_url and not store.has(a.id)]
-    if missing and cfg.capture and renderer_factory is not None:
-        say(f"capturing {len(missing)} competitor creatives...")
-        r = renderer_factory()
-        try:
-            capture(missing, store, token=token, renderer=r)
-        finally:
-            getattr(r, "close", lambda: None)()
-    images = {a.id: (store.path(a.id), "video" if info.kind == "video" else "static")
-              for a in ads if (info := store.info(a.id))}
-    dec = deconstruct_all(model, ads, images, DeconstructionStore(CACHE / "deconstruct"), model=cfg.model)
-    signals = trending(dec.done, ads, as_of=_as_of(ads))
-    report["trending"] = [asdict(s) for s in signals]
-    say(f"market: {len(dec.done)} ads deconstructed; trending formats: "
-        + (", ".join(f"{s.format} ({s.new_ads} new)" for s in signals[:4]) or "none"))
+    def __init__(self, run_dir: Path, model: Any, *, cfg: VideoConfig | None = None, voice: ElevenLabs | None = None,
+                 voice_id: str | None = None, token: str = "", renderer_factory: Callable[[], Any] | None = None,
+                 say: Callable[[str], None] = print):
+        self.cfg = cfg = cfg or VideoConfig()
+        self.run_dir = run_dir = Path(run_dir)
+        self.model, self.voice, self.voice_id, self.say = model, voice, voice_id, say
+        self.out = run_dir / "videos"
+        self.out.mkdir(exist_ok=True)
+        app = self.app = json.loads((run_dir / "app.json").read_text())
+        brand = self.brand = json.loads((run_dir / "brand.json").read_text())
+        config = json.loads((run_dir / "config.json").read_text())
+        strategy = Strategy.from_json(json.loads((run_dir / "strategy.json").read_text()))
+        ads = load_jsonl(run_dir / "market_ads.jsonl")
+        if not remotion.available():
+            raise RuntimeError("trend videos need Remotion: run `cd video && npm install`")
 
-    shots: list[Image.Image] = [Image.open(run_dir / "assets" / s) for s in brand["screenshots"]]
-    cut = cutouts(model, shots, CACHE / "sam")
-    say(f"app cut-outs: {len(cut.screens)} interfaces, mascot {'found' if cut.mascot else 'none'}")
-    screens_path = out / "screens.json"
-    if screens_path.exists():
-        screens = json.loads(screens_path.read_text())
-    else:
-        screens = classic_brief.describe_screens(model, app["name"], [image_data_url(run_dir / "assets" / s)
-                                                                     for s in brand["screenshots"]],
-                                                 model=cfg.model).value
-        screens_path.write_text(json.dumps(screens, indent=1, ensure_ascii=False))
+        store = CreativeStore(CACHE / "creatives")
+        missing = [a for a in ads if a.snapshot_url and not store.has(a.id)]
+        if missing and cfg.capture and renderer_factory is not None:
+            say(f"capturing {len(missing)} competitor creatives...")
+            r = renderer_factory()
+            try:
+                capture(missing, store, token=token, renderer=r)
+            finally:
+                getattr(r, "close", lambda: None)()
+        images = {a.id: (store.path(a.id), "video" if info.kind == "video" else "static")
+                  for a in ads if (info := store.info(a.id))}
+        dec = deconstruct_all(model, ads, images, DeconstructionStore(CACHE / "deconstruct"), model=cfg.model)
+        self.signals = trending(dec.done, ads, as_of=_as_of(ads))
+        say(f"market: {len(dec.done)} ads deconstructed; trending formats: "
+            + (", ".join(f"{s.format} ({s.new_ads} new)" for s in self.signals[:4]) or "none"))
 
-    groups = language_groups([c.upper() for c in config["countries"]], override=config.get("language"))
-    code, countries = next(iter(groups.items()))
-    local = localised(strategy, countries)
-    previous = out / "trends.json"
-    picks: list[dict[str, Any]]
-    if reuse_briefs and previous.exists():  # the same scripts, rendered again (new transitions, sounds...)
-        picks = [{"format": v["brief"]["format"], "persona": v["brief"]["persona"], "angle": v["brief"]["angle"],
-                  "why": v.get("why", ""), "brief": v["brief"]} for v in json.loads(previous.read_text())["videos"]]
-    else:
-        picks = list(pick_formats(model, local, signals, app=app["name"], description=app["description"],
-                                  has_mascot=cut.mascot is not None, n=cfg.n_videos, model=cfg.model).value)
-    report["picks"] = [{k: v for k, v in p.items() if k != "brief"} for p in picks]
-    say("formats: " + ", ".join(f"{p['format']} → {p['angle']}" for p in picks))
+        shots: list[Image.Image] = [Image.open(run_dir / "assets" / s) for s in brand["screenshots"]]
+        self.cut = cutouts(model, shots, CACHE / "sam")
+        say(f"app cut-outs: {len(self.cut.screens)} interfaces, mascot {'found' if self.cut.mascot else 'none'}")
+        screens_path = self.out / "screens.json"
+        if screens_path.exists():
+            self.screens = json.loads(screens_path.read_text())
+        else:
+            self.screens = classic_brief.describe_screens(
+                model, app["name"], [image_data_url(run_dir / "assets" / s) for s in brand["screenshots"]],
+                model=cfg.model).value
+            screens_path.write_text(json.dumps(self.screens, indent=1, ensure_ascii=False))
 
-    selling = trend_brief.selling_from_app(app, brand_name(app["name"]))
-    names = tuple(sorted({a.page_name for a in ads if a.page_name}))
-    ctx = Context(local, app["name"], app["description"], names, tuple(brand["palette"][:3]),
-                  brand["screenshots"][0], LANGUAGES[code])
-    icon = Image.open(run_dir / "assets" / "icon.png")
-    def one(n: int, p: dict[str, Any]) -> dict[str, Any]:
+        groups = language_groups([c.upper() for c in config["countries"]], override=config.get("language"))
+        code, countries = next(iter(groups.items()))
+        self.strategy = localised(strategy, countries)
+        self.selling = trend_brief.selling_from_app(app, brand_name(app["name"]))
+        names = tuple(sorted({a.page_name for a in ads if a.page_name}))
+        self.ctx = Context(self.strategy, app["name"], app["description"], names, tuple(brand["palette"][:3]),
+                           brand["screenshots"][0], LANGUAGES[code])
+        self.icon = Image.open(run_dir / "assets" / "icon.png")
+
+    def pick(self, n: int) -> list[dict[str, Any]]:
+        return list(pick_formats(self.model, self.strategy, self.signals, app=self.app["name"],
+                                 description=self.app["description"], has_mascot=self.cut.mascot is not None,
+                                 n=n, model=self.cfg.model).value)
+
+    def make(self, p: dict[str, Any], name_prefix: str, *, avoid: list[tuple[str, str]] | None = None
+             ) -> dict[str, Any]:
+        """One video for `p` (format, persona, angle; or a saved "brief" to render again). `avoid`: (hook, voice)
+        of past ads, whose words the new script must not repeat."""
+        model, voice, out = self.model, self.voice, self.out
         if "brief" in p:  # re-render a brief as it is (no rewrite)
             b = trend_brief.TrendBrief.from_json(p["brief"])
         else:
             fmt = trend_brief.get_format(p["format"])
-            b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
-                                  has_mascot=cut.mascot is not None, selling=selling, model=cfg.model).value
+            b = trend_brief.write(model, self.ctx, fmt, persona=p["persona"], angle=p["angle"], screens=self.screens,
+                                  has_mascot=self.cut.mascot is not None, selling=self.selling, avoid=avoid,
+                                  model=self.cfg.model).value
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
             if s.visual == "photo":
                 imgs[i] = scene_image(model, s.prompt or "", CACHE / "scenes", style=PHOTO_STYLE)
             elif s.visual == "screen" and s.screen:
-                imgs[i] = cut.screens[s.screen - 1]
-            elif s.visual == "mascot" and cut.mascot is not None:
-                imgs[i] = cut.mascot
+                imgs[i] = self.cut.screens[s.screen - 1]
+            elif s.visual == "mascot" and self.cut.mascot is not None:
+                imgs[i] = self.cut.mascot
         audio, guard, sfx = None, {"skipped": "no voice client"}, {}
         if voice is not None:
-            ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
+            ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == self.ctx.language), "en")
             if b.lines:
                 mp3, ws, guard = dialogue_track(voice, model, b, ad_code, out)
                 cap = ws or None
             elif b.voice:
-                v, guard = voice_track(voice, model, b.voice, ctx.language, voice_id)
+                v, guard = voice_track(voice, model, b.voice, self.ctx.language, self.voice_id)
                 mp3, cap = (v.mp3 if v else None), (words(v.characters, v.starts, v.ends) if v else None)
             else:
                 mp3, cap, guard = None, None, {}
@@ -300,19 +304,38 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
             audio = remotion.Audio(mp3, cap, music, music_volume=0.28)
             # an effect we no longer offer (an older script) is simply left out
             sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name in SFX_PROMPTS}
-        name = f"trend-{n}-{b.id}"
-        facts = trend_render.render(b, out / f"{name}.mp4", palette=brand["palette"],
-                                    app_name=brand_name(app["name"]), images=imgs, icon=icon,
-                                    rating=app.get("rating"), rating_count=app.get("rating_count"),
+        name = f"{name_prefix}-{b.id}"
+        facts = trend_render.render(b, out / f"{name}.mp4", palette=self.brand["palette"],
+                                    app_name=brand_name(self.app["name"]), images=imgs, icon=self.icon,
+                                    rating=self.app.get("rating"), rating_count=self.app.get("rating_count"),
                                     audio=audio, sfx=sfx)
-        say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"")
+        self.say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"")
         return {"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg", "voice_guard": guard,
-                "why": p["why"]}
+                "why": p.get("why", "")}
+
+
+def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = None, voice: ElevenLabs | None = None,
+                      voice_id: str | None = None, token: str = "", renderer_factory: Callable[[], Any] | None = None,
+                      reuse_briefs: bool = False, say: Callable[[str], None] = print) -> dict[str, Any]:
+    spent0 = model.spent_usd
+    studio = Studio(run_dir, model, cfg=cfg, voice=voice, voice_id=voice_id, token=token,
+                    renderer_factory=renderer_factory, say=say)
+    report: dict[str, Any] = {"app": studio.app["name"], "failures": {},
+                              "trending": [asdict(s) for s in studio.signals]}
+    previous = studio.out / "trends.json"
+    picks: list[dict[str, Any]]
+    if reuse_briefs and previous.exists():  # the same scripts, rendered again (new transitions, sounds...)
+        picks = [{"format": v["brief"]["format"], "persona": v["brief"]["persona"], "angle": v["brief"]["angle"],
+                  "why": v.get("why", ""), "brief": v["brief"]} for v in json.loads(previous.read_text())["videos"]]
+    else:
+        picks = studio.pick(studio.cfg.n_videos)
+    report["picks"] = [{k: v for k, v in p.items() if k != "brief"} for p in picks]
+    say("formats: " + ", ".join(f"{p['format']} → {p['angle']}" for p in picks))
 
     # the videos are independent: make them at the same time (about 3× faster than one after the other)
     videos = []
     with ThreadPoolExecutor(max_workers=max(1, min(len(picks), 3))) as pool:
-        futures = {pool.submit(one, n, p): p for n, p in enumerate(picks, 1)}
+        futures = {pool.submit(studio.make, p, f"trend-{n}"): p for n, p in enumerate(picks, 1)}
         for f in futures:
             p = futures[f]
             try:
@@ -322,5 +345,5 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
                 say(f"  ✗ {p['format']}: {exc}")
     report["videos"] = videos
     report["usd"] = round(model.spent_usd - spent0, 4)
-    save_report(out, report)
+    save_report(studio.out, report)
     return report

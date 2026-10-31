@@ -19,6 +19,7 @@ import unicodedata
 from dataclasses import asdict, dataclass
 from typing import Any
 
+from whynot.agency.ideas import MAX_TEXT_OVERLAP, overlap
 from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
 from whynot.agents.director import Context, CopyRules
 from whynot.audio.voices import GENDERS, LANGUAGE_NAMES, NATIVE
@@ -246,7 +247,7 @@ def _norm(text: str) -> str:
 
 
 def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screens: int, *, has_mascot: bool,
-                   selling: Selling | None = None):
+                   selling: Selling | None = None, avoid: list[tuple[str, str]] | None = None):
     rules = CopyRules(ctx)
     ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
 
@@ -333,6 +334,9 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
                 raise Invalid(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
                               "19-24 year-old telling friends what happened")
+        for old_hook, old_voice in avoid or []:  # a new idea must not come back with an old ad's words
+            if overlap(hook, old_hook) > MAX_TEXT_OVERLAP or (old_voice and overlap(voice, old_voice) > MAX_TEXT_OVERLAP):
+                raise Invalid(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
         everything = " ".join([spoken, voice.lower(), hook.lower(), cta.lower()])
         for phrase in NOT_IN_ADS:
             if phrase in everything:
@@ -403,7 +407,8 @@ def selling_from_app(app: dict[str, Any], brand: str) -> Selling:
 
 
 def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle: str, screens: list[str],
-          has_mascot: bool, selling: Selling | None = None, model: str = SPARK) -> Answer[TrendBrief]:
+          has_mascot: bool, selling: Selling | None = None, avoid: list[tuple[str, str]] | None = None,
+          model: str = SPARK) -> Answer[TrendBrief]:
     s = ctx.strategy
     p = s.persona(persona)
     a = next(x for x in s.angles if x.id == angle)
@@ -428,8 +433,12 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         prompt += ('\nAdd to the JSON: "offer": "<one of the offers>"; review shots: {"visual": "review", '
                    '"review": "<id>", "quote": "<exact words>", "beat": "proof", ...}; demo screens may have '
                    '"tap": true.')
+    if avoid:
+        prompt += ("\nAds already made for this app (never reuse their hook or their lines, find a new story):\n"
+                   + "\n".join(f'- "{h}"' for h, _ in avoid[-12:]))
     messages: list[dict[str, Any]] = [{"role": "user", "content": prompt}]
-    validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot, selling=selling)
+    validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot, selling=selling,
+                               avoid=avoid)
     first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=3, max_tokens=6000,
                      reasoning_effort="low")
     verdict = critique(client, first.value, model=model)
