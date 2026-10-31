@@ -117,7 +117,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [ ] **E0-6** Mutation testing on the critical modules (A)
   - *Done when:* `mutmut` on `run/autopilot.py`, `run/publish.py`, `create/guards.py`, `sim/arena.py`, `validate/stats.py`. Mutation score ≥ 80 % on each, reported in `ENGINEERING.md`.
   - *Tests:* the score itself; surviving mutants are fixed or explained.
-- [ ] **E0-7** Structured agent event log (A)
+- [x] **E0-7** Structured agent event log (A) — *Oct 31: `events.py`; every `create` stage and every orchestrator step writes an `AgentEvent` (agent, parent, input/output digests, guards, cost, seconds) to `events.jsonl`; secrets and `access_token=` scrubbed (property test); roll-ups never counted twice (test sums the log against the stages).*
   - *Done when:* every agent step writes one `AgentEvent` (agent, step, inputs digest, outputs digest, tool calls, guard results, cost, duration, parent event) to `events.jsonl`. The web app reads it.
   - *Tests:* e2e (every stage of `create` emits events; costs in events sum to `costs.jsonl`); security (no token in events).
 
@@ -242,7 +242,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 - [ ] **E4-4** Analyst agent (A)
   - *Done when:* it reads simulated reactions, groups the "why not" into themes, and proposes the mutations the Evolver applies. Every claim cites reaction ids.
   - *Tests:* cited ids exist (unit); adversarial (invented ids rejected).
-- [ ] **E4-5** Orchestrator (A + B)
+- [x] **E4-5** Orchestrator (A + B) — *Oct 31: `whynot connect` + `whynot agency` (`run/connect.py`, `agency/orchestrator.py`): Meta login + App Store link → connect → create → publish → daily, resumable from any step (a finished step costs $0 on resume, tested), budget per step (property: never above its cap or what is left), one ad cap for static + video ads together (tested), approvals waited for and remembered. 17 e2e tests on the fake world. Not yet run against a real ad account.*
   - *Done when:* one orchestrator runs the agents over the `AgentEvent` log (E0-7), with a budget per agent, retries, and a resume from any event. `create` becomes a configuration of it.
   - *Tests:* e2e on the fake world; resume from every stage; budget per agent enforced (property).
 - [ ] **E4-6** Account manager (B)
@@ -412,7 +412,7 @@ Method inspired by VoodRadar (ideas only: no licence, hackathon rule), rebuilt o
 - [x] **E14-7** Robustness: model requests time out (3 min), videos made in parallel, a failed run never overwrites the last scripts, `--rerender` renders the same scripts again.
 - [x] **E14-8** ★ Make it sell (Oct 31, `Selling` in `agents/trend_brief.py`): demo of the app in action (≥ 25 % of the time, ≥ 2 real screens), proof (a verified review quote), transformation shot, offer from the store page ("free to start"), the app named in the voice. Enforced by the validator.
 - [ ] **E14-9** Reference ads: the client's best videos (MP4 with consent, `data/private/`) deconstructed into a house style the briefs follow.
-- [ ] **E14-10** Videos in the campaign plan and in publishing (Marketing API video upload, PAUSED).
+- [x] **E14-10** Videos in the campaign plan and in publishing (Marketing API video upload, PAUSED). — *Oct 31: `run/video_ads.py` + `MetaLauncher`: the daily loop publishes each new video as its own ad set (plan's persona targeting, its budget) in one daily campaign: upload → wait for processing → poster thumbnail → ad set → creative → ad, PAUSED, then ACTIVE children first when the autopilot says EXECUTE. Resumable via `agency/meta.json` (no double upload); tested on a fake Graph, with the kill switch. Not yet run on a real account.*
 - [ ] **E14-11** Critic on keyframes vs the best competitor ads before the final render.
 - [x] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua"). — *Oct 31: the prompt example had no accents; the prompt now asks for them and the validator refuses known unaccented Vietnamese words in English lines and on-screen text, naming the correct spelling.* *The creator's own Vietnamese now has its own line and caption (set apart by language).*
 

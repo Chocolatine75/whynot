@@ -69,17 +69,36 @@ class SimLauncher:
 
 
 class MetaLauncher:
-    """The real account: pauses go through the Marketing API. Publishing a new VIDEO ad is not built yet
-    (roadmap E14-10): launching raises, so new ads stay proposed and the report says why."""
+    """The real account. Pauses go through the Marketing API; new video ads are published by `publisher`
+    (`run/video_ads.py`: one ad set per ad, the persona's targeting from the plan). Without a publisher,
+    launching raises, so new ads stay proposed and the report says why."""
 
     simulated = False
 
-    def __init__(self, client: Any):
+    def __init__(self, client: Any, publisher: Any = None, *, audiences: dict[str, Any] | None = None,
+                 videos: Path | None = None, title: str = ""):
         self.client = client
+        self.publisher = publisher
+        self.audiences = audiences or {}  # persona id -> campaign.Audience
+        self.videos = videos  # <run>/videos
+        self.title = title
 
     def launch(self, rec: AdRecord, budget_eur: float) -> str:
-        raise NotImplementedError("publishing video ads to Meta is not built yet (E14-10): approve and upload "
-                                  f"{rec.file} by hand, or wait for E14-10")
+        from whynot.run.video_ads import VideoAd
+
+        if self.publisher is None or self.videos is None:
+            raise NotImplementedError("no video publisher configured: approve and upload "
+                                      f"{rec.file} by hand")
+        audience = self.audiences.get(rec.persona)
+        if audience is None:
+            raise ValueError(f"no audience for persona {rec.persona!r} in the run's plan.json")
+        video = self.videos / Path(rec.file).name
+        poster = video.with_name(video.stem + ".poster.jpg")
+        for f in (video, poster):
+            if not f.exists():
+                raise FileNotFoundError(f"{f.name} is missing: re-render the video first")
+        return str(self.publisher.publish(VideoAd(rec.key, video, poster, rec.hook, self.title, audience,
+                                                  budget_eur), activate=True))
 
     def pause(self, rec: AdRecord) -> None:
         if rec.meta_ad_id:

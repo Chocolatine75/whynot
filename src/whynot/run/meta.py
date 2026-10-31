@@ -77,7 +77,7 @@ class MarketingClient:
         return text.replace(self.account.token, "[REDACTED]")
 
     def _call(self, method: str, path: str, data: dict[str, Any] | None = None,
-              params: dict[str, Any] | None = None) -> dict[str, Any]:
+              params: dict[str, Any] | None = None, files: dict[str, Any] | None = None) -> dict[str, Any]:
         url = f"{self.base}/{path.lstrip('/')}"
         for attempt in range(self.retries + 1):
             last = attempt == self.retries
@@ -85,7 +85,8 @@ class MarketingClient:
                 if method == "GET":
                     response = self.http.get(url, params={**(params or {}), "access_token": self.account.token})
                 else:
-                    response = self.http.post(url, data={**_form(data or {}), "access_token": self.account.token})
+                    response = self.http.post(url, data={**_form(data or {}), "access_token": self.account.token},
+                                              files=files)
             except httpx.HTTPError as exc:
                 if last:
                     raise MetaError(self._redact(f"request failed: {exc}")) from None
@@ -130,6 +131,29 @@ class MarketingClient:
         if not first or "hash" not in first:
             raise MetaError("no image hash in the response")
         return str(first["hash"])
+
+    def upload_video(self, path: Path) -> str:
+        """Upload an ad video (multipart); returns its video id. Meta processes it before a creative can use it."""
+        path = Path(path)
+        body = self._call("POST", f"{self.account.act}/advideos", {"name": path.name},
+                          files={"source": (path.name, path.read_bytes(), "video/mp4")})
+        if "id" not in body:
+            raise MetaError("no video id in the response to advideos")
+        return str(body["id"])
+
+    def wait_video_ready(self, video_id: str, *, timeout_s: float = 300, every_s: float = 5) -> None:
+        """Poll the video's processing status; a creative made before it is ready is refused by Meta."""
+        waited = 0.0
+        while True:
+            status = (self.get(video_id, "status").get("status") or {}).get("video_status")
+            if status == "ready":
+                return
+            if status == "error":
+                raise MetaError(f"Meta could not process video {video_id}")
+            if waited >= timeout_s:
+                raise MetaError(f"video {video_id} still processing after {timeout_s:.0f} s ({status})")
+            self._sleep(every_s)
+            waited += every_s
 
     def create_campaign(self, fields: dict[str, Any]) -> str:
         return self._create("campaigns", fields)

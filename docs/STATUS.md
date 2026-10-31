@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-31 (evening)
+Last updated: 2026-10-31 (night)
 
 ## Where we are
 
@@ -20,7 +20,7 @@ Done:
 
 | Who | Task | Branch / files | Notes |
 |---|---|---|---|
-| — | — | — | — |
+| Matteo + Claude | E0-7 event log + E4-5 orchestrator (`whynot connect`, `whynot agency`) | `b/E4-5-orchestrator` (contains Tom's E14-10) | done, PR to open; next: E3-2/E3-3/E6-1 tournament + noise floor in evolution |
 
 ## Next up (M0, see `PLAN.md`)
 
@@ -45,6 +45,10 @@ Done:
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-10-31 (night, 2) — Matteo + Claude — **First real `whynot agency --sim` run, on VietBuddy** (`outputs/runs/20261031-171657-id6796837982`, $2.53): every step ran; strategy matches a human read (3 personas: Southern heritage, travellers, partners; objections from real reviews; no pronunciation promises). Found and fixed: the simulated account halved the plan's cap for a static campaign it never publishes (an audience was dropped), and the header said `dry_run` while the simulated account runs on autopilot. Still open: the trend videos make an invented creator say they used the app and got a result (fake testimonial, against our honesty rules) → fix in `agents/trend_brief.py`; static copy repeats one feature ("Choose Northern or Southern voices") in most ads; 4 of 8 angles answer the same objection.
+
+- 2026-10-31 (night) — Matteo + Claude — **The agency in one command** (branch `b/E4-5-orchestrator`, on master + Tom's E14-10): `whynot connect` turns the owner's Meta login into a checked connection (ad account + Page found from the token, permissions, saved in `data/private/connections/`, token never in argv or a run folder); `whynot agency <App Store link> --countries FR --daily-cap 20 --connection <file>` runs connect → create → publish → daily, resumable, budget per step, one ad cap for static + video ads, approvals waited for and remembered (E4-5). Shared agent event log `events.jsonl` with parents and digests (E0-7). 39 new tests (17 e2e on the fake world). Real Meta API reached: the sandbox token expired Oct 29 (clear error, no leak). **Not yet run on a real account or a real app** (needs a fresh Meta login). `test_partner_data_only_under_private` fails on master until PR #10 is merged. Next: tournament + noise floor in evolution (E3-2, E3-3, E6-1), critic on keyframes (E14-11), owner report with approve/block (E8-5). **Tom:** the Connect Meta button can pipe the login token to `whynot connect --token-stdin`; the agency room can read `events.jsonl` (parent ids) and `agency/state.json`.
 
 - 2026-10-31 — Tom + Claude — Tom takes over both lanes (Matteo out of Claude credits). Reviewed #4/#5: fixed the daily loop saving memory only at the end (a crash after a real launch would launch the same ad again) and `--days` on a real account (would launch tomorrow's ads today), with regression tests. Remotion installed, real render test green. E14-12 accents in captions (`b/E14-12-accents`), E2-4 R1 ready for Monday, protocol pre-registered (`a/E2-4-r1`), E8-6 `whynot stop` + `docs/PILOT.md` (`b/E8-6-kill-switch`). All stacked on `b/daily-loop`. No model spend. **To merge in order: #4, #5, then the three branches.** Waiting: Tom's Meta credits + `MODEL_API_KEY`, Facebook identity check. Next: smoke test, sandbox rehearsal of publish + stop, E14-10 videos to Meta.
 
