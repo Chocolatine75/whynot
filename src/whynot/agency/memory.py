@@ -31,6 +31,7 @@ class AdRecord:
     voice: str = ""
     file: str = ""
     why: str = ""  # explore / exploit and the reason
+    parent: str | None = None  # exploit: the ad whose message this one re-uses
     status: str = "proposed"
     meta_ad_id: str | None = None
     launched: str | None = None  # ISO date it went live
