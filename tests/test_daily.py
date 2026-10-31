@@ -160,3 +160,41 @@ def test_a_failed_idea_is_replaced_the_same_day_and_never_retried(tmp_path):
     asked = [(c["format"], c["persona"], c["angle"]) for c in producer.calls]
     assert len(asked) == len(set(asked))  # a failed idea is never asked again
     assert len(reports[0].new) == 2  # a backup filled the slot the same day
+
+
+class Crash(BaseException):
+    """A kill mid-run (not an Exception: nothing in the loop may catch it)."""
+
+
+class CrashingLauncher(SimLauncher):
+    """Launches the first ad on the account, then the process dies."""
+
+    def __init__(self):
+        self.launched = []
+
+    def launch(self, rec, budget_eur):
+        if self.launched:
+            raise Crash
+        self.launched.append(rec.key)
+        return f"meta-{rec.key}"
+
+
+def test_a_crash_after_a_launch_never_launches_the_same_ad_twice(tmp_path):
+    # Bug: memory was saved only at the end of the day; a crash after a real launch left the ad "proposed",
+    # so the next run launched it again (a duplicate ad and double spend).
+    launcher = CrashingLauncher()
+    with pytest.raises(Crash):
+        run_day(tmp_path, DAY0, source=SimulatedAccount(seed=1), producer=Producer(), launcher=launcher,
+                policy=AUTOPILOT, strategy=STRATEGY, cfg=DailyConfig(target_live=4, max_new=2), say=lambda s: None)
+    memory = Memory(tmp_path / "agency" / "memory.json")
+    first = memory.ads[launcher.launched[0]]
+    assert first.status == "live" and first.meta_ad_id == f"meta-{first.key}"
+
+
+def test_a_real_account_runs_one_day_only(tmp_path, capsys):
+    from whynot.cli import main
+
+    (tmp_path / "strategy.json").write_text("{}")
+    assert main(["daily", str(tmp_path), "--days", "3"]) == 1
+    assert main(["daily", str(tmp_path), "--start", "2026-11-05"]) == 1
+    assert "--sim" in capsys.readouterr().err

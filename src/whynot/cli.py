@@ -160,6 +160,12 @@ def _daily(args: argparse.Namespace) -> int:
     if not (run_dir / "strategy.json").exists():
         print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
         return 1
+    if not args.sim and (args.days != 1 or args.start):
+        # several days in one go only make sense on the simulated account: on a real one they would launch
+        # tomorrow's ads today
+        print("✗ --days and --start are for the simulated account (--sim); a real account runs one day: today",
+              file=sys.stderr)
+        return 1
     s = load_settings()
     cfg = DailyConfig(target_live=args.target, max_new=args.new, budget_per_ad_eur=args.budget_per_ad)
     source: Any

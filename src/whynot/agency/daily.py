@@ -172,6 +172,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
             if d.outcome is Outcome.EXECUTE:
                 launcher.pause(memory.ads[action.ad_ref])
                 memory.set_status(action.ad_ref, "paused", action.reason, day=rep.day)
+                memory.save()  # what happened on the account is on disk before anything else can fail
                 budgets.pop(action.ad_ref, None)
                 rep.paused.append({"ad": action.ad_ref, "why": action.reason})
                 say(f"  ⏸ {action.ad_ref}: {action.reason}")
@@ -227,6 +228,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
                     rep.waiting_approval.append(rec.key)
                     continue
                 memory.set_status(rec.key, "live", d.why, day=rep.day)
+                memory.save()  # a crash after this point must not make tomorrow launch the same ad again
                 budgets[rec.key] = cfg.budget_per_ad_eur
             else:
                 rep.waiting_approval.append(rec.key)
