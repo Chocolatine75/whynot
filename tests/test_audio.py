@@ -44,6 +44,12 @@ def test_words_group_characters_with_their_times():
     ("Order coffee in Vietnam", "order a coffee in vietnam", 1 / 4),
     ("", "", 0.0),
     ("ngl ive just been pausing it", "ngl i've just been pausing it", 0.0),  # contractions are the same word
+    # regression: a correct voice was dropped for these (WER 0.42): they sound the same
+    ("ok so i'm meeting his mom and i lowkey wanna cry", "Okay, so I'm meeting his mom, and I low key want to cry.",
+     0.0),
+    ("my girl told me to get VietBuddy so i could hear that line like fifty times first",
+     "My girl told me to get Viet buddy so I could hear that line line like 50 times first", 1 / 17),  # "line line"
+    ("twenty five minutes", "25 minutes", 0.0),
 ])
 def test_word_error_rate(ref, heard, wer):
     assert word_error_rate(ref, heard) == pytest.approx(wer)

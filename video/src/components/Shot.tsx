@@ -3,6 +3,7 @@ import { AbsoluteFill, Img, interpolate, random, spring, staticFile, useCurrentF
 import { fontFamily } from "../fonts";
 import { Look, ShotProps } from "../types";
 import { Bubble } from "./Bubble";
+import { ReviewCard, Tap } from "./Proof";
 
 // One shot: a full-bleed visual that never stops moving, the caption bubble, a flash on hard cuts.
 export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; index: number; first: boolean }> = ({
@@ -43,6 +44,8 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
       <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
         objectPosition: shot.visual === "screen" ? `50% ${focusY}` : "50% 50%", transform }} />
     );
+  } else if (shot.visual === "review") {
+    visual = <ReviewCard quote={shot.quote ?? ""} stars={shot.stars ?? 5} look={look} />;
   } else if (shot.visual === "mascot") {
     visual = (
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 60%, ${look.accent} 0%, ${look.fg} 85%)`,
@@ -74,6 +77,9 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
       {visual}
       {shot.visual === "photo" ? (
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 40%)" }} />
+      ) : null}
+      {shot.visual === "screen" && shot.tap ? (
+        <Tap y={{ top: 620, middle: 1000, bottom: 1400, full: 1000 }[shot.focus ?? "full"]} />
       ) : null}
       <Bubble text={caption} top={first ? 430 : 480} big={first} />
       <AbsoluteFill style={{ background: "#FFFFFF", opacity: flashOpacity }} />

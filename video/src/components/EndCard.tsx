@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, us
 import { fontFamily } from "../fonts";
 import { AdProps, Look } from "../types";
 
-export const EndCard: React.FC<{ card: AdProps["endCard"]; look: Look }> = ({ card, look }) => {
+export const EndCard: React.FC<{ card: AdProps["endCard"] & { offer?: string }; look: Look }> = ({ card, look }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const icon = spring({ frame, fps, config: { damping: 9 } });
@@ -19,7 +19,7 @@ export const EndCard: React.FC<{ card: AdProps["endCard"]; look: Look }> = ({ ca
       ) : null}
       <div style={{ textAlign: "center", opacity: text, transform: `translateY(${interpolate(text, [0, 1], [30, 0])}px)` }}>
         <div style={{ fontWeight: 800, fontSize: 92, letterSpacing: -2 }}>{card.appName}</div>
-        <div style={{ fontWeight: 600, fontSize: 44, opacity: 0.75, marginTop: 10 }}>{card.rating}</div>
+        <div style={{ fontWeight: 600, fontSize: 44, opacity: 0.75, marginTop: 10 }}>{card.offer || card.rating}</div>
       </div>
       <div style={{ background: look.accent, color: look.onAccent, fontWeight: 800, fontSize: 64,
         padding: "34px 80px", borderRadius: 999, opacity: button,

@@ -25,15 +25,15 @@ from whynot.audio.voices import GENDERS, LANGUAGE_NAMES, NATIVE
 from whynot.create.trends import BY_ID, Format
 from whynot.models import SPARK
 
-VISUALS = ("text", "photo", "screen", "mascot")
+VISUALS = ("text", "photo", "screen", "mascot", "review")
 MOVES = ("punch_in", "slow_zoom", "shake", "slide", "pop", "still")
 SFX = ("whoosh", "pop", "ding", "none")  # record scratch and bass drop sounded harsh: removed
 FOCUS = ("top", "middle", "bottom", "full")
-BEATS = ("trend", "twist", "cta")
+BEATS = ("trend", "twist", "demo", "proof", "payoff", "cta")  # in this order
 MOODS = ("upbeat", "calm", "playful", "inspiring", "dramatic")
 SHOT_SECONDS = (0.6, 2.2)
-SHOTS = (8, 14)
-TOTAL_SECONDS = (10.0, 20.0)
+SHOTS = (8, 16)
+TOTAL_SECONDS = (10.0, 24.0)
 END_CARD_SECONDS = 1.6
 _FORBIDDEN_IN_PHOTO = re.compile(r"\b(phone|smartphone|screen|app|interface|ui|logo|text|words?|letters?|caption|"
                                  r"iphone|android|tablet|laptop|brand|sign|signs)\b", re.IGNORECASE)
@@ -52,6 +52,10 @@ class Shot:
     focus: str | None = None
     prompt: str | None = None
     text: str | None = None
+    tap: bool = False  # a demo screen: a finger taps the focus region
+    review: str | None = None  # a review shot: the review id
+    quote: str | None = None  # ... and the words quoted from it, verbatim
+    stars: int | None = None  # ... and its star rating
 
 
 @dataclass(frozen=True)
@@ -79,6 +83,7 @@ class TrendBrief:
     cta: str
     music: str
     lines: tuple[Line, ...] = ()
+    offer: str = ""  # shown on the end card; only an offer the store page supports
 
     @property
     def seconds(self) -> float:
@@ -115,7 +120,7 @@ Shots ({min_shots}-{max_shots}), each {s_low}-{s_high} s, a cut every second or 
   objects; NEVER a phone, screen, app, logo, sign or any text in it). "screen" = real screen number `screen`
   with `focus` (top, middle, bottom, full). "text" = a bold card with `text`.
 - caption: the native on-screen caption bubble (max 8 words, can be "" for a pure visual beat)
-- move: {moves}; sfx on the cut: {sfx}; beat: trend, twist or cta (in that order).
+- move: {moves}; sfx on the cut: {sfx}; beat: trend, twist, demo, proof, payoff, cta (in that order).
 
 Return JSON only:
 {{"id": "<snake_case>", "hook": "<first caption, max 8 words, the scroll-stopper>",
@@ -149,7 +154,18 @@ No emoji in captions."""
 TEACHER_WORDS = ("learn", "learning", "lesson", "lessons", "practise", "practice", "practicing", "practising",
                  "improve", "skills", "master", "fluent", "fluently", "effortlessly", "unlock", "journey",
                  "discover", "boost", "enhance", "perfect your", "start your", "download now", "language skills")
+# Phrases that make no sense in an ad (it has a button, not a bio).
+NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more", "comment below")
 EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
+
+
+_SHOUT = re.compile(r"\b[A-Z]{2,}\b")
+
+
+def calm(text: str) -> str:
+    """Captions and cards read like texts: words in capitals are lowercased (Meta's policy flags shouting, and
+    a model asked three times kept writing "THIS or THAT"). The voice keeps its capitals: they are emphasis."""
+    return _SHOUT.sub(lambda m: m.group(0).lower(), text)
 
 
 def _words(value: Any, n: int, name: str, *, allow_empty: bool = False) -> str:
@@ -204,7 +220,33 @@ def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
     return out
 
 
-def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screens: int, *, has_mascot: bool):
+@dataclass(frozen=True)
+class Proof:
+    id: str
+    rating: int
+    text: str
+
+
+@dataclass(frozen=True)
+class Selling:
+    """What a trend ad needs to sell, all verified by code: the name the creator must say, reviews that may be
+    quoted (≥ 4 stars, verbatim only), and the offers the store page supports."""
+
+    brand: str
+    reviews: tuple[Proof, ...] = ()
+    offers: tuple[str, ...] = ()
+
+
+DEMO_SHARE = 0.25  # the app in action: at least a quarter of the video
+TREND_SHARE_SELLING = 0.4  # the trend still carries the start
+
+
+def _norm(text: str) -> str:
+    return " ".join(re.sub(r"[^\w\s]", " ", text.lower().replace("’", "'")).split())
+
+
+def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screens: int, *, has_mascot: bool,
+                   selling: Selling | None = None):
     rules = CopyRules(ctx)
     ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
 
@@ -214,7 +256,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         bid = str(data.get("id", ""))
         if not _ID.match(bid):
             raise Invalid("'id' must be snake_case, 3-41 characters")
-        hook = _words(data.get("hook"), 8, "hook")
+        hook = calm(_words(data.get("hook"), 8, "hook"))
         cta = _words(data.get("cta"), 4, "cta")
         lines = _lines(data, ad_code)
         voice = " ".join(x.text for x in lines)
@@ -241,12 +283,12 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                     raise Invalid(f"{where}: '{key}' must be one of {list(allowed)}")
             beat = BEATS.index(s["beat"])
             if beat < last_beat:
-                raise Invalid(f"{where}: beats must go trend → twist → cta, never back")
+                raise Invalid(f"{where}: beats must go {' → '.join(BEATS)}, never back")
             last_beat = beat
             sec = s.get("seconds")
             if isinstance(sec, bool) or not isinstance(sec, (int, float)) or not SHOT_SECONDS[0] <= sec <= SHOT_SECONDS[1]:
                 raise Invalid(f"{where}: 'seconds' must be between {SHOT_SECONDS[0]} and {SHOT_SECONDS[1]}")
-            caption = _words(s.get("caption", ""), 8, f"{where} caption", allow_empty=True)
+            caption = calm(_words(s.get("caption", ""), 8, f"{where} caption", allow_empty=True))
             if caption:
                 texts[f"proof.shot{i}"] = caption
             screen = focus = prompt = text = None
@@ -263,12 +305,27 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                     raise Invalid(f"{where}: the photo prompt mentions {m.group(0)!r}; generated photos never show a "
                                   "phone, screen, app, logo, sign or text (show the real app with visual 'screen')")
             elif s["visual"] == "text":
-                text = _words(s.get("text"), 8, f"{where} text")
+                text = calm(_words(s.get("text"), 8, f"{where} text"))
                 texts[f"proof.card{i}"] = text
+            elif s["visual"] == "review":
+                if selling is None or not selling.reviews:
+                    raise Invalid(f"{where}: no verified review to quote; use another visual")
+                by_id = {r.id: r for r in selling.reviews}
+                rid = str(s.get("review", ""))
+                if rid not in by_id:
+                    raise Invalid(f"{where}: 'review' must be one of the verified review ids {sorted(by_id)}")
+                quote = _words(s.get("quote"), 18, f"{where} quote")
+                if _norm(quote) not in _norm(by_id[rid].text):
+                    raise Invalid(f"{where}: the quote must be copied word for word from review {rid}")
             elif not has_mascot:
                 raise Invalid(f"{where}: this app has no mascot; use text, photo or screen")
+            tap = bool(s.get("tap", False)) and s["visual"] == "screen"
+            review = quote_ = stars = None
+            if s["visual"] == "review" and selling is not None:
+                review, quote_ = str(s["review"]), " ".join(str(s["quote"]).split())
+                stars = next(r.rating for r in selling.reviews if r.id == review)
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
-                              prompt, text))
+                              prompt, text, tap, review, quote_, stars))
         mine = " ".join(x.text for x in lines if x.speaker == "me")  # what the creator says, in the ad's language
         spoken = " ".join([mine] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
         allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
@@ -276,25 +333,77 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
                 raise Invalid(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
                               "19-24 year-old telling friends what happened")
+        everything = " ".join([spoken, voice.lower(), hook.lower(), cta.lower()])
+        for phrase in NOT_IN_ADS:
+            if phrase in everything:
+                raise Invalid(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
         trend = sum(s.seconds for s in shots if s.beat == "trend")
         body = sum(s.seconds for s in shots)
         if not any(s.beat == "twist" and s.visual == "screen" for s in shots):
             raise Invalid("the twist must show the real app: at least one 'twist' shot with visual 'screen'")
-        if trend < 0.5 * body:
-            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s; make it most of the video (≥ 50 %)")
+        share = TREND_SHARE_SELLING if selling else 0.5
+        if trend < share * body:
+            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s; make it at least {share:.0%} of the video")
+        offer = ""
+        if selling is not None:
+            demo = [x for x in shots if x.beat == "demo"]
+            if sum(1 for x in demo if x.visual == "screen") < 2 or sum(x.seconds for x in demo) < DEMO_SHARE * body:
+                raise Invalid(f"show the app in action: 'demo' shots with at least 2 real screens and at least "
+                              f"{DEMO_SHARE:.0%} of the video ({DEMO_SHARE * body:.1f} s); now "
+                              f"{sum(x.seconds for x in demo):.1f} s")
+            if not any(x.tap for x in demo):
+                raise Invalid("at least one demo screen must show the tap (\"tap\": true) on what to use")
+            if selling.reviews and not any(x.beat == "proof" and x.visual == "review" for x in shots):
+                raise Invalid("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
+            if not any(x.beat == "payoff" and x.visual in ("photo", "mascot") for x in shots):
+                raise Invalid("add the transformation: a 'payoff' shot (photo or mascot) of the moment it works")
+            mine_words = _norm(" ".join(x.text for x in lines if x.speaker == "me"))
+            if _norm(selling.brand) not in mine_words:
+                raise Invalid(f"the creator must say the app's name ({selling.brand!r}) once, like a friend's tip")
+            if selling.offers:
+                offer = str(data.get("offer", ""))
+                if offer not in selling.offers:
+                    raise Invalid(f"'offer' must be one of {list(selling.offers)} (what the store page supports)")
         total = body + END_CARD_SECONDS
         if not TOTAL_SECONDS[0] <= total <= TOTAL_SECONDS[1]:
             raise Invalid(f"the video lasts {total:.1f} s with the end card; make it "
                           f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
         rules.check(texts, "trend brief")
         return TrendBrief(bid, fmt.id, persona, angle, ctx.language, hook, tuple(shots), voice, cta,
-                          str(data["music"]), tuple(lines))
+                          str(data["music"]), tuple(lines), offer)
 
     return validate
 
 
+SELLING = """
+IT MUST SELL. After the trend and the twist, in this order:
+- DEMO ({demo_share} of the video at least, ≥ 2 real screens, beat "demo"): the app in action on its real screens,
+  punched into the part that matters, with "tap": true on the screen where the finger taps. The voice says what
+  it does, in the creator's words, and names {brand} once.
+- PROOF (beat "proof", visual "review"): quote a verified review word for word ("review": id, "quote": max 18
+  words copied exactly). Verified reviews:
+{reviews}
+- PAYOFF (beat "payoff", photo or mascot): the transformation, the moment it works (grandma smiling, the order
+  understood).
+- CTA (beat "cta") and the end card. "offer": one of {offers}.
+"""
+
+
+def selling_from_app(app: dict[str, Any], brand: str) -> Selling:
+    """Reviews that may be quoted (≥ 4 stars) and offers the store page supports, from the App Store data."""
+    reviews = tuple(Proof(str(r["id"]), int(r["rating"]), " ".join(str(r.get("text", "")).split()))
+                    for r in app.get("reviews", []) if int(r.get("rating", 0)) >= 4 and r.get("text"))
+    desc = str(app.get("description", "")).lower()
+    offers = []
+    if float(app.get("price") or 0) == 0:
+        offers.append("Free to download")
+    if "free trial" in desc:
+        offers.append("Free trial")
+    return Selling(brand, reviews, tuple(offers))
+
+
 def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle: str, screens: list[str],
-          has_mascot: bool, model: str = SPARK) -> Answer[TrendBrief]:
+          has_mascot: bool, selling: Selling | None = None, model: str = SPARK) -> Answer[TrendBrief]:
     s = ctx.strategy
     p = s.persona(persona)
     a = next(x for x in s.angles if x.id == angle)
@@ -311,8 +420,16 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
                      else "The app has no mascot: never use visual 'mascot'."),
         min_shots=SHOTS[0], max_shots=SHOTS[1], s_low=SHOT_SECONDS[0], s_high=SHOT_SECONDS[1],
         visuals=", ".join(VISUALS), moves=", ".join(MOVES), sfx=", ".join(SFX), moods=", ".join(MOODS))
+    if selling is not None:
+        prompt += SELLING.format(
+            demo_share=f"{DEMO_SHARE:.0%}", brand=selling.brand, offers=list(selling.offers) or ["(none)"],
+            reviews="\n".join(f'  - id {r.id} ({r.rating} stars): "{r.text[:300]}"' for r in selling.reviews)
+            or "  (none: skip the proof)")
+        prompt += ('\nAdd to the JSON: "offer": "<one of the offers>"; review shots: {"visual": "review", '
+                   '"review": "<id>", "quote": "<exact words>", "beat": "proof", ...}; demo screens may have '
+                   '"tap": true.')
     messages: list[dict[str, Any]] = [{"role": "user", "content": prompt}]
-    validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot)
+    validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot, selling=selling)
     first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=3, max_tokens=6000,
                      reasoning_effort="low")
     verdict = critique(client, first.value, model=model)
