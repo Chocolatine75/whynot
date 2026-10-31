@@ -113,7 +113,7 @@ def with_shot(i, **kw):
     ({**GOOD, "voice": "Rival Lingo can't do this."}, "competitor"),
     ({**GOOD, "voice": "Improve your skills with daily lessons."}, "course or an ad"),
     (with_shot(1, caption="master the tones"), "course or an ad"),
-    ({**GOOD, "voice": "so i said ca phe [screams] and she kept going"}, "unknown tags"),
+    ({**GOOD, "voice": "so i said cà phê [screams] and she kept going"}, "unknown tags"),
     ({**GOOD, "voice": "[laughs] no [sighs] why [gasps] bro [groans]"}, "more than 3"),
 ])
 def test_bad_trend_briefs_are_refused(data, error):
@@ -212,7 +212,7 @@ def test_a_masked_mascot_is_cut_out_on_transparency(tmp_path):
 
 
 def test_creator_voice_with_emotion_tags_is_accepted_and_the_meme_line_is_exempt():
-    b = check({**GOOD, "voice": "so i said ca phe... [laughs] and she just. kept. talking. i was SO cooked"})
+    b = check({**GOOD, "voice": "so i said cà phê... [laughs] and she just. kept. talking. i was SO cooked"})
     assert "[laughs]" in b.voice  # kept for the voice model; stripped for the copy checks and the guard
     assert check(GOOD).hook.startswith("Tell me you're learning")  # the trend line itself may say "learning"
 
@@ -429,3 +429,29 @@ def test_shouting_in_captions_and_cards_is_calmed_not_refused():
 def test_creator_habits_that_make_no_sense_in_an_ad_are_refused(patch):
     with pytest.raises(Invalid, match="makes no sense in an ad"):
         check_selling(sell_patch(patch))
+
+
+@pytest.mark.parametrize("text", ["so i said ca phe sua da and she laughed", "khong. just khong.",
+                                  "Xin Chao grandma"])
+def test_vietnamese_words_without_accents_are_refused_in_english_lines(text):
+    # Seen on a real run: English captions showed "ca phe sua" (the prompt's own example had no accents).
+    with pytest.raises(Invalid, match="keep their accents"):
+        check({**GOOD, "voice": text})
+
+
+def test_the_refusal_names_the_correct_spelling():
+    with pytest.raises(Invalid, match="'cà phê' not 'ca phe'"):
+        check({**GOOD, "voice": "so i said ca phe and she laughed"})
+
+
+@pytest.mark.parametrize("text", ["so i said cà phê sữa đá and she laughed", "the barista said something",
+                                  "i was in a cafe", "a phone call", "she said no"])
+def test_accented_vietnamese_and_plain_english_pass(text):
+    check({**GOOD, "voice": text})
+
+
+def test_unaccented_vietnamese_finds_every_phrase():
+    from whynot.agents.trend_brief import unaccented_vietnamese
+
+    assert unaccented_vietnamese("Ca Phe and bao nhieu?") == [("Ca Phe", "cà phê"), ("bao nhieu", "bao nhiêu")]
+    assert unaccented_vietnamese("cà phê, bao nhiêu?") == []

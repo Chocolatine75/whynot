@@ -414,7 +414,7 @@ Method inspired by VoodRadar (ideas only: no licence, hackathon rule), rebuilt o
 - [ ] **E14-9** Reference ads: the client's best videos (MP4 with consent, `data/private/`) deconstructed into a house style the briefs follow.
 - [ ] **E14-10** Videos in the campaign plan and in publishing (Marketing API video upload, PAUSED).
 - [ ] **E14-11** Critic on keyframes vs the best competitor ads before the final render.
-- [ ] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua"). *The creator's own Vietnamese now has its own line and caption (set apart by language).*
+- [x] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua"). — *Oct 31: the prompt example had no accents; the prompt now asks for them and the validator refuses known unaccented Vietnamese words in English lines and on-screen text, naming the correct spelling.* *The creator's own Vietnamese now has its own line and caption (set apart by language).*
 
 Tests: `test_deconstruct`, `test_archetypes`, `test_brief`, `test_trends` (formats, trend briefs, tone, dialogue, cut-outs, props, never losing scripts), `test_audio` (voice, music, SFX, dialogue guard, captions), `test_remotion` (props + a real render when Node is installed), `test_video`, `test_video_pipeline`.
 
