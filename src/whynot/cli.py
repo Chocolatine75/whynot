@@ -1,8 +1,10 @@
-"""Command line: `whynot create`, `whynot video`, `whynot publish`, `whynot costs`."""
+"""Command line: `whynot create`, `whynot video`, `whynot daily`, `whynot publish`, `whynot costs`."""
 
 import argparse
+import json
 import sys
 from pathlib import Path
+from typing import Any
 
 from whynot.config import REPO_ROOT, load_settings
 from whynot.costs import TEAM_BUDGET_USD
@@ -142,6 +144,57 @@ def _video(args: argparse.Namespace) -> int:
     return 0 if report["videos"] else 2
 
 
+def _daily(args: argparse.Namespace) -> int:
+    from datetime import date, timedelta
+
+    from whynot.agency.daily import AlreadyRunning, DailyConfig, MetaLauncher, SimLauncher, run_day
+    from whynot.agency.trend_video import Studio
+    from whynot.agency.video import CACHE, VideoConfig
+    from whynot.agents.strategist import Strategy
+    from whynot.models import BudgetExceeded, ModelClient
+    from whynot.run.autopilot import Level
+    from whynot.run.insights import MetaInsights, SimulatedAccount
+    from whynot.run.meta import Account, MarketingClient
+
+    run_dir = Path(args.run)
+    if not (run_dir / "strategy.json").exists():
+        print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
+        return 1
+    s = load_settings()
+    cfg = DailyConfig(target_live=args.target, max_new=args.new, budget_per_ad_eur=args.budget_per_ad)
+    source: Any
+    launcher: Any
+    if args.sim:
+        source, launcher = SimulatedAccount(seed=args.seed, daily_budget_eur=args.budget_per_ad), SimLauncher()
+        policy = Policy(Level.AUTOPILOT, args.target * args.budget_per_ad, first_live_approved=True)
+        print(f"SIMULATED account: results are invented by a known model, not real (cap €{policy.daily_cap_eur:.2f})")
+    else:
+        client = MarketingClient(Account(s.meta_ad_account_id or "", s.meta_token or "", page_id=s.meta_page_id),
+                                 version=s.fb_api_version)
+        source, launcher = MetaInsights(client, objective=args.objective), MetaLauncher(client)
+        policy = Policy.from_env(s.autonomy_level, s.max_daily_ad_spend_eur)
+    model = ModelClient(s, budget_usd=args.budget_usd)
+    voice = None
+    if s.elevenlabs_api_key and not args.silent:
+        from whynot.audio.elevenlabs import ElevenLabs
+        voice = ElevenLabs(s.elevenlabs_api_key, CACHE / "audio")
+    try:
+        studio = Studio(run_dir, model, cfg=VideoConfig(capture=False), voice=voice,
+                        voice_id=s.elevenlabs_voice_id)
+        strategy = Strategy.from_json(json.loads((run_dir / "strategy.json").read_text()))
+        start = date.fromisoformat(args.start) if args.start else date.today()
+        for i in range(args.days):
+            rep = run_day(run_dir, start + timedelta(days=i), source=source, producer=studio, launcher=launcher,
+                          policy=policy, strategy=strategy, cfg=cfg, approved_by=args.approve)
+            print(f"  → {rep.day}: {len(rep.live)} live, {len(rep.paused)} paused, {len(rep.new)} new, "
+                  f"{len(rep.waiting_approval)} waiting · report agency/reports/{rep.day}.md")
+    except (AlreadyRunning, BudgetExceeded, RuntimeError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    print(f"model cost ${model.spent_usd:.2f}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -187,6 +240,21 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--style", choices=["trend", "classic"], default="trend",
                    help="trend: viral formats turned into ads (fast cuts, Remotion); classic: storyboard ads")
     v.set_defaults(func=_video)
+
+    dy = sub.add_parser("daily", help="the agency's day: results, decisions, new ads with new ideas, report")
+    dy.add_argument("run", help="the run folder (outputs/runs/...)")
+    dy.add_argument("--sim", action="store_true", help="a simulated account (results invented, labelled as such)")
+    dy.add_argument("--days", type=int, default=1, help="run this many days in a row (with --sim: a week in minutes)")
+    dy.add_argument("--start", help="first day, YYYY-MM-DD (default: today)")
+    dy.add_argument("--target", type=int, default=4, help="ads running at the same time")
+    dy.add_argument("--new", type=int, default=2, help="new ads per day at most")
+    dy.add_argument("--budget-per-ad", type=float, default=5.0, help="daily budget per ad, EUR")
+    dy.add_argument("--objective", choices=["traffic", "app_promotion"], default="traffic")
+    dy.add_argument("--approve", metavar="NAME", help="the owner's approval for today's launches")
+    dy.add_argument("--seed", type=int, default=0, help="simulated account seed")
+    dy.add_argument("--budget-usd", type=float, default=3.0, help="hard cap on model spend for this command")
+    dy.add_argument("--silent", action="store_true", help="no voice-over or music")
+    dy.set_defaults(func=_daily)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")
