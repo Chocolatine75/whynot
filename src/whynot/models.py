@@ -22,12 +22,22 @@ from openai import OpenAI
 from whynot.budget import Budget, BudgetExceeded
 from whynot.cassette import Cassette, CassetteMissing, Recording, request_key
 from whynot.config import Settings, load_settings
-from whynot.costs import CostEvent, CostLedger, check_priced, image_cost, segment_cost, token_cost
+from whynot.costs import (
+    CostEvent,
+    CostLedger,
+    check_priced,
+    image_cost,
+    segment_cost,
+    token_cost,
+    transcribe_cost,
+)
 
 SPARK = "muse-spark-1.3"
 SPARK_CONTRIBUTOR = "muse-spark-1.3-contributor"  # Meta trains on this data: synthetic content only
 WONDER = "muse-wonder-1.0"
 IMAGE = "muse-image-1.0"
+TRANSCRIBE = "muse-voice-transcribe-1.0"
+REQUEST_TIMEOUT_S = 180
 SAM = "sam-3.1"
 
 
@@ -137,8 +147,9 @@ class ModelClient:
         if self._meta is None:
             if not self.settings.model_api_key:
                 raise MissingKey("MODEL_API_KEY is not set in .env")
-            self._meta = OpenAI(api_key=self.settings.model_api_key,
-                                base_url=self.settings.model_base_url)
+            # a hung request must fail, not freeze a run: 3 minutes is far above any normal call
+            self._meta = OpenAI(api_key=self.settings.model_api_key, base_url=self.settings.model_base_url,
+                                timeout=REQUEST_TIMEOUT_S, max_retries=2)
         return self._meta
 
     @property
@@ -258,6 +269,38 @@ class ModelClient:
                 module=module, model=SAM, usd=segment_cost(SAM, images=1), images=1, ok=ok,
             ))
         return SegmentResult(text="".join(chunks), cost=cost)
+
+    # --- speech to text ----------------------------------------------------
+
+    def transcribe(self, wav: bytes, *, module: str, languages: list[str] | None = None,
+                   http: Any = None) -> str:
+        """Muse Voice Transcribe on a WAV clip (mono PCM, 16 or 24 kHz, up to 10 minutes): the transcript.
+
+        Multipart body: `request` (JSON settings) and `audio` (the clip). Billed per second of audio."""
+        import json as _json
+
+        import httpx
+
+        self._refuse_in_replay(TRANSCRIBE, module)
+        self._check_budget()
+        if not self.settings.model_api_key:
+            raise MissingKey("MODEL_API_KEY is not set")
+        settings: dict[str, Any] = {"model": TRANSCRIBE, "audioEncoding": "WAV", "mode": "PUSH_TO_TALK"}
+        if languages:
+            settings["languageBias"] = languages
+        client = http or httpx.Client(timeout=120)
+        r = client.post(f"{self.settings.model_base_url.rstrip('/')}/asr/transcribe",
+                        headers={"Authorization": f"Bearer {self.settings.model_api_key}",
+                                 "Accept": "application/json"},
+                        files={"request": (None, _json.dumps(settings), "application/json"),
+                               "audio": ("clip.wav", wav, "audio/wav")})
+        if r.status_code >= 400:
+            raise RuntimeError(f"transcribe: HTTP {r.status_code}: {r.text[:300]}")
+        body = r.json()
+        seconds = float(body.get("audioDurationMs", 0)) / 1000
+        self._record(CostEvent(module=module, model=TRANSCRIBE, usd=transcribe_cost(TRANSCRIBE, seconds),
+                               audio_seconds=seconds))
+        return str(body.get("transcript", ""))
 
     # --- discovery ---------------------------------------------------------
 

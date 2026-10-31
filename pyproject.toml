@@ -5,6 +5,8 @@ description = "AI ad agency for small businesses on Meta"
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.28.1",
+    "imageio-ffmpeg>=0.7.0",
+    "meta-sam-parser==0.1.0",
     "openai>=1.60",
     "pillow>=13.0.0",
     "python-dotenv>=1.0",

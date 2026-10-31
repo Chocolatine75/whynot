@@ -1,4 +1,4 @@
-"""Command line: `whynot create ...` (and `whynot daily` next)."""
+"""Command line: `whynot create`, `whynot video`, `whynot publish`, `whynot costs`."""
 
 import argparse
 import sys
@@ -101,6 +101,47 @@ def _costs(args: argparse.Namespace) -> int:
     return 0
 
 
+def _video(args: argparse.Namespace) -> int:
+    from whynot.agency.video import VideoConfig, make_videos
+    from whynot.models import BudgetExceeded, ModelClient
+
+    run_dir = Path(args.run)
+    if not (run_dir / "strategy.json").exists():
+        print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
+        return 1
+    settings = load_settings()
+    factory = None
+    if not args.no_capture:
+        try:
+            from whynot.ingest.creatives import PlaywrightRenderer
+            factory = PlaywrightRenderer
+        except ImportError:  # pragma: no cover - optional dependency group
+            print("  (capture skipped: run with `uv run --group capture` to fetch competitor creatives)")
+    model = ModelClient(settings, budget_usd=args.budget_usd)
+    voice = None
+    if settings.elevenlabs_api_key and not args.silent:
+        from whynot.agency.video import CACHE
+        from whynot.audio.elevenlabs import ElevenLabs
+        voice = ElevenLabs(settings.elevenlabs_api_key, CACHE / "audio")
+    elif not args.silent:
+        print("  (no ELEVENLABS_API_KEY in .env: videos without voice-over or music)")
+    try:
+        if args.style == "trend":
+            from whynot.agency.trend_video import make_trend_videos
+            report = make_trend_videos(run_dir, model, cfg=VideoConfig(n_videos=args.n), voice=voice,
+                                       voice_id=settings.elevenlabs_voice_id, token=settings.fb_token or "",
+                                       renderer_factory=factory, reuse_briefs=args.rerender)
+        else:
+            report = make_videos(run_dir, model, token=settings.fb_token or "", renderer_factory=factory,
+                                 voice=voice, voice_id=settings.elevenlabs_voice_id,
+                                 cfg=VideoConfig(n_videos=args.n, renderer=args.renderer))
+    except (BudgetExceeded, RuntimeError) as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    print(f"\n✓ {len(report['videos'])} video(s) in {run_dir / 'videos'} · model cost ${report['usd']:.2f}")
+    return 0 if report["videos"] else 2
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="whynot", description="AI ad agency for small businesses on Meta.")
     sub = p.add_subparsers(dest="command", required=True)
@@ -132,6 +173,20 @@ def main(argv: list[str] | None = None) -> int:
     pub.add_argument("--activate", action="store_true", help="switch everything to ACTIVE after publishing")
     pub.add_argument("--activate-only", action="store_true", help="activate what an earlier run published")
     pub.set_defaults(func=_publish)
+
+    v = sub.add_parser("video", help="video ads for a run, from the market's winning ad archetypes")
+    v.add_argument("run", help="the run folder (outputs/runs/...)")
+    v.add_argument("-n", type=int, default=3, help="number of videos (one per archetype)")
+    v.add_argument("--budget-usd", type=float, default=2.0, help="hard cap on model spend for this command")
+    v.add_argument("--no-capture", action="store_true", help="use only competitor creatives already captured")
+    v.add_argument("--renderer", choices=["remotion", "builtin"], default="remotion",
+                   help="remotion: voice, captions, music (needs `cd video && npm install`); builtin: silent")
+    v.add_argument("--silent", action="store_true", help="no voice-over or music")
+    v.add_argument("--rerender", action="store_true",
+                   help="trend: render the last scripts again (videos/trends.json) without rewriting them")
+    v.add_argument("--style", choices=["trend", "classic"], default="trend",
+                   help="trend: viral formats turned into ads (fast cuts, Remotion); classic: storyboard ads")
+    v.set_defaults(func=_video)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")

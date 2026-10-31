@@ -10,3 +10,7 @@ if [ -d web/node_modules ]; then
   echo "== web: types + tests"
   (cd web && npm run -s typecheck && npm test --silent)
 fi
+if [ -d video/node_modules ]; then
+  echo "== video (Remotion): types"
+  (cd video && npm run -s typecheck)
+fi

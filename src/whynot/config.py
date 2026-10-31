@@ -33,6 +33,8 @@ class Settings:
     cassette_mode: str = "off"  # off | record | replay (see cassette.py)
     cassette_dir: Path = REPO_ROOT / "tests" / "cassettes"
     viewer_cache_dir: Path | None = None  # cached viewer answers (see sim/viewer.py); None = no cache
+    elevenlabs_api_key: str | None = None  # voice-over and music (Meta has no text-to-speech model)
+    elevenlabs_voice_id: str | None = None
 
 
 def _clean(value: str | None) -> str:
@@ -80,5 +82,7 @@ def load_settings() -> Settings:
         max_daily_ad_spend_eur=_float("MAX_DAILY_AD_SPEND_EUR", 0.0),
         cassette_mode=_clean(os.getenv("WHYNOT_CASSETTE")) or "off",
         cassette_dir=Path(_clean(os.getenv("WHYNOT_CASSETTE_DIR")) or REPO_ROOT / "tests" / "cassettes"),
+        elevenlabs_api_key=_clean(os.getenv("ELEVENLABS_API_KEY")) or None,
+        elevenlabs_voice_id=_clean(os.getenv("ELEVENLABS_VOICE_ID")) or None,
         viewer_cache_dir=_viewer_cache_dir(_clean(os.getenv("WHYNOT_VIEWER_CACHE"))),
     )
