@@ -302,7 +302,8 @@ def _agency(args: argparse.Namespace) -> int:
     account = ("SIMULATED (results invented by a known model, not real)" if cfg.simulated_account
                else orch.state["account"]["act"])
     print(f"run folder: {orch.run_dir}\naccount: {account}"
-          f" · autonomy {cfg.level} · ad cap €{cfg.daily_cap_eur:.2f}/day · model budget ${cfg.budget_usd:.2f}")
+          f" · autonomy {cfg.effective_level} · ad cap €{cfg.daily_cap_eur:.2f}/day"
+          f" · model budget ${cfg.budget_usd:.2f}")
     try:
         result = orch.run(approved_by=args.approve, days=args.days,
                           today=date.fromisoformat(args.start) if args.start else None)

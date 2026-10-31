@@ -74,7 +74,16 @@ class AgencyConfig:
 
     @property
     def static_cap_eur(self) -> float:
-        return round(self.daily_cap_eur * self.static_share, 2) if self.publish_static else self.daily_cap_eur
+        """The static campaign's share of the cap. On the simulated account it is never published, so its plan
+        gets the whole cap (halving it there only dropped audiences from a proposal nobody runs)."""
+        if self.publish_static and not self.simulated_account:
+            return round(self.daily_cap_eur * self.static_share, 2)
+        return self.daily_cap_eur
+
+    @property
+    def effective_level(self) -> str:
+        """What actually decides launches: the simulated account always runs on autopilot within the cap."""
+        return Level.AUTOPILOT.value if self.simulated_account else self.level
 
 
 class Waiting(Exception):

@@ -370,3 +370,11 @@ def test_cli_connect_reads_the_token_from_stdin_never_argv(tmp_path, monkeypatch
     assert cli.main(["connect", "--token-stdin"]) == 0
     out = capsys.readouterr().out
     assert seen["token"] == TOKEN and TOKEN not in out and "act_123456" in out and "whynot agency" in out
+
+
+def test_the_simulated_account_plans_with_the_whole_cap_and_says_autopilot():
+    sim = cfg(simulated_account=True, level="dry_run")
+    assert sim.static_cap_eur == 20.0 and sim.effective_level == "autopilot"
+    real = cfg(connection="x.json", level="dry_run")
+    assert real.static_cap_eur == 10.0 and real.effective_level == "dry_run"
+    assert cfg(connection="x.json", publish_static=False).static_cap_eur == 20.0
