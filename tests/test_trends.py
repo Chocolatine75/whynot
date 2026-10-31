@@ -261,3 +261,61 @@ def test_a_good_tone_is_not_rewritten():
     write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
           screens=["a", "b", "c"], has_mascot=False)
     assert [c["module"] for c in model.calls] == ["trend_brief", "tone_critic"]
+
+
+DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?"},
+            {"speaker": "them", "language": "vi", "gender": "female", "accent": "south",
+             "text": "Dạ, em uống ở đây hay mang về?"},
+            {"speaker": "me", "text": "[laughs] bro i was SO cooked"}]
+
+
+def test_dialogue_lines_are_typed_with_language_and_accent():
+    b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": DIALOGUE})
+    assert [(x.speaker, x.language, x.accent) for x in b.lines] == [("me", "en", None), ("them", "vi", "south"),
+                                                                     ("me", "en", None)]
+    assert "mang về" in b.voice
+    assert TrendBrief.from_json(json.loads(json.dumps(b.to_json()))).lines == b.lines
+    legacy = check(GOOD)  # a plain "voice" is one line by the creator
+    assert legacy.lines[0].speaker == "me" and legacy.lines[0].text == GOOD["voice"]
+
+
+@pytest.mark.parametrize("patch, error", [
+    ({"text": "Da, em uong o day hay mang ve?"}, "accents and tone marks"),
+    ({"language": "ja"}, "no native voice"),
+    ({"accent": "central"}, "accent must be"),
+    ({"gender": "robot"}, "gender"),
+    ({"speaker": "narrator"}, "speaker"),
+])
+def test_bad_dialogue_lines_are_refused(patch, error):
+    lines = json.loads(json.dumps(DIALOGUE))
+    lines[1].update(patch)
+    with pytest.raises(Invalid, match=error):
+        check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
+
+
+def test_the_creator_may_try_the_other_language_in_its_own_line_with_accents():
+    lines = json.loads(json.dumps(DIALOGUE))
+    lines[0] = {"speaker": "me", "language": "vi", "text": "cà phê sữa đá?"}
+    b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
+    assert (b.lines[0].speaker, b.lines[0].language) == ("me", "vi")
+    lines[0]["text"] = "ca phe sua da?"
+    with pytest.raises(Invalid, match="accents and tone marks"):
+        check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
+
+
+def test_teacher_words_are_checked_only_in_the_creator_lines():
+    lines = json.loads(json.dumps(DIALOGUE))
+    lines[2]["text"] = "time to practise again"
+    with pytest.raises(Invalid, match="course or an ad"):
+        check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
+
+
+def test_casting_picks_native_voices_by_language_accent_and_gender():
+    from whynot.audio.voices import CREATOR, NATIVE, cast
+    assert cast("me", "en", "en").voice_id == CREATOR["male"]
+    assert cast("them", "vi", "en", gender="female", accent="south").voice_id == NATIVE["vi"]["south"]["female"]
+    assert cast("them", "vi", "en", gender="male", accent="north").native is True
+    assert cast("them", "vi", "en", accent="moon").voice_id in {v for a in NATIVE["vi"].values() for v in a.values()}
+    assert cast("them", "en", "en", gender="male").voice_id == CREATOR["female"]  # never the creator's own voice
+    with pytest.raises(ValueError, match="no native voice"):
+        cast("them", "ja", "en")

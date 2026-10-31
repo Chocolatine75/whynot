@@ -43,6 +43,7 @@ def test_words_group_characters_with_their_times():
     ("She speaks Southern", "she speaks", 1 / 3),
     ("Order coffee in Vietnam", "order a coffee in vietnam", 1 / 4),
     ("", "", 0.0),
+    ("ngl ive just been pausing it", "ngl i've just been pausing it", 0.0),  # contractions are the same word
 ])
 def test_word_error_rate(ref, heard, wer):
     assert word_error_rate(ref, heard) == pytest.approx(wer)
@@ -186,3 +187,67 @@ def test_emotion_tags_are_performed_not_captioned_nor_counted_by_the_guard():
                                                                       "kept", "going"]
     assert spoken(text) == "so i said ca phe and she kept going"
     assert word_error_rate(text, "so i said ca phe and she kept going") == 0.0
+
+
+def _line_server(tmp_path, calls, seconds=1.0):
+    mp3 = silent_mp3(tmp_path, seconds)
+
+    def handler(request):
+        body = json.loads(request.content)
+        calls.append({"voice": request.url.path.split("/")[3], **body})
+        text = body["text"]
+        starts = [i * 0.05 for i in range(len(text))]
+        return httpx.Response(200, json={"audio_base64": base64.b64encode(mp3).decode(), "alignment": {
+            "characters": list(text), "character_start_times_seconds": starts,
+            "character_end_times_seconds": [s + 0.04 for s in starts]}})
+    return handler
+
+
+def _brief_with_lines():
+    from whynot.agents.trend_brief import Line, Shot, TrendBrief
+    lines = (Line("me", "so i order", "en"), Line("them", "Dạ em uống gì", "vi", "female", "south"),
+             Line("me", "i was cooked", "en"))
+    return TrendBrief("t", "pov", "p", "a", "English", "hook", (Shot("text", "", 1.0, "pop", "none", "trend"),),
+                      " ".join(x.text for x in lines), "Start", "calm", lines)
+
+
+def test_each_line_is_voiced_checked_and_joined_with_exact_caption_times(tmp_path):
+    from whynot.agency.trend_video import LINE_GAP_S, dialogue_track
+    from whynot.audio.captions import audio_seconds
+    from whynot.audio.voices import NATIVE
+    calls = []
+    el = eleven(tmp_path, _line_server(tmp_path, calls))
+    heard = iter(["so i order", "da em uong gi", "i was cooked"])
+    langs = []
+
+    def transcribe(wav, *, module, languages):
+        langs.append(languages[0])
+        return next(heard)
+
+    mp3, ws, guard = dialogue_track(el, NS(transcribe=transcribe), _brief_with_lines(), "en", tmp_path)
+    assert mp3 is not None and calls[1]["voice"] == NATIVE["vi"]["south"]["female"]
+    assert langs == ["English", "Vietnamese", "English"] and guard["creator_word_error_rate"] == 0.0
+    clip = audio_seconds(next(tmp_path.glob("audio/voice-*.mp3")))
+    second_line = [w for w in ws if w.native]
+    assert [w.text for w in second_line] == ["Dạ", "em", "uống", "gì"]
+    assert second_line[0].start == pytest.approx(clip + LINE_GAP_S, abs=0.01)  # shifted by line 1 + the breath
+    assert audio_seconds(mp3) == pytest.approx(3 * clip + 2 * LINE_GAP_S, abs=0.08)
+
+
+def test_a_wrong_creator_line_is_regenerated_then_dropped_but_a_weak_native_line_is_only_flagged(tmp_path):
+    from whynot.agency.trend_video import dialogue_track
+    calls = []
+    el = eleven(tmp_path, _line_server(tmp_path, calls))
+    answers = iter(["so i order", "something else entirely", "i was cooked"])
+    mp3, _, guard = dialogue_track(el, NS(transcribe=lambda wav, **k: next(answers)), _brief_with_lines(), "en",
+                                   tmp_path)
+    assert mp3 is not None and guard["lines"][1]["flagged"] is True and len(calls) == 3  # no retry for natives
+
+    calls.clear()
+    el = ElevenLabs(KEY, tmp_path / "fresh", http=httpx.Client(transport=httpx.MockTransport(
+        _line_server(tmp_path, calls))))  # a fresh cache: the first takes were cached above
+    bad = iter(["totally wrong words", "totally wrong again", "da em uong gi", "i was cooked"])
+    mp3, _, guard = dialogue_track(el, NS(transcribe=lambda wav, **k: next(bad)), _brief_with_lines(), "en",
+                                   tmp_path)
+    assert mp3 is None and guard["dropped"] is True
+    assert [c["seed"] for c in calls[:2]] == [7, 8]  # the wrong line was regenerated once

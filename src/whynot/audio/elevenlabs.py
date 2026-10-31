@@ -126,3 +126,38 @@ class ElevenLabs:
             self.cache.mkdir(parents=True, exist_ok=True)
             path.write_bytes(r.content)
         return path
+
+    def dialogue(self, lines: list[tuple[str, str]], *, model_id: str = VOICE_MODEL, seed: int = 7) -> "Dialogue":
+        """Several voices in one take (`lines`: (text, voice id) in order), with per-character timing and
+        when each line starts and ends."""
+        if not lines:
+            raise ValueError("a dialogue needs at least one line")
+        body = {"inputs": [{"text": t, "voice_id": v} for t, v in lines], "model_id": model_id, "seed": seed}
+        key = self._key("dialogue", body)
+        mp3, meta = self.cache / f"dialogue-{key}.mp3", self.cache / f"dialogue-{key}.json"
+        if not (mp3.exists() and meta.exists()):
+            data = self._post("/text-to-dialogue/with-timestamps", body).json()
+            al = data.get("alignment") or data.get("normalized_alignment")
+            if not data.get("audio_base64") or not al or not data.get("voice_segments"):
+                raise ElevenLabsError("no audio, alignment or segments in the dialogue answer")
+            self.cache.mkdir(parents=True, exist_ok=True)
+            mp3.write_bytes(base64.b64decode(data["audio_base64"]))
+            meta.write_text(json.dumps({
+                "characters": al["characters"], "starts": al["character_start_times_seconds"],
+                "ends": al["character_end_times_seconds"],
+                "segments": [[s["dialogue_input_index"], s["start_time_seconds"], s["end_time_seconds"]]
+                             for s in data["voice_segments"]]}))
+        m = json.loads(meta.read_text())
+        return Dialogue(mp3, m["characters"], m["starts"], m["ends"], [tuple(x) for x in m["segments"]])
+
+
+@dataclass(frozen=True)
+class Dialogue(Voice):
+    segments: list[tuple[int, float, float]] = ()  # type: ignore[assignment]  # (line index, start s, end s)
+
+    def line_at(self, t: float) -> int | None:
+        """The line being spoken at time `t` (seconds)."""
+        for i, a, b in self.segments:
+            if a <= t < b:
+                return int(i)
+        return None

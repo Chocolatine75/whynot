@@ -15,11 +15,13 @@ All words go through the same checks as every ad (`director.CopyRules`).
 
 import json
 import re
+import unicodedata
 from dataclasses import asdict, dataclass
 from typing import Any
 
 from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
 from whynot.agents.director import Context, CopyRules
+from whynot.audio.voices import GENDERS, LANGUAGE_NAMES, NATIVE
 from whynot.create.trends import BY_ID, Format
 from whynot.models import SPARK
 
@@ -53,6 +55,18 @@ class Shot:
 
 
 @dataclass(frozen=True)
+class Line:
+    """One spoken line: "me" (the creator, in the ad's language) or "them" (someone else, maybe in their own
+    language, then spoken by a native voice with the accent asked)."""
+
+    speaker: str
+    text: str
+    language: str  # ISO 639-1
+    gender: str = "female"  # for "them"
+    accent: str | None = None  # for native lines, e.g. "south"
+
+
+@dataclass(frozen=True)
 class TrendBrief:
     id: str
     format: str
@@ -64,6 +78,7 @@ class TrendBrief:
     voice: str  # what the voice says over the shots ("" = no voice)
     cta: str
     music: str
+    lines: tuple[Line, ...] = ()
 
     @property
     def seconds(self) -> float:
@@ -74,7 +89,8 @@ class TrendBrief:
 
     @classmethod
     def from_json(cls, d: dict[str, Any]) -> "TrendBrief":
-        return cls(**{**d, "shots": tuple(Shot(**s) for s in d["shots"])})
+        return cls(**{**d, "shots": tuple(Shot(**s) for s in d["shots"]),
+                      "lines": tuple(Line(**x) for x in d.get("lines", ()))})
 
 
 PROMPT = """You are the best short-form creative on TikTok and Reels. Make a {low}-{high} second vertical ad that
@@ -105,7 +121,9 @@ Return JSON only:
 {{"id": "<snake_case>", "hook": "<first caption, max 8 words, the scroll-stopper>",
   "shots": [{{"visual": "photo", "prompt": "...", "caption": "...", "seconds": 1.2, "move": "punch_in",
              "sfx": "whoosh", "beat": "trend"}}, ...],
-  "voice": "<the creator's voice-over across the video, max 40 words, emotion tags allowed>",
+  "lines": [{{"speaker": "me", "text": "<the creator, in {language}>"}},
+            {{"speaker": "them", "language": "<code>", "gender": "female|male", "accent": "<accent>",
+              "text": "<what the other person says>"}}, ...],
   "cta": "<end card button, max 4 words>", "music": "<one of {moods}>"}}
 {tone}"""
 
@@ -117,7 +135,14 @@ into your phone, telling your friends what happened to you.
 - The app comes in like a friend's tip, never like an ad: "anyway this app has a southern voice and it's
   actually the only reason grandma understands me now".
 - Captions read like texts: lowercase, short, no full stops.
-- The voice may use up to 3 emotion tags: [laughs], [sighs], [gasps], [whispers], [groans].
+- The audio is a short DIALOGUE ("lines", max 8, max 55 words in all): "me" is the creator; "them" is the
+  other person in the story (the barista, the grandma, the mother-in-law). When they speak another language,
+  write their line in that real language with every accent and tone mark (it is spoken by a native voice):
+  {natives}. The joke is often the creator not understanding them.
+- Never put words of another language inside an English line: when the creator TRIES to say something in
+  the other language, give it its own "me" line with that language code and the correct accents (the creator's
+  voice says it, like a learner would).
+- Lines may use up to 3 emotion tags in all: [laughs], [sighs], [gasps], [whispers], [groans].
 - Never sound like a lesson or a commercial: never use {banned}.
 No emoji in captions."""
 # Words that make a video sound like a language course or an ad, refused in the voice and the captions.
@@ -136,8 +161,52 @@ def _words(value: Any, n: int, name: str, *, allow_empty: bool = False) -> str:
     return text
 
 
+_VIETNAMESE_MARKS = set("ăâđêôơưĂÂĐÊÔƠƯ")
+
+
+def _has_marks(text: str) -> bool:
+    """Accents or tone marks are present (any combining mark after decomposition, or đ/ơ/ư...)."""
+    return any(ch in _VIETNAMESE_MARKS for ch in text) or any(unicodedata.combining(c)
+                                                             for c in unicodedata.normalize("NFD", text))
+
+
+def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
+    raw = data.get("lines")
+    if raw is None and isinstance(data.get("voice"), str):  # a plain voice-over: one line by the creator
+        raw = [{"speaker": "me", "text": data["voice"]}] if data["voice"].strip() else []
+    if raw is None:
+        raw = []
+    if not isinstance(raw, list) or len(raw) > 8:
+        raise Invalid("'lines' must be a list of at most 8 lines")
+    out, total = [], 0
+    for i, x in enumerate(raw, 1):
+        where = f"line {i}"
+        if not isinstance(x, dict) or x.get("speaker") not in ("me", "them"):
+            raise Invalid(f"{where}: 'speaker' must be 'me' or 'them'")
+        text = _words(x.get("text"), 25, f"{where} text")
+        total += len(text.split())
+        lang = str(x.get("language") or ad_code)
+        if lang != ad_code and lang not in NATIVE:
+            raise Invalid(f"{where}: no native voice for language {lang!r}; use one of {sorted(NATIVE)} or "
+                          f"{ad_code}")
+        gender = x.get("gender", "female")
+        if gender not in GENDERS:
+            raise Invalid(f"{where}: 'gender' must be one of {list(GENDERS)}")
+        accent = x.get("accent")
+        if lang in NATIVE and accent is not None and accent not in NATIVE[lang]:
+            raise Invalid(f"{where}: accent must be one of {sorted(NATIVE[lang])}")
+        if lang == "vi" and not _has_marks(text):
+            raise Invalid(f"{where}: Vietnamese without its accents and tone marks; write it correctly "
+                          "(cà phê sữa đá, not ca phe sua da)")
+        out.append(Line(x["speaker"], text, lang, gender, accent if lang in NATIVE else None))
+    if total > 55:
+        raise Invalid(f"the lines have {total} words in all, max 55")
+    return out
+
+
 def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screens: int, *, has_mascot: bool):
     rules = CopyRules(ctx)
+    ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
 
     def validate(data: Any) -> TrendBrief:
         if not isinstance(data, dict):
@@ -147,7 +216,8 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             raise Invalid("'id' must be snake_case, 3-41 characters")
         hook = _words(data.get("hook"), 8, "hook")
         cta = _words(data.get("cta"), 4, "cta")
-        voice = _words(data.get("voice", ""), 40, "voice", allow_empty=True)
+        lines = _lines(data, ad_code)
+        voice = " ".join(x.text for x in lines)
         if data.get("music") not in MOODS:
             raise Invalid(f"'music' must be one of {list(MOODS)}")
         raw = data.get("shots")
@@ -156,11 +226,11 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         texts = {"hook.main": hook, "cta.button": cta}
         tags = re.findall(r"\[[^\]]*\]", voice)
         if bad := [t for t in tags if t not in EMOTION_TAGS]:
-            raise Invalid(f"'voice' has unknown tags {bad}; allowed: {list(EMOTION_TAGS)}")
+            raise Invalid(f"the lines have unknown tags {bad}; allowed: {list(EMOTION_TAGS)}")
         if len(tags) > 3:
-            raise Invalid("'voice' has more than 3 emotion tags")
-        if voice:
-            texts["body.voice"] = re.sub(r"\s*\[[^\]]*\]\s*", " ", voice).strip()
+            raise Invalid("the lines have more than 3 emotion tags")
+        for i, x in enumerate(lines, 1):
+            texts[f"body.line{i}"] = re.sub(r"\s*\[[^\]]*\]\s*", " ", x.text).strip()
         shots, last_beat = [], 0
         for i, s in enumerate(raw, 1):
             where = f"shot {i}"
@@ -199,7 +269,8 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 raise Invalid(f"{where}: this app has no mascot; use text, photo or screen")
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
                               prompt, text))
-        spoken = " ".join([voice] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
+        mine = " ".join(x.text for x in lines if x.speaker == "me")  # what the creator says, in the ad's language
+        spoken = " ".join([mine] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
         allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
         for w in TEACHER_WORDS:
             if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
@@ -217,7 +288,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                           f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
         rules.check(texts, "trend brief")
         return TrendBrief(bid, fmt.id, persona, angle, ctx.language, hook, tuple(shots), voice, cta,
-                          str(data["music"]))
+                          str(data["music"]), tuple(lines))
 
     return validate
 
@@ -233,7 +304,9 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         description=" ".join(ctx.store_text.split())[:600], persona=f"{p.name}: {p.description}", angle=a.idea,
         claims="; ".join(c.text for c in s.claims) or "(none)",
         screens="; ".join(f"{i}. {d}" for i, d in enumerate(screens, 1)),
-        tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS)),
+        tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
+                         natives="; ".join(f"{LANGUAGE_NAMES.get(code, code)} (code {code}, accents "
+                                           f"{', '.join(acc)})" for code, acc in NATIVE.items())),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot
                      else "The app has no mascot: never use visual 'mascot'."),
         min_shots=SHOTS[0], max_shots=SHOTS[1], s_low=SHOT_SECONDS[0], s_high=SHOT_SECONDS[1],
@@ -285,7 +358,8 @@ def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> An
                 "worst": " ".join(str(data.get("worst", "")).split())[:200]}
 
     captions = " / ".join([brief.hook] + [s.caption for s in brief.shots if s.caption])
-    prompt = CRITIC.format(voice=brief.voice or "(none)", captions=captions)
+    dialogue = " / ".join(f"{x.speaker}: {x.text}" for x in brief.lines) or brief.voice or "(none)"
+    prompt = CRITIC.format(voice=dialogue, captions=captions)
     return ask_json(client, [{"role": "user", "content": prompt}], validate, module="tone_critic", model=model,
                     repairs=1, max_tokens=2000, reasoning_effort="low")
 

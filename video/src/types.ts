@@ -11,7 +11,7 @@ export type SceneProps = {
   text?: string; // the card's text (text)
 };
 
-export type Word = { text: string; start: number; end: number }; // seconds
+export type Word = { text: string; start: number; end: number; speaker?: "me" | "them"; native?: boolean }; // seconds
 
 export type Look = {
   bg: string;

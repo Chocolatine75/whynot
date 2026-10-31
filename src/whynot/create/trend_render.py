@@ -41,7 +41,8 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
     end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
     if audio and audio.voice_mp3 and audio.words:
-        voice = {"src": "voice.mp3", "words": [{"text": w.text, "start": w.start, "end": w.end} for w in audio.words]}
+        voice = {"src": "voice.mp3", "words": [{"text": w.text, "start": w.start, "end": w.end, "speaker": w.speaker,
+                                                 "native": w.native} for w in audio.words]}
     return {
         "fps": FPS, "durationInFrames": sum(frames) + end_frames, "hook": brief.hook, "shots": shots,
         "endCard": {"durationInFrames": end_frames, "appName": app_name, "icon": icon,

@@ -31,8 +31,17 @@ from whynot.agents.deconstruct import DeconstructionStore, deconstruct_all
 from whynot.agents.director import Context
 from whynot.agents.strategist import Strategy
 from whynot.assets.cutouts import cutouts
-from whynot.audio.captions import MAX_WORD_ERROR_RATE, to_wav16k, word_error_rate, words
+from whynot.audio.captions import (
+    MAX_WORD_ERROR_RATE,
+    Word,
+    audio_seconds,
+    join_clips,
+    to_wav16k,
+    word_error_rate,
+    words,
+)
 from whynot.audio.elevenlabs import DEFAULT_VOICE, ElevenLabs
+from whynot.audio.voices import LANGUAGE_NAMES, cast
 from whynot.create import remotion, trend_render
 from whynot.create.locale import LANGUAGES, language_groups
 from whynot.create.trends import FORMATS, TrendSignal, trending
@@ -118,6 +127,70 @@ def voice_track(voice: ElevenLabs, model: Any, text: str, language: str, voice_i
     return None, guard
 
 
+NATIVE_FLAG_WER = 0.35  # a native line heard this far from its text is flagged (transcription of it may be weak)
+
+
+LINE_GAP_S = 0.18  # a breath between two lines
+
+
+def dialogue_track(voice: ElevenLabs, model: Any, b: trend_brief.TrendBrief, ad_code: str, folder: Path
+                   ) -> tuple[Any, list[Word], dict[str, Any]]:
+    """The dialogue: each line generated on its own (exact timing), checked, then joined with short gaps.
+
+    One take with several voices (ElevenLabs text-to-dialogue) was tried first: its timing drifted from the
+    audio, so captions went out of sync and the guard listened to the wrong piece. Per line, the timing is
+    exact and each line is checked on its own clip by Muse Voice Transcribe in its language. The creator's
+    lines must match their text (word error rate ≤ 0.2 over all their words), else a line is regenerated
+    once with another seed, then the voice is dropped. Native lines are flagged above 0.35, never dropped."""
+    casts = [cast(x.speaker, x.language, ad_code, gender=x.gender, accent=x.accent) for x in b.lines]
+    checks: list[dict[str, Any]] = []
+    takes = []
+    for i, (x, c) in enumerate(zip(b.lines, casts, strict=True)):
+        best = None
+        for seed in (7, 8):
+            v = voice.voice(x.text, voice_id=c.voice_id, seed=seed)
+            try:
+                heard = model.transcribe(to_wav16k(v.mp3), module="voice_guard",
+                                         languages=[LANGUAGE_NAMES.get(x.language, x.language)])
+                wer = word_error_rate(x.text, heard)
+                check: dict[str, Any] = {"line": i, "speaker": x.speaker, "language": x.language, "heard": heard,
+                                         "word_error_rate": round(wer, 3), "seed": seed}
+            except Exception as exc:  # reported, never hidden
+                wer, check = 0.0, {"line": i, "speaker": x.speaker, "checked": False,
+                                   "error": f"{type(exc).__name__}: {exc}"[:200]}
+            if best is None or wer < best[1]:
+                best = (v, wer, check)
+            if x.speaker == "them" or wer <= MAX_WORD_ERROR_RATE:
+                break
+        assert best is not None
+        v, wer, check = best
+        if x.speaker == "them" and wer > NATIVE_FLAG_WER:
+            check["flagged"] = True
+        checks.append(check)
+        takes.append(v)
+    mine = [(float(c.get("word_error_rate", 0.0)), len(x.text.split())) for c, x in zip(checks, b.lines, strict=True)
+            if x.speaker == "me"]
+    n = sum(k for _, k in mine)
+    creator_wer = sum(w * k for w, k in mine) / n if n else 0.0
+    guard: dict[str, Any] = {"lines": checks, "creator_word_error_rate": round(creator_wer, 3)}
+    if creator_wer > MAX_WORD_ERROR_RATE:
+        guard["dropped"] = True
+        return None, [], guard
+    # join the clips with a breath between lines; every word keeps its exact time, shifted by its line's start
+    ws: list[Word] = []
+    t = 0.0
+    parts: list[tuple[Path, float]] = []
+    for i, (v, c) in enumerate(zip(takes, casts, strict=True)):
+        for w in words(v.characters, v.starts, v.ends):
+            ws.append(Word(w.text, round(w.start + t, 3), round(w.end + t, 3), b.lines[i].speaker, c.native))
+        dur = audio_seconds(v.mp3)
+        parts.append((v.mp3, dur))
+        t += dur + LINE_GAP_S
+    out = folder / f"dialogue-{b.id}.mp3"
+    join_clips(parts, out, gap=LINE_GAP_S)
+    return out, ws, guard
+
+
 def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = None, voice: ElevenLabs | None = None,
                       voice_id: str | None = None, token: str = "", renderer_factory: Callable[[], Any] | None = None,
                       say: Callable[[str], None] = print) -> dict[str, Any]:
@@ -190,10 +263,17 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
                 imgs[i] = cut.mascot
         audio, guard, sfx = None, {"skipped": "no voice client"}, {}
         if voice is not None:
-            v, guard = voice_track(voice, model, b.voice, ctx.language, voice_id) if b.voice else (None, {})
+            ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
+            if b.lines:
+                mp3, ws, guard = dialogue_track(voice, model, b, ad_code, out)
+                cap = ws or None
+            elif b.voice:
+                v, guard = voice_track(voice, model, b.voice, ctx.language, voice_id)
+                mp3, cap = (v.mp3 if v else None), (words(v.characters, v.starts, v.ends) if v else None)
+            else:
+                mp3, cap, guard = None, None, {}
             music = voice.music(b.music, b.seconds + 3)
-            audio = remotion.Audio(v.mp3 if v else None, words(v.characters, v.starts, v.ends) if v else None,
-                                   music, music_volume=0.28)
+            audio = remotion.Audio(mp3, cap, music, music_volume=0.28)
             sfx = {name: voice.sfx(name) for name in {s.sfx for s in b.shots} if name != "none"}
         name = f"trend-{n}-{b.id}"
         facts = trend_render.render(b, out / f"{name}.mp4", palette=brand["palette"],
