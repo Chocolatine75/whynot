@@ -65,10 +65,63 @@ def _tokens(text: str, apostrophe: str = " ") -> list[str]:
     return re.findall(r"[a-z0-9]+", t)
 
 
+# Spoken forms a transcriber writes differently, all said the same way.
+_SPOKEN = {"wanna": "want to", "gonna": "going to", "gotta": "got to", "kinda": "kind of", "sorta": "sort of",
+           "tryna": "trying to", "lemme": "let me", "gimme": "give me", "dunno": "don't know", "ok": "okay",
+           "til": "until", "till": "until", "u": "you", "ur": "your", "cuz": "because", "bc": "because"}
+_UNITS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
+          "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+_TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90}
+
+
+def _canonical(tokens: list[str]) -> list[str]:
+    """Spoken forms expanded ("wanna" → "want to"), number words as digits ("fifty" → "50")."""
+    out: list[str] = []
+    for t in tokens:
+        out += _SPOKEN.get(t, t).split()
+    merged: list[str] = []
+    i = 0
+    while i < len(out):
+        t = out[i]
+        if t in _TENS:
+            n = _TENS[t]
+            if i + 1 < len(out) and out[i + 1] in _UNITS[1:10]:
+                n += _UNITS.index(out[i + 1])
+                i += 1
+            merged.append(str(n))
+        elif t in _UNITS:
+            merged.append(str(_UNITS.index(t)))
+        else:
+            merged.append(t)
+        i += 1
+    return merged
+
+
+def _merge_compounds(a: list[str], b: list[str]) -> list[str]:
+    """Join neighbours of `a` that form one word of `b` ("low key" → "lowkey", "viet buddy" → "vietbuddy")."""
+    vocab = set(b)
+    out: list[str] = []
+    i = 0
+    while i < len(a):
+        if i + 1 < len(a) and a[i] + a[i + 1] in vocab and a[i] not in vocab:
+            out.append(a[i] + a[i + 1])
+            i += 2
+        else:
+            out.append(a[i])
+            i += 1
+    return out
+
+
 def word_error_rate(reference: str, heard: str) -> float:
     """(substitutions + deletions + insertions) / words in the reference, case and accents ignored."""
-    # "i've"/"ive" and "l'accent"/"l accent" are the same words to a listener: read apostrophes both ways
-    return min(_wer(_tokens(spoken(reference), a), _tokens(heard, a)) for a in (" ", ""))
+    # what a listener hears as the same: apostrophes read both ways ("i've"/"ive", "l'accent"/"l accent"),
+    # spoken forms and numbers ("wanna"/"want to", "fifty"/"50"), compounds ("lowkey"/"low key")
+    best = 1e9
+    for a in (" ", ""):
+        ref, hyp = _canonical(_tokens(spoken(reference), a)), _canonical(_tokens(heard, a))
+        ref, hyp = _merge_compounds(ref, hyp), _merge_compounds(hyp, ref)
+        best = min(best, _wer(ref, hyp))
+    return best
 
 
 def _wer(ref: list[str], hyp: list[str]) -> float:

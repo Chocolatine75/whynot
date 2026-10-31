@@ -14,7 +14,7 @@ from whynot.agents.deconstruct import Deconstruction, validate
 from whynot.agents.director import Context
 from whynot.agents.strategist import Sources
 from whynot.agents.strategist import make_validator as strategy_validator
-from whynot.agents.trend_brief import END_CARD_SECONDS, TrendBrief, make_validator
+from whynot.agents.trend_brief import END_CARD_SECONDS, Proof, Selling, TrendBrief, make_validator, selling_from_app
 from whynot.assets.cutouts import MIN_MASCOT_SHARE, cutouts, find, ui_crop
 from whynot.create.remotion import FPS, Audio
 from whynot.create.trend_render import build_props, shot_frames
@@ -108,7 +108,7 @@ def with_shot(i, **kw):
     (with_shot(0, seconds=3.0), "seconds"),
     (with_shot(0, visual="mascot"), "no mascot"),
     (with_shot(6, screen=9), "screen number"),
-    ({**GOOD, "shots": GOOD["shots"][:5]}, "8 to 14"),
+    ({**GOOD, "shots": GOOD["shots"][:5]}, "8 to 16"),
     ({**GOOD, "hook": "Speak Vietnamese in 10 minutes", "voice": "ok so this happened"}, "number"),
     ({**GOOD, "voice": "Rival Lingo can't do this."}, "competitor"),
     ({**GOOD, "voice": "Improve your skills with daily lessons."}, "course or an ad"),
@@ -342,3 +342,90 @@ def test_a_failed_run_never_overwrites_the_last_good_scripts(tmp_path):
     archived = [p for p in tmp_path.glob("trends-*.json") if p.name != "trends-failed.json"]
     assert json.loads((tmp_path / "trends.json").read_text()) == newer
     assert len(archived) == 1 and json.loads(archived[0].read_text()) == good
+
+
+# --- E14-8: it must sell (demo, proof, payoff, offer, the app named) ---------------------------
+
+
+REVIEW = Proof("r1", 5, "I think this app is very promising and I especially like how you can choose "
+                        "southern Vietnamese.")
+SELL = Selling("LinguaApp", (REVIEW,), ("Free to download",))
+
+
+def selling_brief():
+    d = json.loads(json.dumps({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": DIALOGUE}))
+    d["lines"][2]["text"] = "anyway linguaapp has a southern voice [laughs]"
+    d["shots"] = [
+        shot(seconds=1.8), shot(text="Ma ma ma", seconds=1.4),
+        shot(visual="photo", prompt="A busy cafe counter", caption="me at the counter", seconds=1.6),
+        shot(text="six tones bro", seconds=1.4),
+        shot(visual="screen", screen=1, beat="twist", caption="wait", seconds=1.2),
+        shot(visual="screen", screen=2, focus="middle", tap=True, beat="demo", caption="pick southern", seconds=1.8),
+        shot(visual="screen", screen=3, focus="top", beat="demo", caption="hear it first", seconds=2.0),
+        shot(visual="review", review="r1", quote="I especially like how you can choose southern Vietnamese",
+             beat="proof", caption="", seconds=1.6),
+        shot(visual="photo", prompt="Grandma laughing at the dinner table", beat="payoff", caption="she laughed",
+             seconds=1.4),
+        shot(text="Start free", beat="cta", seconds=1.0)]
+    d["offer"] = "Free to download"
+    return d
+
+
+def check_selling(data):
+    return make_validator(CTX, BY_ID["tell_me_without"], "heritage_learner", "southern_accent", 3,
+                          has_mascot=False, selling=SELL)(data)
+
+
+def test_a_brief_that_sells():
+    b = check_selling(selling_brief())
+    assert b.offer == "Free to download"
+    proof = next(s for s in b.shots if s.visual == "review")
+    assert proof.stars == 5 and proof.quote.startswith("I especially like")
+    assert any(s.tap for s in b.shots if s.beat == "demo")
+
+
+def sell_patch(fn):
+    d = selling_brief()
+    fn(d)
+    return d
+
+
+@pytest.mark.parametrize("data, error", [
+    (sell_patch(lambda d: d["shots"][7].update(quote="the best Vietnamese app ever made")), "word for word"),
+    (sell_patch(lambda d: d["shots"][7].update(review="r9")), "verified review ids"),
+    (sell_patch(lambda d: d["shots"].pop(6)), "app in action"),
+    (sell_patch(lambda d: d["shots"][5].update(tap=False)), "tap"),
+    (sell_patch(lambda d: d["shots"].pop(7)), "proof"),
+    (sell_patch(lambda d: d["shots"][8].update(beat="proof")), "transformation"),
+    (sell_patch(lambda d: d["lines"][2].update(text="anyway this app has a southern voice")), "app's name"),
+    (sell_patch(lambda d: d.update(offer="50% off today")), "offer"),
+    (sell_patch(lambda d: d["shots"][8].update(beat="demo")), "never back"),
+])
+def test_briefs_that_dont_sell_are_refused(data, error):
+    with pytest.raises(Invalid, match=error):
+        check_selling(data)
+
+
+def test_selling_facts_come_from_the_store_page_only():
+    app = {"price": 0.0, "description": "Learn. Start your free trial today.",
+           "reviews": [{"id": "a", "rating": 5, "text": "Love  it"}, {"id": "b", "rating": 2, "text": "bad"},
+                       {"id": "c", "rating": 4, "text": ""}]}
+    s = selling_from_app(app, "X")
+    assert [r.id for r in s.reviews] == ["a"] and s.reviews[0].text == "Love it"  # ≥ 4 stars with text only
+    assert s.offers == ("Free to download", "Free trial")
+    assert selling_from_app({"price": 4.99, "description": "", "reviews": []}, "X").offers == ()
+
+
+def test_shouting_in_captions_and_cards_is_calmed_not_refused():
+    """Regression: a brief failed 4 times because the model kept writing 'THIS or THAT' on cards."""
+    d = with_shot(0, text="THIS or THAT", caption="SOUTHERN or NORTHERN")
+    b = check({**d, "hook": "Tell me you're learning Vietnamese FR"})
+    assert b.shots[0].text == "this or that" and b.shots[0].caption == "southern or northern"
+    assert b.hook.endswith("fr")
+
+
+@pytest.mark.parametrize("patch", [lambda d: d["shots"][9].update(caption="link in bio lol"),
+                                   lambda d: d.update(cta="follow for more")])
+def test_creator_habits_that_make_no_sense_in_an_ad_are_refused(patch):
+    with pytest.raises(Invalid, match="makes no sense in an ad"):
+        check_selling(sell_patch(patch))

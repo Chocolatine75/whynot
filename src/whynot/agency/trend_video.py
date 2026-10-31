@@ -180,9 +180,11 @@ def dialogue_track(voice: ElevenLabs, model: Any, b: trend_brief.TrendBrief, ad_
     ws: list[Word] = []
     t = 0.0
     parts: list[tuple[Path, float]] = []
-    for i, (v, c) in enumerate(zip(takes, casts, strict=True)):
+    for i, v in enumerate(takes):
         for w in words(v.characters, v.starts, v.ends):
-            ws.append(Word(w.text, round(w.start + t, 3), round(w.end + t, 3), b.lines[i].speaker, c.native))
+            # captions set apart by LANGUAGE, not by voice: the creator's own Vietnamese is shown apart too
+            other = b.lines[i].language != ad_code
+            ws.append(Word(w.text, round(w.start + t, 3), round(w.end + t, 3), b.lines[i].speaker, other))
         dur = audio_seconds(v.mp3)
         parts.append((v.mp3, dur))
         t += dur + LINE_GAP_S
@@ -263,6 +265,7 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     report["picks"] = [{k: v for k, v in p.items() if k != "brief"} for p in picks]
     say("formats: " + ", ".join(f"{p['format']} → {p['angle']}" for p in picks))
 
+    selling = trend_brief.selling_from_app(app, brand_name(app["name"]))
     names = tuple(sorted({a.page_name for a in ads if a.page_name}))
     ctx = Context(local, app["name"], app["description"], names, tuple(brand["palette"][:3]),
                   brand["screenshots"][0], LANGUAGES[code])
@@ -273,7 +276,7 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
         else:
             fmt = trend_brief.get_format(p["format"])
             b = trend_brief.write(model, ctx, fmt, persona=p["persona"], angle=p["angle"], screens=screens,
-                                  has_mascot=cut.mascot is not None, model=cfg.model).value
+                                  has_mascot=cut.mascot is not None, selling=selling, model=cfg.model).value
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
             if s.visual == "photo":

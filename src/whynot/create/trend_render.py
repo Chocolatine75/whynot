@@ -32,12 +32,13 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
     frames = shot_frames(brief, voice_seconds)
     shots = []
     for i, (s, n) in enumerate(zip(brief.shots, frames, strict=True)):
-        if s.visual != "text" and i not in images:
+        if s.visual not in ("text", "review") and i not in images:
             raise ValueError(f"shot {i + 1} ({s.visual}) has no image")
         shots.append({"visual": s.visual, "durationInFrames": n, "caption": s.caption, "move": s.move,
                       "sfx": s.sfx if s.sfx in sfx else "none", "beat": s.beat,
                       **({"src": images[i]} if i in images else {}), **({"focus": s.focus} if s.focus else {}),
-                      **({"text": s.text} if s.text else {})})
+                      **({"text": s.text} if s.text else {}), **({"tap": True} if s.tap else {}),
+                      **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
     end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
     if audio and audio.voice_mp3 and audio.words:
@@ -46,7 +47,7 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
     return {
         "fps": FPS, "durationInFrames": sum(frames) + end_frames, "hook": brief.hook, "shots": shots,
         "endCard": {"durationInFrames": end_frames, "appName": app_name, "icon": icon,
-                    "rating": rating_text(rating, rating_count), "cta": brief.cta},
+                    "rating": rating_text(rating, rating_count), "cta": brief.cta, "offer": brief.offer},
         "look": {"bg": bg, "fg": fg, "accent": accent, "surface": surface,
                  "onAccent": "#{:02X}{:02X}{:02X}".format(*on_accent)},
         "voice": voice,

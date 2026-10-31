@@ -36,7 +36,7 @@ export type AdProps = {
 // --- trend ads: fast shot list (built by src/whynot/create/trend_render.py) ---
 
 export type ShotProps = {
-  visual: "text" | "photo" | "screen" | "mascot";
+  visual: "text" | "photo" | "screen" | "mascot" | "review";
   durationInFrames: number;
   caption: string;
   move: "punch_in" | "slow_zoom" | "shake" | "slide" | "pop" | "still";
@@ -45,6 +45,9 @@ export type ShotProps = {
   src?: string; // photo, real UI crop, or mascot sticker (files in the public dir)
   focus?: "top" | "middle" | "bottom" | "full";
   text?: string;
+  tap?: boolean; // demo: a finger taps the focus region
+  quote?: string; // review: the verbatim quote
+  stars?: number;
 };
 
 export type TrendProps = {
@@ -52,7 +55,7 @@ export type TrendProps = {
   durationInFrames: number;
   hook: string;
   shots: ShotProps[];
-  endCard: { durationInFrames: number; appName: string; icon?: string; rating: string; cta: string };
+  endCard: { durationInFrames: number; appName: string; icon?: string; rating: string; cta: string; offer?: string };
   look: Look;
   voice: { src: string; words: Word[] } | null;
   music: { src: string; volume: number } | null;

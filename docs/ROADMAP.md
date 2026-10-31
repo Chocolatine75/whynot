@@ -410,11 +410,11 @@ Method inspired by VoodRadar (ideas only: no licence, hackathon rule), rebuilt o
 - [x] **E14-5** Dialogue with native voices: "me" (young creator) and "them" (a local, in their language, native ElevenLabs voice by accent); each line voiced on its own, checked by Muse Voice Transcribe in its language (`audio/voices.py`, `agency/trend_video.py`).
 - [x] **E14-6** Remotion compositions (`video/`): hard cuts, native caption bubbles, word-by-word captions (natives in yellow), punch-in / shake / whip, sound effects on cuts, ducked music, end card; Pillow fallback without Node.
 - [x] **E14-7** Robustness: model requests time out (3 min), videos made in parallel, a failed run never overwrites the last scripts, `--rerender` renders the same scripts again.
-- [ ] **E14-8** ★ Make it sell: demo of the app in action (≥ 25 % of the time, ≥ 2 real screens), proof (a verified review quote), transformation shot, offer from the store page ("free to start"), the app named in the voice. Enforced by the validator.
+- [x] **E14-8** ★ Make it sell (Oct 31, `Selling` in `agents/trend_brief.py`): demo of the app in action (≥ 25 % of the time, ≥ 2 real screens), proof (a verified review quote), transformation shot, offer from the store page ("free to start"), the app named in the voice. Enforced by the validator.
 - [ ] **E14-9** Reference ads: the client's best videos (MP4 with consent, `data/private/`) deconstructed into a house style the briefs follow.
 - [ ] **E14-10** Videos in the campaign plan and in publishing (Marketing API video upload, PAUSED).
 - [ ] **E14-11** Critic on keyframes vs the best competitor ads before the final render.
-- [ ] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua").
+- [ ] **E14-12** Captions: Vietnamese words in English captions keep their accents (seen: "ca phe sua"). *The creator's own Vietnamese now has its own line and caption (set apart by language).*
 
 Tests: `test_deconstruct`, `test_archetypes`, `test_brief`, `test_trends` (formats, trend briefs, tone, dialogue, cut-outs, props, never losing scripts), `test_audio` (voice, music, SFX, dialogue guard, captions), `test_remotion` (props + a real render when Node is installed), `test_video`, `test_video_pipeline`.
 
@@ -434,6 +434,7 @@ If a gate fails: write it in `STATUS.md`, take the next item from the cut list, 
 
 ### Gate log
 
+- **Sat Oct 31, E14-8 done:** ads go trend → twist → demo (≥ 25 %, ≥ 2 real screens, a tap) → a verified 4-5★ App Store review quoted word for word → transformation → offer from the store page ("Free to download"); the creator names the app. Voice guard taught spoken forms (wanna, lowkey, fifty/50, VietBuddy/Viet buddy) after it dropped a correct voice.
 - **Sat Oct 31:** trend video ads with voice, dialogue and native voices done (E14-1..7); harsh sound effects removed, transitions fixed. Matteo: "much better, but it doesn't sell yet" → E14-8 next.
 - **Fri Oct 30, replan:** the partner is only available Mon Nov 2. R1 (needs only his past ads) moves to Monday, same day; the pilot launches Monday and shows 1–2 days of results, presented as a start with predictions published before. R3 failed (v0, v1), so validation rests on E2-10 (market-trained judge), R2 (humans) and R1. Arena (E9-3) cut: the product is the agency for a real client.
 - **Fri Oct 30, R3 v1 (balanced, 44 advertisers, images, judge baseline): negative.** Nothing model-based beats chance within advertiser; viewers with images are below it (0.41); shorter copy reaches 0.62. Decision needed: R1 (partner's real metrics) and R2 (humans) become the main proofs; R3 is reported as a limit. See DECISIONS.
