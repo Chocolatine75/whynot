@@ -325,7 +325,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 - [ ] **E8-5** Weekly report with approve / block (B)
   - *Done when:* an owner-facing report (web + email-ready HTML): what ran, what was paused and why, new concepts awaiting approval, spend vs cap. Approve and block buttons call the autopilot.
   - *Tests:* every number traced to the log (unit); the approve path is logged (e2e).
-- [ ] **E8-6** Kill switch (B) — *Oct 31: `whynot stop RUN... --by NAME [--live]` (`run/killswitch.py`): campaigns first, then ad sets and ads in parallel; from publish.json (even partial) and the daily loop's memory; any autonomy level; logged; tested on the fake Graph. Left: the button in the platform.*
+- [ ] **E8-6** Kill switch (B) — *Oct 31: `whynot stop RUN... --by NAME [--live]` (`run/killswitch.py`): campaigns first, then ad sets and ads in parallel; from publish.json (even partial) and the daily loop's memory; any autonomy level; logged; tested on the fake Graph. Button in the platform (Oct 31): "Pause everything now" in the publish panel, one confirmation with the owner's name, runs `whynot stop` without a shell and shows its result (`web/lib/stop.ts`, `/api/stop`). Left: a timed run against the sandbox.*
   - *Done when:* one command and one button pause everything whynot created on the account in < 10 s, logged.
   - *Tests:* e2e on the fake Graph (all objects PAUSED); it works even if publish.json is partial.
 - [ ] **E8-7** Ads MCP path (B)
