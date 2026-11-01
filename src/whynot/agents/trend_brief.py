@@ -21,7 +21,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from whynot.agency.ideas import MAX_TEXT_OVERLAP, overlap
-from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
+from whynot.agents.ask import AgentError, Answer, ChatClient, Invalid, ask_json
 from whynot.agents.director import Context, CopyRules
 from whynot.audio.voices import GENDERS, LANGUAGE_NAMES, NATIVE
 from whynot.create.trends import BY_ID, Format
@@ -381,75 +381,95 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 stars = next(r.rating for r in selling.reviews if r.id == review)
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
                               prompt, text, tap, review, quote_, stars))
+        # From here on every problem is collected and sent back at once: fixing one per attempt used up the
+        # repairs (seen on VietBuddy, Nov 1: 3 of 4 ideas failed, each on a different rule).
+        problems: list[str] = []
         mine = " ".join(x.text for x in lines if x.speaker == "me")  # what the creator says, in the ad's language
         spoken = " ".join([mine] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
         allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
         for w in TEACHER_WORDS:
             if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
-                raise Invalid(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
-                              "19-24 year-old telling friends what happened")
+                problems.append(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
+                                "19-24 year-old telling friends what happened")
         for old_hook, old_voice in avoid or []:  # a new idea must not come back with an old ad's words
             if overlap(hook, old_hook) > MAX_TEXT_OVERLAP or (old_voice and overlap(voice, old_voice) > MAX_TEXT_OVERLAP):
-                raise Invalid(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
+                problems.append(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
         brand = selling.brand if selling else ctx.app_name.split(":")[0].split(" - ")[0].strip()
         for x in lines:
             if x.speaker != "me":
                 continue
             if (_norm(brand) and _norm(brand) in _norm(x.text)) or APP_WORDS.search(x.text.lower()):
-                raise Invalid(f"the creator says {x.text!r}: they are a skit character, not a customer, and never "
-                              f"mention the app or {brand!r}; name it on screen (captions, cards) in the brand's voice")
+                problems.append(f"the creator says {x.text!r}: they are a skit character, not a customer, and never "
+                                f"mention the app or {brand!r}; name it on screen (captions, cards) in the brand's "
+                                "voice")
         for where, text in [*((f"line {i}", x.text) for i, x in enumerate(lines, 1) if x.speaker == "me"),
                             ("hook", hook), *((f"shot {i} caption", s.caption) for i, s in enumerate(shots, 1)),
                             *((f"shot {i} text", s.text or "") for i, s in enumerate(shots, 1))]:
             if words := testimonial(text):
-                raise Invalid(f"{where} says {words!r}: that is a testimonial from an invented person (not allowed "
-                              "in ads). The creator only lives the situation; the screen says what the app does")
+                problems.append(f"{where} says {words!r}: that is a testimonial from an invented person (not "
+                                "allowed in ads). The creator only lives the situation; the screen says what the app "
+                                "does")
         everything = " ".join([spoken, voice.lower(), hook.lower(), cta.lower()])
         for phrase in NOT_IN_ADS:
             if phrase in everything:
-                raise Invalid(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
-        trend = sum(s.seconds for s in shots if s.beat == "trend")
-        body = sum(s.seconds for s in shots)
+                problems.append(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
+
+        # the timeline: trend ≥ share, demo ≥ DEMO_SHARE, total within TOTAL_SECONDS, computed together so one
+        # fix does not break another
+        secs = {b: sum(x.seconds for x in shots if x.beat == b) for b in BEATS}
+        body = sum(secs.values())
+        trend = secs["trend"]
+        timeline = ", ".join(f"{b} {v:.1f} s" for b, v in secs.items() if v) + f"; total {body + END_CARD_SECONDS:.1f} s"
         if not any(s.beat == "twist" and s.visual == "screen" for s in shots):
-            raise Invalid("the twist must show the real app: at least one 'twist' shot with visual 'screen'")
+            problems.append("the twist must show the real app: make one 'twist' shot "
+                            '{"visual": "screen", "screen": 1, "focus": "full", "beat": "twist", ...}')
         share = TREND_SHARE_SELLING if selling else 0.5
         if trend < share * body:
-            # directive: the model failed 4 times in a row on the bare ratio (seen on VietBuddy, Oct 31)
             others = body - trend
             need = share * others / (1 - share) - trend  # trend seconds to add, keeping the other shots as they are
-            by_beat = ", ".join(f"{b} {sum(x.seconds for x in shots if x.beat == b):.1f} s" for b in BEATS
-                                if any(x.beat == b for x in shots))
-            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s ({by_beat}); it must be at least "
-                          f"{share:.0%}. Add {need:.1f} s of 'trend' shots at the start (e.g. "
-                          f"{max(1, math.ceil(need / 1.6))} more trend shot(s) of about 1.6 s: the setup, the "
-                          "awkward moment, the reaction), keep the rest")
+            problems.append(f"the trend is only {trend:.1f} s of {body:.1f} s; it must be at least {share:.0%}. Add "
+                            f"{need:.1f} s of 'trend' shots at the start (e.g. {max(1, math.ceil(need / 1.6))} more "
+                            "trend shot(s) of about 1.6 s: the setup, the awkward moment, the reaction)")
         offer = ""
         if selling is not None:
             demo = [x for x in shots if x.beat == "demo"]
-            if sum(1 for x in demo if x.visual == "screen") < 2 or sum(x.seconds for x in demo) < DEMO_SHARE * body:
-                raise Invalid(f"show the app in action: 'demo' shots with at least 2 real screens and at least "
-                              f"{DEMO_SHARE:.0%} of the video ({DEMO_SHARE * body:.1f} s); now "
-                              f"{sum(x.seconds for x in demo):.1f} s")
+            n_screens_demo = sum(1 for x in demo if x.visual == "screen")
+            if n_screens_demo < 2 or secs["demo"] < DEMO_SHARE * body:
+                # adding demo seconds also grows the video: solve for the demo time that reaches the share
+                need = max(0.0, (DEMO_SHARE * (body - secs["demo"]) / (1 - DEMO_SHARE)) - secs["demo"])
+                problems.append(f"show the app in action: 'demo' shots need at least 2 real screens (now "
+                                f"{n_screens_demo}) and {DEMO_SHARE:.0%} of the video (now {secs['demo']:.1f} s of "
+                                f"{body:.1f} s): add {max(need, 0.1):.1f} s of demo, e.g. lengthen demo screens to "
+                                f"2.0-2.2 s or add one demo screen")
             if not any(x.tap for x in demo):
-                raise Invalid("at least one demo screen must show the tap (\"tap\": true) on what to use")
+                problems.append("at least one demo screen must show the tap (\"tap\": true) on what to use")
             if selling.reviews and not any(x.beat == "proof" and x.visual == "review" for x in shots):
-                raise Invalid("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
+                problems.append("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
             if not any(x.beat == "payoff" and x.visual in ("photo", "mascot") for x in shots):
-                raise Invalid("add the transformation: a 'payoff' shot (photo or mascot) of the moment it works")
+                problems.append("add the payoff (the transformation moment the app is for): a 'payoff' shot, photo "
+                                "or mascot, with a brand caption")
             on_screen = _norm(" ".join([s.caption for s in shots if s.beat != "trend"]
                                        + [s.text or "" for s in shots if s.beat != "trend"]))
             if _norm(selling.brand) not in on_screen:
-                raise Invalid(f"name the app ({selling.brand!r}) once ON SCREEN, in a caption or text card after the "
-                              "trend (the brand's voice), never in the creator's lines")
+                problems.append(f"name the app ({selling.brand!r}) once ON SCREEN, in a caption or text card after "
+                                "the trend (the brand's voice), never in the creator's lines")
             if selling.offers:
                 offer = str(data.get("offer", ""))
                 if offer not in selling.offers:
-                    raise Invalid(f"'offer' must be one of {list(selling.offers)} (what the store page supports)")
+                    problems.append(f"'offer' must be one of {list(selling.offers)} (what the store page supports)")
         total = body + END_CARD_SECONDS
         if not TOTAL_SECONDS[0] <= total <= TOTAL_SECONDS[1]:
-            raise Invalid(f"the video lasts {total:.1f} s with the end card; make it "
-                          f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
-        rules.check(texts, "trend brief")
+            problems.append(f"the video lasts {total:.1f} s with the end card; make it "
+                            f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
+        try:
+            rules.check(texts, "trend brief")
+        except Invalid as exc:
+            problems.append(str(exc))
+        if len(problems) == 1:
+            raise Invalid(problems[0])
+        if problems:
+            raise Invalid(f"{len(problems)} problems, fix them all in one go (timeline now: {timeline}): "
+                          + " | ".join(f"{i}) {x}" for i, x in enumerate(problems, 1)))
         return TrendBrief(bid, fmt.id, persona, angle, ctx.language, hook, tuple(shots), voice, cta,
                           str(data["music"]), tuple(lines), offer)
 
@@ -518,7 +538,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     messages: list[dict[str, Any]] = [{"role": "user", "content": prompt}]
     validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot, selling=selling,
                                avoid=avoid)
-    first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=3, max_tokens=6000,
+    first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=4, max_tokens=6000,
                      reasoning_effort="low")
     verdict = critique(client, first.value, model=model)
     if verdict.value["score"] >= MIN_TONE_SCORE:
@@ -528,8 +548,13 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
              {"role": "user", "content": f"A 20-year-old TikTok creator rated the tone {verdict.value['score']}/10: "
                                          f"{verdict.value['why']} Worst line: \"{verdict.value['worst']}\". "
                                          "Rewrite the whole brief so it sounds like them. Same JSON schema."}]
-    second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
-                      reasoning_effort="low")
+    try:
+        second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
+                          reasoning_effort="low")
+    except AgentError as exc:  # the rewrite broke a rule: the first take was valid, keep it (seen on VietBuddy)
+        return Answer(first.value, first.usd + verdict.usd + exc.usd, first.attempts, first.raw,
+                      [*first.errors, *exc.errors, f"tone {verdict.value['score']}/10, rewrite invalid: first take "
+                                                   "kept"])
     again = critique(client, second.value, model=model)
     best, best_score = ((second, again.value["score"]) if again.value["score"] >= verdict.value["score"]
                         else (first, verdict.value["score"]))

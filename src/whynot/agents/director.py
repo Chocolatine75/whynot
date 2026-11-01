@@ -133,7 +133,10 @@ class CopyRules:
                 raise Invalid(f"{where}: {field_name} has {len(text)} characters, max {LIMITS[gene]}")
             for n in _NUMBER.findall(text):
                 if n.replace(",", ".") not in self.allowed_numbers:
-                    raise Invalid(f"{where}: {field_name} says {n!r}, a number not in any verified claim")
+                    shown = sorted(self.allowed_numbers, key=lambda x: (len(x), x))[:12]
+                    raise Invalid(f"{where}: {field_name} says {n!r}, a number not in any verified claim: remove "
+                                  "it (a number written in words is still a claim)"
+                                  + (f", or use one of the verified numbers {shown}" if shown else ""))
             low = normalise(text)
             for name in self.competitors:
                 if re.search(rf"\b{re.escape(normalise(name))}\b", low):

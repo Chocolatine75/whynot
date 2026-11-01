@@ -252,6 +252,22 @@ def test_a_worse_rewrite_is_not_kept():
     assert answer.value.voice == "first take" and "kept 6/10" in answer.errors[-1]
 
 
+def test_an_invalid_rewrite_keeps_the_valid_first_take():
+    """Seen on VietBuddy (Nov 2): the first brief was valid, the tone rewrite broke a rule 3 times, and the whole
+    idea was thrown away."""
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    def reply(m, mod):
+        if mod == "tone_critic":
+            return json.dumps({"score": 4, "why": "x", "worst": "y"})
+        return _brief_reply("first take") if len(m) == 1 else json.dumps({**GOOD, "music": "jazz"})
+
+    answer = write(ScriptedChat(reply), CTX, BY_ID["tell_me_without"], persona="heritage_learner",
+                   angle="southern_accent", screens=["a", "b", "c"], has_mascot=False)
+    assert answer.value.voice == "first take" and "first take kept" in answer.errors[-1]
+
+
 def test_a_good_tone_is_not_rewritten():
     from fakes import ScriptedChat
     from whynot.agents.trend_brief import write
@@ -510,4 +526,27 @@ def test_a_short_trend_gets_a_repair_saying_how_much_to_add():
         if s["beat"] == "trend":
             s["seconds"] = 0.6  # 2.4 s of trend in 11.4 s
     with pytest.raises(Invalid, match=r"Add \d+\.\d s of 'trend' shots at the start .*more trend shot"):
+        check_selling(d)
+
+
+def test_every_rule_problem_comes_back_in_one_message():
+    """Seen on VietBuddy (Nov 1): 3 of 4 ideas failed after 4 attempts, each fixing one rule and hitting the next."""
+    d = selling_brief()
+    d["shots"][4]["visual"] = "photo"  # no screen in the twist
+    d["shots"][4]["prompt"] = "A cafe table"
+    d["shots"][9]["text"] = "3 tones free"  # an unverified number
+    d["offer"] = "50% off"  # an offer the store does not support
+    with pytest.raises(Invalid) as exc:
+        check_selling(d)
+    msg = str(exc.value)
+    assert msg.startswith("3 problems, fix them all in one go (timeline now: trend")
+    assert "twist must show the real app" in msg and "'3'" in msg and "'offer' must be one of" in msg
+    assert '"visual": "screen"' in msg  # says how to fix it, not only what is wrong
+
+
+def test_a_short_demo_says_how_many_seconds_to_add():
+    d = selling_brief()
+    d["shots"][5]["seconds"] = 0.6
+    d["shots"][6]["seconds"] = 0.6
+    with pytest.raises(Invalid, match=r"add \d+\.\d s of demo"):
         check_selling(d)
