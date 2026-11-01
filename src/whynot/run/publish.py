@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Any
 
 from whynot.run.autopilot import AccountState, Action, ActionLog, Kind, Level, Outcome, Policy, decide
-from whynot.run.campaign import CampaignPlan, to_api, validate
+from whynot.run.campaign import CampaignPlan, link_problem, to_api, validate
 from whynot.run.meta import MarketingClient
 
 PLACEHOLDER_KEYS = ("{PAGE_ID}", "{META_APP_ID}")
@@ -95,13 +95,16 @@ def publish(plan: CampaignPlan, run_dir: Path, client: MarketingClient, owner_po
     errors = validate(plan)
     if errors:
         raise PublishError("the plan is not valid: " + "; ".join(errors))
+    if why := link_problem(objective, plan.store_url):
+        raise PublishError(why)
     payloads = to_api(plan, objective=objective)
     known = {k for k, v in (("{PAGE_ID}", client.account.page_id), ("{META_APP_ID}", client.account.app_id)) if v}
     missing = _unresolved(payloads, known)
     if missing:
         names = {"{PAGE_ID}": "META_PAGE_ID", "{META_APP_ID}": "META_APP_ID"}
         raise PublishError(f"missing ids for {sorted(missing)}: set {sorted(names[m] for m in missing)} in .env"
-                           + (" (or publish with objective=traffic)" if "{META_APP_ID}" in missing else ""))
+                           + (" (the app registered with Meta: App Store links need app_promotion)"
+                              if "{META_APP_ID}" in missing else ""))
 
     state_path = run_dir / "publish.json"
     state = PublishState.load(state_path) or PublishState(mode, client.account.act, objective)

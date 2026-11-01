@@ -16,7 +16,8 @@ from whynot.run.meta import Account, MarketingClient, MetaError
 from whynot.run.video_ads import VideoAd, VideoPublisher
 
 TOKEN = "EAAvideoSECRET77"
-STORE = "https://apps.apple.com/us/app/x/id1234567890"
+# traffic ads link to a website: Meta refuses App Store links outside app_promotion (error 1487810)
+STORE = "https://vietbuddy.example/app"
 AUDIENCE = Audience("heritage_learner", "Heritage learners", ("US",), 18, 34, "female")
 
 

@@ -17,7 +17,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from whynot.run.campaign import APP_ONLY_CTAS, Audience, adset_fields
+from whynot.run.campaign import APP_ONLY_CTAS, Audience, adset_fields, link_problem
 from whynot.run.meta import MarketingClient, MetaError
 
 
@@ -40,6 +40,8 @@ class VideoPublisher:
             raise MetaError("video ads are published as a Facebook Page: set META_PAGE_ID in .env")
         if objective == "app_promotion" and not client.account.app_id:
             raise MetaError("app_promotion needs META_APP_ID (or use objective traffic)")
+        if why := link_problem(objective, store_url):
+            raise MetaError(why)
         self.client = client
         self.path = Path(run_dir) / "agency" / "meta.json"
         self.store_url = store_url

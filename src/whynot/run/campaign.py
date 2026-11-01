@@ -162,6 +162,18 @@ def validate(plan: CampaignPlan) -> list[str]:
 
 OBJECTIVES = ("app_promotion", "traffic")
 APP_ONLY_CTAS = {"INSTALL_MOBILE_APP", "USE_APP"}  # need an app-promotion campaign
+APP_STORE_HOSTS = ("apps.apple.com", "itunes.apple.com", "play.google.com")
+
+
+def link_problem(objective: str, url: str) -> str | None:
+    """Why Meta would refuse ads linking to `url` under `objective`, before anything is created. Seen on a real
+    account (Nov 1): traffic ads to an App Store link were all created, then blocked by Meta with error 1487810
+    ("the app URL is only supported by the App Installs objective")."""
+    host = url.split("://", 1)[-1].split("/", 1)[0].lower()
+    if objective == "traffic" and host.endswith(APP_STORE_HOSTS):
+        return ("Meta refuses App Store / Play links with the traffic objective (error 1487810): use objective "
+                "app_promotion with META_APP_ID (the app registered with Meta), or link to the app's website")
+    return None
 
 
 def adset_fields(name: str, audience: Audience, daily_budget_eur: float, *, objective: str, store_url: str,
