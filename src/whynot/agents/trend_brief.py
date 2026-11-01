@@ -14,6 +14,7 @@ All words go through the same checks as every ad (`director.CopyRules`).
 """
 
 import json
+import math
 import re
 import unicodedata
 from dataclasses import asdict, dataclass
@@ -139,8 +140,11 @@ into your phone, telling your friends what happened to you.
 - Words of another language keep their accents, even inside an English line: "cà phê sữa đá", never "ca phe sua da".
 - Roast yourself, exaggerate, react: "i was SO cooked", "the way i just nodded", "no because why".
 - Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
-- The app comes in like a friend's tip, never like an ad: "anyway this app has a southern voice and it's
-  actually the only reason grandma understands me now".
+- HONESTY, the law for ads: the creator is a character in a skit, NOT a customer. They live the situation
+  (the struggle, the joke) and never mention the app: they never name it, never say they used, tried,
+  downloaded or paid for it, never claim a result ("now grandma understands me", "it changed my life"). The app
+  arrives ON SCREEN, in the brand's own voice (captions and text cards: "{brand_hint} has a southern voice"),
+  saying only what the store page says it does.
 - Captions read like texts: lowercase, short, no full stops.
 - The audio is a short DIALOGUE ("lines", max 8, max 55 words in all): "me" is the creator; "them" is the
   other person in the story (the barista, the grandma, the mother-in-law). When they speak another language,
@@ -162,6 +166,28 @@ EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
 
 
 _SHOUT = re.compile(r"\b[A-Z]{2,}\b")
+
+# Honesty: an invented person must never vouch for the product (FTC endorsement guides, EU unfair-practices rules,
+# Meta's deceptive-practices policy). The creator is a skit character: these are refused in their lines, and the
+# result claims also in captions and cards.
+_SUBJECT = (r"(?:she|he|they|grandma|grandpa|mom|my mom|dad|my dad|my \w+|bà|má|mẹ|ba|bố|cô|chú|bác)")
+TESTIMONIAL = (
+    re.compile(r"\b(?:i|we)(?:'ve| have)?\s+(?:(?:just|finally|literally|actually|been|now|started)\s+)*"
+               r"(?:us(?:e|ed|ing)|download(?:ed|ing)?|subscrib(?:e|ed|ing)|signed up|pa(?:id|y) for|bought|switched to)\b"),
+    re.compile(r"\b(?:yearly plan|premium|free trial|changed my life|game ?changer|can'?t go back|before and after|"
+               r"works for me|it actually works|only reason|thanks to (?:it|this|that))\b"),
+    re.compile(rf"\bnow {_SUBJECT}\b[^.?!]{{0,40}}?\b(?:understands?|gets?|thinks?|loves?|says?|calls?)\b"),
+)
+APP_WORDS = re.compile(r"\b(?:app|apps|application)\b")
+
+
+def testimonial(text: str) -> str | None:
+    """The first words in `text` that make it sound like someone vouching for the product, else None."""
+    low = text.lower()
+    for rx in TESTIMONIAL:
+        if m := rx.search(low):
+            return m.group(0)
+    return None
 
 
 def calm(text: str) -> str:
@@ -365,6 +391,19 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         for old_hook, old_voice in avoid or []:  # a new idea must not come back with an old ad's words
             if overlap(hook, old_hook) > MAX_TEXT_OVERLAP or (old_voice and overlap(voice, old_voice) > MAX_TEXT_OVERLAP):
                 raise Invalid(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
+        brand = selling.brand if selling else ctx.app_name.split(":")[0].split(" - ")[0].strip()
+        for x in lines:
+            if x.speaker != "me":
+                continue
+            if (_norm(brand) and _norm(brand) in _norm(x.text)) or APP_WORDS.search(x.text.lower()):
+                raise Invalid(f"the creator says {x.text!r}: they are a skit character, not a customer, and never "
+                              f"mention the app or {brand!r}; name it on screen (captions, cards) in the brand's voice")
+        for where, text in [*((f"line {i}", x.text) for i, x in enumerate(lines, 1) if x.speaker == "me"),
+                            ("hook", hook), *((f"shot {i} caption", s.caption) for i, s in enumerate(shots, 1)),
+                            *((f"shot {i} text", s.text or "") for i, s in enumerate(shots, 1))]:
+            if words := testimonial(text):
+                raise Invalid(f"{where} says {words!r}: that is a testimonial from an invented person (not allowed "
+                              "in ads). The creator only lives the situation; the screen says what the app does")
         everything = " ".join([spoken, voice.lower(), hook.lower(), cta.lower()])
         for phrase in NOT_IN_ADS:
             if phrase in everything:
@@ -375,7 +414,15 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             raise Invalid("the twist must show the real app: at least one 'twist' shot with visual 'screen'")
         share = TREND_SHARE_SELLING if selling else 0.5
         if trend < share * body:
-            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s; make it at least {share:.0%} of the video")
+            # directive: the model failed 4 times in a row on the bare ratio (seen on VietBuddy, Oct 31)
+            others = body - trend
+            need = share * others / (1 - share) - trend  # trend seconds to add, keeping the other shots as they are
+            by_beat = ", ".join(f"{b} {sum(x.seconds for x in shots if x.beat == b):.1f} s" for b in BEATS
+                                if any(x.beat == b for x in shots))
+            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s ({by_beat}); it must be at least "
+                          f"{share:.0%}. Add {need:.1f} s of 'trend' shots at the start (e.g. "
+                          f"{max(1, math.ceil(need / 1.6))} more trend shot(s) of about 1.6 s: the setup, the "
+                          "awkward moment, the reaction), keep the rest")
         offer = ""
         if selling is not None:
             demo = [x for x in shots if x.beat == "demo"]
@@ -389,9 +436,11 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 raise Invalid("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
             if not any(x.beat == "payoff" and x.visual in ("photo", "mascot") for x in shots):
                 raise Invalid("add the transformation: a 'payoff' shot (photo or mascot) of the moment it works")
-            mine_words = _norm(" ".join(x.text for x in lines if x.speaker == "me"))
-            if _norm(selling.brand) not in mine_words:
-                raise Invalid(f"the creator must say the app's name ({selling.brand!r}) once, like a friend's tip")
+            on_screen = _norm(" ".join([s.caption for s in shots if s.beat != "trend"]
+                                       + [s.text or "" for s in shots if s.beat != "trend"]))
+            if _norm(selling.brand) not in on_screen:
+                raise Invalid(f"name the app ({selling.brand!r}) once ON SCREEN, in a caption or text card after the "
+                              "trend (the brand's voice), never in the creator's lines")
             if selling.offers:
                 offer = str(data.get("offer", ""))
                 if offer not in selling.offers:
@@ -410,13 +459,14 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
 SELLING = """
 IT MUST SELL. After the trend and the twist, in this order:
 - DEMO ({demo_share} of the video at least, ≥ 2 real screens, beat "demo"): the app in action on its real screens,
-  punched into the part that matters, with "tap": true on the screen where the finger taps. The voice says what
-  it does, in the creator's words, and names {brand} once.
+  punched into the part that matters, with "tap": true on the screen where the finger taps. The CAPTIONS say what
+  it does, in the brand's voice, and name {brand} once on screen. The creator's lines never name it.
 - PROOF (beat "proof", visual "review"): quote a verified review word for word ("review": id, "quote": max 18
   words copied exactly). Verified reviews:
 {reviews}
-- PAYOFF (beat "payoff", photo or mascot): the transformation, the moment it works (grandma smiling, the order
-  understood).
+- PAYOFF (beat "payoff", photo or mascot): the moment the app is for (the next call with grandma, the counter
+  in Saigon), shown as the situation with a brand caption ("for the next call with má"), never as a result
+  the creator claims.
 - CTA (beat "cta") and the end card. "offer": one of {offers}.
 """
 
@@ -447,6 +497,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         claims="; ".join(c.text for c in s.claims) or "(none)",
         screens="; ".join(f"{i}. {d}" for i, d in enumerate(screens, 1)),
         tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
+                         brand_hint=selling.brand if selling else ctx.app_name.split(":")[0].strip(),
                          natives="; ".join(f"{LANGUAGE_NAMES.get(code, code)} (code {code}, accents "
                                            f"{', '.join(acc)})" for code, acc in NATIVE.items())),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot

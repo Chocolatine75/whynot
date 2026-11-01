@@ -443,7 +443,15 @@ def default_services(settings: Settings, *, silent: bool = False) -> Services:  
         if settings.elevenlabs_api_key and not silent:
             from whynot.audio.elevenlabs import ElevenLabs
             voice = ElevenLabs(settings.elevenlabs_api_key, CACHE / "audio")
-        return Studio(run_dir, m, cfg=VideoConfig(capture=False), voice=voice, voice_id=settings.elevenlabs_voice_id)
+        # capture the competitors' creatives the run found, so the studio sees the market's formats (without it,
+        # a fresh run deconstructed 0 ads and saw no trend); needs the optional `capture` group
+        try:
+            from whynot.ingest.creatives import PlaywrightRenderer
+            factory: Any = PlaywrightRenderer
+        except ImportError:
+            factory = None
+        return Studio(run_dir, m, cfg=VideoConfig(capture=factory is not None), voice=voice,
+                      voice_id=settings.elevenlabs_voice_id, token=settings.fb_token or "", renderer_factory=factory)
 
     def check_connection(conn: MetaConnection) -> list[str]:
         from whynot.run.connect import check

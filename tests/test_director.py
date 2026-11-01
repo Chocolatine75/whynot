@@ -125,9 +125,13 @@ def test_write_templates_never_returns_unverified_copy():
         write_templates(chat, CTX, ANGLES)
 
 
-def test_accent_stripped_copy_is_refused_for_accented_languages():
+def test_accent_stripped_copy_is_refused_for_accented_languages(monkeypatch):
     """Bug seen on the Flighty run: French ads came out as 'Retarde, mais pourquoi' (no accents)."""
     import dataclasses
+
+    from whynot.agents import director
+
+    monkeypatch.setattr(director, "MAX_PHRASE_CONCEPTS", 99)  # the same copy in every concept, on purpose
 
     french = dataclasses.replace(CTX, language="French")
     stripped = director_json()
@@ -147,3 +151,31 @@ def test_accent_stripped_copy_is_refused_for_accented_languages():
 
 def test_first_shots_as_a_single_string_is_accepted():
     assert VALIDATE(answer(first_shots="app_screen"))[0].genes["first_shot"] == ["app_screen"]
+
+
+def test_a_phrase_shared_by_too_many_concepts_is_refused():
+    """Seen on the first real `whynot agency` run (VietBuddy): 'choose Northern or Southern voices' and the store
+    page's 'speak useful phrases out loud at a personal pace' came back in most ads."""
+    d = director_json()
+    for t in d["templates"]:
+        t["bodys"]["short"] = t["bodys"]["short"] + " Speak useful phrases out loud at a personal pace."
+    with pytest.raises(Invalid, match=r"too many concepts.*(out loud|personal pace)"):
+        VALIDATE(d)
+    for t in d["templates"][2:]:  # two concepts may share it
+        t["bodys"]["short"] = t["bodys"]["short"].replace(" Speak useful phrases out loud at a personal pace.", "")
+    assert len(VALIDATE(d)) == 4
+
+
+def test_hook_options_of_one_concept_must_differ():
+    d = director_json()
+    d["templates"][0]["hooks"] = {"a": "Hear family phrases in Southern voices",
+                                  "b": "Hear family phrases in Southern Vietnamese voices"}
+    with pytest.raises(Invalid, match="say the same thing"):
+        VALIDATE(d)
+
+
+def test_repeated_phrases_lists_where_each_phrase_comes_back():
+    from whynot.agents.director import repeated_phrases
+
+    ts = VALIDATE(director_json())
+    assert repeated_phrases(ts) == {}

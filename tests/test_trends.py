@@ -354,13 +354,14 @@ SELL = Selling("LinguaApp", (REVIEW,), ("Free to download",))
 
 def selling_brief():
     d = json.loads(json.dumps({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": DIALOGUE}))
-    d["lines"][2]["text"] = "anyway linguaapp has a southern voice [laughs]"
+    d["lines"][2]["text"] = "and i just stood there [laughs]"
     d["shots"] = [
         shot(seconds=1.8), shot(text="Ma ma ma", seconds=1.4),
         shot(visual="photo", prompt="A busy cafe counter", caption="me at the counter", seconds=1.6),
         shot(text="six tones bro", seconds=1.4),
         shot(visual="screen", screen=1, beat="twist", caption="wait", seconds=1.2),
-        shot(visual="screen", screen=2, focus="middle", tap=True, beat="demo", caption="pick southern", seconds=1.8),
+        shot(visual="screen", screen=2, focus="middle", tap=True, beat="demo", caption="linguaapp has a southern voice",
+             seconds=1.8),
         shot(visual="screen", screen=3, focus="top", beat="demo", caption="hear it first", seconds=2.0),
         shot(visual="review", review="r1", quote="I especially like how you can choose southern Vietnamese",
              beat="proof", caption="", seconds=1.6),
@@ -397,7 +398,7 @@ def sell_patch(fn):
     (sell_patch(lambda d: d["shots"][5].update(tap=False)), "tap"),
     (sell_patch(lambda d: d["shots"].pop(7)), "proof"),
     (sell_patch(lambda d: d["shots"][8].update(beat="proof")), "transformation"),
-    (sell_patch(lambda d: d["lines"][2].update(text="anyway this app has a southern voice")), "app's name"),
+    (sell_patch(lambda d: d["shots"][5].update(caption="pick southern")), "ON SCREEN"),
     (sell_patch(lambda d: d.update(offer="50% off today")), "offer"),
     (sell_patch(lambda d: d["shots"][8].update(beat="demo")), "never back"),
 ])
@@ -455,3 +456,58 @@ def test_unaccented_vietnamese_finds_every_phrase():
 
     assert unaccented_vietnamese("Ca Phe and bao nhieu?") == [("Ca Phe", "cà phê"), ("bao nhieu", "bao nhiêu")]
     assert unaccented_vietnamese("cà phê, bao nhiêu?") == []
+
+
+# --- honesty: no testimonial from an invented person ------------------------------------------
+
+
+@pytest.mark.parametrize("line", [
+    # seen on the first real `whynot agency` run (VietBuddy, Oct 31)
+    "my buffalo kept yelling so i tapped it slow in LinguaApp till i heard it",
+    "cousin sent me LinguaApp so i could hear her way first",
+    # the old prompt's own example
+    "anyway this app has a southern voice and it's actually the only reason grandma understands me now",
+    "i've been using it every morning",
+    "i finally downloaded it",
+    "i got the yearly plan",
+    "it lowkey changed my life",
+    "now she thinks i am cute or whatever",
+    "now my mom says i sound southern",
+])
+def test_the_creator_never_vouches_for_the_app(line):
+    d = selling_brief()
+    d["lines"][2]["text"] = line
+    with pytest.raises(Invalid, match=r"skit character|testimonial"):
+        check_selling(d)
+
+
+@pytest.mark.parametrize("caption", ["now grandma understands me", "i've been using it daily", "thanks to it"])
+def test_result_claims_are_refused_on_screen_too(caption):
+    with pytest.raises(Invalid, match="testimonial"):
+        check_selling(sell_patch(lambda d: d["shots"][8].update(caption=caption)))
+
+
+@pytest.mark.parametrize("line", ["so i said cà phê and she just kept talking", "i was so cooked",
+                                  "i got roasted by my own mom", "she called me out at dinner",
+                                  "my cousin uses slang i don't get"])
+def test_the_skit_itself_is_free(line):
+    d = selling_brief()
+    d["lines"][2]["text"] = line
+    assert check_selling(d).lines[2].text == line
+
+
+def test_the_prompt_asks_for_a_skit_and_the_brand_on_screen():
+    from whynot.agents.trend_brief import SELLING, TONE
+
+    assert "skit" in TONE and "NOT a customer" in TONE and "only reason grandma" not in TONE
+    assert "name {brand} once on screen" in SELLING and "never as a result" in SELLING
+
+
+def test_a_short_trend_gets_a_repair_saying_how_much_to_add():
+    """Seen on VietBuddy: two briefs failed 4 times on 'the trend is only 4.3 s of 13.5 s'."""
+    d = selling_brief()
+    for s in d["shots"]:
+        if s["beat"] == "trend":
+            s["seconds"] = 0.6  # 2.4 s of trend in 11.4 s
+    with pytest.raises(Invalid, match=r"Add \d+\.\d s of 'trend' shots at the start .*more trend shot"):
+        check_selling(d)
