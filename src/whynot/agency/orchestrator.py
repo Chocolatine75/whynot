@@ -56,6 +56,7 @@ class AgencyConfig:
     budget_usd: float = 8.0  # model spend for one invocation, all steps together
     step_budgets_usd: dict[str, float] = field(default_factory=lambda: {"create": 4.0, "daily": 3.0})
     publish_static: bool = True  # publish the static image campaign from the plan (else: video ads only)
+    paused_only: bool = False  # test mode: everything is created on Meta PAUSED and never activated (spends nothing)
     static_share: float = 0.5  # share of the cap planned for the static campaign
     target_live: int = 4  # video ads running at the same time
     max_new: int = 2  # new video ads per day
@@ -218,8 +219,11 @@ def step_publish(ctx: StepContext) -> dict[str, Any]:
         if waiting:
             raise Waiting(f"{waiting[0]['why']}: run again with --approve <your name>")
         raise RuntimeError("every ad set was refused: " + "; ".join(d["why"] for d in state.decisions))
-    if not ctx.connection.sandbox and ctx.approved_by:
+    if not ctx.connection.sandbox and ctx.approved_by and not cfg.paused_only:
         ctx.state.setdefault("first_live_approved_by", ctx.approved_by)
+    if cfg.paused_only:  # test mode: on the account, PAUSED, nothing can spend
+        ctx.state["static_committed_eur"] = 0.0
+        return {**out, "committed_eur": 0.0, "url": state.campaign_url, "paused_only": True}
     if state.status == "published":
         state = activate_published(state, client, ctx.run_dir)
     committed = sum(s.daily_budget_eur for i, s in enumerate(plan.ad_sets) if f"adset_{i}" in state.objects)
@@ -227,7 +231,8 @@ def step_publish(ctx: StepContext) -> dict[str, Any]:
     return {**out, "status": state.status, "committed_eur": round(committed, 2), "url": state.campaign_url}
 
 
-def video_launcher(client: Any, run_dir: Path, *, objective: str, say: Callable[[str], None] = print) -> Any:
+def video_launcher(client: Any, run_dir: Path, *, objective: str, say: Callable[[str], None] = print,
+                   paused_only: bool = False) -> Any:
     """The real account's launcher for the daily loop: video ads with the plan's audiences, or (no page id or
     plan) a launcher that leaves new ads waiting, with the reason in the report."""
     from whynot.agency.daily import MetaLauncher
@@ -236,16 +241,16 @@ def video_launcher(client: Any, run_dir: Path, *, objective: str, say: Callable[
 
     if not (run_dir / "plan.json").exists():
         say("! no plan.json: new video ads will wait (no audiences to target)")
-        return MetaLauncher(client)
+        return MetaLauncher(client, paused_only=paused_only)
     plan = plan_from_json(json.loads((run_dir / "plan.json").read_text()))
     try:
         publisher = VideoPublisher(client, run_dir, store_url=plan.store_url, objective=objective,
                                    campaign_name=f"whynot daily · {plan.app_name}")
     except MetaError as exc:
         say(f"! {exc}: new video ads will wait")
-        return MetaLauncher(client)
+        return MetaLauncher(client, paused_only=paused_only)
     return MetaLauncher(client, publisher, audiences={a.audience.persona: a.audience for a in plan.ad_sets},
-                        videos=run_dir / "videos", title=plan.app_name)
+                        videos=run_dir / "videos", title=plan.app_name, paused_only=paused_only)
 
 
 def step_daily(ctx: StepContext) -> dict[str, Any]:
@@ -267,7 +272,7 @@ def step_daily(ctx: StepContext) -> dict[str, Any]:
         client = ctx.services.marketing(ctx.connection)
         source = MetaInsights(client, objective=cfg.objective)
         launcher = (ctx.services.launcher or video_launcher)(client, ctx.run_dir, objective=cfg.objective,
-                                                             say=ctx.say)
+                                                             say=ctx.say, paused_only=cfg.paused_only)
         left = cfg.daily_cap_eur - float(ctx.state.get("static_committed_eur", 0.0))
         policy = owner_policy(cfg, ctx.state, left)
     model = ctx.services.model(ctx.budget_usd, ctx.run_dir)
@@ -278,11 +283,12 @@ def step_daily(ctx: StepContext) -> dict[str, Any]:
                       strategy=strategy, cfg=dcfg, approved_by=ctx.approved_by, say=ctx.say)
     finally:
         ctx.spent_usd = model.spent_usd
-    launched_live = not cfg.simulated_account and rep.live and ctx.approved_by
+    launched_live = not cfg.simulated_account and not cfg.paused_only and rep.live and ctx.approved_by
     if launched_live and ctx.connection is not None and not ctx.connection.sandbox:
         ctx.state.setdefault("first_live_approved_by", ctx.approved_by)
     return {"day": rep.day, "simulated": rep.simulated, "live": len(rep.live), "paused": len(rep.paused),
-            "new": len(rep.new), "waiting_approval": len(rep.waiting_approval), "failures": rep.failures,
+            "new": len(rep.new), "waiting_approval": len(rep.waiting_approval),
+            "published_paused": len(rep.published_paused), "failures": rep.failures,
             "committed_eur": rep.committed_eur, "cap_eur": rep.cap_eur,
             "report": f"agency/reports/{rep.day}.md"}
 

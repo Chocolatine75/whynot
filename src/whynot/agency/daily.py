@@ -76,7 +76,8 @@ class MetaLauncher:
     simulated = False
 
     def __init__(self, client: Any, publisher: Any = None, *, audiences: dict[str, Any] | None = None,
-                 videos: Path | None = None, title: str = ""):
+                 videos: Path | None = None, title: str = "", paused_only: bool = False):
+        self.paused_only = paused_only  # test mode: everything is created PAUSED and never activated
         self.client = client
         self.publisher = publisher
         self.audiences = audiences or {}  # persona id -> campaign.Audience
@@ -89,7 +90,9 @@ class MetaLauncher:
         if self.publisher is None or self.videos is None:
             raise NotImplementedError("no video publisher configured: approve and upload "
                                       f"{rec.file} by hand")
-        audience = self.audiences.get(rec.persona)
+        # the plan keys audiences by persona and ad language ("traveller.en"); ideas carry the persona alone
+        audience = self.audiences.get(rec.persona) or next(
+            (a for k, a in sorted(self.audiences.items()) if k.split(".")[0] == rec.persona), None)
         if audience is None:
             raise ValueError(f"no audience for persona {rec.persona!r} in the run's plan.json")
         video = self.videos / Path(rec.file).name
@@ -98,7 +101,7 @@ class MetaLauncher:
             if not f.exists():
                 raise FileNotFoundError(f"{f.name} is missing: re-render the video first")
         return str(self.publisher.publish(VideoAd(rec.key, video, poster, rec.hook, self.title, audience,
-                                                  budget_eur), activate=True))
+                                                  budget_eur), activate=not self.paused_only))
 
     def pause(self, rec: AdRecord) -> None:
         if rec.meta_ad_id:
@@ -125,6 +128,7 @@ class DayReport:
     paused: list[dict[str, str]] = field(default_factory=list)
     new: list[dict[str, Any]] = field(default_factory=list)
     waiting_approval: list[str] = field(default_factory=list)
+    published_paused: list[str] = field(default_factory=list)  # test mode: on the account, PAUSED, spending nothing
     failures: list[str] = field(default_factory=list)
     learnings: dict[str, Any] = field(default_factory=dict)
     committed_eur: float = 0.0
@@ -253,6 +257,11 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
                     rep.failures.append(f"launch of {rec.key} failed: {type(exc).__name__}: {exc}"[:300])
                     rep.waiting_approval.append(rec.key)
                     continue
+                if getattr(launcher, "paused_only", False):  # on the account but never activated: spends nothing
+                    memory.set_status(rec.key, "paused", "published PAUSED (test mode, never activated)", day=rep.day)
+                    memory.save()
+                    rep.published_paused.append(rec.key)
+                    continue
                 memory.set_status(rec.key, "live", d.why, day=rep.day)
                 memory.save()  # a crash after this point must not make tomorrow launch the same ad again
                 budgets[rec.key] = cfg.budget_per_ad_eur
@@ -288,6 +297,9 @@ def write_report(folder: Path, rep: DayReport, memory: Memory) -> Path:
                                   for n in rep.new], ""]
     if rep.waiting_approval:
         lines += ["## Waiting for your approval", *[f"- {k}" for k in rep.waiting_approval], ""]
+    if rep.published_paused:
+        lines += ["## Published PAUSED (test mode: on the account, never activated, nothing spent)",
+                  *[f"- {k}" for k in rep.published_paused], ""]
     best = sorted((r for r in memory.ads.values() if r.cpa is not None), key=lambda r: r.cpa or 0)[:3]
     if best:
         lines += ["## Best so far", *[f"- {r.key} ({r.format} · {r.angle}): €{r.cpa:.2f} per conversion, "

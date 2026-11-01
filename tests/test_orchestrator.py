@@ -41,6 +41,7 @@ class Launcher:
     """Records video ad launches on the real account (the fake Graph has no video endpoint)."""
 
     simulated = False
+    paused_only = False
 
     def __init__(self):
         self.launched: list[tuple[str, float]] = []
@@ -77,7 +78,8 @@ class World:
         return ModelClient(self.settings, budget_usd=budget)
 
     def marketing(self, conn: MetaConnection):
-        return MarketingClient(Account(conn.account_id, conn.token, page_id=conn.page_id, sandbox=conn.sandbox),
+        return MarketingClient(Account(conn.account_id, conn.token, page_id=conn.page_id, app_id=conn.app_id,
+                                       sandbox=conn.sandbox),
                                http=httpx.Client(transport=httpx.MockTransport(self.graph)), sleep=lambda s: None)
 
     def studio(self, run_dir, model):
@@ -91,17 +93,22 @@ class World:
 
     def services(self) -> Services:
         return Services(self.settings, self.create_clients, self.model, self.marketing, self.studio, self.check,
-                        launcher=lambda client, run_dir, objective, say: self.launcher)
+                        launcher=self.make_launcher)
+
+    def make_launcher(self, client, run_dir, *, objective, say, paused_only=False):
+        self.launcher.paused_only = paused_only
+        return self.launcher
 
 
 def connection(tmp: Path, *, sandbox=False, page="999", perms=("ads_management", "ads_read")) -> str:
-    conn = MetaConnection(TOKEN, "123456", "Owner's account", "EUR", page, "Page" if page else None, None, "Owner",
+    # an app registered with Meta: App Store links need the app_promotion objective
+    conn = MetaConnection(TOKEN, "123456", "Owner's account", "EUR", page, "Page" if page else None, "777", "Owner",
                           list(perms), sandbox, [] if page else ["no Facebook Page you can advertise with"])
     return str(conn.save(tmp / "connections"))
 
 
 def cfg(**kw) -> AgencyConfig:
-    base = dict(app_ref=APP, countries=["FR", "GB"], daily_cap_eur=20.0, budget_usd=10.0)
+    base = dict(app_ref=APP, countries=["FR", "GB"], daily_cap_eur=20.0, budget_usd=10.0, objective="app_promotion")
     return AgencyConfig(**{**base, **kw})
 
 
@@ -378,3 +385,26 @@ def test_the_simulated_account_plans_with_the_whole_cap_and_says_autopilot():
     real = cfg(connection="x.json", level="dry_run")
     assert real.static_cap_eur == 10.0 and real.effective_level == "dry_run"
     assert cfg(connection="x.json", publish_static=False).static_cap_eur == 20.0
+
+
+
+def test_paused_test_mode_creates_everything_on_meta_and_activates_nothing(base, tmp_path):
+    """The first test on a real ad account: objects exist in Ads Manager, all PAUSED, nothing can spend."""
+    world = World(tmp_path)
+    run = fork(base, tmp_path)
+    orch = Orchestrator(run, cfg(connection=connection(tmp_path), level="autopilot", paused_only=True),
+                        world.services())
+    result = quiet(orch, today=DAY, approved_by="Matteo")
+    assert result.status == "done", result.error
+    pub = result.steps["publish"]["outputs"]
+    assert pub["status"] == "published" and pub["committed_eur"] == 0.0 and pub["paused_only"]
+    statuses = {o.get("status") for o in world.graph.objects.values() if o["kind"] in ("campaigns", "adsets", "ads")}
+    assert statuses == {"PAUSED"}  # created PAUSED ...
+    assert not any(f.get("status") == "ACTIVE" for _, _, f in world.graph.calls)  # ... and never switched on
+    daily = result.steps[f"daily {DAY}"]["outputs"]
+    assert daily["live"] == 0 and daily["published_paused"] == 2 and daily["committed_eur"] == 0
+    assert len(world.launcher.launched) == 2 and world.launcher.paused_only
+    state = load_state(run)
+    assert "first_live_approved_by" not in state  # a paused test is not the owner's first live launch
+    report = (run / "agency" / "reports" / f"{DAY}.md").read_text()
+    assert "Published PAUSED (test mode" in report

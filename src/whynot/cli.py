@@ -311,7 +311,8 @@ def _agency(args: argparse.Namespace) -> int:
             cfg = AgencyConfig(app_ref=args.app, countries=args.countries, daily_cap_eur=cap,
                                level=args.level or s.autonomy_level, simulated_account=args.sim,
                                connection=args.connection, objective=args.objective, budget_usd=args.budget_usd,
-                               publish_static=not args.videos_only, target_live=args.target, max_new=args.new,
+                               publish_static=not args.videos_only, paused_only=args.paused,
+                               target_live=args.target, max_new=args.new,
                                budget_per_ad_eur=args.budget_per_ad, create=extra, seed=args.seed)
             orch = Orchestrator.start(Path(args.out), cfg, services)
     except (ValueError, FileNotFoundError, RuntimeError) as exc:
@@ -321,7 +322,8 @@ def _agency(args: argparse.Namespace) -> int:
     account = ("SIMULATED (results invented by a known model, not real)" if cfg.simulated_account
                else orch.state["account"]["act"])
     print(f"run folder: {orch.run_dir}\naccount: {account}"
-          f" · autonomy {cfg.effective_level} · ad cap €{cfg.daily_cap_eur:.2f}/day"
+          f" · autonomy {cfg.effective_level}{' · PAUSED test mode: nothing is activated' if cfg.paused_only else ''}"
+          f" · ad cap €{cfg.daily_cap_eur:.2f}/day"
           f" · model budget ${cfg.budget_usd:.2f}")
     try:
         result = orch.run(approved_by=args.approve, days=args.days,
@@ -465,6 +467,8 @@ def main(argv: list[str] | None = None) -> int:
     ag.add_argument("--budget-usd", type=float, default=8.0, help="model spend cap for this command, all steps")
     ag.add_argument("--objective", choices=["traffic", "app_promotion"], default="traffic")
     ag.add_argument("--videos-only", action="store_true", help="no static image campaign, only daily video ads")
+    ag.add_argument("--paused", action="store_true",
+                    help="test mode: create everything on Meta PAUSED and never activate it (nothing can spend)")
     ag.add_argument("--target", type=int, default=4, help="video ads running at the same time")
     ag.add_argument("--new", type=int, default=2, help="new video ads per day at most")
     ag.add_argument("--budget-per-ad", type=float, default=5.0, help="daily budget per video ad, EUR")
