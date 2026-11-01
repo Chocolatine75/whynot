@@ -71,7 +71,7 @@ def test_every_variant_of_every_template_composes_and_passes_all_guards():
     ({"hooks__family": "Rated ★ by families"}, "pictograms"),
     ({"proofs__accents": "✓ Northern or Southern"}, "pictograms"),
     ({"hooks__family": "Are you lonely abroad?"}, "personal attribute"),
-    ({"bodys__story": "Fluency guaranteed."}, "absolute claim"),
+    ({"bodys__story": "Fluency guaranteed."}, "absolute claim|neither the store page"),
     ({"hooks__family": "x" * 71}, "max 70"),
     ({"titles__main": "y" * 41}, "max 40"),
     ({"ctas": {"BUY_NOW": "Buy"}}, "must be one of"),
@@ -179,3 +179,19 @@ def test_repeated_phrases_lists_where_each_phrase_comes_back():
 
     ts = VALIDATE(director_json())
     assert repeated_phrases(ts) == {}
+
+
+def test_unbacked_promises_are_refused_in_static_copy():
+    d = director_json()
+    d["templates"][0]["hooks"]["family"] = "Perfect Southern accent, instantly"
+    with pytest.raises(Invalid, match=r"promises \['instantly', 'perfect'\]|promises \['perfect', 'instantly'\]"):
+        VALIDATE(d)
+
+
+def test_a_promise_word_the_store_page_says_is_allowed():
+    import dataclasses
+
+    ctx = dataclasses.replace(CTX, store_text=CTX.store_text + " Get instant feedback on every phrase.")
+    d = director_json()
+    d["templates"][0]["hooks"]["family"] = "Instant feedback on your accent"
+    assert len(make_validator(ctx, ANGLES)(d)) == 4

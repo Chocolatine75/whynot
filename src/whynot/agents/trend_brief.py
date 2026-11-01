@@ -136,9 +136,9 @@ Return JSON only:
 
 TONE = """TONE — non-negotiable. You are not a brand and not a teacher: you are a 19-24 year-old creator talking
 into your phone, telling your friends what happened to you.
-- First person, story energy, run-on and fragments: "so i said cà phê... and she just. kept. talking."
+- First person, story energy, run-on and fragments. Roast yourself, exaggerate, react. The examples in this
+  brief show the ENERGY only: never reuse their words (refused: {cliches}); find this story's own words.
 - Words of another language keep their accents, even inside an English line: "cà phê sữa đá", never "ca phe sua da".
-- Roast yourself, exaggerate, react: "i was SO cooked", "the way i just nodded", "no because why".
 - Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
 - HONESTY, the law for ads: the creator is a character in a skit, NOT a customer. They live the situation
   (the struggle, the joke) and never mention the app: they never name it, never say they used, tried,
@@ -161,8 +161,20 @@ TEACHER_WORDS = ("learn", "learning", "lesson", "lessons", "practise", "practice
                  "improve", "skills", "master", "fluent", "fluently", "effortlessly", "unlock", "journey",
                  "discover", "boost", "enhance", "perfect your", "start your", "download now", "language skills")
 # Phrases that make no sense in an ad (it has a button, not a bio).
-NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more", "comment below")
+NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more", "comment below", "link up top",
+              "link above", "link in comments")
+BRAND_BEATS = ("demo", "proof", "payoff", "cta")  # from the demo on, the screen speaks for the brand, not the creator
+_FIRST_PERSON = re.compile(r"\b(?:i|i'm|im|i'd|i've|me|my|mine|myself)\b")
 EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
+# Lines the old prompt gave as examples: all four VietBuddy videos of Nov 1 reused them. Refused in the creator's
+# lines and captions.
+CLICHES = ("kept talking", "so cooked", "just nodded", "no because why")
+PHRASE_WORDS = 4  # a run of this many words already used in an earlier ad is a repeated line
+
+
+def _phrases(text: str, n: int = PHRASE_WORDS) -> set[str]:
+    words = re.findall(r"[a-zà-ỹ0-9']+", re.sub(r"\[[^\]]*\]", " ", text.lower()))
+    return {" ".join(words[i:i + n]) for i in range(len(words) - n + 1)}
 
 
 _SHOUT = re.compile(r"\b[A-Z]{2,}\b")
@@ -394,6 +406,16 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         for old_hook, old_voice in avoid or []:  # a new idea must not come back with an old ad's words
             if overlap(hook, old_hook) > MAX_TEXT_OVERLAP or (old_voice and overlap(voice, old_voice) > MAX_TEXT_OVERLAP):
                 problems.append(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
+        creator = " ".join([mine, hook] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
+        creator = re.sub(r"[^\w\s']", " ", creator)
+        if used := [c for c in CLICHES if re.search(rf"\b{re.escape(c)}\b", " ".join(creator.split()))]:
+            problems.append(f"the lines reuse the prompt's examples {used}: they show the energy only; say this "
+                            "story's moment in its own words")
+        mine_phrases = _phrases(" ".join([mine, hook] + [s.caption for s in shots]))
+        for old_hook, old_voice in avoid or []:
+            if again := sorted(mine_phrases & _phrases(f"{old_hook} {old_voice}"))[:3]:
+                problems.append(f"these words were already said in the ad \"{old_hook}\": {again}; write new lines")
+                break
         brand = selling.brand if selling else ctx.app_name.split(":")[0].split(" - ")[0].strip()
         for x in lines:
             if x.speaker != "me":
@@ -413,6 +435,11 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         for phrase in NOT_IN_ADS:
             if phrase in everything:
                 problems.append(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
+                break
+        else:  # any other "link ..." the model invents ("link right here btw", seen Nov 1)
+            if m := re.search(r"\blinks?\b[^.!?]{0,20}", everything):
+                problems.append(f"{m.group(0).strip()!r} makes no sense in an ad: people tap the button on the end "
+                                "card")
 
         # the timeline: trend ≥ share, demo ≥ DEMO_SHARE, total within TOTAL_SECONDS, computed together so one
         # fix does not break another
@@ -462,9 +489,20 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             problems.append(f"the video lasts {total:.1f} s with the end card; make it "
                             f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
         try:
-            rules.check(texts, "trend brief")
+            rules.check(texts, "trend brief", promises=False)  # the creator's own words are a story, not a promise
         except Invalid as exc:
             problems.append(str(exc))
+        for i, s in enumerate(shots, 1):
+            words = f"{s.caption} {s.text or ''}".lower()
+            if s.beat in BRAND_BEATS and (m := _FIRST_PERSON.search(words)):
+                problems.append(f"shot {i} ({s.beat}) says {m.group(0)!r}: from the demo on, captions speak for the "
+                                f"brand, not the creator (\"{brand} lets you pick a southern voice\"), never \"I\" or "
+                                "\"my\"")
+        brand_text = {f"shot {i}": f"{s.caption} {s.text or ''}" for i, s in enumerate(shots, 1) if s.beat != "trend"}
+        for where, text in {**brand_text, "cta": cta}.items():
+            if promised := rules.unbacked_promises(text):
+                problems.append(f"{where} promises {promised}, which neither the store page nor a verified claim says: "
+                                "say only what the app is shown to do")
         if len(problems) == 1:
             raise Invalid(problems[0])
         if problems:
@@ -479,8 +517,9 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
 SELLING = """
 IT MUST SELL. After the trend and the twist, in this order:
 - DEMO ({demo_share} of the video at least, ≥ 2 real screens, beat "demo"): the app in action on its real screens,
-  punched into the part that matters, with "tap": true on the screen where the finger taps. The CAPTIONS say what
-  it does, in the brand's voice, and name {brand} once on screen. The creator's lines never name it.
+  punched into the part that matters, with "tap": true on the screen where the finger taps. From here on the
+  CAPTIONS speak for the brand ("{brand} lets you pick a southern voice"), never "I" or "my", and name {brand}
+  once on screen. The creator's lines never name it.
 - PROOF (beat "proof", visual "review"): quote a verified review word for word ("review": id, "quote": max 18
   words copied exactly). Verified reviews:
 {reviews}
@@ -517,6 +556,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         claims="; ".join(c.text for c in s.claims) or "(none)",
         screens="; ".join(f"{i}. {d}" for i, d in enumerate(screens, 1)),
         tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
+                         cliches=", ".join(f'"{c}"' for c in CLICHES),
                          brand_hint=selling.brand if selling else ctx.app_name.split(":")[0].strip(),
                          natives="; ".join(f"{LANGUAGE_NAMES.get(code, code)} (code {code}, accents "
                                            f"{', '.join(acc)})" for code, acc in NATIVE.items())),

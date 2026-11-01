@@ -114,6 +114,18 @@ def _texts(raw: Any, gene: str, where: str) -> dict[str, str]:
     return out
 
 
+# Words that promise a result or a quality. Allowed only when the store page or a verified claim says them (seen
+# on a real run: a caption promised instant feedback; the store page doesn't, and reviews say it is slow).
+PROMISES = ("instant", "instantly", "immediate", "immediately", "real-time", "real time", "accurate", "accurately",
+            "perfect", "perfectly", "fluent", "fluently", "fluency", "native-level", "guaranteed", "guarantee",
+            "never forget", "overnight", "effortless", "effortlessly", "in minutes", "in days", "certified",
+            "proven", "best", "number one")
+
+
+def _promise_rx(word: str) -> re.Pattern[str]:
+    return re.compile(r"\b" + re.escape(word).replace(r"\-", "[- ]").replace(r"\ ", "[- ]") + r"\b")
+
+
 class CopyRules:
     """Every check ad copy must pass, shared by the creative director and the evolver.
 
@@ -125,9 +137,19 @@ class CopyRules:
         self.allowed_numbers = _allowed_numbers(ctx)
         self.font = fonts.load(40)  # the font the composer will draw with
         self.competitors = [n for n in ctx.competitor_names if len(n) >= 4]
+        backed = normalise(" ".join([c.text for c in ctx.strategy.claims] + [ctx.store_text]))
+        self.promises = [w for w in PROMISES if not _promise_rx(w).search(backed)]  # the ones nothing backs
 
-    def check(self, texts: dict[str, str], where: str) -> None:
+    def unbacked_promises(self, text: str) -> list[str]:
+        """Promise words in `text` that neither the store page nor a verified claim says."""
+        low = normalise(text)
+        return [w for w in self.promises if _promise_rx(w).search(low)]
+
+    def check(self, texts: dict[str, str], where: str, *, promises: bool = True) -> None:
         for field_name, text in texts.items():
+            if promises and (words := self.unbacked_promises(text)):
+                raise Invalid(f"{where}: {field_name} promises {words}, which neither the store page nor a verified "
+                              "claim says: say only what the app does")
             gene = field_name.split(".")[0]
             if gene in LIMITS and len(text) > LIMITS[gene]:
                 raise Invalid(f"{where}: {field_name} has {len(text)} characters, max {LIMITS[gene]}")
