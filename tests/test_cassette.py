@@ -80,12 +80,16 @@ def test_replay_reproduces_a_truncated_answer(tmp_path):
         client(tmp_path, "replay").chat(MSGS, module="s")
 
 
-def test_images_and_segmentation_are_refused_in_replay(tmp_path):
+def test_images_are_refused_in_replay_and_segmentation_is_replayed(tmp_path):
     play = client(tmp_path, "replay")
     with pytest.raises(CassetteMissing):
         play.image("a cat", module="scenes")
-    with pytest.raises(CassetteMissing):
+    with pytest.raises(CassetteMissing):  # nothing recorded yet
         play.segment("data:image/png;base64,AA==", "phone screen", module="cutout")
+    first = client(tmp_path, "record", meta=FakeOpenAI()).segment("data:image/png;base64,AA==", "phone screen",
+                                                                  module="cutout")
+    again = play.segment("data:image/png;base64,AA==", "phone screen", module="cutout")
+    assert again.text == first.text and again.cost.usd == 0 and again.cost.source == "cassette"
 
 
 def test_secrets_never_reach_a_recording(tmp_path):

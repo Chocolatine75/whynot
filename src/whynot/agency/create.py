@@ -21,6 +21,7 @@ by the autopilot under the owner's autonomy level, cap and approval.
 import json
 import random
 import re
+import shutil
 import time
 from collections.abc import Callable
 from dataclasses import asdict, dataclass, field, replace
@@ -37,6 +38,9 @@ from whynot.agents.ask import AgentError
 from whynot.agents.director import Context
 from whynot.agents.strategist import Strategy
 from whynot.assets.brand import palette_from_icon
+from whynot.assets.screens import Screen
+from whynot.assets.screens import pick as pick_screens
+from whynot.assets.screens import prepare as prepare_screens
 from whynot.create.composer import ComposeError, compose
 from whynot.create.guards import publishable, run_guards
 from whynot.create.locale import LANGUAGES, language_groups, unmapped
@@ -270,6 +274,16 @@ def localised(strategy: Strategy, countries: list[str]) -> Strategy:
     return replace(strategy, personas=personas, angles=[a for a in strategy.angles if a.persona in keep])
 
 
+def static_screens(run: Run, c: Clients, app: AppProfile, brand: dict[str, Any], log: dict[str, Any]) -> list[Screen]:
+    """Screens cut out and described for the statics; on any failure, the store posters in turn (logged)."""
+    try:
+        return prepare_screens(c.model, run.path("assets"), app.name, list(brand["screenshots"]),
+                               sam_cache=run.path("assets", "sam"))
+    except Exception as exc:  # better a poster than no ad: the ads are still made, the report says why
+        log["screens"] = f"screens not cut out ({type(exc).__name__}: {str(exc)[:200]}); store posters used in turn"
+        return []
+
+
 def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
                    market: dict[str, Any], brand: dict[str, Any]) -> None:
     """One template set per ad language: French ads for France, English ads for the UK."""
@@ -278,7 +292,11 @@ def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
     folder.mkdir(exist_ok=True)
     for old in folder.glob("*.yaml"):  # a redo replaces the whole set
         old.unlink()
-    log = {}
+    # ...and the copy evolution keeps of the previous set: else `evolve` would restore the OLD templates over these
+    shutil.rmtree(run.path("templates_gen0"), ignore_errors=True)
+    log: dict[str, Any] = {}
+    screens = static_screens(run, c, app, brand, log)
+    made: list[dict[str, Any]] = []
     for code, countries in languages(cfg).items():
         local = localised(strategy, countries)
         angles = pick_angles(local, cfg.max_angles)
@@ -292,9 +310,16 @@ def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
             d = t.to_dict()
             d["id"] = t.id.removesuffix("_v1") + f"_{code}_v1"
             d["fixed"]["language"] = code
-            d["fixed"]["product"]["asset"] = brand["screenshots"][i % len(brand["screenshots"])]  # rotate real screens
-            (folder / f"{d['id']}.yaml").write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True),
-                                                    encoding="utf-8")
+            d["fixed"]["product"]["asset"] = brand["screenshots"][i % len(brand["screenshots"])]
+            made.append(d)
+    if screens and made:  # the real screen that shows what each concept talks about, cut out of its store poster
+        picks = pick_screens(c.model, app.name, {d["id"]: d["concept"] for d in made}, screens)
+        for d in made:
+            d["fixed"]["product"]["asset"] = picks[d["id"]].asset
+        log["screens"] = {d["id"]: picks[d["id"]].description for d in made}
+    for d in made:
+        (folder / f"{d['id']}.yaml").write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True),
+                                                encoding="utf-8")
     run.write_json("creative.json", log)
 
 

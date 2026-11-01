@@ -255,7 +255,11 @@ class ModelClient:
         }
         if include_confidence:
             request["extra_body"] = {"include_confidence": "true"}
-        self._refuse_in_replay(SAM, module)
+        key = request_key(SAM, request["input"], {"include_confidence": include_confidence})
+        if self.cassette.replaying:  # SAM answers are text: recorded and replayed like chat answers
+            rec = self.cassette.load(key, model=SAM, module=module)
+            return SegmentResult(text=rec.text, cost=self._record(CostEvent(module=module, model=SAM, usd=0.0,
+                                                                            source="cassette")))
         self._check_budget()
         chunks: list[str] = []
         ok = False
@@ -268,6 +272,8 @@ class ModelClient:
             cost = self._record(CostEvent(
                 module=module, model=SAM, usd=segment_cost(SAM, images=1), images=1, ok=ok,
             ))
+        if self.cassette.recording:
+            self.cassette.put(key, Recording(SAM, module, "".join(chunks), "stop"))
         return SegmentResult(text="".join(chunks), cost=cost)
 
     # --- speech to text ----------------------------------------------------

@@ -141,6 +141,12 @@ def default_reply(model: str, messages: list[dict]) -> str:
     text = user if isinstance(user, str) else user[0]["text"]
     if "You simulate one specific person" in system:
         return fair_viewer(text)
+    if "You place the real app screen" in text:  # screen per concept: the family call screen for family ads
+        ids = re.findall(r"^- (\w+): (.*)$", text, flags=re.M)
+        return json.dumps({"picks": {i: 2 if "famil" in c.lower() else 1 for i, c in ids}})
+    if "App Store screenshots of the app" in text:  # one description per screen (assets/screens.py)
+        n = int(re.search(r"These are the (\d+)", text)[1])
+        return json.dumps({"screens": SCREEN_DESCRIPTIONS[:n]})
     if "You are improving a Meta app-install ad" in text:
         french = "language French" in text
         hook = "Parlez enfin avec votre famille" if french else "Finally talk with your family"
@@ -164,13 +170,25 @@ def default_reply(model: str, messages: list[dict]) -> str:
     raise AssertionError(f"unrouted prompt: {text[:120]}")
 
 
+SCREEN_DESCRIPTIONS = ["lesson list with daily streak", "video call practice with a native family speaker",
+                       "settings and subscription"]
+
+
 class FakeMeta:
-    """OpenAI-compatible fake: `reply(model, messages) -> str`, with usage so costs are real numbers."""
+    """OpenAI-compatible fake: `reply(model, messages) -> str`, with usage so costs are real numbers.
+    SAM 3.1 finds the phone screen in the middle of any screenshot it is shown."""
 
     def __init__(self, reply=default_reply):
         self.reply = reply
         self.requests: list[dict] = []
         self.chat = NS(completions=NS(create=self._create))
+        self.responses = NS(create=self._segment)
+        self.segments: list[dict] = []  # SAM calls, apart from chat requests (they have no messages)
+
+    def _segment(self, **kwargs):
+        self.segments.append({"model": kwargs["model"]})
+        box = "<|box;x1=80;y1=300;x2=660;y2=1450;w=738;h=1600|>"  # probe of a 1290x2796 screenshot
+        return iter([NS(type="response.output_text.delta", delta=box), NS(type="response.completed")])
 
     def _create(self, *, model, messages, **kwargs):
         self.requests.append({"model": model, "messages": messages, **kwargs})
