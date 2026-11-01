@@ -199,7 +199,9 @@ def fetch_history(call: Callable[[str, dict[str, Any]], dict[str, Any]], act: st
 
 def save_history(ads: list[PastAd], path: Path) -> Path:
     """Partner data: only under data/private/ (gitignored)."""
-    if "private" not in Path(path).parts:
+    # a folder named "private" in the project's own path; not macOS's system /private (every temp dir is under it)
+    parts = Path(path).resolve().parts
+    if "private" not in parts[2:]:
         raise HistoryError(f"partner data must be saved under data/private/, not {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps([{**asdict(a), "started": a.started.isoformat() if a.started else None}

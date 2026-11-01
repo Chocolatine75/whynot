@@ -3,52 +3,60 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-10-31 (night)
+Last updated: 2026-11-01
 
 ## Where we are
 
-Team: Matteo Atkinson, Tom Angles. Day 2 of 10. Direction settled: **whynot = AI ad agency for small businesses on Meta**, with a simulated feed as its quality gate (see `PRODUCT.md`, `TARGETS.md`). All docs aligned, in English. Code so far (`src/whynot/`, `scripts/`, 85 tests passing, no network): simulated feed v0 (personas from reach, feeds, viewer agents, scores) and the R3 longevity experiment; cost ledger + model client + smoke tests; Ad Library ingest (tokens stripped, reach breakdown, longevity); validation statistics. Real calls: Ad Library works (format confirmed, long-running filter); every Meta model passes its smoke test. Baseten, Modal and Fireworks credits requested (pending); viewers run on Muse Spark meanwhile.
+Team: Matteo Atkinson, Tom Angles (Tom drives both lanes while Matteo has no Claude credits). Deadline Wed Nov 4,
+22:00 Paris. **whynot = AI ad agency for small businesses on Meta**: research → strategy → ads (statics and trend
+videos with voice) → simulated feed → evolution → plan → publish → daily loop → report, all logged and capped.
+Partner (VietBuddy) day: **Monday Nov 2** (`docs/PILOT.md`).
 
-Done:
-- Accepted to the hackathon (Indie track, *Build for Your World*).
-- Ad Library API access works (identity verified, Business app, `ads_read` token; FR reach breakdowns confirmed).
-- Docs checked against official Meta sources (`META_APIS.md`).
-- Market research (Meta's 2026 features, pre-testing, synthetic research, Andromeda) → `RESEARCH.md`, `COMPETITION.md`.
-- First design partner: a friend's mobile app (~$20k MRR). He wants the agency to run his whole Meta campaign; he only checks.
+Works today (`master`, 723 Python + 65 web tests):
+- `whynot create`, `whynot video` (trend ads with Remotion + ElevenLabs), `whynot daily` (results, pauses, new ideas,
+  video ads published to Meta), `whynot publish` / `stop` (kill switch, CLI + button), `whynot predict` (frozen,
+  hashed predictions), `whynot costs`; `/validation` page; R1 backtest ready for the partner's data.
+- Keys (Tom): Meta Model API with credits, Baseten, ElevenLabs, FB_TOKEN (identity verified). Smoke test green
+  (Nov 1, $0.025); Ad Library live test green.
+- Fresh VietBuddy run `outputs/runs/20261101-014653-id6796837982`: 127 competitor ads (Falou, Pimsleur…), 4 audiences,
+  24 variants simulated in hard feeds + 2 evolution rounds, 12 ads in 4 ad sets, €20/day PAUSED, **$1.78**.
+- Bias suite on that run (**$1.06**): brand-name bias −0.47 and emoji −0.30 flagged (see ROADMAP E2-6, DECISIONS).
+- Validation so far: R3 failed twice (reported as a limit); R1, R5 wait for the partner.
 
 ## In progress
 
 | Who | Task | Branch / files | Notes |
 |---|---|---|---|
-| Matteo + Claude | E0-7 event log + E4-5 orchestrator (`whynot connect`, `whynot agency`) | `b/E4-5-orchestrator` (contains Tom's E14-10) | done, PR to open; next: E3-2/E3-3/E6-1 tournament + noise floor in evolution |
+| Matteo + Claude | E0-7 event log + E4-5 orchestrator (`whynot connect`, `whynot agency`); honest trend videos, no repeated copy | `b/E4-5-orchestrator` (PR #12) | done, CI green; next: tournament + noise floor in evolution (E3-2/E3-3/E6-1) |
 
-## Next up (M0, see `PLAN.md`)
+## Next up
 
-1. **Design partner:** written consent; export of past ads + real metrics per ad → `data/private/`; read-only account access; agree the pilot (cap, autonomy level, approvals, start ~Oct 31). Critical path for R1 and R4.
-2. Contact 5–10 more businesses/agencies; confirm the Shopify partner.
-3. Both: claim Meta credits + spend limit; request Baseten and Modal credits (Baseten: first 2,000 participants).
-4. When Baseten credits arrive: `BASETEN_API_KEY` in `.env`, then `uv run python scripts/smoke_models.py --only open_text open_vision`.
-5. Get the partner's competitors (Facebook page ids) and run `scripts/fetch_competitors.py --active ACTIVE --started-before-days 60` on them. Then creative capture.
-6. R3 at scale: pick 4–6 advertisers in the partner's market (page ids), run `scripts/longevity_check.py` with ≥ 20 ads per class, compare reasoning effort low vs minimal.
-7. Next code: SAM mask decoder → cutout as the composer's product asset; viewers see composed images (candidate feeds); one evolution step (objections → mutate one gene → re-test); creative capture; publishing via Marketing API sandbox.
-8. First build-in-public post.
+1. **Sandbox rehearsal** (Tom): set `META_SANDBOX_AD_ACCOUNT_ID`, `META_SANDBOX_TOKEN`, `META_PAGE_ID`, then on the
+   Nov 1 run: `whynot publish` → `whynot predict` → `whynot stop` (button too). Never run against a real account yet.
+2. **Monday (partner):** consent, data, R1, predictions frozen + posted, publish PAUSED, activate on his OK
+   (`docs/PILOT.md`).
+3. Gen-0 scores still reach the ceiling (max lift over placebo 4.0 in hard feeds): judge the evolution with the
+   tournament (`sim/tournament.py`, E3-2/E6-1) instead of lift.
+4. README, demo video, `TARGETS.md` review (Nov 3–4).
 
 ## Blockers / open questions
 
-- Partner data: which metrics per ad, how many ads, export vs read-only access.
-- Ads MCP capabilities for pausing ads and budgets; write access for the pilot.
-- Baseten (credits pending): does Muse Spark Open accept images/video? Model string `meta-models/muse-spark-open` or `...-1026`?
-- SAM 3.1: mask covers the box (observed once); write and verify the base85 decoder; video tracking format.
-- Ad Library terms for capturing and showing competitor creatives.
+- Sandbox ids and a Facebook Page for publishing (Tom's `.env`).
+- Partner: written consent, cap, autonomy level, naming in the demo (yes/no), data format.
+- Baseten rate limits drop ~15 % of viewer calls on big batches (not billed; a rerun fills them from the cache).
 - Finals top 5 or top 10? Ask on Discord.
 
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
 
-- 2026-10-31 (night, 2) — Matteo + Claude — **First real `whynot agency --sim` run, on VietBuddy** (`outputs/runs/20261031-171657-id6796837982`, $2.53): every step ran; strategy matches a human read (3 personas: Southern heritage, travellers, partners; objections from real reviews; no pronunciation promises). Found and fixed: the simulated account halved the plan's cap for a static campaign it never publishes (an audience was dropped), and the header said `dry_run` while the simulated account runs on autopilot. Still open: the trend videos make an invented creator say they used the app and got a result (fake testimonial, against our honesty rules) → fix in `agents/trend_brief.py`; static copy repeats one feature ("Choose Northern or Southern voices") in most ads; 4 of 8 angles answer the same objection.
+- 2026-11-01 — Matteo + Claude — **Honest ads, no pasted copy** (PR #12), found on two real `whynot agency --sim` runs on VietBuddy ($2.53, $3.10): trend videos no longer make an invented creator vouch for the app (the creator is a skit character, never names the app or claims a use or result; the app is named on screen in the brand's voice; enforced by the validator); the director refuses a 4-word phrase shared by more than 2 concepts and hook options that say the same thing; the strategist caps angles per objection at a third. Also: a directive repair for a too-short trend, 4 API retries, the daily studio captures competitors' creatives (a fresh run had deconstructed 0 ads). Second run: no testimonial, angles spread (max 2 per objection), 4 audiences funded; 2 of 4 video ideas failed on the trend share before the new repair message.
 
-- 2026-10-31 (night) — Matteo + Claude — **The agency in one command** (branch `b/E4-5-orchestrator`, on master + Tom's E14-10): `whynot connect` turns the owner's Meta login into a checked connection (ad account + Page found from the token, permissions, saved in `data/private/connections/`, token never in argv or a run folder); `whynot agency <App Store link> --countries FR --daily-cap 20 --connection <file>` runs connect → create → publish → daily, resumable, budget per step, one ad cap for static + video ads, approvals waited for and remembered (E4-5). Shared agent event log `events.jsonl` with parents and digests (E0-7). 39 new tests (17 e2e on the fake world). Real Meta API reached: the sandbox token expired Oct 29 (clear error, no leak). **Not yet run on a real account or a real app** (needs a fresh Meta login). `test_partner_data_only_under_private` fails on master until PR #10 is merged. Next: tournament + noise floor in evolution (E3-2, E3-3, E6-1), critic on keyframes (E14-11), owner report with approve/block (E8-5). **Tom:** the Connect Meta button can pipe the login token to `whynot connect --token-stdin`; the agency room can read `events.jsonl` (parent ids) and `agency/state.json`.
+- 2026-10-31 (night) — Matteo + Claude — **The agency in one command** (PR #12): `whynot connect` (owner's Meta login → ad account + Page found and checked, saved in `data/private/connections/`, token never in argv or a run folder) and `whynot agency <App Store link> --countries FR --daily-cap 20 --connection <file>`: connect → create → publish → daily, resumable, budget per step, one ad cap for static + video ads, approvals waited for and remembered (E4-5); shared `events.jsonl` with parents and digests (E0-7). Not yet run on a real ad account (the sandbox token had expired). **Tom:** the Connect Meta button can pipe the token to `whynot connect --token-stdin`; the agency room can read `events.jsonl` and `agency/state.json`.
+
+- 2026-11-01 — Tom + Claude — Keys live (smoke $0.025, Ad Library live test green). Merged the five pending branches into master (E14-10, E8-4, E9-4, stop button, macOS private-path fix); STATUS rewritten to today's state. Fresh VietBuddy `create` ($1.78, cassettes recorded privately) and the first real bias suite ($1.06): brand-name −0.47 and emoji −0.30 flagged. Next: sandbox rehearsal, then the partner on Monday.
+
+- 2026-10-31 (evening) — Tom + Claude — Four PRs, new files where possible to stay clear of Matteo: E14-10 the daily loop publishes its videos to Meta (`b/E14-10-video-publish`), E8-4 `whynot predict` frozen + hashed predictions and `scripts/compare_predictions.py` (`a/E8-4-predictions`), E9-4 `/validation` page (`b/E9-4-validation-page`), kill switch button (`b/E8-6-stop-button`). The four merge cleanly together and with `fix/private-path-macos`: 723 Python + 65 web tests green. No model spend. Not yet run against a real account: video upload, Insights comparison, the button. Next: keys → smoke test → sandbox rehearsal (publish, predict, stop) before Monday.
 
 - 2026-10-31 — Tom + Claude — Tom takes over both lanes (Matteo out of Claude credits). Reviewed #4/#5: fixed the daily loop saving memory only at the end (a crash after a real launch would launch the same ad again) and `--days` on a real account (would launch tomorrow's ads today), with regression tests. Remotion installed, real render test green. E14-12 accents in captions (`b/E14-12-accents`), E2-4 R1 ready for Monday, protocol pre-registered (`a/E2-4-r1`), E8-6 `whynot stop` + `docs/PILOT.md` (`b/E8-6-kill-switch`). All stacked on `b/daily-loop`. No model spend. **To merge in order: #4, #5, then the three branches.** Waiting: Tom's Meta credits + `MODEL_API_KEY`, Facebook identity check. Next: smoke test, sandbox rehearsal of publish + stop, E14-10 videos to Meta.
 

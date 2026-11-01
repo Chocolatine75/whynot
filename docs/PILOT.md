@@ -50,10 +50,14 @@ mode, end date, naming yes/no).
    ```
    Commit only `validate/results/r1-vietbuddy.json` (numbers only). Whatever the result, it is published.
 4. **His best videos** (E14-9, optional): MP4s with consent into `data/private/partner/videos/`.
-5. **Predictions before results** (E8-4): rank the ads we will launch with the simulator, write the ranking to
-   `validate/predictions/pilot-<date>.json`, then
-   `sha256sum validate/predictions/pilot-<date>.json` → commit + push the file and post the hash publicly
-   (X / Discord) **before** activation.
+5. **Predictions before results** (E8-4): freeze the simulator's ranking of the ads we will launch, then post
+   the hash publicly **before** activation:
+   ```bash
+   uv run whynot predict outputs/runs/<run> --name pilot-2026-11-02   # prints the sha256 and a post to copy
+   git add validate/predictions/pilot-2026-11-02.json && git commit -m "Pilot predictions, frozen" && git push
+   ```
+   After a few days: `uv run python scripts/compare_predictions.py validate/predictions/pilot-2026-11-02.json
+   outputs/runs/<run>` (anyone can check the file with `whynot predict --verify FILE --sha HASH`).
 6. **Publish PAUSED** on his account: set `META_AD_ACCOUNT_ID`, `META_ACCESS_TOKEN`, `META_PAGE_ID`,
    `AUTONOMY_LEVEL` (`propose` or `autopilot` as he chose), `MAX_DAILY_AD_SPEND_EUR` = his cap, then
    `uv run whynot publish outputs/runs/<run> --live --objective traffic --approve "<his name>"`.

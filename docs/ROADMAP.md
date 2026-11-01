@@ -188,7 +188,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
   - *Business metric:* among an advertiser's ads, the share that lasted in the model's top half vs at random ("ads we'd have launched").
   - *Decision rule (fixed before results):* if top-half survival beats random by **≥ 10 points** on held-out advertisers and the within-advertiser AUC beats shorter copy (0.62), it becomes the agency's gate and a demo number; otherwise it is reported as a limit and R2 + R1 carry the proof.
   - *Tests:* the advertiser split (property: no advertiser in both train and test); features extracted deterministically; the metric on synthetic data with a known answer.
-- [ ] **E2-6** Bias suite (A) — *code done Oct 30 (`validate/bias.py`, `scripts/bias_suite.py`): brand, length, emoji, label leak, position (language via `translated`). Fake world, 40 seeds: planted biases caught ≥ 92 %, 3 % false alarms. Left: record a real run in cassettes and gate CI on it.*
+- [ ] **E2-6** Bias suite (A) — *code done Oct 30 (`validate/bias.py`, `scripts/bias_suite.py`): brand, length, emoji, label leak, position (language via `translated`). Fake world, 40 seeds: planted biases caught ≥ 92 %, 3 % false alarms. **First real run Nov 1** (VietBuddy run 20261101, 12 competitor ads × 4 twins + position, Muse Spark Open low, 288 views, $1.06): **brand name −0.47 (p < 0.001)**: the same ad under "VietBuddy" instead of its real page name is almost never picked (an unknown name loses to a known one); **emoji −0.30 (p = 0.001)**; copy length +0.11, label leak +0.04, position +0.06 (p = 0.035, under the 0.10 threshold): not flagged. Recorded in `data/private/cassettes` (partner consent pending). Left: gate CI on a public recording.*
   - *Done when:* automated checks run on every simulator change:
     - brand name (placebos);
     - position in the feed;
@@ -319,13 +319,13 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
   - *Tests:*
     - e2e on a fake Meta with 7 simulated days of metrics: losers paused, cap never exceeded (property over random metric series);
     - a cap breach is impossible, even under concurrent runs (lock test).
-- [ ] **E8-4** ★ Predictions published before results (B + A, R5)
+- [ ] **E8-4** ★ Predictions published before results (B + A, R5) — *Oct 31: `whynot predict RUN --name` (`validate/predictions.py`): ranking per ad set with image hashes, no copy, canonical SHA-256, never rewritten, `--verify`; `scripts/compare_predictions.py` reads Insights and scores pairs within ad sets outside the noise (rule fixed in the file). Left: freeze on Monday, post the hash, compare after the pilot.*
   - *Done when:* before the pilot launches, the simulator's ranking of the pilot's ads is committed with a hash and a timestamp (git commit + a public post). After N days it is compared with real metrics.
   - *Tests:* the comparison script on synthetic outcomes.
 - [ ] **E8-5** Weekly report with approve / block (B)
   - *Done when:* an owner-facing report (web + email-ready HTML): what ran, what was paused and why, new concepts awaiting approval, spend vs cap. Approve and block buttons call the autopilot.
   - *Tests:* every number traced to the log (unit); the approve path is logged (e2e).
-- [ ] **E8-6** Kill switch (B) — *Oct 31: `whynot stop RUN... --by NAME [--live]` (`run/killswitch.py`): campaigns first, then ad sets and ads in parallel; from publish.json (even partial) and the daily loop's memory; any autonomy level; logged; tested on the fake Graph. Left: the button in the platform.*
+- [ ] **E8-6** Kill switch (B) — *Oct 31: `whynot stop RUN... --by NAME [--live]` (`run/killswitch.py`): campaigns first, then ad sets and ads in parallel; from publish.json (even partial) and the daily loop's memory; any autonomy level; logged; tested on the fake Graph. Button in the platform (Oct 31): "Pause everything now" in the publish panel, one confirmation with the owner's name, runs `whynot stop` without a shell and shows its result (`web/lib/stop.ts`, `/api/stop`). Left: a timed run against the sandbox.*
   - *Done when:* one command and one button pause everything whynot created on the account in < 10 s, logged.
   - *Tests:* e2e on the fake Graph (all objects PAUSED); it works even if publish.json is partial.
 - [ ] **E8-7** Ads MCP path (B)
@@ -352,7 +352,7 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 - [ ] ~~**E9-3** ★ Arena public (B, R11 R12)~~ — *cut Oct 30: the product is the agency for a real client; R12 = real businesses on the agency*
   - *Done when:* no account; paste a link → 3 tested concepts in < 5 min (measured p50 and p90). Rate-limited, per-IP budget cap, queue with position, shareable result page. Abuse handling: the link must resolve to a real App Store / Play / Shopify page.
   - *Tests:* load test (10 concurrent runs within budget); the rate limiter (unit); a security test (SSRF: only allowed hosts are fetched).
-- [ ] **E9-4** ★ Validation page (B + A)
+- [ ] **E9-4** ★ Validation page (B + A) — *Oct 31: `/validation` (`web/lib/validation.ts`) reads `validate/results/*.json` and frozen-prediction results: per experiment the question, primary row, baselines, 95 % CIs, sample, cost, verdict (a claim only when the CI excludes chance), method, limits, the command to reproduce; unreadable files listed. Shows R3 v0/v1 today; R1 and R5 appear when their files exist. Left: R2, R6, R10 when measured.*
   - *Done when:* `/validation` shows R1, R2, R3, R6 and R10 with CIs, baselines, sample sizes, the method in plain words, failures and limits, plus the one command to reproduce.
   - *Tests:* numbers read from `validate/results/*.json` (unit); visual.
 - [ ] **E9-5** `/judge` human test page (B, feeds E2-5)

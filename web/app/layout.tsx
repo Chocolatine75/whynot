@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" className="wordmark">whynot</Link>
           <div className="nav-links">
             <Link href="/#campaigns">Campaigns</Link>
+            <Link href="/validation">Validation</Link>
             <Link href="/" className="btn compact">New campaign</Link>
           </div>
         </nav>
