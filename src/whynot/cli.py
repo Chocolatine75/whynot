@@ -144,10 +144,32 @@ def _video(args: argparse.Namespace) -> int:
     return 0 if report["videos"] else 2
 
 
+def _video_launcher(client: Any, run_dir: Path, args: argparse.Namespace) -> Any:
+    """The real account's launcher: video ads published with the plan's audiences, or (missing page id or plan)
+    a launcher that leaves new ads waiting, with the reason in the report."""
+    from whynot.agency.create import plan_from_json
+    from whynot.agency.daily import MetaLauncher
+    from whynot.run.meta import MetaError
+    from whynot.run.video_ads import VideoPublisher
+
+    if not (run_dir / "plan.json").exists():
+        print("! no plan.json: new video ads will wait (no audiences to target)", file=sys.stderr)
+        return MetaLauncher(client)
+    plan = plan_from_json(json.loads((run_dir / "plan.json").read_text()))
+    try:
+        publisher = VideoPublisher(client, run_dir, store_url=plan.store_url, objective=args.objective,
+                                   campaign_name=f"whynot daily · {plan.app_name}")
+    except MetaError as exc:
+        print(f"! {exc}: new video ads will wait", file=sys.stderr)
+        return MetaLauncher(client)
+    return MetaLauncher(client, publisher, audiences={a.audience.persona: a.audience for a in plan.ad_sets},
+                        videos=run_dir / "videos", title=plan.app_name)
+
+
 def _daily(args: argparse.Namespace) -> int:
     from datetime import date, timedelta
 
-    from whynot.agency.daily import AlreadyRunning, DailyConfig, MetaLauncher, SimLauncher, run_day
+    from whynot.agency.daily import AlreadyRunning, DailyConfig, SimLauncher, run_day
     from whynot.agency.trend_video import Studio
     from whynot.agency.video import CACHE, VideoConfig
     from whynot.agents.strategist import Strategy
@@ -175,9 +197,9 @@ def _daily(args: argparse.Namespace) -> int:
         policy = Policy(Level.AUTOPILOT, args.target * args.budget_per_ad, first_live_approved=True)
         print(f"SIMULATED account: results are invented by a known model, not real (cap €{policy.daily_cap_eur:.2f})")
     else:
-        client = MarketingClient(Account(s.meta_ad_account_id or "", s.meta_token or "", page_id=s.meta_page_id),
-                                 version=s.fb_api_version)
-        source, launcher = MetaInsights(client, objective=args.objective), MetaLauncher(client)
+        client = MarketingClient(Account(s.meta_ad_account_id or "", s.meta_token or "", page_id=s.meta_page_id,
+                                         app_id=s.meta_app_id), version=s.fb_api_version)
+        source, launcher = MetaInsights(client, objective=args.objective), _video_launcher(client, run_dir, args)
         policy = Policy.from_env(s.autonomy_level, s.max_daily_ad_spend_eur)
     model = ModelClient(s, budget_usd=args.budget_usd)
     voice = None
