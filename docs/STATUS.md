@@ -27,7 +27,7 @@ Works today (`master`, 723 Python + 65 web tests):
 
 | Who | Task | Branch / files | Notes |
 |---|---|---|---|
-| Matteo | demo / platform | his branches | see his log lines |
+| Matteo + Claude | E0-7 event log + E4-5 orchestrator (`whynot connect`, `whynot agency`); honest trend videos, no repeated copy | `b/E4-5-orchestrator` (PR #12) | done, CI green; next: tournament + noise floor in evolution (E3-2/E3-3/E6-1) |
 
 ## Next up
 
@@ -49,6 +49,14 @@ Works today (`master`, 723 Python + 65 web tests):
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-11-01 (3) — Matteo + Claude — **No repeated lines, no unbacked promises** (PR #12): the prompt's own tone examples ("kept talking", "so cooked"…) are refused (all four videos reused them); a 4-word phrase said in an earlier ad is refused, and videos made in one batch see each other's lines; promise words (instant, perfect, fluent, guaranteed, accurate…) are allowed only when the store page or a verified claim says them, in static copy and video captions; from the demo on, captions speak for the brand (no "I/my": testimonials had moved to the captions); any "link…" line is refused. VietBuddy, two batches of 4 videos: 8/8 made ($0.55, $0.58), every voice different, captions in the brand's voice.
+
+- 2026-11-01 (2) — Matteo + Claude — **Trend briefs succeed far more often** (PR #12): the validator sends every rule problem back in one message with the timeline (it used to stop at the first, so each repair fixed one rule and hit the next), repairs say how to fix (seconds of trend/demo to add, the twist shot to write, the verified numbers allowed), one more attempt, and an invalid tone rewrite now keeps the valid first take instead of throwing the idea away. VietBuddy: before 2 of 7 ideas became videos (days 1–2), after 6 of 7 (day 3: 2/3, the failure was the rewrite bug since fixed; `whynot video -n 4`: 4/4, $0.55). Still open: the four voices reuse the same lines ("she just kept talking… i was so cooked"); a caption claimed instant feedback the store page doesn't promise (non-number claims are not checked).
+
+- 2026-11-01 — Matteo + Claude — **Honest ads, no pasted copy** (PR #12), found on two real `whynot agency --sim` runs on VietBuddy ($2.53, $3.10): trend videos no longer make an invented creator vouch for the app (the creator is a skit character, never names the app or claims a use or result; the app is named on screen in the brand's voice; enforced by the validator); the director refuses a 4-word phrase shared by more than 2 concepts and hook options that say the same thing; the strategist caps angles per objection at a third. Also: a directive repair for a too-short trend, 4 API retries, the daily studio captures competitors' creatives (a fresh run had deconstructed 0 ads). Second run: no testimonial, angles spread (max 2 per objection), 4 audiences funded; 2 of 4 video ideas failed on the trend share before the new repair message.
+
+- 2026-10-31 (night) — Matteo + Claude — **The agency in one command** (PR #12): `whynot connect` (owner's Meta login → ad account + Page found and checked, saved in `data/private/connections/`, token never in argv or a run folder) and `whynot agency <App Store link> --countries FR --daily-cap 20 --connection <file>`: connect → create → publish → daily, resumable, budget per step, one ad cap for static + video ads, approvals waited for and remembered (E4-5); shared `events.jsonl` with parents and digests (E0-7). Not yet run on a real ad account (the sandbox token had expired). **Tom:** the Connect Meta button can pipe the token to `whynot connect --token-stdin`; the agency room can read `events.jsonl` and `agency/state.json`.
 
 - 2026-11-01 — Tom + Claude — Keys live (smoke $0.025, Ad Library live test green). Merged the five pending branches into master (E14-10, E8-4, E9-4, stop button, macOS private-path fix); STATUS rewritten to today's state. Fresh VietBuddy `create` ($1.78, cassettes recorded privately) and the first real bias suite ($1.06): brand-name −0.47 and emoji −0.30 flagged. Next: sandbox rehearsal, then the partner on Monday.
 

@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from whynot.events import EventLog, total_usd
+
 
 def _load(run: Path, name: str, default: Any = None) -> Any:
     p = run / name
@@ -16,14 +18,8 @@ def _load(run: Path, name: str, default: Any = None) -> Any:
 
 
 def spent_usd(run: Path) -> float:
-    total = 0.0
-    events = run / "events.jsonl"
-    if events.exists():
-        for line in events.read_text(encoding="utf-8").splitlines():
-            e = json.loads(line)
-            if e.get("status") in ("ok", "error"):
-                total += float(e.get("usd", 0))
-    return total
+    """Model spend recorded in the run's event log (roll-up events skipped: never counted twice)."""
+    return total_usd(EventLog(run / "events.jsonl").rows()) if (run / "events.jsonl").exists() else 0.0
 
 
 def _cell(text: Any) -> str:

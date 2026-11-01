@@ -41,6 +41,7 @@ from whynot.create.composer import ComposeError, compose
 from whynot.create.guards import publishable, run_guards
 from whynot.create.locale import LANGUAGES, language_groups, unmapped
 from whynot.create.templates import Template, Variant
+from whynot.events import EventLog, file_digest
 from whynot.ingest.adlibrary import AdLibraryClient, CompetitorAd, load_jsonl, save_jsonl
 from whynot.ingest.appstore import AppProfile, AppStoreClient
 from whynot.models import SPARK, WONDER, ModelClient
@@ -63,6 +64,14 @@ from whynot.sim.scores import score_ads
 from whynot.sim.viewer import Viewer, run_simulation
 
 STAGES = ("app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report")
+# who acts at each stage (the `agent` of its events) and the files it leaves (digested in its "ok" event)
+AGENTS = {"app": "appstore", "market": "scout", "strategy": "strategist", "creative": "director",
+          "produce": "composer", "simulate": "viewers", "evolve": "evolver", "plan": "planner",
+          "report": "account_manager"}
+OUTPUTS = {"app": ("app.json", "brand.json"), "market": ("market.json", "market_ads.jsonl"),
+           "strategy": ("strategy.json",), "creative": ("templates",), "produce": ("variants.json",),
+           "simulate": ("simulation.json",), "evolve": ("evolution.json",), "plan": ("plan.json", "launch.json"),
+           "report": ("report.md",)}
 
 
 @dataclass
@@ -112,10 +121,12 @@ def slug(text: str) -> str:
 class Run:
     """The run folder: stage outputs, an event log, and the run's own cost ledger."""
 
-    def __init__(self, folder: Path):
+    def __init__(self, folder: Path, *, parent: str | None = None, secrets: tuple[str | None, ...] = ()):
         self.dir = Path(folder)
         self.dir.mkdir(parents=True, exist_ok=True)
         self.events_path = self.dir / "events.jsonl"
+        self.events = EventLog(self.events_path, secrets)
+        self.parent = parent  # the orchestrator step this run is part of, if any
 
     def path(self, *parts: str) -> Path:
         return self.dir.joinpath(*parts)
@@ -138,9 +149,11 @@ class Run:
     def mark(self, stage: str) -> None:
         self.path(f"{stage}.done").write_text(datetime.now(UTC).isoformat())
 
-    def log(self, **event: Any) -> None:
-        with self.events_path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps({"ts": datetime.now(UTC).isoformat(), **event}, ensure_ascii=False) + "\n")
+    def log(self, **event: Any) -> dict[str, Any]:
+        """One `AgentEvent`-shaped line in events.jsonl (agent and parent filled in, secrets removed)."""
+        stage = event.get("stage", "")
+        row = {"agent": AGENTS.get(stage, stage), **({"parent": self.parent} if self.parent else {}), **event}
+        return self.events.write(row)
 
     def write_json(self, name: str, data: Any) -> Path:
         p = self.path(name)
@@ -184,9 +197,23 @@ def _stage(run: Run, name: str, fn: Callable[[], Any], clients: Clients) -> Any:
                 usd=round(clients.model.spent_usd - spent, 4))
         raise StageError(name, exc) from exc
     run.mark(name)
+    outputs = {f: d for f in OUTPUTS.get(name, ()) if (d := file_digest(run.path(f)))}
     run.log(stage=name, status="ok", seconds=round(time.monotonic() - start, 2),
-            usd=round(clients.model.spent_usd - spent, 4))
+            usd=round(clients.model.spent_usd - spent, 4), outputs=outputs, **_guards(run, name))
     return out
+
+
+def _guards(run: Run, stage: str) -> dict[str, Any]:
+    """What the stage's checks said, for its event: ads passing every guard, plan errors."""
+    try:
+        if stage in ("produce", "evolve") and run.path("variants.json").exists():
+            vs = run.read_json("variants.json")
+            return {"guards": {"variants": len(vs), "passed": sum(1 for v in vs if v.get("guards_passed"))}}
+        if stage == "plan" and run.path("plan.json").exists():
+            return {"guards": {"plan_errors": len(run.read_json("plan.json").get("errors", []))}}
+    except (ValueError, OSError):  # a summary must never fail the stage it describes
+        return {}
+    return {}
 
 
 # --- stage functions ---------------------------------------------------------------------
@@ -555,8 +582,11 @@ def plan_from_json(d: dict[str, Any]) -> CampaignPlan:
 
 # --- orchestration -------------------------------------------------------------------------
 
-def create(cfg: CreateConfig, clients: Clients, run_dir: Path, *, redo_from: str | None = None) -> Result:
-    run = Run(run_dir)
+def create(cfg: CreateConfig, clients: Clients, run_dir: Path, *, redo_from: str | None = None,
+           parent_event: str | None = None) -> Result:
+    s = clients.model.settings
+    run = Run(run_dir, parent=parent_event, secrets=(s.model_api_key, s.baseten_api_key, s.fb_token, s.meta_token,
+                                                     s.meta_sandbox_token, clients.adlibrary.token))
     if redo_from:
         run.log(stage=redo_from, status="redo", cleared=run.redo_from(redo_from))
     run.write_json("config.json", {**asdict(cfg), "policy": {"level": cfg.policy.level.value,

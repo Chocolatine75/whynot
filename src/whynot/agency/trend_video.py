@@ -332,14 +332,21 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     report["picks"] = [{k: v for k, v in p.items() if k != "brief"} for p in picks]
     say("formats: " + ", ".join(f"{p['format']} → {p['angle']}" for p in picks))
 
-    # the videos are independent: make them at the same time (about 3× faster than one after the other)
+    # the videos are independent: make them at the same time (about 3× faster than one after the other). Each one
+    # must not repeat the lines of earlier videos: the last report's, then each finished one (a shared list that
+    # grows while the others are still being written)
+    avoid: list[tuple[str, str]] = []
+    if previous.exists() and not reuse_briefs:
+        avoid = [(v["brief"].get("hook", ""), v["brief"].get("voice", ""))
+                 for v in json.loads(previous.read_text()).get("videos", [])]
     videos = []
     with ThreadPoolExecutor(max_workers=max(1, min(len(picks), 3))) as pool:
-        futures = {pool.submit(studio.make, p, f"trend-{n}"): p for n, p in enumerate(picks, 1)}
+        futures = {pool.submit(studio.make, p, f"trend-{n}", avoid=avoid): p for n, p in enumerate(picks, 1)}
         for f in futures:
             p = futures[f]
             try:
                 videos.append(f.result())
+                avoid.append((videos[-1]["brief"].get("hook", ""), videos[-1]["brief"].get("voice", "")))
             except Exception as exc:  # one failed video must not lose the others
                 report["failures"].setdefault("videos", {})[p["format"]] = f"{type(exc).__name__}: {exc}"[:400]
                 say(f"  ✗ {p['format']}: {exc}")
