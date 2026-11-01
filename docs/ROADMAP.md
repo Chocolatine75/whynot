@@ -352,7 +352,7 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 - [ ] ~~**E9-3** ★ Arena public (B, R11 R12)~~ — *cut Oct 30: the product is the agency for a real client; R12 = real businesses on the agency*
   - *Done when:* no account; paste a link → 3 tested concepts in < 5 min (measured p50 and p90). Rate-limited, per-IP budget cap, queue with position, shareable result page. Abuse handling: the link must resolve to a real App Store / Play / Shopify page.
   - *Tests:* load test (10 concurrent runs within budget); the rate limiter (unit); a security test (SSRF: only allowed hosts are fetched).
-- [ ] **E9-4** ★ Validation page (B + A)
+- [ ] **E9-4** ★ Validation page (B + A) — *Oct 31: `/validation` (`web/lib/validation.ts`) reads `validate/results/*.json` and frozen-prediction results: per experiment the question, primary row, baselines, 95 % CIs, sample, cost, verdict (a claim only when the CI excludes chance), method, limits, the command to reproduce; unreadable files listed. Shows R3 v0/v1 today; R1 and R5 appear when their files exist. Left: R2, R6, R10 when measured.*
   - *Done when:* `/validation` shows R1, R2, R3, R6 and R10 with CIs, baselines, sample sizes, the method in plain words, failures and limits, plus the one command to reproduce.
   - *Tests:* numbers read from `validate/results/*.json` (unit); visual.
 - [ ] **E9-5** `/judge` human test page (B, feeds E2-5)
