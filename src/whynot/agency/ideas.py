@@ -32,6 +32,7 @@ class Idea:
     persona: str
     angle: str
     why: str = ""
+    parent: str | None = None  # exploit: the winning ad whose message this idea re-uses (the selection tree)
 
     @property
     def key(self) -> tuple[str, str, str]:
@@ -48,6 +49,22 @@ def winners(ads: list[AdRecord], *, min_spend: float = MIN_SPEND_TO_JUDGE) -> li
     """Ads that spent enough and converted, best cost per conversion first."""
     judged = [a for a in ads if a.spend >= min_spend and a.cpa is not None]
     return sorted(judged, key=lambda a: (a.cpa, a.key))
+
+
+def _account_rate(ads: list[AdRecord]) -> float:
+    spend = sum(a.spend for a in ads)
+    return sum(a.conversions for a in ads) / spend if spend else 0.0
+
+
+def format_scores(ads: list[AdRecord], *, prior_spend: float = 10.0) -> dict[str, float]:
+    """Conversions per euro of each format so far, shrunk toward the account's rate (few euros prove little)."""
+    base = _account_rate(ads)
+    spend: dict[str, float] = {}
+    conv: dict[str, float] = {}
+    for a in ads:
+        spend[a.format] = spend.get(a.format, 0.0) + a.spend
+        conv[a.format] = conv.get(a.format, 0.0) + a.conversions
+    return {f: (conv[f] + base * prior_spend) / (spend[f] + prior_spend) for f in spend}
 
 
 def plan(n: int, *, formats: list[str], pairs: list[tuple[str, str]], tried: list[tuple[str, str, str]],
@@ -67,11 +84,15 @@ def plan(n: int, *, formats: list[str], pairs: list[tuple[str, str]], tried: lis
                    and c not in {i.key for i in picked}]
         if not options:
             continue
-        # the format farthest from the winner's own and from today's picks: same message, new execution
-        c = max(options, key=lambda c: (min([distance(c, i.key) for i in picked] or [1.0]), c))
+        # same message, new execution: the format that has sold best so far (untried formats get the
+        # account's average, so they stay in the running), ties broken by distance to today's picks
+        scores = format_scores(ads or [])
+        prior = _account_rate(ads or [])
+        c = max(options, key=lambda c: (scores.get(c[0], prior), min([distance(c, i.key) for i in picked] or [1.0]),
+                                        c))
         cpa = f"€{w.cpa:.2f}" if w.cpa is not None else "?"
         picked.append(Idea(*c, why=f"exploit: '{w.angle}' sells ({cpa} per conversion with {w.format}); "
-                                    f"same message, new format"))
+                                    f"same message, new format", parent=w.key))
 
     while len(picked) < n:
         pool = [c for c in candidates if c not in {i.key for i in picked}]
@@ -104,3 +125,14 @@ def too_similar(hook: str, voice: str, past: list[AdRecord], *, limit: float = M
         if overlap(hook, r.hook) > limit or (voice and r.voice and overlap(voice, r.voice) > limit):
             return r
     return None
+
+
+def plan_random(n: int, *, formats: list[str], pairs: list[tuple[str, str]], tried: list[tuple[str, str, str]],
+                seed: str) -> list[Idea]:
+    """The no-learning baseline: untried ideas drawn at random (same idea space, same "never twice" rule)."""
+    import random
+
+    done = set(tried)
+    pool = sorted((f, p, a) for f in formats for p, a in pairs if (f, p, a) not in done)
+    rng = random.Random(seed)
+    return [Idea(*c, why="random: no learning (baseline)") for c in rng.sample(pool, min(n, len(pool)))]

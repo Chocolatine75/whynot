@@ -236,6 +236,25 @@ def _stop(args: argparse.Namespace) -> int:
     return 0 if report.ok else 2
 
 
+def _selection(args: argparse.Namespace) -> int:
+    from whynot.agency.selection import run_selection
+    from whynot.agents.strategist import Strategy
+
+    run_dir = Path(args.run)
+    if not (run_dir / "strategy.json").exists():
+        print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
+        return 1
+    strategy = Strategy.from_json(json.loads((run_dir / "strategy.json").read_text()))
+    app = json.loads((run_dir / "app.json").read_text())
+    print("SIMULATED campaign: performance numbers come from a model, not real Meta results")
+    out = run_selection(run_dir, strategy, days=args.days, seed=args.seed, target_live=args.target,
+                        max_new=args.new, app={"name": app.get("name"), "icon": "assets/icon.png"})
+    s = out["summary"]
+    print(f"✓ {run_dir / 'agency-sim' / 'selection.json'} · last week, conversions per €100: whynot "
+          f"{s['whynot_conversions_per_100_eur_last_week']} vs random {s['random_conversions_per_100_eur_last_week']}")
+    return 0
+
+
 def _read_token(args: argparse.Namespace) -> str:
     """The owner's Meta login token: from stdin (the web app pipes it) or an env variable, never from argv
     (command lines are visible to every process on the machine)."""
@@ -413,6 +432,14 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("--by", required=True, metavar="NAME", help="who pulls the switch (logged)")
     st.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
     st.set_defaults(func=_stop)
+
+    se = sub.add_parser("selection", help="natural-selection demo: the daily loop vs random ideas, simulated")
+    se.add_argument("run", help="the run folder (outputs/runs/...)")
+    se.add_argument("--days", type=int, default=21)
+    se.add_argument("--seed", type=int, default=0, help="the simulated world")
+    se.add_argument("--target", type=int, default=4, help="ads running at the same time")
+    se.add_argument("--new", type=int, default=2, help="new ads per day at most")
+    se.set_defaults(func=_selection)
 
     cn = sub.add_parser("connect", help="connect the owner's Meta login: find and check the ad account and Page")
     tok = cn.add_mutually_exclusive_group()

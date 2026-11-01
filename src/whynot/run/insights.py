@@ -131,3 +131,70 @@ class SimulatedAccount:
             if days:
                 out[ad] = days
         return out
+
+
+@dataclass
+class SimulatedWorld:
+    """A simulated market with STRUCTURE, for the natural-selection demo: each format, persona and angle has a
+    hidden effect (some really work better), every ad adds its own luck, and ads tire. Better ads also get
+    cheaper delivery (more views per euro), as on Meta. Nothing here is a real result: it measures whether the
+    daily loop finds what works, against a baseline that picks ideas at random in the same world.
+    """
+
+    seed: int = 0
+    daily_budget_eur: float = 5.0
+    base_cpm_eur: float = 7.0
+    fatigue_per_day: float = 0.03  # ads lose ~3 % a day
+    strength: float = 0.55  # spread of the hidden effects (log scale)
+    luck: float = 0.25  # spread of each ad's own luck
+    simulated = True
+
+    def __post_init__(self) -> None:
+        self.ideas: dict[str, tuple[str, str, str]] = {}
+
+    def register(self, ad_id: str, idea: tuple[str, str, str]) -> None:
+        self.ideas[ad_id] = idea
+
+    def _unit(self, *parts: str) -> float:
+        """A fixed number in [-1, 1] for these parts (hash-based, deterministic)."""
+        h = int(hashlib.sha256(":".join((str(self.seed), *parts)).encode()).hexdigest()[:8], 16)
+        return 2 * (h / 0xFFFFFFFF) - 1
+
+    def effect(self, kind: str, value: str) -> float:
+        return self.strength * self._unit(kind, value)
+
+    def quality(self, ad_id: str) -> float:
+        f, p, a = self.ideas[ad_id]
+        return math.exp(self.effect("format", f) + self.effect("persona", p) + self.effect("angle", a)
+                        + self.luck * self._unit("ad", ad_id))
+
+    def day(self, ad_id: str, d: date, age_days: int) -> DailyMetrics:
+        rng = random.Random(f"{self.seed}:{ad_id}:{d.isoformat()}")
+        q = self.quality(ad_id) * (1 - self.fatigue_per_day) ** age_days
+        spend = round(self.daily_budget_eur * rng.uniform(0.9, 1.0), 2)
+        impressions = int(spend / (self.base_cpm_eur / math.sqrt(q)) * 1000)
+        # orders of magnitude of an app campaign: ~1 % CTR, ~25 % of clicks install, ~€2-4 per install on average
+        clicks = sum(1 for _ in range(impressions) if rng.random() < min(0.06, 0.01 * q))
+        conversions = sum(1 for _ in range(clicks) if rng.random() < min(0.8, 0.25 * q))
+        return DailyMetrics(d.isoformat(), spend, impressions, clicks, conversions)
+
+    def fetch(self, ad_ids: list[str], since: date, until: date, *, launched: dict[str, date] | None = None
+              ) -> dict[str, list[DailyMetrics]]:
+        out: dict[str, list[DailyMetrics]] = {}
+        for ad in ad_ids:
+            if ad not in self.ideas:
+                continue
+            start = (launched or {}).get(ad, since)
+            d, days = max(since, start), []
+            while d <= until:
+                days.append(self.day(ad, d, (d - start).days))
+                d += timedelta(days=1)
+            if days:
+                out[ad] = days
+        return out
+
+    def best(self, formats: list[str], pairs: list[tuple[str, str]]) -> tuple[str, str, str]:
+        """The hidden best idea of this world (shown at the end of the demo)."""
+        return max(((f, p, a) for f in formats for p, a in pairs),
+                   key=lambda x: (self.effect("format", x[0]) + self.effect("persona", x[1])
+                                  + self.effect("angle", x[2]), x))
