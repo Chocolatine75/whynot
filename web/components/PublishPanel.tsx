@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { RunView } from "@/lib/runs";
+import StopButton from "./StopButton";
 
 interface Readiness { mode: "sandbox" | "live"; ready: boolean; missing: string[]; appInstalls: boolean }
 
@@ -60,6 +61,7 @@ export default function PublishPanel({ run, onRefresh }: { run: RunView; onRefre
             </p>
           )}
           {pub.campaign_url && <a className="small" href={pub.campaign_url} target="_blank" rel="noreferrer">Open in Ads Manager →</a>}
+          {Object.keys(pub.objects).length > 0 && <StopButton runId={run.id} mode={pub.mode} />}
         </div>
       )}
       {run.publishLog.some((l) => l.startsWith("✗")) && (

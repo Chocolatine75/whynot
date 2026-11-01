@@ -90,3 +90,18 @@ def test_plan_strategy_gives_up_rather_than_accepting_invented_facts():
     chat = ScriptedChat([json.dumps(bad)] * 4)  # first try + 3 repairs
     with pytest.raises(AgentError):
         plan_strategy(chat, APP, ADS, COUNTRIES)
+
+
+def test_one_objection_cannot_carry_most_angles():
+    """Seen on the first real `whynot agency` run (VietBuddy): 4 of 8 angles answered the same objection."""
+    data = strategy_json()
+    obj = data["objections"][0]["id"]
+    persona = data["personas"][0]["id"]
+    ev = data["angles"][0]["evidence"]
+    data["angles"] = [{"id": f"angle_{i}", "idea": f"Idea number {i}", "persona": persona, "objection": obj,
+                       "competitors_use_it": False, "evidence": ev} for i in range(4)]
+    for p in data["personas"][1:]:
+        data["angles"].append({"id": f"for_{p['id']}", "idea": "Another idea", "persona": p["id"],
+                               "objection": None, "competitors_use_it": False, "evidence": ev})
+    with pytest.raises(Invalid, match=f"angles answer '{obj}'"):
+        VALIDATE(data)

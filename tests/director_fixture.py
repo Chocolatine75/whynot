@@ -13,12 +13,22 @@ def director_json(angles=("southern_accent", "listen_first", "five_minutes", "fr
         "free_start": ("Try the whole method for free before deciding.",
                        {"free": "Start learning for free", "try": "Try it free tonight"}),
     }
+    # each concept in its own words (the director refuses a phrase shared by more than 2 concepts)
+    bodies = {
+        "southern_accent": {"short": "Pick the Southern accent and hear it every day, the way it sounds at home.",
+                            "story": "Grandma talks fast, in the South's tones. Hear her way first, then answer."},
+        "listen_first": {"short": "Hear a real phrase, guess it, then read it. Your ear leads the way.",
+                         "story": "Before speaking comes hearing: natural voices, your guess, then the words."},
+        "five_minutes": {"short": "Ten quiet minutes on the train add up before the trip to Hanoi.",
+                         "story": "Coffee orders, taxis, greetings: small real moments, one ride at a time."},
+        "free_start": {"short": "No card needed to begin. See if the method suits you tonight.",
+                       "story": "Open it, try a lesson, decide later. It costs nothing to find out."},
+    }
     return {"templates": [{
         "angle": a,
         "concept": ideas[a][0],
         "hooks": ideas[a][1],
-        "bodys": {"short": "Short real-life lessons in Vietnamese. Choose a Northern or Southern accent.",
-                  "story": "Learn Vietnamese the way it sounds: listen first, then speak. Free to start."},
+        "bodys": bodies[a],
         "titles": {"main": "Learn Vietnamese the way it sounds"},
         "proofs": {"accents": "Northern or Southern accent", "none": ""},
         "ctas": {"INSTALL_MOBILE_APP": "Start free", "LEARN_MORE": "See how it works"},

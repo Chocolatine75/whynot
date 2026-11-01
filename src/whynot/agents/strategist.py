@@ -13,7 +13,9 @@ Anti-hallucination, enforced by code (not by the prompt):
 Invalid answers are sent back to the model with the exact errors (`ask_json`).
 """
 
+import math
 import re
+from collections import Counter
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -246,6 +248,13 @@ def make_validator(sources: Sources, countries: list[str]):
         uncovered = persona_ids - {a.persona for a in angles}
         if uncovered:
             raise Invalid(f"every persona needs at least one angle; none for {sorted(uncovered)}")
+        # concepts, not variations: one objection may carry a third of the angles at most (seen on a real run:
+        # 4 of 8 angles answered "gimmicky", the strongest objection-free idea was left out)
+        cap = max(2, math.ceil(len(angles) / 3))
+        per = Counter(a.objection for a in angles if a.objection)
+        if crowded := sorted(o for o, n in per.items() if n > cap):
+            raise Invalid(f"{', '.join(f'{per[o]} angles answer {o!r}' for o in crowded)}: at most {cap}. "
+                          "Turn the extra ones into angles for other objections, or for none (a desire, a moment)")
 
         claim_ids: set[str] = set()
         claims = []
@@ -307,6 +316,8 @@ Rating: {app.rating or 'n/a'} ({app.rating_count} ratings).
 - 3–8 objections: why people who see this kind of ad would NOT install or pay. Use reviews and competitors' ads.
 - 2–4 personas: distinct customer profiles worth a separate ad set, with the objections they have.
 - 4–10 angles: distinct ad concepts (not variations), each for one persona, ideally answering one objection.
+  Spread them: one objection may carry a third of the angles at most; some angles can answer no objection
+  (a desire, a moment in the persona's life).
   Prefer angles that work for competitors (long-running ads) and angles nobody uses yet; say which.
 - 3–15 claims: the only facts ads may state (features, price model, results) — each quoted from the store page or a review.
 Rules: every quote must be copied EXACTLY from the cited source. Cite only refs that appear above.

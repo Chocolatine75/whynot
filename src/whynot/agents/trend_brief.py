@@ -14,13 +14,14 @@ All words go through the same checks as every ad (`director.CopyRules`).
 """
 
 import json
+import math
 import re
 import unicodedata
 from dataclasses import asdict, dataclass
 from typing import Any
 
 from whynot.agency.ideas import MAX_TEXT_OVERLAP, overlap
-from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
+from whynot.agents.ask import AgentError, Answer, ChatClient, Invalid, ask_json
 from whynot.agents.director import Context, CopyRules
 from whynot.audio.voices import GENDERS, LANGUAGE_NAMES, NATIVE
 from whynot.create.trends import BY_ID, Format
@@ -135,12 +136,15 @@ Return JSON only:
 
 TONE = """TONE — non-negotiable. You are not a brand and not a teacher: you are a 19-24 year-old creator talking
 into your phone, telling your friends what happened to you.
-- First person, story energy, run-on and fragments: "so i said cà phê... and she just. kept. talking."
+- First person, story energy, run-on and fragments. Roast yourself, exaggerate, react. The examples in this
+  brief show the ENERGY only: never reuse their words (refused: {cliches}); find this story's own words.
 - Words of another language keep their accents, even inside an English line: "cà phê sữa đá", never "ca phe sua da".
-- Roast yourself, exaggerate, react: "i was SO cooked", "the way i just nodded", "no because why".
 - Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
-- The app comes in like a friend's tip, never like an ad: "anyway this app has a southern voice and it's
-  actually the only reason grandma understands me now".
+- HONESTY, the law for ads: the creator is a character in a skit, NOT a customer. They live the situation
+  (the struggle, the joke) and never mention the app: they never name it, never say they used, tried,
+  downloaded or paid for it, never claim a result ("now grandma understands me", "it changed my life"). The app
+  arrives ON SCREEN, in the brand's own voice (captions and text cards: "{brand_hint} has a southern voice"),
+  saying only what the store page says it does.
 - Captions read like texts: lowercase, short, no full stops.
 - The audio is a short DIALOGUE ("lines", max 8, max 55 words in all): "me" is the creator; "them" is the
   other person in the story (the barista, the grandma, the mother-in-law). When they speak another language,
@@ -157,11 +161,45 @@ TEACHER_WORDS = ("learn", "learning", "lesson", "lessons", "practise", "practice
                  "improve", "skills", "master", "fluent", "fluently", "effortlessly", "unlock", "journey",
                  "discover", "boost", "enhance", "perfect your", "start your", "download now", "language skills")
 # Phrases that make no sense in an ad (it has a button, not a bio).
-NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more", "comment below")
+NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more", "comment below", "link up top",
+              "link above", "link in comments")
+BRAND_BEATS = ("demo", "proof", "payoff", "cta")  # from the demo on, the screen speaks for the brand, not the creator
+_FIRST_PERSON = re.compile(r"\b(?:i|i'm|im|i'd|i've|me|my|mine|myself)\b")
 EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
+# Lines the old prompt gave as examples: all four VietBuddy videos of Nov 1 reused them. Refused in the creator's
+# lines and captions.
+CLICHES = ("kept talking", "so cooked", "just nodded", "no because why")
+PHRASE_WORDS = 4  # a run of this many words already used in an earlier ad is a repeated line
+
+
+def _phrases(text: str, n: int = PHRASE_WORDS) -> set[str]:
+    words = re.findall(r"[a-zà-ỹ0-9']+", re.sub(r"\[[^\]]*\]", " ", text.lower()))
+    return {" ".join(words[i:i + n]) for i in range(len(words) - n + 1)}
 
 
 _SHOUT = re.compile(r"\b[A-Z]{2,}\b")
+
+# Honesty: an invented person must never vouch for the product (FTC endorsement guides, EU unfair-practices rules,
+# Meta's deceptive-practices policy). The creator is a skit character: these are refused in their lines, and the
+# result claims also in captions and cards.
+_SUBJECT = (r"(?:she|he|they|grandma|grandpa|mom|my mom|dad|my dad|my \w+|bà|má|mẹ|ba|bố|cô|chú|bác)")
+TESTIMONIAL = (
+    re.compile(r"\b(?:i|we)(?:'ve| have)?\s+(?:(?:just|finally|literally|actually|been|now|started)\s+)*"
+               r"(?:us(?:e|ed|ing)|download(?:ed|ing)?|subscrib(?:e|ed|ing)|signed up|pa(?:id|y) for|bought|switched to)\b"),
+    re.compile(r"\b(?:yearly plan|premium|free trial|changed my life|game ?changer|can'?t go back|before and after|"
+               r"works for me|it actually works|only reason|thanks to (?:it|this|that))\b"),
+    re.compile(rf"\bnow {_SUBJECT}\b[^.?!]{{0,40}}?\b(?:understands?|gets?|thinks?|loves?|says?|calls?)\b"),
+)
+APP_WORDS = re.compile(r"\b(?:app|apps|application)\b")
+
+
+def testimonial(text: str) -> str | None:
+    """The first words in `text` that make it sound like someone vouching for the product, else None."""
+    low = text.lower()
+    for rx in TESTIMONIAL:
+        if m := rx.search(low):
+            return m.group(0)
+    return None
 
 
 def calm(text: str) -> str:
@@ -355,52 +393,121 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 stars = next(r.rating for r in selling.reviews if r.id == review)
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
                               prompt, text, tap, review, quote_, stars))
+        # From here on every problem is collected and sent back at once: fixing one per attempt used up the
+        # repairs (seen on VietBuddy, Nov 1: 3 of 4 ideas failed, each on a different rule).
+        problems: list[str] = []
         mine = " ".join(x.text for x in lines if x.speaker == "me")  # what the creator says, in the ad's language
         spoken = " ".join([mine] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
         allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
         for w in TEACHER_WORDS:
             if re.search(rf"\b{re.escape(w)}\b", spoken) and not re.search(rf"\b{re.escape(w)}\b", allowed_in_format):
-                raise Invalid(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
-                              "19-24 year-old telling friends what happened")
+                problems.append(f"the voice or captions say {w!r}: that sounds like a course or an ad. Say it like a "
+                                "19-24 year-old telling friends what happened")
         for old_hook, old_voice in avoid or []:  # a new idea must not come back with an old ad's words
             if overlap(hook, old_hook) > MAX_TEXT_OVERLAP or (old_voice and overlap(voice, old_voice) > MAX_TEXT_OVERLAP):
-                raise Invalid(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
+                problems.append(f"this repeats an ad already made (\"{old_hook}\"); write a new hook and new lines")
+        creator = " ".join([mine, hook] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
+        creator = re.sub(r"[^\w\s']", " ", creator)
+        if used := [c for c in CLICHES if re.search(rf"\b{re.escape(c)}\b", " ".join(creator.split()))]:
+            problems.append(f"the lines reuse the prompt's examples {used}: they show the energy only; say this "
+                            "story's moment in its own words")
+        mine_phrases = _phrases(" ".join([mine, hook] + [s.caption for s in shots]))
+        for old_hook, old_voice in avoid or []:
+            if again := sorted(mine_phrases & _phrases(f"{old_hook} {old_voice}"))[:3]:
+                problems.append(f"these words were already said in the ad \"{old_hook}\": {again}; write new lines")
+                break
+        brand = selling.brand if selling else ctx.app_name.split(":")[0].split(" - ")[0].strip()
+        for x in lines:
+            if x.speaker != "me":
+                continue
+            if (_norm(brand) and _norm(brand) in _norm(x.text)) or APP_WORDS.search(x.text.lower()):
+                problems.append(f"the creator says {x.text!r}: they are a skit character, not a customer, and never "
+                                f"mention the app or {brand!r}; name it on screen (captions, cards) in the brand's "
+                                "voice")
+        for where, text in [*((f"line {i}", x.text) for i, x in enumerate(lines, 1) if x.speaker == "me"),
+                            ("hook", hook), *((f"shot {i} caption", s.caption) for i, s in enumerate(shots, 1)),
+                            *((f"shot {i} text", s.text or "") for i, s in enumerate(shots, 1))]:
+            if words := testimonial(text):
+                problems.append(f"{where} says {words!r}: that is a testimonial from an invented person (not "
+                                "allowed in ads). The creator only lives the situation; the screen says what the app "
+                                "does")
         everything = " ".join([spoken, voice.lower(), hook.lower(), cta.lower()])
         for phrase in NOT_IN_ADS:
             if phrase in everything:
-                raise Invalid(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
-        trend = sum(s.seconds for s in shots if s.beat == "trend")
-        body = sum(s.seconds for s in shots)
+                problems.append(f"{phrase!r} makes no sense in an ad: people tap the button on the end card")
+                break
+        else:  # any other "link ..." the model invents ("link right here btw", seen Nov 1)
+            if m := re.search(r"\blinks?\b[^.!?]{0,20}", everything):
+                problems.append(f"{m.group(0).strip()!r} makes no sense in an ad: people tap the button on the end "
+                                "card")
+
+        # the timeline: trend ≥ share, demo ≥ DEMO_SHARE, total within TOTAL_SECONDS, computed together so one
+        # fix does not break another
+        secs = {b: sum(x.seconds for x in shots if x.beat == b) for b in BEATS}
+        body = sum(secs.values())
+        trend = secs["trend"]
+        timeline = ", ".join(f"{b} {v:.1f} s" for b, v in secs.items() if v) + f"; total {body + END_CARD_SECONDS:.1f} s"
         if not any(s.beat == "twist" and s.visual == "screen" for s in shots):
-            raise Invalid("the twist must show the real app: at least one 'twist' shot with visual 'screen'")
+            problems.append("the twist must show the real app: make one 'twist' shot "
+                            '{"visual": "screen", "screen": 1, "focus": "full", "beat": "twist", ...}')
         share = TREND_SHARE_SELLING if selling else 0.5
         if trend < share * body:
-            raise Invalid(f"the trend is only {trend:.1f} s of {body:.1f} s; make it at least {share:.0%} of the video")
+            others = body - trend
+            need = share * others / (1 - share) - trend  # trend seconds to add, keeping the other shots as they are
+            problems.append(f"the trend is only {trend:.1f} s of {body:.1f} s; it must be at least {share:.0%}. Add "
+                            f"{need:.1f} s of 'trend' shots at the start (e.g. {max(1, math.ceil(need / 1.6))} more "
+                            "trend shot(s) of about 1.6 s: the setup, the awkward moment, the reaction)")
         offer = ""
         if selling is not None:
             demo = [x for x in shots if x.beat == "demo"]
-            if sum(1 for x in demo if x.visual == "screen") < 2 or sum(x.seconds for x in demo) < DEMO_SHARE * body:
-                raise Invalid(f"show the app in action: 'demo' shots with at least 2 real screens and at least "
-                              f"{DEMO_SHARE:.0%} of the video ({DEMO_SHARE * body:.1f} s); now "
-                              f"{sum(x.seconds for x in demo):.1f} s")
+            n_screens_demo = sum(1 for x in demo if x.visual == "screen")
+            if n_screens_demo < 2 or secs["demo"] < DEMO_SHARE * body:
+                # adding demo seconds also grows the video: solve for the demo time that reaches the share
+                need = max(0.0, (DEMO_SHARE * (body - secs["demo"]) / (1 - DEMO_SHARE)) - secs["demo"])
+                problems.append(f"show the app in action: 'demo' shots need at least 2 real screens (now "
+                                f"{n_screens_demo}) and {DEMO_SHARE:.0%} of the video (now {secs['demo']:.1f} s of "
+                                f"{body:.1f} s): add {max(need, 0.1):.1f} s of demo, e.g. lengthen demo screens to "
+                                f"2.0-2.2 s or add one demo screen")
             if not any(x.tap for x in demo):
-                raise Invalid("at least one demo screen must show the tap (\"tap\": true) on what to use")
+                problems.append("at least one demo screen must show the tap (\"tap\": true) on what to use")
             if selling.reviews and not any(x.beat == "proof" and x.visual == "review" for x in shots):
-                raise Invalid("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
+                problems.append("add the proof: a 'proof' shot with visual 'review' quoting a verified review")
             if not any(x.beat == "payoff" and x.visual in ("photo", "mascot") for x in shots):
-                raise Invalid("add the transformation: a 'payoff' shot (photo or mascot) of the moment it works")
-            mine_words = _norm(" ".join(x.text for x in lines if x.speaker == "me"))
-            if _norm(selling.brand) not in mine_words:
-                raise Invalid(f"the creator must say the app's name ({selling.brand!r}) once, like a friend's tip")
+                problems.append("add the payoff (the transformation moment the app is for): a 'payoff' shot, photo "
+                                "or mascot, with a brand caption")
+            on_screen = _norm(" ".join([s.caption for s in shots if s.beat != "trend"]
+                                       + [s.text or "" for s in shots if s.beat != "trend"]))
+            if _norm(selling.brand) not in on_screen:
+                problems.append(f"name the app ({selling.brand!r}) once ON SCREEN, in a caption or text card after "
+                                "the trend (the brand's voice), never in the creator's lines")
             if selling.offers:
                 offer = str(data.get("offer", ""))
                 if offer not in selling.offers:
-                    raise Invalid(f"'offer' must be one of {list(selling.offers)} (what the store page supports)")
+                    problems.append(f"'offer' must be one of {list(selling.offers)} (what the store page supports)")
         total = body + END_CARD_SECONDS
         if not TOTAL_SECONDS[0] <= total <= TOTAL_SECONDS[1]:
-            raise Invalid(f"the video lasts {total:.1f} s with the end card; make it "
-                          f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
-        rules.check(texts, "trend brief")
+            problems.append(f"the video lasts {total:.1f} s with the end card; make it "
+                            f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
+        try:
+            rules.check(texts, "trend brief", promises=False)  # the creator's own words are a story, not a promise
+        except Invalid as exc:
+            problems.append(str(exc))
+        for i, s in enumerate(shots, 1):
+            words = f"{s.caption} {s.text or ''}".lower()
+            if s.beat in BRAND_BEATS and (m := _FIRST_PERSON.search(words)):
+                problems.append(f"shot {i} ({s.beat}) says {m.group(0)!r}: from the demo on, captions speak for the "
+                                f"brand, not the creator (\"{brand} lets you pick a southern voice\"), never \"I\" or "
+                                "\"my\"")
+        brand_text = {f"shot {i}": f"{s.caption} {s.text or ''}" for i, s in enumerate(shots, 1) if s.beat != "trend"}
+        for where, text in {**brand_text, "cta": cta}.items():
+            if promised := rules.unbacked_promises(text):
+                problems.append(f"{where} promises {promised}, which neither the store page nor a verified claim says: "
+                                "say only what the app is shown to do")
+        if len(problems) == 1:
+            raise Invalid(problems[0])
+        if problems:
+            raise Invalid(f"{len(problems)} problems, fix them all in one go (timeline now: {timeline}): "
+                          + " | ".join(f"{i}) {x}" for i, x in enumerate(problems, 1)))
         return TrendBrief(bid, fmt.id, persona, angle, ctx.language, hook, tuple(shots), voice, cta,
                           str(data["music"]), tuple(lines), offer)
 
@@ -410,13 +517,15 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
 SELLING = """
 IT MUST SELL. After the trend and the twist, in this order:
 - DEMO ({demo_share} of the video at least, ≥ 2 real screens, beat "demo"): the app in action on its real screens,
-  punched into the part that matters, with "tap": true on the screen where the finger taps. The voice says what
-  it does, in the creator's words, and names {brand} once.
+  punched into the part that matters, with "tap": true on the screen where the finger taps. From here on the
+  CAPTIONS speak for the brand ("{brand} lets you pick a southern voice"), never "I" or "my", and name {brand}
+  once on screen. The creator's lines never name it.
 - PROOF (beat "proof", visual "review"): quote a verified review word for word ("review": id, "quote": max 18
   words copied exactly). Verified reviews:
 {reviews}
-- PAYOFF (beat "payoff", photo or mascot): the transformation, the moment it works (grandma smiling, the order
-  understood).
+- PAYOFF (beat "payoff", photo or mascot): the moment the app is for (the next call with grandma, the counter
+  in Saigon), shown as the situation with a brand caption ("for the next call with má"), never as a result
+  the creator claims.
 - CTA (beat "cta") and the end card. "offer": one of {offers}.
 """
 
@@ -447,6 +556,8 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         claims="; ".join(c.text for c in s.claims) or "(none)",
         screens="; ".join(f"{i}. {d}" for i, d in enumerate(screens, 1)),
         tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
+                         cliches=", ".join(f'"{c}"' for c in CLICHES),
+                         brand_hint=selling.brand if selling else ctx.app_name.split(":")[0].strip(),
                          natives="; ".join(f"{LANGUAGE_NAMES.get(code, code)} (code {code}, accents "
                                            f"{', '.join(acc)})" for code, acc in NATIVE.items())),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot
@@ -467,7 +578,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     messages: list[dict[str, Any]] = [{"role": "user", "content": prompt}]
     validator = make_validator(ctx, fmt, persona, angle, len(screens), has_mascot=has_mascot, selling=selling,
                                avoid=avoid)
-    first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=3, max_tokens=6000,
+    first = ask_json(client, messages, validator, module="trend_brief", model=model, repairs=4, max_tokens=6000,
                      reasoning_effort="low")
     verdict = critique(client, first.value, model=model)
     if verdict.value["score"] >= MIN_TONE_SCORE:
@@ -477,8 +588,13 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
              {"role": "user", "content": f"A 20-year-old TikTok creator rated the tone {verdict.value['score']}/10: "
                                          f"{verdict.value['why']} Worst line: \"{verdict.value['worst']}\". "
                                          "Rewrite the whole brief so it sounds like them. Same JSON schema."}]
-    second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
-                      reasoning_effort="low")
+    try:
+        second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
+                          reasoning_effort="low")
+    except AgentError as exc:  # the rewrite broke a rule: the first take was valid, keep it (seen on VietBuddy)
+        return Answer(first.value, first.usd + verdict.usd + exc.usd, first.attempts, first.raw,
+                      [*first.errors, *exc.errors, f"tone {verdict.value['score']}/10, rewrite invalid: first take "
+                                                   "kept"])
     again = critique(client, second.value, model=model)
     best, best_score = ((second, again.value["score"]) if again.value["score"] >= verdict.value["score"]
                         else (first, verdict.value["score"]))

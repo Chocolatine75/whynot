@@ -164,6 +164,28 @@ OBJECTIVES = ("app_promotion", "traffic")
 APP_ONLY_CTAS = {"INSTALL_MOBILE_APP", "USE_APP"}  # need an app-promotion campaign
 
 
+def adset_fields(name: str, audience: Audience, daily_budget_eur: float, *, objective: str, store_url: str,
+                 campaign_id: str = "{campaign}") -> dict[str, Any]:
+    """One ad set's request body, PAUSED: the persona's targeting and its own daily budget."""
+    targeting: dict[str, Any] = {"geo_locations": {"countries": list(audience.countries)},
+                                 "age_min": audience.age_min, "age_max": audience.age_max,
+                                 "user_os": ["iOS"], "publisher_platforms": ["facebook", "instagram"],
+                                 # v26: constrained targeting must state Advantage+ audience explicitly;
+                                 # 0 keeps delivery to the persona we planned and tested
+                                 "targeting_automation": {"advantage_audience": 0}}
+    if GENDER_CODES[audience.gender]:
+        targeting["genders"] = GENDER_CODES[audience.gender]
+    body: dict[str, Any] = {"name": name, "campaign_id": campaign_id, "status": "PAUSED",
+                            "daily_budget": round(daily_budget_eur * 100), "billing_event": "IMPRESSIONS",
+                            "bid_strategy": "LOWEST_COST_WITHOUT_CAP", "targeting": targeting}
+    if objective == "app_promotion":
+        body |= {"optimization_goal": "APP_INSTALLS",
+                 "promoted_object": {"application_id": "{META_APP_ID}", "object_store_url": store_url}}
+    else:
+        body |= {"optimization_goal": "LINK_CLICKS", "destination_type": "WEBSITE"}
+    return body
+
+
 def to_api(plan: CampaignPlan, *, api_version: str = "v26.0", objective: str = "app_promotion") -> dict[str, Any]:
     """Marketing API request bodies, in creation order, everything PAUSED. Placeholders in braces.
 
@@ -177,23 +199,8 @@ def to_api(plan: CampaignPlan, *, api_version: str = "v26.0", objective: str = "
                 "is_adset_budget_sharing_enabled": False}
     ad_sets, creatives, ads = [], [], []
     for i, s in enumerate(plan.ad_sets):
-        targeting: dict[str, Any] = {"geo_locations": {"countries": list(s.audience.countries)},
-                                     "age_min": s.audience.age_min, "age_max": s.audience.age_max,
-                                     "user_os": ["iOS"], "publisher_platforms": ["facebook", "instagram"],
-                                     # v26: constrained targeting must state Advantage+ audience explicitly;
-                                     # 0 keeps delivery to the persona we planned and tested
-                                     "targeting_automation": {"advantage_audience": 0}}
-        if GENDER_CODES[s.audience.gender]:
-            targeting["genders"] = GENDER_CODES[s.audience.gender]
-        ad_set: dict[str, Any] = {"ref": f"adset_{i}", "name": s.name, "campaign_id": "{campaign}", "status": "PAUSED",
-                                  "daily_budget": round(s.daily_budget_eur * 100), "billing_event": "IMPRESSIONS",
-                                  "bid_strategy": "LOWEST_COST_WITHOUT_CAP", "targeting": targeting}
-        if app:
-            ad_set |= {"optimization_goal": "APP_INSTALLS",
-                       "promoted_object": {"application_id": "{META_APP_ID}", "object_store_url": plan.store_url}}
-        else:
-            ad_set |= {"optimization_goal": "LINK_CLICKS", "destination_type": "WEBSITE"}
-        ad_sets.append(ad_set)
+        ad_sets.append({"ref": f"adset_{i}", **adset_fields(s.name, s.audience, s.daily_budget_eur,
+                                                            objective=objective, store_url=plan.store_url)})
         for ad in s.ads:
             creatives.append({"ref": f"creative_{ad.variant_id}", "name": ad.variant_id,
                               "object_story_spec": {"page_id": "{PAGE_ID}", "link_data": {

@@ -68,6 +68,28 @@ def _jaccard(a: str, b: str) -> float:
     return len(wa & wb) / len(wa | wb) if wa and wb else 0.0
 
 
+PHRASE_WORDS = 4  # a run of this many words is "a phrase"
+MAX_PHRASE_CONCEPTS = 2  # a phrase may appear in this many concepts at most
+MAX_HOOK_SIMILARITY = 0.7  # hook options of one concept must be different lines, not rewordings
+
+
+def _phrases(text: str, n: int = PHRASE_WORDS) -> set[str]:
+    words = re.findall(r"[a-zà-ÿ0-9']+", normalise(text))
+    return {" ".join(words[i:i + n]) for i in range(len(words) - n + 1)}
+
+
+def repeated_phrases(templates: list[Template]) -> dict[str, list[str]]:
+    """Phrases (PHRASE_WORDS words) found in more than MAX_PHRASE_CONCEPTS concepts' hooks and bodies, with the
+    concepts using them. Seen on a real run: "choose northern or southern voices" in most ads, the store page
+    pasted into every body."""
+    where: dict[str, list[str]] = {}
+    for t in templates:
+        texts = [*t.copy.get("hook", {}).values(), *t.copy.get("body", {}).values()]
+        for ph in set().union(*(_phrases(x) for x in texts)) if texts else set():
+            where.setdefault(ph, []).append(t.id)
+    return {ph: ids for ph, ids in where.items() if len(ids) > MAX_PHRASE_CONCEPTS}
+
+
 def _texts(raw: Any, gene: str, where: str) -> dict[str, str]:
     lo, hi = COUNTS[gene]
     if not isinstance(raw, dict) or not lo <= len(raw) <= hi:
@@ -92,6 +114,18 @@ def _texts(raw: Any, gene: str, where: str) -> dict[str, str]:
     return out
 
 
+# Words that promise a result or a quality. Allowed only when the store page or a verified claim says them (seen
+# on a real run: a caption promised instant feedback; the store page doesn't, and reviews say it is slow).
+PROMISES = ("instant", "instantly", "immediate", "immediately", "real-time", "real time", "accurate", "accurately",
+            "perfect", "perfectly", "fluent", "fluently", "fluency", "native-level", "guaranteed", "guarantee",
+            "never forget", "overnight", "effortless", "effortlessly", "in minutes", "in days", "certified",
+            "proven", "best", "number one")
+
+
+def _promise_rx(word: str) -> re.Pattern[str]:
+    return re.compile(r"\b" + re.escape(word).replace(r"\-", "[- ]").replace(r"\ ", "[- ]") + r"\b")
+
+
 class CopyRules:
     """Every check ad copy must pass, shared by the creative director and the evolver.
 
@@ -103,15 +137,28 @@ class CopyRules:
         self.allowed_numbers = _allowed_numbers(ctx)
         self.font = fonts.load(40)  # the font the composer will draw with
         self.competitors = [n for n in ctx.competitor_names if len(n) >= 4]
+        backed = normalise(" ".join([c.text for c in ctx.strategy.claims] + [ctx.store_text]))
+        self.promises = [w for w in PROMISES if not _promise_rx(w).search(backed)]  # the ones nothing backs
 
-    def check(self, texts: dict[str, str], where: str) -> None:
+    def unbacked_promises(self, text: str) -> list[str]:
+        """Promise words in `text` that neither the store page nor a verified claim says."""
+        low = normalise(text)
+        return [w for w in self.promises if _promise_rx(w).search(low)]
+
+    def check(self, texts: dict[str, str], where: str, *, promises: bool = True) -> None:
         for field_name, text in texts.items():
+            if promises and (words := self.unbacked_promises(text)):
+                raise Invalid(f"{where}: {field_name} promises {words}, which neither the store page nor a verified "
+                              "claim says: say only what the app does")
             gene = field_name.split(".")[0]
             if gene in LIMITS and len(text) > LIMITS[gene]:
                 raise Invalid(f"{where}: {field_name} has {len(text)} characters, max {LIMITS[gene]}")
             for n in _NUMBER.findall(text):
                 if n.replace(",", ".") not in self.allowed_numbers:
-                    raise Invalid(f"{where}: {field_name} says {n!r}, a number not in any verified claim")
+                    shown = sorted(self.allowed_numbers, key=lambda x: (len(x), x))[:12]
+                    raise Invalid(f"{where}: {field_name} says {n!r}, a number not in any verified claim: remove "
+                                  "it (a number written in words is still a claim)"
+                                  + (f", or use one of the verified numbers {shown}" if shown else ""))
             low = normalise(text)
             for name in self.competitors:
                 if re.search(rf"\b{re.escape(normalise(name))}\b", low):
@@ -168,6 +215,12 @@ def make_validator(ctx: Context, angle_ids: list[str]):
                     shots = [shots]
                 if not isinstance(shots, list) or not shots or not set(shots) <= {"app_screen", "result_card"}:
                     raise Invalid(f"{w}: first_shots must be a non-empty subset of ['app_screen', 'result_card']")
+                hooks = list(genes_text["hook"].values())
+                for j, h in enumerate(hooks):
+                    for k in hooks[j + 1:]:
+                        if _jaccard(h, k) >= MAX_HOOK_SIMILARITY:
+                            raise Invalid(f"{w}: hooks {h!r} and {k!r} say the same thing; each hook option must "
+                                          "be a different line (a question, a moment, a bold claim...)")
                 proofs = genes_text["proof"]
                 template = Template.from_dict({
                     "id": f"{angle.id}_v1", "concept": concept.strip(), "persona": angle.persona,
@@ -193,6 +246,13 @@ def make_validator(ctx: Context, angle_ids: list[str]):
             for b in templates[i + 1:]:
                 if _jaccard(a.concept, b.concept) >= 0.6:
                     problems.append(f"{a.id} and {b.id} are the same concept reworded; make them different ideas")
+        repeated = repeated_phrases(templates)
+        if repeated and not problems:
+            worst = sorted(repeated.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:3]
+            problems.append("the same words come back in too many concepts: " + "; ".join(
+                f"{ph!r} in {len(ids)} ({', '.join(i.removesuffix('_v1') for i in ids)})" for ph, ids in worst)
+                + f". At most {MAX_PHRASE_CONCEPTS} concepts may share a phrase: say each idea in its own words, "
+                  "don't paste the store page")
         if problems:
             raise Invalid(" | ".join(problems[:8]))
         return [by_angle[a] for a in angle_ids]
@@ -248,7 +308,9 @@ Rules:
   question marks) are expected. Only emoji and pictograms (★, ✓, →, flags) are not allowed on the image texts.
 - Meta policy: never assert or imply the viewer's personal traits (health, finances, religion, ethnicity...),
   no "guaranteed", "#1", "100%", no engagement bait, no ALL CAPS.
-- Each concept must be a different idea, not a rewording of another.
+- Each concept must be a different idea, not a rewording of another, in its own words: never paste the store
+  page, and never reuse a line of one concept in another (a {PHRASE_WORDS}-word phrase may appear in {MAX_PHRASE_CONCEPTS} concepts at most).
+  Lead with the persona's moment or feeling, not a list of features.
 
 Reply with JSON only, this schema (note the key "bodys"):
 {SCHEMA}"""

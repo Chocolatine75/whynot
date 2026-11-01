@@ -149,7 +149,7 @@ class ModelClient:
                 raise MissingKey("MODEL_API_KEY is not set in .env")
             # a hung request must fail, not freeze a run: 3 minutes is far above any normal call
             self._meta = OpenAI(api_key=self.settings.model_api_key, base_url=self.settings.model_base_url,
-                                timeout=REQUEST_TIMEOUT_S, max_retries=2)
+                                timeout=REQUEST_TIMEOUT_S, max_retries=4)  # a dropped connection lost a video
         return self._meta
 
     @property
