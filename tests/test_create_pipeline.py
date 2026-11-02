@@ -100,8 +100,9 @@ def test_no_token_and_no_reviewer_identity_leaks_into_the_run(done):
 def test_costs_are_logged_per_agent_and_match_the_report(done):
     result, meta, _, run = done
     ledger = [json.loads(line) for line in (run / "costs.jsonl").read_text().splitlines()]
-    assert {e["module"] for e in ledger} == {"scout", "strategy", "director", "viewers", "evolver"}
-    assert len(ledger) == len(meta.requests)
+    assert {e["module"] for e in ledger} == {"scout", "strategy", "director", "viewers", "evolver", "brief", "cutouts",
+                                             "screens"}
+    assert len(ledger) == len(meta.requests) + len(meta.segments)
     assert result.usd == pytest.approx(sum(e["usd"] for e in ledger), abs=1e-3)
     assert {e["model"] for e in ledger if e["module"] == "strategy"} == {"muse-wonder-1.0"}
     assert f"${result.usd:.2f}" in (run / "report.md").read_text()
@@ -439,3 +440,35 @@ def test_feeds_use_the_most_relevant_competitors_and_report_language_shortfalls(
     # the fake market only has English ads: French feeds had to borrow them, and the run says so
     # (ads too short to tell their language are counted as unknown, not as a mismatch)
     assert 0 < by_language["fr"]["wrong_language"] <= by_language["fr"]["pool"]
+
+
+def test_each_static_shows_the_bare_screen_that_matches_its_concept(done):
+    # Seen on WhatsApp (Nov 1): call ads showed the chat list, and the store poster's own headline competed with
+    # ours. Now SAM cuts the interface out of each poster, and each concept gets the screen its copy talks about.
+    _, _, _, run = done
+    screens = json.loads((run / "screens.json").read_text())
+    assert all(s["ui"] and (run / "assets" / s["ui"]).exists() for s in screens)
+    ui = Image.open(run / "assets" / screens[0]["ui"])
+    assert ui.height > ui.width and ui.size != Image.open(run / "assets" / screens[0]["source"]).size  # cropped
+    assets = {Template.load(p).fixed["product"]["asset"] for p in (run / "templates").glob("*.yaml")}
+    assert assets <= {s["ui"] for s in screens}
+    # the model's pick is applied in every language (French "famille" too); the fake picks the family call screen
+    family = [t for t in (Template.load(p) for p in (run / "templates").glob("*.yaml")) if "famil" in t.concept.lower()]
+    assert len({t.fixed["language"] for t in family}) == 2
+    assert all(t.fixed["product"]["asset"] == screens[1]["ui"] for t in family)
+
+
+def test_redo_from_creative_is_not_undone_by_evolution(done, tmp_path):
+    # Bug (WhatsApp, Nov 2): `--redo-from creative` wrote new templates, then `evolve` restored templates_gen0/ from
+    # the previous run over them, so the "new" ads were the old ones.
+    import shutil
+
+    _, _, _, run = done
+    copy = tmp_path / "run"
+    shutil.copytree(run, copy)
+    for p in (copy / "templates_gen0").glob("*.yaml"):  # mark the previous run's templates
+        p.write_text(p.read_text().replace("concept: ", "concept: OLD "))
+    c, _, _ = clients(tmp_path)
+    create(CreateConfig(**CFG), c, copy, redo_from="creative")
+    assert not any("OLD " in p.read_text() for p in (copy / "templates").glob("*.yaml"))
+    assert not any("OLD " in p.read_text() for p in (copy / "templates_gen0").glob("*.yaml"))
