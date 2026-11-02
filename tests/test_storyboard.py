@@ -209,3 +209,23 @@ def test_the_narrator_says_one_thing_in_its_own_words():
     if len(claim.split()) <= 22:
         with pytest.raises(Invalid, match="word for word"):
             check_selling(d)
+
+
+def test_the_same_screen_is_never_shown_twice_in_a_row():
+    d = selling_brief()
+    d["shots"][6]["screen"] = d["shots"][5]["screen"]  # two demo shots of the same screen back to back
+    with pytest.raises(Invalid, match="same screen"):
+        check_selling(d)
+
+
+def test_a_run_of_app_shots_keeps_one_phone():
+    from whynot.create.trend_render import build_props
+
+    b = check_selling(selling_brief())
+    images = {i: f"s{i}.png" for i, s in enumerate(b.shots) if s.visual in ("photo", "screen")}
+    props = build_props(b, palette=["#FFFFFF", "#111111", "#00EB6E", "#EEEEEE"], app_name="X", images=images,
+                        icon=None, rating=None, rating_count=None, audio=None, sfx={})
+    screens = [i for i, s in enumerate(b.shots) if s.visual == "screen"]
+    assert screens == [4, 5, 6]
+    assert "continues" not in props["shots"][4]  # the phone enters here...
+    assert props["shots"][5]["continues"] and props["shots"][6]["continues"]  # ...and stays for the next screens

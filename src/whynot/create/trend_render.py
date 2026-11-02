@@ -41,6 +41,9 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       **({"ui": s.ui} if s.ui else {}), **({"grid": list(s.grid)} if s.grid else {}),
                       **({"tiles": (tiles or {})[i]} if i in (tiles or {}) else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
+    for i in range(1, len(shots)):  # one phone for a run of app shots: it enters once, then changes what it shows
+        if shots[i]["visual"] == "screen" and shots[i - 1]["visual"] == "screen":
+            shots[i]["continues"] = True
     end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
     if audio and audio.voice_mp3 and audio.words:

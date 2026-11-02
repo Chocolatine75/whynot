@@ -37,7 +37,7 @@ const Background: React.FC<{ look: Look }> = ({ look }) => {
 // one, each from its own centre, over the dimmed screen. Picture and tiles share one geometry (the same cover fit
 // as an <img>), so every tile lands exactly where it is in the screenshot.
 const Tiles: React.FC<{ src: string; tiles: number[][]; size: number[]; w: number; h: number; fy: number;
-  pop?: string }> = ({ src, tiles, size, w, h, fy, pop }) => {
+  pop?: string; frames: number }> = ({ src, tiles, size, w, h, fy, pop, frames }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const [iw, ih] = size;
@@ -50,14 +50,15 @@ const Tiles: React.FC<{ src: string; tiles: number[][]; size: number[]; w: numbe
     backgroundImage: `url(${staticFile(src)})`, backgroundSize: `${dw}px ${dh}px`,
     backgroundPosition: `${dx - left}px ${dy - top}px`, backgroundRepeat: "no-repeat",
   });
-  const gap = Math.max(4, Math.round(20 / tiles.length));
+  // every tile has popped and settled (≈8 frames) before the cut, whatever the shot's length
+  const gap = Math.max(1, Math.min(5, Math.floor((frames - 12) / Math.max(1, tiles.length))));
   return (
     <>
       <div style={{ position: "absolute", inset: 0, ...picture(0, 0), opacity: 0.18, filter: "blur(2px)" }} />
       {tiles.map(([x0, y0, x1, y1], i) => {
         const left = dx + x0 * dw;
         const top = dy + y0 * dh;
-        const delay = 4 + i * gap;
+        const delay = 2 + i * gap;
         const s = spring({ frame: frame - delay, fps, config: { damping: 13, stiffness: 210, mass: 0.7 } });
         return (
           <React.Fragment key={i}>
@@ -76,7 +77,11 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const n = shot.durationInFrames;
-  const enter = spring({ frame, fps, config: { damping: 16, stiffness: 150, mass: 0.8 } });
+  // the phone flies in on the first app shot only; the next ones keep it in place and change what it shows
+  // (re-entering on every 1 s shot made the phone vanish and come back four times in 3 s, Nov 2)
+  const enter = shot.continues ? 1 : spring({ frame, fps, config: { damping: 16, stiffness: 150, mass: 0.8 } });
+  // a cut inside the phone, never a fade from black (a dark frame showed between two app shots)
+  const swap = 1;
   const float = Math.sin(frame / 18) * 6;
   const ui = shot.ui ?? "float";
   const fy = FOCUS_Y[shot.focus ?? "full"];
@@ -101,14 +106,24 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
       shown += spring({ frame: frame - 4 - i * Math.max(3, Math.floor(n / (steps + 2))), fps,
         config: { damping: 14, stiffness: 200 } }) / steps;
     }
-    reveal = shown * 100;
+    reveal = 18 + shown * 82;
   }
 
+  const picture = (style: React.CSSProperties) => (
+    <Img src={staticFile(shot.src ?? "")} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
+      objectFit: "cover", objectPosition: `50% ${scrollY}%`, ...style }} />
+  );
   const screen = ui === "grid" && shot.tiles && shot.imageSize ? (
-    <Tiles src={shot.src ?? ""} tiles={shot.tiles} size={shot.imageSize} w={inner.w} h={inner.h} fy={0} pop={pop} />
+    <Tiles src={shot.src ?? ""} tiles={shot.tiles} size={shot.imageSize} w={inner.w} h={inner.h} fy={0} pop={pop}
+      frames={n} />
+  ) : ui === "rows" ? (
+    // the screen is there, dimmed, and its rows light up from the top: never a blank phone
+    <>
+      {picture({ opacity: 0.22, filter: "blur(1.5px)" })}
+      {picture({ clipPath: `inset(0 0 ${100 - reveal}% 0)` })}
+    </>
   ) : (
-    <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
-      objectPosition: `50% ${scrollY}%`, clipPath: `inset(0 0 ${100 - reveal}% 0)` }} />
+    picture({})
   );
 
   const ring = ui === "zoom" ? interpolate(frame, [18, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
@@ -123,7 +138,7 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
           transform: `translateY(${interpolate(enter, [0, 1], [380, 0])}px) rotateX(${interpolate(enter, [0, 1], [24, 0])}deg) scale(${push})`,
           opacity: interpolate(enter, [0, 0.3], [0, 1], { extrapolateRight: "clamp" }) }}>
           <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: PHONE.radius - PHONE.bezel,
-            overflow: "hidden", background: ui === "grid" ? "#111" : "#fff" }}>
+            overflow: "hidden", background: ui === "grid" ? "#111" : "#fff", opacity: swap }}>
             {screen}
             {ring > 0 ? (
               <div style={{ position: "absolute", left: 24, right: 24, top: `${fy * 100 - 9}%`, height: "18%",

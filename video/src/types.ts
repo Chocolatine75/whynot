@@ -47,6 +47,7 @@ export type ShotProps = {
   grid?: [number, number]; // screen with ui "grid": columns, rows of tiles (as the script asked)
   tiles?: number[][]; // screen with ui "grid": the call's real tiles, [x0, y0, x1, y1] as shares of the image
   imageSize?: [number, number]; // the screen image's pixel size (tiles and picture share its geometry)
+  continues?: boolean; // screen right after another screen: the phone stays in place, only its content changes
   focus?: "top" | "middle" | "bottom" | "full";
   text?: string;
   tap?: boolean; // demo: a finger taps the focus region

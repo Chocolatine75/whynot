@@ -519,6 +519,11 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         # repairs (seen on VietBuddy, Nov 1: 3 of 4 ideas failed, each on a different rule).
         # a plain "voice" (the first scripts' single voice-over) is re-rendered as it was; new scripts use "lines"
         problems: list[str] = storyboard_problems(lines, shots) if "lines" in data else []
+        for i in range(1, len(shots)):
+            if shots[i].visual == shots[i - 1].visual == "screen" and shots[i].screen == shots[i - 1].screen:
+                problems.append(f"shots {i} and {i + 1} show the same screen {shots[i].screen}: make it one longer shot, "
+                                "or show another screen")
+                break
         cast = " ".join(str(data.get("cast") or "").split())
         if any(x.visual == "photo" for x in shots) and not 3 <= len(cast.split()) <= 45:
             problems.append("'cast' (3-45 words) must describe who and where, once, so every photo shows the same "
