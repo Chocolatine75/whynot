@@ -257,3 +257,26 @@ def test_a_wrong_creator_line_is_regenerated_then_dropped_but_a_weak_native_line
                                    tmp_path)
     assert mp3 is None and guard["dropped"] is True
     assert [c["seed"] for c in calls[:2]] == [7, 8]  # the wrong line was regenerated once
+
+
+def test_a_busy_elevenlabs_is_retried_then_reported(tmp_path):
+    # Seen on WhatsApp (Nov 2): one 429 "system_busy" lost a whole video
+    import httpx
+
+    from whynot.audio.elevenlabs import ElevenLabs, ElevenLabsError
+
+    answers = [httpx.Response(429, json={"detail": {"code": "system_busy"}}), httpx.Response(503),
+               httpx.Response(200, json={"ok": True})]
+    waits = []
+    el = ElevenLabs("k", tmp_path, http=httpx.Client(transport=httpx.MockTransport(lambda r: answers.pop(0))),
+                    sleep=waits.append)
+    assert el._post("/x", {}).json() == {"ok": True} and len(waits) == 2
+    always_busy = ElevenLabs("k", tmp_path, http=httpx.Client(transport=httpx.MockTransport(
+        lambda r: httpx.Response(429, text="busy"))), sleep=lambda s: None)
+    with pytest.raises(ElevenLabsError, match="429"):
+        always_busy._post("/x", {})
+    bad = ElevenLabs("sk_secret42", tmp_path, http=httpx.Client(transport=httpx.MockTransport(
+        lambda r: httpx.Response(401, text="bad key sk_secret42"))), sleep=lambda s: pytest.fail("no retry on 401"))
+    with pytest.raises(ElevenLabsError, match="401") as e:
+        bad._post("/x", {})
+    assert "bad key [REDACTED]" in str(e.value) and "sk_secret42" not in str(e.value)

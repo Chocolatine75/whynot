@@ -77,7 +77,8 @@ GOOD = {"id": "tell_me_tones", "hook": "Tell me you're learning Vietnamese",
                        seconds=1.8, sfx="ding"),
                   shot(visual="screen", screen=1, focus="top", caption="then say it", beat="twist", seconds=1.6),
                   shot(text="Start free", beat="cta", seconds=1.2, sfx="pop")],
-        "voice": "Tell me you're learning Vietnamese without telling me.", "cta": "Start free", "music": "playful"}
+        "voice": "Tell me you're learning Vietnamese without telling me.", "cta": "Start free", "music": "playful",
+        "cast": "Minh, 23, hoodie and glasses, and his grandma, 75, at a family dinner in a small warm kitchen"}
 
 
 def check(data, mascot=False):
@@ -217,6 +218,11 @@ def test_creator_voice_with_emotion_tags_is_accepted_and_the_meme_line_is_exempt
     assert check(GOOD).hook.startswith("Tell me you're learning")  # the trend line itself may say "learning"
 
 
+def verdict(n, why="x", worst="y"):
+    """The viewer critic's answer, the same mark for tone, clarity and hook."""
+    return json.dumps({"tone": n, "clarity": n, "hook": n, "story": "s", "why": why, "worst": worst})
+
+
 def _brief_reply(voice):
     return json.dumps({**GOOD, "voice": voice})
 
@@ -229,7 +235,7 @@ def test_a_teacher_tone_is_sent_back_once_and_the_better_take_is_kept():
 
     def reply(messages, module):
         if module == "tone_critic":
-            return json.dumps({"score": next(scores), "why": "sounds like class", "worst": "ok so this happened"})
+            return verdict(next(scores), "sounds like class", "ok so this happened")
         return _brief_reply("ok so this happened" if len(messages) == 1 else "bro i was SO done [laughs]")
 
     model = ScriptedChat(reply)
@@ -237,7 +243,7 @@ def test_a_teacher_tone_is_sent_back_once_and_the_better_take_is_kept():
                    screens=["a", "b", "c"], has_mascot=False)
     assert "SO done" in answer.value.voice and "4/10 → 8/10" in answer.errors[-1]
     rewrite_prompt = [c for c in model.calls if c["module"] == "trend_brief"][-1]["messages"][-1]["content"]
-    assert "rated the tone 4/10" in rewrite_prompt and "ok so this happened" in rewrite_prompt
+    assert "tone 4/10, story clarity 4/10" in rewrite_prompt and "ok so this happened" in rewrite_prompt
 
 
 def test_a_worse_rewrite_is_not_kept():
@@ -245,7 +251,7 @@ def test_a_worse_rewrite_is_not_kept():
     from whynot.agents.trend_brief import write
 
     scores = iter([6, 3])
-    model = ScriptedChat(lambda m, mod: json.dumps({"score": next(scores), "why": "x", "worst": "y"})
+    model = ScriptedChat(lambda m, mod: verdict(next(scores), "x", "y")
                          if mod == "tone_critic" else _brief_reply("first take" if len(m) == 1 else "second take"))
     answer = write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
                    screens=["a", "b", "c"], has_mascot=False)
@@ -260,7 +266,7 @@ def test_an_invalid_rewrite_keeps_the_valid_first_take():
 
     def reply(m, mod):
         if mod == "tone_critic":
-            return json.dumps({"score": 4, "why": "x", "worst": "y"})
+            return verdict(4, "x", "y")
         return _brief_reply("first take") if len(m) == 1 else json.dumps({**GOOD, "music": "jazz"})
 
     answer = write(ScriptedChat(reply), CTX, BY_ID["tell_me_without"], persona="heritage_learner",
@@ -272,23 +278,24 @@ def test_a_good_tone_is_not_rewritten():
     from fakes import ScriptedChat
     from whynot.agents.trend_brief import write
 
-    model = ScriptedChat(lambda m, mod: json.dumps({"score": 9, "why": "x", "worst": "y"}) if mod == "tone_critic"
+    model = ScriptedChat(lambda m, mod: verdict(9, "x", "y") if mod == "tone_critic"
                          else _brief_reply("why did she keep going like that"))
     write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
           screens=["a", "b", "c"], has_mascot=False)
     assert [c["module"] for c in model.calls] == ["trend_brief", "tone_critic"]
 
 
-DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?"},
+DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?", "shots": [1, 2, 3]},
             {"speaker": "them", "language": "vi", "gender": "female", "accent": "south",
-             "text": "Dạ, em uống ở đây hay mang về?"},
-            {"speaker": "me", "text": "[laughs] bro i was SO done"}]
+             "text": "Dạ, em uống ở đây hay mang về?", "shots": [4, 5, 6]},
+            {"speaker": "me", "text": "[laughs] bro i was SO done", "shots": [7, 8]},
+            {"speaker": "narrator", "text": "start free", "shots": [9]}]  # the spoken call to action
 
 
 def test_dialogue_lines_are_typed_with_language_and_accent():
     b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": DIALOGUE})
     assert [(x.speaker, x.language, x.accent) for x in b.lines] == [("me", "en", None), ("them", "vi", "south"),
-                                                                     ("me", "en", None)]
+                                                                     ("me", "en", None), ("narrator", "en", None)]
     assert "mang về" in b.voice
     assert TrendBrief.from_json(json.loads(json.dumps(b.to_json()))).lines == b.lines
     legacy = check(GOOD)  # a plain "voice" is one line by the creator
@@ -297,10 +304,11 @@ def test_dialogue_lines_are_typed_with_language_and_accent():
 
 @pytest.mark.parametrize("patch, error", [
     ({"text": "Da, em uong o day hay mang ve?"}, "accents and tone marks"),
-    ({"language": "ja"}, "no native voice"),
+    ({"language": "ja"}, "spoken in en only"),  # the app is about Vietnamese, not Japanese
     ({"accent": "central"}, "accent must be"),
     ({"gender": "robot"}, "gender"),
-    ({"speaker": "narrator"}, "speaker"),
+    ({"speaker": "robot"}, "speaker"),
+    ({"speaker": "narrator"}, "the narrator is the brand"),  # a Vietnamese line can't be the brand's
 ])
 def test_bad_dialogue_lines_are_refused(patch, error):
     lines = json.loads(json.dumps(DIALOGUE))
@@ -311,7 +319,7 @@ def test_bad_dialogue_lines_are_refused(patch, error):
 
 def test_the_creator_may_try_the_other_language_in_its_own_line_with_accents():
     lines = json.loads(json.dumps(DIALOGUE))
-    lines[0] = {"speaker": "me", "language": "vi", "text": "cà phê sữa đá?"}
+    lines[0] = {"speaker": "me", "language": "vi", "text": "cà phê sữa đá?", "shots": [1, 2, 3]}
     b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
     assert (b.lines[0].speaker, b.lines[0].language) == ("me", "vi")
     lines[0]["text"] = "ca phe sua da?"
@@ -385,6 +393,11 @@ def selling_brief():
              seconds=1.4),
         shot(text="Start free", beat="cta", seconds=1.0)]
     d["offer"] = "Free to download"
+    # the storyboard: the creator over the story, the people of the story over theirs, the narrator over the app
+    for line, span in zip(d["lines"][:3], ([1, 2], [3, 4], [5]), strict=True):
+        line["shots"] = span
+    d["lines"][3] = {"speaker": "narrator", "text": "linguaapp has a southern voice, free to download",
+                     "shots": [6, 7, 8, 9, 10]}
     return d
 
 
@@ -425,10 +438,12 @@ def test_briefs_that_dont_sell_are_refused(data, error):
 
 def test_selling_facts_come_from_the_store_page_only():
     app = {"price": 0.0, "description": "Learn. Start your free trial today.",
-           "reviews": [{"id": "a", "rating": 5, "text": "Love  it"}, {"id": "b", "rating": 2, "text": "bad"},
-                       {"id": "c", "rating": 4, "text": ""}]}
+           "reviews": [{"id": "a", "rating": 5, "text": "Love  it, my whole family uses it every single week"},
+                       {"id": "b", "rating": 2, "text": "bad"}, {"id": "c", "rating": 4, "text": ""},
+                       {"id": "d", "rating": 5, "text": "Very good encrypted"}]}  # too short to prove anything
     s = selling_from_app(app, "X")
-    assert [r.id for r in s.reviews] == ["a"] and s.reviews[0].text == "Love it"  # ≥ 4 stars with text only
+    assert [r.id for r in s.reviews] == ["a"]  # ≥ 4 stars and a real sentence only
+    assert s.reviews[0].text == "Love it, my whole family uses it every single week"
     assert s.offers == ("Free to download", "Free trial")
     assert selling_from_app({"price": 4.99, "description": "", "reviews": []}, "X").offers == ()
 
@@ -598,3 +613,36 @@ def test_captions_from_the_demo_on_speak_for_the_brand(beat_index, field, words)
 def test_any_link_line_makes_no_sense_in_an_ad(caption):
     with pytest.raises(Invalid, match="makes no sense in an ad"):
         check_selling(sell_patch(lambda d: d["shots"][6].update(caption=caption)))
+
+
+def test_a_sticker_inside_the_screen_is_not_the_mascot(tmp_path):
+    # WhatsApp (Nov 2): a bear sticker in a chat was taken for the app's mascot and starred in every video
+    shot_img = Image.new("RGB", (1600, 3200), (200, 50, 50))
+    sam = Sam({"phone screen": [(100, 300, 700, 1500)], "cartoon mascot": [(300, 800, 500, 1000)],
+               "cartoon character": [], "cartoon animal": []})
+    assert cutouts(sam, [shot_img], tmp_path).mascot is None
+
+
+def test_a_video_nobody_understands_is_rewritten_even_if_funny():
+    """The weakest of tone, clarity and hook decides (Nov 2: "grandma said five mins", nobody got the story)."""
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    confused = json.dumps({"tone": 9, "clarity": 3, "hook": 8, "story": "something about grandma?",
+                           "why": "I could not tell what happens", "worst": "grandma said five mins"})
+    replies = iter([confused, verdict(8)])
+    model = ScriptedChat(lambda m, mod: next(replies) if mod == "tone_critic"
+                         else _brief_reply("first take" if len(m) == 1 else "second take"))
+    write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+          screens=["a", "b", "c"], has_mascot=False)
+    rewrite = model.calls[2]["messages"][-1]["content"]
+    assert "story clarity 3/10" in rewrite and "something about grandma?" in rewrite
+
+
+def test_tones_are_known():
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    with pytest.raises(ValueError, match="tone"):
+        write(ScriptedChat([]), CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+              screens=["a"], has_mascot=False, tone="dramatic")

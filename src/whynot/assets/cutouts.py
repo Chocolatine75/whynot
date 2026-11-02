@@ -101,17 +101,69 @@ class AppCutouts:
     mascot: Image.Image | None
 
 
+def inside(box: tuple[int, int, int, int], outer: tuple[int, int, int, int], share: float = 0.9) -> bool:
+    """At least `share` of `box` lies within `outer`."""
+    x1, y1 = max(box[0], outer[0]), max(box[1], outer[1])
+    x2, y2 = min(box[2], outer[2]), min(box[3], outer[3])
+    area = max(1, (box[2] - box[0]) * (box[3] - box[1]))
+    return max(0, x2 - x1) * max(0, y2 - y1) >= share * area
+
+
 def cutouts(model: Any, screenshots: list[Image.Image], cache: Path) -> AppCutouts:
-    screens, best = [], None
+    screens, best, phone_boxes = [], None, []
     for img in screenshots:
         phones = find(model, img, "phone screen", cache)
         screens.append(ui_crop(img, phones[0].box) if phones else img.convert("RGB"))
+        phone_boxes.append([p.box for p in phones])
     for concept in MASCOT_CONCEPTS:  # SAM needs the right words: try a few, keep the biggest character
-        for img in screenshots:
+        for img, boxes in zip(screenshots, phone_boxes, strict=True):
             for m in find(model, img, concept, cache):
+                # a character drawn INSIDE the phone is a sticker in a chat, not the app's mascot (WhatsApp's bear,
+                # Nov 2): a mascot stands on the poster, next to the phone (it may overlap the phone's edge)
+                if any(inside(m.box, b) for b in boxes):
+                    continue
                 if m.area_share >= MIN_MASCOT_SHARE and (best is None or m.area_share > best[0].area_share):
                     best = (m, img)
         if best:
             break
     mascot = cut_out(best[1], best[0]) if best else None
     return AppCutouts(screens, mascot)
+
+
+DARK = 35  # a gutter pixel (0-255)
+GUTTER = 0.6  # share of dark pixels that makes a row or a column a gutter
+
+
+def _runs(values: list[float], min_len: int) -> list[tuple[int, int]]:
+    """Runs of indices whose value is below GUTTER (not a gutter), at least `min_len` long."""
+    out, start = [], None
+    for i, v in enumerate([*values, 1.0]):
+        if v < GUTTER and start is None:
+            start = i
+        if v >= GUTTER and start is not None:
+            if i - start >= min_len:
+                out.append((start, i))
+            start = None
+    return out
+
+
+def call_tiles(img: Image.Image) -> list[tuple[int, int, int, int]]:
+    """The video tiles of a group-call screen (real interface), found from its dark gutters, top-left first.
+
+    A call grid is people's videos separated by thin dark lines. Rows: bands between dark rows, at least 15 % of
+    the height (the controls bar is thinner). Columns: dark across the WHOLE grid, so a dark patch inside one
+    video never splits a tile (seen on WhatsApp's call screen). Fewer than 2 tiles: not a call grid, [].
+    SAM 3.1 was tried first and found 0-2 of 6 tiles, depending on the words."""
+    g = img.convert("L")
+    w, h = g.size
+    px: list[int] = list(g.getdata())  # grey levels, row after row
+    xs = range(0, w, 2)
+    rows = [sum(1 for x in xs if px[y * w + x] < DARK) / len(xs) for y in range(h)]
+    bands = _runs(rows, round(0.15 * h))
+    if not bands:
+        return []
+    in_grid = [y for b0, b1 in bands for y in range(b0, b1, 3)]
+    cols = [sum(1 for y in in_grid if px[y * w + x] < DARK) / len(in_grid) for x in range(w)]
+    columns = _runs(cols, round(0.25 * w))
+    tiles = [(x0, y0, x1, y1) for y0, y1 in bands for x0, x1 in columns]
+    return tiles if len(tiles) >= 2 else []

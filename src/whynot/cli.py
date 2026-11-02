@@ -131,7 +131,8 @@ def _video(args: argparse.Namespace) -> int:
     try:
         if args.style == "trend":
             from whynot.agency.trend_video import make_trend_videos
-            report = make_trend_videos(run_dir, model, cfg=VideoConfig(n_videos=args.n), voice=voice,
+            cfg = VideoConfig(n_videos=args.n, angles=tuple(args.angles or ()), tone=args.tone)
+            report = make_trend_videos(run_dir, model, cfg=cfg, voice=voice,
                                        voice_id=settings.elevenlabs_voice_id, token=settings.fb_token or "",
                                        renderer_factory=factory, reuse_briefs=args.rerender)
         else:
@@ -410,6 +411,10 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--silent", action="store_true", help="no voice-over or music")
     v.add_argument("--rerender", action="store_true",
                    help="trend: render the last scripts again (videos/trends.json) without rewriting them")
+    v.add_argument("--angles", nargs="+", metavar="ANGLE", help="trend: one video per strategy angle id (see "
+                   "strategy.json), e.g. grandchild_abroad_call thirty_two_person_reunion")
+    v.add_argument("--tone", choices=["humor", "factual", "emotional"], default="humor",
+                   help="trend: comedy with a punchline, straight talk with the real screen, or a sincere moment")
     v.add_argument("--style", choices=["trend", "classic"], default="trend",
                    help="trend: viral formats turned into ads (fast cuts, Remotion); classic: storyboard ads")
     v.set_defaults(func=_video)

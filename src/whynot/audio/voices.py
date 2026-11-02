@@ -12,6 +12,7 @@ nothing is added to the account.
 from dataclasses import dataclass
 
 CREATOR = {"male": "TX3LPaxmHKxFdv7VOQHJ", "female": "cgSgspJ2msm6clMCkdW9"}  # Liam, Jessica (young, premade)
+NARRATOR = "JBFqnCBsd6RMkjVDRZzb"  # George (premade, warm storyteller): the brand, apart from the story's voices
 NATIVE: dict[str, dict[str, dict[str, str]]] = {  # language -> accent -> gender -> voice id (Voice Library)
     "vi": {
         "south": {"female": "xPEfmymXC4WdBxGMznS7", "male": "7hsfEc7irDn6E8br0qfw"},  # Tuyết, Hai Ly
@@ -38,6 +39,8 @@ def cast(speaker: str, language: str, ad_language: str, *, gender: str = "female
         raise ValueError(f"gender must be one of {GENDERS}")
     if speaker == "me":
         return Cast(CREATOR[creator_gender], ad_language, False)
+    if speaker == "narrator":
+        return Cast(NARRATOR, ad_language, False)
     if speaker != "them":
         raise ValueError(f"unknown speaker {speaker!r}")
     if language == ad_language:

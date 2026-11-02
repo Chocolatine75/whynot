@@ -11,6 +11,8 @@ across reruns. The API key travels only in the `xi-api-key` header and is redact
 import base64
 import hashlib
 import json
+import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -37,6 +39,9 @@ SFX_PROMPTS = {  # one short, clean effect per cut type, generated once and reus
 }
 
 
+RETRY_WAITS = (4.0, 12.0, 30.0)  # seconds before each retry when ElevenLabs is busy
+
+
 class ElevenLabsError(RuntimeError):
     pass
 
@@ -54,23 +59,36 @@ class Voice:
 
 
 class ElevenLabs:
-    def __init__(self, api_key: str, cache: Path, *, http: httpx.Client | None = None, base_url: str = API):
+    def __init__(self, api_key: str, cache: Path, *, http: httpx.Client | None = None, base_url: str = API,
+                 waits: tuple[float, ...] = RETRY_WAITS, sleep: Callable[[float], None] = time.sleep):
         if not api_key:
             raise ElevenLabsError("no ElevenLabs key: set ELEVENLABS_API_KEY in .env")
         self.key = api_key
         self.cache = Path(cache)
         self.http = http or httpx.Client(timeout=180)
         self.base = base_url
+        self.waits = waits
+        self._sleep = sleep
 
     def _post(self, path: str, body: dict[str, Any], **params: Any) -> httpx.Response:
-        try:
-            r = self.http.post(f"{self.base}{path}", json=body, params=params or None,
-                               headers={"xi-api-key": self.key, "Content-Type": "application/json"})
-        except httpx.HTTPError as exc:
-            raise ElevenLabsError(f"request failed: {exc}".replace(self.key, "[REDACTED]")) from None
-        if r.status_code >= 400:
-            raise ElevenLabsError(f"HTTP {r.status_code}: {r.text[:300]}".replace(self.key, "[REDACTED]"))
-        return r
+        """One request, retried after a wait when ElevenLabs is busy (429 "system_busy", 5xx) or the network drops.
+        Seen on WhatsApp (Nov 2): a single 429 lost a whole video. Other errors are raised at once."""
+        for wait in (*self.waits, None):
+            try:
+                r = self.http.post(f"{self.base}{path}", json=body, params=params or None,
+                                   headers={"xi-api-key": self.key, "Content-Type": "application/json"})
+            except httpx.HTTPError as exc:
+                if wait is None:
+                    raise ElevenLabsError(f"request failed: {exc}".replace(self.key, "[REDACTED]")) from None
+                self._sleep(wait)
+                continue
+            if (r.status_code == 429 or r.status_code >= 500) and wait is not None:
+                self._sleep(wait)
+                continue
+            if r.status_code >= 400:
+                raise ElevenLabsError(f"HTTP {r.status_code}: {r.text[:300]}".replace(self.key, "[REDACTED]"))
+            return r
+        raise AssertionError("unreachable")
 
     @staticmethod
     def _key(kind: str, body: dict[str, Any]) -> str:
