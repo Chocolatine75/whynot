@@ -328,11 +328,22 @@ def connect(token: str, *, account_id: str | None = None, page_id: str | None = 
     say(f"logged in as {d.user_name or d.user_id}: {len(d.accounts)} ad account(s), {len(d.pages)} Page(s), "
         f"permissions: {', '.join(d.granted) or 'none'}")
     conn = choose(d, reader.token, account_id=account_id, page_id=page_id, app_id=app_id, sandbox=sandbox)
-    conn.expires_at = expires
-    if oauth is None:
+    conn.expires_at = expires if oauth is not None else token_expiry(reader)
+    days = conn.days_left()
+    if oauth is None and (days is None or days < 1):
         conn.warnings.append("short login (Meta ends it in 1-2 hours): set WHYNOT_META_APP_ID and "
                              "WHYNOT_META_APP_SECRET, then connect again, to keep it 60 days and renew it alone")
     return conn, conn.save(folder)
+
+
+def token_expiry(reader: GraphReader) -> str | None:
+    """When Meta ends this login (ISO), asked with the token itself; None when Meta does not say."""
+    try:
+        data = reader.get("debug_token", input_token=reader.token).get("data") or {}
+    except ConnectError:
+        return None
+    at = int(data.get("expires_at") or 0)
+    return datetime.fromtimestamp(at, UTC).isoformat() if at > 0 else None
 
 
 def refresh(conn: MetaConnection, oauth: OAuthApp, *, version: str = "v26.0", http: httpx.Client | None = None,

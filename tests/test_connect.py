@@ -24,7 +24,8 @@ def account(n, status=1, currency="EUR", name=None):
 
 class Graph:
     def __init__(self, *, perms=PERMS, declined=(), accounts=None, pages=(("999", ["ADVERTISE"]),),
-                 page_size=100, expired=False):
+                 page_size=100, expired=False, expires_at=None):
+        self.expires_at = expires_at  # unix time debug_token reports (None: no answer)
         self.perms = [{"permission": p, "status": "granted"} for p in perms]
         self.perms += [{"permission": p, "status": "declined"} for p in declined]
         self.accounts = list(accounts) if accounts is not None else [account(111)]
@@ -42,6 +43,8 @@ class Graph:
         if self.expired or params.get("access_token") != TOKEN:
             return httpx.Response(400, json={"error": {"code": 190, "message": f"Session expired for {TOKEN}"}})
         path = request.url.path.split("/", 2)[2]
+        if path == "debug_token" and self.expires_at is not None:
+            return httpx.Response(200, json={"data": {"is_valid": True, "expires_at": self.expires_at}})
         if path == "me":
             return httpx.Response(200, json={"id": "42", "name": "Owner"})
         rows = {"me/permissions": self.perms, "me/adaccounts": self.accounts, "me/accounts": self.pages}.get(path)
@@ -193,3 +196,12 @@ def test_expiry_is_warned_then_blocks(tmp_path):
     assert "ends in 2.0 days" in expiry_warning(conn, now)
     conn.expires_at = (now - timedelta(hours=1)).isoformat()
     assert "expired" in check(conn, http=http(Graph()))[0]
+
+
+def test_a_long_login_without_the_app_secret_keeps_its_real_expiry(tmp_path):
+    """FB_TOKEN-style login: already long-lived (Meta says when it ends), no exchange needed."""
+    import time
+
+    end = int(time.time()) + 50 * 86400
+    conn, _, _ = go(tmp_path, Graph(expires_at=end))
+    assert 49 < conn.days_left() <= 50 and not any(w.startswith("short login") for w in conn.warnings)

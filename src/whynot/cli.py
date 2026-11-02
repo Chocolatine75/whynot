@@ -289,8 +289,9 @@ def _connect(args: argparse.Namespace) -> int:
           + f" · can publish: {'yes' if conn.can_publish else 'no'} · can read results: "
           + ("yes" if conn.can_read else "no"))
     days = conn.days_left()
-    print(f"  login valid {days:.0f} days, renewed automatically" if days is not None
-          else "  login: short (1-2 h)")
+    renew = ("renewed automatically" if oauth is not None
+             else "set WHYNOT_META_APP_SECRET to renew it automatically, or connect again before it ends")
+    print(f"  login valid {days:.0f} days, {renew}" if days is not None else "  login: short (1-2 h)")
     for w in conn.warnings:
         print(f"  ! {w}")
     print(f"  saved privately (gitignored, mode 600): {path}")
