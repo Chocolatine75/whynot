@@ -16,7 +16,7 @@ signals, the picks, the briefs, the voice guard verdicts, failures and cost.
 import json
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Any
 
@@ -190,6 +190,7 @@ def dialogue_track(voice: ElevenLabs, model: Any, b: trend_brief.TrendBrief, ad_
         t += dur + LINE_GAP_S
     out = folder / f"dialogue-{b.id}.mp3"
     join_clips(parts, out, gap=LINE_GAP_S)
+    guard["line_seconds"] = [round(d + LINE_GAP_S, 3) for _, d in parts]  # each line's time on the timeline
     return out, ws, guard
 
 
@@ -265,7 +266,14 @@ class Studio:
         self.icon = Image.open(run_dir / "assets" / "icon.png")
 
     def pick(self, n: int) -> list[dict[str, Any]]:
-        return list(pick_formats(self.model, self.strategy, self.signals, app=self.app["name"],
+        strategy = self.strategy
+        if self.cfg.angles:  # the owner chose the stories: one video per chosen angle
+            known = {a.id for a in strategy.angles}
+            if unknown := [a for a in self.cfg.angles if a not in known]:
+                raise ValueError(f"unknown angles {unknown}; this run has {sorted(known)}")
+            strategy = replace(strategy, angles=[a for a in strategy.angles if a.id in self.cfg.angles])
+            n = len(self.cfg.angles)
+        return list(pick_formats(self.model, strategy, self.signals, app=self.app["name"],
                                  description=self.app["description"], has_mascot=self.cut.mascot is not None,
                                  n=n, model=self.cfg.model).value)
 
@@ -283,18 +291,22 @@ class Studio:
                                   model=self.cfg.model).value
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
-            if s.visual == "photo":
-                imgs[i] = scene_image(model, s.prompt or "", CACHE / "scenes", style=PHOTO_STYLE)
+            if s.visual == "photo":  # the same people in the same place in every photo of the story
+                prompt = f"{b.cast}. In this shot: {s.prompt}" if b.cast else s.prompt or ""
+                imgs[i] = scene_image(model, prompt, CACHE / "scenes", style=PHOTO_STYLE)
             elif s.visual == "screen" and s.screen:
                 imgs[i] = self.cut.screens[s.screen - 1]
             elif s.visual == "mascot" and self.cut.mascot is not None:
                 imgs[i] = self.cut.mascot
-        audio, guard, sfx = None, {"skipped": "no voice client"}, {}
+        audio, sfx = None, {}
+        guard: dict[str, Any] = {"skipped": "no voice client"}
         if voice is not None:
             ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == self.ctx.language), "en")
             if b.lines:
                 mp3, ws, guard = dialogue_track(voice, model, b, ad_code, out)
                 cap = ws or None
+                if mp3 is not None:  # each shot lasts as long as the line that describes it
+                    b = trend_brief.retime(b, guard.get("line_seconds", []))
             elif b.voice:
                 v, guard = voice_track(voice, model, b.voice, self.ctx.language, self.voice_id)
                 mp3, cap = (v.mp3 if v else None), (words(v.characters, v.starts, v.ends) if v else None)

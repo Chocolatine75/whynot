@@ -51,6 +51,7 @@ class VideoConfig:
     model: str = "muse-spark-1.3"
     capture: bool = True  # capture missing competitor creatives with a headless browser
     renderer: str = "remotion"  # remotion (voice, captions, music) | builtin (silent, no Node needed)
+    angles: tuple[str, ...] = ()  # trend videos only on these strategy angles (ids); empty = the planner picks
 
 
 def soundtrack(voice: ElevenLabs, model: Any, b: brief.VideoBrief, language: str,

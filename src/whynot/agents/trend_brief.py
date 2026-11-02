@@ -65,11 +65,12 @@ class Line:
     """One spoken line: "me" (the creator, in the ad's language) or "them" (someone else, maybe in their own
     language, then spoken by a native voice with the accent asked)."""
 
-    speaker: str
+    speaker: str  # me (the creator) | them (someone in the story) | narrator (the brand, from the twist on)
     text: str
     language: str  # ISO 639-1
     gender: str = "female"  # for "them"
     accent: str | None = None  # for native lines, e.g. "south"
+    shots: tuple[int, ...] = ()  # the shots (1-based, in a row) this line is spoken over: image and voice agree
 
 
 @dataclass(frozen=True)
@@ -86,6 +87,7 @@ class TrendBrief:
     music: str
     lines: tuple[Line, ...] = ()
     offer: str = ""  # shown on the end card; only an offer the store page supports
+    cast: str = ""  # who and where, the same in every generated photo (the same grandma from shot to shot)
 
     @property
     def seconds(self) -> float:
@@ -97,7 +99,7 @@ class TrendBrief:
     @classmethod
     def from_json(cls, d: dict[str, Any]) -> "TrendBrief":
         return cls(**{**d, "shots": tuple(Shot(**s) for s in d["shots"]),
-                      "lines": tuple(Line(**x) for x in d.get("lines", ()))})
+                      "lines": tuple(Line(**{**x, "shots": tuple(x.get("shots", ()))}) for x in d.get("lines", ()))})
 
 
 PROMPT = """You are the best short-form creative on TikTok and Reels. Make a {low}-{high} second vertical ad that
@@ -124,13 +126,27 @@ Shots ({min_shots}-{max_shots}), each {s_low}-{s_high} s, a cut every second or 
 - caption: the native on-screen caption bubble (max 8 words, can be "" for a pure visual beat)
 - move: {moves}; sfx on the cut: {sfx}; beat: trend, twist, demo, proof, payoff, cta (in that order).
 
+STORYBOARD — the picture and the voice tell ONE story, beat by beat:
+- Write the story first as spoken lines, then give each line the 1-3 shots that SHOW exactly what it says, in
+  the same order ("shots": [3, 4] = the line is spoken over shots 3 and 4). Every shot before the cta has its
+  line. When a line says "grandma's still on the line", its shots show grandma on the line.
+- The creator ("me") and the people of the story ("them") speak over the trend and the twist. From the twist on,
+  the NARRATOR (the brand, speaker "narrator") speaks over the app's screens and says what the screen shows,
+  only what the store page says the app does (never "I", never a promise).
+- One specific story, not a list of features: one person, one situation, one moment that goes wrong, the app as
+  the answer. Concrete details (a name, a place, a time of day) beat general claims.
+- "cast": who is in the photos and where, described once (age, look, clothes, place, light). Every photo prompt
+  shows these same people in this same place, so the story looks like one video, not stock photos.
+
 Return JSON only:
 {{"id": "<snake_case>", "hook": "<first caption, max 8 words, the scroll-stopper>",
-  "shots": [{{"visual": "photo", "prompt": "...", "caption": "...", "seconds": 1.2, "move": "punch_in",
-             "sfx": "whoosh", "beat": "trend"}}, ...],
-  "lines": [{{"speaker": "me", "text": "<the creator, in {language}>"}},
-            {{"speaker": "them", "language": "<code>", "gender": "female|male", "accent": "<accent>",
-              "text": "<what the other person says>"}}, ...],
+  "cast": "<who and where, 10-45 words>",
+  "shots": [{{"visual": "photo", "prompt": "<what happens in this shot, with the cast>", "caption": "...",
+             "seconds": 1.2, "move": "punch_in", "sfx": "whoosh", "beat": "trend"}}, ...],
+  "lines": [{{"speaker": "me", "text": "<the creator, in {language}>", "shots": [1, 2]}},
+            {{"speaker": "them", "text": "<what the other person says>", "gender": "female|male",
+              "shots": [3]}}{native_example},
+            {{"speaker": "narrator", "text": "<what the screen shows, brand voice>", "shots": [7, 8]}}, ...],
   "cta": "<end card button, max 4 words>", "music": "<one of {moods}>"}}
 {tone}"""
 
@@ -138,21 +154,15 @@ TONE = """TONE — non-negotiable. You are not a brand and not a teacher: you ar
 into your phone, telling your friends what happened to you.
 - First person, story energy, run-on and fragments. Roast yourself, exaggerate, react. The examples in this
   brief show the ENERGY only: never reuse their words (refused: {cliches}); find this story's own words.
-- Words of another language keep their accents, even inside an English line: "cà phê sữa đá", never "ca phe sua da".
-- Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
+{accents_rule}- Casual words used naturally, max two per video: lowkey, ngl, literally, bro, cooked, it's giving, fr.
 - HONESTY, the law for ads: the creator is a character in a skit, NOT a customer. They live the situation
   (the struggle, the joke) and never mention the app: they never name it, never say they used, tried,
   downloaded or paid for it, never claim a result ("now grandma understands me", "it changed my life"). The app
-  arrives ON SCREEN, in the brand's own voice (captions and text cards: "{brand_hint} has a southern voice"),
-  saying only what the store page says it does.
+  arrives ON SCREEN and in the narrator's voice, in the brand's own words (captions, text cards and narrator
+  lines: "{brand_hint} keeps the whole family on one call"), saying only what the store page says it does.
 - Captions read like texts: lowercase, short, no full stops.
-- The audio is a short DIALOGUE ("lines", max 8, max 55 words in all): "me" is the creator; "them" is the
-  other person in the story (the barista, the grandma, the mother-in-law). When they speak another language,
-  write their line in that real language with every accent and tone mark (it is spoken by a native voice):
-  {natives}. The joke is often the creator not understanding them.
-- Never put words of another language inside an English line: when the creator TRIES to say something in
-  the other language, give it its own "me" line with that language code and the correct accents (the creator's
-  voice says it, like a learner would).
+- The audio is a short DIALOGUE ("lines", max 8, max {max_words} words in all): "me" is the creator; "them" is
+  the other person in the story; "narrator" is the brand over the app's screens. {natives_rule}
 - Lines may use up to 3 emotion tags in all: [laughs], [sighs], [gasps], [whispers], [groans].
 - Never sound like a lesson or a commercial: never use {banned}.
 No emoji in captions."""
@@ -250,7 +260,20 @@ def _check_vietnamese_words(text: str, where: str) -> None:
         raise Invalid(f"{where}: Vietnamese words keep their accents even in an English line: {fixes}")
 
 
-def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
+SPEAKERS = ("me", "them", "narrator")
+MAX_SPOKEN_WORDS = 70
+
+
+def other_languages(ctx: Context, ad_code: str) -> list[str]:
+    """Languages a line may be spoken in besides the ad's: only those the app itself is about (named in its
+    name or store page) and that have a native voice. A messaging app gets none: everyone speaks the ad's
+    language (seen on WhatsApp, Nov 2: a US ad where the family spoke Vietnamese because VietBuddy's examples
+    leaked into every app)."""
+    about = f"{ctx.app_name} {ctx.store_text}".lower()
+    return [code for code in NATIVE if code != ad_code and LANGUAGE_NAMES.get(code, code).lower() in about]
+
+
+def _lines(data: dict[str, Any], ad_code: str, allowed: list[str] | None = None) -> list[Line]:
     raw = data.get("lines")
     if raw is None and isinstance(data.get("voice"), str):  # a plain voice-over: one line by the creator
         raw = [{"speaker": "me", "text": data["voice"]}] if data["voice"].strip() else []
@@ -261,14 +284,20 @@ def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
     out, total = [], 0
     for i, x in enumerate(raw, 1):
         where = f"line {i}"
-        if not isinstance(x, dict) or x.get("speaker") not in ("me", "them"):
-            raise Invalid(f"{where}: 'speaker' must be 'me' or 'them'")
+        if not isinstance(x, dict) or x.get("speaker") not in SPEAKERS:
+            raise Invalid(f"{where}: 'speaker' must be one of {list(SPEAKERS)}")
         text = _words(x.get("text"), 25, f"{where} text")
         total += len(text.split())
         lang = str(x.get("language") or ad_code)
-        if lang != ad_code and lang not in NATIVE:
-            raise Invalid(f"{where}: no native voice for language {lang!r}; use one of {sorted(NATIVE)} or "
-                          f"{ad_code}")
+        others = NATIVE if allowed is None else allowed
+        if lang != ad_code and lang not in others:
+            raise Invalid(f"{where}: this ad is spoken in {ad_code} only" + (f" (or {sorted(others)})" if others else "")
+                          + f"; write the line in {ad_code}")
+        if x["speaker"] == "narrator" and lang != ad_code:
+            raise Invalid(f"{where}: the narrator is the brand and speaks the ad's language ({ad_code})")
+        span = x.get("shots", [])
+        if (not isinstance(span, list) or any(isinstance(n, bool) or not isinstance(n, int) for n in span)):
+            raise Invalid(f"{where}: 'shots' must be the list of shot numbers this line is spoken over")
         gender = x.get("gender", "female")
         if gender not in GENDERS:
             raise Invalid(f"{where}: 'gender' must be one of {list(GENDERS)}")
@@ -280,9 +309,9 @@ def _lines(data: dict[str, Any], ad_code: str) -> list[Line]:
         if lang == "vi" and not _has_marks(text):
             raise Invalid(f"{where}: Vietnamese without its accents and tone marks; write it correctly "
                           "(cà phê sữa đá, not ca phe sua da)")
-        out.append(Line(x["speaker"], text, lang, gender, accent if lang in NATIVE else None))
-    if total > 55:
-        raise Invalid(f"the lines have {total} words in all, max 55")
+        out.append(Line(x["speaker"], text, lang, gender, accent if lang in NATIVE else None, tuple(span)))
+    if total > MAX_SPOKEN_WORDS:
+        raise Invalid(f"the lines have {total} words in all, max {MAX_SPOKEN_WORDS}")
     return out
 
 
@@ -301,6 +330,46 @@ class Selling:
     brand: str
     reviews: tuple[Proof, ...] = ()
     offers: tuple[str, ...] = ()
+
+
+CREATOR_BEATS = ("trend", "twist")  # the creator and the people of the story speak over the story
+NARRATOR_BEATS = ("twist", "demo", "proof", "payoff")  # the brand speaks over the app
+
+
+def storyboard_problems(lines: list[Line], shots: list[Shot]) -> list[str]:
+    """Image and voice tell ONE story: every line is spoken over the shots that show what it says.
+
+    Each line covers a run of shots, lines follow the shots in order without overlapping, and every shot
+    before the call to action has its line. The creator speaks over the story, the narrator (the brand) over
+    the app. Seen on WhatsApp (Nov 2): the creator talked about grandma while the chat list scrolled by."""
+    if not lines:
+        return []
+    problems, covered, last = [], set(), 0
+    n = len(shots)
+    for i, x in enumerate(lines, 1):
+        span = list(x.shots)
+        if not span:
+            problems.append(f"line {i} needs 'shots': the shot numbers it is spoken over (the shots that SHOW it)")
+            continue
+        if span != list(range(span[0], span[0] + len(span))) or not 1 <= span[0] <= span[-1] <= n:
+            problems.append(f"line {i}: 'shots' {span} must be shot numbers in a row, between 1 and {n}")
+            continue
+        if span[0] <= last:
+            problems.append(f"line {i} starts on shot {span[0]}, but shot {last} already has a line: one line per "
+                            "shot, in the order of the shots")
+        last = max(last, span[-1])
+        covered |= set(span)
+        beats = {shots[k - 1].beat for k in span}
+        allowed = NARRATOR_BEATS if x.speaker == "narrator" else CREATOR_BEATS
+        if not beats <= set(allowed):
+            who = "the narrator (the brand)" if x.speaker == "narrator" else "the creator and the people of the story"
+            problems.append(f"line {i} ({x.speaker}) is spoken over {sorted(beats)} shots; {who} speaks over "
+                            f"{list(allowed)} shots only")
+    missing = [k for k in range(1, n + 1) if k not in covered and shots[k - 1].beat != "cta"]
+    if missing:
+        problems.append(f"shots {missing} have no line: every shot before the cta is spoken over by the line that "
+                        "says what it shows (add a line, or give an existing line those shots)")
+    return problems
 
 
 DEMO_SHARE = 0.25  # the app in action: at least a quarter of the video
@@ -324,7 +393,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             raise Invalid("'id' must be snake_case, 3-41 characters")
         hook = calm(_words(data.get("hook"), 8, "hook"))
         cta = _words(data.get("cta"), 4, "cta")
-        lines = _lines(data, ad_code)
+        lines = _lines(data, ad_code, other_languages(ctx, ad_code))
         voice = " ".join(x.text for x in lines)
         if data.get("music") not in MOODS:
             raise Invalid(f"'music' must be one of {list(MOODS)}")
@@ -395,7 +464,18 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                               prompt, text, tap, review, quote_, stars))
         # From here on every problem is collected and sent back at once: fixing one per attempt used up the
         # repairs (seen on VietBuddy, Nov 1: 3 of 4 ideas failed, each on a different rule).
-        problems: list[str] = []
+        # a plain "voice" (the first scripts' single voice-over) is re-rendered as it was; new scripts use "lines"
+        problems: list[str] = storyboard_problems(lines, shots) if "lines" in data else []
+        cast = " ".join(str(data.get("cast") or "").split())
+        if any(x.visual == "photo" for x in shots) and not 3 <= len(cast.split()) <= 45:
+            problems.append("'cast' (3-45 words) must describe who and where, once, so every photo shows the same "
+                            "people in the same place (\"Rosa, 70, grey bun, cardigan; her grandson Leo, 22; a small "
+                            "warm kitchen at night\")")
+        if m := _FORBIDDEN_IN_PHOTO.search(cast):
+            problems.append(f"'cast' mentions {m.group(0)!r}: generated photos never show a phone, screen or text")
+        for i, x in enumerate(lines, 1):
+            if x.speaker == "narrator" and (m := _FIRST_PERSON.search(x.text.lower())):
+                problems.append(f"line {i}: the narrator is the brand and never says {m.group(0)!r}")
         mine = " ".join(x.text for x in lines if x.speaker == "me")  # what the creator says, in the ad's language
         spoken = " ".join([mine] + [s.caption for s in shots] + [s.text or "" for s in shots]).lower()
         allowed_in_format = f"{fmt.name} {hook}".lower()  # the meme line itself ("tell me you're learning...")
@@ -499,7 +579,8 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                                 f"brand, not the creator (\"{brand} lets you pick a southern voice\"), never \"I\" or "
                                 "\"my\"")
         brand_text = {f"shot {i}": f"{s.caption} {s.text or ''}" for i, s in enumerate(shots, 1) if s.beat != "trend"}
-        for where, text in {**brand_text, "cta": cta}.items():
+        narrated = {f"line {i}": x.text for i, x in enumerate(lines, 1) if x.speaker == "narrator"}
+        for where, text in {**brand_text, **narrated, "cta": cta}.items():
             if promised := rules.unbacked_promises(text):
                 problems.append(f"{where} promises {promised}, which neither the store page nor a verified claim says: "
                                 "say only what the app is shown to do")
@@ -509,7 +590,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             raise Invalid(f"{len(problems)} problems, fix them all in one go (timeline now: {timeline}): "
                           + " | ".join(f"{i}) {x}" for i, x in enumerate(problems, 1)))
         return TrendBrief(bid, fmt.id, persona, angle, ctx.language, hook, tuple(shots), voice, cta,
-                          str(data["music"]), tuple(lines), offer)
+                          str(data["music"]), tuple(lines), offer, cast)
 
     return validate
 
@@ -518,14 +599,13 @@ SELLING = """
 IT MUST SELL. After the trend and the twist, in this order:
 - DEMO ({demo_share} of the video at least, ≥ 2 real screens, beat "demo"): the app in action on its real screens,
   punched into the part that matters, with "tap": true on the screen where the finger taps. From here on the
-  CAPTIONS speak for the brand ("{brand} lets you pick a southern voice"), never "I" or "my", and name {brand}
+  CAPTIONS and the narrator speak for the brand (what the screen shows), never "I" or "my", and name {brand}
   once on screen. The creator's lines never name it.
 - PROOF (beat "proof", visual "review"): quote a verified review word for word ("review": id, "quote": max 18
   words copied exactly). Verified reviews:
 {reviews}
-- PAYOFF (beat "payoff", photo or mascot): the moment the app is for (the next call with grandma, the counter
-  in Saigon), shown as the situation with a brand caption ("for the next call with má"), never as a result
-  the creator claims.
+- PAYOFF (beat "payoff", photo or mascot): the moment the app is for, back in the story's own situation with
+  the same cast, with a brand caption ("for the next sunday call"), never as a result the creator claims.
 - CTA (beat "cta") and the end card. "offer": one of {offers}.
 """
 
@@ -549,7 +629,23 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     s = ctx.strategy
     p = s.persona(persona)
     a = next(x for x in s.angles if x.id == angle)
-    prompt = PROMPT.format(
+    ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == ctx.language), "en")
+    others = other_languages(ctx, ad_code)
+    if others:
+        natives_rule = ("When someone in the story speaks another language the app is about, write their line in "
+                        "that real language with every accent and tone mark, with its \"language\" code (spoken by a "
+                        "native voice): " + "; ".join(f"{LANGUAGE_NAMES.get(c, c)} (code {c}, accents "
+                                                      f"{', '.join(NATIVE[c])})" for c in others)
+                        + ". When the creator TRIES to say something in it, give that its own \"me\" line with the "
+                        "language code.")
+        native_example = (',\n            {"speaker": "them", "language": "<code>", "accent": "<accent>", '
+                          '"text": "<in their language>", "shots": [4]}')
+        accents_rule = ("- Words of another language keep their accents, even inside an English line: write them as "
+                        "the language writes them, never stripped.\n")
+    else:
+        natives_rule = f"Everyone speaks {ctx.language}: no other language anywhere in this ad."
+        native_example, accents_rule = "", ""
+    prompt = PROMPT.format(native_example=native_example,
         low=int(TOTAL_SECONDS[0]), high=int(TOTAL_SECONDS[1]), language=ctx.language, fmt_name=fmt.name,
         beats=" → ".join(fmt.beats), why=fmt.why, example=fmt.example, app=ctx.app_name,
         description=" ".join(ctx.store_text.split())[:600], persona=f"{p.name}: {p.description}", angle=a.idea,
@@ -558,8 +654,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
                          cliches=", ".join(f'"{c}"' for c in CLICHES),
                          brand_hint=selling.brand if selling else ctx.app_name.split(":")[0].strip(),
-                         natives="; ".join(f"{LANGUAGE_NAMES.get(code, code)} (code {code}, accents "
-                                           f"{', '.join(acc)})" for code, acc in NATIVE.items())),
+                         natives_rule=natives_rule, accents_rule=accents_rule, max_words=MAX_SPOKEN_WORDS),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot
                      else "The app has no mascot: never use visual 'mascot'."),
         min_shots=SHOTS[0], max_shots=SHOTS[1], s_low=SHOT_SECONDS[0], s_high=SHOT_SECONDS[1],
@@ -632,6 +727,23 @@ def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> An
     prompt = CRITIC.format(voice=dialogue, captions=captions)
     return ask_json(client, [{"role": "user", "content": prompt}], validate, module="tone_critic", model=model,
                     repairs=1, max_tokens=2000, reasoning_effort="low")
+
+
+def retime(brief: TrendBrief, line_seconds: list[float]) -> TrendBrief:
+    """Shots lasting exactly as long as the line spoken over them (`line_seconds`: measured audio, gap included).
+
+    A line's time is shared between its shots in proportion to the seconds the brief asked for, so a shot meant
+    to be longer stays longer. Shots without a line (the cta) keep their time. The voice is then never ahead of
+    or behind its picture."""
+    if not brief.lines or len(line_seconds) != len(brief.lines) or any(not x.shots for x in brief.lines):
+        return brief
+    seconds = [s.seconds for s in brief.shots]
+    for x, total in zip(brief.lines, line_seconds, strict=True):
+        asked = sum(brief.shots[k - 1].seconds for k in x.shots)
+        for k in x.shots:
+            seconds[k - 1] = round(total * brief.shots[k - 1].seconds / asked, 3)
+    shots = tuple(Shot(**{**asdict(s), "seconds": sec}) for s, sec in zip(brief.shots, seconds, strict=True))
+    return TrendBrief(**{**asdict(brief), "shots": shots, "lines": brief.lines})
 
 
 def get_format(fid: str) -> Format:

@@ -77,7 +77,8 @@ GOOD = {"id": "tell_me_tones", "hook": "Tell me you're learning Vietnamese",
                        seconds=1.8, sfx="ding"),
                   shot(visual="screen", screen=1, focus="top", caption="then say it", beat="twist", seconds=1.6),
                   shot(text="Start free", beat="cta", seconds=1.2, sfx="pop")],
-        "voice": "Tell me you're learning Vietnamese without telling me.", "cta": "Start free", "music": "playful"}
+        "voice": "Tell me you're learning Vietnamese without telling me.", "cta": "Start free", "music": "playful",
+        "cast": "Minh, 23, hoodie and glasses, and his grandma, 75, at a family dinner in a small warm kitchen"}
 
 
 def check(data, mascot=False):
@@ -279,10 +280,10 @@ def test_a_good_tone_is_not_rewritten():
     assert [c["module"] for c in model.calls] == ["trend_brief", "tone_critic"]
 
 
-DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?"},
+DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?", "shots": [1, 2, 3]},
             {"speaker": "them", "language": "vi", "gender": "female", "accent": "south",
-             "text": "Dạ, em uống ở đây hay mang về?"},
-            {"speaker": "me", "text": "[laughs] bro i was SO done"}]
+             "text": "Dạ, em uống ở đây hay mang về?", "shots": [4, 5, 6]},
+            {"speaker": "me", "text": "[laughs] bro i was SO done", "shots": [7, 8]}]
 
 
 def test_dialogue_lines_are_typed_with_language_and_accent():
@@ -297,10 +298,11 @@ def test_dialogue_lines_are_typed_with_language_and_accent():
 
 @pytest.mark.parametrize("patch, error", [
     ({"text": "Da, em uong o day hay mang ve?"}, "accents and tone marks"),
-    ({"language": "ja"}, "no native voice"),
+    ({"language": "ja"}, "spoken in en only"),  # the app is about Vietnamese, not Japanese
     ({"accent": "central"}, "accent must be"),
     ({"gender": "robot"}, "gender"),
-    ({"speaker": "narrator"}, "speaker"),
+    ({"speaker": "robot"}, "speaker"),
+    ({"speaker": "narrator"}, "the narrator is the brand"),  # a Vietnamese line can't be the brand's
 ])
 def test_bad_dialogue_lines_are_refused(patch, error):
     lines = json.loads(json.dumps(DIALOGUE))
@@ -311,7 +313,7 @@ def test_bad_dialogue_lines_are_refused(patch, error):
 
 def test_the_creator_may_try_the_other_language_in_its_own_line_with_accents():
     lines = json.loads(json.dumps(DIALOGUE))
-    lines[0] = {"speaker": "me", "language": "vi", "text": "cà phê sữa đá?"}
+    lines[0] = {"speaker": "me", "language": "vi", "text": "cà phê sữa đá?", "shots": [1, 2, 3]}
     b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": lines})
     assert (b.lines[0].speaker, b.lines[0].language) == ("me", "vi")
     lines[0]["text"] = "ca phe sua da?"
@@ -385,6 +387,10 @@ def selling_brief():
              seconds=1.4),
         shot(text="Start free", beat="cta", seconds=1.0)]
     d["offer"] = "Free to download"
+    # the storyboard: the creator over the story, the people of the story over theirs, the narrator over the app
+    for line, span in zip(d["lines"], ([1, 2], [3, 4], [5]), strict=True):
+        line["shots"] = span
+    d["lines"].append({"speaker": "narrator", "text": "linguaapp has a southern voice", "shots": [6, 7, 8, 9]})
     return d
 
 
