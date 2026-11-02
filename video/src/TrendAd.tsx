@@ -31,7 +31,7 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       {props.shots.map((s, i) => (
         <Sequence key={i} from={starts[i]} durationInFrames={s.durationInFrames}>
           <Shot shot={s} look={props.look} index={i} first={i === 0}
-            caption={i === 0 ? props.hook : s.caption} />
+            caption={i === 0 ? props.hook : s.caption} pop={props.sfx.pop} />
         </Sequence>
       ))}
       <Sequence from={endStart} durationInFrames={props.endCard.durationInFrames}>
@@ -41,7 +41,7 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       {props.shots.map((s, i) =>
         s.sfx !== "none" && props.sfx[s.sfx] ? (
           <Sequence key={`fx${i}`} from={starts[i]}>
-            <Audio src={staticFile(props.sfx[s.sfx])} volume={0.32} />
+            <Audio src={staticFile(props.sfx[s.sfx])} volume={0.55} />
           </Sequence>
         ) : null,
       )}

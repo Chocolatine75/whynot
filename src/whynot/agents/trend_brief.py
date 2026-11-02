@@ -35,8 +35,29 @@ BEATS = ("trend", "twist", "demo", "proof", "payoff", "cta")  # in this order
 MOODS = ("upbeat", "calm", "playful", "inspiring", "dramatic")
 SHOT_SECONDS = (0.6, 2.2)
 SHOTS = (8, 16)
-TOTAL_SECONDS = (10.0, 24.0)
+TOTAL_SECONDS = (10.0, 22.0)  # 24-27 s videos lost the product until 10 s in (WhatsApp, Nov 2)
+UI_MOTIONS = ("rows", "grid", "zoom", "scroll", "float")  # how a real screen comes alive (video/AppShot.tsx)
+# Words a brand line must not say: an absolute it cannot prove ("calls stay private always").
+ABSOLUTE_CLAIMS = re.compile(r"\b(always|never fails|100\s?%|guaranteed?|forever|every time|nothing can)\b", re.I)
 END_CARD_SECONDS = 1.6
+# A phone in someone's hand is real life; a phone SCREEN would be a generated interface. Allowed when the prompt
+# keeps its screen out of view.
+_PHONE = re.compile(r"\b(phone|smartphone|iphone|android)\b", re.I)
+_SCREEN_HIDDEN = re.compile(r"((?:(?:its|the|her|his|their)\s+)?screen\s+)?facing away|back of the phone|from behind "
+                            r"the phone|(?:(?:its|the|her|his|their)\s+)?screen (?:is )?(?:dark|off|not visible|hidden)|"
+                            r"dark screen", re.I)
+
+
+def photo_problem(prompt: str) -> str | None:
+    """Why a photo prompt is refused, or None: never an interface, text or logo; a phone only with its screen away."""
+    hidden = bool(_SCREEN_HIDDEN.search(prompt))
+    for m in _FORBIDDEN_IN_PHOTO.finditer(_SCREEN_HIDDEN.sub(" ", prompt)):  # "screen facing away" is no screen
+        if _PHONE.fullmatch(m.group(0)) and hidden:
+            continue
+        return m.group(0)
+    return None
+
+
 _FORBIDDEN_IN_PHOTO = re.compile(r"\b(phone|smartphone|screen|app|interface|ui|logo|text|words?|letters?|caption|"
                                  r"iphone|android|tablet|laptop|brand|sign|signs)\b", re.IGNORECASE)
 _ID = re.compile(r"^[a-z][a-z0-9_]{2,40}$")
@@ -58,6 +79,8 @@ class Shot:
     review: str | None = None  # a review shot: the review id
     quote: str | None = None  # ... and the words quoted from it, verbatim
     stars: int | None = None  # ... and its star rating
+    ui: str | None = None  # screen: how the real interface comes alive (UI_MOTIONS)
+    grid: tuple[int, int] | None = None  # screen with ui "grid": columns, rows
 
 
 @dataclass(frozen=True)
@@ -98,7 +121,8 @@ class TrendBrief:
 
     @classmethod
     def from_json(cls, d: dict[str, Any]) -> "TrendBrief":
-        return cls(**{**d, "shots": tuple(Shot(**s) for s in d["shots"]),
+        return cls(**{**d, "shots": tuple(Shot(**{**s, "grid": tuple(s["grid"]) if s.get("grid") else None})
+                                         for s in d["shots"]),
                       "lines": tuple(Line(**{**x, "shots": tuple(x.get("shots", ()))}) for x in d.get("lines", ()))})
 
 
@@ -120,9 +144,13 @@ Real app screens you can show (kind "screen", by number): {screens}
 {mascot_line}
 
 Shots ({min_shots}-{max_shots}), each {s_low}-{s_high} s, a cut every second or so, every shot moving:
-- visual: {visuals}. "photo" = a candid phone-camera photo you describe in `prompt` (a scene, people,
-  objects; NEVER a phone, screen, app, logo, sign or any text in it). "screen" = real screen number `screen`
-  with `focus` (top, middle, bottom, full). "text" = a bold card with `text`.
+- visual: {visuals}. "photo" = a candid phone-camera photo you describe in `prompt` (people, objects, the
+  place; NEVER a screen, app, logo, sign or any text in it). When the story is about a call, a message or typing,
+  the phone is IN the scene, held, with its screen facing away ("holding her phone, screen facing away").
+  "screen" = real screen number `screen` with `focus` (top, middle, bottom, full) and `ui`, how it comes alive
+  inside a phone on the brand's background: "rows" (messages or chats arriving one by one), "grid" (a call
+  filling with faces, tile by tile; add "grid": [columns, rows]), "zoom" (push into the part that matters),
+  "scroll", "float". Pick the motion that shows what the line says. "text" = a bold card with `text`.
 - caption: the native on-screen caption bubble (max 8 words, can be "" for a pure visual beat)
 - move: {moves}; sfx on the cut: {sfx}; beat: trend, twist, demo, proof, payoff, cta (in that order).
 
@@ -133,8 +161,14 @@ STORYBOARD — the picture and the voice tell ONE story, beat by beat:
 - The creator ("me") and the people of the story ("them") speak over the trend and the twist. From the twist on,
   the NARRATOR (the brand, speaker "narrator") speaks over the app's screens and says what the screen shows,
   only what the store page says the app does (never "I", never a promise).
-- One specific story, not a list of features: one person, one situation, one moment that goes wrong, the app as
-  the answer. Concrete details (a name, a place, a time of day) beat general claims.
+- One specific story, not a list of features: one person, one situation, ONE mechanism (the thing that goes
+  wrong), ONE payoff, and the app as the punchline. ONE hero feature, the angle's, shown working on screen; never
+  a list of features. Concrete details (a name, a place, a time of day) beat general claims.
+- The hook and the lines share one point of view: if the hook says "POV you're stuck on the call", the creator is
+  the one stuck on it, not someone watching.
+- The real app appears early: the twist's first screen before 6 seconds.
+- The narrator ends on the call to action, spoken over the cta shot (short, from the store page: "free to
+  download").
 - "cast": who is in the photos and where, described once (age, look, clothes, place, light). Every photo prompt
   shows these same people in this same place, so the story looks like one video, not stock photos.
 
@@ -261,7 +295,7 @@ def _check_vietnamese_words(text: str, where: str) -> None:
 
 
 SPEAKERS = ("me", "them", "narrator")
-MAX_SPOKEN_WORDS = 70
+MAX_SPOKEN_WORDS = 55
 
 
 def other_languages(ctx: Context, ad_code: str) -> list[str]:
@@ -333,7 +367,7 @@ class Selling:
 
 
 CREATOR_BEATS = ("trend", "twist")  # the creator and the people of the story speak over the story
-NARRATOR_BEATS = ("twist", "demo", "proof", "payoff")  # the brand speaks over the app
+NARRATOR_BEATS = ("twist", "demo", "proof", "payoff", "cta")  # the brand speaks over the app and says the CTA
 
 
 def storyboard_problems(lines: list[Line], shots: list[Shot]) -> list[str]:
@@ -365,15 +399,15 @@ def storyboard_problems(lines: list[Line], shots: list[Shot]) -> list[str]:
             who = "the narrator (the brand)" if x.speaker == "narrator" else "the creator and the people of the story"
             problems.append(f"line {i} ({x.speaker}) is spoken over {sorted(beats)} shots; {who} speaks over "
                             f"{list(allowed)} shots only")
-    missing = [k for k in range(1, n + 1) if k not in covered and shots[k - 1].beat != "cta"]
+    missing = [k for k in range(1, n + 1) if k not in covered]
     if missing:
-        problems.append(f"shots {missing} have no line: every shot before the cta is spoken over by the line that "
-                        "says what it shows (add a line, or give an existing line those shots)")
+        problems.append(f"shots {missing} have no line: every shot is spoken over by the line that says what it shows, "
+                        "the cta too (the narrator says the call to action; a silent ending loses people)")
     return problems
 
 
 DEMO_SHARE = 0.25  # the app in action: at least a quarter of the video
-TREND_SHARE_SELLING = 0.4  # the trend still carries the start
+TREND_SHARE_SELLING = 0.3  # the trend still carries the start, and the product comes in before 6 s
 
 
 def _norm(text: str) -> str:
@@ -426,7 +460,8 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             caption = calm(_words(s.get("caption", ""), 8, f"{where} caption", allow_empty=True))
             if caption:
                 texts[f"proof.shot{i}"] = caption
-            screen = focus = prompt = text = None
+            screen = focus = prompt = text = ui = None
+            grid: tuple[int, int] | None = None
             if s["visual"] == "screen":
                 screen = s.get("screen")
                 if isinstance(screen, bool) or not isinstance(screen, int) or not 1 <= screen <= n_screens:
@@ -434,11 +469,21 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 focus = s.get("focus", "full")
                 if focus not in FOCUS:
                     raise Invalid(f"{where}: 'focus' must be one of {list(FOCUS)}")
+                ui = s.get("ui", "float")
+                if ui not in UI_MOTIONS:
+                    raise Invalid(f"{where}: 'ui' must be one of {list(UI_MOTIONS)}")
+                if ui == "grid":
+                    g = s.get("grid", [2, 3])
+                    if (not isinstance(g, list) or len(g) != 2 or any(isinstance(v, bool) or not isinstance(v, int)
+                                                                      for v in g) or not (1 <= g[0] <= 3 and 1 <= g[1] <= 4)):
+                        raise Invalid(f"{where}: 'grid' must be [columns 1-3, rows 1-4] of the call's tiles")
+                    grid = (g[0], g[1])
             elif s["visual"] == "photo":
                 prompt = _words(s.get("prompt"), 40, f"{where} prompt")
-                if m := _FORBIDDEN_IN_PHOTO.search(prompt):
-                    raise Invalid(f"{where}: the photo prompt mentions {m.group(0)!r}; generated photos never show a "
-                                  "phone, screen, app, logo, sign or text (show the real app with visual 'screen')")
+                if refused := photo_problem(prompt):
+                    raise Invalid(f"{where}: the photo prompt mentions {refused!r}; generated photos never show a screen, "
+                                  "app, logo, sign or text. A phone in a hand is fine with its screen facing away "
+                                  "(the real app is shown with visual 'screen')")
             elif s["visual"] == "text":
                 text = calm(_words(s.get("text"), 8, f"{where} text"))
                 _check_vietnamese_words(text, f"{where} text")
@@ -461,7 +506,7 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                 review, quote_ = str(s["review"]), " ".join(str(s["quote"]).split())
                 stars = next(r.rating for r in selling.reviews if r.id == review)
             shots.append(Shot(s["visual"], caption, float(sec), s["move"], s["sfx"], s["beat"], screen, focus,
-                              prompt, text, tap, review, quote_, stars))
+                              prompt, text, tap, review, quote_, stars, ui, grid))
         # From here on every problem is collected and sent back at once: fixing one per attempt used up the
         # repairs (seen on VietBuddy, Nov 1: 3 of 4 ideas failed, each on a different rule).
         # a plain "voice" (the first scripts' single voice-over) is re-rendered as it was; new scripts use "lines"
@@ -471,8 +516,8 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             problems.append("'cast' (3-45 words) must describe who and where, once, so every photo shows the same "
                             "people in the same place (\"Rosa, 70, grey bun, cardigan; her grandson Leo, 22; a small "
                             "warm kitchen at night\")")
-        if m := _FORBIDDEN_IN_PHOTO.search(cast):
-            problems.append(f"'cast' mentions {m.group(0)!r}: generated photos never show a phone, screen or text")
+        if refused := photo_problem(cast):
+            problems.append(f"'cast' mentions {refused!r}: generated photos never show a screen or text")
         for i, x in enumerate(lines, 1):
             if x.speaker == "narrator" and (m := _FIRST_PERSON.search(x.text.lower())):
                 problems.append(f"line {i}: the narrator is the brand and never says {m.group(0)!r}")
@@ -580,6 +625,10 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                                 "\"my\"")
         brand_text = {f"shot {i}": f"{s.caption} {s.text or ''}" for i, s in enumerate(shots, 1) if s.beat != "trend"}
         narrated = {f"line {i}": x.text for i, x in enumerate(lines, 1) if x.speaker == "narrator"}
+        for where, text in {**brand_text, **narrated}.items():
+            if m := ABSOLUTE_CLAIMS.search(text):
+                problems.append(f"{where} says {m.group(0)!r}: an absolute the brand cannot prove; say what the app "
+                                "does, plainly")
         for where, text in {**brand_text, **narrated, "cta": cta}.items():
             if promised := rules.unbacked_promises(text):
                 problems.append(f"{where} promises {promised}, which neither the store page nor a verified claim says: "
@@ -605,15 +654,21 @@ IT MUST SELL. After the trend and the twist, in this order:
   words copied exactly). Verified reviews:
 {reviews}
 - PAYOFF (beat "payoff", photo or mascot): the moment the app is for, back in the story's own situation with
-  the same cast, with a brand caption ("for the next sunday call"), never as a result the creator claims.
+  the same cast, with a brand caption written for THIS story, never as a result the creator claims.
 - CTA (beat "cta") and the end card. "offer": one of {offers}.
 """
 
 
+MIN_REVIEW_WORDS = 8
+
+
 def selling_from_app(app: dict[str, Any], brand: str) -> Selling:
     """Reviews that may be quoted (≥ 4 stars) and offers the store page supports, from the App Store data."""
-    reviews = tuple(Proof(str(r["id"]), int(r["rating"]), " ".join(str(r.get("text", "")).split()))
-                    for r in app.get("reviews", []) if int(r.get("rating", 0)) >= 4 and r.get("text"))
+    # a proof people can read: ≥ 4 stars and a real sentence ("Very good encrypted" made a weak card, Nov 2)
+    candidates = [Proof(str(r["id"]), int(r["rating"]), " ".join(str(r.get("text", "")).split()))
+                  for r in app.get("reviews", []) if int(r.get("rating", 0)) >= 4 and r.get("text")]
+    reviews = tuple(sorted((r for r in candidates if len(r.text.split()) >= MIN_REVIEW_WORDS),
+                           key=lambda r: (-r.rating, -min(len(r.text.split()), 40)))[:6])
     desc = str(app.get("description", "")).lower()
     offers = []
     if float(app.get("price") or 0) == 0:
@@ -702,7 +757,8 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
 MIN_TONE_SCORE = 7
 CRITIC = """You are a 20-year-old who spends hours a day on TikTok and Reels. Read this video's voice-over and
 on-screen captions. Would someone your age actually say this in a video, or does it sound like a teacher, a
-language course or a brand trying too hard? Be harsh.
+language course or a brand trying too hard? Be harsh. A line that is not correct, natural {language} ("text is not
+enough personal", "fam call up to 32") scores 4 at most and is the worst line.
 
 Voice-over: {voice}
 Captions: {captions}
@@ -724,7 +780,7 @@ def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> An
 
     captions = " / ".join([brief.hook] + [s.caption for s in brief.shots if s.caption])
     dialogue = " / ".join(f"{x.speaker}: {x.text}" for x in brief.lines) or brief.voice or "(none)"
-    prompt = CRITIC.format(voice=dialogue, captions=captions)
+    prompt = CRITIC.format(voice=dialogue, captions=captions, language=brief.language)
     return ask_json(client, [{"role": "user", "content": prompt}], validate, module="tone_critic", model=model,
                     repairs=1, max_tokens=2000, reasoning_effort="low")
 

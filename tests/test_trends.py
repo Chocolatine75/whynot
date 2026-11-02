@@ -283,13 +283,14 @@ def test_a_good_tone_is_not_rewritten():
 DIALOGUE = [{"speaker": "me", "text": "so i walk up and go... cà phê sữa đá?", "shots": [1, 2, 3]},
             {"speaker": "them", "language": "vi", "gender": "female", "accent": "south",
              "text": "Dạ, em uống ở đây hay mang về?", "shots": [4, 5, 6]},
-            {"speaker": "me", "text": "[laughs] bro i was SO done", "shots": [7, 8]}]
+            {"speaker": "me", "text": "[laughs] bro i was SO done", "shots": [7, 8]},
+            {"speaker": "narrator", "text": "start free", "shots": [9]}]  # the spoken call to action
 
 
 def test_dialogue_lines_are_typed_with_language_and_accent():
     b = check({**{k: v for k, v in GOOD.items() if k != "voice"}, "lines": DIALOGUE})
     assert [(x.speaker, x.language, x.accent) for x in b.lines] == [("me", "en", None), ("them", "vi", "south"),
-                                                                     ("me", "en", None)]
+                                                                     ("me", "en", None), ("narrator", "en", None)]
     assert "mang về" in b.voice
     assert TrendBrief.from_json(json.loads(json.dumps(b.to_json()))).lines == b.lines
     legacy = check(GOOD)  # a plain "voice" is one line by the creator
@@ -388,9 +389,10 @@ def selling_brief():
         shot(text="Start free", beat="cta", seconds=1.0)]
     d["offer"] = "Free to download"
     # the storyboard: the creator over the story, the people of the story over theirs, the narrator over the app
-    for line, span in zip(d["lines"], ([1, 2], [3, 4], [5]), strict=True):
+    for line, span in zip(d["lines"][:3], ([1, 2], [3, 4], [5]), strict=True):
         line["shots"] = span
-    d["lines"].append({"speaker": "narrator", "text": "linguaapp has a southern voice", "shots": [6, 7, 8, 9]})
+    d["lines"][3] = {"speaker": "narrator", "text": "linguaapp has a southern voice, free to download",
+                     "shots": [6, 7, 8, 9, 10]}
     return d
 
 
@@ -431,10 +433,12 @@ def test_briefs_that_dont_sell_are_refused(data, error):
 
 def test_selling_facts_come_from_the_store_page_only():
     app = {"price": 0.0, "description": "Learn. Start your free trial today.",
-           "reviews": [{"id": "a", "rating": 5, "text": "Love  it"}, {"id": "b", "rating": 2, "text": "bad"},
-                       {"id": "c", "rating": 4, "text": ""}]}
+           "reviews": [{"id": "a", "rating": 5, "text": "Love  it, my whole family uses it every single week"},
+                       {"id": "b", "rating": 2, "text": "bad"}, {"id": "c", "rating": 4, "text": ""},
+                       {"id": "d", "rating": 5, "text": "Very good encrypted"}]}  # too short to prove anything
     s = selling_from_app(app, "X")
-    assert [r.id for r in s.reviews] == ["a"] and s.reviews[0].text == "Love it"  # ≥ 4 stars with text only
+    assert [r.id for r in s.reviews] == ["a"]  # ≥ 4 stars and a real sentence only
+    assert s.reviews[0].text == "Love it, my whole family uses it every single week"
     assert s.offers == ("Free to download", "Free trial")
     assert selling_from_app({"price": 4.99, "description": "", "reviews": []}, "X").offers == ()
 
@@ -604,3 +608,11 @@ def test_captions_from_the_demo_on_speak_for_the_brand(beat_index, field, words)
 def test_any_link_line_makes_no_sense_in_an_ad(caption):
     with pytest.raises(Invalid, match="makes no sense in an ad"):
         check_selling(sell_patch(lambda d: d["shots"][6].update(caption=caption)))
+
+
+def test_a_sticker_inside_the_screen_is_not_the_mascot(tmp_path):
+    # WhatsApp (Nov 2): a bear sticker in a chat was taken for the app's mascot and starred in every video
+    shot_img = Image.new("RGB", (1600, 3200), (200, 50, 50))
+    sam = Sam({"phone screen": [(100, 300, 700, 1500)], "cartoon mascot": [(300, 800, 500, 1000)],
+               "cartoon character": [], "cartoon animal": []})
+    assert cutouts(sam, [shot_img], tmp_path).mascot is None

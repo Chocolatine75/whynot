@@ -14,6 +14,7 @@ signals, the picks, the briefs, the voice guard verdicts, failures and cost.
 """
 
 import json
+import re
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict, replace
@@ -50,8 +51,21 @@ from whynot.ingest.creatives import CreativeStore, capture
 from whynot.models import image_data_url
 from whynot.sim.arena import brand_name
 
-PHOTO_STYLE = ("Candid vertical photo taken on a phone, natural light, real and unpolished, like a frame from a "
-               "creator's video. No text, no letters, no logos, no screens, no phones.")
+# UGC, not cinema: the warm cinematic "AI sheen" clashed with the trend look (WhatsApp review, Nov 2).
+PHOTO_STYLE = ("Vertical frame from a phone video: handheld, slightly tilted, imperfect mixed indoor light, a little "
+               "grain and motion blur, everyday messy real home, ordinary people, no colour grading, not cinematic, "
+               "not a stock photo. No text, no letters, no logos; any phone shows its back, never its screen.")
+
+
+CORPORATE = re.compile(r"[,\s]+(inc\.?|llc|ltd\.?|limited|gmbh|sas|s\.a\.|corp\.?|co\.?|platforms|technologies)$", re.I)
+
+
+def short_brand(app: dict[str, Any]) -> str:
+    """The name people say: "WhatsApp", not the store title "WhatsApp Messenger" (it sounded robotic spoken).
+    The seller's name when the title starts with it, else the page-style brand name."""
+    title = brand_name(app["name"])
+    seller = CORPORATE.sub("", str(app.get("seller") or "")).strip()
+    return seller if seller and title.lower().startswith(seller.lower()) else title
 
 PICK_PROMPT = """You are the head of creative at a short-form ad agency. Pick the {n} viral formats this app should
 use now, each with one persona and one angle of our strategy. Prefer formats competitors are starting to use
@@ -194,6 +208,40 @@ def dialogue_track(voice: ElevenLabs, model: Any, b: trend_brief.TrendBrief, ad_
     return out, ws, guard
 
 
+MAX_FINAL_WER = 0.3  # what a listener hears in the finished video vs what the captions show
+LUFS_RANGE, MAX_TRUE_PEAK = (-16.0, -12.0), -1.0
+
+
+def final_check(model: Any, video: Path, b: trend_brief.TrendBrief, language: str,
+                loudness: dict[str, float] | None) -> dict[str, Any]:
+    """QA on the RENDERED file: Muse Voice Transcribe listens to the final mix and compares it with the captions'
+    words (catches cut, looping or missing lines), and the loudness is checked against the feed's level.
+    Reported with flags, never hidden; native lines are left out of the comparison (another language)."""
+    qa: dict[str, Any] = {"flags": []}
+    if loudness:
+        qa["loudness"] = loudness
+        if not LUFS_RANGE[0] <= loudness["lufs"] <= LUFS_RANGE[1]:
+            qa["flags"].append(f"loudness {loudness['lufs']} LUFS")
+        if loudness["true_peak"] > MAX_TRUE_PEAK:
+            qa["flags"].append(f"true peak {loudness['true_peak']} dBTP")
+    ad_code = next((c for c, n in LANGUAGE_NAMES.items() if n == language), "en")
+    expected = " ".join(x.text for x in b.lines if x.language == ad_code) or b.voice
+    if not expected:
+        return qa
+    try:
+        heard = model.transcribe(to_wav16k(video), module="final_check", languages=[language])
+    except Exception as exc:  # reported, never hidden
+        qa["flags"].append(f"final transcription failed: {type(exc).__name__}")
+        return qa
+    from whynot.audio.captions import spoken
+
+    wer = word_error_rate(spoken(expected), heard)
+    qa.update(heard=heard[:600], word_error_rate=round(wer, 3))
+    if wer > MAX_FINAL_WER:
+        qa["flags"].append(f"final mix heard {wer:.0%} off the captions")
+    return qa
+
+
 def save_report(out: Path, report: dict[str, Any]) -> Path:
     """`trends.json`, without ever losing scripts: a run with no video goes to `trends-failed.json`, and the
     previous good report is archived (`trends-<time>.json`) so its scripts can still be re-rendered."""
@@ -259,7 +307,7 @@ class Studio:
         groups = language_groups([c.upper() for c in config["countries"]], override=config.get("language"))
         code, countries = next(iter(groups.items()))
         self.strategy = localised(strategy, countries)
-        self.selling = trend_brief.selling_from_app(app, brand_name(app["name"]))
+        self.selling = trend_brief.selling_from_app(app, short_brand(app))
         names = tuple(sorted({a.page_name for a in ads if a.page_name}))
         self.ctx = Context(self.strategy, app["name"], app["description"], names, tuple(brand["palette"][:3]),
                            brand["screenshots"][0], LANGUAGES[code])
@@ -289,6 +337,12 @@ class Studio:
             b = trend_brief.write(model, self.ctx, fmt, persona=p["persona"], angle=p["angle"], screens=self.screens,
                                   has_mascot=self.cut.mascot is not None, selling=self.selling, avoid=avoid,
                                   model=self.cfg.model).value
+        if self.cut.mascot is None and any(s.visual == "mascot" for s in b.shots):
+            # an older script used a "mascot" that was a sticker of the app (no longer taken for one): the shot
+            # becomes a card with its own caption, the rest of the script stays as it was
+            b = trend_brief.TrendBrief(**{**asdict(b), "lines": b.lines, "shots": tuple(
+                trend_brief.Shot(**{**asdict(s), "visual": "text", "text": s.caption or b.hook, "caption": "",
+                                    "grid": s.grid}) if s.visual == "mascot" else s for s in b.shots)})
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
             if s.visual == "photo":  # the same people in the same place in every photo of the story
@@ -321,7 +375,9 @@ class Studio:
                                     app_name=brand_name(self.app["name"]), images=imgs, icon=self.icon,
                                     rating=self.app.get("rating"), rating_count=self.app.get("rating_count"),
                                     audio=audio, sfx=sfx)
-        self.say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"")
+        facts["qa"] = final_check(model, out / f"{name}.mp4", b, self.ctx.language, facts.get("loudness"))
+        flags = f" · QA: {', '.join(facts['qa']['flags'])}" if facts["qa"]["flags"] else ""
+        self.say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"{flags}")
         return {"brief": b.to_json(), "file": facts, "poster": f"{name}.poster.jpg", "voice_guard": guard,
                 "why": p.get("why", "")}
 
@@ -353,7 +409,8 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
                  for v in json.loads(previous.read_text()).get("videos", [])]
     videos = []
     with ThreadPoolExecutor(max_workers=max(1, min(len(picks), 3))) as pool:
-        futures = {pool.submit(studio.make, p, f"trend-{n}", avoid=avoid): p for n, p in enumerate(picks, 1)}
+        first = len(list(studio.out.glob("trend-*.mp4"))) + 1  # never a second "trend-1" next to an older one
+        futures = {pool.submit(studio.make, p, f"trend-{n}", avoid=avoid): p for n, p in enumerate(picks, first)}
         for f in futures:
             p = futures[f]
             try:

@@ -93,6 +93,32 @@ def build_props(brief: VideoBrief, *, palette: list[str], app_name: str, screens
     }
 
 
+TARGET_LUFS, TARGET_TRUE_PEAK = -14.0, -1.5  # social feeds play around -14 LUFS: quieter ads sound weaker
+
+
+def loudness(path: Path) -> dict[str, float]:
+    """Integrated loudness (LUFS) and true peak (dBTP) of a file's audio, measured by ffmpeg (EBU R128)."""
+    r = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-i", str(path), "-af",
+                        "loudnorm=print_format=json", "-f", "null", "-"], capture_output=True, text=True)
+    data = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+    return {"lufs": round(float(data["input_i"]), 1), "true_peak": round(float(data["input_tp"]), 1)}
+
+
+def normalise_loudness(path: Path) -> None:
+    """Re-encode the audio to -14 LUFS, true peak -1.5 dB (two-pass loudnorm); the picture is copied untouched."""
+    m = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-i", str(path), "-af",
+                        f"loudnorm=I={TARGET_LUFS}:TP={TARGET_TRUE_PEAK}:LRA=11:print_format=json", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    d = json.loads(m.stderr[m.stderr.rindex("{"):m.stderr.rindex("}") + 1])
+    tmp = path.with_suffix(".loud.mp4")
+    subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "error", "-y", "-i", str(path), "-c:v", "copy", "-af",
+                    f"loudnorm=I={TARGET_LUFS}:TP={TARGET_TRUE_PEAK}:LRA=11:measured_I={d['input_i']}:"
+                    f"measured_TP={d['input_tp']}:measured_LRA={d['input_lra']}:measured_thresh={d['input_thresh']}:"
+                    f"offset={d['target_offset']}:linear=true", "-ar", "48000", "-c:a", "aac", "-b:a", "256k",
+                    str(tmp)], check=True)
+    tmp.replace(path)
+
+
 def render_composition(composition: str, props: dict, files: dict[str, Path | Image.Image], out: Path, *,
                        poster_at: float = 1.2) -> dict:
     """Render `composition` with `props`; `files` (public name -> path or image) are copied to a private public
@@ -118,14 +144,19 @@ def render_composition(composition: str, props: dict, files: dict[str, Path | Im
                            cwd=PROJECT, capture_output=True, text=True, timeout=900)
         if r.returncode != 0 or not out.exists():
             raise RuntimeError(f"remotion render failed: {(r.stderr or r.stdout)[-800:]}")
+        if props.get("voice") or props.get("music"):
+            normalise_loudness(out)
         subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-v", "error", "-y", "-ss", str(poster_at), "-i", str(out),
                         "-frames:v", "1", "-q:v", "3", str(out.with_suffix(".poster.jpg"))], check=True)
     finally:
         shutil.rmtree(public, ignore_errors=True)
     frames, secs = imageio_ffmpeg.count_frames_and_secs(str(out))
-    return {"path": out.name, "frames": frames, "seconds": round(secs, 2), "width": 1080, "height": 1920,
-            "fps": FPS, "bytes": out.stat().st_size, "renderer": "remotion", "composition": composition,
-            "voice": bool(props.get("voice")), "music": bool(props.get("music"))}
+    facts = {"path": out.name, "frames": frames, "seconds": round(secs, 2), "width": 1080, "height": 1920,
+             "fps": FPS, "bytes": out.stat().st_size, "renderer": "remotion", "composition": composition,
+             "voice": bool(props.get("voice")), "music": bool(props.get("music"))}
+    if props.get("voice") or props.get("music"):
+        facts["loudness"] = loudness(out)
+    return facts
 
 
 def render(brief: VideoBrief, out: Path, *, palette: list[str], app_name: str, screens: list[Image.Image],

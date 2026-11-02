@@ -10,8 +10,11 @@ export const Captions: React.FC<{ words: Word[]; look: Look; until: number }> = 
   const t = frame / fps;
   if (frame >= until || words.length === 0) return null;
   const current = words.findIndex((w) => t >= w.start && t < w.end + 0.15);
-  if (current < 0 && (t < words[0].start || t > words[words.length - 1].end + 0.3)) return null;
-  const at = current < 0 ? words.findIndex((w) => w.start > t) - 1 : current;
+  if (current < 0 && (t < words[0].start || t > words[words.length - 1].end + 0.6)) return null;
+  // between two words: the last word said. After the last word there is no "next" word, and the old
+  // `findIndex(...) - 1` gave -2, which showed the FIRST words again over the last shot (seen on WhatsApp, Nov 2)
+  const next = words.findIndex((w) => w.start > t);
+  const at = current >= 0 ? current : next < 0 ? words.length - 1 : Math.max(next - 1, 0);
   // up to 4 words, never mixing two speakers: a line said by someone else starts a new caption
   const i0 = Math.max(at, 0);
   const sameLine = (a: number, b: number) =>
@@ -24,7 +27,8 @@ export const Captions: React.FC<{ words: Word[]; look: Look; until: number }> = 
   const chunk = words.slice(start, stop);
   const native = !!words[start]?.native;
   return (
-    <div style={{ position: "absolute", left: 60, right: 60, bottom: 250, display: "flex", flexWrap: "wrap",
+    // safe zone: at 65-72 % of the height, below the phone of app shots, above the feed's own interface
+    <div style={{ position: "absolute", left: 60, right: 60, top: 1250, display: "flex", flexWrap: "wrap",
       justifyContent: "center", gap: "10px 18px", fontFamily, fontWeight: 800, fontSize: 64,
       textTransform: "uppercase", letterSpacing: -0.5 }}>
       {chunk.map((w, i) => {

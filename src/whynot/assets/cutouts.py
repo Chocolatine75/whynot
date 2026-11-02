@@ -101,14 +101,27 @@ class AppCutouts:
     mascot: Image.Image | None
 
 
+def inside(box: tuple[int, int, int, int], outer: tuple[int, int, int, int], share: float = 0.9) -> bool:
+    """At least `share` of `box` lies within `outer`."""
+    x1, y1 = max(box[0], outer[0]), max(box[1], outer[1])
+    x2, y2 = min(box[2], outer[2]), min(box[3], outer[3])
+    area = max(1, (box[2] - box[0]) * (box[3] - box[1]))
+    return max(0, x2 - x1) * max(0, y2 - y1) >= share * area
+
+
 def cutouts(model: Any, screenshots: list[Image.Image], cache: Path) -> AppCutouts:
-    screens, best = [], None
+    screens, best, phone_boxes = [], None, []
     for img in screenshots:
         phones = find(model, img, "phone screen", cache)
         screens.append(ui_crop(img, phones[0].box) if phones else img.convert("RGB"))
+        phone_boxes.append([p.box for p in phones])
     for concept in MASCOT_CONCEPTS:  # SAM needs the right words: try a few, keep the biggest character
-        for img in screenshots:
+        for img, boxes in zip(screenshots, phone_boxes, strict=True):
             for m in find(model, img, concept, cache):
+                # a character drawn INSIDE the phone is a sticker in a chat, not the app's mascot (WhatsApp's bear,
+                # Nov 2): a mascot stands on the poster, next to the phone (it may overlap the phone's edge)
+                if any(inside(m.box, b) for b in boxes):
+                    continue
                 if m.area_share >= MIN_MASCOT_SHARE and (best is None or m.area_share > best[0].area_share):
                     best = (m, img)
         if best:

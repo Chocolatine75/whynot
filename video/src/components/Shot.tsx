@@ -2,13 +2,13 @@ import React from "react";
 import { AbsoluteFill, Img, interpolate, random, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { fontFamily } from "../fonts";
 import { Look, ShotProps } from "../types";
+import { AppShot } from "./AppShot";
 import { Bubble } from "./Bubble";
-import { ReviewCard, Tap } from "./Proof";
+import { ReviewCard } from "./Proof";
 
 // One shot: a full-bleed visual that never stops moving, the caption bubble, a flash on hard cuts.
-export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; index: number; first: boolean }> = ({
-  shot, look, caption, index, first,
-}) => {
+export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; index: number; first: boolean;
+  pop?: string }> = ({ shot, look, caption, index, first, pop }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const n = shot.durationInFrames;
@@ -36,13 +36,14 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
   // a light flash on whoosh cuts only: a full white frame is aggressive
   const flash = shot.sfx === "whoosh";
   const flashOpacity = flash ? interpolate(frame, [0, 2], [0.3, 0], { extrapolateRight: "clamp" }) : 0;
-  const focusY = { top: "0%", middle: "45%", bottom: "100%", full: "30%" }[shot.focus ?? "full"];
 
   let visual: React.ReactNode = null;
-  if (shot.visual === "photo" || shot.visual === "screen") {
+  if (shot.visual === "screen") {
+    visual = <AppShot shot={shot} look={look} pop={pop} />;
+  } else if (shot.visual === "photo") {
     visual = (
       <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
-        objectPosition: shot.visual === "screen" ? `50% ${focusY}` : "50% 50%", transform }} />
+        objectPosition: "50% 50%", transform }} />
     );
   } else if (shot.visual === "review") {
     visual = <ReviewCard quote={shot.quote ?? ""} stars={shot.stars ?? 5} look={look} />;
@@ -64,7 +65,9 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
         <div style={{ fontFamily, fontWeight: 800, fontSize: 132, lineHeight: 1.02, letterSpacing: -3,
           textAlign: "center", color: dark ? "#FFFFFF" : look.onAccent, transform }}>
           {words.map((w, i) => {
-            const s = spring({ frame: frame - i * 2, fps, config: { damping: 11, stiffness: 240 } });
+            // the call to action is read at once: a word fading in on the last card looked unfinished ("Free" half
+            // transparent on the end, seen on WhatsApp)
+            const s = shot.beat === "cta" ? 1 : spring({ frame: frame - i * 2, fps, config: { damping: 11, stiffness: 240 } });
             return <span key={i} style={{ display: "inline-block", marginRight: 30, opacity: s,
               transform: `translateY(${interpolate(s, [0, 1], [60, 0])}px)` }}>{w}</span>;
           })}
@@ -78,10 +81,10 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
       {shot.visual === "photo" ? (
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 40%)" }} />
       ) : null}
-      {shot.visual === "screen" && shot.tap ? (
-        <Tap y={{ top: 620, middle: 1000, bottom: 1400, full: 1000 }[shot.focus ?? "full"]} />
-      ) : null}
-      <Bubble text={caption} top={first ? 430 : 480} big={first} />
+      {/* one text layer on the app and the review: the spoken captions; the bubble would cover the proof */}
+      {shot.visual === "screen" || shot.visual === "review" ? null : (
+        <Bubble text={caption} top={first ? 430 : 480} big={first} />
+      )}
       <AbsoluteFill style={{ background: "#FFFFFF", opacity: flashOpacity }} />
     </AbsoluteFill>
   );

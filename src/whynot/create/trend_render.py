@@ -38,6 +38,7 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       "sfx": s.sfx if s.sfx in sfx else "none", "beat": s.beat,
                       **({"src": images[i]} if i in images else {}), **({"focus": s.focus} if s.focus else {}),
                       **({"text": s.text} if s.text else {}), **({"tap": True} if s.tap else {}),
+                      **({"ui": s.ui} if s.ui else {}), **({"grid": list(s.grid)} if s.grid else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
     end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
