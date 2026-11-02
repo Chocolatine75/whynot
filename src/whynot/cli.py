@@ -267,19 +267,30 @@ def _read_token(args: argparse.Namespace) -> str:
 
 
 def _connect(args: argparse.Namespace) -> int:
-    from whynot.run.connect import ConnectError, connect
+    from whynot.run.connect import ConnectError, OAuthApp, connect
 
     s = load_settings()
+    oauth = OAuthApp(s.oauth_app_id, s.oauth_app_secret) if s.oauth_app_id and s.oauth_app_secret else None
     try:
         conn, path = connect(_read_token(args), account_id=args.account, page_id=args.page,
-                             app_id=args.app_id or s.meta_app_id, sandbox=args.sandbox, version=s.fb_api_version)
+                             app_id=args.app_id or s.meta_app_id, sandbox=args.sandbox, version=s.fb_api_version,
+                             oauth=oauth, say=(lambda m: None) if args.json else print)
     except ConnectError as exc:
-        print(f"✗ {exc}", file=sys.stderr)
+        if args.json:
+            print(json.dumps({"ok": False, "error": str(exc)}))
+        else:
+            print(f"✗ {exc}", file=sys.stderr)
         return 1
+    if args.json:  # for the site's Connect Meta button: everything but the token
+        print(json.dumps({"ok": True, "connection": str(path), **conn.public()}, ensure_ascii=False))
+        return 0
     print(f"✓ connected {conn.act} ({conn.account_name}, {conn.currency})"
           + (f" · Page {conn.page_name} ({conn.page_id})" if conn.page_id else " · no Page yet")
           + f" · can publish: {'yes' if conn.can_publish else 'no'} · can read results: "
           + ("yes" if conn.can_read else "no"))
+    days = conn.days_left()
+    print(f"  login valid {days:.0f} days, renewed automatically" if days is not None
+          else "  login: short (1-2 h)")
     for w in conn.warnings:
         print(f"  ! {w}")
     print(f"  saved privately (gitignored, mode 600): {path}")
@@ -311,7 +322,8 @@ def _agency(args: argparse.Namespace) -> int:
                                        "generations": args.generations}.items() if v is not None}
             cfg = AgencyConfig(app_ref=args.app, countries=args.countries, daily_cap_eur=cap,
                                level=args.level or s.autonomy_level, simulated_account=args.sim,
-                               connection=args.connection, objective=args.objective, budget_usd=args.budget_usd,
+                               connection=args.connection, objective=args.objective, landing_url=args.landing_url,
+                               budget_usd=args.budget_usd,
                                publish_static=not args.videos_only, paused_only=args.paused,
                                target_live=args.target, max_new=args.new,
                                budget_per_ad_eur=args.budget_per_ad, create=extra, seed=args.seed)
@@ -322,16 +334,25 @@ def _agency(args: argparse.Namespace) -> int:
     cfg = orch.cfg
     account = ("SIMULATED (results invented by a known model, not real)" if cfg.simulated_account
                else orch.state["account"]["act"])
-    print(f"run folder: {orch.run_dir}\naccount: {account}"
-          f" · autonomy {cfg.effective_level}{' · PAUSED test mode: nothing is activated' if cfg.paused_only else ''}"
-          f" · ad cap €{cfg.daily_cap_eur:.2f}/day"
-          f" · model budget ${cfg.budget_usd:.2f}")
+    paused = " · PAUSED test mode: nothing is activated" if cfg.paused_only else ""
+    if not args.json:
+        print(f"run folder: {orch.run_dir}\naccount: {account}"
+              f" · autonomy {cfg.effective_level}{paused}"
+              f" · ad cap €{cfg.daily_cap_eur:.2f}/day"
+              f" · model budget ${cfg.budget_usd:.2f}")
     try:
         result = orch.run(approved_by=args.approve, days=args.days,
-                          today=date.fromisoformat(args.start) if args.start else None)
+                          today=date.fromisoformat(args.start) if args.start else None,
+                          say=(lambda m: None) if args.json else print)
     except ValueError as exc:
-        print(f"✗ {exc}", file=sys.stderr)
+        print(json.dumps({"ok": False, "error": str(exc)}) if args.json else f"✗ {exc}",
+              file=sys.stdout if args.json else sys.stderr)
         return 1
+    if args.json:  # for the site: one object per run of the command
+        print(json.dumps({"ok": result.status != "error", "status": result.status, "run": str(orch.run_dir),
+                          "usd": result.usd, "error": result.error, "steps": result.steps},
+                         ensure_ascii=False, default=str))
+        return 0 if result.status == "done" else (1 if result.status == "error" else 2)
     if result.status == "error":
         print(f"\n✗ {result.error}\n  inspect {orch.run_dir}/events.jsonl, fix, then: whynot agency --resume "
               f"{orch.run_dir}", file=sys.stderr)
@@ -366,6 +387,52 @@ def _predict(args: argparse.Namespace) -> int:
           f"  sha256 {sha}\n\nCommit and push the file, then post BEFORE activating the ads:\n"
           f"  \"Our simulator's ranking of the ads we launch today, frozen before any result: sha256 {sha[:16]}… "
           f"We'll compare with the real CTRs in a few days, whatever they say.\"")
+    return 0
+
+
+def _schedule(args: argparse.Namespace) -> int:
+    from whynot.run.schedule import ScheduleError, install, parse, remove
+
+    if args.remove:
+        found = remove(Path(args.run))
+        print("✓ daily run removed" if found else "• no daily run was scheduled for this run")
+        return 0
+    try:
+        info = install(parse(Path(args.run), args.at))
+    except ScheduleError as exc:
+        print(f"✗ {exc}", file=sys.stderr)
+        return 1
+    if args.json:
+        print(json.dumps(info))
+    elif info["installed"]:
+        print(f"✓ the agency runs every day at {info['at']} ({info['label']}); log: {info['log']}\n"
+              f"  stop it: whynot schedule {args.run} --remove")
+    else:
+        print(f"• not macOS: add this line with `crontab -e`:\n  {info['cron']}")
+    return 0
+
+
+def _status(args: argparse.Namespace) -> int:
+    """An agency run's state for the site: steps, days, account (no token), schedule."""
+    from whynot.agency.orchestrator import load_state
+
+    try:
+        state = load_state(Path(args.run))
+    except FileNotFoundError as exc:
+        print(json.dumps({"ok": False, "error": str(exc)}) if args.json else f"✗ {exc}")
+        return 1
+    if args.json:
+        print(json.dumps({"ok": True, **state}, ensure_ascii=False, default=str))
+        return 0
+    acct = state.get("account", {}).get("act", "SIMULATED")
+    print(f"{args.run}: account {acct} · objective {state.get('objective', '—')} · "
+          f"daily run {state.get('schedule', {}).get('at', 'not scheduled')}")
+    for name, rec in state.get("steps", {}).items():
+        print(f"  {name:<8} {rec.get('status')}  {rec.get('detail') or rec.get('error') or ''}")
+    for day, rec in sorted(state.get("days", {}).items()):
+        o = rec.get("outputs", {})
+        print(f"  {day}  {rec.get('status')}  live {o.get('live', 0)} · new {o.get('new', 0)} · "
+              f"paused {o.get('paused', 0)} · €{o.get('committed_eur', 0)}/day")
     return 0
 
 
@@ -456,6 +523,7 @@ def main(argv: list[str] | None = None) -> int:
     cn.add_argument("--page", help="Facebook Page id the ads speak as, when the login has several")
     cn.add_argument("--app-id", help="the app registered with Meta (for app_promotion)")
     cn.add_argument("--sandbox", action="store_true", help="a Marketing API sandbox account (nothing can spend)")
+    cn.add_argument("--json", action="store_true", help="one JSON object on stdout (for the site)")
     cn.set_defaults(func=_connect)
 
     ag = sub.add_parser("agency", help="the whole agency: App Store link + Meta connection → running campaign")
@@ -470,7 +538,10 @@ def main(argv: list[str] | None = None) -> int:
                     help="autonomy (default: AUTONOMY_LEVEL in .env, else dry_run)")
     ag.add_argument("--approve", metavar="NAME", help="your approval for the actions waiting on it (logged)")
     ag.add_argument("--budget-usd", type=float, default=8.0, help="model spend cap for this command, all steps")
-    ag.add_argument("--objective", choices=["traffic", "app_promotion"], default="traffic")
+    ag.add_argument("--objective", choices=["auto", "traffic", "app_promotion"], default="auto",
+                    help="auto: app installs when the app is registered with Meta, else traffic to --landing-url")
+    ag.add_argument("--landing-url", help="the app's website, where traffic ads link (Meta refuses App Store links)")
+    ag.add_argument("--json", action="store_true", help="one JSON object on stdout (for the site)")
     ag.add_argument("--videos-only", action="store_true", help="no static image campaign, only daily video ads")
     ag.add_argument("--paused", action="store_true",
                     help="test mode: create everything on Meta PAUSED and never activate it (nothing can spend)")
@@ -497,6 +568,18 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("--verify", metavar="FILE", help="check a prediction file against its published hash")
     pr.add_argument("--sha", help="with --verify: the published sha256")
     pr.set_defaults(func=_predict)
+
+    sc = sub.add_parser("schedule", help="run the agency's day by itself every day (macOS LaunchAgent / cron line)")
+    sc.add_argument("run", help="the agency run folder")
+    sc.add_argument("--at", default="08:00", help="time of day, HH:MM (default 08:00)")
+    sc.add_argument("--remove", action="store_true", help="stop the daily run")
+    sc.add_argument("--json", action="store_true")
+    sc.set_defaults(func=_schedule)
+
+    stt = sub.add_parser("status", help="an agency run's state: steps, days, account, schedule")
+    stt.add_argument("run", help="the agency run folder")
+    stt.add_argument("--json", action="store_true", help="the whole state as JSON (for the site)")
+    stt.set_defaults(func=_status)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")

@@ -95,15 +95,18 @@ class World:
         return Services(self.settings, self.create_clients, self.model, self.marketing, self.studio, self.check,
                         launcher=self.make_launcher)
 
-    def make_launcher(self, client, run_dir, *, objective, say, paused_only=False):
+    def make_launcher(self, client, run_dir, *, objective, say, paused_only=False, link=None):
         self.launcher.paused_only = paused_only
+        self.launcher.objective, self.launcher.link = objective, link
         return self.launcher
 
 
-def connection(tmp: Path, *, sandbox=False, page="999", perms=("ads_management", "ads_read")) -> str:
-    # an app registered with Meta: App Store links need the app_promotion objective
-    conn = MetaConnection(TOKEN, "123456", "Owner's account", "EUR", page, "Page" if page else None, "777", "Owner",
-                          list(perms), sandbox, [] if page else ["no Facebook Page you can advertise with"])
+def connection(tmp: Path, *, sandbox=False, page="999", perms=("ads_management", "ads_read"), app_id="777",
+               expires_at=None) -> str:
+    # app_id: the app registered with Meta (App Store links need the app_promotion objective)
+    conn = MetaConnection(TOKEN, "123456", "Owner's account", "EUR", page, "Page" if page else None, app_id, "Owner",
+                          list(perms), sandbox, [] if page else ["no Facebook Page you can advertise with"],
+                          expires_at=expires_at)
     return str(conn.save(tmp / "connections"))
 
 
@@ -408,3 +411,89 @@ def test_paused_test_mode_creates_everything_on_meta_and_activates_nothing(base,
     assert "first_live_approved_by" not in state  # a paused test is not the owner's first live launch
     report = (run / "agency" / "reports" / f"{DAY}.md").read_text()
     assert "Published PAUSED (test mode" in report
+
+
+
+# --- Meta, automatically: the right objective, the login renewed ----------------------------------
+
+def test_auto_uses_app_installs_when_the_app_is_registered_with_meta(base, tmp_path):
+    world = World(tmp_path)
+    orch = Orchestrator(fork(base, tmp_path), cfg(connection=connection(tmp_path), level="autopilot", objective="auto",
+                                                  paused_only=True), world.services())
+    result = quiet(orch, today=DAY, approved_by="Matteo")
+    assert result.status == "done", result.error
+    assert result.steps["connect"]["outputs"]["objective"] == "app_promotion"
+    camp = next(o for o in world.graph.objects.values() if o["kind"] == "campaigns")
+    assert camp["objective"] == "OUTCOME_APP_PROMOTION"
+
+
+def test_auto_without_an_app_id_sends_traffic_to_the_website(base, tmp_path):
+    """Meta refuses App Store links outside app installs (error 1487810, seen on a real account)."""
+    world = World(tmp_path)
+    orch = Orchestrator(fork(base, tmp_path), cfg(connection=connection(tmp_path, app_id=None), level="autopilot",
+                                                  objective="auto", landing_url="https://linguaapp.example",
+                                                  paused_only=True), world.services())
+    result = quiet(orch, today=DAY, approved_by="Matteo")
+    assert result.status == "done", result.error
+    camp = next(o for o in world.graph.objects.values() if o["kind"] == "campaigns")
+    assert camp["objective"] == "OUTCOME_TRAFFIC"
+    links = {json.loads(o["object_story_spec"])["link_data"]["link"] for o in world.graph.objects.values()
+             if o["kind"] == "adcreatives"}
+    assert links == {"https://linguaapp.example"}
+    assert world.launcher.objective == "traffic" and world.launcher.link == "https://linguaapp.example"
+
+
+def test_no_app_id_and_no_website_stops_before_paying_for_research(tmp_path):
+    world = World(tmp_path)
+    orch = Orchestrator(tmp_path / "run", cfg(connection=connection(tmp_path, app_id=None), objective="auto"),
+                        world.services())
+    result = quiet(orch, today=DAY)
+    assert result.status == "error" and "--landing-url" in result.error
+    assert list(result.steps) == ["connect"] and "create" not in world.budgets  # nothing spent
+
+
+def test_a_login_close_to_its_end_is_renewed_before_acting(base, tmp_path):
+    from datetime import UTC, datetime, timedelta
+
+    world = World(tmp_path)
+    soon = (datetime.now(UTC) + timedelta(days=3)).isoformat()
+    renewed = []
+
+    def refresh(conn):
+        conn.expires_at = (datetime.now(UTC) + timedelta(days=60)).isoformat()
+        renewed.append(conn.act)
+        return conn
+
+    services = world.services()
+    services.refresh_connection = refresh
+    orch = Orchestrator(fork(base, tmp_path), cfg(connection=connection(tmp_path, expires_at=soon)), services)
+    result = quiet(orch, today=DAY)
+    assert renewed == ["act_123456"] and result.steps["connect"]["outputs"]["renewed"]
+    assert not any("ends in" in w for w in result.steps["connect"]["outputs"]["warnings"])
+
+
+def test_an_expired_login_stops_everything(tmp_path):
+    from datetime import UTC, datetime, timedelta
+
+    world = World(tmp_path)
+    world.check = lambda conn: ["the Meta login has expired: connect again"] if conn.days_left() < 0 else []
+    past = (datetime.now(UTC) - timedelta(days=1)).isoformat()
+    orch = Orchestrator(tmp_path / "run", cfg(connection=connection(tmp_path, expires_at=past)), world.services())
+    result = quiet(orch, today=DAY)
+    assert result.status == "error" and "expired" in result.error
+
+
+def test_cli_status_and_agency_speak_json_for_the_site(base, tmp_path, monkeypatch, capsys):
+    from whynot import cli
+    from whynot.agency import orchestrator
+
+    world = World(tmp_path)
+    monkeypatch.setattr(orchestrator, "default_services", lambda s, silent=False: world.services())
+    run = fork(base, tmp_path)
+    Orchestrator(run, cfg(simulated_account=True), world.services()).save()
+    assert cli.main(["agency", "--resume", str(run), "--start", str(DAY), "--json"]) == 0
+    out = json.loads(capsys.readouterr().out)
+    assert out["ok"] and out["status"] == "done" and f"daily {DAY}" in out["steps"]
+    assert cli.main(["status", str(run), "--json"]) == 0
+    state = json.loads(capsys.readouterr().out)
+    assert state["ok"] and str(DAY) in state["days"] and TOKEN not in json.dumps(state)

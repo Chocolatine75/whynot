@@ -124,8 +124,8 @@ def validate(plan: CampaignPlan) -> list[str]:
     errors = []
     if plan.daily_total_eur > plan.daily_cap_eur + 1e-9:
         errors.append(f"daily total €{plan.daily_total_eur} exceeds the cap €{plan.daily_cap_eur}")
-    if not plan.store_url.startswith("https://apps.apple.com/"):
-        errors.append("store_url must be an App Store link")
+    if not plan.store_url.startswith("https://"):
+        errors.append("the ads' link must be an https link (the App Store page, or the app's website)")
     if not plan.ad_sets:
         errors.append("no ad sets")
     seen_variants: set[str] = set()

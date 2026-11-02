@@ -76,9 +76,9 @@ def test_validate_catches_every_broken_rule():
     s1.audience = Audience("traveller", "x", ("gb",), 17, 54, "women")
     s1.ads = [*s1.ads[:1], ad(7, "heritage", "u0", ok=False)]
     s0.ads = [*s0.ads, s0.ads[0]]
-    plan.store_url = "https://play.google.com/x"
+    plan.store_url = "http://insecure.example/x"  # the link must be https (App Store page or the app's website)
     errors = " | ".join(validate(plan))
-    for expected in ["exceeds the cap", "App Store link", "outside 18-65", "ISO codes", "gender 'women'",
+    for expected in ["exceeds the cap", "https link", "outside 18-65", "ISO codes", "gender 'women'",
                      "did not pass its guards", "made for persona", "appears in two ad sets"]:
         assert expected in errors, expected
 
