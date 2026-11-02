@@ -4,11 +4,13 @@ import { fontFamily } from "../fonts";
 import { Look, Word } from "../types";
 
 // Word-by-word captions synced to the voice (most Reels are watched muted): the spoken word is lit.
-export const Captions: React.FC<{ words: Word[]; look: Look; until: number }> = ({ words, look, until }) => {
+export const Captions: React.FC<{ words: Word[]; look: Look; from?: number; until: number; cuts?: number[] }> = ({
+  words, look, from = 0, until, cuts = [],
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
-  if (frame >= until || words.length === 0) return null;
+  if (frame < from || frame >= until || words.length === 0) return null;
   const current = words.findIndex((w) => t >= w.start && t < w.end + 0.15);
   if (current < 0 && (t < words[0].start || t > words[words.length - 1].end + 0.6)) return null;
   // between two words: the last word said. After the last word there is no "next" word, and the old
@@ -17,8 +19,11 @@ export const Captions: React.FC<{ words: Word[]; look: Look; until: number }> = 
   const at = current >= 0 ? current : next < 0 ? words.length - 1 : Math.max(next - 1, 0);
   // up to 4 words, never mixing two speakers: a line said by someone else starts a new caption
   const i0 = Math.max(at, 0);
+  // a caption never spans a cut: its words belong to the picture they are said over
+  const shotOf = (w: Word) => cuts.filter((c) => c <= w.start + 0.05).length;
   const sameLine = (a: number, b: number) =>
-    (words[a].speaker ?? "me") === (words[b].speaker ?? "me") && !!words[a].native === !!words[b].native;
+    (words[a].speaker ?? "me") === (words[b].speaker ?? "me") && !!words[a].native === !!words[b].native &&
+    shotOf(words[a]) === shotOf(words[b]);
   let lineStart = i0;
   while (lineStart > 0 && sameLine(lineStart - 1, i0)) lineStart--;
   const start = lineStart + Math.floor((i0 - lineStart) / 4) * 4;

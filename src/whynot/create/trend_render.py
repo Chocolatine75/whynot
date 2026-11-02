@@ -24,7 +24,7 @@ def shot_frames(brief: TrendBrief, voice_seconds: float = 0.0) -> list[int]:
 
 def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images: dict[int, str],
                 icon: str | None, rating: float | None, rating_count: int | None, audio: Audio | None,
-                sfx: dict[str, str]) -> dict:
+                sfx: dict[str, str], tiles: dict[int, list[list[float]]] | None = None) -> dict:
     """`images`: shot index -> file name in the public dir (photo, UI crop or mascot)."""
     bg, fg, accent, surface = palette[:4]
     on_accent = best_text_colour(hex_to_rgb(accent), [hex_to_rgb(bg), hex_to_rgb(fg), hex_to_rgb(surface)])
@@ -39,6 +39,7 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       **({"src": images[i]} if i in images else {}), **({"focus": s.focus} if s.focus else {}),
                       **({"text": s.text} if s.text else {}), **({"tap": True} if s.tap else {}),
                       **({"ui": s.ui} if s.ui else {}), **({"grid": list(s.grid)} if s.grid else {}),
+                      **({"tiles": (tiles or {})[i]} if i in (tiles or {}) else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
     end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
@@ -59,7 +60,8 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
 
 def render(brief: TrendBrief, out: Path, *, palette: list[str], app_name: str, images: dict[int, Image.Image],
            icon: Image.Image | None, rating: float | None, rating_count: int | None, audio: Audio | None = None,
-           sfx: dict[str, Path] | None = None) -> dict:
+           sfx: dict[str, Path] | None = None, tiles: dict[int, list[tuple[int, int, int, int]]] | None = None) -> dict:
+    """`tiles`: for "grid" screens, the call's tiles in the screen's pixels (`cutouts.call_tiles`)."""
     files: dict[str, Path | Image.Image] = {}
     names: dict[int, str] = {}
     for i, img in images.items():
@@ -75,7 +77,12 @@ def render(brief: TrendBrief, out: Path, *, palette: list[str], app_name: str, i
     for name, path in (sfx or {}).items():
         sfx_names[name] = f"sfx_{name}.mp3"
         files[sfx_names[name]] = path
+    rel = {i: [[x0 / images[i].width, y0 / images[i].height, x1 / images[i].width, y1 / images[i].height]
+               for x0, y0, x1, y1 in boxes] for i, boxes in (tiles or {}).items() if i in images}
     props = build_props(brief, palette=palette, app_name=app_name, images=names,
                         icon="icon.png" if icon is not None else None, rating=rating, rating_count=rating_count,
-                        audio=audio, sfx=sfx_names)
+                        audio=audio, sfx=sfx_names, tiles=rel)
+    for i, img in images.items():  # the screen's real size: tiles and picture share one geometry in the phone
+        if brief.shots[i].visual == "screen":
+            props["shots"][i]["imageSize"] = [img.width, img.height]
     return render_composition("Trend", props, files, out, poster_at=0.4)

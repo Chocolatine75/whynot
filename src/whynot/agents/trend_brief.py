@@ -164,6 +164,10 @@ STORYBOARD — the picture and the voice tell ONE story, beat by beat:
 - One specific story, not a list of features: one person, one situation, ONE mechanism (the thing that goes
   wrong), ONE payoff, and the app as the punchline. ONE hero feature, the angle's, shown working on screen; never
   a list of features. Concrete details (a name, a place, a time of day) beat general claims.
+- THE HOOK is the first spoken line, in the first second, said with energy (a shout, a gasp, a confession:
+  "[shouts] MOM, IT'S BEEN THREE HOURS"), and it tells the whole situation on its own: a stranger who sees only
+  the first two seconds knows who, where and what is going wrong. The hook caption says the same situation.
+- TONE of this ad: {tone_rule}
 - The hook and the lines share one point of view: if the hook says "POV you're stuck on the call", the creator is
   the one stuck on it, not someone watching.
 - The real app appears early: the twist's first screen before 6 seconds.
@@ -199,7 +203,7 @@ into your phone, telling your friends what happened to you.
 - Captions read like texts: lowercase, short, no full stops.
 - The audio is a short DIALOGUE ("lines", max 8, max {max_words} words in all): "me" is the creator; "them" is
   the other person in the story; "narrator" is the brand over the app's screens. {natives_rule}
-- Lines may use up to 3 emotion tags in all: [laughs], [sighs], [gasps], [whispers], [groans].
+- Lines may use up to 3 emotion tags in all: {tags}.
 - Never sound like a lesson or a commercial: never use {banned}.
 No emoji in captions."""
 # Words that make a video sound like a language course or an ad, refused in the voice and the captions.
@@ -211,7 +215,8 @@ NOT_IN_ADS = ("link in bio", "link in my bio", "check my bio", "follow for more"
               "link above", "link in comments")
 BRAND_BEATS = ("demo", "proof", "payoff", "cta")  # from the demo on, the screen speaks for the brand, not the creator
 _FIRST_PERSON = re.compile(r"\b(?:i|i'm|im|i'd|i've|me|my|mine|myself)\b")
-EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]")
+# ElevenLabs v3 audio tags; [shouts] and [excited] give the hook its energy in the first second
+EMOTION_TAGS = ("[laughs]", "[sighs]", "[gasps]", "[whispers]", "[groans]", "[shouts]", "[excited]")
 # Lines the old prompt gave as examples: all four VietBuddy videos of Nov 1 reused them. Refused in the creator's
 # lines and captions.
 CLICHES = ("kept talking", "so cooked", "just nodded", "no because why")
@@ -691,9 +696,22 @@ def selling_from_app(app: dict[str, Any], brand: str) -> Selling:
     return Selling(brand, reviews, tuple(offers))
 
 
+TONES = {
+    "humor": "comedy. A skit with a real punchline: one absurd, recognisable situation pushed too far, a turn the "
+             "viewer does not see coming, and the app as the punchline. Funny first, never cute.",
+    "factual": "straight talk, no skit. A real, specific problem said in the first second (a fact or a question the "
+               "persona lives), then the app's real screen solving it, with a number from the verified claims. Calm, "
+               "confident, useful: a friend showing a trick.",
+    "emotional": "a small true moment, sincere, no jokes: distance, family, a first time. One person we care about "
+                 "in five seconds, and the app as what makes the moment possible. Never cheesy.",
+}
+
+
 def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle: str, screens: list[str],
           has_mascot: bool, selling: Selling | None = None, avoid: list[tuple[str, str]] | None = None,
-          model: str = SPARK) -> Answer[TrendBrief]:
+          model: str = SPARK, tone: str = "humor") -> Answer[TrendBrief]:
+    if tone not in TONES:
+        raise ValueError(f"tone must be one of {sorted(TONES)}")
     s = ctx.strategy
     p = s.persona(persona)
     a = next(x for x in s.angles if x.id == angle)
@@ -713,7 +731,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     else:
         natives_rule = f"Everyone speaks {ctx.language}: no other language anywhere in this ad."
         native_example, accents_rule = "", ""
-    prompt = PROMPT.format(native_example=native_example, narrator_words=MAX_NARRATOR_WORDS,
+    prompt = PROMPT.format(native_example=native_example, narrator_words=MAX_NARRATOR_WORDS, tone_rule=TONES[tone],
         low=int(TOTAL_SECONDS[0]), high=int(TOTAL_SECONDS[1]), language=ctx.language, fmt_name=fmt.name,
         beats=" → ".join(fmt.beats), why=fmt.why, example=fmt.example, app=ctx.app_name,
         description=" ".join(ctx.store_text.split())[:600], persona=f"{p.name}: {p.description}", angle=a.idea,
@@ -722,7 +740,8 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
         tone=TONE.format(banned=", ".join(f'"{w}"' for w in TEACHER_WORDS),
                          cliches=", ".join(f'"{c}"' for c in CLICHES),
                          brand_hint=selling.brand if selling else ctx.app_name.split(":")[0].strip(),
-                         natives_rule=natives_rule, accents_rule=accents_rule, max_words=MAX_SPOKEN_WORDS),
+                         natives_rule=natives_rule, accents_rule=accents_rule, max_words=MAX_SPOKEN_WORDS,
+                         tags=", ".join(EMOTION_TAGS)),
         mascot_line=("The app has a mascot (visual 'mascot'): use it as a character." if has_mascot
                      else "The app has no mascot: never use visual 'mascot'."),
         min_shots=SHOTS[0], max_shots=SHOTS[1], s_low=SHOT_SECONDS[0], s_high=SHOT_SECONDS[1],
@@ -747,10 +766,13 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     if verdict.value["score"] >= MIN_TONE_SCORE:
         return Answer(first.value, first.usd + verdict.usd, first.attempts, first.raw,
                       [*first.errors, f"tone {verdict.value['score']}/10"])
+    v = verdict.value
     retry = [*messages, {"role": "assistant", "content": json.dumps(first.raw, ensure_ascii=False)},
-             {"role": "user", "content": f"A 20-year-old TikTok creator rated the tone {verdict.value['score']}/10: "
-                                         f"{verdict.value['why']} Worst line: \"{verdict.value['worst']}\". "
-                                         "Rewrite the whole brief so it sounds like them. Same JSON schema."}]
+             {"role": "user", "content": f"A 20-year-old TikTok viewer rated it: tone {v['tone']}/10, story clarity "
+                                         f"{v['clarity']}/10 (they understood: \"{v['story']}\"), hook {v['hook']}/10. "
+                                         f"{v['why']} Worst line: \"{v['worst']}\". Rewrite the whole brief so a "
+                                         "stranger gets the story from the first two seconds and stops scrolling. "
+                                         "Same JSON schema."}]
     try:
         second = ask_json(client, retry, validator, module="trend_brief", model=model, repairs=2, max_tokens=6000,
                           reasoning_effort="low")
@@ -769,26 +791,33 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
 
 MIN_TONE_SCORE = 7
 CRITIC = """You are a 20-year-old who spends hours a day on TikTok and Reels. Read this video's voice-over and
-on-screen captions. Would someone your age actually say this in a video, or does it sound like a teacher, a
-language course or a brand trying too hard? Be harsh. A line that is not correct, natural {language} ("text is not
-enough personal", "fam call up to 32") scores 4 at most and is the worst line.
+on-screen captions, as you would meet them in your feed. Be harsh.
+- tone: would someone your age actually say this, or does it sound like a teacher, a course or a brand trying too
+  hard? A line that is not correct, natural {language} ("text is not enough personal") makes tone 4 at most.
+- clarity: say in ONE sentence what happens in this video. If you can't, or had to guess, clarity is low.
+- hook: from the first line and the first caption alone, would you stop scrolling?
 
 Voice-over: {voice}
 Captions: {captions}
 
-Return JSON only: {{"score": <1-10, 10 = sounds exactly like a real creator your age>, "why": "<one sentence>",
-"worst": "<the single worst line, verbatim>"}}"""
+Return JSON only: {{"tone": <1-10>, "clarity": <1-10>, "hook": <1-10>, "story": "<what happens, one sentence>",
+"why": "<the biggest problem, one sentence>", "worst": "<the single worst line, verbatim>"}}"""
 
 
 def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> Answer[dict[str, Any]]:
-    """The tone critic: does it sound like a young creator (score 1-10), and the worst line."""
+    """The viewer critic: tone, clarity (the story in one sentence) and hook, 1-10 each; `score` = the weakest."""
     def validate(data: Any) -> dict[str, Any]:
         if not isinstance(data, dict):
             raise Invalid("answer must be a JSON object")
-        score = data.get("score")
-        if isinstance(score, bool) or not isinstance(score, int) or not 1 <= score <= 10:
-            raise Invalid("'score' must be an integer 1-10")
-        return {"score": score, "why": " ".join(str(data.get("why", "")).split())[:300],
+        marks = {}
+        for k in ("tone", "clarity", "hook"):
+            v = data.get(k)
+            if isinstance(v, bool) or not isinstance(v, int) or not 1 <= v <= 10:
+                raise Invalid(f"'{k}' must be an integer 1-10")
+            marks[k] = v
+        # the weakest of the three decides: a funny video nobody understands, or a clear one nobody stops on, fails
+        return {**marks, "score": min(marks.values()), "story": " ".join(str(data.get("story", "")).split())[:300],
+                "why": " ".join(str(data.get("why", "")).split())[:300],
                 "worst": " ".join(str(data.get("worst", "")).split())[:200]}
 
     captions = " / ".join([brief.hook] + [s.caption for s in brief.shots if s.caption])

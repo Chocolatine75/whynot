@@ -218,6 +218,11 @@ def test_creator_voice_with_emotion_tags_is_accepted_and_the_meme_line_is_exempt
     assert check(GOOD).hook.startswith("Tell me you're learning")  # the trend line itself may say "learning"
 
 
+def verdict(n, why="x", worst="y"):
+    """The viewer critic's answer, the same mark for tone, clarity and hook."""
+    return json.dumps({"tone": n, "clarity": n, "hook": n, "story": "s", "why": why, "worst": worst})
+
+
 def _brief_reply(voice):
     return json.dumps({**GOOD, "voice": voice})
 
@@ -230,7 +235,7 @@ def test_a_teacher_tone_is_sent_back_once_and_the_better_take_is_kept():
 
     def reply(messages, module):
         if module == "tone_critic":
-            return json.dumps({"score": next(scores), "why": "sounds like class", "worst": "ok so this happened"})
+            return verdict(next(scores), "sounds like class", "ok so this happened")
         return _brief_reply("ok so this happened" if len(messages) == 1 else "bro i was SO done [laughs]")
 
     model = ScriptedChat(reply)
@@ -238,7 +243,7 @@ def test_a_teacher_tone_is_sent_back_once_and_the_better_take_is_kept():
                    screens=["a", "b", "c"], has_mascot=False)
     assert "SO done" in answer.value.voice and "4/10 → 8/10" in answer.errors[-1]
     rewrite_prompt = [c for c in model.calls if c["module"] == "trend_brief"][-1]["messages"][-1]["content"]
-    assert "rated the tone 4/10" in rewrite_prompt and "ok so this happened" in rewrite_prompt
+    assert "tone 4/10, story clarity 4/10" in rewrite_prompt and "ok so this happened" in rewrite_prompt
 
 
 def test_a_worse_rewrite_is_not_kept():
@@ -246,7 +251,7 @@ def test_a_worse_rewrite_is_not_kept():
     from whynot.agents.trend_brief import write
 
     scores = iter([6, 3])
-    model = ScriptedChat(lambda m, mod: json.dumps({"score": next(scores), "why": "x", "worst": "y"})
+    model = ScriptedChat(lambda m, mod: verdict(next(scores), "x", "y")
                          if mod == "tone_critic" else _brief_reply("first take" if len(m) == 1 else "second take"))
     answer = write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
                    screens=["a", "b", "c"], has_mascot=False)
@@ -261,7 +266,7 @@ def test_an_invalid_rewrite_keeps_the_valid_first_take():
 
     def reply(m, mod):
         if mod == "tone_critic":
-            return json.dumps({"score": 4, "why": "x", "worst": "y"})
+            return verdict(4, "x", "y")
         return _brief_reply("first take") if len(m) == 1 else json.dumps({**GOOD, "music": "jazz"})
 
     answer = write(ScriptedChat(reply), CTX, BY_ID["tell_me_without"], persona="heritage_learner",
@@ -273,7 +278,7 @@ def test_a_good_tone_is_not_rewritten():
     from fakes import ScriptedChat
     from whynot.agents.trend_brief import write
 
-    model = ScriptedChat(lambda m, mod: json.dumps({"score": 9, "why": "x", "worst": "y"}) if mod == "tone_critic"
+    model = ScriptedChat(lambda m, mod: verdict(9, "x", "y") if mod == "tone_critic"
                          else _brief_reply("why did she keep going like that"))
     write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
           screens=["a", "b", "c"], has_mascot=False)
@@ -616,3 +621,28 @@ def test_a_sticker_inside_the_screen_is_not_the_mascot(tmp_path):
     sam = Sam({"phone screen": [(100, 300, 700, 1500)], "cartoon mascot": [(300, 800, 500, 1000)],
                "cartoon character": [], "cartoon animal": []})
     assert cutouts(sam, [shot_img], tmp_path).mascot is None
+
+
+def test_a_video_nobody_understands_is_rewritten_even_if_funny():
+    """The weakest of tone, clarity and hook decides (Nov 2: "grandma said five mins", nobody got the story)."""
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    confused = json.dumps({"tone": 9, "clarity": 3, "hook": 8, "story": "something about grandma?",
+                           "why": "I could not tell what happens", "worst": "grandma said five mins"})
+    replies = iter([confused, verdict(8)])
+    model = ScriptedChat(lambda m, mod: next(replies) if mod == "tone_critic"
+                         else _brief_reply("first take" if len(m) == 1 else "second take"))
+    write(model, CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+          screens=["a", "b", "c"], has_mascot=False)
+    rewrite = model.calls[2]["messages"][-1]["content"]
+    assert "story clarity 3/10" in rewrite and "something about grandma?" in rewrite
+
+
+def test_tones_are_known():
+    from fakes import ScriptedChat
+    from whynot.agents.trend_brief import write
+
+    with pytest.raises(ValueError, match="tone"):
+        write(ScriptedChat([]), CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
+              screens=["a"], has_mascot=False, tone="dramatic")

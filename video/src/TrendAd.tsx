@@ -31,13 +31,16 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       {props.shots.map((s, i) => (
         <Sequence key={i} from={starts[i]} durationInFrames={s.durationInFrames}>
           <Shot shot={s} look={props.look} index={i} first={i === 0}
-            caption={i === 0 ? props.hook : s.caption} pop={props.sfx.pop} />
+            caption={i === 0 ? props.hook : voice ? "" : s.caption} pop={props.sfx.pop} />
         </Sequence>
       ))}
       <Sequence from={endStart} durationInFrames={props.endCard.durationInFrames}>
         <EndCard card={props.endCard} look={props.look} />
       </Sequence>
-      {voice ? <Captions words={voice.words} look={props.look} until={endStart} /> : null}
+      {/* one text layer: with a voice, its captions are the text (a bubble saying the same thing on top doubled
+          it); the hook bubble owns the first shot, the spoken captions start after it */}
+      {voice ? <Captions words={voice.words} look={props.look} from={props.shots[0]?.durationInFrames ?? 0}
+        until={endStart} cuts={starts.map((f) => f / fps)} /> : null}
       {props.shots.map((s, i) =>
         s.sfx !== "none" && props.sfx[s.sfx] ? (
           <Sequence key={`fx${i}`} from={starts[i]}>

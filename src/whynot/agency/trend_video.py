@@ -31,7 +31,7 @@ from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
 from whynot.agents.deconstruct import DeconstructionStore, deconstruct_all
 from whynot.agents.director import Context
 from whynot.agents.strategist import Strategy
-from whynot.assets.cutouts import cutouts
+from whynot.assets.cutouts import call_tiles, cutouts
 from whynot.audio.captions import (
     MAX_WORD_ERROR_RATE,
     Word,
@@ -212,6 +212,12 @@ MAX_FINAL_WER = 0.3  # what a listener hears in the finished video vs what the c
 LUFS_RANGE, MAX_TRUE_PEAK = (-16.0, -12.0), -1.0
 
 
+def replace_shot(b: trend_brief.TrendBrief, i: int, **changes: Any) -> trend_brief.TrendBrief:
+    shots = list(b.shots)
+    shots[i] = trend_brief.Shot(**{**asdict(shots[i]), **changes})
+    return trend_brief.TrendBrief(**{**asdict(b), "lines": b.lines, "shots": tuple(shots)})
+
+
 def final_check(model: Any, video: Path, b: trend_brief.TrendBrief, language: str,
                 loudness: dict[str, float] | None) -> dict[str, Any]:
     """QA on the RENDERED file: Muse Voice Transcribe listens to the final mix and compares it with the captions'
@@ -336,13 +342,22 @@ class Studio:
             fmt = trend_brief.get_format(p["format"])
             b = trend_brief.write(model, self.ctx, fmt, persona=p["persona"], angle=p["angle"], screens=self.screens,
                                   has_mascot=self.cut.mascot is not None, selling=self.selling, avoid=avoid,
-                                  model=self.cfg.model).value
+                                  model=self.cfg.model, tone=self.cfg.tone).value
         if self.cut.mascot is None and any(s.visual == "mascot" for s in b.shots):
             # an older script used a "mascot" that was a sticker of the app (no longer taken for one): the shot
             # becomes a card with its own caption, the rest of the script stays as it was
             b = trend_brief.TrendBrief(**{**asdict(b), "lines": b.lines, "shots": tuple(
                 trend_brief.Shot(**{**asdict(s), "visual": "text", "text": s.caption or b.hook, "caption": "",
                                     "grid": s.grid}) if s.visual == "mascot" else s for s in b.shots)})
+        # "grid": the call's REAL tiles, found in the screen's pixels; a screen that is not a call grid is revealed
+        # row by row instead (an arbitrary grid cut faces in two and looked offset, Nov 2)
+        tiles: dict[int, list[tuple[int, int, int, int]]] = {}
+        for i, s in enumerate(b.shots):
+            if s.visual == "screen" and s.ui == "grid" and s.screen:
+                if found := call_tiles(self.cut.screens[s.screen - 1]):
+                    tiles[i] = found
+                else:
+                    b = replace_shot(b, i, ui="rows", grid=None)
         imgs: dict[int, Image.Image] = {}
         for i, s in enumerate(b.shots):
             if s.visual == "photo":  # the same people in the same place in every photo of the story
@@ -374,7 +389,7 @@ class Studio:
         facts = trend_render.render(b, out / f"{name}.mp4", palette=self.brand["palette"],
                                     app_name=brand_name(self.app["name"]), images=imgs, icon=self.icon,
                                     rating=self.app.get("rating"), rating_count=self.app.get("rating_count"),
-                                    audio=audio, sfx=sfx)
+                                    audio=audio, sfx=sfx, tiles=tiles)
         facts["qa"] = final_check(model, out / f"{name}.mp4", b, self.ctx.language, facts.get("loudness"))
         flags = f" · QA: {', '.join(facts['qa']['flags'])}" if facts["qa"]["flags"] else ""
         self.say(f"  ✓ {name}: {facts['seconds']} s, {len(b.shots)} shots — \"{b.hook}\"{flags}")

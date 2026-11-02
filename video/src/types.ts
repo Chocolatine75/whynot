@@ -44,7 +44,9 @@ export type ShotProps = {
   beat: "trend" | "twist" | "demo" | "proof" | "payoff" | "cta";
   src?: string; // photo, real UI crop, or mascot sticker (files in the public dir)
   ui?: "rows" | "grid" | "zoom" | "scroll" | "float"; // screen: how the real interface comes alive
-  grid?: [number, number]; // screen with ui "grid": columns, rows of tiles
+  grid?: [number, number]; // screen with ui "grid": columns, rows of tiles (as the script asked)
+  tiles?: number[][]; // screen with ui "grid": the call's real tiles, [x0, y0, x1, y1] as shares of the image
+  imageSize?: [number, number]; // the screen image's pixel size (tiles and picture share its geometry)
   focus?: "top" | "middle" | "bottom" | "full";
   text?: string;
   tap?: boolean; // demo: a finger taps the focus region

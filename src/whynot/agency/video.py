@@ -52,6 +52,7 @@ class VideoConfig:
     capture: bool = True  # capture missing competitor creatives with a headless browser
     renderer: str = "remotion"  # remotion (voice, captions, music) | builtin (silent, no Node needed)
     angles: tuple[str, ...] = ()  # trend videos only on these strategy angles (ids); empty = the planner picks
+    tone: str = "humor"  # trend videos: humor | factual | emotional (agents/trend_brief.TONES)
 
 
 def soundtrack(voice: ElevenLabs, model: Any, b: brief.VideoBrief, language: str,

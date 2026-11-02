@@ -33,35 +33,41 @@ const Background: React.FC<{ look: Look }> = ({ look }) => {
   );
 };
 
-const Tiles: React.FC<{ src: string; cols: number; rows: number; w: number; h: number; pop?: string }> = ({
-  src, cols, rows, w, h, pop,
-}) => {
+// The call fills with faces: the REAL tiles of the call screen (found in its pixels by the engine) pop in one by
+// one, each from its own centre, over the dimmed screen. Picture and tiles share one geometry (the same cover fit
+// as an <img>), so every tile lands exactly where it is in the screenshot.
+const Tiles: React.FC<{ src: string; tiles: number[][]; size: number[]; w: number; h: number; fy: number;
+  pop?: string }> = ({ src, tiles, size, w, h, fy, pop }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const tw = w / cols;
-  const th = h / rows;
-  const tiles = [];
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const k = r * cols + c;
-      const delay = k * Math.max(2, Math.round(18 / (cols * rows)) + 2); // the whole call fills in under a second
-      const s = spring({ frame: frame - delay, fps, config: { damping: 11, stiffness: 240, mass: 0.6 } });
-      tiles.push(
-        <div key={k} style={{ position: "absolute", left: c * tw, top: r * th, width: tw, height: th,
-          backgroundImage: `url(${staticFile(src)})`, backgroundSize: `${w}px ${h}px`,
-          backgroundPosition: `${-c * tw}px ${-r * th}px`, transform: `scale(${s})`, opacity: s,
-          borderRadius: 18 * (1 - s) }} />,
-      );
-      if (pop) {
-        tiles.push(<Sequence key={`p${k}`} from={delay}><Audio src={staticFile(pop)} volume={0.5} /></Sequence>);
-      }
-    }
-  }
-  // the screen is never empty: the full interface sits dimmed underneath while its tiles pop in
+  const [iw, ih] = size;
+  const k = Math.max(w / iw, h / ih);
+  const dw = iw * k;
+  const dh = ih * k;
+  const dx = (w - dw) / 2;
+  const dy = (h - dh) * fy;
+  const picture = (left: number, top: number): React.CSSProperties => ({
+    backgroundImage: `url(${staticFile(src)})`, backgroundSize: `${dw}px ${dh}px`,
+    backgroundPosition: `${dx - left}px ${dy - top}px`, backgroundRepeat: "no-repeat",
+  });
+  const gap = Math.max(4, Math.round(20 / tiles.length));
   return (
     <>
-      <Img src={staticFile(src)} style={{ position: "absolute", width: w, height: h, opacity: 0.25 }} />
-      {tiles}
+      <div style={{ position: "absolute", inset: 0, ...picture(0, 0), opacity: 0.18, filter: "blur(2px)" }} />
+      {tiles.map(([x0, y0, x1, y1], i) => {
+        const left = dx + x0 * dw;
+        const top = dy + y0 * dh;
+        const delay = 4 + i * gap;
+        const s = spring({ frame: frame - delay, fps, config: { damping: 13, stiffness: 210, mass: 0.7 } });
+        return (
+          <React.Fragment key={i}>
+            <div style={{ position: "absolute", left, top, width: (x1 - x0) * dw, height: (y1 - y0) * dh,
+              ...picture(left, top), opacity: Math.min(1, s * 1.4),
+              transform: `scale(${interpolate(s, [0, 1], [0.55, 1])})`, borderRadius: 22 * (1 - s) }} />
+            {pop ? <Sequence from={delay}><Audio src={staticFile(pop)} volume={0.45} /></Sequence> : null}
+          </React.Fragment>
+        );
+      })}
     </>
   );
 };
@@ -98,8 +104,8 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
     reveal = shown * 100;
   }
 
-  const screen = ui === "grid" ? (
-    <Tiles src={shot.src ?? ""} cols={shot.grid?.[0] ?? 2} rows={shot.grid?.[1] ?? 3} w={inner.w} h={inner.h} pop={pop} />
+  const screen = ui === "grid" && shot.tiles && shot.imageSize ? (
+    <Tiles src={shot.src ?? ""} tiles={shot.tiles} size={shot.imageSize} w={inner.w} h={inner.h} fy={0} pop={pop} />
   ) : (
     <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
       objectPosition: `50% ${scrollY}%`, clipPath: `inset(0 0 ${100 - reveal}% 0)` }} />
