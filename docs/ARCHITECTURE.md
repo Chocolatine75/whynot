@@ -75,7 +75,7 @@ Code layout, rules and definition of done: `ENGINEERING.md`.
 | `sim/viewer` | Viewer prompt, strict JSON parsing, retry, parallel runs, answer cache (a view is never paid twice); backend via `VIEWER_BACKEND` | Muse Spark (now), Muse Spark Open (Baseten); student later |
 | `sim/arena` | Fair feeds for our variants: page-style brand name, two candidate slots per feed, placebos (competitor ads under our name), bias flag | — |
 | `sim/relevance` | Hard feeds: competitor ads ranked by language match, long-running, topic overlap, days; language shortfall reported | — |
-| `sim/tournament` | Round-robin feeds between our variants (+ competitor ads), head-to-head games, Bradley-Terry strengths with bootstrap CIs: a ranking with no ceiling | — |
+| `sim/tournament` | Round-robin feeds between our variants (+ competitor ads), head-to-head games, Bradley-Terry strengths with bootstrap CIs: a ranking with no ceiling; `play`/`replay` (a retest with a fresh draw). Judges every evolution generation | — |
 | `sim/scores` | Per-ad scores: preference lift vs chance (primary), intent, stop/understood/believed rates, why-not | — |
 | `ssr` | Free-text intent → Likert distribution | embeddings, SSR library |
 | `counterfactual` | Element removal/swap + re-test deltas | SAM 3.1, composer, simfeed |

@@ -52,7 +52,9 @@ def evolution_section(evolution: dict[str, Any], by_variant: dict[str, Any]) -> 
            "original champion: “vs gen 0” is measured in the same feeds.",
            "- **Noise floor**: the last round was watched again with fresh simulated answers. A gap smaller than the "
            "floor (1.96 × √2 × the retest's spread) is called *within noise*, never an improvement; a win must "
-           "also point the same way in the retest.", ""]
+           "also point the same way in the retest.",
+           "- **Limits**: the floor measures how much the simulated answers change when asked again, not how other "
+           "feeds or other viewers would vote; simulated preferences are not yet validated against real results.", ""]
     summary = evolution.get("summary")
     if summary:
         out += [f"Across **{summary['judged']}** audience(s): **{summary.get('improved', 0)}** better than "
@@ -78,9 +80,10 @@ def evolution_section(evolution: dict[str, Any], by_variant: dict[str, Any]) -> 
             for h in g["history"]:
                 bc = h.get("best_child")
                 if bc:
-                    hook = _cell(by_variant.get(bc["id"], {}).get("texts", {}).get("hook", bc["id"]))
+                    m = by_variant.get(bc["id"], {}).get("mutation") or {}
+                    change = f"changed **{m['gene']}** to “{_cell(m['text'])}”" if m else bc["id"]
                     out.append(f"- Round {h['generation']}, best child vs its parent: {_strength(bc['difference'])} "
-                               f"({VERDICT[bc['verdict']]}): “{hook}”")
+                               f"({VERDICT[bc['verdict']]}): {change}")
             out.append("")
         stopped = [h for h in g["history"] if h.get("stopped")]
         if stopped:
