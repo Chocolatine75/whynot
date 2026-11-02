@@ -65,6 +65,7 @@ class AppProfile:
     icon_url: str | None
     languages: list[str] = field(default_factory=list)
     reviews: list[Review] = field(default_factory=list)
+    website: str | None = None  # the developer's site from the store page (sellerUrl): where traffic ads can link
 
     @property
     def free(self) -> bool:
@@ -130,6 +131,7 @@ def parse_lookup(body: dict[str, Any]) -> AppProfile:
         rating=float(r["averageUserRating"]) if r.get("averageUserRating") is not None else None,
         rating_count=int(r.get("userRatingCount") or 0), screenshot_urls=shots,
         icon_url=r.get("artworkUrl512"), languages=list(r.get("languageCodesISO2A") or []),
+        website=str(r["sellerUrl"]) if str(r.get("sellerUrl") or "").startswith("https://") else None,
     )
 
 

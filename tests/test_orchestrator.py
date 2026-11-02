@@ -497,3 +497,18 @@ def test_cli_status_and_agency_speak_json_for_the_site(base, tmp_path, monkeypat
     assert cli.main(["status", str(run), "--json"]) == 0
     state = json.loads(capsys.readouterr().out)
     assert state["ok"] and str(DAY) in state["days"] and TOKEN not in json.dumps(state)
+
+
+
+def test_the_store_pages_website_is_used_when_no_landing_page_is_given(base, tmp_path):
+    world = World(tmp_path)
+    services = world.services()
+    services.lookup_website = lambda ref: "https://linguaapp-site.example"
+    orch = Orchestrator(fork(base, tmp_path), cfg(connection=connection(tmp_path, app_id=None), objective="auto",
+                                                  level="autopilot", paused_only=True), services)
+    result = quiet(orch, today=DAY, approved_by="Matteo")
+    assert result.status == "done", result.error
+    assert result.steps["connect"]["outputs"]["objective"] == "traffic"
+    links = {json.loads(o["object_story_spec"])["link_data"]["link"] for o in world.graph.objects.values()
+             if o["kind"] == "adcreatives"}
+    assert links == {"https://linguaapp-site.example"} and world.launcher.link == "https://linguaapp-site.example"

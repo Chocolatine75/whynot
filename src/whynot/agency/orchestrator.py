@@ -115,6 +115,7 @@ class Services:
     check_connection: Callable[[MetaConnection], list[str]]  # → problems with the login (empty = fine)
     launcher: Callable[..., Any] | None = None  # (client, run folder, objective=, say=) → daily.Launcher
     refresh_connection: Callable[[MetaConnection], MetaConnection] | None = None  # renews a long-lived login
+    lookup_website: Callable[[str], str | None] | None = None  # app ref → the store page's website (before create)
 
 
 @dataclass
@@ -165,7 +166,8 @@ def owner_policy(cfg: AgencyConfig, state: dict[str, Any], cap_eur: float) -> Po
     return Policy(Level(cfg.level), max(0.0, cap_eur), first_live_approved=bool(state.get("first_live_approved_by")))
 
 
-def resolve_link(cfg: AgencyConfig, conn: MetaConnection, store_url: str | None = None) -> tuple[str, str | None]:
+def resolve_link(cfg: AgencyConfig, conn: MetaConnection, store_url: str | None = None, *,
+                 website: str | None = None) -> tuple[str, str | None]:
     """The campaign objective and where the ads link, so Meta accepts them (error 1487810 seen on a real account:
     App Store links need app_promotion). auto: app_promotion when the app is registered with Meta (its app id in
     the connection), else traffic to the app's website (`landing_url`)."""
@@ -176,9 +178,33 @@ def resolve_link(cfg: AgencyConfig, conn: MetaConnection, store_url: str | None 
         if not conn.app_id:
             raise ValueError("app_promotion needs the app's Meta app id: `whynot connect --app-id ...`")
         return "app_promotion", store_url
-    if not cfg.landing_url:
+    landing = cfg.landing_url or website  # the owner's choice first, else the site the store page lists
+    if not landing:
         raise ValueError(no_link)
-    return "traffic", cfg.landing_url
+    return "traffic", landing
+
+
+def _website(run_dir: Path) -> str | None:
+    p = run_dir / "app.json"
+    return json.loads(p.read_text()).get("website") if p.exists() else None
+
+
+def _lookup_website(app_ref: str) -> str | None:
+    """Before `create` has run: the store page's website, from Apple's public lookup (None if unknown or offline).
+    Only needed when the app is not registered with Meta and no landing page was given."""
+    import re
+
+    import httpx
+
+    m = re.search(r"id(\d{6,})", app_ref) or re.fullmatch(r"(\d{6,})", app_ref.strip())
+    if not m:
+        return None
+    try:
+        r = httpx.get("https://itunes.apple.com/lookup", params={"id": m.group(1)}, timeout=15).json()
+        url = str((r.get("results") or [{}])[0].get("sellerUrl") or "")
+    except (httpx.HTTPError, ValueError, IndexError):
+        return None
+    return url if url.startswith("https://") else None
 
 
 def step_connect(ctx: StepContext) -> dict[str, Any]:
@@ -197,7 +223,12 @@ def step_connect(ctx: StepContext) -> dict[str, Any]:
     problems = ctx.services.check_connection(c)
     if problems:
         raise RuntimeError("; ".join(problems) + " — reconnect with `whynot connect`")
-    objective, _link = resolve_link(ctx.cfg, c)  # fail before paying for research when Meta would refuse the ads
+    # fail before paying for research when Meta would refuse the ads (the store page's website counts once known)
+    lookup = ctx.services.lookup_website
+    known = _website(ctx.run_dir) or (lookup(ctx.cfg.app_ref) if lookup and not ctx.cfg.landing_url else None)
+    objective, _link = resolve_link(ctx.cfg, c, website=known)
+    if known:
+        ctx.state["website"] = known  # publish and the daily loop link there too
     ctx.state["objective"] = objective
     if not c.can_publish:
         ctx.say("  ! this connection cannot publish yet: " + ("; ".join(c.warnings) or "missing Page or permission"))
@@ -242,7 +273,8 @@ def step_publish(ctx: StepContext) -> dict[str, Any]:
     if plan_json.get("errors"):
         raise RuntimeError("the plan has errors: " + "; ".join(plan_json["errors"]))
     plan = plan_from_json(plan_json)
-    objective, link = resolve_link(cfg, ctx.connection, plan.store_url)
+    objective, link = resolve_link(cfg, ctx.connection, plan.store_url,
+                                   website=_website(ctx.run_dir) or ctx.state.get("website"))
     plan.store_url = link or plan.store_url  # traffic: the ads link to the app's website
     client = ctx.services.marketing(ctx.connection)
     policy = owner_policy(cfg, ctx.state, cfg.static_cap_eur)
@@ -306,7 +338,8 @@ def step_daily(ctx: StepContext) -> dict[str, Any]:
         assert ctx.connection is not None
         client = ctx.services.marketing(ctx.connection)
         plan_store = json.loads((ctx.run_dir / "plan.json").read_text()).get("store_url")
-        objective, link = resolve_link(cfg, ctx.connection, plan_store)
+        objective, link = resolve_link(cfg, ctx.connection, plan_store,
+                                       website=_website(ctx.run_dir) or ctx.state.get("website"))
         source = MetaInsights(client, objective=objective)
         launcher = (ctx.services.launcher or video_launcher)(client, ctx.run_dir, objective=objective,
                                                              say=ctx.say, paused_only=cfg.paused_only, link=link)
@@ -511,4 +544,4 @@ def default_services(settings: Settings, *, silent: bool = False) -> Services:  
             return refresh(conn, app, version=settings.fb_api_version)
 
     return Services(settings, default_clients, model, marketing, producer, check_connection,
-                    refresh_connection=refresh_connection)
+                    refresh_connection=refresh_connection, lookup_website=_lookup_website)
