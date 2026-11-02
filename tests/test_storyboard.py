@@ -195,3 +195,17 @@ def test_the_final_mix_is_checked_by_ear_and_by_meter(tmp_path, monkeypatch):
     assert any("LUFS" in f for f in looped["flags"]) and any("true peak" in f for f in looped["flags"])
     broken = final_check(Ears(RuntimeError("down")), tmp_path / "v.mp4", b, "English", None)
     assert broken["flags"] == ["final transcription failed: RuntimeError"]
+
+
+def test_the_narrator_says_one_thing_in_its_own_words():
+    d = selling_brief()
+    # 25 words: a list, not one thing
+    d["lines"][3]["text"] = ("linguaapp has a southern voice and a northern voice and short lessons for travel and "
+                             "food and family and work and school, free to download")
+    with pytest.raises(Invalid, match="ONE feature"):
+        check_selling(d)
+    claim = CTX.strategy.claims[0].text
+    d["lines"][3]["text"] = claim
+    if len(claim.split()) <= 22:
+        with pytest.raises(Invalid, match="word for word"):
+            check_selling(d)

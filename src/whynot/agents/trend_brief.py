@@ -167,8 +167,10 @@ STORYBOARD — the picture and the voice tell ONE story, beat by beat:
 - The hook and the lines share one point of view: if the hook says "POV you're stuck on the call", the creator is
   the one stuck on it, not someone watching.
 - The real app appears early: the twist's first screen before 6 seconds.
-- The narrator ends on the call to action, spoken over the cta shot (short, from the store page: "free to
-  download").
+- The narrator says ONE thing about the app (this angle's feature) in plain spoken words, never the store's
+  sentences, then the call to action over the cta shot ("free to download"). Max {narrator_words} words in all.
+- The cta shot is a moment of the story or a screen, never a card repeating the app name and offer: the end card
+  that follows already shows them.
 - "cast": who is in the photos and where, described once (age, look, clothes, place, light). Every photo prompt
   shows these same people in this same place, so the story looks like one video, not stock photos.
 
@@ -366,6 +368,7 @@ class Selling:
     offers: tuple[str, ...] = ()
 
 
+MAX_NARRATOR_WORDS = 22  # one hero feature, said like a person: a list of claims read out sounded like a manual
 CREATOR_BEATS = ("trend", "twist")  # the creator and the people of the story speak over the story
 NARRATOR_BEATS = ("twist", "demo", "proof", "payoff", "cta")  # the brand speaks over the app and says the CTA
 
@@ -518,6 +521,16 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
                             "warm kitchen at night\")")
         if refused := photo_problem(cast):
             problems.append(f"'cast' mentions {refused!r}: generated photos never show a screen or text")
+        narrator_words = sum(len(x.text.split()) for x in lines if x.speaker == "narrator")
+        if narrator_words > MAX_NARRATOR_WORDS:
+            problems.append(f"the narrator says {narrator_words} words; max {MAX_NARRATOR_WORDS}: ONE feature (this "
+                            "angle's), said in plain spoken words, then the call to action. Never read the claims out")
+        for claim in ctx.strategy.claims:  # a claim copied word for word reads like the store page, not a voice
+            if any(overlap(x.text, claim.text) > 0.8 for x in lines
+                   if x.speaker == "narrator" and len(x.text.split()) >= 5):
+                problems.append(f"a narrator line reads the claim \"{claim.text}\" word for word; say it the way a "
+                                "person would, shorter")
+                break
         for i, x in enumerate(lines, 1):
             if x.speaker == "narrator" and (m := _FIRST_PERSON.search(x.text.lower())):
                 problems.append(f"line {i}: the narrator is the brand and never says {m.group(0)!r}")
@@ -700,7 +713,7 @@ def write(client: ChatClient, ctx: Context, fmt: Format, *, persona: str, angle:
     else:
         natives_rule = f"Everyone speaks {ctx.language}: no other language anywhere in this ad."
         native_example, accents_rule = "", ""
-    prompt = PROMPT.format(native_example=native_example,
+    prompt = PROMPT.format(native_example=native_example, narrator_words=MAX_NARRATOR_WORDS,
         low=int(TOTAL_SECONDS[0]), high=int(TOTAL_SECONDS[1]), language=ctx.language, fmt_name=fmt.name,
         beats=" → ".join(fmt.beats), why=fmt.why, example=fmt.example, app=ctx.app_name,
         description=" ".join(ctx.store_text.split())[:600], persona=f"{p.name}: {p.description}", angle=a.idea,

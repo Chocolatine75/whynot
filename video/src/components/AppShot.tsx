@@ -44,7 +44,7 @@ const Tiles: React.FC<{ src: string; cols: number; rows: number; w: number; h: n
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       const k = r * cols + c;
-      const delay = 6 + k * 5;
+      const delay = k * Math.max(2, Math.round(18 / (cols * rows)) + 2); // the whole call fills in under a second
       const s = spring({ frame: frame - delay, fps, config: { damping: 11, stiffness: 240, mass: 0.6 } });
       tiles.push(
         <div key={k} style={{ position: "absolute", left: c * tw, top: r * th, width: tw, height: th,
@@ -57,7 +57,13 @@ const Tiles: React.FC<{ src: string; cols: number; rows: number; w: number; h: n
       }
     }
   }
-  return <>{tiles}</>;
+  // the screen is never empty: the full interface sits dimmed underneath while its tiles pop in
+  return (
+    <>
+      <Img src={staticFile(src)} style={{ position: "absolute", width: w, height: h, opacity: 0.25 }} />
+      {tiles}
+    </>
+  );
 };
 
 export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = ({ shot, look, pop }) => {
