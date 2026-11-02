@@ -132,7 +132,8 @@ def test_a_whole_create_run_replays_identically_without_network(tmp_path):
     c.model = ModelClient(make_settings(tmp_path / "a"), CostLedger(tmp_path / "a" / "costs.jsonl"), meta=meta,
                           cassette=Cassette(cassettes, "record"))
     create(cfg, c, tmp_path / "a" / "run")
-    assert meta.requests and len(list(cassettes.glob("*.json"))) <= len(meta.requests)
+    # SAM calls are recorded too, and FakeMeta counts them apart from chat requests
+    assert meta.requests and len(list(cassettes.glob("*.json"))) <= len(meta.requests) + len(meta.segments)
 
     c2, _, _ = clients(tmp_path / "b", meta=FakeMeta(reply=lambda *a: pytest.fail("model called in replay")))
     c2.model = ModelClient(make_settings(tmp_path / "b"), CostLedger(tmp_path / "b" / "costs.jsonl"),

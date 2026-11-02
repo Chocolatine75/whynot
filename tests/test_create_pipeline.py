@@ -349,28 +349,41 @@ def test_a_name_biased_simulator_is_flagged_in_the_plan_and_report(tmp_path):
 # --- evolution -----------------------------------------------------------------------------
 
 def test_evolution_improves_the_ads_and_keeps_the_lineage(done):
-    """In the fair world viewers want 'family': the evolver adds it, and the children must win their round."""
+    """In the fair world viewers want 'family': the evolver adds it, and the children must win their tournament."""
     result, _, _, run = done
     evo = json.loads((run / "evolution.json").read_text())
     variants = {v["variant_id"]: v for v in json.loads((run / "variants.json").read_text())}
-    assert evo["groups"] and evo["usd"] > 0
+    assert evo["groups"] and evo["usd"] > 0 and evo["judge"] == "tournament" and evo["simulated"]
     improved = 0
     for g in evo["groups"]:
-        gens = [h for h in g["history"] if "scores" in h]
-        assert gens[0]["generation"] == 0 and len(gens) >= 2
-        for h in gens[1:]:
+        assert g["history"][0]["generation"] == 0 and "scores" in g["history"][0]  # gen 0 = the arena
+        gens = [h for h in g["history"] if h.get("judge") == "tournament"]
+        # (the fake evolver always proposes the same hooks: generation 2 has no new child and stops)
+        assert len(gens) >= 1 and all("scores" not in h for h in gens)  # the web app reads `scores` as arena lifts
+        for h in gens:
+            table = {s["ad_id"]: s for s in h["tournament"]["standings"]}
+            assert sum(s["placebo"] for s in table.values()) == 1  # one reference: a competitor ad under our name
+            assert g["anchor"] in table  # every generation is measured against the generation-0 champion
             for child in h["children"]:
                 v = variants[child]
+                assert child in table and v["parent_id"] in table  # children meet what they replace
                 assert v["generation"] == h["generation"] and v["parent_id"] in variants
                 assert v["guards_passed"] and (run / v["image"]).exists()
                 parent = variants[v["parent_id"]]
                 diff = [k for k in parent["genome"] if parent["genome"][k] != v["genome"][k]]
                 assert diff == [v["mutation"]["gene"]]  # exactly one element changed
+            for s in table.values():
+                assert s["ci"][0] <= s["strength"] <= s["ci"][1]
+            assert h["kept"][0] == max((k for k in table if not table[k]["placebo"]),
+                                       key=lambda k: table[k]["strength"])
+        assert [p["generation"] for p in g["progress"]] == [0] + [h["generation"] for h in gens]
+        assert g["noise_floor"]["used"] is not None and g["retest"]["generation"] == gens[-1]["generation"]
         champ = variants[g["champion"]]
-        if champ["generation"] > 0:
+        if g["result"]["verdict"] == "improved":
             improved += 1
-            assert "famil" in champ["texts"]["hook"].lower()
-    assert improved >= 1
+            assert champ["generation"] > 0 and "famil" in champ["texts"]["hook"].lower()
+            assert g["result"]["difference"] > g["result"]["noise_floor"]
+    assert improved >= 1 and evo["summary"]["improved"] == improved
     planned = {a.variant_id for a in result.choices}
     assert any(variants[k]["generation"] > 0 for k in planned)  # evolved ads reach the campaign
 
@@ -424,7 +437,8 @@ def test_generations_zero_skips_evolution(tmp_path):
 def test_report_shows_the_evolution_with_images(done):
     _, _, _, run = done
     report = (run / "report.md").read_text()
-    assert "## How the ads evolved (SIMULATED)" in report and "Lineage of the winning ad:" in report
+    assert "## How the ads evolved (SIMULATED)" in report and "Lineage of the strongest ad:" in report
+    assert "noise floor" in report and "95 % interval" in report
     assert "changed **hook**" in report
     for line in report.splitlines():
         if "![" in line:

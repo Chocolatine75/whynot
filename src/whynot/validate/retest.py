@@ -99,3 +99,22 @@ def retest(viewer: Viewer, personas: list[Persona], feeds: list[Feed], *, viewer
     again.draw = viewer.draw + 1  # ...but a fresh answer, never the cached first one
     second = run_simulation(again, personas, feeds, viewers_per_feed=viewers_per_feed)
     return compare(first.reactions, second.reactions, usd=first.usd + second.usd, **kwargs)
+
+
+IMPROVED, WORSE, WITHIN_NOISE, NOT_MEASURED = "improved", "worse", "within noise", "not measured"
+
+
+def verdict(difference: float | None, floor: float | None, *, retest_difference: float | None = None) -> str:
+    """What a simulated difference (new − old) may be called.
+
+    "improved" / "worse" only when it is beyond the noise floor AND, if the same comparison was retested, the
+    retest points the same way: the best of several children is picked on the first run, so its first-run gap is
+    flattered (winner's curse); the retest is an independent draw. Anything else is "within noise"; no floor or
+    no difference is "not measured", never a win."""
+    if difference is None or floor is None or not math.isfinite(floor):
+        return NOT_MEASURED
+    if abs(difference) <= floor:
+        return WITHIN_NOISE
+    if retest_difference is not None and (retest_difference > 0) != (difference > 0):
+        return WITHIN_NOISE
+    return IMPROVED if difference > 0 else WORSE

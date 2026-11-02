@@ -9,7 +9,8 @@ whose output exists is loaded, not recomputed or re-billed):
  4. creative  Creative director: one template per angle, checked copy
  5. produce   Composer: ad images per variant + every guard
  6. simulate  Viewer agents: each variant in fair feeds next to real competitor ads and placebos (SIMULATED)
- 7. evolve    Evolver: mutate the best ads to answer viewers' objections, re-test, keep the best (SIMULATED)
+ 7. evolve    Evolver: mutate the best ads to answer viewers' objections, judge each generation in a tournament
+              against its parents and the generation-0 champion, keep the strongest, noise floor (SIMULATED)
  8. plan      Campaign plan in Marketing API shape, validated; launch decisions via the autopilot
  9. report    report.md for the owner
 
@@ -19,6 +20,7 @@ by the autopilot under the owner's autonomy level, cap and approval.
 """
 
 import json
+import math
 import random
 import re
 import shutil
@@ -60,12 +62,15 @@ from whynot.run.campaign import (
     to_api,
     validate,
 )
-from whynot.sim.arena import brand_name, judge, our_item, paired_feeds, placebo_item
+from whynot.sim import tournament
+from whynot.sim.arena import brand_name, is_placebo, judge, our_item, paired_feeds, placebo_item
 from whynot.sim.feed import FeedItem
 from whynot.sim.personas import Persona as SimPersona
 from whynot.sim.relevance import hard_competitors
 from whynot.sim.scores import score_ads
 from whynot.sim.viewer import Viewer, run_simulation
+from whynot.validate import retest as retest_stats
+from whynot.validate.stats import kendall_tau
 
 STAGES = ("app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report")
 # who acts at each stage (the `agent` of its events) and the files it leaves (digested in its "ok" event)
@@ -98,6 +103,8 @@ class CreateConfig:
     generations: int = 2  # evolution rounds after the first simulation; 0 = no evolution
     evolve_parents: int = 2  # ads kept per audience each round (best of different concepts first)
     mutations_per_parent: int = 2
+    tournament_rounds: int = 2  # feeds per pair of candidates per generation (1 round: too little power, DECISIONS)
+    evolve_audiences: int | None = None  # evolve only the first N simulated audiences (cost); None = all
     strategy_model: str = WONDER
     director_model: str = SPARK
     policy: Policy = field(default_factory=Policy)
@@ -442,11 +449,10 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
                                        "groups": groups_out, "scores": verdicts})
 
 
-def pick_parents(rows: list[dict[str, Any]], scores: dict[str, dict[str, Any]], k: int) -> list[dict[str, Any]]:
-    """Best k scored rows, preferring different templates (concept diversity), ties broken by intent then id."""
-    ranked = sorted((r for r in rows if r["variant_id"] in scores),
-                    key=lambda r: (-scores[r["variant_id"]]["lift_over_placebo"], -scores[r["variant_id"]]["intent"],
-                                   r["variant_id"]))
+def pick_parents(rows: list[dict[str, Any]], rank: dict[str, tuple[float, ...]], k: int) -> list[dict[str, Any]]:
+    """Best k ranked rows (highest tuple first), preferring different templates (concept diversity), ties by id."""
+    ranked = sorted((r for r in rows if r["variant_id"] in rank),
+                    key=lambda r: (tuple(-x for x in rank[r["variant_id"]]), r["variant_id"]))
     chosen: list[dict[str, Any]] = []
     for r in ranked:
         if len(chosen) < k and r["template_id"] not in {c["template_id"] for c in chosen}:
@@ -457,14 +463,185 @@ def pick_parents(rows: list[dict[str, Any]], scores: dict[str, dict[str, Any]], 
     return chosen
 
 
+def lift_rank(scores: dict[str, dict[str, Any]]) -> dict[str, tuple[float, ...]]:
+    """Generation 0 (arena feeds): lift over placebo, then intent."""
+    return {k: (float(s["lift_over_placebo"]), float(s["intent"])) for k, s in scores.items()}
+
+
+def _num(x: float) -> float | None:
+    return round(x, 4) if math.isfinite(x) else None  # JSON has no infinity (a CI without bootstrap)
+
+
+def standings_json(played: tournament.Played) -> list[dict[str, Any]]:
+    assert played.result is not None
+    why = score_ads(played.reactions)
+    return [{"ad_id": s.ad_id, "strength": _num(s.strength), "ci": [_num(s.ci[0]), _num(s.ci[1])],
+             "games": s.games, "wins": s.wins, "placebo": is_placebo(s.ad_id),
+             "top_why_not": why[s.ad_id].top_why_not if s.ad_id in why else []}
+            for s in played.result.standings]
+
+
+def tournament_round(viewer: Viewer, persona: strategist.Persona, rows: list[dict[str, Any]],
+                     competitors: list[FeedItem], brand: str, cfg: CreateConfig, rng: random.Random, *,
+                     seed: int) -> tournament.Played:
+    """Our variants head-to-head (round robin) + one placebo as a reference point, next to real competitor ads."""
+    source = rng.choice(competitors)
+    candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in rows] + [placebo_item(source, brand)]
+    fillers = [c for c in competitors if c.ad_id != source.ad_id]
+    return tournament.play(viewer, viewer_personas(persona, max(cfg.viewers_per_feed, 2)), candidates, fillers,
+                           feed_size=cfg.feed_size, rounds=cfg.tournament_rounds,
+                           viewers_per_feed=cfg.viewers_per_feed, seed=seed)
+
+
+Children = Callable[[list[dict[str, Any]], int, dict[str, list[str]]],
+                    tuple[list[dict[str, Any]], list[dict[str, Any]]]]
+
+
+def evolve_group(rows: list[dict[str, Any]], gen0: dict[str, dict[str, Any]], *, generations: int, keep: int,
+                 make_children: Children, judge: Callable[[list[dict[str, Any]], int], tournament.Played],
+                 replay: Callable[[tournament.Played], tournament.Played]) -> dict[str, Any]:
+    """One audience's evolution, judged by tournaments (E3-2, E6-1). All numbers SIMULATED.
+
+    - generation 0 is the arena simulation (lift over placebo) and picks the first parents;
+    - each generation g ≥ 1: children of the parents → one tournament of parents + children + the generation-0
+      champion (the anchor: every generation is measured against the same ad, in the same feeds) + a placebo →
+      the `keep` strongest by Bradley-Terry strength (different concepts first) become the next parents;
+    - the anchor is the strongest generation-0 ad of the first tournament;
+    - the last tournament is played again with a fresh draw (`replay`): its gap is the noise floor (E3-3).
+    `make_children(parents, generation, why_not)` → (children that passed the guards, refused proposals);
+    `judge(pool, generation)` → the played tournament. Verdicts are added by `add_verdicts` (needs every floor).
+    """
+    parents = pick_parents(rows, lift_rank(gen0), keep)
+    why_not = {k: list(s.get("top_why_not", [])) for k, s in gen0.items()}
+    history: list[dict[str, Any]] = [{"generation": 0, "judge": "arena", "scores": gen0,
+                                      "kept": [r["variant_id"] for r in parents]}]
+    by_id = {r["variant_id"]: r for r in rows}
+    anchor: str | None = None
+    last: tournament.Played | None = None
+    for gen in range(1, generations + 1):
+        children, refused = make_children(parents, gen, why_not)
+        if not children:
+            history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
+            break
+        by_id.update((c["variant_id"], c) for c in children)
+        pool = parents + children
+        if anchor and anchor not in {r["variant_id"] for r in pool}:
+            pool.append(by_id[anchor])
+        played = judge(pool, gen)
+        if played.result is None:
+            history.append({"generation": gen, "stopped": "not judged: no head-to-head game (viewers failed)",
+                            "refused": refused, "failures": len(played.failures)})
+            break
+        strength = {s.ad_id: s.strength for s in played.result.standings}
+        if anchor is None:
+            anchor = max((r["variant_id"] for r in pool if r.get("generation", 0) == 0),
+                         key=lambda k: (strength[k], k))
+        table = standings_json(played)
+        why_not.update((s["ad_id"], s["top_why_not"]) for s in table)
+        parents = pick_parents(pool, {k: (v,) for k, v in strength.items() if not is_placebo(k)}, keep)
+        best = max(children, key=lambda c: (strength[c["variant_id"]], c["variant_id"]))
+        champion = parents[0]["variant_id"]
+        history.append({
+            "generation": gen, "judge": "tournament", "refused": refused,
+            "children": [c["variant_id"] for c in children], "kept": [r["variant_id"] for r in parents],
+            "tournament": {"standings": table, "views": played.result.views, "feeds": len(played.feeds),
+                           "failures": len(played.failures), "usd": round(played.usd, 4), "simulated": True},
+            "best_child": {"id": best["variant_id"], "parent": best["parent_id"],
+                           "difference": _num(strength[best["variant_id"]] - strength[best["parent_id"]])},
+            "vs_gen0": {"best": champion, "anchor": anchor, "difference": _num(strength[champion] - strength[anchor])}})
+        last = played
+    group: dict[str, Any] = {"history": history, "anchor": anchor, "simulated": True}
+    judged = [h for h in history if h.get("judge") == "tournament"]
+    if not judged or last is None:
+        group.update(final={}, champion=parents[0]["variant_id"] if parents else None, retest=None)
+        return group
+    group.update(final={s["ad_id"]: s for s in judged[-1]["tournament"]["standings"]},
+                 champion=judged[-1]["kept"][0] if judged[-1]["kept"] else None)
+    again = replay(last)
+    retest: dict[str, Any] = {"generation": judged[-1]["generation"], "usd": round(again.usd, 4),
+                              "failures": len(again.failures), "floor": None, "strengths": {}}
+    if again.result is not None:
+        first = {s.ad_id: s.strength for s in last.result.standings} if last.result else {}
+        second = {s.ad_id: s.strength for s in again.result.standings}
+        retest["strengths"] = {k: _num(v) for k, v in second.items()}
+        common = sorted(set(first) & set(second))
+        if len(common) >= 2:
+            retest["floor"] = _num(retest_stats.noise_floor(first, second))
+            try:
+                retest["rank_agreement"] = _num(kendall_tau([first[k] for k in common], [second[k] for k in common]))
+            except ValueError:
+                retest["rank_agreement"] = None
+    group["retest"] = retest
+    return group
+
+
+def pooled_floor(groups: list[dict[str, Any]]) -> float | None:
+    """The noise floor from every audience's retest together (more ads, a steadier SD than one audience's 6-8)."""
+    first: dict[str, float] = {}
+    second: dict[str, float] = {}
+    for i, g in enumerate(groups):
+        r = g.get("retest") or {}
+        last = next((h for h in reversed(g["history"]) if h.get("generation") == r.get("generation")
+                     and "tournament" in h), None)
+        if not last or not r.get("strengths"):
+            continue
+        for s in last["tournament"]["standings"]:
+            if s["ad_id"] in r["strengths"] and s["strength"] is not None and r["strengths"][s["ad_id"]] is not None:
+                first[f"{i}:{s['ad_id']}"] = s["strength"]
+                second[f"{i}:{s['ad_id']}"] = r["strengths"][s["ad_id"]]
+    return _num(retest_stats.noise_floor(first, second)) if len(first) >= 2 else None
+
+
+def add_verdicts(group: dict[str, Any], pooled: float | None) -> None:
+    """Label every simulated difference: improved / worse beyond the noise floor, else within noise (E3-3).
+
+    The floor used is the larger of the audience's own and the pooled one (conservative: a gap must clear both)."""
+    own = (group.get("retest") or {}).get("floor")
+    floors = [f for f in (own, pooled) if f is not None]
+    floor = max(floors) if floors else None
+    retest = (group.get("retest") or {}).get("strengths", {})
+    last_gen = (group.get("retest") or {}).get("generation")
+    group["noise_floor"] = {"used": floor, "audience": own, "pooled": pooled, "simulated": True}
+    progress: list[dict[str, Any]] = []
+    for h in group["history"]:
+        if h.get("judge") != "tournament":
+            continue
+        table = {s["ad_id"]: s for s in h["tournament"]["standings"]}
+
+        def again(new: str, old: str, gen: int = h["generation"]) -> float | None:
+            if gen != last_gen or retest.get(new) is None or retest.get(old) is None:
+                return None
+            return retest[new] - retest[old]
+
+        bc = h["best_child"]
+        bc["retest_difference"] = _num(d) if (d := again(bc["id"], bc["parent"])) is not None else None
+        bc["verdict"] = retest_stats.verdict(bc["difference"], floor, retest_difference=bc["retest_difference"])
+        v = h["vs_gen0"]
+        v["retest_difference"] = _num(d) if (d := again(v["best"], v["anchor"])) is not None else None
+        v["verdict"] = retest_stats.verdict(v["difference"], floor, retest_difference=v["retest_difference"])
+        if not progress:  # generation 0 = the anchor, measured in the first tournament
+            a = table[v["anchor"]]
+            progress.append({"generation": 0, "best": v["anchor"], "strength": a["strength"], "ci": a["ci"],
+                             "vs_gen0": 0.0})
+        b = table[v["best"]]
+        progress.append({"generation": h["generation"], "best": v["best"], "strength": b["strength"], "ci": b["ci"],
+                         "vs_gen0": v["difference"], "verdict": v["verdict"],
+                         "placebo": next((s["strength"] for s in table.values() if s["placebo"]), None)})
+    group["progress"] = progress
+    if progress:
+        final = next(h for h in reversed(group["history"]) if h.get("judge") == "tournament")
+        group["result"] = {"generation": final["generation"], "gen0": final["vs_gen0"]["anchor"],
+                           "best": final["vs_gen0"]["best"], "difference": final["vs_gen0"]["difference"],
+                           "retest_difference": final["vs_gen0"]["retest_difference"], "noise_floor": floor,
+                           "verdict": final["vs_gen0"]["verdict"], "simulated": True}
+
+
 def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strategy: Strategy,
                  ads: list[CompetitorAd], market: dict[str, Any], brand_info: dict[str, Any]) -> None:
-    """Generations per audience: parents → mutations answering their objections → fair re-test → keep the best.
+    """Generations per audience: parents → mutations answering their objections → tournament → keep the strongest.
 
     Children and the options they add to templates are written back (templates/, variants.json); the original
     templates are kept in templates_gen0/ so a redo starts from the same place."""
-    import shutil
-
     gen0, live = run.path("templates_gen0"), run.path("templates")
     if gen0.exists():  # a redo: restore the templates as the creative stage left them
         shutil.rmtree(live)
@@ -473,7 +650,8 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
         shutil.copytree(live, gen0)
     variants = [v for v in run.read_json("variants.json") if v.get("generation", 0) == 0]
     sim = run.read_json("simulation.json")
-    out: dict[str, Any] = {"generations": cfg.generations, "groups": [], "usd": 0.0}
+    out: dict[str, Any] = {"generations": cfg.generations, "judge": "tournament", "groups": [], "usd": 0.0,
+                           "simulated": True}
     if cfg.generations <= 0 or not sim.get("simulated"):
         out["skipped"] = "no evolution requested" if cfg.generations <= 0 else "nothing was simulated"
         run.write_json("variants.json", variants)
@@ -486,8 +664,9 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
     rng = random.Random(cfg.seed + 7)
     groups = languages(cfg)
     spent_before = c.model.spent_usd
+    audiences = [x for x in sim["groups"] if "error" not in x][:cfg.evolve_audiences]
 
-    for gi, g in enumerate(x for x in sim["groups"] if "error" not in x):
+    for gi, g in enumerate(audiences):
         code = g["language"]
         rivals, _ = feed_competitors(ads, code, app, cfg)  # the same hard feeds as generation 0
         p_all = strategy.persona(g["persona"])
@@ -496,17 +675,14 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
                       tuple(brand_info["palette"]), brand_info["screenshots"][0], LANGUAGES[code])
         rows = [v for v in variants if v.get("guards_passed") and v["persona"] == p.id and v["language"] == code]
         scores = {k: s for k, s in sim["scores"].items() if k in {r["variant_id"] for r in rows}}
-        parents = pick_parents(rows, scores, cfg.evolve_parents)
-        history: list[dict[str, Any]] = [{"generation": 0, "scores": scores, "info": {k: g[k] for k in g
-                                          if k not in ("persona", "language")},
-                                          "kept": [r["variant_id"] for r in parents]}]
-        for gen in range(1, cfg.generations + 1):
+
+        def make_children(parents: list[dict[str, Any]], gen: int, why_not: dict[str, list[str]],
+                          ctx: Context = ctx) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
             children, refused = [], []
             for par in parents:
                 t = registry[par["template_id"]]
-                s = scores[par["variant_id"]]
-                parent = evolver.Parent(par["variant_id"], t, par["genome"], s["lift_over_placebo"], s["intent"],
-                                        tuple(s.get("top_why_not", [])))
+                parent = evolver.Parent(par["variant_id"], t, par["genome"], 0.0, 0.0,
+                                        tuple(why_not.get(par["variant_id"], [])))
                 try:
                     answer = evolver.propose(c.model, ctx, parent, n=cfg.mutations_per_parent)
                 except AgentError as exc:  # evolution improves ads; one refusal must not stop the run
@@ -521,23 +697,27 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
                     variants.append(row)
                     if row.get("guards_passed"):
                         children.append(row)
-            if not children:
-                history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
-                break
-            pool = parents + children
-            r = arena_round(viewer, p, pool, rivals, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
-            if not r.verdicts:
-                history.append({"generation": gen, "stopped": r.info.get("error", "not judged"), "refused": refused})
-                break
-            scores = r.verdicts
-            parents = pick_parents(pool, scores, cfg.evolve_parents)
-            history.append({"generation": gen, "scores": scores, "info": r.info, "refused": refused,
-                            "children": [ch["variant_id"] for ch in children],
-                            "kept": [x["variant_id"] for x in parents]})
-        final = next(h for h in reversed(history) if "scores" in h)
-        out["groups"].append({"persona": p.id, "language": code, "history": history,
-                              "final": final["scores"], "champion": final["kept"][0] if final["kept"] else None})
+            return children, refused
 
+        def judge(pool: list[dict[str, Any]], gen: int, p: strategist.Persona = p, rivals: list[FeedItem] = rivals,
+                  gi: int = gi) -> tournament.Played:
+            return tournament_round(viewer, p, pool, rivals, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
+
+        group = evolve_group(rows, scores, generations=cfg.generations, keep=cfg.evolve_parents,
+                             make_children=make_children, judge=judge,
+                             replay=lambda played: tournament.replay(viewer, played))
+        group["history"][0]["info"] = {k: g[k] for k in g if k not in ("persona", "language")}
+        out["groups"].append({"persona": p.id, "language": code, **group})
+
+    pooled = pooled_floor(out["groups"])
+    for group in out["groups"]:
+        add_verdicts(group, pooled)
+    verdicts = [g["result"]["verdict"] for g in out["groups"] if "result" in g]
+    out["noise_floor_pooled"] = pooled
+    out["summary"] = {"audiences": len(out["groups"]), "judged": len(verdicts),
+                      **{v: verdicts.count(v) for v in (retest_stats.IMPROVED, retest_stats.WITHIN_NOISE,
+                                                         retest_stats.WORSE, retest_stats.NOT_MEASURED)},
+                      "simulated": True}
     for t in registry.values():
         (live / f"{t.id}.yaml").write_text(yaml.safe_dump(t.to_dict(), sort_keys=False, allow_unicode=True),
                                            encoding="utf-8")
@@ -547,17 +727,19 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
 
 
 def final_scores(sim: dict[str, Any], evolution: dict[str, Any] | None) -> dict[str, float]:
-    """Ranking signal per variant for the plan.
+    """Ranking signal per variant for the plan (within an audience; scales are not comparable across simulations).
 
-    Scores from different simulations are not on the same scale, so: the final evolution round of each audience
-    ranks first (10 + lift over placebo); every other variant keeps its latest score (1 + lift over placebo)."""
+    Latest evidence first: the final tournament of each audience (100 + strength), then earlier tournaments
+    (10 × generation + strength), then the generation-0 arena (1 + lift over placebo)."""
     out = {k: 1.0 + float(s["lift_over_placebo"]) for k, s in sim.get("scores", {}).items()}
     for g in (evolution or {}).get("groups", []):
         for h in g["history"]:
-            for k, s in h.get("scores", {}).items():
-                out[k] = 1.0 + float(s["lift_over_placebo"])
-        for k, s in g["final"].items():
-            out[k] = 10.0 + float(s["lift_over_placebo"])
+            for s in h.get("tournament", {}).get("standings", []):
+                if not s["placebo"] and s["strength"] is not None:
+                    out[s["ad_id"]] = 10.0 * h["generation"] + max(-4.9, min(4.9, s["strength"]))
+        for k, s in g.get("final", {}).items():
+            if not s.get("placebo") and s.get("strength") is not None:
+                out[k] = 100.0 + max(-4.9, min(4.9, s["strength"]))
     return out
 
 
