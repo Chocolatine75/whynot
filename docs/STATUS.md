@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-11-02
+Last updated: 2026-11-01
 
 ## Where we are
 
@@ -27,29 +27,26 @@ Works today (`master`, 723 Python + 65 web tests):
 
 | Who | Task | Branch / files | Notes |
 |---|---|---|---|
-| Tom + Claude | The whole site in one piece; retouching the video outputs | `web/`, video | don't push corrections over Tom's video work |
-| Matteo + Claude | Meta automation: connect once (60-day login renewed alone), objective chosen alone, daily run, JSON for the site | `b/meta-auto` (pushed, not merged) | tested for real, PAUSED; contract in **`docs/META_AUTOMATION.md`** |
+| Matteo + Claude | Meta automation: connect once (60-day login renewed alone), objective chosen alone, daily run, JSON outputs | `b/meta-auto` (pushed, not merged) | tested for real, PAUSED; commands and JSON in `docs/META_AUTOMATION.md` |
 
 ## Next up
 
-1. **Site ↔ engine (Tom):** wire the platform to the commands in `docs/META_AUTOMATION.md`: Connect Meta (Facebook
-   Login → pipe the token to `whynot connect --token-stdin --json`), start a run (`whynot agency … --json`, spawned
-   detached), the run page (`whynot status RUN --json`), "run every day" (`whynot schedule RUN --at HH:MM --json`),
-   the stop button (exists). Merge `b/meta-auto` first.
-2. **Real results (Matteo, needs an OK to spend ~€5):** activate one ad set for a day under a €5 cap → the daily loop
-   reads real Meta numbers, decides, reports → `whynot stop`. Without it, every result shown is simulated.
-3. The real-account sandbox rehearsal is no longer needed: Matteo's account works in `--paused` mode.
-4. README, demo video, `TARGETS.md` review (Nov 3–4). Demo product: Meta's own apps (WhatsApp, Muse), labelled
-   "concept ad made by whynot, not an official Meta ad".
+1. **Sandbox rehearsal** (Tom): set `META_SANDBOX_AD_ACCOUNT_ID`, `META_SANDBOX_TOKEN`, `META_PAGE_ID`, then on the
+   Nov 1 run: `whynot publish` → `whynot predict` → `whynot stop` (button too). Never run against a real account yet.
+2. **Monday (partner):** consent, data, R1, predictions frozen + posted, publish PAUSED, activate on his OK
+   (`docs/PILOT.md`).
+3. Gen-0 scores still reach the ceiling (max lift over placebo 4.0 in hard feeds): judge the evolution with the
+   tournament (`sim/tournament.py`, E3-2/E6-1) instead of lift.
+4. README, demo video, `TARGETS.md` review (Nov 3–4).
+5. (Matteo + Claude) Meta automation: merge `b/meta-auto`; real results need ads ACTIVE for a day under a small cap (owner's OK to spend). Commands and JSON: `docs/META_AUTOMATION.md`.
 
 ## Blockers / open questions
 
-- Real results need ads ACTIVE (spend): owner's decision.
-- The site's Facebook Login must ask `ads_management, ads_read, pages_show_list, pages_read_engagement,
-  pages_manage_ads` on app ad-research-hackathon (1689171966196247).
-- Two PAUSED test campaigns on Matteo's account (Nov 1: blocked ads; Nov 2: clean); delete when no longer needed.
+- Sandbox ids and a Facebook Page for publishing (Tom's `.env`).
+- Partner: written consent, cap, autonomy level, naming in the demo (yes/no), data format.
 - Baseten rate limits drop ~15 % of viewer calls on big batches (not billed; a rerun fills them from the cache).
 - Finals top 5 or top 10? Ask on Discord.
+- (Matteo) Two PAUSED test campaigns on Matteo's ad account (Nov 1: blocked ads; Nov 2: clean); delete when no longer needed.
 
 ## Session log
 
@@ -57,7 +54,7 @@ Newest first. One entry per working session: date, who, what changed, what's nex
 
 - 2026-11-02 (2) — Matteo + Claude — **Meta automation tested for real** (`b/meta-auto`, PAUSED, nothing spent): the developer app is `ad-research-hackathon` (1689171966196247); `whynot connect` exchanged the login with the app secret (valid to Dec 31) and a real renewal call passed. Agency run on Matteo's account (`outputs/runs/20261102-meta-auto-test`, $0.15): objective chosen alone = traffic to https://www.vietbuddy.app/ (app not registered with Meta); campaign 120254672319090204 (2 ad sets, 6 ads) + the daily video ad uploaded and published, all PAUSED; read back from Meta: **no issue** (static ads PENDING_REVIEW, video IN_PROCESS) — the error-1487810 block is gone. Not done: real results (needs ads ACTIVE, i.e. spend), the scheduled run not installed on the Mac yet. The Nov 1 test campaign 120254651224490204 (blocked ads) is still PAUSED on the account.
 
-- 2026-11-02 — Matteo + Claude — **Meta, automatically** (branch `b/meta-auto`, not pushed): the login becomes a 60-day token (`whynot connect` exchanges it with whynot's developer app: `WHYNOT_META_APP_ID` / `WHYNOT_META_APP_SECRET`) and every agency run renews it when < 10 days are left; an expired login stops the run before any spend. The campaign objective is chosen alone (`--objective auto`): app installs when the app is registered with Meta (app id in the connection), else traffic to the app's website (`--landing-url`), so Meta never blocks the ads (error 1487810); refused at the connect step, before paying for research. `whynot schedule RUN --at 08:00` installs a LaunchAgent (crontab line elsewhere) that runs the day by itself; `whynot status RUN --json`, `whynot connect --json`, `whynot agency --json` for the site. 868 tests. Real check: yesterday's Explorer token already expired (Meta error 190) → the 60-day exchange needs the app secret in `.env`. **Tom:** the site's Connect Meta can pipe the login to `whynot connect --token-stdin --json`; a "run every day" button can call `whynot schedule RUN --at HH:MM --json`; the run page can read `whynot status RUN --json`.
+- 2026-11-02 — Matteo + Claude — **Meta, automatically** (branch `b/meta-auto`, not pushed): the login becomes a 60-day token (`whynot connect` exchanges it with whynot's developer app: `WHYNOT_META_APP_ID` / `WHYNOT_META_APP_SECRET`) and every agency run renews it when < 10 days are left; an expired login stops the run before any spend. The campaign objective is chosen alone (`--objective auto`): app installs when the app is registered with Meta (app id in the connection), else traffic to the app's website (`--landing-url`), so Meta never blocks the ads (error 1487810); refused at the connect step, before paying for research. `whynot schedule RUN --at 08:00` installs a LaunchAgent (crontab line elsewhere) that runs the day by itself; `whynot status RUN --json`, `whynot connect --json`, `whynot agency --json` for the site. 868 tests. Real check: yesterday's Explorer token already expired (Meta error 190) → the 60-day exchange needs the app secret in `.env`. Available to a front end: `whynot connect --token-stdin --json`, `whynot schedule RUN --at HH:MM --json`, `whynot status RUN --json` (see `docs/META_AUTOMATION.md`).
 
 - 2026-11-02 — Tom + Claude — Test on WhatsApp (`outputs/runs/20261101-222732-id310633997`, $0.48): statics now show the bare screen SAM cuts out of each store poster, and Muse Spark picks the screen per concept (call ad → call screen, privacy → chat with the encryption banner). Fixed: `--redo-from creative` was undone by `evolve` restoring the previous `templates_gen0/`; SAM answers now recorded/replayed in cassettes. Found: messaging apps have no competitor ads in the EU/UK Ad Library → no simulation for them (market fallback to build). Branch `b/static-screens`.
 - 2026-11-02 (night) — Tom + Claude — Video ads iterated on WhatsApp after Tom's frame-by-frame review (`b/video-story`, on top of the storyboard work): motion design on the real app (`video/src/components/AppShot.tsx`: phone on the brand background, rows / call tiles found in the pixels / zoom / scroll; one phone for a run of app shots), one text layer, captions in the safe zone and never across a cut, caption loop fixed, -14 LUFS + final-mix transcription QA, narrator one feature + spoken CTA, hook with energy, viewer critic (tone, clarity, hook), `--tone humor|factual|emotional`, short brand name, no sticker as mascot, ElevenLabs retried on 429. Latest videos: trend-14 (humor), trend-15 (factual), trend-16 (emotional) in the WhatsApp run (local, not in git). Open: warm 'AI' photo look, emotional narrator still says two facts, weak review quote. Next: Tom's feedback on the three tones. `b/static-screens` (statics) is a separate PR.

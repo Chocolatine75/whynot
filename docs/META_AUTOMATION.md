@@ -2,7 +2,7 @@
 
 For agents and humans wiring the engine into the platform (`web/`). Engine side: `src/whynot/run/connect.py`,
 `src/whynot/agency/orchestrator.py`, `src/whynot/run/schedule.py`, `src/whynot/cli.py`. Tested for real on Nov 2
-(see the last section). Owner: Matteo + Claude; the site (Tom) only calls these commands and reads their JSON.
+(see the last section). Built by Matteo + Claude. A front end can call these commands and read their JSON.
 
 ## The flow in four commands
 
