@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 
 ## Where we are
 
@@ -27,22 +27,27 @@ Works today (`master`, 723 Python + 65 web tests):
 
 | Who | Task | Branch / files | Notes |
 |---|---|---|---|
-| Matteo + Claude | E0-7 event log + E4-5 orchestrator (`whynot connect`, `whynot agency`); honest trend videos, no repeated copy | `b/E4-5-orchestrator` (PR #12) | done, CI green; next: tournament + noise floor in evolution (E3-2/E3-3/E6-1) |
+| Tom + Claude | The whole site in one piece; retouching the video outputs | `web/`, video | don't push corrections over Tom's video work |
+| Matteo + Claude | Meta automation: connect once (60-day login renewed alone), objective chosen alone, daily run, JSON for the site | `b/meta-auto` (pushed, not merged) | tested for real, PAUSED; contract in **`docs/META_AUTOMATION.md`** |
 
 ## Next up
 
-1. **Sandbox rehearsal** (Tom): set `META_SANDBOX_AD_ACCOUNT_ID`, `META_SANDBOX_TOKEN`, `META_PAGE_ID`, then on the
-   Nov 1 run: `whynot publish` → `whynot predict` → `whynot stop` (button too). Never run against a real account yet.
-2. **Monday (partner):** consent, data, R1, predictions frozen + posted, publish PAUSED, activate on his OK
-   (`docs/PILOT.md`).
-3. Gen-0 scores still reach the ceiling (max lift over placebo 4.0 in hard feeds): judge the evolution with the
-   tournament (`sim/tournament.py`, E3-2/E6-1) instead of lift.
-4. README, demo video, `TARGETS.md` review (Nov 3–4).
+1. **Site ↔ engine (Tom):** wire the platform to the commands in `docs/META_AUTOMATION.md`: Connect Meta (Facebook
+   Login → pipe the token to `whynot connect --token-stdin --json`), start a run (`whynot agency … --json`, spawned
+   detached), the run page (`whynot status RUN --json`), "run every day" (`whynot schedule RUN --at HH:MM --json`),
+   the stop button (exists). Merge `b/meta-auto` first.
+2. **Real results (Matteo, needs an OK to spend ~€5):** activate one ad set for a day under a €5 cap → the daily loop
+   reads real Meta numbers, decides, reports → `whynot stop`. Without it, every result shown is simulated.
+3. The real-account sandbox rehearsal is no longer needed: Matteo's account works in `--paused` mode.
+4. README, demo video, `TARGETS.md` review (Nov 3–4). Demo product: Meta's own apps (WhatsApp, Muse), labelled
+   "concept ad made by whynot, not an official Meta ad".
 
 ## Blockers / open questions
 
-- Sandbox ids and a Facebook Page for publishing (Tom's `.env`).
-- Partner: written consent, cap, autonomy level, naming in the demo (yes/no), data format.
+- Real results need ads ACTIVE (spend): owner's decision.
+- The site's Facebook Login must ask `ads_management, ads_read, pages_show_list, pages_read_engagement,
+  pages_manage_ads` on app ad-research-hackathon (1689171966196247).
+- Two PAUSED test campaigns on Matteo's account (Nov 1: blocked ads; Nov 2: clean); delete when no longer needed.
 - Baseten rate limits drop ~15 % of viewer calls on big batches (not billed; a rerun fills them from the cache).
 - Finals top 5 or top 10? Ask on Discord.
 
