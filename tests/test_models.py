@@ -108,6 +108,9 @@ def test_image_edit_takes_references_and_is_billed_like_an_image(tmp_path):
     client = ModelClient(make_settings(tmp_path), meta=fake)
     result = client.edit_image("the same woman laughing", [b"png1"], module="scenes", size="1024x1536")
     assert result.images_b64 == ["aGk="] and result.cost.usd == pytest.approx(0.01)
-    assert seen["model"] == "muse-image-1.0" and seen["image"][0][1] == b"png1" and "mask" not in seen
+    # one `image` field (a list would go out as `image[]`, which Meta refuses with a 400)
+    assert seen["model"] == "muse-image-1.0" and seen["image"][1] == b"png1" and "mask" not in seen
     with pytest.raises(ValueError):
         client.edit_image("x", [], module="scenes")
+    with pytest.raises(ValueError):
+        client.edit_image("x", [b"a", b"b"], module="scenes")
