@@ -3,9 +3,10 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MarketAd, PlanAd, Progress, RunView, Score, StageState, Variant } from "@/lib/runs";
 import AppIcon from "@/components/AppIcon";
+import { ExplodedFeed, GenerationStack, MarketDeck } from "@/components/Scenes";
 import AgencyPanel from "@/components/AgencyPanel";
 import PublishPanel from "@/components/PublishPanel";
-import { Alert, ArrowRight } from "@/components/Icons";
+import { Alert } from "@/components/Icons";
 import { STATUS_TAG, ago, eur, fileUrl, joinPhrases, usd } from "@/lib/format";
 
 const CTA_LABEL: Record<string, string> = {
@@ -97,7 +98,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
           ))}
         </nav>
         <div className="side-foot">
-          {canApprove && <a href="#launch" className="btn magnetic">Review &amp; approve</a>}
+          {canApprove && <a href="#launch" className="btn">Review &amp; approve</a>}
           <div className="meter"><span>AI cost (USD)</span><strong>{usd(run.spentUsd)}</strong></div>
           <div className="meter"><span>Ad budget cap</span><strong>{eur(run.config?.daily_cap_eur ?? 0)}/day</strong></div>
         </div>
@@ -150,7 +151,7 @@ function useScrollSpy(ids: string[]) {
 
 function Head({ eyebrow, title, text, aside }: { eyebrow: string; title: string; text?: React.ReactNode; aside?: React.ReactNode }) {
   return (
-    <div className="sec-head reveal">
+    <div className="sec-head">
       <div>
         <span className="eyebrow">{eyebrow}</span>
         <h2>{title}</h2>
@@ -214,7 +215,7 @@ function Overview({ run, name, canApprove, stage, untested }: Ctx & { name: stri
             </div>
           </div>
         </div>
-        {canApprove && <a href="#launch" className="btn lg hide-sm magnetic">Review &amp; approve</a>}
+        {canApprove && <a href="#launch" className="btn lg hide-sm">Review &amp; approve</a>}
       </div>
 
       <div className="stack" style={{ marginTop: 24, gap: 20 }}>
@@ -231,7 +232,7 @@ function Overview({ run, name, canApprove, stage, untested }: Ctx & { name: stri
 
         {running && <LiveLog run={run} />}
 
-        <div className="stats reveal">
+        <div className="stats">
           {stats.map(([l, v, d]) => (
             <div key={l} className="stat"><div className="label">{l}</div><div className="v">{v}</div><div className="d">{d}</div></div>
           ))}
@@ -298,7 +299,7 @@ function LiveLog({ run }: { run: RunView }) {
 
 function Post({ run, brand, ad, variant, score, best }: { run: RunView; brand: string; ad: PlanAd; variant?: Variant; score?: Score; best?: boolean }) {
   return (
-    <article className="post spot tilt" data-tilt="5">
+    <article className="post">
       <div className="post-head">
         <AppIcon run={run.id} icon={run.icon} name={brand} size="sm" />
         <div><div className="n">{brand}</div><div className="s">Sponsored</div></div>
@@ -336,7 +337,7 @@ function Best({ run, scores, variants, personas, brand }: Ctx) {
             text="One winner per customer."
             aside={Object.keys(scores).length ? <span className="tag sim">Simulated</span> : undefined} />
       {best.length === 0 ? <Waiting what="The creative director is writing concepts…" /> : (
-        <div className="posts reveal">
+        <div className="posts">
           {best.map(({ set, ad }) => (
             <div key={ad.variant_id} className="stack" style={{ gap: 8 }}>
               <span className="small"><strong>{personas.get(set.audience.persona.split(".")[0]) ?? set.audience.name}</strong> <span className="faint">· {eur(set.daily_budget_eur)}/day</span></span>
@@ -365,7 +366,7 @@ function AllAds({ run, brand, variants, scores }: Ctx) {
             </div>
           )}
           <p className="small muted">{set.audience.countries.join(", ")} · ages {set.audience.age_min}–{set.audience.age_max} · {eur(set.daily_budget_eur)}/day</p>
-          <div className="posts reveal">
+          <div className="posts">
             {set.ads.map((ad) => <Post key={ad.variant_id} run={run} brand={brand} ad={ad} variant={variants.get(ad.variant_id)} score={scores[ad.variant_id]} />)}
           </div>
         </div>
@@ -383,10 +384,10 @@ function Videos({ run, personas }: Ctx) {
     <section id="videos" className="sec">
       <Head eyebrow="Video ads · Muse Image, SAM 3.1, Voice Transcribe" title="Short videos on what's trending"
             text="Checked by ear before they ship." />
-      <div className="reels reveal">
+      <div className="reels">
         {shown.map((v) => (
           <article key={v.path} className="reel">
-            <div className="phone tilt" data-tilt="10">
+            <div className="phone">
               <video src={fileUrl(run.id, v.path)} poster={v.poster ? fileUrl(run.id, v.poster) : undefined} controls playsInline preload="none" />
             </div>
             <div className="row" style={{ gap: 6 }}>
@@ -409,41 +410,6 @@ function Videos({ run, personas }: Ctx) {
 }
 
 // ---------- simulated test ----------
-
-/** A phone showing the simulated feed: real competitor ads, ours in the middle, a viewer agent's reaction on it. */
-function FeedPhone({ run, brand, ad, score, competitors }: { run: RunView; brand: string; ad: PlanAd; score?: Score; competitors: MarketAd[] }) {
-  const Comp = ({ a }: { a: MarketAd }) => (
-    <div className="fp-post">
-      <div className="fp-head"><span className="avatar sm">{initials(a.pageName)}</span><div><b>{a.pageName}</b><i>Sponsored · real ad, {a.days ?? "?"} days</i></div></div>
-      <p>{a.body}</p>
-      {a.title && <div className="fp-title">{a.title}</div>}
-    </div>
-  );
-  return (
-    <div className="feed-phone tilt" data-tilt="6" aria-label="Simulated feed">
-      <div className="fp-bar"><span>Feed</span><span className="tag sim">Simulated</span></div>
-      <div className="fp-scroll">
-        {competitors[0] && <Comp a={competitors[0]} />}
-        <div className="fp-post ours">
-          <div className="fp-head"><AppIcon run={run.id} icon={run.icon} name={brand} size="sm" /><div><b>{brand}</b><i>Sponsored · our ad</i></div></div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={fileUrl(run.id, ad.image_path)} alt={ad.headline_on_image} />
-          {score && (
-            <div className="reaction">
-              <span className="avatar sm viewer">VA</span>
-              <div>
-                <b>Viewer agent</b>
-                <p>{score.top_why_not[0] ? `Why not: “${score.top_why_not[0]}”` : "Picked this one."}</p>
-                <i>picked {times(score.lift)} chance · would install {score.intent.toFixed(1)}/5</i>
-              </div>
-            </div>
-          )}
-        </div>
-        {competitors[1] && <Comp a={competitors[1]} />}
-      </div>
-    </div>
-  );
-}
 
 function Test({ run, variants, scores, personas, brand, untested }: Ctx) {
   const sim = run.simulation;
@@ -471,8 +437,8 @@ function Test({ run, variants, scores, personas, brand, untested }: Ctx) {
               {groups.map((x, i) => <button key={x.persona + x.language} aria-pressed={i === pick} onClick={() => setPick(i)}>{personas.get(x.persona) ?? x.persona}{multiLang ? ` · ${x.language}` : ""}</button>)}
             </div>
           )}
-          <div className="test-grid reveal">
-            {best && <FeedPhone run={run} brand={brand} ad={best.ad} score={scores[best.ad.variant_id]} competitors={competitors} />}
+          <div className="test-grid">
+            {best && <ExplodedFeed run={run.id} icon={run.icon} brand={brand} ad={best.ad} score={scores[best.ad.variant_id]} competitors={competitors} />}
             <div className="stack" style={{ gap: 16, minWidth: 0 }}>
               <div className="card flush scroll-x">
                 <table className="board">
@@ -571,14 +537,14 @@ function Evolution({ run, variants, scores, personas, untested }: Ctx) {
             const changes = chain.slice(1).filter((v) => v.mutation);
             const verdict = g.result ? verdictText(g.result) : null;
             return (
-              <div key={g.persona + g.language} className="card pad-lg stack spot" style={{ gap: 20 }}>
+              <div key={g.persona + g.language} className="card pad-lg stack" style={{ gap: 20 }}>
                 <div className="spread">
                   <h3>{personas.get(g.persona) ?? g.persona}</h3>
                   {verdict && <span className={`tag ${verdict[0]}`}>{verdict[1]}</span>}
                 </div>
                 {origin && champion && origin !== champion ? (
                   <div className="before-after">
-                    <Gen run={run} v={origin} label="Original" score={scores[origin.variant_id]} />
+                    <GenerationStack run={run.id} chain={chain} />
                     <ol className="changes">
                       {changes.map((v) => (
                         <li key={v.variant_id}>
@@ -587,9 +553,11 @@ function Evolution({ run, variants, scores, personas, untested }: Ctx) {
                           <p className="xsmall faint">{v.mutation!.why}</p>
                         </li>
                       ))}
-                      <ArrowRight className="arrow" />
+                      <li className="result">
+                        <span className="label">Original → winner, simulated</span>
+                        <p className="mono small">picked {scoreText(scores[origin.variant_id])} → <strong>{scoreText(scores[champion.variant_id])}</strong></p>
+                      </li>
                     </ol>
-                    <Gen run={run} v={champion} label={`Winner · generation ${champion.generation}`} score={scores[champion.variant_id]} />
                   </div>
                 ) : <p className="small muted">The original stayed the best: no change beat it.</p>}
                 {g.progress && g.progress.length > 1 && (
@@ -607,18 +575,7 @@ function Evolution({ run, variants, scores, personas, untested }: Ctx) {
   );
 }
 
-function Gen({ run, v, label, score }: { run: RunView; v: Variant; label: string; score?: Score }) {
-  return (
-    <figure className="gen">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {v.image && <img src={fileUrl(run.id, v.image)} alt={v.texts?.hook ?? ""} loading="lazy" />}
-      <figcaption>
-        <span className="eyebrow">{label}</span>
-        {score && <span className="small mono">picked {times(score.lift)} · install {score.intent.toFixed(1)}/5</span>}
-      </figcaption>
-    </figure>
-  );
-}
+const scoreText = (s?: Score) => (s ? `${times(s.lift)} · install ${s.intent.toFixed(1)}/5` : "—");
 
 // ---------- market ----------
 
@@ -638,6 +595,7 @@ function Market({ run }: Ctx) {
         <div className="notice"><Alert /><span><strong>No competitor ads found.</strong> <span className="muted">This category has none in the EU/UK Ad Library. The strategy uses your reviews instead.</span></span></div>
       ) : (
         <div className="stack" style={{ gap: 18 }}>
+          <MarketDeck ads={run.marketAds} />
           {pages.length > 1 && (
             <div className="seg" role="group" aria-label="Filter by advertiser">
               <button aria-pressed={who === null} onClick={() => { setWho(null); setAll(false); }}>All</button>
@@ -646,7 +604,7 @@ function Market({ run }: Ctx) {
           )}
           <div className="ads-lib">
             {shown.map((a) => (
-              <article key={a.id} className="lib-ad spot">
+              <article key={a.id} className="lib-ad">
                 <div className="who">
                   <span className="avatar">{initials(a.pageName)}</span>
                   <div style={{ minWidth: 0, flex: 1 }}>
@@ -684,7 +642,7 @@ function StrategySection({ run, ads }: Ctx) {
         <div className="stack" style={{ gap: 8 }}>
           <div className="personas">
             {s.personas.map((p) => (
-              <div key={p.id} className="card persona spot">
+              <div key={p.id} className="card persona">
                 <div className="who">
                   <span className="avatar lg">{initials(p.name)}</span>
                   <div>
@@ -703,7 +661,7 @@ function StrategySection({ run, ads }: Ctx) {
           <Sub>Why people say no</Sub>
           <div className="objections">
             {(allObj ? s.objections : s.objections.slice(0, 4)).map((o) => (
-              <div key={o.id} className="card stack spot" style={{ gap: 12 }}>
+              <div key={o.id} className="card stack" style={{ gap: 12 }}>
                 <h4>{o.text}</h4>
                 {o.evidence.slice(0, 1).map((e, i) => (
                   <blockquote key={`${i}-${e.ref}`} className="quote">“{e.quote}”<cite>{source(e.ref, ads)}</cite></blockquote>

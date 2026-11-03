@@ -5,7 +5,7 @@ import { Mark, Wordmark } from "@/components/Logo";
 
 const LINKS = [["/runs", "Campaigns"], ["/validation", "Validation"], ["/connect", "Meta account"]] as const;
 
-/** The top bar. On the home page the logo lives in the centre of the page, so the bar keeps only the links. */
+/** The top bar. On the dark landing page the name sits in the centre, so the bar keeps only the links. */
 export default function TopBar() {
   const path = usePathname();
   const home = path === "/";

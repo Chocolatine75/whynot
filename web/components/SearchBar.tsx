@@ -69,7 +69,7 @@ export default function SearchBar() {
           <LinkIcon className="search-icon" />
           <input aria-label="Your App Store link" className="search-input" placeholder="Paste your App Store link"
                  value={app} onChange={(e) => setApp(e.target.value)} autoComplete="off" spellCheck={false} ref={input} />
-          <button className="btn search-go magnetic" disabled={busy} aria-label={busy ? "Starting" : "Start the agency"}>
+          <button className="btn search-go" disabled={busy} aria-label={busy ? "Starting" : "Start the agency"}>
             <ArrowUp />
           </button>
         </div>

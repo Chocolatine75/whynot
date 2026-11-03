@@ -120,7 +120,7 @@ export default function ConnectMeta({ onConnected }: { onConnected?: (c: Connect
             autonomy you choose. Your login never leaves this machine.</p>
         </div>
         <div className="row" style={{ gap: 10 }}>
-          <button type="button" className="btn magnetic" onClick={facebook} disabled={busy || !appId}
+          <button type="button" className="btn" onClick={facebook} disabled={busy || !appId}
                   title={appId ? undefined : "Set WHYNOT_META_APP_ID in .env"}>
             {busy ? "Checking with Meta…" : "Continue with Facebook"}
           </button>
