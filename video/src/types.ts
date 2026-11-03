@@ -39,7 +39,8 @@ export type ShotProps = {
   visual: "text" | "photo" | "screen" | "mascot" | "review";
   durationInFrames: number;
   caption: string;
-  move: "punch_in" | "slow_zoom" | "shake" | "slide" | "pop" | "still";
+  move: "punch_in" | "slow_zoom" | "shake" | "slide" | "pop" | "still" | "close" | "pan";
+  hook?: boolean; // part of the first shot: the hook title stays over it, across its reframes
   sfx: string; // a key of `sfx`, or "none"
   beat: "trend" | "twist" | "demo" | "proof" | "payoff" | "cta";
   src?: string; // photo, real UI crop, or mascot sticker (files in the public dir)

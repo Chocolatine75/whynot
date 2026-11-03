@@ -134,13 +134,31 @@ def test_mascot_shots_are_allowed_when_the_app_has_one():
     assert check(with_shot(0, visual="mascot"), mascot=True).shots[0].visual == "mascot"
 
 
+def test_long_shots_become_reframes_never_a_frozen_picture():
+    from whynot.create.trend_render import recut, split_frames
+    assert split_frames(75, 30) == [25, 25, 25] and split_frames(30, 30) == [30] and sum(split_frames(91, 30)) == 91
+    shots = [{"visual": "photo", "durationInFrames": 90, "move": "punch_in", "sfx": "whoosh"},
+             {"visual": "screen", "durationInFrames": 60, "ui": "rows", "sfx": "none", "tap": True},
+             {"visual": "screen", "durationInFrames": 90, "ui": "grid", "sfx": "pop"},
+             {"visual": "review", "durationInFrames": 75, "sfx": "none"}]
+    out = recut(shots, max_frames=30)
+    photo = [s for s in out if s["visual"] == "photo"]
+    assert [s["move"] for s in photo] == ["punch_in", "close", "pan"] and all(s.get("hook") for s in photo)
+    assert [s["sfx"] for s in photo] == ["whoosh", "none", "none"]  # one sound per story cut, not per reframe
+    app = [s for s in out if s.get("ui") in ("rows", "zoom")]
+    assert [s["ui"] for s in app] == ["rows", "zoom"] and "tap" not in app[1]
+    assert sum(1 for s in out if s.get("ui") == "grid") == 1 and sum(1 for s in out if s["visual"] == "review") == 1
+
+
 def test_props_keep_shot_lengths_and_stretch_for_a_long_voice():
     b = check(GOOD)
     imgs = {i: f"shot_{i}.jpg" for i, s in enumerate(b.shots) if s.visual != "text"}
     p = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images=imgs, icon=None,
                     rating=None, rating_count=None, audio=None, sfx={"whoosh": "sfx_whoosh.mp3"})
-    assert [s["durationInFrames"] for s in p["shots"]] == [round(s.seconds * FPS) for s in b.shots]
-    assert p["shots"][2]["sfx"] == "none"  # "pop" was not generated here: no dangling sound
+    # the story keeps its length; long shots are cut into reframes of at most MAX_SHOT_SECONDS
+    assert sum(s["durationInFrames"] for s in p["shots"]) == sum(round(s.seconds * FPS) for s in b.shots)
+    assert max(s["durationInFrames"] for s in p["shots"] if s["visual"] not in ("text", "review")) <= FPS
+    assert all(s["sfx"] != "pop" for s in p["shots"])  # "pop" was not generated here: no dangling sound
     assert p["durationInFrames"] == sum(s["durationInFrames"] for s in p["shots"]) + round(END_CARD_SECONDS * FPS)
     from whynot.audio.captions import Word
     long = Audio(voice_mp3=__file__, words=[Word("w", 0, 20.0)])
@@ -646,3 +664,27 @@ def test_tones_are_known():
     with pytest.raises(ValueError, match="tone"):
         write(ScriptedChat([]), CTX, BY_ID["tell_me_without"], persona="heritage_learner", angle="southern_accent",
               screens=["a"], has_mascot=False, tone="dramatic")
+
+
+def test_a_preview_can_never_spend():
+    import pytest as _pytest
+
+    from whynot.agency.trend_video import NoModel, offline_voice
+    with _pytest.raises(RuntimeError, match="no model call"):
+        NoModel().image("a photo")
+    with _pytest.raises(RuntimeError, match="no model call"):
+        NoModel().transcribe(b"")
+    assert NoModel().spent_usd == 0.0
+    import tempfile
+    from pathlib import Path as _P
+
+    from whynot.agency import trend_video
+    with tempfile.TemporaryDirectory() as d:
+        old = trend_video.CACHE
+        trend_video.CACHE = _P(d)
+        try:
+            v = offline_voice(_P(d) / "audio")
+            with _pytest.raises(Exception, match="not in the audio cache"):
+                v.sfx("whoosh")  # not cached: refused, never generated
+        finally:
+            trend_video.CACHE = old

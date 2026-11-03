@@ -25,6 +25,17 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
     x = interpolate(hit, [0, 1], [220, 0]);
     scale = 1.18 - 0.12 * hit + 0.04 * p;
   }
+  // a reframe of the same photo: close on the faces (they sit in the upper third of a phone photo), punched in
+  let origin = "50% 50%";
+  if (shot.move === "close") {
+    scale = interpolate(hit, [0, 1], [1.62, 1.42]) + 0.05 * p;
+    origin = "50% 30%";
+  }
+  // a slow sideways move across the picture, zoomed so no edge ever shows
+  if (shot.move === "pan") {
+    scale = 1.24 + 0.03 * p;
+    x = interpolate(p, [0, 1], [-70, 70]);
+  }
   if (shot.move === "still") scale = 1.02;
   if (shot.move === "shake") scale = Math.max(scale, 1.1); // zoomed enough that the shake never shows an edge
   if (shot.move === "shake" && frame < 12) {
@@ -43,7 +54,7 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
   } else if (shot.visual === "photo") {
     visual = (
       <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
-        objectPosition: "50% 50%", transform }} />
+        objectPosition: "50% 50%", transform, transformOrigin: origin }} />
     );
   } else if (shot.visual === "review") {
     visual = <ReviewCard quote={shot.quote ?? ""} stars={shot.stars ?? 5} look={look} />;
@@ -82,7 +93,7 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 40%)" }} />
       ) : null}
       {/* one text layer on the app and the review: the spoken captions; the bubble would cover the proof */}
-      {shot.visual === "screen" || shot.visual === "review" ? null : (
+      {shot.visual === "screen" || shot.visual === "review" || shot.hook ? null : (
         <Bubble text={caption} top={first ? 430 : 480} big={first} />
       )}
       <AbsoluteFill style={{ background: "#FFFFFF", opacity: flashOpacity }} />

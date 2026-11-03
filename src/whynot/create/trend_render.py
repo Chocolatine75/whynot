@@ -2,8 +2,14 @@
 
 Timing: each shot keeps its length; if the voice-over is longer than the shots, every shot is stretched
 evenly so the voice ends before the end card. Sound effects play on the cut that starts their shot.
+
+Rhythm: no picture holds longer than `MAX_SHOT_SECONDS`. A longer shot is cut into several, each framed
+differently (a photo: wide, then close on the faces, then a pan; the app: its own motion, then a zoom on the
+focus, then a scroll), so the viewer always sees something new, like a creator's edit. The hook title stays
+over the whole first shot, across its cuts.
 """
 
+import math
 from pathlib import Path
 
 from PIL import Image
@@ -22,9 +28,41 @@ def shot_frames(brief: TrendBrief, voice_seconds: float = 0.0) -> list[int]:
     return frames
 
 
+MAX_SHOT_SECONDS = 1.0
+PHOTO_CUTS = ("close", "pan", "punch_in")  # framings after the first one, in turn
+SCREEN_CUTS = ("zoom", "scroll", "float")
+
+
+def split_frames(n: int, max_frames: int) -> list[int]:
+    """`n` frames as the fewest pieces of at most `max_frames`, as even as possible (they sum to `n`)."""
+    k = max(1, math.ceil(n / max_frames))
+    return [n // k + (1 if i < n % k else 0) for i in range(k)]
+
+
+def recut(shots: list[dict], *, max_frames: int) -> list[dict]:
+    """Cut every long shot into short ones, each a new framing of the same picture (see the module doc)."""
+    out: list[dict] = []
+    for i, s in enumerate(shots):
+        pieces = split_frames(s["durationInFrames"], max_frames)
+        if s["visual"] in ("text", "review") or s.get("ui") == "grid":
+            pieces = [s["durationInFrames"]]  # read whole / tiles animate across the shot
+        for j, n in enumerate(pieces):
+            piece = {**s, "durationInFrames": n, **({"hook": True} if i == 0 else {})}
+            if j:
+                piece["sfx"] = "none"  # the sound marks the story's cut, not every reframe
+                if s["visual"] in ("photo", "mascot"):
+                    piece["move"] = PHOTO_CUTS[(j - 1) % len(PHOTO_CUTS)]
+                elif s["visual"] == "screen":
+                    piece["ui"] = SCREEN_CUTS[(j - 1) % len(SCREEN_CUTS)]
+                    piece.pop("tap", None)
+            out.append(piece)
+    return out
+
+
 def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images: dict[int, str],
                 icon: str | None, rating: float | None, rating_count: int | None, audio: Audio | None,
-                sfx: dict[str, str], tiles: dict[int, list[list[float]]] | None = None) -> dict:
+                sfx: dict[str, str], tiles: dict[int, list[list[float]]] | None = None,
+                sizes: dict[int, list[int]] | None = None) -> dict:
     """`images`: shot index -> file name in the public dir (photo, UI crop or mascot)."""
     bg, fg, accent, surface = palette[:4]
     on_accent = best_text_colour(hex_to_rgb(accent), [hex_to_rgb(bg), hex_to_rgb(fg), hex_to_rgb(surface)])
@@ -40,7 +78,9 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       **({"text": s.text} if s.text else {}), **({"tap": True} if s.tap else {}),
                       **({"ui": s.ui} if s.ui else {}), **({"grid": list(s.grid)} if s.grid else {}),
                       **({"tiles": (tiles or {})[i]} if i in (tiles or {}) else {}),
+                      **({"imageSize": (sizes or {})[i]} if s.visual == "screen" and i in (sizes or {}) else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
+    shots = recut(shots, max_frames=round(MAX_SHOT_SECONDS * FPS))
     for i in range(1, len(shots)):  # one phone for a run of app shots: it enters once, then changes what it shows
         if shots[i]["visual"] == "screen" and shots[i - 1]["visual"] == "screen":
             shots[i]["continues"] = True
@@ -84,8 +124,7 @@ def render(brief: TrendBrief, out: Path, *, palette: list[str], app_name: str, i
                for x0, y0, x1, y1 in boxes] for i, boxes in (tiles or {}).items() if i in images}
     props = build_props(brief, palette=palette, app_name=app_name, images=names,
                         icon="icon.png" if icon is not None else None, rating=rating, rating_count=rating_count,
-                        audio=audio, sfx=sfx_names, tiles=rel)
-    for i, img in images.items():  # the screen's real size: tiles and picture share one geometry in the phone
-        if brief.shots[i].visual == "screen":
-            props["shots"][i]["imageSize"] = [img.width, img.height]
+                        audio=audio, sfx=sfx_names, tiles=rel,
+                        # the screen's real size: tiles and picture share one geometry in the phone
+                        sizes={i: [img.width, img.height] for i, img in images.items()})
     return render_composition("Trend", props, files, out, poster_at=0.4)

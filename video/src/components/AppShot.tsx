@@ -16,7 +16,7 @@ import { Tap } from "./Proof";
 // Layout: the phone lives in the top 63 % of the frame; captions sit below it (never over the interface) and
 // above the zone the TikTok / Reels interface covers.
 
-export const PHONE = { w: 560, h: 1080, top: 120, radius: 64, bezel: 14 };
+export const PHONE = { w: 610, h: 1130, top: 96, radius: 68, bezel: 14 };
 const FOCUS_Y: Record<string, number> = { top: 0.18, middle: 0.5, bottom: 0.82, full: 0.5 };
 
 const Background: React.FC<{ look: Look }> = ({ look }) => {
@@ -79,7 +79,8 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
   const n = shot.durationInFrames;
   // the phone flies in on the first app shot only; the next ones keep it in place and change what it shows
   // (re-entering on every 1 s shot made the phone vanish and come back four times in 3 s, Nov 2)
-  const enter = shot.continues ? 1 : spring({ frame, fps, config: { damping: 16, stiffness: 150, mass: 0.8 } });
+  // fast, and visible from the first frame: a phone fading in from nothing left a near-empty frame on the cut
+  const enter = shot.continues ? 1 : spring({ frame, fps, config: { damping: 15, stiffness: 260, mass: 0.6 } });
   // a cut inside the phone, never a fade from black (a dark frame showed between two app shots)
   const swap = 1;
   const float = Math.sin(frame / 18) * 6;
@@ -136,7 +137,7 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
           boxShadow: "0 60px 120px rgba(0,0,0,0.55), inset 0 0 0 3px rgba(255,255,255,0.08)",
           transformOrigin: `50% ${originY}%`,
           transform: `translateY(${interpolate(enter, [0, 1], [380, 0])}px) rotateX(${interpolate(enter, [0, 1], [24, 0])}deg) scale(${push})`,
-          opacity: interpolate(enter, [0, 0.3], [0, 1], { extrapolateRight: "clamp" }) }}>
+          opacity: interpolate(enter, [0, 0.25], [0.65, 1], { extrapolateRight: "clamp" }) }}>
           <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: PHONE.radius - PHONE.bezel,
             overflow: "hidden", background: ui === "grid" ? "#111" : "#fff", opacity: swap }}>
             {screen}

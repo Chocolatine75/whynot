@@ -114,6 +114,15 @@ def _video(args: argparse.Namespace) -> int:
     if not (run_dir / "strategy.json").exists():
         print(f"✗ {run_dir} has no strategy.json: run `whynot create` first", file=sys.stderr)
         return 1
+    if args.preview:
+        from whynot.agency.trend_video import preview
+        try:
+            done = preview(run_dir)
+        except (RuntimeError, FileNotFoundError) as exc:
+            print(f"✗ {exc}", file=sys.stderr)
+            return 1
+        print(f"✓ {len(done)} preview(s), $0, in {run_dir / 'videos'}")
+        return 0
     settings = load_settings()
     factory = None
     if not args.no_capture:
@@ -508,6 +517,9 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--renderer", choices=["remotion", "builtin"], default="remotion",
                    help="remotion: voice, captions, music (needs `cd video && npm install`); builtin: silent")
     v.add_argument("--silent", action="store_true", help="no voice-over or music")
+    v.add_argument("--preview", action="store_true",
+                   help="trend: render the saved scripts again with today's editing, $0 (cached photos and voices, "
+                        "no model call, transcription checks skipped); files named preview-<id>.mp4")
     v.add_argument("--rerender", action="store_true",
                    help="trend: render the last scripts again (videos/trends.json) without rewriting them")
     v.add_argument("--angles", nargs="+", metavar="ANGLE", help="trend: one video per strategy angle id (see "

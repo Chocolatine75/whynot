@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useVideoConfig } from "remotion";
 import { Captions } from "./components/Captions";
 import { EndCard } from "./components/EndCard";
+import { HookTitle } from "./components/HookTitle";
 import { Shot } from "./components/Shot";
 import { TrendProps } from "./types";
 
@@ -15,6 +16,13 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
     t += s.durationInFrames;
   }
   const endStart = t;
+  // the hook title spans the first shot and its reframes (older props: the first shot only)
+  let hookFrames = 0;
+  for (const s of props.shots) {
+    if (!s.hook) break;
+    hookFrames += s.durationInFrames;
+  }
+  if (hookFrames === 0) hookFrames = props.shots[0]?.durationInFrames ?? 0;
   const voice = props.voice;
   const music = props.music;
   const musicVolume = (f: number) => {
@@ -30,8 +38,8 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
     <AbsoluteFill style={{ background: "#000" }}>
       {props.shots.map((s, i) => (
         <Sequence key={i} from={starts[i]} durationInFrames={s.durationInFrames}>
-          <Shot shot={s} look={props.look} index={i} first={i === 0}
-            caption={i === 0 ? props.hook : voice ? "" : s.caption} pop={props.sfx.pop} />
+          <Shot shot={{ ...s, hook: i === 0 || s.hook }} look={props.look} index={i} first={i === 0}
+            caption={voice ? "" : s.caption} pop={props.sfx.pop} />
         </Sequence>
       ))}
       <Sequence from={endStart} durationInFrames={props.endCard.durationInFrames}>
@@ -39,7 +47,13 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       </Sequence>
       {/* one text layer: with a voice, its captions are the text (a bubble saying the same thing on top doubled
           it); the hook bubble owns the first shot, the spoken captions start after it */}
-      {voice ? <Captions words={voice.words} look={props.look} from={props.shots[0]?.durationInFrames ?? 0}
+      {/* a first shot that is a text card already says the hook: no second copy of it on top */}
+      {props.shots[0]?.visual !== "text" ? (
+        <Sequence from={0} durationInFrames={hookFrames}>
+          <HookTitle text={props.hook} />
+        </Sequence>
+      ) : null}
+      {voice ? <Captions words={voice.words} look={props.look} from={hookFrames}
         until={endStart} cuts={starts.map((f) => f / fps)} /> : null}
       {props.shots.map((s, i) =>
         s.sfx !== "none" && props.sfx[s.sfx] ? (

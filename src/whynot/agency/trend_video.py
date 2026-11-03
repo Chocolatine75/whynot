@@ -13,6 +13,7 @@ Outputs land in `<run>/videos/` (`trend-<n>-<id>.mp4` + poster) with `trends.jso
 signals, the picks, the briefs, the voice guard verdicts, failures and cost.
 """
 
+import hashlib
 import json
 import re
 from collections.abc import Callable
@@ -52,6 +53,9 @@ from whynot.models import image_data_url
 from whynot.sim.arena import brand_name
 
 # UGC, not cinema: the warm cinematic "AI sheen" clashed with the trend look (WhatsApp review, Nov 2).
+# earlier styles: a preview finds the photos already paid for under them (never used to make a new photo)
+PAST_PHOTO_STYLES = ("Candid vertical photo taken on a phone, natural light, real and unpolished, like a frame "
+                     "from a creator's video. No text, no letters, no logos, no screens, no phones.",)
 PHOTO_STYLE = ("Vertical frame from a phone video: handheld, slightly tilted, imperfect mixed indoor light, a little "
                "grain and motion blur, everyday messy real home, ordinary people, no colour grading, not cinematic, "
                "not a stock photo. No text, no letters, no logos; any phone shows its back, never its screen.")
@@ -319,6 +323,15 @@ class Studio:
                            brand["screenshots"][0], LANGUAGES[code])
         self.icon = Image.open(run_dir / "assets" / "icon.png")
 
+    def _photo(self, prompt: str) -> Image.Image:
+        """The shot's photo; in a preview, the one already made under an earlier style counts (no new image)."""
+        if isinstance(self.model, NoModel):
+            for style in (PHOTO_STYLE, *PAST_PHOTO_STYLES):
+                key = hashlib.sha256(f"{style}|{prompt}".encode()).hexdigest()[:24]
+                if (CACHE / "scenes" / f"{key}.png").exists():
+                    return Image.open(CACHE / "scenes" / f"{key}.png").convert("RGB")
+        return scene_image(self.model, prompt, CACHE / "scenes", style=PHOTO_STYLE)
+
     def pick(self, n: int) -> list[dict[str, Any]]:
         strategy = self.strategy
         if self.cfg.angles:  # the owner chose the stories: one video per chosen angle
@@ -362,7 +375,7 @@ class Studio:
         for i, s in enumerate(b.shots):
             if s.visual == "photo":  # the same people in the same place in every photo of the story
                 prompt = f"{b.cast}. In this shot: {s.prompt}" if b.cast else s.prompt or ""
-                imgs[i] = scene_image(model, prompt, CACHE / "scenes", style=PHOTO_STYLE)
+                imgs[i] = self._photo(prompt)
             elif s.visual == "screen" and s.screen:
                 imgs[i] = self.cut.screens[s.screen - 1]
             elif s.visual == "mascot" and self.cut.mascot is not None:
@@ -438,3 +451,37 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     report["usd"] = round(model.spent_usd - spent0, 4)
     save_report(studio.out, report)
     return report
+
+
+class NoModel:
+    """A model that refuses every call: a re-render that would need one fails instead of spending."""
+
+    spent_usd = 0.0
+
+    def __getattr__(self, name: str) -> Any:
+        def refuse(*args: Any, **kwargs: Any) -> Any:
+            raise RuntimeError(f"preview: no model call allowed ({name})")
+        return refuse
+
+
+def offline_voice(cache: Path) -> ElevenLabs:
+    """ElevenLabs that only reads its disk cache: a voice, music or sound not generated before fails, never bills."""
+    import httpx
+
+    def no_network(request: httpx.Request) -> httpx.Response:
+        raise httpx.ConnectError("preview: not in the audio cache (no paid call in a preview)")
+    return ElevenLabs("offline", cache, http=httpx.Client(transport=httpx.MockTransport(no_network)), waits=())
+
+
+def preview(run_dir: Path, *, prefix: str = "preview", only: list[str] | None = None,
+            say: Callable[[str], None] = print) -> list[dict[str, Any]]:
+    """Render the run's saved scripts again with today's montage, at $0: photos, voices, music and sounds from
+    the caches, no model call (the transcription checks are skipped and flagged). For tuning the editing."""
+    studio = Studio(run_dir, NoModel(), voice=offline_voice(CACHE / "audio"), say=say)
+    saved = json.loads((studio.out / "trends.json").read_text())["videos"]
+    out = []
+    for v in saved:
+        if only and v["brief"]["id"] not in only:
+            continue
+        out.append(studio.make({"brief": v["brief"], "why": v.get("why", "")}, prefix))
+    return out

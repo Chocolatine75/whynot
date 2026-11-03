@@ -225,7 +225,9 @@ def test_a_run_of_app_shots_keeps_one_phone():
     images = {i: f"s{i}.png" for i, s in enumerate(b.shots) if s.visual in ("photo", "screen")}
     props = build_props(b, palette=["#FFFFFF", "#111111", "#00EB6E", "#EEEEEE"], app_name="X", images=images,
                         icon=None, rating=None, rating_count=None, audio=None, sfx={})
-    screens = [i for i, s in enumerate(b.shots) if s.visual == "screen"]
-    assert screens == [4, 5, 6]
-    assert "continues" not in props["shots"][4]  # the phone enters here...
-    assert props["shots"][5]["continues"] and props["shots"][6]["continues"]  # ...and stays for the next screens
+    assert [i for i, s in enumerate(b.shots) if s.visual == "screen"] == [4, 5, 6]
+    shots = props["shots"]  # long shots are cut into reframes: find the run of screens in the props
+    run = [i for i, s in enumerate(shots) if s["visual"] == "screen"]
+    assert run == list(range(run[0], run[-1] + 1)) and len(run) >= 3
+    assert "continues" not in shots[run[0]]  # the phone enters here...
+    assert all(shots[i]["continues"] for i in run[1:])  # ...and stays for every next screen and reframe
