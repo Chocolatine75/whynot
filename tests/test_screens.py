@@ -37,6 +37,17 @@ def test_a_wrong_answer_is_repaired_then_word_matching_decides():
     assert out["family"] == SCREENS[1] and out["privacy"] == SCREENS[0]
 
 
+def test_a_model_that_thinks_without_answering_falls_back_to_words():
+    from whynot.models import TruncatedOutput
+
+    class Thinker:
+        def chat(self, *a, **kw):
+            raise TruncatedOutput("muse-spark-1.3 used all output tokens before answering")
+
+    out = pick(Thinker(), "App", {"family": "family video call", "privacy": "chat list"}, SCREENS)
+    assert out == {"family": SCREENS[1], "privacy": SCREENS[0]}
+
+
 class SamFake:
     """SAM finds a phone in the middle of the probe; counts its calls."""
 

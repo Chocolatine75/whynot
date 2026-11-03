@@ -829,7 +829,7 @@ def critique(client: ChatClient, brief: TrendBrief, *, model: str = SPARK) -> An
     dialogue = " / ".join(f"{x.speaker}: {x.text}" for x in brief.lines) or brief.voice or "(none)"
     prompt = CRITIC.format(voice=dialogue, captions=captions, language=brief.language)
     return ask_json(client, [{"role": "user", "content": prompt}], validate, module="tone_critic", model=model,
-                    repairs=1, max_tokens=2000, reasoning_effort="low")
+                    repairs=1, max_tokens=6000, reasoning_effort="low")  # 2000 ran out on reasoning (Nov 3)
 
 
 def retime(brief: TrendBrief, line_seconds: list[float]) -> TrendBrief:

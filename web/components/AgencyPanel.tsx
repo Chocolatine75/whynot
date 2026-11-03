@@ -36,7 +36,7 @@ export default function AgencyPanel({ run, onRefresh }: { run: RunView; onRefres
   const [error, setError] = useState<string | null>(null);
   const [following, setFollowing] = useState(0);
   const alive = useRef(true);
-  useEffect(() => () => { alive.current = false; }, []);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);  // set again: React mounts twice in dev
 
   // follow the engine while it works (it runs in the background): every 3 s, for at most 10 min after an action
   const working = a.running || following > 0;
@@ -105,7 +105,7 @@ export default function AgencyPanel({ run, onRefresh }: { run: RunView; onRefres
           </form>
         )}
         {error && <p className="error-text small" role="alert">{error}</p>}
-        {failed?.error && <p className="error-text small" role="alert">{plain(failed.error)}</p>}
+        {failed?.error && !working && <p className="error-text small" role="alert">{plain(failed.error)}</p>}
       </div>
 
       <div className="stack" style={{ gap: 14 }}>
@@ -153,9 +153,10 @@ export default function AgencyPanel({ run, onRefresh }: { run: RunView; onRefres
           </div>
         </div>
         <div className="spread">
-          <p className="xsmall faint">Or run today&apos;s day now (done days are never redone or re-billed).</p>
+          <p className="xsmall faint">{failed ? "Try again from the step that failed (finished steps are kept, never re-billed)."
+            : "Or run today's day now (done days are never redone or re-billed)."}</p>
           <button type="button" className="btn secondary" disabled={busy !== null || working} onClick={() => void resume()}>
-            {busy === "resume" ? "Starting…" : "Run today now"}
+            {busy === "resume" ? "Starting…" : failed ? "Try again" : "Run today now"}
           </button>
         </div>
         {onMeta && a.account && <><hr className="divider" /><StopButton runId={run.id} mode={a.account.sandbox ? "sandbox" : "live"} endpoint="/api/agency/stop" /></>}
