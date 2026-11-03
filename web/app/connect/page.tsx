@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AgencySettingsCard from "@/components/AgencySettingsCard";
 import ConnectMeta from "@/components/ConnectMeta";
 
 export const metadata: Metadata = { title: "Meta account — whynot" };
@@ -15,7 +16,10 @@ export default function ConnectPage() {
         </div>
         <Link href="/" className="btn secondary">New campaign</Link>
       </div>
-      <ConnectMeta />
+      <div className="stack" style={{ gap: 16 }}>
+        <ConnectMeta />
+        <AgencySettingsCard />
+      </div>
     </main>
   );
 }

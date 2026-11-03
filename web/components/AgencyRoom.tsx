@@ -88,7 +88,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
   return (
     <div className="room">
       <aside className="side" aria-label="Campaign sections">
-        <Link href="/runs" className="back small">← Campaigns</Link>
+        <Link href="/runs" className="back small">← Dashboard</Link>
         <nav className="side-nav">
           {sections.map((s) => (
             <a key={s.id} href={`#${s.id}`} className={active === s.id ? "active" : undefined}>
