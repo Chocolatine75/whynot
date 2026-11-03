@@ -26,7 +26,7 @@ from whynot.create.templates import Genome, Template
 from whynot.models import SPARK
 
 MUTABLE = ("hook", "body", "title", "proof")
-LOOK = ("layout", "style")  # picture genes: switched to an option the template already has
+LOOK = ("layout", "style", "decor")  # picture genes: switched to an option the template already has
 LOOK_HELP = {
     "split": "text on the left, the app screen on the right", "rising": "headline on top, the screen rising below",
     "full_screen": "the app screen large, a short headline", "review_card": "a real App Store review quoted",
@@ -35,6 +35,9 @@ LOOK_HELP = {
     "comparison": "two cards: the objection and how the app answers it", "bold_text": "the hook as a big post",
     "light": "light background", "dark": "dark background", "brand": "the brand colour as background",
     "gradient": "soft gradient", "shape": "accent halo around the screen",
+    "two_screens": "two real screens side by side", "none": "no shape behind the phone",
+    "panel": "a colour panel behind the phone", "diagonal": "a diagonal colour block behind the phone",
+    "circle": "a big circle behind the phone",
 }
 
 
@@ -127,14 +130,14 @@ Verified claims (the ONLY facts an ad may state; numbers only from here):
 {claims}
 
 Propose {n} different mutations. Each changes exactly ONE element (hook, body, title or proof, or how the picture
-looks: layout or style, to one of its other options) to answer the most important objection above, keeping the
+looks: layout, style or decor, to one of its other options) to answer the most important objection above, keeping the
 concept. Change the element that matters most for that objection.
 Rules: language {ctx.language} with correct accents and punctuation; only verified facts; never name competitors;
 no emoji or pictograms; Meta policy (no personal attributes, no "guaranteed"/"#1"/"100%", no engagement bait,
 no ALL CAPS); limits: hook ≤70, body ≤280, title ≤40, proof ≤50 characters.
 
 Reply with JSON only:
-{{"mutations": [{{"gene": "hook | body | title | proof | layout | style", "text": "the new text, or the option",
+{{"mutations": [{{"gene": "hook | body | title | proof | layout | style | decor", "text": "the new text, or the option",
 "why": "the objection it answers and how"}}]}}"""
 
 

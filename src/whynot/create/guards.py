@@ -43,15 +43,29 @@ def _overlap(a: Box, b: Box) -> bool:
 
 
 def product_pixels_unchanged(comp: Composition, asset: Image.Image) -> GuardResult:
+    """Every real screen in the ad (the main one, and a second one if the layout shows two) is exact."""
     name = "product_pixels_unchanged"
     if comp.product is None:
         return GuardResult(name, False, "no product placed")
-    expected = product_pixels(asset, comp.product)
+    first = _screen_exact(comp, comp.product, asset)
+    if not first.passed:
+        return first
+    for element, other in comp.extra_products:
+        r = _screen_exact(comp, element, other)
+        if not r.passed:
+            return GuardResult(name, False, f"second screen: {r.detail}")
+    extra = f" (+{len(comp.extra_products)} more screen)" if comp.extra_products else ""
+    return GuardResult(name, True, first.detail + extra)
+
+
+def _screen_exact(comp: Composition, element, asset: Image.Image) -> GuardResult:
+    name = "product_pixels_unchanged"
+    expected = product_pixels(asset, element)
     opaque = expected.getchannel("A").point(lambda a: 255 if a == 255 else 0)
     n_opaque = opaque.histogram()[255]
     if n_opaque == 0:
         return GuardResult(name, False, "asset has no fully opaque pixels to check")
-    actual = comp.image.crop(comp.product.box).convert("RGB")
+    actual = comp.image.crop(element.box).convert("RGB")
     r, g, b = ImageChops.difference(actual, expected.convert("RGB")).split()
     # max over channels: converting to grey would round a 1-level change in one channel to 0
     diff = ImageChops.lighter(ImageChops.lighter(r, g), b)
@@ -75,7 +89,8 @@ def text_legible(comp: Composition) -> GuardResult:
             problems.append(f"{t.role}: {t.font_size}px < {MIN_FONT_PX}px")
         if t.box[0] < 0 or t.box[1] < 0 or t.box[2] > w or t.box[3] > h:
             problems.append(f"{t.role}: outside the canvas")
-        if comp.product and _overlap(t.box, comp.product.box):
+        screens = ([comp.product.box] if comp.product else []) + [e.box for e, _ in comp.extra_products]
+        if any(_overlap(t.box, s) for s in screens):
             problems.append(f"{t.role}: overlaps the product")
     if problems:
         return GuardResult(name, False, "; ".join(problems))

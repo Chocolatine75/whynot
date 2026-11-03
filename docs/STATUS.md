@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-11-03
+Last updated: 2026-11-04
 
 ## Where we are
 
@@ -53,6 +53,8 @@ Works today (`master`, 723 Python + 65 web tests):
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-11-04 — Tom + Claude — **Site: white product + owner dashboard** (`b/web-pro`, master merged in): the product is white and still (no mouse effects, no looping animation); only the landing stays dark, with just the search bar and a wall of ads that can't be paused or clicked. Three static CSS 3D scenes: competitor deck (market), exploded simulated feed (our ad lifted between two real competitor ads), generation stack (evolution). `/runs` is now the **dashboard**: every ad of every app (daily-loop ads with day-by-day results, the campaign's static ads with their status), 6 KPIs with sparklines, filters by app/status/search, sortable table, a 'Needs you' list from fixed rules (`web/lib/crm.ts`; reads Python's NaN/Infinity). Agency mode + website moved from the landing to the *Meta account* page (saved in the browser). Simulated weeks for the dashboard (labelled simulated, local only): VietBuddy $1.02, WhatsApp $1.11. 128 web tests. **Matteo:** merge `b/web-pro`; the landing no longer starts runs with a mode chip, it reads the mode from the Meta account page. Next: demo film (Remotion, in progress), D-1 reproduce command, D-3 recording, D-5 submit.
 
 - 2026-11-03 (3) — Matteo + Claude — **E2-2: the simulator sees the pictures** (`b/E2-2-images`): our composed ads and the competitors' real creatives go to the viewers (simulate + evolution), all-pictures or all-text feeds, `--text-only` for comparison. Real check on a copy of this morning's VietBuddy run (simulate only, **$0.77**): 56 feeds, 0 failures, $0.0138/feed vs $0.0113 text, same best concept in 4/4 audiences, 42/50 pairs in the same order. Also today: evolution within its budget, approval launches the day's waiting videos, `whynot costs` counts site runs, team budget $165 ($109 left). Merged into master: Tom's 3 branches + `b/site-meta`.
 
