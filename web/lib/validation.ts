@@ -6,7 +6,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { REPO_ROOT } from "./runs";
+import { REPO_ROOT, runsRoot } from "./runs";
 
 export interface Row { name: string; value: number; ci: [number, number] | null; note?: string; primary: boolean; baseline: boolean }
 export type Verdict = "meets target" | "above floor" | "no evidence" | "below chance";
@@ -147,4 +147,49 @@ export function readValidation(root: string = REPO_ROOT): ValidationView {
   }
   view.experiments.sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));  // newest version first
   return view;
+}
+
+// --- the claims summary: one line per thing we say about the agency, with its measured status ---------------
+
+export type ClaimStatus = "passed" | "failed" | "not yet run";
+export interface Claim { what: string; status: ClaimStatus; value: string; how: string }
+
+/** Pixel guard and evolution verdicts counted over every run on disk; R1/R3 from the experiments above. */
+export function readClaims(view: ValidationView, runs: string = runsRoot()): Claim[] {
+  let ads = 0, real = 0, judged = 0, improved = 0;
+  const dirs = fs.existsSync(runs) ? fs.readdirSync(runs, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => path.join(runs, d.name)) : [];
+  for (const dir of dirs) {
+    try {
+      const variants = JSON.parse(fs.readFileSync(path.join(dir, "variants.json"), "utf8")) as Json[];
+      for (const v of variants) {
+        const g = ((v.guards ?? {}) as Json).product_pixels_unchanged as Json | undefined;
+        if (!g) continue;
+        ads += 1;
+        if (g.passed === true) real += 1;
+      }
+    } catch { /* a run without ads */ }
+    try {
+      const evo = JSON.parse(fs.readFileSync(path.join(dir, "evolution.json"), "utf8")) as Json;
+      for (const g of (evo.groups ?? []) as Json[]) {
+        const r = g.result as Json | undefined;
+        if (!r) continue;
+        judged += 1;
+        if (r.verdict === "improved") improved += 1;
+      }
+    } catch { /* not evolved */ }
+  }
+  const latest = (prefix: string) => view.experiments.find((e) => e.title.startsWith(prefix));
+  const r3 = latest("R3");
+  const r1 = latest("R1");
+  const p = (e: Experiment | undefined) => e?.rows.find((r) => r.primary);
+  return [
+    { what: "Your app is never invented", status: ads ? (real === ads ? "passed" : "failed") : "not yet run", value: ads ? `${real} / ${ads} ads` : "—",
+      how: "Pixel check: the app screen in every ad is identical to the store screenshot." },
+    { what: "Evolution beats the noise", status: judged ? (improved > 0 ? "passed" : "failed") : "not yet run", value: judged ? `${improved} / ${judged} audiences · simulated` : "—",
+      how: "The evolved ad beats the original head to head, beyond a measured retest noise floor." },
+    { what: "Ranks your past ads like real CTR (R1)", status: r1 ? (r1.verdict === "meets target" || r1.verdict === "above floor" ? "passed" : "failed") : "not yet run",
+      value: p(r1) ? `${p(r1)!.value.toFixed(2)} accuracy` : "waiting for partner data", how: "Backtest on the design partner's own past ads, blind to results." },
+    { what: "Predicts which competitor ads run long (R3)", status: r3 ? (r3.verdict === "meets target" || r3.verdict === "above floor" ? "passed" : "failed") : "not yet run",
+      value: p(r3) ? `AUC ${p(r3)!.value.toFixed(2)}` : "—", how: "So we never use the simulator to forecast how long an ad will run." },
+  ];
 }

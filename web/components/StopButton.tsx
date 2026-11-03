@@ -13,19 +13,24 @@ export default function StopButton({ runId, mode }: { runId: string; mode: "sand
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const res = await fetch("/api/stop", {
-      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: runId, mode, by: name }),
-    });
-    const body = await res.json().catch(() => ({}));
-    if (res.status === 400 || res.status === 404 || res.status === 409) setError(body.error ?? "Something went wrong.");
-    else setResult({ ok: Boolean(body.ok), lines: body.lines ?? [] });
-    setBusy(false);
+    try {
+      const res = await fetch("/api/stop", {
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: runId, mode, by: name }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (res.status === 400 || res.status === 404 || res.status === 409) setError(body.error ?? "Something went wrong.");
+      else setResult({ ok: Boolean(body.ok), lines: body.lines ?? [] });
+    } catch {
+      setError("Network error: nothing was confirmed. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (!confirming) {
     return (
       <div className="spread">
-        <div><h4>Kill switch</h4><p className="xsmall faint">Pauses every campaign, ad set and ad at once.</p></div>
+        <div><h3 className="h4">Kill switch</h3><p className="xsmall faint">Pauses every campaign, ad set and ad at once.</p></div>
         <button type="button" className="btn danger" onClick={() => setConfirming(true)}>Pause everything now</button>
       </div>
     );

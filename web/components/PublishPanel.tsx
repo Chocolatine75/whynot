@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { RunView } from "@/lib/runs";
 import StopButton from "./StopButton";
 
@@ -16,38 +16,44 @@ export default function PublishPanel({ run, onRefresh }: { run: RunView; onRefre
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const alive = useRef(true);
+  useEffect(() => () => { alive.current = false; }, []);
   useEffect(() => { fetch("/api/publish").then((r) => r.json()).then(setReady).catch(() => setReady([])); }, []);
 
   const pub = run.published;
   const current = ready?.find((r) => r.mode === mode);
   const created = pub ? Object.keys(pub.objects) : [];
+  // an install campaign needs the app's Meta id on this account: fall back to clicks when it isn't there
+  useEffect(() => { if (objective === "app_promotion" && !current?.appInstalls) setObjective("traffic"); }, [current, objective]);
 
   async function approve(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const res = await fetch("/api/publish", {
-      method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: run.id, mode, objective, approvedBy: name }),
-    });
-    if (!res.ok) { setError((await res.json()).error ?? "Something went wrong."); setBusy(false); return; }
-    for (let i = 0; i < 45; i++) {  // the engine runs in the background; follow it for up to 90 s
-      await new Promise((r) => setTimeout(r, 2000));
-      await onRefresh();
+    try {
+      const res = await fetch("/api/publish", {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id: run.id, mode, objective, approvedBy: name }),
+      });
+      if (!res.ok) { setError((await res.json().catch(() => ({}))).error ?? "Something went wrong."); return; }
+      for (let i = 0; i < 45 && alive.current; i++) {  // the engine runs in the background; follow it for up to 90 s
+        await new Promise((r) => setTimeout(r, 2000));
+        await onRefresh();
+      }
+    } catch {
+      setError("Network error.");
+    } finally {
+      if (alive.current) setBusy(false);
     }
-    setBusy(false);
   }
 
   return (
     <div className="card flush raised approve">
       <form onSubmit={approve} className="stack" style={{ gap: 14 }}>
-        <div>
-          <h3>Approve and publish</h3>
-          <p className="small muted" style={{ marginTop: 4 }}>Everything is created paused. Activation is a separate step, within your cap.</p>
-        </div>
-        <div className="seg" role="radiogroup" aria-label="Account">
+        <h3>Approve</h3>
+        <div className="seg" role="group" aria-label="Account">
           {(["sandbox", "live"] as const).map((m) => (
-            <button key={m} type="button" role="radio" aria-checked={mode === m} aria-pressed={mode === m} onClick={() => setMode(m)}>
+            <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>
               {m === "sandbox" ? "Sandbox" : "Live account"}
             </button>
           ))}
@@ -60,13 +66,12 @@ export default function PublishPanel({ run, onRefresh }: { run: RunView; onRefre
           </select>
         </label>
         {current && !current.ready && (
-          <p className="small muted">To publish to the {mode === "sandbox" ? "sandbox" : "live account"}, add to <code>.env</code>: {current.missing.join(", ")}.</p>
+          <p className="small muted">Connect your Meta {mode === "sandbox" ? "sandbox" : "ad account"} first (missing: {current.missing.join(", ")}).</p>
         )}
-        {mode === "live" && <p className="small muted">The live account follows your autonomy level and daily cap in <code>.env</code>; with the defaults (dry run, €0) nothing is created.</p>}
         <div className="row" style={{ gap: 8, flexWrap: "nowrap" }}>
           <input aria-label="Your name" placeholder="Your name, to approve" value={name} onChange={(e) => setName(e.target.value)} className="input" style={{ flex: 1 }} />
           <button className="btn" disabled={busy || !current?.ready || !name.trim()}>
-            {busy ? "Publishing…" : mode === "sandbox" ? "Approve · sandbox" : "Approve"}
+            {busy ? "Creating…" : "Approve and create (paused)"}
           </button>
         </div>
         {error && <p className="error-text small" role="alert">{error}</p>}

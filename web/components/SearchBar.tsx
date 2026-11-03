@@ -1,11 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUp, LinkIcon } from "@/components/Icons";
 import { runUrl } from "@/lib/format";
 
 const EXAMPLES = [
-  ["WhatsApp", "https://apps.apple.com/us/app/whatsapp-messenger/id310633997"],
   ["Duolingo", "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"],
   ["Headspace", "https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008"],
 ] as const;
@@ -18,6 +17,9 @@ export default function SearchBar() {
   const [cap, setCap] = useState("20");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const input = useRef<HTMLInputElement>(null);
+  // focus on desktop only: on a phone it would open the keyboard over the page
+  useEffect(() => { if (matchMedia("(pointer: fine)").matches) input.current?.focus({ preventScroll: true }); }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -44,26 +46,26 @@ export default function SearchBar() {
         <div className="search-box">
           <LinkIcon className="search-icon" />
           <input aria-label="Your App Store link" className="search-input" placeholder="Paste your App Store link"
-                 value={app} onChange={(e) => setApp(e.target.value)} autoComplete="off" spellCheck={false} autoFocus />
+                 value={app} onChange={(e) => setApp(e.target.value)} autoComplete="off" spellCheck={false} ref={input} />
           <button className="btn search-go" disabled={busy} aria-label={busy ? "Starting" : "Start the agency"}>
             <ArrowUp />
           </button>
         </div>
       </div>
       <div className="search-meta">
-        <label className="chip"><span className="k">Countries</span>
-          <input aria-label="Countries, 2-letter codes" value={countries} onChange={(e) => setCountries(e.target.value.toUpperCase())} />
+        <label className="chip"><span className="k">Ads for</span>
+          <input aria-label="Countries, 2-letter codes" value={countries} onChange={(e) => setCountries(e.target.value.toUpperCase())} style={{ width: 30 }} />
         </label>
-        <label className="chip"><span className="k">Daily cap €</span>
-          <input aria-label="Daily budget cap in euros" inputMode="decimal" value={cap} onChange={(e) => setCap(e.target.value)} style={{ width: 36 }} />
+        <label className="chip"><span className="k">Cap €</span>
+          <input aria-label="Daily budget cap in euros" inputMode="decimal" value={cap} onChange={(e) => setCap(e.target.value)} style={{ width: 30 }} />
+          <span className="k">/day</span>
         </label>
-        <span className="faint small" aria-hidden>·</span>
         {EXAMPLES.map(([name, url]) => (
-          <button key={name} type="button" className="chip" onClick={() => { setApp(url); setError(null); }}>Try {name}</button>
+          <button key={name} type="button" className="chip ghost" onClick={() => { setApp(url); setError(null); }}>Try {name}</button>
         ))}
       </div>
       {error && <p className="search-error" role="alert">{error}</p>}
-      {busy && <p className="fineprint" role="status">Starting the agency…</p>}
+      {busy && <p className="search-status" role="status">Starting the agency…</p>}
     </form>
   );
 }

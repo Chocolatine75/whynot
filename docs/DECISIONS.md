@@ -138,3 +138,4 @@ One line per decision: date — decision — why. Newer lines can supersede olde
 - 2026-11-02 — The campaign objective is chosen from the connection: app installs when the app is registered with Meta, else traffic to the app's website; an App Store link never goes with traffic. Why: Meta blocked every such ad on a real account (error 1487810).
 - 2026-11-02 — The daily run is a LaunchAgent (macOS) / crontab line that runs `whynot agency --resume RUN`; it can do nothing a manual run cannot (autonomy, cap, approvals, kill switch stay in the agency). Why: "connect once, everything runs".
 
+- 2026-11-03 — The platform's look moves from Apple / Liquid Glass to Meta's palette (Meta blue #0064E0, Meta greys, Geist): the home page is a single search bar, the campaign page one scroll with a side navigation. Why: Tom asked for a modern product in Meta's colours for the demo judged by Meta.

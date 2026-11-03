@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Campaigns — whynot" };
 export default function Campaigns() {
   const runs = listRuns();
   return (
-    <main className="page narrow">
+    <main className="page narrow" id="content">
       <div className="page-head">
         <div>
           <h1>Campaigns</h1>
