@@ -240,3 +240,44 @@ def test_traffic_to_an_app_store_link_is_refused_before_any_call(run):
     with pytest.raises(PublishError, match="1487810"):
         publish(plan, d, client(g), OWNER_DRY, objective="traffic", approved_by="Matteo")
     assert g.calls == []
+
+
+# --- E8-1: the errors seen on real accounts, as Meta sends them, explained to the owner --------------------------
+
+def meta_error(code, sub, title, msg):
+    """The shape of a real Graph API error (fields as Meta sends them)."""
+    return {"message": "Invalid parameter", "type": "OAuthException", "code": code, "error_subcode": sub,
+            "is_transient": False, "error_user_title": title, "error_user_msg": msg, "fbtrace_id": "AbCdEf123"}
+
+
+REAL_ERRORS = [
+    ("adcreatives", meta_error(100, 1885183, "Ads creative post was created by an app that is in development mode",
+                               "It must be in public to create this ad."), "must be Live"),
+    ("adcreatives", meta_error(10, 1341012, "Not authorized to access this profile",
+                               "You are not authorized to access this profile."), "post behind an ad"),
+    ("ads", meta_error(100, 1359188, "No Payment Method", "Update your payment method to create ads."),
+     "no payment method"),
+    ("campaigns", meta_error(200, 2490592, "Ad account is under review",
+                             "Your ad account is being reviewed."), "reviewing the ad account"),
+    ("campaigns", {"message": "Error validating access token: Session has expired", "type": "OAuthException",
+                   "code": 190, "error_subcode": 463, "fbtrace_id": "x"}, "connect again"),
+]
+
+
+@pytest.mark.parametrize("edge, error, fix", REAL_ERRORS)
+def test_real_meta_errors_stop_cleanly_with_what_to_do(run, edge, error, fix):
+    plan, d = run
+    g = FakeGraph(fail_on=edge, error=error, fail_times=5)
+    with pytest.raises(MetaError) as exc:
+        publish(plan, d, client(g), OWNER_DRY, objective="app_promotion", approved_by="Matteo")
+    text = str(exc.value)
+    assert fix in text and f"{error['code']}/{error.get('error_subcode')}" in text  # the raw code stays visible
+    assert TOKEN not in text
+    assert sum(1 for _, path, _ in g.calls if path.endswith(f"/{edge}")) == 1  # not transient: never retried
+    assert PublishState.load(d / "publish.json").status == "partial"  # what was created is kept for a resume
+
+
+def test_an_unknown_meta_error_is_passed_on_as_meta_sends_it():
+    from whynot.run.meta import explain
+    assert explain(100, 9999999) is None and explain(None, None) is None
+    assert explain(100, 1359188) and explain(190, None)

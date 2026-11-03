@@ -123,6 +123,9 @@ What we send, in order (all PAUSED): `POST act_<id>/adimages` (base64 bytes → 
 - Error 10/1341012 "not authorized to access this profile": the sandbox's test user ("Sandbox Ad Account Owner") only gets the ADVERTISE task on a New Pages Experience Page, which is not enough to create the post behind an ad. Your own user token sees the Page but not the sandbox account (error 200), so **creatives can't be created in the sandbox with a New Pages Experience Page.** Campaigns and ad sets work there.
 - On a personal ad account (own user token, `--live`, everything PAUSED): creatives work; `ads` needs a payment method (error 100/1359188). Adding a card on a brand-new account can put it under Meta review (`account_status` 100), which blocks writes (error 200/2490592) until Meta clears it. Plan for this a few days before the pilot.
 
+- Every error above reaches the owner with what to do (`run/meta.KNOWN_ERRORS`, e.g. "Meta error 100/1359188: … → the ad account has no payment method: add one in Ads Manager > Billing"); the raw code stays in the message, unknown errors pass through as Meta sent them. Tests replay each error in the shape Meta sends (`tests/test_publish.py`).
+- Nov 2 and Nov 3, Matteo's account, PAUSED: the whole chain (campaign, ad sets, creatives, ads, the daily video ad) succeeded; ads read back `PENDING_REVIEW` / `IN_PROCESS`, no issue (campaigns 120254672319090204 and 120254687841070204).
+
 A sandbox account creates real objects that never deliver and never spend. App-install campaigns additionally need the app registered with Meta (`META_APP_ID`); use `--objective traffic` until then.
 
 ## Sources

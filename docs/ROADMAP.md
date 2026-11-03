@@ -308,7 +308,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 
 ### E8. Running the campaign: publish, read, rotate, report (B, R4 R5 R9)
 
-- [ ] **E8-1** ★ Finish real publishing (B)
+- [x] **E8-1** ★ Finish real publishing (B) — *Nov 3: the `ads` step succeeded on Matteo's account, PAUSED (Nov 2 traffic campaign 120254672319090204, Nov 3 from the site 120254687841070204: ads `IN_PROCESS`, no issue). `META_APIS.md` lists every error seen with its fix; `run/meta.KNOWN_ERRORS` tells the owner what to do; `test_publish` replays 1885183, 1341012, 1359188, 2490592 and 190 in Meta's shape (not retried, partial state kept, token never shown).*
   - *Done when:* the remaining `ads` step succeeds on a real account (Matteo's once Meta clears it, or the partner's, PAUSED, with consent). `META_APIS.md` lists every error seen and the fix.
   - *Tests:* `test_publish` gains the real error shapes we saw (1885183, 1341012, 1359188, 2490592) with clear messages.
 - [x] **E8-2** ★ Read real metrics (B) — *Oct 31: `run/insights.py` (Insights API per ad and day, cursors not token URLs, junk numbers as 0, provisional recent days) + a labelled simulated account; property test on totals.*
