@@ -11,6 +11,7 @@ over the whole first shot, across its cuts.
 
 import math
 from pathlib import Path
+from typing import Any
 
 from PIL import Image
 
@@ -29,6 +30,7 @@ def shot_frames(brief: TrendBrief, voice_seconds: float = 0.0) -> list[int]:
 
 
 MAX_SHOT_SECONDS = 1.0
+CTA_CARD_FRAMES = round(0.7 * FPS)
 PHOTO_CUTS = ("close", "pan", "punch_in")  # framings after the first one, in turn
 SCREEN_CUTS = ("zoom", "scroll", "float")
 
@@ -40,7 +42,14 @@ def split_frames(n: int, max_frames: int) -> list[int]:
 
 
 def recut(shots: list[dict], *, max_frames: int) -> list[dict]:
-    """Cut every long shot into short ones, each a new framing of the same picture (see the module doc)."""
+    """Cut every long shot into short ones, each a new framing of the same picture (see the module doc).
+    The mascot gets one beat (at most `max_frames`): the rest of its time goes to the next shot."""
+    shots = [dict(s) for s in shots]
+    for i, s in enumerate(shots):
+        if s["visual"] == "mascot" and s["durationInFrames"] > max_frames and len(shots) > 1:
+            spare = s["durationInFrames"] - max_frames
+            s["durationInFrames"] = max_frames
+            shots[i + 1 if i + 1 < len(shots) else i - 1]["durationInFrames"] += spare
     out: list[dict] = []
     for i, s in enumerate(shots):
         pieces = split_frames(s["durationInFrames"], max_frames)
@@ -68,7 +77,7 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
     on_accent = best_text_colour(hex_to_rgb(accent), [hex_to_rgb(bg), hex_to_rgb(fg), hex_to_rgb(surface)])
     voice_seconds = max((w.end for w in (audio.words or [])), default=0.0) if audio else 0.0
     frames = shot_frames(brief, voice_seconds)
-    shots = []
+    shots: list[dict[str, Any]] = []
     for i, (s, n) in enumerate(zip(brief.shots, frames, strict=True)):
         if s.visual not in ("text", "review") and i not in images:
             raise ValueError(f"shot {i + 1} ({s.visual}) has no image")
@@ -80,17 +89,24 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       **({"tiles": (tiles or {})[i]} if i in (tiles or {}) else {}),
                       **({"imageSize": (sizes or {})[i]} if s.visual == "screen" and i in (sizes or {}) else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
+    end_frames = round(END_CARD_SECONDS * FPS)
+    # a closing text card right before the end card said the call to action twice: it gets a beat, the end card
+    # (which shows the same call to action with the icon and the button) takes the rest
+    last = shots[-1] if shots else None
+    if last and last["visual"] == "text" and last["beat"] == "cta" and last["durationInFrames"] > CTA_CARD_FRAMES:
+        end_frames += last["durationInFrames"] - CTA_CARD_FRAMES
+        last["durationInFrames"] = CTA_CARD_FRAMES
     shots = recut(shots, max_frames=round(MAX_SHOT_SECONDS * FPS))
     for i in range(1, len(shots)):  # one phone for a run of app shots: it enters once, then changes what it shows
         if shots[i]["visual"] == "screen" and shots[i - 1]["visual"] == "screen":
             shots[i]["continues"] = True
-    end_frames = round(END_CARD_SECONDS * FPS)
     voice = None
     if audio and audio.voice_mp3 and audio.words:
         voice = {"src": "voice.mp3", "words": [{"text": w.text, "start": w.start, "end": w.end, "speaker": w.speaker,
                                                  "native": w.native} for w in audio.words]}
     return {
-        "fps": FPS, "durationInFrames": sum(frames) + end_frames, "hook": brief.hook, "shots": shots,
+        "fps": FPS, "durationInFrames": sum(s["durationInFrames"] for s in shots) + end_frames, "hook": brief.hook,
+        "shots": shots,
         "endCard": {"durationInFrames": end_frames, "appName": app_name, "icon": icon,
                     "rating": rating_text(rating, rating_count), "cta": brief.cta, "offer": brief.offer},
         "look": {"bg": bg, "fg": fg, "accent": accent, "surface": surface,

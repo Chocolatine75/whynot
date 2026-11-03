@@ -53,6 +53,7 @@ from whynot.models import image_data_url
 from whynot.sim.arena import brand_name
 
 # UGC, not cinema: the warm cinematic "AI sheen" clashed with the trend look (WhatsApp review, Nov 2).
+MAX_PHOTOS = 3  # generated photos per video: past it, the montage reframes the last one (more real app, less AI)
 # earlier styles: a preview finds the photos already paid for under them (never used to make a new photo)
 PAST_PHOTO_STYLES = ("Candid vertical photo taken on a phone, natural light, real and unpolished, like a frame "
                      "from a creator's video. No text, no letters, no logos, no screens, no phones.",)
@@ -323,14 +324,15 @@ class Studio:
                            brand["screenshots"][0], LANGUAGES[code])
         self.icon = Image.open(run_dir / "assets" / "icon.png")
 
-    def _photo(self, prompt: str) -> Image.Image:
-        """The shot's photo; in a preview, the one already made under an earlier style counts (no new image)."""
+    def _photo(self, prompt: str, reference: Image.Image | None = None) -> Image.Image:
+        """The shot's photo, made from `reference` (the story's first photo) so the people never change face.
+        In a preview, the photo already made (under an earlier style, without a reference) counts: no new image."""
         if isinstance(self.model, NoModel):
             for style in (PHOTO_STYLE, *PAST_PHOTO_STYLES):
                 key = hashlib.sha256(f"{style}|{prompt}".encode()).hexdigest()[:24]
                 if (CACHE / "scenes" / f"{key}.png").exists():
                     return Image.open(CACHE / "scenes" / f"{key}.png").convert("RGB")
-        return scene_image(self.model, prompt, CACHE / "scenes", style=PHOTO_STYLE)
+        return scene_image(self.model, prompt, CACHE / "scenes", style=PHOTO_STYLE, reference=reference)
 
     def pick(self, n: int) -> list[dict[str, Any]]:
         strategy = self.strategy
@@ -371,12 +373,9 @@ class Studio:
                     tiles[i] = found
                 else:
                     b = replace_shot(b, i, ui="rows", grid=None)
-        imgs: dict[int, Image.Image] = {}
+        imgs: dict[int, Image.Image] = story_photos(b, self._photo)
         for i, s in enumerate(b.shots):
-            if s.visual == "photo":  # the same people in the same place in every photo of the story
-                prompt = f"{b.cast}. In this shot: {s.prompt}" if b.cast else s.prompt or ""
-                imgs[i] = self._photo(prompt)
-            elif s.visual == "screen" and s.screen:
+            if s.visual == "screen" and s.screen:
                 imgs[i] = self.cut.screens[s.screen - 1]
             elif s.visual == "mascot" and self.cut.mascot is not None:
                 imgs[i] = self.cut.mascot
@@ -451,6 +450,26 @@ def make_trend_videos(run_dir: Path, model: Any, *, cfg: VideoConfig | None = No
     report["usd"] = round(model.spent_usd - spent0, 4)
     save_report(studio.out, report)
     return report
+
+
+def story_photos(b: trend_brief.TrendBrief, photo: Callable[..., Image.Image]) -> dict[int, Image.Image]:
+    """The photo of each photo shot: the first made from its prompt, every later one FROM it (`reference`), so the
+    people never change face; past MAX_PHOTOS, the last photo again (the montage reframes it)."""
+    imgs: dict[int, Image.Image] = {}
+    first: Image.Image | None = None
+    last: Image.Image | None = None
+    made = 0
+    for i, s in enumerate(b.shots):
+        if s.visual != "photo":
+            continue
+        if made >= MAX_PHOTOS and last is not None:
+            imgs[i] = last
+            continue
+        prompt = f"{b.cast}. In this shot: {s.prompt}" if b.cast else s.prompt or ""
+        imgs[i] = last = photo(prompt, reference=first)
+        first = first or last
+        made += 1
+    return imgs
 
 
 class NoModel:

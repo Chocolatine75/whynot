@@ -240,6 +240,22 @@ class ModelClient:
         ))
         return ImageResult(images_b64=images, cost=event)
 
+    def edit_image(self, prompt: str, references: list[bytes], *, module: str, size: str = "auto") -> ImageResult:
+        """A new image from 1-10 reference images (Muse Image edits): the same people and place in a new shot.
+        No mask (the API refuses one). Billed per image returned, like a generation."""
+        if not 1 <= len(references) <= 10:
+            raise ValueError("Muse Image edits take 1 to 10 reference images")
+        self._refuse_in_replay(IMAGE, module)
+        self._check_budget()
+        files = [(f"ref_{i}.png", data, "image/png") for i, data in enumerate(references)]
+        response = self.meta.images.edit(model=IMAGE, image=files, prompt=prompt, size=size,
+                                         response_format="b64_json")
+        images = [str(d.b64_json) for d in (response.data or []) if getattr(d, "b64_json", None)]
+        event = self._record(CostEvent(
+            module=module, model=IMAGE, usd=image_cost(IMAGE, len(images)), images=len(images),
+        ))
+        return ImageResult(images_b64=images, cost=event)
+
     # --- segmentation ------------------------------------------------------
 
     def segment(self, image_url: str, concept: str, *, module: str,

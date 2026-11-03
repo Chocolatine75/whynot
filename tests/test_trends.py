@@ -150,16 +150,28 @@ def test_long_shots_become_reframes_never_a_frozen_picture():
     assert sum(1 for s in out if s.get("ui") == "grid") == 1 and sum(1 for s in out if s["visual"] == "review") == 1
 
 
+def test_the_mascot_gets_one_beat_its_time_goes_to_the_next_shot():
+    from whynot.create.trend_render import recut
+    out = recut([{"visual": "mascot", "durationInFrames": 75, "move": "pop", "sfx": "pop"},
+                 {"visual": "screen", "durationInFrames": 30, "ui": "float", "sfx": "none"}], max_frames=30)
+    assert [s["visual"] for s in out].count("mascot") == 1 and out[0]["durationInFrames"] == 30
+    assert sum(s["durationInFrames"] for s in out) == 105  # no time lost: the app shot got the rest
+
+
 def test_props_keep_shot_lengths_and_stretch_for_a_long_voice():
     b = check(GOOD)
     imgs = {i: f"shot_{i}.jpg" for i, s in enumerate(b.shots) if s.visual != "text"}
     p = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X", images=imgs, icon=None,
                     rating=None, rating_count=None, audio=None, sfx={"whoosh": "sfx_whoosh.mp3"})
-    # the story keeps its length; long shots are cut into reframes of at most MAX_SHOT_SECONDS
-    assert sum(s["durationInFrames"] for s in p["shots"]) == sum(round(s.seconds * FPS) for s in b.shots)
+    # the story keeps its length (a closing cta card hands its extra time to the end card); long shots are cut
+    # into reframes of at most MAX_SHOT_SECONDS
+    assert (sum(s["durationInFrames"] for s in p["shots"]) + p["endCard"]["durationInFrames"]
+            == sum(shot_frames(b)) + round(END_CARD_SECONDS * FPS))
+    if b.shots[-1].visual == "text" and b.shots[-1].beat == "cta":
+        assert p["shots"][-1]["durationInFrames"] <= round(0.7 * FPS)
     assert max(s["durationInFrames"] for s in p["shots"] if s["visual"] not in ("text", "review")) <= FPS
     assert all(s["sfx"] != "pop" for s in p["shots"])  # "pop" was not generated here: no dangling sound
-    assert p["durationInFrames"] == sum(s["durationInFrames"] for s in p["shots"]) + round(END_CARD_SECONDS * FPS)
+    assert p["durationInFrames"] == sum(s["durationInFrames"] for s in p["shots"]) + p["endCard"]["durationInFrames"]
     from whynot.audio.captions import Word
     long = Audio(voice_mp3=__file__, words=[Word("w", 0, 20.0)])
     assert sum(shot_frames(b, 20.0)) >= (20.0 + 0.5) * FPS
@@ -688,3 +700,48 @@ def test_a_preview_can_never_spend():
                 v.sfx("whoosh")  # not cached: refused, never generated
         finally:
             trend_video.CACHE = old
+
+
+def test_every_photo_after_the_first_is_made_from_it_and_at_most_three_are_made():
+    from whynot.agency.trend_video import MAX_PHOTOS, story_photos
+    b = check(GOOD)
+    shots = [replace(s, visual="photo", prompt=f"moment {i}") if i < 6 else s for i, s in enumerate(b.shots)]
+    b = replace(b, shots=tuple(shots))
+    calls = []
+
+    def photo(prompt, reference=None):
+        calls.append((prompt, reference))
+        return Image.new("RGB", (10, 10), (len(calls) * 30, 0, 0))
+
+    imgs = story_photos(b, photo)
+    assert len(calls) == MAX_PHOTOS == 3 and calls[0][1] is None
+    assert all(ref is imgs[0] for _, ref in calls[1:])  # the same people: every later photo from the first
+    assert imgs[3] is imgs[4] is imgs[5] is imgs[2]  # past the limit, the last photo again (reframed)
+
+
+def test_a_photo_with_a_reference_is_an_edit_cached_apart(tmp_path):
+    from whynot.agency.video import scene_image
+
+    class Model:
+        def __init__(self):
+            self.made, self.edits = 0, []
+
+        def _png(self):
+            import base64
+            buf = __import__("io").BytesIO()
+            Image.new("RGB", (8, 8), (1, 2, 3)).save(buf, "PNG")
+            return NS(images_b64=[base64.b64encode(buf.getvalue()).decode()])
+
+        def image(self, prompt, *, module, size):
+            self.made += 1
+            return self._png()
+
+        def edit_image(self, prompt, refs, *, module, size):
+            self.edits.append((prompt, len(refs)))
+            return self._png()
+
+    m = Model()
+    first = scene_image(m, "she panics in the taxi", tmp_path)
+    scene_image(m, "she laughs in the taxi", tmp_path, reference=first)
+    scene_image(m, "she laughs in the taxi", tmp_path, reference=first)  # cached: no second edit
+    assert m.made == 1 and len(m.edits) == 1 and "same people" in m.edits[0][0] and m.edits[0][1] == 1

@@ -86,12 +86,25 @@ def soundtrack(voice: ElevenLabs, model: Any, b: brief.VideoBrief, language: str
     return remotion.Audio(chosen.mp3, words(chosen.characters, chosen.starts, chosen.ends), music), guard
 
 
-def scene_image(model: ModelClient, prompt: str, folder: Path, *, style: str = SCENE_STYLE) -> Image.Image:
-    """A generated background for a scene, cached by prompt and style."""
-    key = hashlib.sha256(f"{style}|{prompt}".encode()).hexdigest()[:24]
+def scene_image(model: ModelClient, prompt: str, folder: Path, *, style: str = SCENE_STYLE,
+                reference: Image.Image | None = None) -> Image.Image:
+    """A generated background for a scene, cached by prompt and style. With `reference`, an edit of that photo:
+    the same people in the same place, in a new moment (the story's characters never change face)."""
+    ref = None
+    if reference is not None:
+        buf = io.BytesIO()
+        reference.convert("RGB").save(buf, "PNG")
+        ref = buf.getvalue()
+    tag = f"|ref:{hashlib.sha256(ref).hexdigest()[:16]}" if ref else ""
+    key = hashlib.sha256(f"{style}|{prompt}{tag}".encode()).hexdigest()[:24]
     path = folder / f"{key}.png"
     if not path.exists():
-        result = model.image(f"{prompt}. {style}", module="scenes", size="1024x1536")
+        if ref is not None:
+            result = model.edit_image(f"The same people, wearing the same clothes, in the same place as in the "
+                                      f"reference photo. {prompt}. {style}", [ref], module="scenes",
+                                      size="1024x1536")
+        else:
+            result = model.image(f"{prompt}. {style}", module="scenes", size="1024x1536")
         folder.mkdir(parents=True, exist_ok=True)
         with Image.open(io.BytesIO(base64.b64decode(result.images_b64[0]))) as im:
             im.convert("RGB").save(path)
