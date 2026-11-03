@@ -104,3 +104,33 @@ Target = what we aim for. Floor = below this we don't present it as a win; we sh
 4. **Real users (R12)** — Arena public by Nov 2.
 5. **Build in public** — daily X posts; daily presence at Meta office hours.
 6. **Live interactive finale** — "give us a brand, the agency starts on it now".
+
+---
+
+## 6. Where we are at submission
+
+Reviewed Nov 3, 2026 (D-4), line by line, against the logs. ✅ reached · 🟡 partly / measured below target · ❌ not done. Nothing here is rounded up.
+
+### Results
+
+| # | Status | Measured |
+|---|---|---|
+| R1 | 🟡 | Backtest ready and tested (`validate/backtest.py`, `scripts/r1_backtest.py`; a fake partner with the right taste scores ≥ 0.75), protocol pre-registered. **Not run**: the partner's ad history has not come in. |
+| R2 | ❌ | Cut on Oct 31 (system and demo first). |
+| R3 | ❌ | v1, 186 GB ads, 44 advertisers: viewers within-advertiser AUC 0.52 [0.44, 0.60], with images 0.41, plain LLM judge 0.46; "shorter copy" heuristic 0.62 [0.52, 0.73]. Below the floor: shown as a limit on `/validation`. |
+| R4 | 🟡 | Publishing works on a real account (Nov 2: campaign, 2 ad sets, 6 static ads + 1 video ad, read back with no issue, all PAUSED, $0 spent); daily loop, caps, approvals and kill switch tested end to end on the fake Graph. **No live day yet**: needs the owner's OK to spend. |
+| R5 | 🟡 | `whynot predict` freezes a hashed ranking, `--verify` and the comparison script exist. Not frozen for a live pilot yet (no pilot). |
+| R6 | 🟡 | Simulated only: gen 2 beats gen 0 beyond the noise floor in 2/2 audiences (VietBuddy, $1.92); viewers were unanimous, so this is the simulator's consistent preference, not proof for people. Fake world: known better mutation found 92 %, false alarms 7 %. No humans, no pilot metrics. |
+| R7 | 🟡 | No similarity guard yet (E5-7). Copy repetition rule in place (a 4-word phrase in ≤ 2 concepts, never reused across videos). |
+| R8 | ✅ | `product_pixels_unchanged` passed on **80/80** statics (VietBuddy 56, WhatsApp 24; ~390k opaque product pixels identical each). Video photos can never ask for a screen, logo or text (validated). |
+| R9 | ❌ | Not measured (no live pilot). By design: one approval per launch, daily report. |
+| R10 | 🟡 | Full agency run $1.78 (VietBuddy), $0.48 (WhatsApp, with videos); video ad ~$0.10–0.30; whole hackathon $5.5 of model cost. Student viewer not built (E7 cut). |
+| R11 | 🟡 | Full run (research → plan, 24 variants simulated, 2 evolution rounds) in 6.5 min. Arena cut, so no 3-concept fast path. |
+| R12 | ❌ | 1 design partner (VietBuddy), plus test runs on public apps. |
+
+### Criteria
+
+- **Impact.** 🟡 Problem and economics written (README, DEMO); a real partner is onboarded but not live.
+- **Use of Meta models.** ✅ Six Meta models, each with its own job (README table); open weights on the critical path (viewers on Muse Spark Open); Contributor tier never used on partner data. ❌ No trained student.
+- **Technical depth.** ✅ Validation tools with CIs, noise floor, bias suite, frozen predictions; agent pipeline with guards, caps, autonomy levels, approvals, kill switch, event log; ~900 tests, CI green. 🟡 R1–R3 not all measured on real data; R3 fails. ❌ One command for every number (D-1).
+- **Demo.** 🟡 Script and shot list in `docs/DEMO.md`; recording on Nov 4.

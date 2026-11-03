@@ -392,9 +392,9 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 ### E12. Demo, docs, submission (both, Nov 3–4)
 
 - [ ] **D-1** One command reproduces every number in the demo (`uv run whynot reproduce`), $0 from cassettes and caches.
-- [ ] **D-2** README final: what it is, what was built during the event, an architecture diagram, how to run, results with links.
-- [ ] **D-3** 3-minute video per `DEMO.md`, plus a 30 s cut for X.
-- [ ] **D-4** Go through `TARGETS.md` line by line with measured values.
+- [x] **D-2** README final: what it is, what was built during the event, an architecture diagram, how to run, results with links. — *Nov 3: rewritten with a flow diagram, models, measured results and limits.*
+- [ ] **D-3** 3-minute video per `DEMO.md`, plus a 30 s cut for X. — *Nov 3: script + shot list + 30 s cut in `DEMO.md`; recording left (Tom).*
+- [x] **D-4** Go through `TARGETS.md` line by line with measured values. — *Nov 3: `TARGETS.md` §6.*
 - [ ] **D-5** Submit on Cerebral Valley Wed Nov 4 evening Paris time; flag open weights.
 
 ---
