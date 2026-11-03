@@ -37,7 +37,7 @@ function Forest({ e }: { e: Experiment }) {
 function ExperimentCard({ e }: { e: Experiment }) {
   const p = e.rows.find((r) => r.primary);
   return (
-    <article className="card pad-lg exp" aria-labelledby={`exp-${e.id}`}>
+    <article className="card pad-lg exp spot reveal" aria-labelledby={`exp-${e.id}`}>
       <div className="spread">
         <h2 id={`exp-${e.id}`}>{e.title}</h2>
         <span className={`tag dot ${VERDICT_TAG[e.verdict]}`}>{e.verdict}</span>
@@ -86,7 +86,7 @@ export default function ValidationPage() {
           <p>We measure it and publish every result, including the failures. Today: {count("passed")} pass, {count("failed")} fail, {count("not yet run")} not yet run.</p>
         </div>
       </div>
-      <div className="card flush claims">
+      <div className="card flush claims spot reveal">
         {claims.map((c) => (
           <div key={c.what} className="claim">
             <span className="what">{c.what}</span>

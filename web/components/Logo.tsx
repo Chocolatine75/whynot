@@ -1,38 +1,39 @@
 import { useId } from "react";
 
 /**
- * The whynot mark: a question mark drawn as one ribbon (the "why not?" every ad has to answer), in Meta's
- * blue→violet. Two strokes give the ribbon its fold, like Meta's own mark; the dot is the answer landing.
+ * The whynot mark: a feed comment bubble with the question mark cut out of it. It is the "why not?" every ad has
+ * to answer, asked where people answer ads: in the comments. Meta's blue→violet→pink, with a glass highlight.
  */
-export function Mark({ size = 28, animated = false, className }: { size?: number; animated?: boolean; className?: string }) {
+export function Mark({ size = 28, className }: { size?: number; className?: string }) {
   const id = useId().replace(/:/g, "");
-  const hook = "M30 36 C30 16 70 14 72 36 C73.5 52 52 52 51 68";
+  const bubble = "M30 7H70A23 23 0 0 1 93 30V56A23 23 0 0 1 70 79H44L21 95L26 78.2A23 23 0 0 1 7 56V30A23 23 0 0 1 30 7Z";
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" className={`${className ?? ""}${animated ? " mark-anim" : ""}`} aria-hidden>
+    <svg width={size} height={size} viewBox="0 0 100 100" className={className} aria-hidden>
       <defs>
-        <linearGradient id={`g${id}`} x1="20" y1="10" x2="85" y2="95" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#0064E0" />
-          <stop offset="0.45" stopColor="#0A8CFF" />
-          <stop offset="0.8" stopColor="#7A5CFF" />
-          <stop offset="1" stopColor="#C74AE0" />
+        <linearGradient id={`f${id}`} x1="8" y1="6" x2="92" y2="94" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#0A7CFF" />
+          <stop offset="0.38" stopColor="#0064E0" />
+          <stop offset="0.7" stopColor="#7A5CFF" />
+          <stop offset="1" stopColor="#E042C4" />
         </linearGradient>
-        <linearGradient id={`s${id}`} x1="30" y1="20" x2="72" y2="70" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#003E8F" />
-          <stop offset="1" stopColor="#4B2FB8" />
+        <linearGradient id={`h${id}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff" stopOpacity="0.45" />
+          <stop offset="0.5" stopColor="#fff" stopOpacity="0" />
         </linearGradient>
+        <mask id={`m${id}`}>
+          <path d={bubble} fill="#fff" />
+          <path d="M37.5 33.5C37.5 21.5 62.5 20.5 62.5 33.5C62.5 43 50 43.5 50 53" fill="none" stroke="#000" strokeWidth="9.5" strokeLinecap="round" />
+          <circle cx="50" cy="65.5" r="6" fill="#000" />
+        </mask>
       </defs>
-      {/* the fold: a darker ribbon under the front one */}
-      <path d={hook} fill="none" stroke={`url(#s${id})`} strokeWidth="17" strokeLinecap="round" transform="translate(2.5 3)" opacity="0.55" className="mark-fold" />
-      <path d={hook} fill="none" stroke={`url(#g${id})`} strokeWidth="15" strokeLinecap="round" pathLength={100} className="mark-hook" />
-      <circle cx="51" cy="86" r="8.5" fill={`url(#g${id})`} className="mark-dot" />
+      <g mask={`url(#m${id})`}>
+        <path d={bubble} fill={`url(#f${id})`} />
+        <path d={bubble} fill={`url(#h${id})`} />
+      </g>
     </svg>
   );
 }
 
-export function Wordmark({ size = 17 }: { size?: number }) {
-  return (
-    <span className="wordmark" style={{ fontSize: size }}>
-      why<span>not</span>
-    </span>
-  );
+export function Wordmark({ size = 19 }: { size?: number }) {
+  return <span className="wordmark" style={{ fontSize: size }}>whynot</span>;
 }

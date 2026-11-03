@@ -19,7 +19,7 @@ export default function Campaigns() {
         </div>
         <Link href="/" className="btn">New campaign</Link>
       </div>
-      <div className="card flush">
+      <div className="card flush spot">
         {runs.length === 0 ? <p className="empty">No campaign yet. Paste an App Store link on the home page to start one.</p> : (
           <div className="runs">
             {runs.map((r) => {

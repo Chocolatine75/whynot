@@ -1,6 +1,6 @@
 # Design
 
-whynot is a Meta-flavoured product: **Meta blue, the cool Meta greys, Geist type, quiet surfaces and hairlines.** The ads, the quotes and the numbers carry the colour; the frame steps back. The blue→violet gradient of Meta AI appears in three places only: the brand mark, the search ring on the home page and one phrase of its headline. Tokens live in `web/app/globals.css`. (Until Nov 3 the platform followed an Apple / Liquid Glass language; replaced at Tom's request, see DECISIONS.)
+whynot has a stage of its own, in Meta's colours: **a dark background with an aurora of Meta blue, violet and pink that follows the mouse, a spotlight under the cursor and film grain.** Surfaces are smoked glass; cards light up where the cursor is and lean towards it; buttons are pulled towards it; sections rise in on scroll (`web/components/Interactions.tsx`, all off under reduced motion and on touch screens). The mark is **a comment bubble with the "?" cut out**, the "why not?" every ad must answer, asked where people answer ads. Titles in Bricolage Grotesque, text in Figtree, numbers in Geist Mono. Tokens live in `web/app/globals.css`. (Nov 3: replaced the Apple / Liquid Glass look, then a first light Meta look Tom found too generic.)
 
 ## Principles
 

@@ -292,6 +292,19 @@ export function readMarketAds(dir: string, now = Date.now()): MarketAd[] {
   }).sort((a, b) => (b.days ?? -1) - (a.days ?? -1));
 }
 
+/** Ad pictures from the finished runs, for the wall on the home page: the product, shown rather than told. */
+export function showcase(root: string = runsRoot(), max = 18): { run: string; path: string }[] {
+  const out: { run: string; path: string }[] = [];
+  for (const r of listRuns(root)) {
+    const dir = path.join(root, r.id);
+    const plan = readJson<Plan>(dir, "plan.json");
+    for (const s of plan?.ad_sets ?? []) for (const a of s.ads) if (a.image_path) out.push({ run: r.id, path: a.image_path });
+    for (const v of readVideos(dir)) if (v.poster) out.push({ run: r.id, path: v.poster });
+  }
+  // alternate runs so one app doesn't fill a whole row
+  return out.sort((a, b) => (a.path.length * 7 + a.run.length) % 5 - (b.path.length * 7 + b.run.length) % 5).slice(0, max);
+}
+
 export interface RunSummary { id: string; appName: string; status: RunStatus; startedAt: string | null; spentUsd: number; adSets: number; ads: number; videos: number; icon: string | null }
 
 /** Runs under the root (and one level of sub-folders), newest first. */
