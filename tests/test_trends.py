@@ -745,3 +745,12 @@ def test_a_photo_with_a_reference_is_an_edit_cached_apart(tmp_path):
     scene_image(m, "she laughs in the taxi", tmp_path, reference=first)
     scene_image(m, "she laughs in the taxi", tmp_path, reference=first)  # cached: no second edit
     assert m.made == 1 and len(m.edits) == 1 and "same people" in m.edits[0][0] and m.edits[0][1] == 1
+
+
+def test_an_eight_word_text_card_is_not_held_to_a_static_proof_line_length():
+    data = json.loads(json.dumps(GOOD))
+    card = next(s for s in data["shots"] if s["visual"] == "text")
+    card["text"] = "Southern voices sounding exactly like your whole family"  # 8 words, 50+ characters
+    assert len(card["text"]) > 50
+    b = check(data)
+    assert any(s.text == card["text"] for s in b.shots)

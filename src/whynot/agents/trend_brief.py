@@ -495,7 +495,9 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
             elif s["visual"] == "text":
                 text = calm(_words(s.get("text"), 8, f"{where} text"))
                 _check_vietnamese_words(text, f"{where} text")
-                texts[f"proof.card{i}"] = text
+                # a video text card is bounded by its 8 words, not by the 50 characters of a static ad's proof line
+                # (an 8-word card is often longer: every brief was refused for it, Nov 3); every other rule applies
+                texts[f"card.card{i}"] = text
             elif s["visual"] == "review":
                 if selling is None or not selling.reviews:
                     raise Invalid(f"{where}: no verified review to quote; use another visual")
