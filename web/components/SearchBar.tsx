@@ -29,6 +29,7 @@ export default function SearchBar() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [mode, setMode] = useState<Mode>("paused");
+  const [website, setWebsite] = useState("");
   const { connections } = useConnections();
   const account = connections.find((c) => c.canPublish && (c.daysLeft === null || c.daysLeft >= 0)) ?? null;
   const input = useRef<HTMLInputElement>(null);
@@ -46,7 +47,7 @@ export default function SearchBar() {
         ? await fetch("/api/agency", {
           method: "POST", headers: { "content-type": "application/json" },
           body: JSON.stringify({ app, countries, dailyCapEur: Number(cap), account: account.accountId,
-            level: MODES[mode].level, paused: MODES[mode].paused }),
+            level: MODES[mode].level, paused: MODES[mode].paused, landingUrl: website.trim() || undefined }),
         })
         : await fetch("/api/runs", {
           method: "POST", headers: { "content-type": "application/json" },
@@ -88,6 +89,14 @@ export default function SearchBar() {
             </select>
           </label>
         ) : <Link href="/connect" className="chip ghost">Connect Meta</Link>}
+        {account && !account.appId && (
+          // Meta refuses App Store links for clicks: without the app registered with Meta, ads go to its website
+          <label className="chip" title="Where the ads send people. Empty: the website on the App Store page, if it has one.">
+            <span className="k">Website</span>
+            <input aria-label="Your app's website (where the ads link)" placeholder="https://… (optional)" value={website}
+                   onChange={(e) => setWebsite(e.target.value)} inputMode="url" autoComplete="url" spellCheck={false} style={{ width: 150 }} />
+          </label>
+        )}
         {EXAMPLES.map(([name, url]) => (
           <button key={name} type="button" className="chip ghost" onClick={() => { setApp(url); setError(null); }}>Try {name}</button>
         ))}

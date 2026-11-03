@@ -333,15 +333,19 @@ function step(d: Json | undefined): AgencyStep | null {
 /** `agency/state.json` reduced to what the page shows; null for a run started with `whynot create` only. */
 export function readAgency(dir: string, now = Date.now()): AgencyView | null {
   const p = path.join(dir, "agency", "state.json");
-  if (!fs.existsSync(p)) return null;
-  let s: Json;
-  try { s = JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
+  const started = fs.existsSync(path.join(dir, "agency", "site.log"));  // the site started it; the engine may not have saved yet
+  if (!fs.existsSync(p) && !started) return null;
+  let s: Json = { steps: {}, days: {}, config: {} };
+  if (fs.existsSync(p)) {
+    try { s = JSON.parse(fs.readFileSync(p, "utf8")); } catch { /* being written: show the empty state */ }
+  }
   const cfg: Json = s.config ?? {};
   const steps = s.steps ?? {};
   const days = Object.entries((s.days ?? {}) as Json).map(([day, d]) => ({ day, ...step(d as Json)! })).sort((a, b) => b.day.localeCompare(a.day));
   const all = [steps.connect, steps.create, steps.publish, ...Object.values(s.days ?? {})].filter(Boolean) as Json[];
   const logFile = path.join(dir, "agency", "site.log");
-  const touched = Math.max(fs.statSync(p).mtimeMs, fs.existsSync(path.join(dir, "events.jsonl")) ? fs.statSync(path.join(dir, "events.jsonl")).mtimeMs : 0);
+  const mtime = (f: string) => (fs.existsSync(f) ? fs.statSync(f).mtimeMs : 0);
+  const touched = Math.max(mtime(p), mtime(path.join(dir, "events.jsonl")), mtime(logFile));
   const logLines = fs.existsSync(logFile) ? fs.readFileSync(logFile, "utf8").trim().split("\n") : [];
   const lastStart = logLines.map((l) => l.startsWith("--- ")).lastIndexOf(true);
   const finished = lastStart >= 0 && logLines.slice(lastStart + 1).some((l) => l.startsWith("{\"ok\"") || l.startsWith("✗"));

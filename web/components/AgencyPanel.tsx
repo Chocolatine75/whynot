@@ -14,6 +14,13 @@ const STATUS: Record<string, [string, string]> = {
 const LEVEL: Record<string, string> = { dry_run: "Prepare only: nothing is sent to Meta", propose: "Asks you before each action", autopilot: "Autopilot within your cap" };
 const OBJECTIVE: Record<string, string> = { app_promotion: "App installs (App Store)", traffic: "Clicks to the app's website" };
 
+/** The engine speaks to the CLI ("--landing-url"); the owner gets the same reason in the site's words. */
+function plain(error: string): string {
+  if (error.includes("not registered with Meta"))
+    return "Meta refuses App Store links for clicks, and this app has no website on its App Store page. Start again with your website in the Website box (or connect the app's Meta app id): nothing was spent.";
+  return error.replace(/^[A-Za-z]+Error: /, "").replace(/^connect: /, "");
+}
+
 function Status({ s }: { s: AgencyStep | null }) {
   if (!s) return <span className="tag neutral">not yet</span>;
   const [tag, text] = STATUS[s.status] ?? ["neutral", s.status];
@@ -98,7 +105,7 @@ export default function AgencyPanel({ run, onRefresh }: { run: RunView; onRefres
           </form>
         )}
         {error && <p className="error-text small" role="alert">{error}</p>}
-        {failed?.error && <p className="error-text small">{failed.error}</p>}
+        {failed?.error && <p className="error-text small" role="alert">{plain(failed.error)}</p>}
       </div>
 
       <div className="stack" style={{ gap: 14 }}>

@@ -278,3 +278,19 @@ describe("the run page", () => {
     expect(readAgency(dir)).toBeNull();
   });
 });
+
+describe("a run the site just started", () => {
+  it("is running before the engine saved its state, and failed once it stops on an error", () => {
+    const dir = path.join(process.env.WHYNOT_RUNS_DIR!, "web", "new");
+    fs.mkdirSync(path.join(dir, "agency"), { recursive: true });
+    fs.writeFileSync(path.join(dir, "config.json"), JSON.stringify({ app_ref: APP }));
+    fs.writeFileSync(path.join(dir, "agency", "site.log"), "\n--- 2026 start act_1 autopilot paused\n");
+    expect(readAgency(dir)?.running).toBe(true);
+    expect(readRun("web/new").status).toBe("running");
+    fs.writeFileSync(path.join(dir, "agency", "state.json"), JSON.stringify({ config: {}, days: {},
+      steps: { connect: { status: "error", error: "ValueError: the app is not registered with Meta" } } }));
+    fs.appendFileSync(path.join(dir, "agency", "site.log"), '{"ok": false, "status": "error"}\n');
+    expect(readRun("web/new").status).toBe("failed");
+    expect(readRun("web/new").agency?.steps.connect?.error).toContain("not registered");
+  });
+});

@@ -201,10 +201,14 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
   const events = readEvents(dir);
   const stages = stageStates(events);
   const lastAt = events.length ? Date.parse(events[events.length - 1].ts) : null;
+  const agency = readAgency(dir, now);
+  // an agency run: the engine is alive while its command has not printed its last line
+  const failed = agency && [agency.steps.connect, agency.steps.create, agency.steps.publish].some((s) => s?.status === "error");
+  const status: RunStatus = agency?.running ? "running" : failed ? "failed" : runStatus(stages, lastAt, now);
   return {
     id,
     config: readJson(dir, "config.json"),
-    status: runStatus(stages, lastAt, now),
+    status,
     stages,
     spentUsd: totalSpent(events),
     startedAt: events[0]?.ts ?? null,
@@ -223,7 +227,7 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
     log: events.slice(-40),
     videos: readVideos(dir),
     marketAds: readMarketAds(dir, now),
-    agency: readAgency(dir, now),
+    agency,
   };
 }
 
