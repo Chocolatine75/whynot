@@ -136,18 +136,20 @@ class CostLedger:
 
 # --- spend report (`whynot costs`) -------------------------------------------------------
 
-TEAM_BUDGET_USD = 60.0  # Meta Model API budget to the deadline, both people together (ROADMAP.md)
+TEAM_BUDGET_USD = 165.0  # Meta Model API credits to the deadline, both people (Nov 3: $55.79 logged + $109 left)
 
 
 def collect_ledgers(outputs: Path) -> list[tuple[str, CostEvent]]:
     """(run, event) for every call logged under `outputs/`: scripts' ledger and each run folder's ledger.
 
-    The run is the run folder's name, or "scripts" for `outputs/costs.jsonl`.
+    The run is the run folder's path under `runs/` (runs started from the site live one level down, in
+    `runs/web/`), or "scripts" for `outputs/costs.jsonl`.
     """
     outputs = Path(outputs)
     found: list[tuple[str, CostEvent]] = [("scripts", e) for e in CostLedger(outputs / "costs.jsonl").events()]
-    for path in sorted(outputs.glob("runs/*/costs.jsonl")):
-        found += [(path.parent.name, e) for e in CostLedger(path).events()]
+    runs = outputs / "runs"
+    for path in sorted(runs.glob("**/costs.jsonl")):
+        found += [(path.parent.relative_to(runs).as_posix(), e) for e in CostLedger(path).events()]
     return found
 
 

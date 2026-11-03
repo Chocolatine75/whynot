@@ -7,7 +7,7 @@ import time
 import pytest
 
 from whynot.cli import main
-from whynot.costs import CostEvent, CostLedger, collect_ledgers, format_report, spend_report
+from whynot.costs import TEAM_BUDGET_USD, CostEvent, CostLedger, collect_ledgers, format_report, spend_report
 
 
 def ts(day: str) -> float:
@@ -34,7 +34,14 @@ def test_totals_by_every_axis(outputs):
     assert r.by_module == {"viewers": 0.75, "strategy": 1.0}
     assert r.by_model == {"muse-spark-1.3": 0.75, "muse-wonder-1.0": 1.0}
     assert r.by_run == {"scripts": 0.5, "20261029-vietbuddy": 1.25}
-    assert r.remaining_usd == pytest.approx(60 - 1.75)
+    assert r.remaining_usd == pytest.approx(TEAM_BUDGET_USD - 1.75)
+
+
+def test_runs_started_from_the_site_are_counted(outputs):
+    CostLedger(outputs / "runs" / "web" / "20261103-app" / "costs.jsonl").record(
+        CostEvent("evolver", "muse-spark-1.3", 2.0, ts=ts("2026-11-03")))
+    r = spend_report(collect_ledgers(outputs))
+    assert r.usd == pytest.approx(3.75) and r.by_run["web/20261103-app"] == 2.0
 
 
 def test_since_is_inclusive(outputs):
@@ -49,7 +56,7 @@ def test_the_report_warns_above_two_thirds_of_the_budget(outputs):
 
 def test_empty_outputs_folder(tmp_path):
     r = spend_report(collect_ledgers(tmp_path))
-    assert r.usd == 0 and r.calls == 0 and "$60 budget" in format_report(r)
+    assert r.usd == 0 and r.calls == 0 and f"${TEAM_BUDGET_USD:.0f} budget" in format_report(r)
 
 
 def test_cli(outputs, capsys):
