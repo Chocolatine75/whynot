@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 /** The kill switch: pauses every campaign, ad set and ad this run created on Meta, after one confirmation. */
-export default function StopButton({ runId, mode }: { runId: string; mode: "sandbox" | "live" }) {
+export default function StopButton({ runId, mode, endpoint = "/api/stop" }: { runId: string; mode: "sandbox" | "live"; endpoint?: string }) {
   const [confirming, setConfirming] = useState(false);
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
@@ -14,7 +14,7 @@ export default function StopButton({ runId, mode }: { runId: string; mode: "sand
     setBusy(true);
     setError(null);
     try {
-      const res = await fetch("/api/stop", {
+      const res = await fetch(endpoint, {
         method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: runId, mode, by: name }),
       });
       const body = await res.json().catch(() => ({}));

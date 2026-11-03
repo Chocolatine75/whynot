@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mark, Wordmark } from "@/components/Logo";
 
-const LINKS = [["/runs", "Campaigns"], ["/validation", "Validation"]] as const;
+const LINKS = [["/runs", "Campaigns"], ["/validation", "Validation"], ["/connect", "Meta account"]] as const;
 
 /** The top bar. On the home page the logo lives in the centre of the page, so the bar keeps only the links. */
 export default function TopBar() {

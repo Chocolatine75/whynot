@@ -7,6 +7,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { type AgencyView, readAgency } from "./meta";
 
 export const STAGES = ["app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report"] as const;
 export type Stage = (typeof STAGES)[number];
@@ -185,6 +186,7 @@ export interface RunView {
   log: RunEvent[];
   videos: VideoAd[];
   marketAds: MarketAd[];
+  agency: AgencyView | null;  // a run started by the whole agency (`whynot agency`): its account, steps and days
 }
 
 /** The last lines the publish command printed (its own messages; tokens are redacted by the engine). */
@@ -221,6 +223,7 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
     log: events.slice(-40),
     videos: readVideos(dir),
     marketAds: readMarketAds(dir, now),
+    agency: readAgency(dir, now),
   };
 }
 

@@ -242,6 +242,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .chip.ghost:hover { color: var(--blue); }
 .chip input { height: 22px; border: 0; background: transparent; font-size: 13px; font-weight: 700; color: var(--text); padding: 0; }
 .chip input:focus { outline: none; }
+.chip select { height: 22px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 700; color: var(--text); padding: 0; cursor: pointer; }
+.chip select:focus { outline: none; }
+.chip select option { color: #111; }
 .chip:focus-within { box-shadow: 0 0 0 2px var(--blue); }
 .chip .k { color: var(--text-3); font-weight: 500; }
 .search-error, .search-status { margin-top: 14px; text-align: center; font-size: 14px; }

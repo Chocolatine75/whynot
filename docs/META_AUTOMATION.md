@@ -110,6 +110,22 @@ A scheduled run can do nothing a manual one cannot (same level, cap, approvals, 
 daily step above), `schedule` (if any), `first_live_approved_by`, `static_committed_eur`. Daily reports for the
 owner: `<run>/agency/reports/<day>.md` and `.json`.
 
+## On the site (`web/`, branch `b/site-meta`)
+
+- **Meta account** page (`/connect`, top bar): Facebook Login with whynot's app (`WHYNOT_META_APP_ID`; the app must
+  list `localhost` in its domains) or a pasted token → `POST /api/meta` → `whynot connect --token-stdin --json`.
+  `GET /api/meta` lists saved connections, never a token (`web/lib/meta.ts`).
+- **Home search bar**: when an account is connected, a chip picks what the agency may do (*Test on Meta, paused*
+  = autopilot + `--paused`, default; *Prepare only* = dry_run; *Ask me before each action* = propose; *Autopilot
+  within my cap*) and `POST /api/agency` spawns `whynot agency … --connection … --run-dir outputs/runs/web/<run>`.
+  Not connected: the old path (`whynot create`, ads made and tested only).
+- **Run page, Launch**: the agency panel reads `agency/state.json` (account, mode, cap, objective, steps, days with
+  their reports). Buttons: *Approve* (`--resume --approve NAME`), *Run today now* (`--resume`), *Every morning*
+  (`whynot schedule`), *Pause everything now* (`whynot stop RUN --connection FILE`). Engine output in
+  `<run>/agency/site.log`.
+- Engine additions for it: `whynot agency --run-dir DIR` (new run in a folder the site names; refuses one that
+  already holds an agency run) and `whynot stop --connection FILE`.
+
 ## Tested for real (Nov 2, PAUSED, nothing spent)
 
 - `whynot connect`: exchange with the app secret accepted, login valid to Dec 31; a real renewal call passed.

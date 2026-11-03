@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useConnections } from "@/components/ConnectMeta";
 import { ArrowUp, LinkIcon } from "@/components/Icons";
 import { runUrl } from "@/lib/format";
 
@@ -8,6 +10,15 @@ const EXAMPLES = [
   ["Duolingo", "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"],
   ["Headspace", "https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008"],
 ] as const;
+
+/** How far the agency may go on the connected account (the engine enforces it again). */
+const MODES = {
+  paused: { label: "Test on Meta, paused", level: "autopilot", paused: true },
+  dry_run: { label: "Prepare only", level: "dry_run", paused: false },
+  propose: { label: "Ask me before each action", level: "propose", paused: false },
+  autopilot: { label: "Autopilot within my cap", level: "autopilot", paused: false },
+} as const;
+type Mode = keyof typeof MODES;
 
 /** The one thing on the home page: paste the App Store link, hand it to the agency. */
 export default function SearchBar() {
@@ -17,6 +28,9 @@ export default function SearchBar() {
   const [cap, setCap] = useState("20");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [mode, setMode] = useState<Mode>("paused");
+  const { connections } = useConnections();
+  const account = connections.find((c) => c.canPublish && (c.daysLeft === null || c.daysLeft >= 0)) ?? null;
   const input = useRef<HTMLInputElement>(null);
   // focus on desktop only: on a phone it would open the keyboard over the page
   useEffect(() => { if (matchMedia("(pointer: fine)").matches) input.current?.focus({ preventScroll: true }); }, []);
@@ -27,10 +41,17 @@ export default function SearchBar() {
     setBusy(true);
     setError(null);
     try {
-      const res = await fetch("/api/runs", {
-        method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify({ app, countries, dailyCapEur: Number(cap) }),
-      });
+      // connected: the whole agency runs on the account; otherwise the ads are made and tested only
+      const res = account
+        ? await fetch("/api/agency", {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ app, countries, dailyCapEur: Number(cap), account: account.accountId,
+            level: MODES[mode].level, paused: MODES[mode].paused }),
+        })
+        : await fetch("/api/runs", {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ app, countries, dailyCapEur: Number(cap) }),
+        });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
       router.push(runUrl(data.id));
@@ -60,6 +81,13 @@ export default function SearchBar() {
           <input aria-label="Daily budget cap in euros" inputMode="decimal" value={cap} onChange={(e) => setCap(e.target.value)} style={{ width: 30 }} />
           <span className="k">/day</span>
         </label>
+        {account ? (
+          <label className="chip" title={`${account.accountName} · ${account.act}`}><span className="k">On Meta</span>
+            <select aria-label="What the agency may do on your Meta account" value={mode} onChange={(e) => setMode(e.target.value as Mode)}>
+              {(Object.keys(MODES) as Mode[]).map((m) => <option key={m} value={m}>{MODES[m].label}</option>)}
+            </select>
+          </label>
+        ) : <Link href="/connect" className="chip ghost">Connect Meta</Link>}
         {EXAMPLES.map(([name, url]) => (
           <button key={name} type="button" className="chip ghost" onClick={() => { setApp(url); setError(null); }}>Try {name}</button>
         ))}

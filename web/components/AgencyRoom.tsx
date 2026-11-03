@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MarketAd, PlanAd, Progress, RunView, Score, StageState, Variant } from "@/lib/runs";
 import AppIcon from "@/components/AppIcon";
+import AgencyPanel from "@/components/AgencyPanel";
 import PublishPanel from "@/components/PublishPanel";
 import { Alert, ArrowRight } from "@/components/Icons";
 import { STATUS_TAG, ago, eur, fileUrl, joinPhrases, usd } from "@/lib/format";
@@ -67,7 +68,7 @@ export default function AgencyRoom({ initial }: { initial: RunView }) {
   const ads = useMemo(() => new Map(run.marketAds.map((a) => [a.id, a])), [run.marketAds]);
   const brand = run.simulation?.brand ?? run.app?.name ?? "Your app";
   const name = run.app?.name ?? run.config?.app_ref ?? "New campaign";
-  const canApprove = Boolean(run.plan) && run.status === "done" && !run.published;
+  const canApprove = run.agency ? run.agency.waiting : Boolean(run.plan) && run.status === "done" && !run.published;
 
   const sections: Section[] = [
     { id: "overview", label: "Overview" },
@@ -746,9 +747,9 @@ function Launch({ run, onRefresh }: { run: RunView; onRefresh: () => Promise<voi
     <section id="launch" className="sec">
       <Head eyebrow="Launch" title="Your campaign, within your cap"
             text={plan ? `${plan.ad_sets.length} ad sets · ${ads} ads · ${eur(plan.daily_total_eur)}/day max · created paused.` : undefined} />
-      {!plan ? <Waiting what="The plan comes after the test." /> : (
+      {!plan ? (run.agency ? <AgencyPanel run={run} onRefresh={onRefresh} /> : <Waiting what="The plan comes after the test." />) : (
         <div className="stack" style={{ gap: 16 }}>
-          {run.status === "done" && <PublishPanel run={run} onRefresh={onRefresh} />}
+          {run.agency ? <AgencyPanel run={run} onRefresh={onRefresh} /> : run.status === "done" && <PublishPanel run={run} onRefresh={onRefresh} />}
           <div className="card flush scroll-x">
             <table className="table">
               <thead><tr><th>Audience</th><th>Who</th><th>Ads</th><th style={{ textAlign: "right" }}>Daily budget</th><th>Status</th></tr></thead>

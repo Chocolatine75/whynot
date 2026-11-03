@@ -219,6 +219,15 @@ def _stop(args: argparse.Namespace) -> int:
     live = args.live
     account = Account(account_id=(s.meta_ad_account_id if live else s.meta_sandbox_ad_account_id) or "",
                       token=(s.meta_token if live else s.meta_sandbox_token) or "", sandbox=not live)
+    if args.connection:  # the owner's saved login (`whynot connect`): the account the agency published to
+        from whynot.run.connect import ConnectError, MetaConnection
+        try:
+            conn = MetaConnection.load(Path(args.connection))
+        except ConnectError as exc:
+            print(f"✗ {exc}", file=sys.stderr)
+            return 1
+        live = not conn.sandbox
+        account = Account(account_id=conn.account_id, token=conn.token, sandbox=conn.sandbox)
     try:
         client = MarketingClient(account, version=s.fb_api_version)
         policy = Policy.from_env(s.autonomy_level, s.max_daily_ad_spend_eur)
@@ -329,7 +338,13 @@ def _agency(args: argparse.Namespace) -> int:
                                publish_static=not args.videos_only, paused_only=args.paused,
                                target_live=args.target, max_new=args.new,
                                budget_per_ad_eur=args.budget_per_ad, create=extra, seed=args.seed)
-            orch = Orchestrator.start(Path(args.out), cfg, services)
+            if args.run_dir:  # the site names the folder first, so its page can open at once
+                run_dir = Path(args.run_dir)
+                if (run_dir / "agency" / "state.json").exists():
+                    raise ValueError(f"{run_dir} already holds an agency run: use --resume")
+                orch = Orchestrator(run_dir, cfg, services)
+            else:
+                orch = Orchestrator.start(Path(args.out), cfg, services)
     except (ValueError, FileNotFoundError, RuntimeError) as exc:
         print(f"✗ {exc}", file=sys.stderr)
         return 1
@@ -510,6 +525,7 @@ def main(argv: list[str] | None = None) -> int:
     st.add_argument("runs", nargs="+", help="run folders (outputs/runs/...) whose objects to pause")
     st.add_argument("--by", required=True, metavar="NAME", help="who pulls the switch (logged)")
     st.add_argument("--live", action="store_true", help="the live ad account (default: the sandbox account)")
+    st.add_argument("--connection", help="the saved Meta connection the agency used (from `whynot connect`)")
     st.set_defaults(func=_stop)
 
     se = sub.add_parser("selection", help="natural-selection demo: the daily loop vs random ideas, simulated")
@@ -564,6 +580,7 @@ def main(argv: list[str] | None = None) -> int:
     ag.add_argument("--seed", type=int, default=0)
     ag.add_argument("--silent", action="store_true", help="no voice-over or music")
     ag.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")
+    ag.add_argument("--run-dir", help="new run: use exactly this folder (the site picks it to open its page at once)")
     ag.set_defaults(func=_agency)
 
     pr = sub.add_parser("predict", help="freeze the simulator's ranking of a run's planned ads (post the hash)")
