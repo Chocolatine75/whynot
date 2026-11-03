@@ -30,7 +30,7 @@ class Parent:
     variant_id: str
     template: Template
     genome: Genome
-    lift_over_placebo: float
+    score: float  # its simulated score: lift over placebo (generation 0) or tournament strength
     intent: float
     why_not: tuple[str, ...]  # simulated viewers' objections, most frequent first
 

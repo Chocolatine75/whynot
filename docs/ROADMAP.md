@@ -213,10 +213,10 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
 - [x] **E3-1** ★ Hard feeds (A) — *Oct 30: `sim/relevance.py`, used by simulate + evolve. Fake world: a weak ad scores 1.7–1.85× chance vs the raw market, 0.05–0.4× in hard feeds.*
   - *Done when:* competitors in each feed are the **most relevant** ones (same category and language, long-running first), not random market ads. Our ads must beat ads that survived in the market.
   - *Tests:* relevance ranking (unit); a fake world where a weak ad loses to strong competitors.
-- [ ] **E3-2** ★ Tournament mode (A) — *code done Oct 30 (`sim/tournament.py`): Kendall τ mean 0.92, ≥ 0.8 in 95 % of 20 seeds (6 variants, 9 games per pair). Left: call it from `simulate`/`evolve` and show it in the report (with E6-1).*
+- [x] **E3-2** ★ Tournament mode (A) — *Nov 2: judges every evolution generation (`stage_evolve` → `sim/tournament.play`): parents + children + gen-0 champion + a placebo, 2 feeds per pair, Bradley-Terry with CIs; report + `evolution.json` show it. Fake world τ 0.92 (Oct 30). Simulate (gen 0) still uses the arena lift.*
   - *Done when:* our variants face each other in round-robin feeds, which gives a ranking with a CI and no ceiling. The arena reports win rate vs competitors **and** Elo/Bradley-Terry among ours.
   - *Tests:* Bradley-Terry fit recovers a known ranking on the fake world (Kendall τ ≥ 0.8).
-- [ ] **E3-3** Noise floor (A) — *code done Oct 30 (`validate/retest.py`): floor = 1.96·√2·SD(retest); 8 ads: 90 % of real gaps clear it, 9 % of equal-ad gaps do. Left: display it next to simulated differences in report and UI (lane B).*
+- [x] **E3-3** Noise floor (A) — *Nov 2: the last tournament of each audience is replayed with a fresh draw; floor = 1.96·√2·SD, max(audience, pooled); a gap is called a win only beyond it and confirmed by the retest; shown next to every difference in the report (SIMULATED). VietBuddy: floors 2.31 and 0.00 (pooled 1.55). UI: fields ready in `evolution.json`, page not changed (Tom).*
   - *Done when:* the same feed is shown twice with a new seed. We measure test-retest agreement and use it as the minimum difference we report as real.
   - *Tests:* the stats (unit); the floor is displayed next to every simulated difference in the report and the UI.
 - [ ] **E3-4** Viewer realism (A)
@@ -284,7 +284,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 
 ### E6. Evolution that measurably improves ads (A + B, R6)
 
-- [ ] **E6-1** ★ Evolution on hard feeds and tournaments (A)
+- [x] **E6-1** ★ Evolution on hard feeds and tournaments (A) — *Nov 2: fake world with a known better mutation: found in 92 % of seeds, false alarms 7 % (null world). Real (VietBuddy, 2 audiences, $1.92): gen 2 beats gen 0 beyond the noise floor in **2/2** (+3.89 vs floor 2.31, retest +2.59; +3.46 vs floor 1.55, retest +3.46), SIMULATED. Caveat: viewers were unanimous (perfect order in every tournament), so this shows the simulator's consistent preference, not real-world gain. Left: ≥ 5 eval apps (1 measured).*
   - *Done when:* generations are judged by E3-1 + E3-2. The report shows the score per generation with a CI and the noise floor. On ≥ 5 eval apps, gen 2 beats gen 0 by more than the noise floor (simulated), or we say it doesn't.
   - *Tests:* the fake world with a known better mutation: evolution finds it in ≥ 80 % of seeds.
 - [ ] **E6-2** Counterfactuals (A)

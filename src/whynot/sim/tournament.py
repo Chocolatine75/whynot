@@ -11,20 +11,24 @@ progress. Head-to-head games between our own variants have no ceiling.
 - `head_to_head`: one game per viewer per feed: the candidate the viewer
   preferred wins; if they preferred a competitor ad, the higher intent wins; an
   equal intent is a tie (half a win each);
-- `rank`: Bradley-Terry log-strengths, with bootstrap CIs over viewers.
+- `rank`: Bradley-Terry log-strengths, with bootstrap CIs over viewers;
+- `play` / `replay`: feeds → viewers → ranking, and the same feeds again with a
+  fresh draw (a retest: its gap to the first ranking is the noise floor, E3-3).
 
 Add a placebo (a competitor ad under our name, `arena.placebo_item`) as a
 candidate to get a reference point: variants below it lose to a real
 competitor ad presented like ours. All numbers are SIMULATED.
 """
 
+import copy
 import random
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from itertools import combinations
 
 from whynot.sim.feed import Feed, FeedItem
-from whynot.sim.viewer import Reaction
+from whynot.sim.personas import Persona
+from whynot.sim.viewer import Reaction, Viewer, run_simulation
 from whynot.validate.stats import Outcome, bradley_terry
 
 
@@ -131,3 +135,45 @@ def rank(reactions: list[Reaction], candidates: set[str], *, bootstrap: int = 30
     standings = [Standing(n, point[n], ci(samples[n]), games[n], wins[n]) for n in names]
     standings.sort(key=lambda s: (-s.strength, s.ad_id))
     return TournamentResult(standings, len(views))
+
+
+
+@dataclass
+class Played:
+    """One tournament as played: the feeds and viewers (kept so it can be retested), and its ranking."""
+    candidates: tuple[str, ...]
+    feeds: list[Feed]
+    personas: list[Persona]
+    viewers_per_feed: int
+    result: TournamentResult | None  # None when no game could be played (every viewer failed)
+    usd: float
+    failures: list[dict[str, str]]
+    reactions: list[Reaction] = field(default_factory=list)
+
+
+def play(viewer: Viewer, personas: list[Persona], candidates: list[FeedItem], competitors: list[FeedItem], *,
+         feed_size: int, rounds: int, viewers_per_feed: int, seed: int = 0, bootstrap: int = 300) -> Played:
+    """Round-robin feeds watched by the viewers, then ranked. Viewer failures only lose games, never raise."""
+    feeds = round_robin_feeds(candidates, competitors, feed_size=feed_size, rounds=rounds, seed=seed)
+    sim = run_simulation(viewer, personas, feeds, viewers_per_feed=viewers_per_feed)
+    ids = tuple(c.ad_id for c in candidates)
+    return Played(ids, feeds, personas, viewers_per_feed, _rank_or_none(sim.reactions, set(ids), bootstrap, seed),
+                  sim.usd, sim.failures, sim.reactions)
+
+
+def replay(viewer: Viewer, played: Played, *, bootstrap: int = 300, seed: int = 0) -> Played:
+    """The same feeds and viewers with a fresh draw (never the cached first answers): a retest (E3-3)."""
+    again = copy.copy(viewer)
+    again.draw = viewer.draw + 1
+    sim = run_simulation(again, played.personas, played.feeds, viewers_per_feed=played.viewers_per_feed)
+    return Played(played.candidates, played.feeds, played.personas, played.viewers_per_feed,
+                  _rank_or_none(sim.reactions, set(played.candidates), bootstrap, seed), sim.usd, sim.failures,
+                  sim.reactions)
+
+
+def _rank_or_none(reactions: list[Reaction], candidates: set[str], bootstrap: int,
+                  seed: int) -> TournamentResult | None:
+    try:
+        return rank(reactions, candidates, bootstrap=bootstrap, seed=seed)
+    except ValueError:
+        return None

@@ -26,6 +26,83 @@ def _cell(text: Any) -> str:
     return str(text).replace("|", "/").replace("\n", " ")
 
 
+VERDICT = {"improved": "**better, beyond the noise**", "worse": "**worse, beyond the noise**",
+           "within noise": "within noise: no difference we can claim", "not measured": "not measured"}
+
+
+def _strength(s: Any) -> str:
+    return f"{s:+.2f}" if isinstance(s, int | float) else "—"
+
+
+def _ci(ci: Any) -> str:
+    if not ci or ci[0] is None or ci[1] is None:
+        return "—"
+    return f"[{ci[0]:+.2f}, {ci[1]:+.2f}]"
+
+
+def evolution_section(evolution: dict[str, Any], by_variant: dict[str, Any]) -> list[str]:
+    """Score per generation with its CI, the noise floor, and what we may claim (E6-1). All SIMULATED."""
+    out = ["## How the ads evolved (SIMULATED)", "",
+           "Each round, the best ads were changed in ONE element to answer what simulated viewers objected to. "
+           "Then every child met its parent, the other ads of the round and the original champion (generation 0) "
+           "head-to-head in the same simulated feeds, next to real competitor ads and a placebo (a competitor ad "
+           "shown under our name). The strongest were kept.", "",
+           "- **Strength**: Bradley-Terry score from those head-to-head games (0 = the round's average), with a 95 % "
+           "interval over viewers. Only ads of the same round are comparable, which is why each round includes the "
+           "original champion: “vs gen 0” is measured in the same feeds.",
+           "- **Noise floor**: the last round was watched again with fresh simulated answers. A gap smaller than the "
+           "floor (1.96 × √2 × the retest's spread) is called *within noise*, never an improvement; a win must "
+           "also point the same way in the retest.",
+           "- **Limits**: the floor measures how much the simulated answers change when asked again, not how other "
+           "feeds or other viewers would vote; simulated preferences are not yet validated against real results.", ""]
+    summary = evolution.get("summary")
+    if summary:
+        out += [f"Across **{summary['judged']}** audience(s): **{summary.get('improved', 0)}** better than "
+                f"generation 0 beyond the noise, {summary.get('within noise', 0)} within noise, "
+                f"{summary.get('worse', 0)} worse (SIMULATED).", ""]
+    for g in evolution["groups"]:
+        out += [f"### {g['persona']} ({g['language']})", ""]
+        result = g.get("result")
+        if result:
+            floor = result.get("noise_floor")
+            floor_text = f"noise floor {floor:.2f}" if floor is not None else "no noise floor"
+            out += [f"Generation {result['generation']} vs generation 0: **{_strength(result['difference'])}** "
+                    f"({floor_text}, retest {_strength(result.get('retest_difference'))}) → "
+                    f"{VERDICT[result['verdict']]} (SIMULATED).", ""]
+            out += ["| Generation | Best ad | Strength | 95 % interval | vs gen 0 | Placebo | Verdict |",
+                    "|---|---|---|---|---|---|---|"]
+            for p in g.get("progress", []):
+                hook = _cell(by_variant.get(p["best"], {}).get("texts", {}).get("hook", p["best"]))
+                out.append(f"| {p['generation']} | {hook} | {_strength(p['strength'])} | {_ci(p['ci'])} | "
+                           f"{_strength(p['vs_gen0'])} | {_strength(p.get('placebo'))} | "
+                           f"{VERDICT.get(p.get('verdict', ''), 'reference')} |")
+            out.append("")
+            for h in g["history"]:
+                bc = h.get("best_child")
+                if bc:
+                    m = by_variant.get(bc["id"], {}).get("mutation") or {}
+                    change = f"changed **{m['gene']}** to “{_cell(m['text'])}”" if m else bc["id"]
+                    out.append(f"- Round {h['generation']}, best child vs its parent: {_strength(bc['difference'])} "
+                               f"({VERDICT[bc['verdict']]}): {change}")
+            out.append("")
+        stopped = [h for h in g["history"] if h.get("stopped")]
+        if stopped:
+            out += [f"Stopped at round {stopped[0]['generation']}: {stopped[0]['stopped']}.", ""]
+        chain, vid = [], g.get("champion")
+        while vid and vid in by_variant:  # champion back to its generation-0 ancestor
+            chain.append(by_variant[vid])
+            vid = by_variant[vid].get("parent_id")
+        chain.reverse()
+        if chain:
+            out += ["Lineage of the strongest ad:", ""]
+            for v in chain:
+                m = v.get("mutation")
+                change = f" — changed **{m['gene']}**: “{m['text']}” ({m['why']})" if m else " — original"
+                out.append(f"- Gen {v.get('generation', 0)}: ![{v['variant_id']}]({v['image']}){change}")
+            out.append("")
+    return out
+
+
 def build_report(run: Path) -> str:
     app = _load(run, "app.json", {})
     market = _load(run, "market.json", {})
@@ -79,33 +156,7 @@ def build_report(run: Path) -> str:
 
     evolution = _load(run, "evolution.json", {}) or {}
     if evolution.get("groups"):
-        out += ["## How the ads evolved (SIMULATED)", "",
-                "Each round, the best ads were changed in ONE element to answer what simulated viewers objected to, "
-                "then re-tested against their parents and placebos in fresh feeds.", ""]
-        for g in evolution["groups"]:
-            chain, vid = [], g.get("champion")
-            while vid:  # champion back to its generation-0 ancestor
-                chain.append(by_variant[vid])
-                vid = by_variant[vid].get("parent_id")
-            chain.reverse()
-            out += [f"### {g['persona']} ({g['language']})", ""]
-            rounds = [h for h in g["history"] if "scores" in h]
-            out += ["| Round | Best ad | vs placebo | Intent |", "|---|---|---|---|"]
-            for h in rounds:
-                best = h["kept"][0] if h["kept"] else None
-                s = h["scores"].get(best, {}) if best else {}
-                hook = _cell(by_variant.get(best, {}).get("texts", {}).get("hook", "")) if best else "—"
-                out.append(f"| {h['generation']} | {hook} | {s.get('lift_over_placebo', 0):+.2f} | "
-                           f"{s.get('intent', 0):.1f}/5 |")
-            stopped = [h for h in g["history"] if h.get("stopped")]
-            if stopped:
-                out.append(f"\nStopped at round {stopped[0]['generation']}: {stopped[0]['stopped']}.")
-            out += ["", "Lineage of the winning ad:", ""]
-            for v in chain:
-                m = v.get("mutation")
-                change = f" — changed **{m['gene']}**: “{m['text']}” ({m['why']})" if m else " — original"
-                out.append(f"- Gen {v.get('generation', 0)}: ![{v['variant_id']}]({v['image']}){change}")
-            out.append("")
+        out += evolution_section(evolution, by_variant)
 
     if plan.get("errors"):
         out += ["## ⚠ The plan has problems", ""] + [f"- {e}" for e in plan["errors"]] + [""]
