@@ -72,7 +72,7 @@ function readJson<T>(dir: string, name: string): T | null {
   }
 }
 
-export interface RunEvent { ts: string; stage: string; status: string; usd?: number; seconds?: number; error?: string }
+export interface RunEvent { ts: string; stage: string; status: string; usd?: number; seconds?: number; error?: string; rollup?: boolean }
 
 export function readEvents(dir: string): RunEvent[] {
   const p = path.join(dir, "events.jsonl");
@@ -109,7 +109,8 @@ export function stageStates(events: RunEvent[]): StageView[] {
 }
 
 export function totalSpent(events: RunEvent[]): number {
-  return events.reduce((sum, e) => sum + (e.status === "ok" || e.status === "error" ? e.usd ?? 0 : 0), 0);
+  // a roll-up (an agency step around `create`) repeats the spend of its inner events: counted once, like the engine
+  return events.reduce((sum, e) => sum + ((e.status === "ok" || e.status === "error") && !e.rollup ? e.usd ?? 0 : 0), 0);
 }
 
 export type RunStatus = "running" | "done" | "failed" | "stopped";
