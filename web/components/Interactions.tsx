@@ -8,7 +8,7 @@ import { useEffect } from "react";
  *  - `.tilt` elements lean towards the cursor in 3D;
  *  - `.magnetic` buttons are pulled a few pixels towards it;
  *  - `.reveal` elements rise in when they enter the screen.
- * Everything stops under prefers-reduced-motion and on touch screens (no hover).
+ * Reveals are instant under prefers-reduced-motion; the mouse effects are off on touch screens (no hover).
  */
 export default function Interactions() {
   useEffect(() => {
@@ -24,7 +24,8 @@ export default function Interactions() {
     const added = new MutationObserver(watch);
     added.observe(document.body, { childList: true, subtree: true });
 
-    if (still || !hover) return () => { seen.disconnect(); added.disconnect(); };
+    // the mouse effects follow the user's own movement, so they stay on with reduced motion; touch screens have no hover
+    if (!hover) return () => { seen.disconnect(); added.disconnect(); };
 
     let frame = 0;
     let last: PointerEvent | null = null;

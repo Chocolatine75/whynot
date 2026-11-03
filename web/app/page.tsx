@@ -22,7 +22,7 @@ export default function Home() {
         <div className="wall" aria-hidden>
           {rows.map((row, r) => (
             <div key={r} className={`wall-row${r ? " rev" : ""}`}>
-              {[...row, ...row].map((a, i) => (
+              {[...row, ...row, ...row, ...row].map((a, i) => ( // two copies of a doubled row: always wider than the screen, loops at -50 %
                 // eslint-disable-next-line @next/next/no-img-element
                 <img key={`${r}-${i}`} src={fileUrl(a.run, a.path)} alt="" loading="lazy" className={a.path.startsWith("videos/") ? "tall" : ""} />
               ))}
