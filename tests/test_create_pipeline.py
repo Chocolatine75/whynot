@@ -68,7 +68,8 @@ def test_every_planned_ad_is_real_reproducible_and_checked(done):
         v = variants[ad.variant_id]
         assert v["guards_passed"] and all(g["passed"] is True for g in v["guards"].values())
         saved = Image.open(run / ad.image_path)
-        assert saved.size == (1080, 1080)
+        assert saved.size == {"square": (1080, 1080), "portrait": (1080, 1350)}[v["genome"]["format"]]
+        assert Image.open(run / v["story_image"]).size == (1080, 1920) and v["story_guards_passed"]
         t = templates[ad.template_id]
         again = compose(t, v["genome"], Image.open(run / "assets" / t.fixed["product"]["asset"]))
         assert again.image.tobytes() == saved.convert("RGB").tobytes()
@@ -145,7 +146,8 @@ def test_redo_from_creative_reuses_research_and_replaces_the_ads(done, tmp_path)
     assert not any(r["model"] == "muse-wonder-1.0" for r in meta.requests)  # strategy reused, not re-billed
     assert any("creative director" in str(r["messages"][0]["content"]) for r in meta.requests)
     pngs = {p.name for p in (run / "ads").glob("*.png")}
-    listed = {v["image"].split("/")[1] for v in json.loads((run / "variants.json").read_text()) if v.get("image")}
+    listed = {v[k].split("/")[1] for v in json.loads((run / "variants.json").read_text())
+              for k in ("image", "story_image") if v.get(k)}
     assert pngs == listed  # no stale images left from the previous set
     with pytest.raises(ValueError, match="unknown stage"):
         create(CreateConfig(**CFG), c, run, redo_from="everything")
@@ -574,3 +576,20 @@ def test_no_browser_means_text_feeds_said_in_the_report_never_a_crash(tmp_path):
     sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
     assert sim["images"]["on"] and sim["images"]["competitors_with_image"] == 0 and sim["images"]["capture_failed"] == 1
     assert sim["images"]["groups_with_images"] == 0 and not any(images_in(r) for r in viewer_requests(meta))
+
+
+def test_templates_offer_layouts_styles_and_formats_from_their_verified_facts(done):
+    from whynot.create.composer import LAYOUTS, NEEDS, STYLES
+    run = done[3]
+    templates = [Template.load(p) for p in (run / "templates_gen0").glob("*.yaml")]
+    assert templates
+    for t in templates:
+        assert "first_shot" not in t.genes and t.genes["format"] == ["portrait", "square"]
+        assert set(t.genes["style"]) <= set(STYLES) and set(t.genes["layout"]) <= set(LAYOUTS)
+        content = t.fixed.get("content", {})
+        for layout in t.genes["layout"]:  # a fact layout only with its fact
+            assert layout not in NEEDS or content.get(NEEDS[layout])
+        if t.fixed["language"] != "en":
+            assert content == {}
+    variants = json.loads((run / "variants.json").read_text())
+    assert len({v["genome"]["layout"] for v in variants}) >= 3  # the ads do not all look alike

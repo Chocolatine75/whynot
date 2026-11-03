@@ -44,7 +44,8 @@ from whynot.assets.screens import Screen
 from whynot.assets.screens import pick as pick_screens
 from whynot.assets.screens import prepare as prepare_screens
 from whynot.budget import BudgetExceeded
-from whynot.create.composer import ComposeError, compose
+from whynot.create.composer import LEGACY_LAYOUT, ComposeError, compose, hex_to_rgb, layouts_for, styles_for
+from whynot.create.content import verified_content
 from whynot.create.guards import publishable, run_guards
 from whynot.create.locale import LANGUAGES, language_groups, unmapped
 from whynot.create.templates import Template, Variant
@@ -112,6 +113,7 @@ class CreateConfig:
     policy: Policy = field(default_factory=Policy)
     seed: int = 0
     feed_pool: int = 12  # competitor ads per language in the feeds: the most relevant ones (sim/relevance.py)
+    static_formats: tuple[str, ...] = ("portrait", "square")  # formats a static variant may take (4:5 feed, 1:1)
     viewer_images: bool = True  # viewers see our composed ads and competitors' real creatives (E2-2); off = text
     image_side: int = 512  # longest side of every picture a viewer sees (images cost tokens)
     capture_creatives: int = 24  # competitor creatives to capture per language when missing (headless browser)
@@ -330,6 +332,12 @@ def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         picks = pick_screens(c.model, app.name, {d["id"]: d["concept"] for d in made}, screens)
         for d in made:
             d["fixed"]["product"]["asset"] = picks[d["id"]].asset
+    for d in made:  # how the picture may look (E5-2): layouts its verified facts allow, readable styles, formats
+        d["fixed"]["content"] = verified_content(strategy, app, d["evidence"]["angle"], d["fixed"]["language"])
+        legacy = [LEGACY_LAYOUT[s] for s in d["genes"].pop("first_shot", []) if s in LEGACY_LAYOUT]
+        d["genes"]["layout"] = list(dict.fromkeys(legacy + layouts_for(d["fixed"]["content"])))
+        d["genes"]["style"] = styles_for([hex_to_rgb(x) for x in d["fixed"]["brand"]["palette"]])
+        d["genes"]["format"] = list(cfg.static_formats)
         log["screens"] = {d["id"]: picks[d["id"]].description for d in made}
     for d in made:
         (folder / f"{d['id']}.yaml").write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True),
@@ -353,9 +361,26 @@ def produce_row(run: Run, t: Template, genome: dict[str, str], **extra: Any) -> 
         return {**row, "error": str(exc), "guards_passed": False}
     comp.image.save(run.path("ads", f"{v.id}.png"))
     results = run_guards(t, comp, asset)
+    story = story_version(run, t, genome, asset, v.id)
     return {**row, "image": f"ads/{v.id}.png", "guards": {k: asdict(r) for k, r in results.items()},
-            "guards_passed": publishable(results),
+            "guards_passed": publishable(results), **story,
             "texts": {g: t.text(g, genome[g]) for g in ("hook", "body", "title", "proof", "cta") if g in genome}}
+
+
+def story_version(run: Run, t: Template, genome: dict[str, str], asset: Image.Image, vid: str) -> dict[str, Any]:
+    """The same ad in 9:16 for Stories and Reels (text kept out of the zones Meta covers), guarded the same way.
+    Saved next to the feed picture; the simulated feed judges the feed picture."""
+    if genome.get("format") == "story":
+        return {}
+    d = t.to_dict()
+    d["genes"]["format"] = list(dict.fromkeys([*d["genes"]["format"], "story"]))
+    tall = Template.from_dict(d)
+    try:
+        comp = compose(tall, {**genome, "format": "story"}, asset)
+    except ComposeError as exc:
+        return {"story_error": str(exc)}
+    comp.image.save(run.path("ads", f"{vid}.story.png"))
+    return {"story_image": f"ads/{vid}.story.png", "story_guards_passed": publishable(run_guards(tall, comp, asset))}
 
 
 def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> None:
@@ -826,6 +851,10 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
                     tag = f"g{gen}_{par['variant_id'].rsplit('-', 1)[-1][:6]}_{j}"
                     new_t, genome = evolver.apply(registry[t.id], par["genome"], m, tag=tag)
                     registry[t.id] = new_t
+                    if any(v["variant_id"] == Variant(t.id, genome).id for v in variants):
+                        # a new layout or style can land on an ad that already exists: it was already judged
+                        refused.append({"parent": par["variant_id"], "errors": [f"{m.gene} {m.text}: ad already made"]})
+                        continue
                     row = produce_row(run, new_t, genome, generation=gen, parent_id=par["variant_id"],
                                       mutation={"gene": m.gene, "text": m.text, "why": m.why})
                     variants.append(row)

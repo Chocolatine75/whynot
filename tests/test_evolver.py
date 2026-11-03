@@ -13,7 +13,7 @@ from whynot.agents.director import Context
 from whynot.agents.director import make_validator as director_validator
 from whynot.agents.strategist import Sources
 from whynot.agents.strategist import make_validator as strategy_validator
-from whynot.create.templates import Variant
+from whynot.create.templates import Template, Variant
 
 STRATEGY = strategy_validator(Sources.build(APP, ADS), COUNTRIES)(strategy_json())
 CTX = Context(STRATEGY, APP.name, APP.description, ("Rival Lingo",), ("#F5FAFF", "#0B1D33", "#1E6FD9"), "s.png")
@@ -75,3 +75,30 @@ def test_propose_repairs_then_gives_up_on_invented_facts():
     assert evolver.propose(chat, CTX, PARENT).attempts == 2
     with pytest.raises(AgentError):
         evolver.propose(ScriptedChat([bad] * 3), CTX, PARENT)
+
+
+# --- E5-2: evolution may change how the picture looks -----------------------------------------------------------
+
+def _looks():
+    d = TEMPLATE.to_dict()
+    d["genes"]["layout"] = ["split", "big_question", "bold_text"]
+    d["genes"]["style"] = ["light", "dark"]
+    t = Template.from_dict(d)
+    g = {**next(t.genomes()), "layout": "split", "style": "light"}
+    return t, g, evolver.Parent("v1", t, g, -0.4, 2.1, ("Too much text",))
+
+
+def test_a_layout_or_style_mutation_switches_to_an_option_the_template_has():
+    t, g, parent = _looks()
+    out = evolver.make_validator(CTX, parent, 2)(mutations(("layout", "big_question"), ("style", "dark")))
+    assert [(m.gene, m.text) for m in out] == [("layout", "big_question"), ("style", "dark")]
+    child_t, child_g = evolver.apply(t, g, out[0], tag="g1_x_0")
+    assert child_t is t and child_g == {**g, "layout": "big_question"}  # nothing new written
+    assert "layout: split (text on the left" in evolver.build_prompt(CTX, parent, 2)
+
+
+@pytest.mark.parametrize("item", [("layout", "review_card"), ("layout", "split"), ("style", "neon")])
+def test_a_picture_mutation_outside_the_options_or_unchanged_is_refused(item):
+    _, _, parent = _looks()
+    with pytest.raises(Invalid, match="must be one of"):
+        evolver.make_validator(CTX, parent, 2)(mutations(item))

@@ -254,7 +254,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 - [ ] **E5-1** ★ Copy rules v2 (B)
   - *Done when:* headlines ≤ 6 words with a verb or a number, a concrete benefit, no abstract nouns ("loop", "journey", "solution"), and the objection named or answered. The rules come from E1-6 failures.
   - *Tests:* adversarial on 30 bad headlines from real runs (all rejected) and 30 good real ads (≥ 90 % pass).
-- [ ] **E5-2** ★ 6 layout templates (B)
+- [ ] **E5-2** ★ 6 layout templates (B) — *Nov 3 (`b/E5-2-layouts`), widened to 10 layouts × 5 styles × 3 formats (150 looks, all code): split, rising, full screen, review card (a real 4-5★ review, whole sentence), before/after, big number (verified claim), benefits (verified claims), big question, comparison, bold text; styles light/dark/brand/gradient/shape (palette only, unreadable ones not offered); square, portrait 4:5 (feed), story 9:16 with Meta's top/bottom zones kept free (every variant also gets a `.story.png`). Layouts and styles are genes: the director's templates get the ones their facts allow, evolution may switch them. Tests: all 150 pass every guard, determinism, property over random lengths incl. German and Japanese, story safe zones, facts verbatim. Left: the visual review (both rate ≥ 4/5 on `outputs/review/e5-2-sheet-vietbuddy.png`); golden pixel tests not kept (fonts differ between machines: determinism tested instead).*
   - *Done when:*
     - layouts: split, rising, full-bleed screen, testimonial card (verified quote), before/after, big number;
     - formats: 1:1, 4:5, 9:16, each checked;

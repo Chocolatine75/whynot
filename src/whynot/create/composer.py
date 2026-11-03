@@ -6,15 +6,20 @@ optional crop at the canvas edge, rounded corners) and nothing is drawn over
 it, so `guards.product_pixels_unchanged` replays the transform and checks every
 opaque pixel exactly.
 
-Style, between Apple and Meta: generous white space, a soft vertical gradient,
-a large bold headline, the real screen large with rounded corners and a soft
-shadow, a rounded "pill" button in the brand accent. Two layouts, chosen by the
-`first_shot` gene:
-- `app_screen` → split: text column on the left, the full screen on the right;
-- `result_card` → rising: headline on top, the screen rising from the bottom edge.
-Format: `static_1080` (1080×1080). Reels come later (ffmpeg).
+Style, between Apple and Meta: generous white space, a large bold headline, the real screen large with
+rounded corners and a soft shadow, a rounded "pill" button. Three genes shape the picture (E5-2):
+- `format`: square 1:1 (1080×1080, `static_1080` is its old name), portrait 4:5 (1080×1350, the feed),
+  story 9:16 (1080×1920, Stories and Reels);
+- `layout`: ten arrangements (LAYOUTS). Four of them show a verified fact the template carries in
+  `fixed.content` (a real App Store review quoted word for word, a number from a verified claim, verified
+  benefits, the customer's objection, answered by the ad's own headline): a template only offers them when it
+  has that fact;
+- `style`: light, dark, brand, gradient, shape. Every colour comes from the brand palette.
+Templates without `layout` use the old `first_shot` gene (app_screen → split, result_card → rising).
 """
 
+import math
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -22,10 +27,21 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from whynot.create.templates import Genome, Template
 
-SIZE = 1080
+SIZE = 1080  # every format is 1080 px wide
 MARGIN = 64
 SCREEN_RADIUS = 44  # rounded corners of the app screen, like a device display
-SUPPORTED_FORMATS = {"static_1080"}
+FORMATS = {"square": (1080, 1080), "portrait": (1080, 1350), "story": (1080, 1920), "static_1080": (1080, 1080)}
+SUPPORTED_FORMATS = set(FORMATS)
+LAYOUTS = ("split", "rising", "full_screen", "review_card", "before_after", "big_number", "benefits",
+           "big_question", "comparison", "bold_text")
+STYLES = ("light", "dark", "brand", "gradient", "shape")
+# layouts that show a verified fact: the `fixed.content` key they need
+NEEDS = {"review_card": "review", "big_number": "number", "benefits": "benefits", "before_after": "objection",
+         "comparison": "objection"}
+LEGACY_LAYOUT = {"app_screen": "split", "result_card": "rising"}
+# Stories/Reels draw the account name over the top and the reply bar and caption over the bottom: no text there
+# (Meta's guidance: ~14 % top, ~20 % bottom). Other formats use the whole canvas.
+SAFE = {"story": (250, 340)}
 
 RGB = tuple[int, int, int]
 Box = tuple[int, int, int, int]  # left, top, right, bottom
@@ -211,12 +227,53 @@ def _draw_text(draw, brand: Brand, text: str, box: Box, fg: RGB, *, max_size: in
     raise ComposeError(f"text does not fit its box even at {min_size}px: {text!r}")
 
 
-def _background(bg: RGB, surface: RGB | None) -> Image.Image:
-    top = Image.new("RGB", (SIZE, SIZE), bg)
+def layouts_for(content: dict | None) -> list[str]:
+    """The layouts a template can offer: every free one, and those whose verified fact it carries."""
+    content = content or {}
+    return [x for x in LAYOUTS if x not in NEEDS or content.get(NEEDS[x])]
+
+
+def styles_for(palette: list[RGB]) -> list[str]:
+    """The styles whose text reaches WCAG contrast with this palette (a style no text can be read on is not offered)."""
+    out = []
+    for s in STYLES:
+        base, *_ = _style_colours(s, palette)
+        if contrast_ratio(base, best_text_colour(base, palette)) >= 4.5:
+            out.append(s)
+    return out or ["light"]
+
+
+def _lightest(palette: list[RGB]) -> RGB:
+    return max(palette, key=relative_luminance)
+
+
+def _darkest(palette: list[RGB]) -> RGB:
+    return min(palette, key=relative_luminance)
+
+
+def _style_colours(style: str, palette: list[RGB]) -> tuple[RGB, RGB | None, RGB | None]:
+    """(base colour under the text, gradient end or None, shape colour or None)."""
+    bg, fg, accent = palette[:3]
+    surface = palette[3] if len(palette) > 3 else None
+    if style == "dark":
+        return _darkest(palette), None, None
+    if style == "brand":
+        return accent, None, None
+    if style == "gradient":
+        return bg, surface or next((c for c in palette if c not in (bg, fg, accent)), None), None
+    if style == "shape":
+        return bg, None, accent
+    if style == "light":
+        return _lightest(palette), None, None
+    raise ComposeError(f"unknown style {style!r}; one of {list(STYLES)}")
+
+
+def _background(size: tuple[int, int], bg: RGB, surface: RGB | None) -> Image.Image:
+    top = Image.new("RGB", size, bg)
     if surface is None:
         return top
-    bottom = Image.new("RGB", (SIZE, SIZE), surface)
-    ramp = Image.linear_gradient("L").resize((SIZE, SIZE))  # 0 at the top, 255 at the bottom
+    bottom = Image.new("RGB", size, surface)
+    ramp = Image.linear_gradient("L").resize(size)  # 0 at the top, 255 at the bottom
     return Image.composite(bottom, top, ramp)
 
 
@@ -229,24 +286,183 @@ def _shadow(image: Image.Image, box: Box, colour: RGB, *, radius: int, offset: i
     return Image.alpha_composite(image.convert("RGBA"), layer).convert("RGB")
 
 
-def _pill(draw, brand: Brand, comp: "Composition", text: str, box: Box, accent: RGB) -> None:
-    cta_fg = best_text_colour(accent, brand.palette)
-    draw.rounded_rectangle(box, radius=(box[3] - box[1]) // 2, fill=accent)
-    inner: Box = (box[0] + 28, box[1] + 10, box[2] - 28, box[3] - 10)
-    size = _draw_text(draw, brand, text, inner, cta_fg, max_size=40, min_size=28, bold=True)
-    comp.texts.append(TextElement("cta", text, inner, cta_fg, accent, size))
-    for c in (accent, cta_fg):
-        if c not in comp.fills:
-            comp.fills.append(c)
+class Canvas:
+    """One ad being drawn. Layouts declare the screen and the text/shapes; `finish` paints them in order:
+    background, the accent halo (style `shape`, never under any text), the screen's shadow, the screen (never
+    drawn over), then text and shapes."""
+
+    def __init__(self, brand: Brand, size: tuple[int, int], style: str, asset: Image.Image,
+                 safe: tuple[int, int] = (0, 0)):
+        # layouts work in the safe area (height `h`, from `y0`); a screen rising from the bottom goes to the real edge
+        self.brand, self.w, self.H, self.asset = brand, size[0], size[1], asset
+        self.y0, self.h = safe[0], size[1] - safe[0] - safe[1]
+        self.base, self.surface, self.shape = _style_colours(style, brand.palette)
+        self.fg = best_text_colour(self.base, brand.palette)
+        # the button: the accent, unless the background is the accent (brand style): then the strongest contrast
+        self.button = brand.palette[2] if self.base != brand.palette[2] else self.fg
+        self.comp = Composition(image=Image.new("RGB", size), fills=[self.base, self.fg]
+                                + [c for c in (self.surface, self.shape) if c])
+        self.element: ProductElement | None = None
+        self.ops: list[tuple[Box, Callable[[ImageDraw.ImageDraw], None]]] = []  # (area it covers, how to paint)
+
+    def at(self, box: Box) -> Box:
+        """A box given in the safe area, on the canvas."""
+        return (box[0], box[1] + self.y0, box[2], box[3] + self.y0)
+
+    def fill(self, c: RGB) -> RGB:
+        if c not in self.comp.fills:
+            self.comp.fills.append(c)
+        return c
+
+    def other(self, *avoid: RGB) -> RGB:
+        """A palette colour for a card, different from the background, with the best contrast for text on it."""
+        options = [c for c in self.brand.palette if c not in avoid] or list(self.brand.palette)
+        return max(options, key=lambda c: (contrast_ratio(c, best_text_colour(c, self.brand.palette)), c))
+
+    def screen(self, box: Box, *, rising: bool = False, width: int | None = None) -> Box:
+        """Place the real screen: fitted in `box`, or `rising` from the bottom edge at `width` (cut by the edge)."""
+        a = self.asset
+        box = self.at(box)
+        if rising:
+            assert width is not None
+            size_px = (width, max(1, round(a.height * width / a.width)))
+            top = box[1]
+            visible = min(size_px[1], self.H - top)
+            left = box[0] + (box[2] - box[0] - width) // 2
+            pbox: Box = (left, top, left + width, top + visible)
+            self.element = ProductElement(pbox, size_px, visible, SCREEN_RADIUS, round_bottom=visible == size_px[1])
+        else:
+            size_px, pbox = fit_product(a.size, box)
+            self.element = ProductElement(pbox, size_px, size_px[1], SCREEN_RADIUS, round_bottom=True)
+        return pbox
+
+    def text(self, role: str, text: str, box: Box, *, max_size: int, min_size: int = 28, bold: bool = False,
+             align: str = "center", valign: str = "middle", leading: float = 1.15, fg: RGB | None = None,
+             bg: RGB | None = None) -> None:
+        ink, under = fg or self.fg, bg or self.base
+        self.fill(ink)
+        box = self.at(box)
+
+        def paint(d: ImageDraw.ImageDraw) -> None:
+            size = _draw_text(d, self.brand, text, box, ink, max_size=max_size, min_size=min_size, bold=bold,
+                              align=align, valign=valign, leading=leading)
+            self.comp.texts.append(TextElement(role, text, box, ink, under, size))
+        self.ops.append((box, paint))
+
+    def pill(self, text: str, box: Box) -> None:
+        accent = self.fill(self.button)
+        cta_fg = self.fill(best_text_colour(accent, self.brand.palette))
+        box = self.at(box)
+        inner: Box = (box[0] + 28, box[1] + 10, box[2] - 28, box[3] - 10)
+
+        def paint(d: ImageDraw.ImageDraw) -> None:
+            d.rounded_rectangle(box, radius=(box[3] - box[1]) // 2, fill=accent)
+            size = _draw_text(d, self.brand, text, inner, cta_fg, max_size=40, min_size=28, bold=True)
+            self.comp.texts.append(TextElement("cta", text, inner, cta_fg, accent, size))
+        self.ops.append((box, paint))
+
+    def card(self, box: Box, colour: RGB, *, outline: bool = False) -> None:
+        c = self.fill(colour)
+        box = self.at(box)
+        self.ops.append((box, lambda d: d.rounded_rectangle(box, radius=28, outline=c, width=4) if outline
+                         else d.rounded_rectangle(box, radius=28, fill=c)))
+
+    def stars(self, x: int, y: int, n: int, size: int = 40) -> None:
+        """`n` five-point stars drawn as shapes (no glyph: every font draws them)."""
+        colour = self.fill(self.button)
+        y += self.y0
+        polys = []
+        for i in range(n):
+            cx, cy, pts = x + i * (size + 10) + size // 2, y + size // 2, []
+            for k in range(10):
+                r = size / 2 if k % 2 == 0 else size / 5
+                ang = math.pi / 2 + k * math.pi / 5
+                pts.append((cx + r * math.cos(ang), cy - r * math.sin(ang)))
+            polys.append(pts)
+
+        def paint(d: ImageDraw.ImageDraw) -> None:
+            for p in polys:
+                d.polygon(p, fill=colour)
+        self.ops.append(((x, y, x + n * (size + 10), y + size), paint))
+
+    def mark(self, x: int, y: int, size: int, *, tick: bool, colour: RGB | None = None) -> None:
+        """A drawn check mark (tick) or cross in a disc."""
+        disc = self.fill(colour or self.button)
+        ink = self.fill(best_text_colour(disc, self.brand.palette))
+        w = max(4, size // 9)
+        y += self.y0
+
+        def paint(d: ImageDraw.ImageDraw) -> None:
+            d.ellipse((x, y, x + size, y + size), fill=disc)
+            if tick:
+                d.line([(x + size * 0.27, y + size * 0.52), (x + size * 0.44, y + size * 0.68),
+                        (x + size * 0.74, y + size * 0.34)], fill=ink, width=w, joint="curve")
+            else:
+                d.line([(x + size * 0.32, y + size * 0.32), (x + size * 0.68, y + size * 0.68)], fill=ink, width=w)
+                d.line([(x + size * 0.68, y + size * 0.32), (x + size * 0.32, y + size * 0.68)], fill=ink, width=w)
+        self.ops.append(((x, y, x + size, y + size), paint))
+
+    def arrow(self, box: Box) -> None:
+        """A right-pointing arrow filling `box` (before → after)."""
+        colour = self.fill(self.button)
+        x0, y0, x1, y1 = self.at(box)
+        cy, t = (y0 + y1) // 2, max(6, (y1 - y0) // 6)
+        head = (x1 - x0) // 3
+
+        def paint(d: ImageDraw.ImageDraw) -> None:
+            d.rectangle((x0, cy - t, x1 - head, cy + t), fill=colour)
+            d.polygon([(x1 - head, y0), (x1, cy), (x1 - head, y1)], fill=colour)
+        self.ops.append((box, paint))
+
+    def finish(self) -> Composition:
+        if self.element is None:
+            raise ComposeError("layout placed no screen")
+        pbox = self.element.box
+        image = _background((self.w, self.H), self.base, self.surface)
+        if self.shape:  # a halo of the accent around the screen, as wide as the space to the nearest text allows
+            gap = min([HALO] + [_distance(pbox, b) - 14 for b, _ in self.ops])
+            if gap >= 12:
+                ImageDraw.Draw(image).rounded_rectangle(
+                    (pbox[0] - gap, pbox[1] - gap, pbox[2] + gap, pbox[3] + gap), radius=SCREEN_RADIUS + gap,
+                    fill=self.shape)
+        image = _shadow(image, pbox, self.fg, radius=SCREEN_RADIUS)
+        pixels = product_pixels(self.asset, self.element)
+        image.paste(pixels, pbox[:2], pixels)
+        draw = ImageDraw.Draw(image)
+        for _, paint in self.ops:
+            paint(draw)
+        self.comp.image, self.comp.product = image, self.element
+        return self.comp
+
+
+HALO = 40  # widest accent halo around the screen (style `shape`), px
+
+
+def _distance(a: Box, b: Box) -> int:
+    """Gap between two boxes (0 when they touch or overlap)."""
+    dx = max(b[0] - a[2], a[0] - b[2], 0)
+    dy = max(b[1] - a[3], a[1] - b[3], 0)
+    return max(dx, dy) if not (dx and dy) else min(dx, dy) + max(dx, dy)
+
+
+def _layout(template: Template, genome: Genome) -> str:
+    if "layout" in genome:
+        return genome["layout"]
+    return LEGACY_LAYOUT.get(genome.get("first_shot", "app_screen"), "split")
 
 
 def compose(template: Template, genome: Genome, product_asset: str | Path | Image.Image) -> Composition:
     template.check(genome)
-    if genome["format"] not in SUPPORTED_FORMATS:
-        raise ComposeError(f"format {genome['format']!r} not supported yet (v0: {sorted(SUPPORTED_FORMATS)})")
+    fmt = genome["format"]
+    if fmt not in FORMATS:
+        raise ComposeError(f"format {fmt!r} not supported (one of {sorted(FORMATS)})")
+    layout, style = _layout(template, genome), genome.get("style", "gradient")
+    if layout not in LAYOUTS:
+        raise ComposeError(f"unknown layout {layout!r}; one of {list(LAYOUTS)}")
+    content = template.fixed.get("content") or {}
+    if layout in NEEDS and not content.get(NEEDS[layout]):
+        raise ComposeError(f"layout {layout!r} needs a verified {NEEDS[layout]} in fixed.content")
     brand = Brand.from_fixed(template.fixed)
-    bg, fg, accent = brand.palette[:3]
-    surface = brand.palette[3] if len(brand.palette) > 3 else None
     asset = product_asset if isinstance(product_asset, Image.Image) else Image.open(product_asset)
     headline = template.text("hook", genome["hook"]).strip()
     if not headline:
@@ -255,46 +471,154 @@ def compose(template: Template, genome: Genome, product_asset: str | Path | Imag
     if not cta:
         raise ComposeError(f"{template.id}: empty call to action")
     proof = template.text("proof", genome["proof"]).strip() if "proof" in genome else ""
-    rising = genome.get("first_shot") == "result_card"
+    cv = Canvas(brand, FORMATS[fmt], style, asset, SAFE.get(fmt, (0, 0)))
+    DRAW[layout](cv, headline, proof, cta, content)
+    return cv.finish()
 
-    # 1. background, then the screen's shadow, then the screen (nothing is ever drawn over the screen)
-    if rising:
-        width = 560
-        size_px = (width, max(1, round(asset.height * width / asset.width)))
-        top = 430
-        visible = min(size_px[1], SIZE - top)
-        left = (SIZE - width) // 2
-        box: Box = (left, top, left + width, top + visible)
-        element = ProductElement(box, size_px, visible, SCREEN_RADIUS, round_bottom=visible == size_px[1])
-    else:
-        size_px, box = fit_product(asset.size, (600, 64, SIZE - 56, SIZE - 64))
-        element = ProductElement(box, size_px, size_px[1], SCREEN_RADIUS, round_bottom=True)
-    image = _shadow(_background(bg, surface), box, fg, radius=SCREEN_RADIUS)
-    screen = product_pixels(asset, element)
-    image.paste(screen, box[:2], screen)
-    draw = ImageDraw.Draw(image)
-    comp = Composition(image=image, product=element, fills=[bg] + ([surface] if surface else []) + [fg])
 
-    # 2. text and button, never over the screen
-    if rising:
-        h_box: Box = (MARGIN, 56, SIZE - MARGIN, 236)
-        size = _draw_text(draw, brand, headline, h_box, fg, max_size=72, min_size=40, bold=True)
-        comp.texts.append(TextElement("headline", headline, h_box, fg, bg, size))
-        y = 246
-        if proof:
-            p_box: Box = (MARGIN, y, SIZE - MARGIN, y + 52)
-            size = _draw_text(draw, brand, proof, p_box, fg, max_size=34, min_size=28)
-            comp.texts.append(TextElement("proof", proof, p_box, fg, bg, size))
-            y += 60
-        _pill(draw, brand, comp, cta, (SIZE // 2 - 190, y + 6, SIZE // 2 + 190, y + 92), accent)
-    else:
-        h_box = (MARGIN, 120, 560, 600)
-        size = _draw_text(draw, brand, headline, h_box, fg, max_size=80, min_size=40, bold=True, align="left",
-                          valign="top", leading=1.1)
-        comp.texts.append(TextElement("headline", headline, h_box, fg, bg, size))
-        if proof:
-            p_box = (MARGIN, 640, 560, 760)
-            size = _draw_text(draw, brand, proof, p_box, fg, max_size=36, min_size=28, align="left", valign="top")
-            comp.texts.append(TextElement("proof", proof, p_box, fg, bg, size))
-        _pill(draw, brand, comp, cta, (MARGIN, 860, MARGIN + 440, 956), accent)
-    return comp
+# --- the ten layouts ---------------------------------------------------------------------------------------
+# Each draws the screen first (nothing is drawn over it), then text and shapes in the space left. Positions
+# are fractions of the canvas, so one layout works in the three formats. `tall` = portrait or story.
+
+def _split(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    w, h = cv.w, cv.h
+    cv.screen((600, MARGIN, w - 56, h - MARGIN))
+    top = round(h * 0.11)
+    cv.text("headline", headline, (MARGIN, top, 560, round(h * 0.56)), max_size=80, min_size=40, bold=True,
+            align="left", valign="top", leading=1.1)
+    if proof:
+        cv.text("proof", proof, (MARGIN, round(h * 0.59), 560, round(h * 0.70)), max_size=36, align="left",
+                valign="top")
+    cv.pill(cta, (MARGIN, h - 220, MARGIN + 440, h - 124))
+
+
+def _rising(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    w, h = cv.w, cv.h
+    width = {1080: 560, 1350: 620, 1920: 720}.get(cv.H, 560)
+    y = 56 + round(h * 0.17)
+    after = y + (60 if proof else 0) + 98
+    cv.screen((0, after + 40, w, h), rising=True, width=width)
+    cv.text("headline", headline, (MARGIN, 56, w - MARGIN, y - 10), max_size=72, min_size=40, bold=True)
+    if proof:
+        cv.text("proof", proof, (MARGIN, y, w - MARGIN, y + 52), max_size=34)
+        y += 60
+    cv.pill(cta, (w // 2 - 190, y + 6, w // 2 + 190, y + 92))
+
+
+def _full_screen(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    w, h = cv.w, cv.h
+    band = round(h * 0.15)
+    cv.screen((MARGIN, band + 24, w - MARGIN, h - 176))
+    cv.text("headline", headline, (MARGIN, 40, w - MARGIN, band), max_size=64, min_size=36, bold=True)
+    cv.pill(cta, (w // 2 - 200, h - 140, w // 2 + 200, h - 50))
+
+
+def _review_card(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """A real App Store review, quoted word for word, with its star rating (drawn), over the screen."""
+    w, h = cv.w, cv.h
+    review = content["review"]
+    card_h = round(h * 0.36)
+    card: Box = (MARGIN, 56, w - MARGIN, 56 + card_h)
+    cv.screen((0, card[3] + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    colour = cv.other(cv.base)
+    cv.card(card, colour)
+    n = max(1, min(5, int(review.get("rating", 5))))
+    cv.stars(card[0] + 40, card[1] + 36, n)
+    cv.text("quote", f"\"{review['text']}\"", (card[0] + 40, card[1] + 100, card[2] - 40, card[3] - 30),
+            max_size=64, min_size=30, bold=True, align="left", valign="middle",
+            fg=best_text_colour(colour, cv.brand.palette), bg=colour)
+    cv.pill(cta, (w // 2 - 200, card[3] + 34, w // 2 + 200, card[3] + 120))
+
+
+def _before_after(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """The customer's objection (before) → the ad's headline (after), then the screen."""
+    w, h = cv.w, cv.h
+    obj = content["objection"]
+    top, band = 56, round(h * 0.30)
+    cv.screen((0, top + band + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    left: Box = (MARGIN, top, 470, top + band)
+    cv.card(left, cv.fg, outline=True)
+    cv.text("before", str(obj["text"]), (left[0] + 28, left[1] + 24, left[2] - 28, left[3] - 24),
+            max_size=48, min_size=28)
+    cv.arrow((492, top + band // 2 - 36, 588, top + band // 2 + 36))
+    cv.text("headline", headline, (610, top, w - MARGIN, top + band), max_size=60, min_size=32, bold=True,
+            align="left")
+    cv.pill(cta, (w // 2 - 200, top + band + 40, w // 2 + 200, top + band + 126))
+
+
+def _big_number(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """A number from a verified claim, very large, the claim itself under it."""
+    w, h = cv.w, cv.h
+    num = content["number"]
+    nb = round(h * 0.22)
+    cv.screen((0, 56 + nb + 230, w, h), rising=True, width={1080: 460, 1350: 540, 1920: 660}.get(cv.H, 460))
+    cv.text("number", str(num["value"]), (MARGIN, 40, w - MARGIN, 40 + nb), max_size=240, min_size=80, bold=True,
+            fg=cv.fg)
+    cv.text("label", str(num["label"]), (MARGIN, 48 + nb, w - MARGIN, 48 + nb + 100), max_size=40, min_size=28)
+    cv.pill(cta, (w // 2 - 200, 56 + nb + 110, w // 2 + 200, 56 + nb + 196))
+
+
+def _benefits(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """The headline and up to three verified benefits with drawn ticks, the screen on the right."""
+    w, h = cv.w, cv.h
+    cv.screen((620, MARGIN, w - 56, h - MARGIN))
+    y = round(h * 0.08)
+    hb = round(h * 0.26)
+    cv.text("headline", headline, (MARGIN, y, 580, y + hb), max_size=64, min_size=36, bold=True, align="left",
+            valign="top", leading=1.1)
+    y += hb + 20
+    row = round((h - 260 - y) / 3)
+    for i, b in enumerate(content["benefits"][:3]):
+        cv.mark(MARGIN, y + 8, 48, tick=True)
+        cv.text(f"benefit_{i}", str(b), (MARGIN + 70, y, 580, y + row - 12), max_size=36, min_size=28,
+                align="left", valign="top")
+        y += row
+    cv.pill(cta, (MARGIN, h - 210, MARGIN + 420, h - 120))
+
+
+def _big_question(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """The hook very large in the middle, the screen small at the bottom."""
+    w, h = cv.w, cv.h
+    qb = round(h * 0.42)
+    cv.screen((0, 56 + qb + 140, w, h), rising=True, width={1080: 380, 1350: 460, 1920: 600}.get(cv.H, 380))
+    cv.text("headline", headline, (MARGIN, 56, w - MARGIN, 56 + qb), max_size=120, min_size=48, bold=True,
+            leading=1.05)
+    cv.pill(cta, (w // 2 - 190, 56 + qb + 30, w // 2 + 190, 56 + qb + 114))
+
+
+def _comparison(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """Two cards: the objection (cross) and the ad's headline answering it (tick), then the screen."""
+    w, h = cv.w, cv.h
+    obj = content["objection"]
+    top, ch = 56, round(h * 0.30)
+    cv.screen((0, top + ch + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    left: Box = (MARGIN, top, w // 2 - 14, top + ch)
+    right: Box = (w // 2 + 14, top, w - MARGIN, top + ch)
+    cv.card(left, cv.fg, outline=True)
+    colour = cv.other(cv.base)
+    cv.card(right, colour)
+    cv.mark(left[0] + 24, left[1] + 24, 48, tick=False, colour=cv.fg)
+    cv.mark(right[0] + 24, right[1] + 24, 48, tick=True)
+    cv.text("before", str(obj["text"]), (left[0] + 24, left[1] + 92, left[2] - 24, left[3] - 24), max_size=52,
+            min_size=28, align="left", valign="middle")
+    on = best_text_colour(colour, cv.brand.palette)
+    cv.text("headline", headline, (right[0] + 24, right[1] + 92, right[2] - 24, right[3] - 24),
+            max_size=52, min_size=28, bold=True, align="left", valign="middle", fg=on, bg=colour)
+    cv.pill(cta, (w // 2 - 200, top + ch + 40, w // 2 + 200, top + ch + 126))
+
+
+def _bold_text(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """Text first, like a post: the hook very large, a small screen in the corner."""
+    w, h = cv.w, cv.h
+    sw = {1080: 300, 1350: 320, 1920: 380}.get(cv.H, 300)
+    text_bottom = round(h * 0.52)
+    sh = min(round(sw * cv.asset.height / cv.asset.width), h - 56 - text_bottom - 24)
+    cv.screen((w - 56 - sw, h - 56 - sh, w - 56, h - 56))
+    cv.text("headline", headline, (MARGIN, 64, w - MARGIN, text_bottom), max_size=140, min_size=48,
+            bold=True, align="left", valign="top", leading=1.02)
+    cv.pill(cta, (MARGIN, h - 160, MARGIN + 400, h - 70))
+
+
+DRAW = {"split": _split, "rising": _rising, "full_screen": _full_screen, "review_card": _review_card,
+        "before_after": _before_after, "big_number": _big_number, "benefits": _benefits,
+        "big_question": _big_question, "comparison": _comparison, "bold_text": _bold_text}
