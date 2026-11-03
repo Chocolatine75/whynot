@@ -168,7 +168,7 @@ Format: `- [ ] **ID** ★? title` · *Done when* · *Tests*. ★ = critical path
     - result in `validate/results/r3.json`, reproducible with `uv run whynot validate r3`.
   - *Tests:* the stratified split (property: no advertiser on both sides of a comparison); replay of a 20-ad subset.
   - *Target:* AUC ≥ 0.65; floor > 0.55; whatever it is, we publish it.
-- [ ] **E2-2** ★ Images in the simulator (A + B)
+- [ ] **E2-2** ★ Images in the simulator (A + B) — *Nov 3 (`b/E2-2-images`): viewers see our composed ads and competitors' real creatives in `simulate` and the evolution tournaments (feeds use pictured competitors only, missing creatives captured, `--text-only` kept); measured on VietBuddy (`outputs/runs/20261103-e2-2-images-vietbuddy`, 56 feeds, 0 failures): **$0.0138 per feed with images vs $0.0113 text (+22 %)**, same best concept in 4/4 audiences, pair order agrees 42/50 with text. R3 with images was v1 (Oct 30, 0.41). Left: a viewer cassette with images.*
   - *Done when:* viewers see **the composed image** of our ads and **the real creative** of competitor ads (snapshot capture, E2-3). Text-only mode stays available for comparison. R3 is re-run with images.
   - *Tests:* `our_item` includes the image (unit); a viewer cassette with images; cost per feed with images measured and reported.
 - [x] **E2-3** Creative capture from Ad Library snapshots (A) — *Oct 30: `ingest/creatives.py`, 295/298 captured (99 %), video ads via poster frame, no URL or token stored.*
