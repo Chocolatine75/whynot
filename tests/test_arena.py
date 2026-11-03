@@ -131,3 +131,16 @@ def test_a_name_driven_viewer_is_flagged_as_biased():
     assert r.biased and r.placebo_lift > BIAS_THRESHOLD
     mean = sum(v.lift_over_placebo for v in r.verdicts.values()) / len(r.verdicts)
     assert abs(mean) < 0.6  # on average our ads do no better than a competitor ad under our name
+
+
+def test_our_item_carries_the_composed_image_and_the_placebo_keeps_its_real_creative():
+    from whynot.sim.arena import our_item, placebo_item
+    from whynot.sim.feed import FeedItem
+
+    texts = {"hook": "Talk to grandma", "body": "Five minutes a day.", "title": "Try it"}
+    pictured = our_item("v1", "Brand", texts, "data:image/jpeg;base64,AAA")
+    assert pictured.image_url == "data:image/jpeg;base64,AAA" and "[image text" not in pictured.body
+    assert "[image text: Talk to grandma]" in our_item("v1", "Brand", texts).body  # text-only: words written out
+    rival = FeedItem("c1", "Rival", "Learn fast", "Lessons.", "data:image/jpeg;base64,BBB")
+    p = placebo_item(rival, "Brand")
+    assert p.advertiser == "Brand" and p.image_url == rival.image_url and p.body == "Lessons."

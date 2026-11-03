@@ -502,3 +502,75 @@ def test_a_small_budget_shortens_evolution_instead_of_losing_the_run(done, tmp_p
     assert any(s.startswith("budget") for s in stops)
     assert (tmp_path / "run" / "plan.json").exists() and result is not None
     assert c.model.spent_usd <= before + evolve_cost * 0.4 + 0.05  # at most the calls already in flight past the cap
+
+
+# --- E2-2: viewers see the pictures ----------------------------------------------------------------------------
+
+class PicturedStore:
+    """Every competitor ad has a captured creative (one small JPEG for all)."""
+
+    def __init__(self, tmp):
+        from PIL import Image
+        self.file = tmp / "creative.jpg"
+        Image.new("RGB", (600, 600), (200, 40, 40)).save(self.file, "JPEG")
+
+    def has(self, ad_id):
+        return True
+
+    def path(self, ad_id):
+        return self.file
+
+
+def viewer_requests(meta):
+    return [r for r in meta.requests
+            if any("Sponsored ·" in (m["content"] if isinstance(m["content"], str) else m["content"][0]["text"])
+                   for m in r["messages"] if m["role"] == "user")]
+
+
+def images_in(request):
+    content = request["messages"][1]["content"]
+    return [] if isinstance(content, str) else [x for x in content if x.get("type") == "image_url"]
+
+
+def test_viewers_see_our_composed_ads_and_the_competitors_real_creatives(tmp_path):
+    from dataclasses import replace as dc_replace
+    c, meta, _ = clients(tmp_path)
+    c = dc_replace(c, creatives=PicturedStore(tmp_path))
+    create(CreateConfig(**CFG, generations=1), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert sim["images"]["on"] and sim["images"]["groups_with_images"] == len(sim["groups"]) > 0
+    assert sim["feeds"] > 0 and sim["usd_per_feed"] > 0  # the cost per feed with images, measured
+    feeds = viewer_requests(meta)
+    assert feeds and all(len(images_in(r)) == 4 for r in feeds)  # every ad of every feed is a picture (4 per feed)
+    first = feeds[0]["messages"][1]["content"]
+    assert "[image text:" not in first[0]["text"] and "Image of [A1]:" in json.dumps(first)
+    evo = json.loads((tmp_path / "run" / "evolution.json").read_text())
+    assert any(h.get("judge") == "tournament" for g in evo["groups"] for h in g["history"])  # tournaments too
+
+
+def test_text_only_mode_stays_for_comparison(tmp_path):
+    from dataclasses import replace as dc_replace
+    c, meta, _ = clients(tmp_path)
+    c = dc_replace(c, creatives=PicturedStore(tmp_path))
+    create(CreateConfig(**CFG, generations=0, viewer_images=False), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert sim["images"] == {"on": False, "why": "text-only: viewer_images is off", "groups_with_images": 0}
+    feeds = viewer_requests(meta)
+    assert feeds and not any(images_in(r) for r in feeds)
+    assert "[image text:" in json.dumps(feeds[0]["messages"])
+
+
+def test_no_browser_means_text_feeds_said_in_the_report_never_a_crash(tmp_path):
+    from dataclasses import replace as dc_replace
+
+    from whynot.ingest.creatives import CreativeStore
+
+    def broken_browser():
+        raise RuntimeError("playwright is not installed")
+
+    c, meta, _ = clients(tmp_path)
+    c = dc_replace(c, creatives=CreativeStore(tmp_path / "empty"), renderer=broken_browser)
+    create(CreateConfig(**CFG, generations=0), c, tmp_path / "run")
+    sim = json.loads((tmp_path / "run" / "simulation.json").read_text())
+    assert sim["images"]["on"] and sim["images"]["competitors_with_image"] == 0 and sim["images"]["capture_failed"] == 1
+    assert sim["images"]["groups_with_images"] == 0 and not any(images_in(r) for r in viewer_requests(meta))

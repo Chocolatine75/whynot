@@ -35,13 +35,19 @@ def brand_name(app_name: str) -> str:
     return head or app_name.strip()
 
 
-def our_item(variant_id: str, brand: str, texts: dict[str, str]) -> FeedItem:
+def our_item(variant_id: str, brand: str, texts: dict[str, str], image_url: str | None = None) -> FeedItem:
+    """Our ad as a viewer meets it. With `image_url` (the composed ad, E2-2) the viewer sees the picture itself;
+    text-only, the words on the picture are written out instead."""
+    if image_url:
+        return FeedItem(variant_id, brand, texts.get("title", ""), texts["body"], image_url)
     image = texts["hook"] + (f" — {texts['proof']}" if texts.get("proof") else "")
     return FeedItem(variant_id, brand, texts.get("title", ""), f"{texts['body']}\n[image text: {image}]")
 
 
 def placebo_item(ad: FeedItem, brand: str) -> FeedItem:
-    """A real competitor ad dressed exactly like ours: same name, same layout."""
+    """A real competitor ad dressed exactly like ours: same name, same layout (its real picture, if it has one)."""
+    if ad.image_url:
+        return FeedItem(PLACEBO + ad.ad_id, brand, ad.title, ad.body, ad.image_url)
     image = ad.title or ad.body.split(".")[0][:70]
     return FeedItem(PLACEBO + ad.ad_id, brand, ad.title, f"{ad.body}\n[image text: {image}]")
 

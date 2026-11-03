@@ -117,7 +117,7 @@ OUTPUTS = ("strategy.json", "variants.json", "simulation.json", "evolution.json"
 def without_cost(data):
     """The output minus what it cost: a replay is free by design, everything else must match."""
     if isinstance(data, dict):
-        return {k: without_cost(v) for k, v in data.items() if k != "usd"}
+        return {k: without_cost(v) for k, v in data.items() if k not in ("usd", "usd_per_feed")}
     if isinstance(data, list):
         return [without_cost(v) for v in data]
     return data

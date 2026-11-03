@@ -22,7 +22,8 @@ def _create(args: argparse.Namespace) -> int:
         research_countries=args.research_countries, store_country=args.store_country, language=args.language,
         competitor_pages=args.competitor_page or [], max_angles=args.angles,
         variants_per_template=args.variants, generations=args.generations, mutations_per_parent=args.mutations,
-        tournament_rounds=args.tournament_rounds, evolve_audiences=args.evolve_audiences, policy=policy)
+        tournament_rounds=args.tournament_rounds, evolve_audiences=args.evolve_audiences,
+        viewer_images=not args.text_only, policy=policy)
     run_dir = Path(args.resume) if args.resume else new_run_dir(Path(args.out), args.app)
     print(f"run folder: {run_dir}")
     try:
@@ -330,7 +331,8 @@ def _agency(args: argparse.Namespace) -> int:
             extra = {k: v for k, v in {"research_countries": args.research_countries,
                                        "store_country": args.store_country, "language": args.language,
                                        "max_angles": args.angles, "variants_per_template": args.variants,
-                                       "generations": args.generations}.items() if v is not None}
+                                       "generations": args.generations,
+                                   "viewer_images": False if args.text_only else None}.items() if v is not None}
             cfg = AgencyConfig(app_ref=args.app, countries=args.countries, daily_cap_eur=cap,
                                level=args.level or s.autonomy_level, simulated_account=args.sim,
                                connection=args.connection, objective=args.objective, landing_url=args.landing_url,
@@ -470,6 +472,8 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")
     c.add_argument("--resume", help="an existing run folder: finished stages are reused, not re-billed")
     c.add_argument("--generations", type=int, default=2, help="evolution rounds after the first test (0 = none)")
+    c.add_argument("--text-only", action="store_true",
+                   help="viewers read the ads as text (no pictures): cheaper, for comparison with the image test")
     c.add_argument("--mutations", type=int, default=2, help="children per parent in each evolution round")
     c.add_argument("--tournament-rounds", type=int, default=2, help="feeds per pair of ads in each round's tournament")
     c.add_argument("--evolve-audiences", type=int, help="evolve only the first N audiences (to cap cost; default all)")
@@ -577,6 +581,7 @@ def main(argv: list[str] | None = None) -> int:
     ag.add_argument("--angles", type=int, help="max ad concepts")
     ag.add_argument("--variants", type=int, help="variants per concept")
     ag.add_argument("--generations", type=int, help="evolution rounds")
+    ag.add_argument("--text-only", action="store_true", help="viewers read the ads as text (no pictures)")
     ag.add_argument("--seed", type=int, default=0)
     ag.add_argument("--silent", action="store_true", help="no voice-over or music")
     ag.add_argument("--out", default=str(REPO_ROOT / "outputs" / "runs"), help="where run folders go")

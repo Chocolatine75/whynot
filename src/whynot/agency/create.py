@@ -51,7 +51,8 @@ from whynot.create.templates import Template, Variant
 from whynot.events import EventLog, file_digest
 from whynot.ingest.adlibrary import AdLibraryClient, CompetitorAd, load_jsonl, save_jsonl
 from whynot.ingest.appstore import AppProfile, AppStoreClient
-from whynot.models import SPARK, WONDER, ModelClient
+from whynot.ingest.creatives import CreativeStore, Renderer, capture, shrink
+from whynot.models import SPARK, WONDER, ModelClient, image_data_url
 from whynot.run.autopilot import Policy
 from whynot.run.campaign import (
     AdChoice,
@@ -111,6 +112,9 @@ class CreateConfig:
     policy: Policy = field(default_factory=Policy)
     seed: int = 0
     feed_pool: int = 12  # competitor ads per language in the feeds: the most relevant ones (sim/relevance.py)
+    viewer_images: bool = True  # viewers see our composed ads and competitors' real creatives (E2-2); off = text
+    image_side: int = 512  # longest side of every picture a viewer sees (images cost tokens)
+    capture_creatives: int = 24  # competitor creatives to capture per language when missing (headless browser)
 
     def research(self) -> list[str]:
         if self.research_countries:
@@ -181,6 +185,8 @@ class Clients:
     model: ModelClient
     appstore: AppStoreClient
     adlibrary: AdLibraryClient
+    creatives: CreativeStore | None = None  # competitors' creatives on disk (E2-3); None = viewers read text only
+    renderer: Callable[[], Renderer] | None = None  # opens a browser to capture missing creatives; None = no capture
 
 
 @dataclass
@@ -362,19 +368,93 @@ def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> Non
     run.write_json("variants.json", rows)
 
 
-def feed_competitors(ads: list[CompetitorAd], code: str, app: AppProfile, cfg: CreateConfig
-                     ) -> tuple[list[FeedItem], dict[str, Any]]:
+def feed_competitors(ads: list[CompetitorAd], code: str, app: AppProfile, cfg: CreateConfig,
+                     images: dict[str, str] | None = None) -> tuple[list[FeedItem], dict[str, Any]]:
     """Hard feeds: the competitor ads most relevant to ads in language `code` (language, longevity, topic).
 
     Longevity is counted up to the latest date seen in the market data, not today, so a rerun on recorded
-    inputs picks the same ads."""
+    inputs picks the same ads. With `images` (ad id → data URL), the feeds use only competitors whose real
+    creative is known, so every ad in a feed is seen the same way; `info["images"]` says whether that was
+    possible (enough of them) or the feeds stay text-only."""
     dates = [d for a in ads for d in (a.start_date, a.stop_date) if d]
     as_of = max(dates) if dates else datetime.now(UTC).date()
-    hard = hard_competitors(ads, language=code, topic=f"{app.name} {app.description}", as_of=as_of,
-                            k=max(cfg.feed_pool, cfg.placebos + cfg.feed_size - 2))
+    need = cfg.placebos + cfg.feed_size - 2
+    pictured = [a for a in ads if a.id in images] if images else []
+    with_images = len(pictured) >= need
+    hard = hard_competitors(pictured if with_images else ads, language=code, topic=f"{app.name} {app.description}",
+                            as_of=as_of, k=max(cfg.feed_pool, need))
+    if with_images and len(hard.ads) < need:  # the pictured ads are in other languages: text for everyone
+        with_images = False
+        hard = hard_competitors(ads, language=code, topic=f"{app.name} {app.description}", as_of=as_of,
+                                k=max(cfg.feed_pool, need))
     info = {"pool": len(hard.ads), "long_running": sum(r.long_running for r in hard.ranked),
-            "wrong_language": hard.wrong_language_used}
-    return [FeedItem.from_ad(a) for a in hard.ads], info
+            "wrong_language": hard.wrong_language_used, "images": with_images}
+    items = [FeedItem.from_ad(a) for a in hard.ads]
+    if with_images and images:
+        items = [replace(x, image_url=images[x.ad_id]) for x in items]
+    return items, info
+
+
+def competitor_images(cfg: CreateConfig, c: Clients, ads: list[CompetitorAd], app: AppProfile, *,
+                      capture_missing: bool = True) -> tuple[dict[str, str], dict[str, Any]]:
+    """Competitors' real creatives for the viewers (E2-2): ad id → data URL, and what happened.
+
+    The creatives come from the snapshot capture (E2-3, `data/cache/creatives`, shared by every run). Missing
+    ones among the most relevant ads per language are captured first, when a browser is available; one page
+    that fails is skipped. No store, or `viewer_images` off: no image (text-only feeds, said in the info)."""
+    if not cfg.viewer_images:
+        return {}, {"on": False, "why": "text-only: viewer_images is off"}
+    store = c.creatives
+    if store is None:
+        return {}, {"on": False, "why": "no creative store: viewers read text only"}
+    failed: dict[str, str] = {}
+    if capture_missing and c.renderer is not None and c.adlibrary.token:
+        dates = [d for a in ads for d in (a.start_date, a.stop_date) if d]
+        as_of = max(dates) if dates else datetime.now(UTC).date()
+        wanted: dict[str, CompetitorAd] = {}
+        for code in languages(cfg):
+            hard = hard_competitors(ads, language=code, topic=f"{app.name} {app.description}", as_of=as_of,
+                                    k=cfg.capture_creatives)
+            wanted.update((a.id, a) for a in hard.ads if a.snapshot_url and not store.has(a.id))
+        if wanted:
+            try:
+                r = c.renderer()
+            except Exception as exc:  # no browser on this machine: text-only, said in the info
+                failed["renderer"] = f"{type(exc).__name__}: {exc}"[:200]
+            else:
+                try:
+                    failed |= capture(list(wanted.values()), store, token=c.adlibrary.token, renderer=r,
+                                      max_side=cfg.image_side).failed
+                finally:
+                    close = getattr(r, "close", None)
+                    if close:
+                        close()
+    images = {}
+    for a in ads:
+        if store.has(a.id):
+            jpeg, _, _ = shrink(store.path(a.id).read_bytes(), cfg.image_side)
+            images[a.id] = image_data_url(jpeg, "image/jpeg")
+    return images, {"on": True, "competitors_with_image": len(images), "capture_failed": len(failed)}
+
+
+def ad_picture(run: Run, cfg: CreateConfig) -> Callable[[dict[str, Any]], str | None]:
+    """Our variant's composed ad (`ads/<id>.png`) as the viewer sees it: a small JPEG data URL, made once."""
+    made: dict[str, str | None] = {}
+
+    def picture(v: dict[str, Any]) -> str | None:
+        rel = v.get("image")
+        if not rel:
+            return None
+        if rel not in made:
+            path = run.path(rel)
+            made[rel] = (image_data_url(shrink(path.read_bytes(), cfg.image_side)[0], "image/jpeg")
+                         if path.exists() else None)
+        return made[rel]
+    return picture
+
+
+def no_picture(v: dict[str, Any]) -> str | None:
+    return None
 
 
 def viewer_personas(p: strategist.Persona, n: int) -> list[SimPersona]:
@@ -395,10 +475,10 @@ class Round:
 
 def arena_round(viewer: Viewer, persona: strategist.Persona, rows: list[dict[str, Any]],
                 competitors: list[FeedItem], brand: str, cfg: CreateConfig, rng: random.Random, *,
-                seed: int) -> Round:
+                seed: int, picture: Callable[[dict[str, Any]], str | None] = no_picture) -> Round:
     """One fair-feed comparison of `rows` (our variants) with fresh placebos, for one persona's viewers."""
     placebos = [placebo_item(a, brand) for a in rng.sample(competitors, cfg.placebos)]
-    candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in rows] + placebos
+    candidates = [our_item(v["variant_id"], brand, v["texts"], picture(v)) for v in rows] + placebos
     feeds = paired_feeds(candidates, competitors, feed_size=cfg.feed_size, appearances=cfg.feeds_per_variant,
                          seed=seed)
     sim = run_simulation(viewer, viewer_personas(persona, max(cfg.viewers_per_feed, 2)), feeds,
@@ -428,6 +508,8 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         return
     brand = brand_name(app.name)
     viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
+    images, images_info = competitor_images(cfg, c, ads, app)
+    picture = ad_picture(run, cfg)
     verdicts: dict[str, Any] = {}
     groups_out: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
@@ -439,15 +521,19 @@ def stage_simulate(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         mine = [v for v in ok if v["persona"] == p.id and v.get("language", "en") == code]
         if not mine or not p.countries:
             continue
-        pool, pool_info = feed_competitors(ads, code, app, cfg)
-        r = arena_round(viewer, p, mine, pool, brand, cfg, rng, seed=cfg.seed + len(groups_out))
+        pool, pool_info = feed_competitors(ads, code, app, cfg, images)
+        r = arena_round(viewer, p, mine, pool, brand, cfg, rng, seed=cfg.seed + len(groups_out),
+                        picture=picture if pool_info["images"] else no_picture)
         usd += r.usd
         failures += r.failures
         groups_out.append({"persona": p.id, "language": code, **r.info, "variants": len(mine),
                            "competitors": pool_info})
         verdicts.update(r.verdicts)
+    feeds = sum(int(g.get("feeds", 0)) for g in groups_out)
+    images_info["groups_with_images"] = sum(bool(g["competitors"].get("images")) for g in groups_out)
     run.write_json("simulation.json", {"simulated": True, "brand": brand, "usd": usd, "failures": failures,
-                                       "groups": groups_out, "scores": verdicts})
+                                       "feeds": feeds, "usd_per_feed": round(usd / feeds, 5) if feeds else None,
+                                       "images": images_info, "groups": groups_out, "scores": verdicts})
 
 
 def pick_parents(rows: list[dict[str, Any]], rank: dict[str, tuple[float, ...]], k: int) -> list[dict[str, Any]]:
@@ -484,10 +570,11 @@ def standings_json(played: tournament.Played) -> list[dict[str, Any]]:
 
 def tournament_round(viewer: Viewer, persona: strategist.Persona, rows: list[dict[str, Any]],
                      competitors: list[FeedItem], brand: str, cfg: CreateConfig, rng: random.Random, *,
-                     seed: int) -> tournament.Played:
+                     seed: int, picture: Callable[[dict[str, Any]], str | None] = no_picture) -> tournament.Played:
     """Our variants head-to-head (round robin) + one placebo as a reference point, next to real competitor ads."""
     source = rng.choice(competitors)
-    candidates = [our_item(v["variant_id"], brand, v["texts"]) for v in rows] + [placebo_item(source, brand)]
+    candidates = [our_item(v["variant_id"], brand, v["texts"], picture(v)) for v in rows] + [placebo_item(source,
+                                                                                                         brand)]
     fillers = [c for c in competitors if c.ad_id != source.ad_id]
     return tournament.play(viewer, viewer_personas(persona, max(cfg.viewers_per_feed, 2)), candidates, fillers,
                            feed_size=cfg.feed_size, rounds=cfg.tournament_rounds,
@@ -698,6 +785,9 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
     names = tuple(x["page_name"] for x in market.get("advertisers", []) if x.get("page_name"))
     brand = sim["brand"]
     viewer = Viewer(c.model, reasoning_effort=cfg.viewer_reasoning)
+    # the same pictures as generation 0 (no new capture: the feeds must stay the same)
+    images = competitor_images(cfg, c, ads, app, capture_missing=False)[0] if sim.get("images", {}).get("on") else {}
+    picture = ad_picture(run, cfg)
     rng = random.Random(cfg.seed + 7)
     groups = languages(cfg)
     spent_before = c.model.spent_usd
@@ -711,7 +801,8 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
     for gi, g in enumerate(audiences):
         allowance = (pot - (c.model.spent_usd - spent_before)) / (len(audiences) - gi)
         code = g["language"]
-        rivals, _ = feed_competitors(ads, code, app, cfg)  # the same hard feeds as generation 0
+        rivals, rivals_info = feed_competitors(ads, code, app, cfg, images)  # the same hard feeds as generation 0
+        pic = picture if rivals_info["images"] else no_picture
         p_all = strategy.persona(g["persona"])
         p = replace(p_all, countries=tuple(x for x in p_all.countries if x in groups[code]))
         ctx = Context(localised(strategy, groups[code]), app.name, app.description, names,
@@ -743,8 +834,9 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
             return children, refused
 
         def judge(pool: list[dict[str, Any]], gen: int, p: strategist.Persona = p, rivals: list[FeedItem] = rivals,
-                  gi: int = gi) -> tournament.Played:
-            return tournament_round(viewer, p, pool, rivals, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi)
+                  gi: int = gi, pic: Callable[[dict[str, Any]], str | None] = pic) -> tournament.Played:
+            return tournament_round(viewer, p, pool, rivals, brand, cfg, rng, seed=cfg.seed + 100 * gen + gi,
+                                    picture=pic)
 
         group = evolve_group(rows, scores, generations=cfg.generations, keep=cfg.evolve_parents,
                              make_children=make_children, judge=judge,
@@ -873,8 +965,15 @@ def default_clients(budget_usd: float, run_dir: Path) -> Clients:
     from whynot.costs import CostLedger
 
     settings = replace(load_settings(), cost_log=Path(run_dir) / "costs.jsonl")
+    from whynot.config import REPO_ROOT
+
+    def renderer() -> Renderer:  # pragma: no cover - a real browser
+        from whynot.ingest.creatives import PlaywrightRenderer
+        return PlaywrightRenderer()
+
     return Clients(ModelClient(settings, CostLedger(settings.cost_log), budget_usd=budget_usd), AppStoreClient(),
-                   AdLibraryClient(settings.fb_token or "", version=settings.fb_api_version))
+                   AdLibraryClient(settings.fb_token or "", version=settings.fb_api_version),
+                   CreativeStore(REPO_ROOT / "data" / "cache" / "creatives"), renderer)
 
 
 def new_run_dir(root: Path, app_ref: str) -> Path:
