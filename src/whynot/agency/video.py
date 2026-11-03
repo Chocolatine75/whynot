@@ -100,9 +100,12 @@ def scene_image(model: ModelClient, prompt: str, folder: Path, *, style: str = S
     path = folder / f"{key}.png"
     if not path.exists():
         if ref is not None:
+            # the same people, but a NEW moment: an edit kept the reference's pose and framing when not told
+            # otherwise (Nov 3: every photo of a video was nearly the same picture)
             result = model.edit_image(f"The same people, wearing the same clothes, in the same place as in the "
-                                      f"reference photo. {prompt}. {style}", [ref], module="scenes",
-                                      size="1024x1536")
+                                      f"reference photo, in a NEW moment: a different pose, gesture and facial "
+                                      f"expression, and a different camera angle and distance. {prompt}. {style}",
+                                      [ref], module="scenes", size="1024x1536")
         else:
             result = model.image(f"{prompt}. {style}", module="scenes", size="1024x1536")
         folder.mkdir(parents=True, exist_ok=True)

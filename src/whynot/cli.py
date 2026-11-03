@@ -257,6 +257,18 @@ def _stop(args: argparse.Namespace) -> int:
     return 0 if report.ok else 2
 
 
+def _motion(args: argparse.Namespace) -> int:
+    from whynot.create.motion import make_motion
+
+    run_dir = Path(args.run)
+    if not (run_dir / "plan.json").exists():
+        print(f"✗ {run_dir} has no plan.json: run `whynot create` first", file=sys.stderr)
+        return 1
+    done = make_motion(run_dir, limit=args.limit)
+    print(f"✓ {len(done)} motion ad(s), $0, in {run_dir / 'ads'} (list: motion.json)")
+    return 0
+
+
 def _reproduce(args: argparse.Namespace) -> int:
     from whynot.validate.reproduce import report, reproduce, to_json
 
@@ -627,6 +639,11 @@ def main(argv: list[str] | None = None) -> int:
     stt.add_argument("run", help="the agency run folder")
     stt.add_argument("--json", action="store_true", help="the whole state as JSON (for the site)")
     stt.set_defaults(func=_status)
+
+    mo = sub.add_parser("motion", help="animated versions of a run's planned static ads for Reels and Stories ($0)")
+    mo.add_argument("run", help="the run folder (outputs/runs/...)")
+    mo.add_argument("--limit", type=int, help="only the first N planned ads")
+    mo.set_defaults(func=_motion)
 
     rp = sub.add_parser("reproduce", help="recompute every number the demo shows from the logs ($0, no model call)")
     rp.add_argument("--fast", action="store_true", help="skip the fake-world evolution (about a minute)")

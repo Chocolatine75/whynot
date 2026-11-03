@@ -67,3 +67,27 @@ export type TrendProps = {
   music: { src: string; volume: number } | null;
   sfx: Record<string, string>; // name -> file
 };
+
+// --- a static ad brought to life (built by src/whynot/create/motion.py) ---
+
+export type MotionProps = {
+  fps: number;
+  durationInFrames: number;
+  layout: string; // the static ad's layout: decides the fact's beat
+  headline: string;
+  keyWords: number; // the headline's last words drawn in the accent
+  proof: string;
+  cta: string;
+  base: string; // background colour (the ad's style)
+  ink: string; // text colour on it
+  look: Look;
+  screen: string; // the real app screen (file in the public dir)
+  second?: string; // a second real screen
+  icon?: string;
+  content: {
+    review?: { text: string; rating: number };
+    benefits?: string[];
+    number?: { value: string; label: string };
+    objection?: { text: string };
+  };
+};

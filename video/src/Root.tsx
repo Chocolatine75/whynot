@@ -1,8 +1,9 @@
 import React from "react";
 import { Composition } from "remotion";
 import { Ad } from "./Ad";
+import { StaticMotion } from "./StaticMotion";
 import { TrendAd } from "./TrendAd";
-import { AdProps, TrendProps } from "./types";
+import { AdProps, MotionProps, TrendProps } from "./types";
 
 const sample: AdProps = {
   fps: 30, durationInFrames: 30 * 10, transitionFrames: 10, hook: "Your ads, made for you",
@@ -25,6 +26,12 @@ const trendSample: TrendProps = {
   look: sample.look, voice: null, music: null, sfx: {},
 };
 
+const motionSample: MotionProps = {
+  fps: 30, durationInFrames: 210, layout: "split", headline: "No time to learn Vietnamese?", keyWords: 1,
+  proof: "Rated 4.8 on the App Store", cta: "Start free", base: "#FFF8EE", ink: "#1B1B1F", look: sample.look,
+  screen: "screen.png", content: {},
+};
+
 export const Root: React.FC = () => (
   <>
     <Composition id="Ad" component={Ad} width={1080} height={1920} fps={30} durationInFrames={300}
@@ -32,6 +39,9 @@ export const Root: React.FC = () => (
       calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames, fps: props.fps })} />
     <Composition id="Trend" component={TrendAd} width={1080} height={1920} fps={30} durationInFrames={180}
       defaultProps={trendSample}
+      calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames, fps: props.fps })} />
+    <Composition id="StaticMotion" component={StaticMotion} width={1080} height={1920} fps={30} durationInFrames={210}
+      defaultProps={motionSample}
       calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames, fps: props.fps })} />
   </>
 );
