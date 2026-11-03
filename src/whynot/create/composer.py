@@ -23,7 +23,7 @@ from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 from whynot.create.templates import Genome, Template
 
@@ -33,7 +33,8 @@ SCREEN_RADIUS = 44  # rounded corners of the app screen, like a device display
 FORMATS = {"square": (1080, 1080), "portrait": (1080, 1350), "story": (1080, 1920), "static_1080": (1080, 1080)}
 SUPPORTED_FORMATS = set(FORMATS)
 LAYOUTS = ("split", "rising", "full_screen", "review_card", "before_after", "big_number", "benefits",
-           "big_question", "comparison", "bold_text")
+           "big_question", "comparison", "bold_text", "two_screens")
+DECORS = ("none", "panel", "diagonal", "circle")  # a shape of colour behind the phone, never under any text
 STYLES = ("light", "dark", "brand", "gradient", "shape")
 # layouts that show a verified fact: the `fixed.content` key they need
 NEEDS = {"review_card": "review", "big_number": "number", "benefits": "benefits", "before_after": "objection",
@@ -93,6 +94,7 @@ class Composition:
     texts: list[TextElement] = field(default_factory=list)
     product: ProductElement | None = None
     fills: list[RGB] = field(default_factory=list)  # every colour the composer painted with
+    extra_products: list[tuple[ProductElement, Image.Image]] = field(default_factory=list)  # a second real screen
 
 
 def hex_to_rgb(value: str) -> RGB:
@@ -237,10 +239,11 @@ def _draw_text(draw, brand: Brand, text: str, box: Box, fg: RGB, *, max_size: in
     raise ComposeError(f"text does not fit its box even at {min_size}px: {text!r}")
 
 
-def layouts_for(content: dict | None) -> list[str]:
-    """The layouts a template can offer: every free one, and those whose verified fact it carries."""
+def layouts_for(content: dict | None, *, second_screen: bool = False) -> list[str]:
+    """The layouts a template can offer: every free one, those whose verified fact it carries, and two screens
+    when the app has a second real screen to show."""
     content = content or {}
-    return [x for x in LAYOUTS if x not in NEEDS or content.get(NEEDS[x])]
+    return [x for x in LAYOUTS if (x not in NEEDS or content.get(NEEDS[x])) and (x != "two_screens" or second_screen)]
 
 
 def styles_for(palette: list[RGB]) -> list[str]:
@@ -302,7 +305,10 @@ class Canvas:
     drawn over), then text and shapes."""
 
     def __init__(self, brand: Brand, size: tuple[int, int], style: str, asset: Image.Image,
-                 safe: tuple[int, int] = (0, 0)):
+                 safe: tuple[int, int] = (0, 0), decor: str = "none"):
+        if decor not in DECORS:
+            raise ComposeError(f"unknown decor {decor!r}; one of {list(DECORS)}")
+        self.decor = decor
         # layouts work in the safe area (height `h`, from `y0`); a screen rising from the bottom goes to the real edge
         self.brand, self.w, self.H, self.asset = brand, size[0], size[1], asset
         self.y0, self.h = safe[0], size[1] - safe[0] - safe[1]
@@ -312,7 +318,14 @@ class Canvas:
         self.button = brand.palette[2] if self.base != brand.palette[2] else self.fg
         # the phone frame: the darkest palette colour, or the lightest on a dark background (it must show)
         dark = _darkest(brand.palette)
-        self.frame = dark if contrast_ratio(dark, self.base) >= 1.5 else _lightest(brand.palette)
+        # the decor: a palette colour that stands out from the background (never the background itself)
+        self.decor_colour = (self.button if self.button != self.base and contrast_ratio(self.button, self.base) >= 1.3
+                             else self.other(self.base))
+        under = self.decor_colour if decor != "none" else self.base
+        self.frame = (dark if contrast_ratio(dark, under) >= 1.5 and contrast_ratio(dark, self.base) >= 1.5
+                      else _lightest(brand.palette))
+        self.screens: list[tuple[ProductElement, Image.Image]] = []
+        self.second: Image.Image | None = None  # another real screen of the app, for `two_screens`
         self.comp = Composition(image=Image.new("RGB", size), fills=[self.base, self.fg]
                                 + [c for c in (self.surface, self.shape) if c])
         self.element: ProductElement | None = None
@@ -332,9 +345,11 @@ class Canvas:
         options = [c for c in self.brand.palette if c not in avoid] or list(self.brand.palette)
         return max(options, key=lambda c: (contrast_ratio(c, best_text_colour(c, self.brand.palette)), c))
 
-    def screen(self, box: Box, *, rising: bool = False, width: int | None = None) -> Box:
-        """Place the real screen: fitted in `box`, or `rising` from the bottom edge at `width` (cut by the edge)."""
-        a = self.asset
+    def screen(self, box: Box, *, rising: bool = False, width: int | None = None,
+               asset: Image.Image | None = None) -> Box:
+        """Place a real screen: fitted in `box`, or `rising` from the bottom edge at `width` (cut by the edge).
+        The first one placed is the ad's main screen; `asset` places another real screen of the app."""
+        a = asset or self.asset
         box = self.at(box)
         if rising:
             assert width is not None
@@ -343,10 +358,13 @@ class Canvas:
             visible = min(size_px[1], self.H - top)
             left = box[0] + (box[2] - box[0] - width) // 2
             pbox: Box = (left, top, left + width, top + visible)
-            self.element = ProductElement(pbox, size_px, visible, SCREEN_RADIUS, round_bottom=visible == size_px[1])
+            element = ProductElement(pbox, size_px, visible, SCREEN_RADIUS, round_bottom=visible == size_px[1])
         else:
             size_px, pbox = fit_product(a.size, box)
-            self.element = ProductElement(pbox, size_px, size_px[1], SCREEN_RADIUS, round_bottom=True)
+            element = ProductElement(pbox, size_px, size_px[1], SCREEN_RADIUS, round_bottom=True)
+        self.screens.append((element, a))
+        if self.element is None:
+            self.element = element
         return pbox
 
     def text(self, role: str, text: str, box: Box, *, max_size: int, min_size: int = 28, bold: bool = False,
@@ -440,27 +458,75 @@ class Canvas:
     def finish(self) -> Composition:
         if self.element is None:
             raise ComposeError("layout placed no screen")
-        pbox = self.element.box
         image = _background((self.w, self.H), self.base, self.surface)
-        if self.shape:  # a halo of the accent around the screen, as wide as the space to the nearest text allows
-            gap = min([HALO + BEZEL] + [_distance(pbox, b) - 14 for b, _ in self.ops])
-            if gap >= BEZEL + 8:
-                ImageDraw.Draw(image).rounded_rectangle(
-                    (pbox[0] - gap, pbox[1] - gap, pbox[2] + gap, pbox[3] + gap), radius=SCREEN_RADIUS + gap,
-                    fill=self.shape)
-        # a phone frame around the screen (the screen's own pixels stay untouched), as thick as the space allows
-        bezel = max(0, min([BEZEL] + [_distance(pbox, b) - 10 for b, _ in self.ops]))
-        frame: Box = (pbox[0] - bezel, pbox[1] - bezel, pbox[2] + bezel, pbox[3] + bezel)
-        image = _shadow(image, frame, self.fg, radius=SCREEN_RADIUS + bezel)
-        if bezel:
-            ImageDraw.Draw(image).rounded_rectangle(frame, radius=SCREEN_RADIUS + bezel, fill=self.fill(self.frame))
-        pixels = product_pixels(self.asset, self.element)
-        image.paste(pixels, pbox[:2], pixels)
+        boxes = [b for b, _ in self.ops]
+        if self.decor != "none":
+            self._decor(image, boxes)
+        for element, _ in self.screens:
+            pbox = element.box
+            near = [_distance(pbox, b) for b in boxes]
+            if self.shape:  # a halo of the accent around the screen, as wide as the space to the nearest text allows
+                gap = min([HALO + BEZEL] + [d - 14 for d in near])
+                if gap >= BEZEL + 8:
+                    ImageDraw.Draw(image).rounded_rectangle(
+                        (pbox[0] - gap, pbox[1] - gap, pbox[2] + gap, pbox[3] + gap), radius=SCREEN_RADIUS + gap,
+                        fill=self.shape)
+            # a phone frame around the screen (its own pixels stay untouched), as thick as the space allows
+            bezel = max(0, min([BEZEL] + [d - 10 for d in near]))
+            frame: Box = (pbox[0] - bezel, pbox[1] - bezel, pbox[2] + bezel, pbox[3] + bezel)
+            image = _shadow(image, frame, self.fg, radius=SCREEN_RADIUS + bezel)
+            if bezel:
+                ImageDraw.Draw(image).rounded_rectangle(frame, radius=SCREEN_RADIUS + bezel,
+                                                        fill=self.fill(self.frame))
+        for element, asset in self.screens:  # the screens last: no other phone's frame or shadow over them
+            pixels = product_pixels(asset, element)
+            image.paste(pixels, element.box[:2], pixels)
         draw = ImageDraw.Draw(image)
         for _, paint in self.ops:
             paint(draw)
         self.comp.image, self.comp.product = image, self.element
+        self.comp.extra_products = self.screens[1:]
         return self.comp
+
+    def _decor(self, image: Image.Image, boxes: list[Box]) -> None:
+        """A shape of colour behind the phones, inside the largest area around them that no text touches."""
+        xs = [e.box for e, _ in self.screens]
+        u: Box = (min(b[0] for b in xs) - BEZEL, min(b[1] for b in xs) - BEZEL,
+                  max(b[2] for b in xs) + BEZEL, max(b[3] for b in xs) + BEZEL)
+        r = [0, 0, self.w, self.H]
+        for raw in sorted(boxes, key=lambda b: -_distance(u, b)):
+            b = (raw[0] - 24, raw[1] - 24, raw[2] + 24, raw[3] + 24)
+            if not (b[0] < r[2] and r[0] < b[2] and b[1] < r[3] and r[1] < b[3]):
+                continue  # already outside the area
+            cuts = []  # cut the area on one side of this text box, keeping the phones whole
+            if b[2] <= u[0]:
+                cuts.append([b[2], r[1], r[2], r[3]])
+            if b[0] >= u[2]:
+                cuts.append([r[0], r[1], b[0], r[3]])
+            if b[3] <= u[1]:
+                cuts.append([r[0], b[3], r[2], r[3]])
+            if b[1] >= u[3]:
+                cuts.append([r[0], r[1], r[2], b[1]])
+            if not cuts:
+                return  # a text box hugs the phone on every side: no decor
+            r = max(cuts, key=lambda c: (c[2] - c[0]) * (c[3] - c[1]))
+        x0, y0, x1, y1 = r
+        if (x1 - x0) * (y1 - y0) < 1.4 * (u[2] - u[0]) * (u[3] - u[1]):
+            return  # no room worth a decor
+        mask = Image.new("L", image.size, 0)
+        d = ImageDraw.Draw(mask)
+        if self.decor == "panel":
+            d.rounded_rectangle((x0, y0, x1, y1), radius=56, fill=255)
+        elif self.decor == "diagonal":
+            d.polygon([(x0, y0 + round((y1 - y0) * 0.38)), (x1, y0), (x1, y1), (x0, y1)], fill=255)
+        else:  # circle: big, centred on the phones, kept inside the area
+            cx, cy = (u[0] + u[2]) // 2, (u[1] + min(u[3], self.H)) // 2
+            rad = round(max(u[2] - u[0], min(u[3], self.H) - u[1]) * 0.62)
+            d.ellipse((cx - rad, cy - rad, cx + rad, cy + rad), fill=255)
+            clip = Image.new("L", image.size, 0)
+            ImageDraw.Draw(clip).rectangle((x0, y0, x1, y1), fill=255)
+            mask = ImageChops.multiply(mask, clip)
+        image.paste(self.fill(self.decor_colour), (0, 0), mask)
 
 
 HALO = 40  # widest accent halo around the screen (style `shape`), px
@@ -480,7 +546,9 @@ def _layout(template: Template, genome: Genome) -> str:
     return LEGACY_LAYOUT.get(genome.get("first_shot", "app_screen"), "split")
 
 
-def compose(template: Template, genome: Genome, product_asset: str | Path | Image.Image) -> Composition:
+def compose(template: Template, genome: Genome, product_asset: str | Path | Image.Image,
+            second_asset: str | Path | Image.Image | None = None) -> Composition:
+    """The ad for this genome. `second_asset`: another real screen of the app (layout `two_screens`)."""
     template.check(genome)
     fmt = genome["format"]
     if fmt not in FORMATS:
@@ -500,7 +568,12 @@ def compose(template: Template, genome: Genome, product_asset: str | Path | Imag
     if not cta:
         raise ComposeError(f"{template.id}: empty call to action")
     proof = template.text("proof", genome["proof"]).strip() if "proof" in genome else ""
-    cv = Canvas(brand, FORMATS[fmt], style, asset, SAFE.get(fmt, (0, 0)))
+    second = (second_asset if isinstance(second_asset, Image.Image) or second_asset is None
+              else Image.open(second_asset))
+    if layout == "two_screens" and second is None:
+        raise ComposeError("layout 'two_screens' needs a second real screen")
+    cv = Canvas(brand, FORMATS[fmt], style, asset, SAFE.get(fmt, (0, 0)), decor=genome.get("decor", "none"))
+    cv.second = second
     DRAW[layout](cv, headline, proof, cta, content)
     return cv.finish()
 
@@ -647,6 +720,20 @@ def _bold_text(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -
     cv.pill(cta, (MARGIN, h - 180, MARGIN + 400, h - 90))
 
 
-DRAW = {"split": _split, "rising": _rising, "full_screen": _full_screen, "review_card": _review_card,
+def _two_screens(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """Two real screens of the app side by side, the second set lower, under the headline."""
+    w, h = cv.w, cv.h
+    hb = round(h * 0.17)
+    top = 56 + hb + 130
+    width = {1080: 380, 1350: 420, 1920: 460}.get(cv.H, 380)
+    cv.screen((w // 2 - width - 30, top, w // 2 - 30, h), rising=True, width=width)
+    assert cv.second is not None
+    cv.screen((w // 2 + 30, top + 90, w // 2 + width + 30, h), rising=True, width=width, asset=cv.second)
+    cv.text("headline", headline, (MARGIN, 56, w - MARGIN, 56 + hb), max_size=72, min_size=40, bold=True)
+    cv.pill(cta, (w // 2 - 200, 56 + hb + 20, w // 2 + 200, 56 + hb + 104))
+
+
+DRAW = {"two_screens": _two_screens, "split": _split, "rising": _rising, "full_screen": _full_screen,
+        "review_card": _review_card,
         "before_after": _before_after, "big_number": _big_number, "benefits": _benefits,
         "big_question": _big_question, "comparison": _comparison, "bold_text": _bold_text}

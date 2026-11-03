@@ -44,7 +44,7 @@ from whynot.assets.screens import Screen
 from whynot.assets.screens import pick as pick_screens
 from whynot.assets.screens import prepare as prepare_screens
 from whynot.budget import BudgetExceeded
-from whynot.create.composer import LEGACY_LAYOUT, ComposeError, compose, hex_to_rgb, layouts_for, styles_for
+from whynot.create.composer import DECORS, LEGACY_LAYOUT, ComposeError, compose, hex_to_rgb, layouts_for, styles_for
 from whynot.create.content import verified_content
 from whynot.create.guards import publishable, run_guards
 from whynot.create.locale import LANGUAGES, language_groups, unmapped
@@ -332,10 +332,17 @@ def stage_creative(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, str
         picks = pick_screens(c.model, app.name, {d["id"]: d["concept"] for d in made}, screens)
         for d in made:
             d["fixed"]["product"]["asset"] = picks[d["id"]].asset
+    pool = [s.asset for s in screens] or list(brand["screenshots"])
     for d in made:  # how the picture may look (E5-2): layouts its verified facts allow, readable styles, formats
         d["fixed"]["content"] = verified_content(strategy, app, d["evidence"]["angle"], d["fixed"]["language"])
+        main = d["fixed"]["product"]["asset"]
+        others = [a for a in pool if a != main]
+        if others:  # another real screen of the app, for the two-screen layout (the next one after the main)
+            d["fixed"]["product"]["second"] = others[(pool.index(main) if main in pool else 0) % len(others)]
         legacy = [LEGACY_LAYOUT[s] for s in d["genes"].pop("first_shot", []) if s in LEGACY_LAYOUT]
-        d["genes"]["layout"] = list(dict.fromkeys(legacy + layouts_for(d["fixed"]["content"])))
+        d["genes"]["layout"] = list(dict.fromkeys(legacy + layouts_for(d["fixed"]["content"],
+                                                                       second_screen=bool(others))))
+        d["genes"]["decor"] = list(DECORS)
         d["genes"]["style"] = styles_for([hex_to_rgb(x) for x in d["fixed"]["brand"]["palette"]])
         d["genes"]["format"] = list(cfg.static_formats)
         log["screens"] = {d["id"]: picks[d["id"]].description for d in made}
@@ -355,19 +362,22 @@ def produce_row(run: Run, t: Template, genome: dict[str, str], **extra: Any) -> 
     row: dict[str, Any] = {"variant_id": v.id, "template_id": t.id, "persona": t.persona, "genome": genome,
                            "language": t.fixed.get("language", "en"), "generation": 0, **extra}
     asset = Image.open(run.path("assets", t.fixed["product"]["asset"]))
+    other = t.fixed["product"].get("second")
+    second = Image.open(run.path("assets", other)) if other else None
     try:
-        comp = compose(t, genome, asset)
+        comp = compose(t, genome, asset, second)
     except ComposeError as exc:
         return {**row, "error": str(exc), "guards_passed": False}
     comp.image.save(run.path("ads", f"{v.id}.png"))
     results = run_guards(t, comp, asset)
-    story = story_version(run, t, genome, asset, v.id)
+    story = story_version(run, t, genome, asset, v.id, second)
     return {**row, "image": f"ads/{v.id}.png", "guards": {k: asdict(r) for k, r in results.items()},
             "guards_passed": publishable(results), **story,
             "texts": {g: t.text(g, genome[g]) for g in ("hook", "body", "title", "proof", "cta") if g in genome}}
 
 
-def story_version(run: Run, t: Template, genome: dict[str, str], asset: Image.Image, vid: str) -> dict[str, Any]:
+def story_version(run: Run, t: Template, genome: dict[str, str], asset: Image.Image, vid: str,
+                  second: Image.Image | None = None) -> dict[str, Any]:
     """The same ad in 9:16 for Stories and Reels (text kept out of the zones Meta covers), guarded the same way.
     Saved next to the feed picture; the simulated feed judges the feed picture."""
     if genome.get("format") == "story":
@@ -376,7 +386,7 @@ def story_version(run: Run, t: Template, genome: dict[str, str], asset: Image.Im
     d["genes"]["format"] = list(dict.fromkeys([*d["genes"]["format"], "story"]))
     tall = Template.from_dict(d)
     try:
-        comp = compose(tall, {**genome, "format": "story"}, asset)
+        comp = compose(tall, {**genome, "format": "story"}, asset, second)
     except ComposeError as exc:
         return {"story_error": str(exc)}
     comp.image.save(run.path("ads", f"{vid}.story.png"))
