@@ -163,16 +163,27 @@ def _pairs(strategy: Any) -> list[tuple[str, str]]:
 
 def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launcher: Launcher, policy: Policy,
             strategy: Any, cfg: DailyConfig | None = None, approved_by: str | None = None,
-            say: Callable[[str], None] = print) -> DayReport:
+            say: Callable[[str], None] = print, launch_only: bool = False) -> DayReport:
+    """`launch_only`: the day already ran and the owner has just approved what waited: only step 5 runs (no
+    results read again, no pause, no new video made, nothing spent on models); the day's report keeps what
+    the first run found."""
     cfg = cfg or DailyConfig()
     folder = Path(run_dir) / cfg.folder_name
     with day_lock(folder):
         memory = Memory(folder / "memory.json")
         log = ActionLog(folder / "actions.jsonl")
         rep = DayReport(day.isoformat(), bool(getattr(source, "simulated", False)), cap_eur=policy.daily_cap_eur)
+        earlier = folder / "reports" / f"{rep.day}.json"
+        if launch_only and earlier.exists():
+            prior = json.loads(earlier.read_text())
+            rep.yesterday, rep.paused = prior.get("yesterday", {}), prior.get("paused", [])
+            rep.new = prior.get("new", [])
+            rep.failures = [f for f in prior.get("failures", []) if not f.startswith("launch of ")]  # step 5 again
+        live_now = memory.by_status("live")
+        budgets = {r.key: cfg.budget_per_ad_eur for r in live_now}
+        running = [] if launch_only else memory.by_status("live", "paused")
 
         # 1. results up to yesterday
-        running = memory.by_status("live", "paused")
         if running:
             ids = {r.meta_ad_id or r.key: r for r in running}
             launched = {k: date.fromisoformat(r.launched) for k, r in ids.items() if r.launched}
@@ -189,8 +200,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
                              "clicks": sum(m.clicks for m in rows), "conversions": sum(m.conversions for m in rows)}
 
         # 2. decide: pause losers and tired ads
-        live = memory.by_status("live")
-        budgets = {r.key: cfg.budget_per_ad_eur for r in live}
+        live = [] if launch_only else live_now
         for action in review({r.key: r.metrics for r in live}, cfg.rules):
             d = decide(action, policy, AccountState(dict(budgets)), approved_by=approved_by)
             log.record(action, policy, d, approved_by=approved_by)
@@ -209,7 +219,7 @@ def run_day(run_dir: Path, day: date, *, source: Any, producer: Producer, launch
 
         formats = cfg.formats or [f.id for f in FORMATS]
         slots = max(0, cfg.target_live - len(budgets) - len(memory.by_status("proposed")))
-        want = min(slots, cfg.max_new)
+        want = 0 if launch_only else min(slots, cfg.max_new)
         # backups: when an idea fails to become an ad, the next one takes its slot
         tried = [(f, p, a) for f, p, a, _ in memory.ideas()]
         if cfg.idea_policy == "random":  # the no-learning baseline of the selection demo

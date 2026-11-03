@@ -19,6 +19,7 @@ from types import SimpleNamespace as NS
 import pytest
 
 from whynot.agency.create import add_verdicts, evolve_group, pick_parents, pooled_floor
+from whynot.budget import BudgetExceeded
 from whynot.sim import tournament
 from whynot.sim.arena import our_item, placebo_item
 from whynot.sim.feed import FeedItem
@@ -238,3 +239,58 @@ def test_no_child_stops_before_any_tournament():
                          judge=lambda *a: pytest.fail("no tournament without children"), replay=lambda p: p)
     assert group["history"][-1] == {"generation": 1, "stopped": "no valid child", "refused": [{"parent": "x"}]}
     assert group["final"] == {} and group["anchor"] is None
+
+
+# --- the budget: evolution stops where its money ends and keeps what it has -------------------------------------
+
+def budget_run(*, allowance=math.inf, fail_children_at=None, fail_replay=False):
+    world = NoisyWorld(3, GOOD)
+    viewer = Viewer(world)
+    gen0 = {r["variant_id"]: {"lift_over_placebo": 3.0, "intent": 3.0, "top_why_not": []} for r in GEN0}
+
+    def make_children(parents, gen, why_not):
+        if gen == fail_children_at:
+            raise BudgetExceeded("model budget of $4.00 spent ($4.01)")
+        return [row(f"{p['variant_id']}-g{gen}m0", p["template_id"], p["texts"]["hook"], f"Rewrite {gen}", gen,
+                    p["variant_id"]) for p in parents], []
+
+    def judge(pool, gen):
+        candidates = [our_item(r["variant_id"], BRAND, r["texts"]) for r in pool]
+        candidates.append(placebo_item(COMPETITORS[0], BRAND))
+        return tournament.play(viewer, PERSONAS, candidates, COMPETITORS[1:], feed_size=4, rounds=ROUNDS,
+                               viewers_per_feed=2, seed=gen, bootstrap=50)
+
+    def replay(played):
+        if fail_replay:
+            raise BudgetExceeded("model budget spent")
+        return tournament.replay(viewer, played, bootstrap=50)
+
+    group = evolve_group(GEN0, gen0, generations=3, keep=2, make_children=make_children, judge=judge, replay=replay,
+                         spent=lambda: world.calls * 0.001, allowance=allowance)
+    add_verdicts(group, pooled_floor([group]))
+    return group, world
+
+
+def test_a_generation_that_would_not_fit_the_budget_is_not_started():
+    full, _ = budget_run()
+    g1 = full["history"][1]["tournament"]["usd"]  # one generation (all its cost is viewers here)
+    # room for generation 1 and its retest (≈ 2 × g1), not for generation 2 on top (needs ≈ 1.2 × g1 + g1 more)
+    group, world = budget_run(allowance=3.0 * g1)
+    judged = [h for h in group["history"] if h.get("judge") == "tournament"]
+    assert len(judged) == 1 and group["history"][-1]["stopped"].startswith("budget: this audience may spend")
+    assert world.calls * 0.001 <= 3.0 * g1 + 1e-9  # never past what this audience was given
+    assert group["retest"]["floor"] is not None and "result" in group  # the kept generation is still measured
+    assert len([h for h in full["history"] if h.get("judge") == "tournament"]) == 3
+
+
+def test_money_running_out_during_a_generation_keeps_the_previous_one():
+    group, _ = budget_run(fail_children_at=2)
+    assert group["history"][-1]["stopped"].startswith("budget spent during this generation")
+    assert group["champion"] == group["history"][1]["kept"][0]  # generation 1's best, measured
+    assert group["retest"]["generation"] == 1 and "result" in group
+
+
+def test_no_money_for_the_retest_means_no_verdict_never_a_claimed_win():
+    group, _ = budget_run(fail_replay=True)
+    assert group["retest"]["floor"] is None and group["retest"]["stopped"] == "budget"
+    assert group["result"]["verdict"] == NOT_MEASURED

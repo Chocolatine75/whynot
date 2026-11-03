@@ -486,3 +486,19 @@ def test_redo_from_creative_is_not_undone_by_evolution(done, tmp_path):
     create(CreateConfig(**CFG), c, copy, redo_from="creative")
     assert not any("OLD " in p.read_text() for p in (copy / "templates").glob("*.yaml"))
     assert not any("OLD " in p.read_text() for p in (copy / "templates_gen0").glob("*.yaml"))
+
+
+def test_a_small_budget_shortens_evolution_instead_of_losing_the_run(done, tmp_path):
+    # what the fake world costs before evolution, from the full run's own log
+    events = [json.loads(x) for x in (done[3] / "events.jsonl").read_text().splitlines()]
+    before = sum(e.get("usd") or 0 for e in events
+                 if e["status"] == "ok" and e["stage"] not in ("evolve", "plan", "report"))
+    evolve_cost = next(e["usd"] for e in events if e["status"] == "ok" and e["stage"] == "evolve")
+    assert evolve_cost > 0
+    c, _, _ = clients(tmp_path, budget=before + evolve_cost * 0.4)  # not enough for the whole evolution
+    result = create(CreateConfig(**CFG), c, tmp_path / "run")  # finishes: plan and report are written
+    evo = json.loads((tmp_path / "run" / "evolution.json").read_text())
+    stops = [h.get("stopped", "") for g in evo["groups"] for h in g["history"]]
+    assert any(s.startswith("budget") for s in stops)
+    assert (tmp_path / "run" / "plan.json").exists() and result is not None
+    assert c.model.spent_usd <= before + evolve_cost * 0.4 + 0.05  # at most the calls already in flight past the cap

@@ -7,6 +7,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { type AgencyView, readAgency } from "./meta";
 
 export const STAGES = ["app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report"] as const;
 export type Stage = (typeof STAGES)[number];
@@ -71,7 +72,7 @@ function readJson<T>(dir: string, name: string): T | null {
   }
 }
 
-export interface RunEvent { ts: string; stage: string; status: string; usd?: number; seconds?: number; error?: string }
+export interface RunEvent { ts: string; stage: string; status: string; usd?: number; seconds?: number; error?: string; rollup?: boolean }
 
 export function readEvents(dir: string): RunEvent[] {
   const p = path.join(dir, "events.jsonl");
@@ -108,7 +109,8 @@ export function stageStates(events: RunEvent[]): StageView[] {
 }
 
 export function totalSpent(events: RunEvent[]): number {
-  return events.reduce((sum, e) => sum + (e.status === "ok" || e.status === "error" ? e.usd ?? 0 : 0), 0);
+  // a roll-up (an agency step around `create`) repeats the spend of its inner events: counted once, like the engine
+  return events.reduce((sum, e) => sum + ((e.status === "ok" || e.status === "error") && !e.rollup ? e.usd ?? 0 : 0), 0);
 }
 
 export type RunStatus = "running" | "done" | "failed" | "stopped";
@@ -185,6 +187,7 @@ export interface RunView {
   log: RunEvent[];
   videos: VideoAd[];
   marketAds: MarketAd[];
+  agency: AgencyView | null;  // a run started by the whole agency (`whynot agency`): its account, steps and days
 }
 
 /** The last lines the publish command printed (its own messages; tokens are redacted by the engine). */
@@ -199,10 +202,14 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
   const events = readEvents(dir);
   const stages = stageStates(events);
   const lastAt = events.length ? Date.parse(events[events.length - 1].ts) : null;
+  const agency = readAgency(dir, now);
+  // an agency run: the engine is alive while its command has not printed its last line
+  const failed = agency && [agency.steps.connect, agency.steps.create, agency.steps.publish].some((s) => s?.status === "error");
+  const status: RunStatus = agency?.running ? "running" : failed ? "failed" : runStatus(stages, lastAt, now);
   return {
     id,
     config: readJson(dir, "config.json"),
-    status: runStatus(stages, lastAt, now),
+    status,
     stages,
     spentUsd: totalSpent(events),
     startedAt: events[0]?.ts ?? null,
@@ -221,6 +228,7 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
     log: events.slice(-40),
     videos: readVideos(dir),
     marketAds: readMarketAds(dir, now),
+    agency,
   };
 }
 

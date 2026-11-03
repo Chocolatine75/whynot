@@ -97,6 +97,7 @@ def pick(model: Any, app_name: str, concepts: dict[str, str], screens: list[Scre
 
     One small call, any language. If the model gives no valid answer, word matching (`match`) decides."""
     from whynot.agents.ask import AgentError, Invalid, ask_json
+    from whynot.models import TruncatedOutput
 
     ids = list(concepts)
 
@@ -116,7 +117,7 @@ def pick(model: Any, app_name: str, concepts: dict[str, str], screens: list[Scre
                                 ads="\n".join(f"- {k}: {v}" for k, v in concepts.items()))
     try:
         return ask_json(model, [{"role": "user", "content": prompt}], validate, module="screens", model=model_id,
-                        repairs=1, max_tokens=2000, reasoning_effort="low").value
-    except AgentError:
+                        repairs=1, max_tokens=6000, reasoning_effort="low").value
+    except (AgentError, TruncatedOutput):  # a long think with no answer must not stop the run: words decide
         used: dict[str, int] = {}
         return {k: match(v, screens, used) for k, v in concepts.items()}

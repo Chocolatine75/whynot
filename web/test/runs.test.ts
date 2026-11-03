@@ -78,6 +78,12 @@ describe("stage states come from the event log", () => {
     expect(totalSpent(events)).toBeCloseTo(0.4);
   });
 
+  it("an agency step that rolls up its stages' spend is not counted twice", () => {
+    const events = [{ ts: "", stage: "strategy", status: "ok", usd: 0.3 }, { ts: "", stage: "create", status: "ok", usd: 0.3, rollup: true },
+      { ts: "", stage: "daily", status: "ok", usd: 0.2 }] as RunEvent[];
+    expect(totalSpent(events)).toBeCloseTo(0.5);
+  });
+
   it("status: done, failed, running, or stopped when the process went quiet", () => {
     const now = Date.parse("2026-10-29T10:05:00Z");
     const running = stageStates([{ ts: "", stage: "app", status: "start" }] as RunEvent[]);

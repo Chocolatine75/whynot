@@ -232,7 +232,14 @@ def test_autopilot_waits_for_the_first_approval_then_remembers_it(base, tmp_path
     assert pub["status"] == "active" and pub["campaign"] in world.graph.objects
     state = load_state(orch.run_dir)
     assert state["first_live_approved_by"] == "Matteo"
-    # the day was already done; its waiting ads launch on the next day, now without asking again
+    # the day's waiting video ads launch now, the same day: nothing else of the day is redone or re-billed
+    videos_made = len(world.producer.calls)
+    day = result.steps[f"daily {DAY}"]
+    assert day["status"] == "ok" and day["outputs"]["waiting_approval"] == 0 and day["outputs"]["new"] == 2
+    assert len(world.launcher.launched) == 2 and len(world.producer.calls) == videos_made and day["usd"] == 0
+    # approving again changes nothing (no ad waits any more); the next day runs without asking
+    again = quiet(Orchestrator.resume(orch.run_dir, world.services()), today=DAY, approved_by="Matteo")
+    assert again.steps[f"daily {DAY}"]["status"] == "cached" and len(world.launcher.launched) == 2
     nxt = quiet(Orchestrator.resume(orch.run_dir, world.services()), today=DAY + timedelta(days=1))
     assert nxt.status == "done" and world.launcher.launched
     static = state["static_committed_eur"]
@@ -512,3 +519,44 @@ def test_the_store_pages_website_is_used_when_no_landing_page_is_given(base, tmp
     links = {json.loads(o["object_story_spec"])["link_data"]["link"] for o in world.graph.objects.values()
              if o["kind"] == "adcreatives"}
     assert links == {"https://linguaapp-site.example"} and world.launcher.link == "https://linguaapp-site.example"
+
+
+def test_cli_agency_starts_in_the_folder_the_site_names_and_never_over_a_run(base, tmp_path, monkeypatch, capsys):
+    from whynot import cli
+    from whynot.agency import orchestrator
+
+    world = World(tmp_path)
+    monkeypatch.setattr(orchestrator, "default_services", lambda s, silent=False: world.services())
+    run = fork(base, tmp_path)  # the site may have written a placeholder config.json there first
+    args = ["agency", APP, "--countries", "FR", "GB", "--daily-cap", "20", "--budget-usd", "10", "--sim",
+            "--objective", "app_promotion", "--run-dir", str(run), "--start", str(DAY), "--json"]
+    assert cli.main(args) == 0
+    out = json.loads(capsys.readouterr().out)
+    assert out["run"] == str(run) and out["status"] == "done"
+    assert load_state(run)["steps"]["create"]["status"] == "ok"
+    assert cli.main(args) == 1  # a second start never overwrites the first run's state
+    assert "already holds an agency run" in capsys.readouterr().err
+
+
+def test_cli_stop_uses_the_saved_connection_of_the_agency(tmp_path, monkeypatch, capsys):
+    from whynot import cli
+    from whynot.run import killswitch, meta
+
+    seen = {}
+
+    class Client:
+        def __init__(self, account, version=None):
+            seen["account"] = account
+
+    def fake_stop(runs, client, *, by, policy=None):
+        seen["by"] = by
+        return killswitch.StopReport()
+
+    monkeypatch.setattr(meta, "MarketingClient", Client)
+    monkeypatch.setattr(killswitch, "stop", fake_stop)
+    assert cli.main(["stop", str(tmp_path), "--by", "Matteo", "--connection", connection(tmp_path)]) == 0
+    acc = seen["account"]
+    assert (acc.account_id, acc.token, acc.sandbox, seen["by"]) == ("123456", TOKEN, False, "Matteo")
+    out = capsys.readouterr().out
+    assert "LIVE act_123456" in out and TOKEN not in out
+    assert cli.main(["stop", str(tmp_path), "--by", "M", "--connection", str(tmp_path / "none.json")]) == 1
