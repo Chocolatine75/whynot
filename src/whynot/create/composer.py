@@ -205,8 +205,10 @@ def missing_glyphs(font, text: str) -> list[str]:
 
 
 def _draw_text(draw, brand: Brand, text: str, box: Box, fg: RGB, *, max_size: int, min_size: int,
-               bold: bool = False, align: str = "center", valign: str = "middle", leading: float = 1.15) -> int:
-    """Largest font size (≤ max_size) whose wrapped text fits the box."""
+               bold: bool = False, align: str = "center", valign: str = "middle", leading: float = 1.15,
+               accent: RGB | None = None, accent_words: int = 0, dry: bool = False) -> int:
+    """Largest font size (≤ max_size) whose wrapped text fits the box. With `accent`, the last `accent_words`
+    words are drawn in that colour (the key words of a headline). `dry`: only find the size, draw nothing."""
     width, height = box[2] - box[0], box[3] - box[1]
     missing = missing_glyphs(_font(brand, max_size, bold=bold), text)
     if missing:
@@ -217,11 +219,19 @@ def _draw_text(draw, brand: Brand, text: str, box: Box, fg: RGB, *, max_size: in
         line_h = round(size * leading)
         too_wide = any(draw.textlength(line, font=font) > width for line in lines)
         if not too_wide and line_h * len(lines) <= height:
+            if dry:
+                return size
             y = box[1] + ((height - line_h * len(lines)) // 2 if valign == "middle" else 0)
+            total = sum(len(line.split()) for line in lines)
+            first_accent = total - accent_words if accent else total
+            n = 0
             for line in lines:
                 w = draw.textlength(line, font=font)
                 x = box[0] + ((width - w) / 2 if align == "center" else 0)
-                draw.text((x, y), line, font=font, fill=fg)
+                for word in line.split():  # word by word, so key words can take the accent
+                    draw.text((x, y), word, font=font, fill=accent if accent and n >= first_accent else fg)
+                    x += draw.textlength(word + " ", font=font)
+                    n += 1
                 y += line_h
             return size
     raise ComposeError(f"text does not fit its box even at {min_size}px: {text!r}")
@@ -300,6 +310,9 @@ class Canvas:
         self.fg = best_text_colour(self.base, brand.palette)
         # the button: the accent, unless the background is the accent (brand style): then the strongest contrast
         self.button = brand.palette[2] if self.base != brand.palette[2] else self.fg
+        # the phone frame: the darkest palette colour, or the lightest on a dark background (it must show)
+        dark = _darkest(brand.palette)
+        self.frame = dark if contrast_ratio(dark, self.base) >= 1.5 else _lightest(brand.palette)
         self.comp = Composition(image=Image.new("RGB", size), fills=[self.base, self.fg]
                                 + [c for c in (self.surface, self.shape) if c])
         self.element: ProductElement | None = None
@@ -342,11 +355,21 @@ class Canvas:
         ink, under = fg or self.fg, bg or self.base
         self.fill(ink)
         box = self.at(box)
+        # a headline's key words (its last ones) in the button colour, when it reads well as large text
+        words = len(text.split())
+        key = min(3, max(1, words // 3)) if role == "headline" and words >= 3 else 0
+        accent = self.button if key and self.button != ink and contrast_ratio(self.button, under) >= 3.0 else None
 
         def paint(d: ImageDraw.ImageDraw) -> None:
             size = _draw_text(d, self.brand, text, box, ink, max_size=max_size, min_size=min_size, bold=bold,
-                              align=align, valign=valign, leading=leading)
+                              align=align, valign=valign, leading=leading, dry=True)
+            use = accent if accent and size >= 48 else None  # the accent only on large text (WCAG ≥ 3)
+            _draw_text(d, self.brand, text, box, ink, max_size=size, min_size=size, bold=bold, align=align,
+                       valign=valign, leading=leading, accent=self.fill(use) if use else None, accent_words=key)
             self.comp.texts.append(TextElement(role, text, box, ink, under, size))
+            if use:
+                self.comp.texts.append(TextElement("headline_key", " ".join(text.split()[-key:]), box, use, under,
+                                                   size))
         self.ops.append((box, paint))
 
     def pill(self, text: str, box: Box) -> None:
@@ -420,12 +443,17 @@ class Canvas:
         pbox = self.element.box
         image = _background((self.w, self.H), self.base, self.surface)
         if self.shape:  # a halo of the accent around the screen, as wide as the space to the nearest text allows
-            gap = min([HALO] + [_distance(pbox, b) - 14 for b, _ in self.ops])
-            if gap >= 12:
+            gap = min([HALO + BEZEL] + [_distance(pbox, b) - 14 for b, _ in self.ops])
+            if gap >= BEZEL + 8:
                 ImageDraw.Draw(image).rounded_rectangle(
                     (pbox[0] - gap, pbox[1] - gap, pbox[2] + gap, pbox[3] + gap), radius=SCREEN_RADIUS + gap,
                     fill=self.shape)
-        image = _shadow(image, pbox, self.fg, radius=SCREEN_RADIUS)
+        # a phone frame around the screen (the screen's own pixels stay untouched), as thick as the space allows
+        bezel = max(0, min([BEZEL] + [_distance(pbox, b) - 10 for b, _ in self.ops]))
+        frame: Box = (pbox[0] - bezel, pbox[1] - bezel, pbox[2] + bezel, pbox[3] + bezel)
+        image = _shadow(image, frame, self.fg, radius=SCREEN_RADIUS + bezel)
+        if bezel:
+            ImageDraw.Draw(image).rounded_rectangle(frame, radius=SCREEN_RADIUS + bezel, fill=self.fill(self.frame))
         pixels = product_pixels(self.asset, self.element)
         image.paste(pixels, pbox[:2], pixels)
         draw = ImageDraw.Draw(image)
@@ -436,6 +464,7 @@ class Canvas:
 
 
 HALO = 40  # widest accent halo around the screen (style `shape`), px
+BEZEL = 18  # phone frame around the screen, px
 
 
 def _distance(a: Box, b: Box) -> int:
@@ -484,17 +513,17 @@ def _split(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> No
     w, h = cv.w, cv.h
     cv.screen((600, MARGIN, w - 56, h - MARGIN))
     top = round(h * 0.11)
-    cv.text("headline", headline, (MARGIN, top, 560, round(h * 0.56)), max_size=80, min_size=40, bold=True,
+    cv.text("headline", headline, (MARGIN, top, 540, round(h * 0.56)), max_size=80, min_size=40, bold=True,
             align="left", valign="top", leading=1.1)
     if proof:
-        cv.text("proof", proof, (MARGIN, round(h * 0.59), 560, round(h * 0.70)), max_size=36, align="left",
+        cv.text("proof", proof, (MARGIN, round(h * 0.59), 540, round(h * 0.70)), max_size=36, align="left",
                 valign="top")
     cv.pill(cta, (MARGIN, h - 220, MARGIN + 440, h - 124))
 
 
 def _rising(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
     w, h = cv.w, cv.h
-    width = {1080: 560, 1350: 620, 1920: 720}.get(cv.H, 560)
+    width = {1080: 600, 1350: 700, 1920: 780}.get(cv.H, 600)
     y = 56 + round(h * 0.17)
     after = y + (60 if proof else 0) + 98
     cv.screen((0, after + 40, w, h), rising=True, width=width)
@@ -508,7 +537,7 @@ def _rising(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> N
 def _full_screen(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
     w, h = cv.w, cv.h
     band = round(h * 0.15)
-    cv.screen((MARGIN, band + 24, w - MARGIN, h - 176))
+    cv.screen((MARGIN, band + 40, w - MARGIN, h - 160))
     cv.text("headline", headline, (MARGIN, 40, w - MARGIN, band), max_size=64, min_size=36, bold=True)
     cv.pill(cta, (w // 2 - 200, h - 140, w // 2 + 200, h - 50))
 
@@ -519,7 +548,7 @@ def _review_card(cv: Canvas, headline: str, proof: str, cta: str, content: dict)
     review = content["review"]
     card_h = round(h * 0.36)
     card: Box = (MARGIN, 56, w - MARGIN, 56 + card_h)
-    cv.screen((0, card[3] + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    cv.screen((0, card[3] + 160, w, h), rising=True, width={1080: 560, 1350: 660, 1920: 760}.get(cv.H, 560))
     colour = cv.other(cv.base)
     cv.card(card, colour)
     n = max(1, min(5, int(review.get("rating", 5))))
@@ -535,7 +564,7 @@ def _before_after(cv: Canvas, headline: str, proof: str, cta: str, content: dict
     w, h = cv.w, cv.h
     obj = content["objection"]
     top, band = 56, round(h * 0.30)
-    cv.screen((0, top + band + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    cv.screen((0, top + band + 160, w, h), rising=True, width={1080: 560, 1350: 660, 1920: 760}.get(cv.H, 560))
     left: Box = (MARGIN, top, 470, top + band)
     cv.card(left, cv.fg, outline=True)
     cv.text("before", str(obj["text"]), (left[0] + 28, left[1] + 24, left[2] - 28, left[3] - 24),
@@ -551,7 +580,7 @@ def _big_number(cv: Canvas, headline: str, proof: str, cta: str, content: dict) 
     w, h = cv.w, cv.h
     num = content["number"]
     nb = round(h * 0.22)
-    cv.screen((0, 56 + nb + 230, w, h), rising=True, width={1080: 460, 1350: 540, 1920: 660}.get(cv.H, 460))
+    cv.screen((0, 56 + nb + 240, w, h), rising=True, width={1080: 560, 1350: 660, 1920: 760}.get(cv.H, 560))
     cv.text("number", str(num["value"]), (MARGIN, 40, w - MARGIN, 40 + nb), max_size=240, min_size=80, bold=True,
             fg=cv.fg)
     cv.text("label", str(num["label"]), (MARGIN, 48 + nb, w - MARGIN, 48 + nb + 100), max_size=40, min_size=28)
@@ -579,8 +608,8 @@ def _benefits(cv: Canvas, headline: str, proof: str, cta: str, content: dict) ->
 def _big_question(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
     """The hook very large in the middle, the screen small at the bottom."""
     w, h = cv.w, cv.h
-    qb = round(h * 0.42)
-    cv.screen((0, 56 + qb + 140, w, h), rising=True, width={1080: 380, 1350: 460, 1920: 600}.get(cv.H, 380))
+    qb = round(h * 0.34)
+    cv.screen((0, 56 + qb + 150, w, h), rising=True, width={1080: 520, 1350: 620, 1920: 720}.get(cv.H, 520))
     cv.text("headline", headline, (MARGIN, 56, w - MARGIN, 56 + qb), max_size=120, min_size=48, bold=True,
             leading=1.05)
     cv.pill(cta, (w // 2 - 190, 56 + qb + 30, w // 2 + 190, 56 + qb + 114))
@@ -591,7 +620,7 @@ def _comparison(cv: Canvas, headline: str, proof: str, cta: str, content: dict) 
     w, h = cv.w, cv.h
     obj = content["objection"]
     top, ch = 56, round(h * 0.30)
-    cv.screen((0, top + ch + 150, w, h), rising=True, width={1080: 480, 1350: 560, 1920: 680}.get(cv.H, 480))
+    cv.screen((0, top + ch + 160, w, h), rising=True, width={1080: 560, 1350: 660, 1920: 760}.get(cv.H, 560))
     left: Box = (MARGIN, top, w // 2 - 14, top + ch)
     right: Box = (w // 2 + 14, top, w - MARGIN, top + ch)
     cv.card(left, cv.fg, outline=True)
@@ -608,15 +637,14 @@ def _comparison(cv: Canvas, headline: str, proof: str, cta: str, content: dict) 
 
 
 def _bold_text(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
-    """Text first, like a post: the hook very large, a small screen in the corner."""
+    """Text first, like a post: the hook very large on top, a big screen rising at the bottom right."""
     w, h = cv.w, cv.h
-    sw = {1080: 300, 1350: 320, 1920: 380}.get(cv.H, 300)
-    text_bottom = round(h * 0.52)
-    sh = min(round(sw * cv.asset.height / cv.asset.width), h - 56 - text_bottom - 24)
-    cv.screen((w - 56 - sw, h - 56 - sh, w - 56, h - 56))
+    text_bottom = round(h * 0.50)
+    cv.screen((w // 2 - 20, text_bottom + 40, w - 40, h), rising=True,
+              width={1080: 440, 1350: 500, 1920: 560}.get(cv.H, 440))
     cv.text("headline", headline, (MARGIN, 64, w - MARGIN, text_bottom), max_size=140, min_size=48,
             bold=True, align="left", valign="top", leading=1.02)
-    cv.pill(cta, (MARGIN, h - 160, MARGIN + 400, h - 70))
+    cv.pill(cta, (MARGIN, h - 180, MARGIN + 400, h - 90))
 
 
 DRAW = {"split": _split, "rising": _rising, "full_screen": _full_screen, "review_card": _review_card,
