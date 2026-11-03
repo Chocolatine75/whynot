@@ -248,6 +248,14 @@ def _stop(args: argparse.Namespace) -> int:
     return 0 if report.ok else 2
 
 
+def _reproduce(args: argparse.Namespace) -> int:
+    from whynot.validate.reproduce import report, reproduce, to_json
+
+    claims = reproduce(fast=args.fast)
+    print(json.dumps(to_json(claims), indent=1, ensure_ascii=False) if args.json else report(claims))
+    return 1 if any(c.status == "differs" for c in claims) else 0
+
+
 def _selection(args: argparse.Namespace) -> int:
     from whynot.agency.selection import run_selection
     from whynot.agents.strategist import Strategy
@@ -607,6 +615,11 @@ def main(argv: list[str] | None = None) -> int:
     stt.add_argument("run", help="the agency run folder")
     stt.add_argument("--json", action="store_true", help="the whole state as JSON (for the site)")
     stt.set_defaults(func=_status)
+
+    rp = sub.add_parser("reproduce", help="recompute every number the demo shows from the logs ($0, no model call)")
+    rp.add_argument("--fast", action="store_true", help="skip the fake-world evolution (about a minute)")
+    rp.add_argument("--json", action="store_true")
+    rp.set_defaults(func=_reproduce)
 
     co = sub.add_parser("costs", help="model spend by day, module, model and run, vs the team budget")
     co.add_argument("--since", type=_iso_day, help="first day to count, YYYY-MM-DD (UTC)")

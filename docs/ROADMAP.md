@@ -391,7 +391,7 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 
 ### E12. Demo, docs, submission (both, Nov 3–4)
 
-- [ ] **D-1** One command reproduces every number in the demo (`uv run whynot reproduce`), $0 from cassettes and caches.
+- [ ] **D-1** One command reproduces every number in the demo (`uv run whynot reproduce`), $0 from cassettes and caches. — *Nov 3: `whynot reproduce [--fast] [--json]` (`validate/reproduce.py`) recomputes R3, evolution verdicts (from the logged tournaments), the fake world (92 % / 7 %), the pixel guard, real-account publishing, the picture-feed cost and total spend, $0, in 20 s; each claim ok / differs (exit 1) / missing. On Matteo's machine: 9/9 reproduced. Left: run-based numbers need their run folder (`outputs/` is not in git) — from a clean clone only the committed R3 and the fake world reproduce; the README's "$5.5 total spend" is stale ($63.82 logged since the first call).*
 - [x] **D-2** README final: what it is, what was built during the event, an architecture diagram, how to run, results with links. — *Nov 3: rewritten with a flow diagram, models, measured results and limits.*
 - [ ] **D-3** 3-minute video per `DEMO.md`, plus a 30 s cut for X. — *Nov 3: script + shot list + 30 s cut in `DEMO.md`; recording left (Tom).*
 - [x] **D-4** Go through `TARGETS.md` line by line with measured values. — *Nov 3: `TARGETS.md` §6.*
