@@ -1,49 +1,36 @@
 # Design
 
-whynot looks like a premium Apple app: macOS / iOS design language with **Liquid Glass used with restraint**. Content sits on solid, quiet surfaces; glass is reserved for what floats above content. Neutral palette, one accent, almost no motion. Tokens live in `web/app/globals.css`.
+whynot has a stage of its own, in Meta's colours: **a dark background with an aurora of Meta blue, violet and pink that follows the mouse, a spotlight under the cursor and film grain.** Surfaces are smoked glass; cards light up where the cursor is and lean towards it; buttons are pulled towards it; sections rise in on scroll (`web/components/Interactions.tsx`, all off under reduced motion and on touch screens). The mark is **a comment bubble with the "?" cut out**, the "why not?" every ad must answer, asked where people answer ads. Titles in Bricolage Grotesque, text in Figtree, numbers in Geist Mono. Tokens live in `web/app/globals.css`. (Nov 3: replaced the Apple / Liquid Glass look, then a first light Meta look Tom found too generic.)
 
 ## Principles
 
-1. **Content first.** The ad, the quote, the number. The interface frames them and steps back.
-2. **Glass only where something floats.** Toolbar, command bar, segmented tabs, inspectors over content. Never on every card: glass over a flat background means nothing.
-3. **One accent.** System blue for actions and the current state. Semantic tints (green, orange, red, indigo for "Simulated") are quiet fills, never large areas.
-4. **Depth from light, not lines.** Hairline separators (0.5 px), soft layered shadows, a specular top edge on glass.
-5. **Calm type.** SF Pro (system stack), semibold display, negative tracking on large sizes, balanced headings.
-6. **Restrained motion.** Press feedback and colour transitions only. No entrance animations, no pulsing, no parallax.
-7. **Honest.** Simulated numbers are tagged; illustrations are labelled; nothing looks live unless it is.
-
-Avoid: neon or multi-colour gradients, dark "hero" sections with glows, big stat cards, uppercase eyebrows on every section, generic SaaS feature grids.
+1. **One thing per screen.** The home page is one search bar: paste the App Store link. Everything else lives behind it.
+2. **Content first.** Ads are shown as feed posts, videos in a phone, competitor ads as Ad Library cards, objections as quotes with their source.
+3. **One accent.** Meta blue for actions, the current state and positive bars. Semantic tints (green, amber, red, violet for "Simulated") stay small.
+4. **Honest.** Every simulated number carries the violet "Simulated" tag; failures are shown, not hidden.
+5. **Restrained motion.** Press feedback, a pulsing dot on the running step, a sliding bar while a stage works. Nothing else moves; `prefers-reduced-motion` turns it off.
 
 ## Tokens
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--canvas` | `#F5F5F7` | `#000000` | page background |
-| `--surface` / `--surface-2` | `#FFFFFF` / `#F2F2F4` | `#1C1C1E` / `#2C2C2E` | content cards, sidebars |
-| `--fill` / `--fill-2` | grey 12 % / 8 % | grey 24 % / 16 % | inputs, secondary buttons, rows on hover |
-| `--text` / `--text-2` / `--text-3` | `#1D1D1F` / `#6E6E73` / `#86868B` | `#F5F5F7` / `#A1A1A6` / `#8E8E93` | |
-| `--separator` | 12 % | 60 % | hairlines (0.5 px) |
-| `--accent` | `#0071E3` | `#0A84FF` | actions, focus |
-| semantic | positive, warning, negative, sim (indigo) | | tints at 10–16 % |
-| radius | 10 · 14 · 22 · 999 (pills) | | |
-| shadow | `--shadow-1` hairline lift · `--shadow-2` floating · `--shadow-3` window | | |
+| `--bg` | `#F5F7FA` | `#0A0D11` | page |
+| `--surface` / `-2` / `-3` | `#FFF` / `#F1F4F7` / `#E8EDF2` | `#11161C` / `#171D25` / `#202833` | cards, wells, tracks |
+| `--line` / `--line-strong` | `#1C2B33` at 9 % / 16 % | `#E8EDF2` at 8 % / 15 % | 1 px hairlines |
+| `--text` / `-2` / `-3` | `#1C2B33` / `#5A6B77` / `#8696A2` | `#E8EDF2` / `#9AA7B3` / `#6D7B87` | |
+| `--blue` | `#0064E0` (Meta blue) | `#2E8BFF` | actions, focus, bars |
+| `--grad` | `#0064E0 → #0A8CFF → #7A5CFF → #C74AE0` | same | brand mark, search ring, one headline phrase |
+| semantic | green, amber, red, violet (simulated) | | tints at 10–16 % |
+| radius | 6 · 10 · 14 · 20 · 28 · pill | | |
 
-**Glass material (`.glass`):** `rgba(255,255,255,.62)` (dark: `rgba(40,40,44,.58)`), `backdrop-filter: blur(24px) saturate(180%)`, a 1 px luminous border, a specular inner top edge (`inset 0 1px 0 rgba(255,255,255,.9)`), a 0.5 px outer edge and `--shadow-2`. Falls back to a solid surface with `prefers-reduced-transparency`, gets a visible border with `prefers-contrast: more`.
+**Type:** Geist (Google Fonts, `next/font`), Geist Mono for money and measures. Body 15/1.55; headings semibold with negative tracking (−0.045 em at 56 px, −0.016 em at 17 px); labels 12–13 px.
 
-**Type:** body 17/1.47, tracking −0.022 em; display semibold 600, 64 → 28 px with −0.035 → −0.025 em; labels 13 px medium; numbers tabular.
+## Pages
 
-## Motion
-
-From the design-engineering skills (`emil-design-eng`, `apple-design`, `animate` from emilkowalski/skill, MIT; pinned in `skills-lock.json`, restore with `npx skills experimental_install`):
-
-- Buttons: `scale(0.97)` on press, 150 ms, `cubic-bezier(0.23, 1, 0.32, 1)`; colour transitions 150 ms. Nothing else moves.
-- `prefers-reduced-motion`: press scaling and transitions off.
-
-## Landing page
-
-- A centred, calm headline and one sentence; the glass command bar (paste the App Store link → Start the campaign).
-- The product itself as a static macOS window: sidebar of agency steps, an ad in a feed, a glass inspector floating over the ad with the simulated result. Brand-free and captioned **Illustration**; partner data never appears there.
-- "How it works" as one inset list (like System Settings), three short commitments, then the campaigns.
+- **Home `/`**: the headline, one sentence, the search bar with a gradient ring, chips for countries and the daily cap, three "Try" examples. Nothing else.
+- **Campaigns `/runs`**: one row per app (icon, name, what was made, AI cost, status).
+- **Campaign `/runs/<id>`**: a sticky side navigation (a status dot per stage, counts) over one page: Overview (status, five numbers, the pipeline, positioning) · Market (competitors' ads, longest-running first) · Strategy (profiles, objections with quotes, angles) · Ads (feed posts per audience) · Videos (phones that play) · Simulated test · Evolution (strength per generation with CIs, lineage) · Launch (plan, approval, kill switch). On mobile the navigation becomes a scrolling bar under the top bar.
+- **Validation `/validation`**: every experiment with its interval, baselines, method and limits.
 
 ## Ads (composer)
 

@@ -13,17 +13,27 @@ export default function StopButton({ runId, mode }: { runId: string; mode: "sand
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const res = await fetch("/api/stop", {
-      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: runId, mode, by: name }),
-    });
-    const body = await res.json().catch(() => ({}));
-    if (res.status === 400 || res.status === 404 || res.status === 409) setError(body.error ?? "Something went wrong.");
-    else setResult({ ok: Boolean(body.ok), lines: body.lines ?? [] });
-    setBusy(false);
+    try {
+      const res = await fetch("/api/stop", {
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: runId, mode, by: name }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (res.status === 400 || res.status === 404 || res.status === 409) setError(body.error ?? "Something went wrong.");
+      else setResult({ ok: Boolean(body.ok), lines: body.lines ?? [] });
+    } catch {
+      setError("Network error: nothing was confirmed. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (!confirming) {
-    return <button type="button" className="btn secondary" onClick={() => setConfirming(true)}>Pause everything now</button>;
+    return (
+      <div className="spread">
+        <div><h3 className="h4">Kill switch</h3><p className="xsmall faint">Pauses every campaign, ad set and ad at once.</p></div>
+        <button type="button" className="btn danger" onClick={() => setConfirming(true)}>Pause everything now</button>
+      </div>
+    );
   }
   return (
     <form onSubmit={stop} className="stack" style={{ gap: 10 }} aria-label="Kill switch">
@@ -31,8 +41,8 @@ export default function StopButton({ runId, mode }: { runId: string; mode: "sand
         It takes a few seconds and is logged with your name.</p>
       <div className="row" style={{ gap: 10 }}>
         <input aria-label="Your name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)}
-               className="btn secondary" style={{ height: 36, width: 200, textAlign: "left", cursor: "text", fontWeight: 400 }} />
-        <button className="btn" disabled={busy || !name.trim()}>{busy ? "Pausing…" : "Pause everything"}</button>
+               className="input" style={{ flex: 1, minWidth: 140 }} />
+        <button className="btn danger" disabled={busy || !name.trim()}>{busy ? "Pausing…" : "Pause everything"}</button>
         <button type="button" className="btn secondary" onClick={() => setConfirming(false)} disabled={busy}>Cancel</button>
       </div>
       {error && <p className="error-text small" role="alert">{error}</p>}
