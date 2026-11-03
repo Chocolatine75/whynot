@@ -40,6 +40,7 @@ UI_MOTIONS = ("rows", "grid", "zoom", "scroll", "float")  # how a real screen co
 # Words a brand line must not say: an absolute it cannot prove ("calls stay private always").
 ABSOLUTE_CLAIMS = re.compile(r"\b(always|never fails|100\s?%|guaranteed?|forever|every time|nothing can)\b", re.I)
 END_CARD_SECONDS = 1.6
+_HANDLE = re.compile(r"@\w[\w.]*|\breplying to\b", re.IGNORECASE)
 # A phone in someone's hand is real life; a phone SCREEN would be a generated interface. Allowed when the prompt
 # keeps its screen out of view.
 _PHONE = re.compile(r"\b(phone|smartphone|iphone|android)\b", re.I)
@@ -638,6 +639,12 @@ def make_validator(ctx: Context, fmt: Format, persona: str, angle: str, n_screen
         if not TOTAL_SECONDS[0] <= total <= TOTAL_SECONDS[1]:
             problems.append(f"the video lasts {total:.1f} s with the end card; make it "
                             f"{TOTAL_SECONDS[0]:.0f}-{TOTAL_SECONDS[1]:.0f} s")
+        # no invented person: a "@user" handle or "replying to" someone reads as a real comment or customer that does
+        # not exist (seen Nov 4: "replying to @kevin.wav"). The question stands on its own, as a question card.
+        handles = sorted({m.group(0) for v in texts.values() if (m := _HANDLE.search(v))})
+        if handles:
+            problems.append(f"the video names an invented person ({', '.join(handles)}): no @username and no "
+                            "\"replying to\" someone; write the question itself, as a plain question card")
         try:
             rules.check(texts, "trend brief", promises=False)  # the creator's own words are a story, not a promise
         except Invalid as exc:

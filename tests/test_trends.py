@@ -755,3 +755,12 @@ def test_an_eight_word_text_card_is_not_held_to_a_static_proof_line_length():
     assert len(card["text"]) > 50
     b = check(data)
     assert any(s.text == card["text"] for s in b.shots)
+
+
+@pytest.mark.parametrize("hook", ["replying to @kevin.wav 'wait southern sounds different??'",
+                                  "Replying to: is it hard?", "@maya asked me this"])
+def test_no_invented_person_asks_the_question(hook):
+    data = json.loads(json.dumps(GOOD))
+    data["hook"] = hook
+    with pytest.raises(Invalid, match="invented person"):
+        check(data)

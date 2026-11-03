@@ -80,10 +80,12 @@ FORMATS: tuple[Format, ...] = (
            "A brand character with personality; viewers follow it like a creator.",
            ("mascot", "text", "screen", "voice"),
            "The buffalo when you skip your tones practice"),
-    Format("green_screen_reply", "Replying to a comment",
-           ("a comment bubble asking a real question", "the answer, step by step", "the app as the answer", "CTA"),
-           "Looks like a creator answering a fan; native to the feed.", ("text", "screen", "voice"),
-           "Replying to: 'is Southern Vietnamese really that different?'"),
+    Format("green_screen_reply", "Answering a common question",
+           ("a question card: the question people ask, on its own (never a username or a fake comment)",
+            "the answer, step by step", "the app as the answer", "CTA"),
+           "A creator answering the question everyone asks; native to the feed, without inventing who asked.",
+           ("text", "screen", "voice"),
+           "'Is Southern Vietnamese really that different?'"),
 )
 BY_ID = {f.id: f for f in FORMATS}
 NONE = "none"  # a competitor ad that follows no known format
