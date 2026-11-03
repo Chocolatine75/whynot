@@ -43,6 +43,7 @@ from whynot.assets.brand import palette_from_icon
 from whynot.assets.screens import Screen
 from whynot.assets.screens import pick as pick_screens
 from whynot.assets.screens import prepare as prepare_screens
+from whynot.budget import BudgetExceeded
 from whynot.create.composer import ComposeError, compose
 from whynot.create.guards import publishable, run_guards
 from whynot.create.locale import LANGUAGES, language_groups, unmapped
@@ -497,9 +498,13 @@ Children = Callable[[list[dict[str, Any]], int, dict[str, list[str]]],
                     tuple[list[dict[str, Any]], list[dict[str, Any]]]]
 
 
+EVOLVE_RESERVE_USD = 0.05  # kept for after evolution: a few calls of margin (plan and report are code)
+
+
 def evolve_group(rows: list[dict[str, Any]], gen0: dict[str, dict[str, Any]], *, generations: int, keep: int,
                  make_children: Children, judge: Callable[[list[dict[str, Any]], int], tournament.Played],
-                 replay: Callable[[tournament.Played], tournament.Played]) -> dict[str, Any]:
+                 replay: Callable[[tournament.Played], tournament.Played],
+                 spent: Callable[[], float] | None = None, allowance: float = math.inf) -> dict[str, Any]:
     """One audience's evolution, judged by tournaments (E3-2, E6-1). All numbers SIMULATED.
 
     - generation 0 is the arena simulation (lift over placebo) and picks the first parents;
@@ -510,7 +515,14 @@ def evolve_group(rows: list[dict[str, Any]], gen0: dict[str, dict[str, Any]], *,
     - the last tournament is played again with a fresh draw (`replay`): its gap is the noise floor (E3-3).
     `make_children(parents, generation, why_not)` → (children that passed the guards, refused proposals);
     `judge(pool, generation)` → the played tournament. Verdicts are added by `add_verdicts` (needs every floor).
+
+    Budget: `spent()` is the model spend so far and `allowance` what this audience may use. A generation starts
+    only if it fits with the retest after it (the dearest generation so far × 1.2 + the last tournament again);
+    otherwise, or if the budget runs out during a generation, evolution stops there and keeps the previous
+    generation, so a run is never lost to its last, unfinished round.
     """
+    spend = spent or (lambda: 0.0)
+    start, dearest, last_usd = spend(), 0.0, 0.0
     parents = pick_parents(rows, lift_rank(gen0), keep)
     why_not = {k: list(s.get("top_why_not", [])) for k, s in gen0.items()}
     history: list[dict[str, Any]] = [{"generation": 0, "judge": "arena", "scores": gen0,
@@ -519,15 +531,32 @@ def evolve_group(rows: list[dict[str, Any]], gen0: dict[str, dict[str, Any]], *,
     anchor: str | None = None
     last: tournament.Played | None = None
     for gen in range(1, generations + 1):
-        children, refused = make_children(parents, gen, why_not)
-        if not children:
-            history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
+        used, need = spend() - start, 1.2 * dearest + last_usd
+        if used + need > allowance:
+            history.append({"generation": gen, "stopped": f"budget: this audience may spend ${allowance:.2f}, "
+                            f"${used:.2f} used, a generation and its retest need about ${need:.2f}"})
             break
-        by_id.update((c["variant_id"], c) for c in children)
-        pool = parents + children
-        if anchor and anchor not in {r["variant_id"] for r in pool}:
-            pool.append(by_id[anchor])
-        played = judge(pool, gen)
+        before = spend()
+        try:
+            children, refused = make_children(parents, gen, why_not)
+            if not children:
+                history.append({"generation": gen, "stopped": "no valid child", "refused": refused})
+                break
+            by_id.update((c["variant_id"], c) for c in children)
+            pool = parents + children
+            if anchor and anchor not in {r["variant_id"] for r in pool}:
+                pool.append(by_id[anchor])
+            played = judge(pool, gen)
+        except BudgetExceeded as exc:
+            history.append({"generation": gen, "stopped": f"budget spent during this generation ({exc}): "
+                                                          "the previous generation is kept"})
+            break
+        if any(str(f.get("error", "")).startswith("BudgetExceeded") for f in played.failures):
+            # games missing because the money ran out would bias the standings: not judged
+            history.append({"generation": gen, "stopped": "budget spent during the tournament: the previous "
+                                                          "generation is kept", "refused": refused})
+            break
+        dearest, last_usd = max(dearest, spend() - before), played.usd
         if played.result is None:
             history.append({"generation": gen, "stopped": "not judged: no head-to-head game (viewers failed)",
                             "refused": refused, "failures": len(played.failures)})
@@ -557,7 +586,15 @@ def evolve_group(rows: list[dict[str, Any]], gen0: dict[str, dict[str, Any]], *,
         return group
     group.update(final={s["ad_id"]: s for s in judged[-1]["tournament"]["standings"]},
                  champion=judged[-1]["kept"][0] if judged[-1]["kept"] else None)
-    again = replay(last)
+    try:
+        again: tournament.Played | None = replay(last)
+    except BudgetExceeded:
+        again = None
+    if again is None or any(str(f.get("error", "")).startswith("BudgetExceeded") for f in again.failures):
+        # no money left for the retest: no noise floor, so no verdict ("not measured"), never a claimed win
+        group["retest"] = {"generation": judged[-1]["generation"], "usd": round(again.usd, 4) if again else 0.0,
+                           "floor": None, "strengths": {}, "stopped": "budget"}
+        return group
     retest: dict[str, Any] = {"generation": judged[-1]["generation"], "usd": round(again.usd, 4),
                               "failures": len(again.failures), "floor": None, "strengths": {}}
     if again.result is not None:
@@ -665,8 +702,14 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
     groups = languages(cfg)
     spent_before = c.model.spent_usd
     audiences = [x for x in sim["groups"] if "error" not in x][:cfg.evolve_audiences]
+    # what evolution may spend: the command's budget left, minus a little for the stages after it (plan and
+    # report are code); shared fairly, each audience gets an even share of what is left when its turn comes
+    budget = getattr(c.model, "budget", None)
+    left = getattr(budget, "remaining", math.inf)
+    pot = max(0.0, left - EVOLVE_RESERVE_USD) if math.isfinite(left) else math.inf
 
     for gi, g in enumerate(audiences):
+        allowance = (pot - (c.model.spent_usd - spent_before)) / (len(audiences) - gi)
         code = g["language"]
         rivals, _ = feed_competitors(ads, code, app, cfg)  # the same hard feeds as generation 0
         p_all = strategy.persona(g["persona"])
@@ -705,7 +748,8 @@ def stage_evolve(run: Run, cfg: CreateConfig, c: Clients, app: AppProfile, strat
 
         group = evolve_group(rows, scores, generations=cfg.generations, keep=cfg.evolve_parents,
                              make_children=make_children, judge=judge,
-                             replay=lambda played: tournament.replay(viewer, played))
+                             replay=lambda played: tournament.replay(viewer, played),
+                             spent=lambda: c.model.spent_usd, allowance=allowance)
         group["history"][0]["info"] = {k: g[k] for k in g if k not in ("persona", "language")}
         out["groups"].append({"persona": p.id, "language": code, **group})
 

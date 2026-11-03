@@ -232,7 +232,14 @@ def test_autopilot_waits_for_the_first_approval_then_remembers_it(base, tmp_path
     assert pub["status"] == "active" and pub["campaign"] in world.graph.objects
     state = load_state(orch.run_dir)
     assert state["first_live_approved_by"] == "Matteo"
-    # the day was already done; its waiting ads launch on the next day, now without asking again
+    # the day's waiting video ads launch now, the same day: nothing else of the day is redone or re-billed
+    videos_made = len(world.producer.calls)
+    day = result.steps[f"daily {DAY}"]
+    assert day["status"] == "ok" and day["outputs"]["waiting_approval"] == 0 and day["outputs"]["new"] == 2
+    assert len(world.launcher.launched) == 2 and len(world.producer.calls) == videos_made and day["usd"] == 0
+    # approving again changes nothing (no ad waits any more); the next day runs without asking
+    again = quiet(Orchestrator.resume(orch.run_dir, world.services()), today=DAY, approved_by="Matteo")
+    assert again.steps[f"daily {DAY}"]["status"] == "cached" and len(world.launcher.launched) == 2
     nxt = quiet(Orchestrator.resume(orch.run_dir, world.services()), today=DAY + timedelta(days=1))
     assert nxt.status == "done" and world.launcher.launched
     static = state["static_committed_eur"]

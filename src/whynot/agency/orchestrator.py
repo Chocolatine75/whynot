@@ -131,6 +131,7 @@ class StepContext:
     say: Callable[[str], None]
     connection: MetaConnection | None = None
     spent_usd: float = 0.0  # set by the step
+    launch_only: bool = False  # daily: the day ran; only launch what waited for the approval just given
 
 
 # --- state file ----------------------------------------------------------------------------------
@@ -350,7 +351,8 @@ def step_daily(ctx: StepContext) -> dict[str, Any]:
         producer = ctx.services.producer(ctx.run_dir, model)
         strategy = Strategy.from_json(json.loads((ctx.run_dir / "strategy.json").read_text()))
         rep = run_day(ctx.run_dir, ctx.today, source=source, producer=producer, launcher=launcher, policy=policy,
-                      strategy=strategy, cfg=dcfg, approved_by=ctx.approved_by, say=ctx.say)
+                      strategy=strategy, cfg=dcfg, approved_by=ctx.approved_by, say=ctx.say,
+                      launch_only=ctx.launch_only)
     finally:
         ctx.spent_usd = model.spent_usd
     launched_live = not cfg.simulated_account and not cfg.paused_only and rep.live and ctx.approved_by
@@ -423,7 +425,10 @@ class Orchestrator:
         """One step, with its event pair and state record. Returns the record."""
         key = today.isoformat() if step == "daily" else None
         prev = self._record(step, key)
-        if prev.get("status") == "ok" and step != "connect":  # connect re-checks the login every time
+        # the day ran but left ads waiting, and the owner approves now: launch them today (nothing else is redone)
+        release = (step == "daily" and prev.get("status") == "ok" and bool(approved_by)
+                   and int(prev.get("outputs", {}).get("waiting_approval", 0)) > 0)
+        if prev.get("status") == "ok" and step != "connect" and not release:  # connect re-checks the login
             self.events.write(AgentEvent(AGENTS[step], step, "cached", detail=key or ""))
             self.last_spent = 0.0
             return {**prev, "status": "cached", "usd": 0.0}
@@ -433,7 +438,7 @@ class Orchestrator:
                                                                 **({"day": key} if key else {})})
         self.events.write(start)
         ctx = StepContext(self.run_dir, self.cfg, self.services, self.state, budget, start.id, today, approved_by,
-                          say, self.connection)
+                          say, self.connection, launch_only=release)
         t0 = time.monotonic()
         rec: dict[str, Any] = {"at": datetime.now(UTC).isoformat(), "event": start.id}
         try:
