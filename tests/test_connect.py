@@ -12,6 +12,8 @@ import pytest
 from whynot.run.connect import ConnectError, MetaConnection, check, connect
 
 TOKEN = "EAAownerLOGINtoken42"
+SHORT = "EAAshortLOGINtoken07"
+SECRET = "appSECRETvalue123"
 PERMS = ["ads_management", "ads_read", "pages_show_list", "pages_read_engagement", "business_management"]
 
 
@@ -22,7 +24,8 @@ def account(n, status=1, currency="EUR", name=None):
 
 class Graph:
     def __init__(self, *, perms=PERMS, declined=(), accounts=None, pages=(("999", ["ADVERTISE"]),),
-                 page_size=100, expired=False):
+                 page_size=100, expired=False, expires_at=None):
+        self.expires_at = expires_at  # unix time debug_token reports (None: no answer)
         self.perms = [{"permission": p, "status": "granted"} for p in perms]
         self.perms += [{"permission": p, "status": "declined"} for p in declined]
         self.accounts = list(accounts) if accounts is not None else [account(111)]
@@ -33,9 +36,15 @@ class Graph:
     def __call__(self, request: httpx.Request) -> httpx.Response:
         self.urls.append(str(request.url))
         params = dict(request.url.params)
+        if request.url.path.endswith("/oauth/access_token"):  # the long-lived exchange (no access_token param)
+            if params.get("client_secret") != SECRET:
+                return httpx.Response(400, json={"error": {"code": 101, "message": "Error validating client secret"}})
+            return httpx.Response(200, json={"access_token": TOKEN, "token_type": "bearer", "expires_in": 5184000})
         if self.expired or params.get("access_token") != TOKEN:
             return httpx.Response(400, json={"error": {"code": 190, "message": f"Session expired for {TOKEN}"}})
         path = request.url.path.split("/", 2)[2]
+        if path == "debug_token" and self.expires_at is not None:
+            return httpx.Response(200, json={"data": {"is_valid": True, "expires_at": self.expires_at}})
         if path == "me":
             return httpx.Response(200, json={"id": "42", "name": "Owner"})
         rows = {"me/permissions": self.perms, "me/adaccounts": self.accounts, "me/accounts": self.pages}.get(path)
@@ -66,7 +75,7 @@ def test_one_account_one_page_connects_and_saves_privately(tmp_path):
     conn, path, _ = go(tmp_path)
     assert (conn.act, conn.page_id, conn.currency, conn.can_publish, conn.can_read) == (
         "act_111", "999", "EUR", True, True)
-    assert conn.warnings == []
+    assert len(conn.warnings) == 1 and conn.warnings[0].startswith("short login")  # no developer app: 1-2 h
     assert stat.S_IMODE(path.stat().st_mode) == 0o600 and path.name == "act_111.json"
     assert MetaConnection.load(path).token == TOKEN
     assert TOKEN not in json.dumps(conn.public())
@@ -143,3 +152,56 @@ def test_check_reports_a_revoked_login_or_a_disabled_account(tmp_path):
 def test_loading_a_missing_connection_says_what_to_run(tmp_path):
     with pytest.raises(ConnectError, match="whynot connect"):
         MetaConnection.load(tmp_path / "nope.json")
+
+
+# --- the 60-day login, renewed alone ------------------------------------------------------------
+
+from datetime import UTC, datetime, timedelta  # noqa: E402
+
+from whynot.run.connect import OAuthApp, exchange, expiry_warning, refresh  # noqa: E402
+
+APP = OAuthApp("111222", SECRET)
+
+
+def test_a_short_login_becomes_a_60_day_connection(tmp_path):
+    g = Graph()
+    conn, path = connect(SHORT, http=http(g), folder=tmp_path, say=lambda m: None, oauth=APP)
+    assert conn.token == TOKEN and 59 < conn.days_left() <= 60
+    assert not any(w.startswith("short login") for w in conn.warnings)
+    assert MetaConnection.load(path).expires_at == conn.expires_at
+    assert SHORT not in path.read_text() and SECRET not in path.read_text()  # the secret is never stored
+
+
+def test_a_refused_exchange_names_the_settings_and_leaks_nothing():
+    with pytest.raises(ConnectError) as exc:
+        exchange(SHORT, OAuthApp("111222", "wrongsecret99"), http=http(Graph()))
+    msg = str(exc.value)
+    assert "WHYNOT_META_APP_SECRET" in msg and SHORT not in msg and "wrongsecret99" not in msg
+
+
+def test_refresh_renews_and_saves(tmp_path):
+    conn, path, _ = go(tmp_path)
+    conn.expires_at = (datetime.now(UTC) + timedelta(days=3)).isoformat()
+    renewed = refresh(conn, APP, http=http(Graph()), folder=tmp_path)
+    assert renewed.days_left() > 59 and MetaConnection.load(path).days_left() > 59
+    assert not any(w.startswith("short login") for w in renewed.warnings)
+
+
+def test_expiry_is_warned_then_blocks(tmp_path):
+    conn, _, _ = go(tmp_path)
+    now = datetime.now(UTC)
+    conn.expires_at = (now + timedelta(days=30)).isoformat()
+    assert expiry_warning(conn, now) is None
+    conn.expires_at = (now + timedelta(days=2)).isoformat()
+    assert "ends in 2.0 days" in expiry_warning(conn, now)
+    conn.expires_at = (now - timedelta(hours=1)).isoformat()
+    assert "expired" in check(conn, http=http(Graph()))[0]
+
+
+def test_a_long_login_without_the_app_secret_keeps_its_real_expiry(tmp_path):
+    """FB_TOKEN-style login: already long-lived (Meta says when it ends), no exchange needed."""
+    import time
+
+    end = int(time.time()) + 50 * 86400
+    conn, _, _ = go(tmp_path, Graph(expires_at=end))
+    assert 49 < conn.days_left() <= 50 and not any(w.startswith("short login") for w in conn.warnings)

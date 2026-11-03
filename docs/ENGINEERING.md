@@ -60,7 +60,8 @@ src/whynot/
     meta.py            Marketing API client (the only code that writes to an ad account)
     publish.py         publish a plan: autopilot-gated, all PAUSED, resumable (publish.json)
     video_ads.py       the daily loop's video ads to Meta: one ad set per ad, PAUSED then ACTIVE, resumable
-    connect.py         `whynot connect`: the owner's Meta login → ad account + Page found and checked, saved privately
+    connect.py         `whynot connect`: the owner's Meta login → 60-day token, ad account + Page found and checked, saved privately, renewed
+    schedule.py        `whynot schedule`: the agency's day every morning (macOS LaunchAgent / crontab line)
     killswitch.py      `whynot stop`: pause everything whynot created on the account, campaigns first, logged
   validate/
     stats.py           AUC, pairwise accuracy, bootstrap CIs, Wilson, binomial test, Kendall tau, Bradley-Terry

@@ -52,7 +52,8 @@ class AgencyConfig:
     level: str = "dry_run"  # dry_run | propose | autopilot
     simulated_account: bool = False  # results invented by a known model (labelled), nothing sent to Meta
     connection: str | None = None  # the saved Meta connection (`whynot connect`)
-    objective: str = "traffic"
+    objective: str = "auto"  # auto | app_promotion | traffic (see resolve_link)
+    landing_url: str | None = None  # the app's website, for traffic ads when the app is not registered with Meta
     budget_usd: float = 8.0  # model spend for one invocation, all steps together
     step_budgets_usd: dict[str, float] = field(default_factory=lambda: {"create": 4.0, "daily": 3.0})
     publish_static: bool = True  # publish the static image campaign from the plan (else: video ads only)
@@ -66,6 +67,10 @@ class AgencyConfig:
 
     def __post_init__(self) -> None:
         Level(self.level)  # raises on a typo
+        if self.objective not in ("auto", "app_promotion", "traffic"):
+            raise ValueError("objective must be auto, app_promotion or traffic")
+        if self.landing_url and not self.landing_url.startswith("https://"):
+            raise ValueError("landing_url must be an https link")
         if not 0 <= self.static_share <= 1:
             raise ValueError("static_share must be between 0 and 1")
         if self.daily_cap_eur < 0 or self.budget_usd < 0:
@@ -109,6 +114,8 @@ class Services:
     producer: Callable[[Path, Any], Any]  # (run folder, model) → the video studio (daily.Producer)
     check_connection: Callable[[MetaConnection], list[str]]  # → problems with the login (empty = fine)
     launcher: Callable[..., Any] | None = None  # (client, run folder, objective=, say=) → daily.Launcher
+    refresh_connection: Callable[[MetaConnection], MetaConnection] | None = None  # renews a long-lived login
+    lookup_website: Callable[[str], str | None] | None = None  # app ref → the store page's website (before create)
 
 
 @dataclass
@@ -159,18 +166,75 @@ def owner_policy(cfg: AgencyConfig, state: dict[str, Any], cap_eur: float) -> Po
     return Policy(Level(cfg.level), max(0.0, cap_eur), first_live_approved=bool(state.get("first_live_approved_by")))
 
 
+def resolve_link(cfg: AgencyConfig, conn: MetaConnection, store_url: str | None = None, *,
+                 website: str | None = None) -> tuple[str, str | None]:
+    """The campaign objective and where the ads link, so Meta accepts them (error 1487810 seen on a real account:
+    App Store links need app_promotion). auto: app_promotion when the app is registered with Meta (its app id in
+    the connection), else traffic to the app's website (`landing_url`)."""
+    no_link = ("the app is not registered with Meta (no app id in the connection), so its ads cannot link to the "
+               "App Store: give the app's website (--landing-url https://...), or connect with the app's Meta app "
+               "id (`whynot connect --app-id`)")
+    if cfg.objective == "app_promotion" or (cfg.objective == "auto" and conn.app_id):
+        if not conn.app_id:
+            raise ValueError("app_promotion needs the app's Meta app id: `whynot connect --app-id ...`")
+        return "app_promotion", store_url
+    landing = cfg.landing_url or website  # the owner's choice first, else the site the store page lists
+    if not landing:
+        raise ValueError(no_link)
+    return "traffic", landing
+
+
+def _website(run_dir: Path) -> str | None:
+    p = run_dir / "app.json"
+    return json.loads(p.read_text()).get("website") if p.exists() else None
+
+
+def _lookup_website(app_ref: str) -> str | None:
+    """Before `create` has run: the store page's website, from Apple's public lookup (None if unknown or offline).
+    Only needed when the app is not registered with Meta and no landing page was given."""
+    import re
+
+    import httpx
+
+    m = re.search(r"id(\d{6,})", app_ref) or re.fullmatch(r"(\d{6,})", app_ref.strip())
+    if not m:
+        return None
+    try:
+        r = httpx.get("https://itunes.apple.com/lookup", params={"id": m.group(1)}, timeout=15).json()
+        url = str((r.get("results") or [{}])[0].get("sellerUrl") or "")
+    except (httpx.HTTPError, ValueError, IndexError):
+        return None
+    return url if url.startswith("https://") else None
+
+
 def step_connect(ctx: StepContext) -> dict[str, Any]:
+    from whynot.run.connect import REFRESH_BELOW_DAYS, expiry_warning
+
     if ctx.cfg.simulated_account:
         raise _Skip("simulated account: no Meta login needed, nothing is sent to Meta")
     assert ctx.connection is not None
-    problems = ctx.services.check_connection(ctx.connection)
+    c = ctx.connection
+    days = c.days_left()
+    renewed = False
+    if days is not None and 0 < days < REFRESH_BELOW_DAYS and ctx.services.refresh_connection is not None:
+        c = ctx.connection = ctx.services.refresh_connection(c)  # before it ends, while it still works
+        renewed = True
+        ctx.say(f"  ↻ Meta login renewed (now {c.days_left() or 0:.0f} days)")
+    problems = ctx.services.check_connection(c)
     if problems:
         raise RuntimeError("; ".join(problems) + " — reconnect with `whynot connect`")
-    c = ctx.connection
+    # fail before paying for research when Meta would refuse the ads (the store page's website counts once known)
+    lookup = ctx.services.lookup_website
+    known = _website(ctx.run_dir) or (lookup(ctx.cfg.app_ref) if lookup and not ctx.cfg.landing_url else None)
+    objective, _link = resolve_link(ctx.cfg, c, website=known)
+    if known:
+        ctx.state["website"] = known  # publish and the daily loop link there too
+    ctx.state["objective"] = objective
     if not c.can_publish:
         ctx.say("  ! this connection cannot publish yet: " + ("; ".join(c.warnings) or "missing Page or permission"))
+    warnings = [*c.warnings, *([w] if (w := expiry_warning(c)) else [])]
     return {"account": c.act, "page": c.page_id, "can_publish": c.can_publish, "can_read": c.can_read,
-            "warnings": c.warnings}
+            "objective": objective, "expires_at": c.expires_at, "renewed": renewed, "warnings": warnings}
 
 
 def step_create(ctx: StepContext) -> dict[str, Any]:
@@ -209,9 +273,12 @@ def step_publish(ctx: StepContext) -> dict[str, Any]:
     if plan_json.get("errors"):
         raise RuntimeError("the plan has errors: " + "; ".join(plan_json["errors"]))
     plan = plan_from_json(plan_json)
+    objective, link = resolve_link(cfg, ctx.connection, plan.store_url,
+                                   website=_website(ctx.run_dir) or ctx.state.get("website"))
+    plan.store_url = link or plan.store_url  # traffic: the ads link to the app's website
     client = ctx.services.marketing(ctx.connection)
     policy = owner_policy(cfg, ctx.state, cfg.static_cap_eur)
-    state = publish(plan, ctx.run_dir, client, policy, objective=cfg.objective, approved_by=ctx.approved_by)
+    state = publish(plan, ctx.run_dir, client, policy, objective=objective, approved_by=ctx.approved_by)
     out = {"status": state.status, "decisions": state.decisions, "campaign": state.objects.get("campaign"),
            "objects": len(state.objects)}
     if state.status == "refused":
@@ -232,7 +299,7 @@ def step_publish(ctx: StepContext) -> dict[str, Any]:
 
 
 def video_launcher(client: Any, run_dir: Path, *, objective: str, say: Callable[[str], None] = print,
-                   paused_only: bool = False) -> Any:
+                   paused_only: bool = False, link: str | None = None) -> Any:
     """The real account's launcher for the daily loop: video ads with the plan's audiences, or (no page id or
     plan) a launcher that leaves new ads waiting, with the reason in the report."""
     from whynot.agency.daily import MetaLauncher
@@ -244,7 +311,7 @@ def video_launcher(client: Any, run_dir: Path, *, objective: str, say: Callable[
         return MetaLauncher(client, paused_only=paused_only)
     plan = plan_from_json(json.loads((run_dir / "plan.json").read_text()))
     try:
-        publisher = VideoPublisher(client, run_dir, store_url=plan.store_url, objective=objective,
+        publisher = VideoPublisher(client, run_dir, store_url=link or plan.store_url, objective=objective,
                                    campaign_name=f"whynot daily · {plan.app_name}")
     except MetaError as exc:
         say(f"! {exc}: new video ads will wait")
@@ -270,9 +337,12 @@ def step_daily(ctx: StepContext) -> dict[str, Any]:
     else:
         assert ctx.connection is not None
         client = ctx.services.marketing(ctx.connection)
-        source = MetaInsights(client, objective=cfg.objective)
-        launcher = (ctx.services.launcher or video_launcher)(client, ctx.run_dir, objective=cfg.objective,
-                                                             say=ctx.say, paused_only=cfg.paused_only)
+        plan_store = json.loads((ctx.run_dir / "plan.json").read_text()).get("store_url")
+        objective, link = resolve_link(cfg, ctx.connection, plan_store,
+                                       website=_website(ctx.run_dir) or ctx.state.get("website"))
+        source = MetaInsights(client, objective=objective)
+        launcher = (ctx.services.launcher or video_launcher)(client, ctx.run_dir, objective=objective,
+                                                             say=ctx.say, paused_only=cfg.paused_only, link=link)
         left = cfg.daily_cap_eur - float(ctx.state.get("static_committed_eur", 0.0))
         policy = owner_policy(cfg, ctx.state, left)
     model = ctx.services.model(ctx.budget_usd, ctx.run_dir)
@@ -464,4 +534,14 @@ def default_services(settings: Settings, *, silent: bool = False) -> Services:  
 
         return check(conn, version=settings.fb_api_version)
 
-    return Services(settings, default_clients, model, marketing, producer, check_connection)
+    refresh_connection = None
+    if settings.oauth_app_id and settings.oauth_app_secret:
+        from whynot.run.connect import OAuthApp, refresh
+
+        app = OAuthApp(settings.oauth_app_id, settings.oauth_app_secret)
+
+        def refresh_connection(conn: MetaConnection) -> MetaConnection:
+            return refresh(conn, app, version=settings.fb_api_version)
+
+    return Services(settings, default_clients, model, marketing, producer, check_connection,
+                    refresh_connection=refresh_connection, lookup_website=_lookup_website)

@@ -157,3 +157,14 @@ def test_screenshots_are_downloaded_full_size_and_must_be_images(tmp_path):
     bad = client({"mzstatic": httpx.Response(200, text="<html>", headers={"content-type": "text/html"})})
     with pytest.raises(AppStoreError, match="not an image"):
         bad.download_screenshots(app, tmp_path / "other", limit=1)
+
+
+
+def test_the_developer_website_is_kept_only_when_https():
+    from whynot.ingest.appstore import parse_lookup
+
+    base = {"trackId": 1, "trackName": "X", "trackViewUrl": "https://apps.apple.com/us/app/x/id1",
+            "screenshotUrls": []}
+    assert parse_lookup({"results": [{**base, "sellerUrl": "https://x.example"}]}).website == "https://x.example"
+    assert parse_lookup({"results": [{**base, "sellerUrl": "http://x.example"}]}).website is None
+    assert parse_lookup({"results": [base]}).website is None

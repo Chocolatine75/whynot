@@ -94,6 +94,12 @@ class MetaConnection:
     sandbox: bool = False
     warnings: list[str] = field(default_factory=list)
     connected_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
+    expires_at: str | None = None  # ISO time the login token expires (None: unknown or never)
+
+    def days_left(self, now: datetime | None = None) -> float | None:
+        if not self.expires_at:
+            return None
+        return (datetime.fromisoformat(self.expires_at) - (now or datetime.now(UTC))).total_seconds() / 86400
 
     @property
     def act(self) -> str:
@@ -264,20 +270,104 @@ def choose(d: Discovery, token: str, *, account_id: str | None = None, page_id: 
                           page.name if page else None, app_id, d.user_name, d.granted, sandbox, warnings)
 
 
+LONG_LIVED_DAYS = 60  # what Meta gives a user token exchanged with the app secret
+REFRESH_BELOW_DAYS = 10  # an agency run refreshes the login when fewer days are left
+WARN_BELOW_DAYS = 7
+
+
+@dataclass(frozen=True)
+class OAuthApp:
+    """whynot's own Meta developer app: needed to turn a short login (1-2 h) into a 60-day one."""
+
+    app_id: str
+    secret: str
+
+
+def exchange(token: str, app: OAuthApp, *, version: str = "v26.0", http: httpx.Client | None = None,
+             base_url: str = GRAPH_URL, now: datetime | None = None) -> tuple[str, str | None]:
+    """A short (or long) user token → a long-lived one and its expiry (ISO). The secret and both tokens are
+    redacted from every error; the secret travels only in the request, never in a file."""
+    from datetime import timedelta
+
+    client = http or httpx.Client(timeout=30)
+    secrets = [x for x in (token, app.secret) if x]
+
+    def redact(text: str) -> str:
+        for x in secrets:
+            text = text.replace(x, "[REDACTED]")
+        return text
+
+    try:
+        r = client.get(f"{base_url}/{version}/oauth/access_token",
+                       params={"grant_type": "fb_exchange_token", "client_id": app.app_id,
+                               "client_secret": app.secret, "fb_exchange_token": token})
+        body = r.json()
+    except (httpx.HTTPError, ValueError) as exc:
+        raise ConnectError(redact(f"Meta did not answer the token exchange: {exc}")) from None
+    if not isinstance(body, dict) or body.get("error") or not body.get("access_token"):
+        err = (body.get("error") or {}) if isinstance(body, dict) else {}
+        hint = " — check WHYNOT_META_APP_ID / WHYNOT_META_APP_SECRET (the app the login was made with)"
+        raise ConnectError(redact(f"token exchange refused: {err.get('message', 'no token returned')}{hint}"))
+    new = str(body["access_token"])
+    secs = body.get("expires_in")
+    expires = ((now or datetime.now(UTC)) + timedelta(seconds=int(secs))).isoformat() if secs else None
+    return new, expires
+
+
 def connect(token: str, *, account_id: str | None = None, page_id: str | None = None, app_id: str | None = None,
             sandbox: bool = False, version: str = "v26.0", http: httpx.Client | None = None,
-            folder: Path = CONNECTIONS, say: Callable[[str], None] = print) -> tuple[MetaConnection, Path]:
-    """From a Meta login token to a saved connection (or a ConnectError saying what to fix)."""
+            folder: Path = CONNECTIONS, oauth: OAuthApp | None = None,
+            say: Callable[[str], None] = print) -> tuple[MetaConnection, Path]:
+    """From a Meta login token to a saved connection (or a ConnectError saying what to fix). With whynot's
+    developer app (`oauth`), the login is first exchanged for a 60-day token."""
+    expires = None
+    if oauth is not None:
+        token, expires = exchange(token.strip(), oauth, version=version, http=http)
     reader = GraphReader(token, version=version, http=http)
     d = discover(reader)
     say(f"logged in as {d.user_name or d.user_id}: {len(d.accounts)} ad account(s), {len(d.pages)} Page(s), "
         f"permissions: {', '.join(d.granted) or 'none'}")
     conn = choose(d, reader.token, account_id=account_id, page_id=page_id, app_id=app_id, sandbox=sandbox)
+    conn.expires_at = expires if oauth is not None else token_expiry(reader)
+    days = conn.days_left()
+    if oauth is None and (days is None or days < 1):
+        conn.warnings.append("short login (Meta ends it in 1-2 hours): set WHYNOT_META_APP_ID and "
+                             "WHYNOT_META_APP_SECRET, then connect again, to keep it 60 days and renew it alone")
     return conn, conn.save(folder)
+
+
+def token_expiry(reader: GraphReader) -> str | None:
+    """When Meta ends this login (ISO), asked with the token itself; None when Meta does not say."""
+    try:
+        data = reader.get("debug_token", input_token=reader.token).get("data") or {}
+    except ConnectError:
+        return None
+    at = int(data.get("expires_at") or 0)
+    return datetime.fromtimestamp(at, UTC).isoformat() if at > 0 else None
+
+
+def refresh(conn: MetaConnection, oauth: OAuthApp, *, version: str = "v26.0", http: httpx.Client | None = None,
+            folder: Path = CONNECTIONS) -> MetaConnection:
+    """Renew a long-lived login before it ends (Meta extends a still-valid one) and save it."""
+    conn.token, conn.expires_at = exchange(conn.token, oauth, version=version, http=http)
+    conn.warnings = [w for w in conn.warnings if not w.startswith("short login")]
+    conn.save(folder)
+    return conn
+
+
+def expiry_warning(conn: MetaConnection, now: datetime | None = None) -> str | None:
+    days = conn.days_left(now)
+    if days is not None and days < WARN_BELOW_DAYS:
+        return (f"the Meta login ends in {max(days, 0):.1f} days: it is renewed automatically when "
+                "WHYNOT_META_APP_SECRET is set, otherwise connect again")
+    return None
 
 
 def check(conn: MetaConnection, *, version: str = "v26.0", http: httpx.Client | None = None) -> list[str]:
     """Before acting: is the login still valid and the account still usable? Returns problems (empty = fine)."""
+    days = conn.days_left()
+    if days is not None and days <= 0:
+        return ["the Meta login has expired: connect again (Connect Meta, or `whynot connect`)"]
     reader = GraphReader(conn.token, version=version, http=http)
     try:
         acct = reader.get(conn.act, fields="account_status,currency,name")

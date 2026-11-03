@@ -10,7 +10,7 @@ The engine is a loop: **templates generate, the simulator judges, the agents evo
 
 Users: small businesses advertising on Meta without a marketing team — mobile apps and DTC/Shopify brands. First design partner: a friend's mobile app (~$20k MRR) who wants the full autopilot.
 
-Docs: `docs/PRODUCT.md` (spec), `docs/ARCHITECTURE.md`, `docs/PLAN.md`.
+Docs: `docs/PRODUCT.md` (spec), `docs/ARCHITECTURE.md`, `docs/PLAN.md`. **Wiring the site to Meta or to a run: `docs/META_AUTOMATION.md`** (commands and their JSON).
 
 **The bar is `docs/TARGETS.md`**: final product, measured results, per-criterion checklist. Check work against it.
 
@@ -45,6 +45,7 @@ Details and sources in `docs/META_APIS.md`.
 - Muse Spark Open on Baseten: `base_url=https://inference.baseten.co/v1`. Official docs say model `meta-models/muse-spark-open`; the hackathon guide said `meta-models/muse-spark-open-1026`. The smoke test decides; read it from `BASETEN_MODEL`.
 - SAM 3.1 returns streamed special-token text (boxes + base85 masks), not JSON. Muse Image edits do not support masks.
 - Ad Library: `GET https://graph.facebook.com/v26.0/ads_archive`, token in `FB_TOKEN`. Commercial ads only for EU/UK-delivered ads. Key fields: `ad_creative_bodies, ad_creative_link_titles, ad_delivery_start_time, ad_snapshot_url, eu_total_reach, age_country_gender_reach_breakdown, page_name`.
+- One command runs the agency on a real account: `whynot connect` (login → 60-day token, renewed alone; whynot's developer app is **ad-research-hackathon**, `WHYNOT_META_APP_ID/SECRET`), `whynot agency` (objective chosen alone: app installs if the app is registered with Meta, else traffic to its website), `whynot schedule`, `whynot status --json`. Details: `docs/META_AUTOMATION.md`.
 - Ads MCP / Marketing API: publishing and real metrics. Sandbox account for tests; partner accounts read-only unless the owner approves otherwise.
 
 ## Engineering principles
