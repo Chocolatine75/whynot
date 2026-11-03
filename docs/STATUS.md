@@ -3,7 +3,7 @@
 **Read this at the start of every session (human or agent). Update it at the end.**
 It answers: where are we, who is on what, what's next, what's blocking. Details live in the other docs; this file stays short.
 
-Last updated: 2026-11-01
+Last updated: 2026-11-03
 
 ## Where we are
 
@@ -53,6 +53,8 @@ Works today (`master`, 723 Python + 65 web tests):
 ## Session log
 
 Newest first. One entry per working session: date, who, what changed, what's next.
+
+- 2026-11-03 (night) — Tom + Claude — **Merges and submission prep, platform redesigned.** `b/integrate` = master + E6-1 (tournaments) + `b/meta-auto` (doc conflicts resolved, 890 tests). `b/submission`: README rewritten with measured results and limits (D-2), `TARGETS.md` §6 reviewed line by line (D-4), `DEMO.md` script + shot list + 30 s cut (D-3, recording left). `b/web-redesign` (on top of `b/integrate`): dark stage in Meta colours with a mouse-following aurora, tilt/spotlight cards, new mark (comment bubble with the ? cut out), home = logo + search bar + wall of real generated ads; campaign page led by best ads and approval, simulated feed in a phone, evolution before/after, live agent log, videos; validation claims + forest plots; fixes from three critic agents (contrast, streaming video ranges, market allowlist, polling). **Merge order: `b/integrate` → `b/submission` → `b/web-redesign`.** Next (Nov 4): record the demo (not on WhatsApp: Meta's own app, no competitor ads; VietBuddy only with the partner's written OK, it also appears in the home wall), D-1 reproduce command, D-5 submit before 03:00 Paris.
 
 - 2026-11-02 (night) — Claude for Matteo — **Evolution judged by tournaments with a noise floor** (`b/E6-1-tournament-evolution`, E3-2/E3-3/E6-1): each generation = parents + children + gen-0 champion + placebo head-to-head, kept by Bradley-Terry strength; last round replayed with a fresh draw → noise floor; a gap is a win only beyond it and confirmed by the retest; report and `evolution.json` show score per generation with CI, floor, verdict (SIMULATED). Fake world: known better mutation found in 92 % of seeds, 7 % false alarms. Real VietBuddy (copy of the Oct 31 run, 2 audiences, **$1.92**): gen 2 beats gen 0 beyond the noise in 2/2 (+3.89 vs floor 2.31; +3.46 vs 1.55), but viewers were unanimous in every game, so it shows a consistent simulated preference, not real gain. **Tom:** new fields `groups[].progress/result/noise_floor` for the evolution page; tournament rounds have no `scores` key (page unchanged, still works). Next: more apps (E6-1 asks ≥ 5), web page for the floor.
 - 2026-11-02 (2) — Matteo + Claude — **Meta automation tested for real** (`b/meta-auto`, PAUSED, nothing spent): the developer app is `ad-research-hackathon` (1689171966196247); `whynot connect` exchanged the login with the app secret (valid to Dec 31) and a real renewal call passed. Agency run on Matteo's account (`outputs/runs/20261102-meta-auto-test`, $0.15): objective chosen alone = traffic to https://www.vietbuddy.app/ (app not registered with Meta); campaign 120254672319090204 (2 ad sets, 6 ads) + the daily video ad uploaded and published, all PAUSED; read back from Meta: **no issue** (static ads PENDING_REVIEW, video IN_PROCESS) — the error-1487810 block is gone. Not done: real results (needs ads ACTIVE, i.e. spend), the scheduled run not installed on the Mac yet. The Nov 1 test campaign 120254651224490204 (blocked ads) is still PAUSED on the account.
