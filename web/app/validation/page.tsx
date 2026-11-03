@@ -12,30 +12,30 @@ function ci(r: { ci: [number, number] | null }) {
 
 function ExperimentCard({ e }: { e: Experiment }) {
   return (
-    <article className="card stack" style={{ gap: 14 }} aria-labelledby={`exp-${e.id}`}>
-      <div className="row" style={{ justifyContent: "space-between" }}>
+    <article className="card pad-lg exp" aria-labelledby={`exp-${e.id}`}>
+      <div className="spread">
         <h3 id={`exp-${e.id}`}>{e.title}</h3>
-        <span className={`tag ${VERDICT_TAG[e.verdict]}`}>{e.verdict}</span>
+        <span className={`tag dot ${VERDICT_TAG[e.verdict]}`}>{e.verdict}</span>
       </div>
-      <p>{e.question}</p>
+      <p className="positioning" style={{ fontSize: 18 }}>{e.question}</p>
       <p className="small muted">
         {e.sample} · {e.date}{e.usd !== null && <> · model cost ${e.usd.toFixed(2)}</>} · target ≥ {e.target.toFixed(2)},
         floor &gt; {e.floor.toFixed(2)} · <span className="tag sim">simulated predictions</span>
       </p>
-      <table>
+      <div className="card flush scroll-x"><table className="table">
         <thead><tr><th scope="col">{e.metric}</th><th scope="col">value</th><th scope="col">95 % CI</th><th scope="col" /></tr></thead>
         <tbody>
           {e.rows.map((r) => (
             <tr key={r.name}>
               <td>{r.primary ? <strong>{r.name}</strong> : r.name}{r.baseline && <span className="small muted"> · baseline</span>}</td>
-              <td className="num">{r.value.toFixed(2)}</td>
-              <td className="num">{ci(r)}</td>
+              <td className="num mono">{r.value.toFixed(2)}</td>
+              <td className="num mono">{ci(r)}</td>
               <td className="small muted">{r.primary ? "primary" : r.note ?? ""}</td>
             </tr>
           ))}
-          <tr><td className="muted">chance</td><td className="num muted">0.50</td><td /><td /></tr>
+          <tr><td className="muted">chance</td><td className="num mono muted">0.50</td><td /><td /></tr>
         </tbody>
-      </table>
+      </table></div>
       <details>
         <summary className="small">Method, limits and how to reproduce</summary>
         <div className="stack small" style={{ gap: 8, marginTop: 10 }}>
@@ -51,13 +51,18 @@ function ExperimentCard({ e }: { e: Experiment }) {
 export default function ValidationPage() {
   const { experiments, unread } = readValidation();
   return (
-    <main className="page">
-      <h1>Is the simulator right?</h1>
-      <p className="lede">
-        Our ads are tested in a simulated feed before anyone spends. That is only useful if the simulation agrees
-        with reality, so we measure it, publish every result (good or bad) with its confidence interval, and
-        compare with simple baselines. A result counts only when its interval excludes chance.
-      </p>
+    <main className="page narrow">
+      <div className="page-head">
+        <div>
+          <span className="eyebrow">Validation</span>
+          <h1 style={{ marginTop: 6 }}>Is the simulator right?</h1>
+          <p>
+            Ads are tested in a simulated feed before anyone spends. That is only useful if the simulation agrees
+            with reality, so we measure it and publish every result, good or bad, with its confidence interval and
+            simple baselines. A result counts only when its interval excludes chance.
+          </p>
+        </div>
+      </div>
       {experiments.length === 0 && <p className="muted">No validation result yet.</p>}
       <div className="stack" style={{ gap: 20 }}>
         {experiments.map((e) => <ExperimentCard key={e.file} e={e} />)}

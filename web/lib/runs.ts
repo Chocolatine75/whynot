@@ -44,9 +44,10 @@ export function resolveRun(id: string, root: string = runsRoot()): string {
   return dir;
 }
 
-const SERVABLE = new Map([[".png", "image/png"], [".jpg", "image/jpeg"], [".jpeg", "image/jpeg"], [".md", "text/markdown; charset=utf-8"]]);
+const SERVABLE = new Map([[".png", "image/png"], [".jpg", "image/jpeg"], [".jpeg", "image/jpeg"], [".mp4", "video/mp4"],
+  [".md", "text/markdown; charset=utf-8"]]);
 
-/** A file inside a run that the browser may load (ad images, screenshots, the report). */
+/** A file inside a run that the browser may load (ad images, screenshots, video ads, the report). */
 export function resolveRunFile(id: string, rel: string, root: string = runsRoot()): { file: string; type: string } {
   const dir = resolveRun(id, root);
   if (!rel || rel.includes("\0") || path.isAbsolute(rel)) throw new RunPathError("bad file path");
@@ -137,7 +138,13 @@ export interface Variant {
 }
 export interface Score { lift: number; lift_over_placebo: number; intent: number; intent_vs_placebo: number; views: number; top_why_not: string[]; biased_group?: boolean }
 export interface Simulation { simulated: boolean; reason?: string; brand?: string; groups: { persona: string; language: string; placebo_lift?: number; placebo_views?: number; biased?: boolean; error?: string }[]; scores: Record<string, Score> }
-export interface Evolution { groups?: { persona: string; language: string; champion: string | null; history: { generation: number; scores?: Record<string, Score>; kept?: string[]; children?: string[]; stopped?: string }[] }[]; skipped?: string; usd?: number }
+export interface Progress { generation: number; best: string; strength: number; ci: [number, number] | null; vs_gen0: number; verdict?: string; placebo?: number | null }
+export interface EvolutionResult { generation: number; gen0: string; best: string; difference: number; retest_difference: number | null; noise_floor: number | null; verdict: string }
+export interface Evolution {
+  groups?: { persona: string; language: string; champion: string | null; history: { generation: number; scores?: Record<string, Score>; kept?: string[]; children?: string[]; stopped?: string }[];
+    progress?: Progress[]; result?: EvolutionResult }[];
+  skipped?: string; usd?: number;
+}
 export interface PlanAd { variant_id: string; template_id: string; image_path: string; headline_on_image: string; body: string; title: string; cta: string; sim_score: number }
 export interface Plan { name: string; daily_cap_eur: number; daily_total_eur: number; ad_sets: { name: string; daily_budget_eur: number; audience: { persona: string; name: string; countries: string[]; age_min: number; age_max: number; gender: string }; ads: PlanAd[] }[]; notes: string[]; errors: string[] }
 export interface Market { terms: string[]; category: string; advertisers_found: number; competitors: { page_id: string; why: string }[]; rejected: { page_id: string }[]; ads: number; research_countries: string[]; advertisers?: { page_id: string; page_name: string; ads: number }[] }
@@ -146,6 +153,15 @@ export interface Published {
   mode: "sandbox" | "live"; account: string; objective: string; status: string; approved_by: string | null;
   objects: Record<string, string>; decisions: Launch[]; campaign_url: string | null;
 }
+
+/** A video ad the engine rendered (`whynot video`): one entry per file that still exists. */
+export interface VideoAd {
+  path: string; poster: string | null; seconds: number; hook: string; format: string; persona: string; tone: string | null;
+  why: string; lufs: number | null; wordErrorRate: number | null; flags: string[];
+}
+
+/** A competitor's ad from the Ad Library, as the platform shows it (no snapshot URL: it can carry a token). */
+export interface MarketAd { id: string; pageName: string; body: string; title: string; startDate: string | null; days: number | null; platforms: string[] }
 
 export interface RunView {
   id: string;
@@ -165,6 +181,9 @@ export interface RunView {
   launch: Launch[];
   published: Published | null;
   publishLog: string[];
+  icon: string | null;
+  videos: VideoAd[];
+  marketAds: MarketAd[];
 }
 
 /** The last lines the publish command printed (its own messages; tokens are redacted by the engine). */
@@ -197,10 +216,64 @@ export function readRun(id: string, root: string = runsRoot(), now = Date.now())
     launch: readJson<Launch[]>(dir, "launch.json") ?? [],
     published: readJson(dir, "publish.json"),
     publishLog: tail(dir, "publish.log"),
+    icon: fs.existsSync(path.join(dir, "assets", "icon.png")) ? "assets/icon.png" : null,
+    videos: readVideos(dir),
+    marketAds: readMarketAds(dir, now),
   };
 }
 
-export interface RunSummary { id: string; appName: string; status: RunStatus; startedAt: string | null; spentUsd: number; adSets: number; ads: number }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Json = Record<string, any>; // engine output, checked field by field below
+
+/**
+ * Video ads from `videos/trends*.json` (each `whynot video` call writes its own file; `trends.json` is the
+ * latest). Newest first, one entry per mp4, only files that are still on disk.
+ */
+export function readVideos(dir: string): VideoAd[] {
+  const vdir = path.join(dir, "videos");
+  if (!fs.existsSync(vdir)) return [];
+  const seen = new Map<string, VideoAd>();
+  for (const name of fs.readdirSync(vdir).filter((n) => /^trends(-\d+)?\.json$/.test(n))) {
+    const doc = readJson<Json>(vdir, name);
+    for (const v of (doc?.videos ?? []) as Json[]) {
+      const file = v.file?.path;
+      if (typeof file !== "string" || file.includes("/") || !fs.existsSync(path.join(vdir, file))) continue;
+      const b = v.brief ?? {};
+      const qa = v.file?.qa ?? {};
+      seen.set(file, {
+        path: `videos/${file}`,
+        poster: typeof v.poster === "string" && fs.existsSync(path.join(vdir, v.poster)) ? `videos/${v.poster}` : null,
+        seconds: Number(v.file?.seconds ?? 0), hook: String(b.hook ?? ""), format: String(b.format ?? ""),
+        persona: String(b.persona ?? ""), tone: b.tone ? String(b.tone) : null, why: String(v.why ?? ""),
+        lufs: typeof v.file?.loudness?.lufs === "number" ? v.file.loudness.lufs : null,
+        wordErrorRate: typeof qa.word_error_rate === "number" ? qa.word_error_rate : null,
+        flags: Array.isArray(qa.flags) ? qa.flags.map(String) : [],
+      });
+    }
+  }
+  const order = (p: string) => Number(/trend-(\d+)-/.exec(p)?.[1] ?? 0);
+  return [...seen.values()].sort((a, b) => order(b.path) - order(a.path));
+}
+
+/** Competitors' ads the scout read (`market_ads.jsonl`), longest-running first. */
+export function readMarketAds(dir: string, now = Date.now()): MarketAd[] {
+  const p = path.join(dir, "market_ads.jsonl");
+  if (!fs.existsSync(p)) return [];
+  return fs.readFileSync(p, "utf8").split("\n").filter(Boolean).flatMap((line): MarketAd[] => {
+    try {
+      const a = JSON.parse(line) as Json;
+      const start = typeof a.start_date === "string" ? a.start_date : null;
+      const end = typeof a.stop_date === "string" ? Date.parse(a.stop_date) : now;
+      const days = start ? Math.max(0, Math.round((end - Date.parse(start)) / 86_400_000)) : null;
+      return [{ id: String(a.id), pageName: String(a.page_name ?? ""), body: String(a.bodies?.[0] ?? ""),
+        title: String(a.titles?.[0] ?? ""), startDate: start, days, platforms: Array.isArray(a.platforms) ? a.platforms.map(String) : [] }];
+    } catch {
+      return [];
+    }
+  }).sort((a, b) => (b.days ?? -1) - (a.days ?? -1));
+}
+
+export interface RunSummary { id: string; appName: string; status: RunStatus; startedAt: string | null; spentUsd: number; adSets: number; ads: number; videos: number; icon: string | null }
 
 /** Runs under the root (and one level of sub-folders), newest first. */
 export function listRuns(root: string = runsRoot(), now = Date.now()): RunSummary[] {
@@ -215,6 +288,7 @@ export function listRuns(root: string = runsRoot(), now = Date.now()): RunSummar
   return ids.map((id) => {
     const r = readRun(id, root, now);
     return { id, appName: r.app?.name ?? r.config?.app_ref ?? id, status: r.status, startedAt: r.startedAt, spentUsd: r.spentUsd,
-      adSets: r.plan?.ad_sets.length ?? 0, ads: r.plan?.ad_sets.reduce((n, s) => n + s.ads.length, 0) ?? 0 };
+      adSets: r.plan?.ad_sets.length ?? 0, ads: r.plan?.ad_sets.reduce((n, s) => n + s.ads.length, 0) ?? 0,
+      videos: r.videos.length, icon: r.icon };
   }).sort((a, b) => (b.startedAt ?? "").localeCompare(a.startedAt ?? ""));
 }
