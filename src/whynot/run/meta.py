@@ -23,6 +23,31 @@ GRAPH_URL = "https://graph.facebook.com"
 TRANSIENT_CODES = {1, 2, 4, 17, 32, 341, 613, 80004}
 
 
+# Errors seen on real calls (docs/META_APIS.md), each with what the owner can do about it. Keyed by subcode,
+# or by code when Meta sends none. The raw code stays in the message, so nothing is hidden.
+KNOWN_ERRORS: dict[int, str] = {
+    1885183: "the developer app must be Live (Meta app dashboard: add a privacy policy URL, then switch to Live)",
+    1341012: "this login cannot create the post behind an ad on that Page (a sandbox user on a New Pages "
+             "Experience Page): use your own ad account, PAUSED, or a Page where you have full control",
+    1359188: "the ad account has no payment method: add one in Ads Manager > Billing (nothing is charged while "
+             "the ads are paused)",
+    2490592: "Meta is reviewing the ad account (often right after a card is added): wait until Meta clears it",
+    1487810: "an App Store link is only allowed with the App Installs objective: send traffic to the app's "
+             "website, or register the app with Meta for app installs",
+    190: "the Meta login expired or was revoked: connect again (whynot connect)",
+    200: "this login lacks a permission on the ad account or the Page (ads_management, and admin of the Page)",
+    10: "this login is not allowed to do that on the Page or the ad account",
+}
+
+
+def explain(code: int | None, subcode: int | None) -> str | None:
+    """What to do about a Meta error we have seen before; None for one we have not."""
+    for key in (subcode, code):
+        if key is not None and key in KNOWN_ERRORS:
+            return KNOWN_ERRORS[key]
+    return None
+
+
 class MetaError(RuntimeError):
     def __init__(self, message: str, code: int | None = None, subcode: int | None = None):
         super().__init__(message)
@@ -107,7 +132,9 @@ class MarketingClient:
                     continue
                 msg = err.get("error_user_msg") or err.get("message") or "unknown error"
                 title = f"{err['error_user_title']}: " if err.get("error_user_title") else ""
-                raise MetaError(self._redact(f"Meta error {code}/{sub}: {title}{msg}"), code, sub)
+                fix = explain(code, sub)
+                raise MetaError(self._redact(f"Meta error {code}/{sub}: {title}{msg}"
+                                             + (f" → {fix}" if fix else "")), code, sub)
             if not isinstance(body, dict):
                 raise MetaError("unexpected response shape")
             return body

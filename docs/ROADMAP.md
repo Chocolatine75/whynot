@@ -308,7 +308,7 @@ Rule: each change is A/B tested on the eval set (E1-2) with the same budget. If 
 
 ### E8. Running the campaign: publish, read, rotate, report (B, R4 R5 R9)
 
-- [ ] **E8-1** ★ Finish real publishing (B)
+- [x] **E8-1** ★ Finish real publishing (B) — *Nov 3: the `ads` step succeeded on Matteo's account, PAUSED (Nov 2 traffic campaign 120254672319090204, Nov 3 from the site 120254687841070204: ads `IN_PROCESS`, no issue). `META_APIS.md` lists every error seen with its fix; `run/meta.KNOWN_ERRORS` tells the owner what to do; `test_publish` replays 1885183, 1341012, 1359188, 2490592 and 190 in Meta's shape (not retried, partial state kept, token never shown).*
   - *Done when:* the remaining `ads` step succeeds on a real account (Matteo's once Meta clears it, or the partner's, PAUSED, with consent). `META_APIS.md` lists every error seen and the fix.
   - *Tests:* `test_publish` gains the real error shapes we saw (1885183, 1341012, 1359188, 2490592) with clear messages.
 - [x] **E8-2** ★ Read real metrics (B) — *Oct 31: `run/insights.py` (Insights API per ad and day, cursors not token URLs, junk numbers as 0, provisional recent days) + a labelled simulated account; property test on totals.*
@@ -391,7 +391,7 @@ Rules: every component shows **real data from a real run**; no grey placeholder;
 
 ### E12. Demo, docs, submission (both, Nov 3–4)
 
-- [ ] **D-1** One command reproduces every number in the demo (`uv run whynot reproduce`), $0 from cassettes and caches.
+- [ ] **D-1** One command reproduces every number in the demo (`uv run whynot reproduce`), $0 from cassettes and caches. — *Nov 3: `whynot reproduce [--fast] [--json]` (`validate/reproduce.py`) recomputes R3, evolution verdicts (from the logged tournaments), the fake world (92 % / 7 %), the pixel guard, real-account publishing, the picture-feed cost and total spend, $0, in 20 s; each claim ok / differs (exit 1) / missing. On Matteo's machine: 9/9 reproduced. Left: run-based numbers need their run folder (`outputs/` is not in git) — from a clean clone only the committed R3 and the fake world reproduce; the README's "$5.5 total spend" is stale ($63.82 logged since the first call).*
 - [x] **D-2** README final: what it is, what was built during the event, an architecture diagram, how to run, results with links. — *Nov 3: rewritten with a flow diagram, models, measured results and limits.*
 - [ ] **D-3** 3-minute video per `DEMO.md`, plus a 30 s cut for X. — *Nov 3: script + shot list + 30 s cut in `DEMO.md`; recording left (Tom).*
 - [x] **D-4** Go through `TARGETS.md` line by line with measured values. — *Nov 3: `TARGETS.md` §6.*
