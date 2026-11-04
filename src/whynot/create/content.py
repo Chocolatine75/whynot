@@ -3,6 +3,7 @@
 - `review`: a sentence of a real 4-5★ App Store review, word for word (the angle's own evidence first);
 - `number`: a number from a verified claim (store page or review), with the claim as its label;
 - `benefits`: up to three short verified claims;
+- `offer`: what the store page supports ("Free to download" for a free app, "Free trial" only if it says so);
 - `objection`: the customer's objection, as the strategy words it (its first clause when long). The strategy's
   "answer" is an instruction to the copywriter, never ad copy: the ad's own headline answers it on the picture.
 A fact is left out when it is too long to show whole: a quote is never cut mid-sentence, a claim never shortened.
@@ -71,13 +72,23 @@ def objection(strategy: Strategy, objection_id: str | None) -> dict[str, str] | 
     return None
 
 
+def offer(app: AppProfile) -> str | None:
+    """An offer the store page itself supports, word for word true: a free app is "Free to download"; a free
+    trial only when the store page says so. Never a discount or a number nobody stated."""
+    if app.price == 0:
+        return "Free to download"
+    if "free trial" in app.description.lower():
+        return "Free trial"
+    return None
+
+
 def verified_content(strategy: Strategy, app: AppProfile, angle_id: str, language: str) -> dict[str, Any]:
     """The facts an ad for `angle_id` may show; empty for ads not in the strategy's language (English)."""
     if language != "en":
         return {}
     angle = next((a for a in strategy.angles if a.id == angle_id), None)
     refs = [e.ref for e in angle.evidence] if angle else []
-    out: dict[str, Any] = {"review": review_quote(app, refs), "number": number_claim(strategy),
+    out: dict[str, Any] = {"review": review_quote(app, refs), "number": number_claim(strategy), "offer": offer(app),
                            "benefits": benefits(strategy),
                            "objection": objection(strategy, angle.objection if angle else None)}
     return {k: v for k, v in out.items() if v}

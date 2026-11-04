@@ -398,9 +398,35 @@ def stage_produce(run: Run, cfg: CreateConfig, templates: list[Template]) -> Non
     out.mkdir(exist_ok=True)
     for old in out.glob("*.png"):
         old.unlink()
-    rows = [produce_row(run, t, genome) for t in templates for genome in t.sample(cfg.variants_per_template,
-                                                                                   seed=cfg.seed)]
+    rows = [produce_row(run, t, genome) for i, t in enumerate(templates)
+            for genome in diversify(t, t.sample(cfg.variants_per_template, seed=cfg.seed), offset=i, seed=cfg.seed)]
     run.write_json("variants.json", rows)
+
+
+LOOK_GENES = ("layout", "style", "decor")
+
+
+def diversify(t: Template, genomes: list[dict[str, str]], *, offset: int = 0, seed: int = 0) -> list[dict[str, str]]:
+    """Every variant of a concept gets its own look: a different layout, style and decor in turn (shuffled once,
+    each template starting further along), instead of random draws that repeat. Meta's delivery groups ads that
+    look alike (same layout, palette, setting) and lets them compete as one: near-twins waste the test."""
+    rng = random.Random(f"{seed}|{t.id}")
+    cycles = {}
+    for gene in LOOK_GENES:
+        if gene in t.genes:
+            options = list(t.genes[gene])
+            rng.shuffle(options)
+            cycles[gene] = options
+    out, seen = [], set()
+    for j, g in enumerate(genomes):
+        new = dict(g)
+        for gene, options in cycles.items():
+            new[gene] = options[(j + offset) % len(options)]
+        key = json.dumps(new, sort_keys=True)
+        if key not in seen:  # two variants that only differed by look would now be the same ad
+            seen.add(key)
+            out.append(new)
+    return out
 
 
 def feed_competitors(ads: list[CompetitorAd], code: str, app: AppProfile, cfg: CreateConfig,

@@ -38,6 +38,7 @@ LOOK_HELP = {
     "two_screens": "two real screens side by side", "none": "no shape behind the phone",
     "panel": "a colour panel behind the phone", "diagonal": "a diagonal colour block behind the phone",
     "circle": "a big circle behind the phone",
+    "offer": "the store page's own offer very large (Free to download)", "note": "a phone note with ticked benefits",
 }
 
 

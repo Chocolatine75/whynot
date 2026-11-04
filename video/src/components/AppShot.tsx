@@ -19,12 +19,16 @@ import { Tap } from "./Proof";
 export const PHONE = { w: 610, h: 1130, top: 96, radius: 68, bezel: 14 };
 const FOCUS_Y: Record<string, number> = { top: 0.18, middle: 0.5, bottom: 0.82, full: 0.5 };
 
-const Background: React.FC<{ look: Look }> = ({ look }) => {
+// three backgrounds, one per video theme: dark with accent glows, the brand colour, light with an accent glow
+const Background: React.FC<{ look: Look; theme?: number }> = ({ look, theme = 0 }) => {
   const frame = useCurrentFrame();
   const a = Math.sin(frame / 40) * 60;
   const b = Math.cos(frame / 55) * 80;
+  const base = theme === 1 ? `linear-gradient(170deg, ${look.accent} 0%, ${look.fg} 140%)`
+    : theme === 2 ? `linear-gradient(170deg, ${look.bg} 0%, ${look.surface} 100%)`
+    : `linear-gradient(170deg, ${look.fg} 0%, #0b0b0d 100%)`;
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(170deg, ${look.fg} 0%, #0b0b0d 100%)`, overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: base, overflow: "hidden" }}>
       <div style={{ position: "absolute", width: 900, height: 900, borderRadius: 450, left: -260 + a, top: -180,
         background: look.accent, opacity: 0.38, filter: "blur(140px)" }} />
       <div style={{ position: "absolute", width: 800, height: 800, borderRadius: 400, right: -300 + b, bottom: 200,
@@ -73,7 +77,7 @@ const Tiles: React.FC<{ src: string; tiles: number[][]; size: number[]; w: numbe
   );
 };
 
-export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = ({ shot, look, pop }) => {
+export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string; theme?: number }> = ({ shot, look, pop, theme = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const n = shot.durationInFrames;
@@ -130,7 +134,7 @@ export const AppShot: React.FC<{ shot: ShotProps; look: Look; pop?: string }> = 
   const ring = ui === "zoom" ? interpolate(frame, [18, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
   return (
     <AbsoluteFill>
-      <Background look={look} />
+      <Background look={look} theme={theme} />
       <AbsoluteFill style={{ perspective: 1800 }}>
         <div style={{ position: "absolute", left: (1080 - PHONE.w) / 2, top: PHONE.top + float, width: PHONE.w,
           height: PHONE.h, borderRadius: PHONE.radius, background: "#0a0a0a", padding: PHONE.bezel,

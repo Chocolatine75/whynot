@@ -29,7 +29,7 @@ from whynot.create.templates import Template
 CONTENT = {"review": {"text": "I finally understand my mother-in-law when she talks fast.", "rating": 5},
            "number": {"value": "4.8", "label": "Rated 4.8 on the App Store"},
            "benefits": ["Real voices from the North and the South", "Five-minute lessons", "Free to start"],
-           "objection": {"text": "I never have time to study"}}
+           "objection": {"text": "I never have time to study"}, "offer": "Free to download"}
 PALETTE = ["#FFF8EE", "#1B1B1F", "#E4572E", "#FFE3D3"]
 NEW_FORMATS = ["square", "portrait", "story"]
 
@@ -66,7 +66,7 @@ def png(img: Image.Image) -> bytes:
 
 def test_every_layout_style_and_format_composes_and_passes_every_guard():
     t, asset, second = template(), phone(), other_phone()
-    assert t.space_size() == 165
+    assert t.space_size() == 195
     for g in t.genomes():
         comp = compose(t, g, asset, second)
         assert comp.image.size == FORMATS[g["format"]]

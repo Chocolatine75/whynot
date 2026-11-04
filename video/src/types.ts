@@ -57,6 +57,7 @@ export type ShotProps = {
 };
 
 export type TrendProps = {
+  theme?: number; // 0, 1, 2: each video its own look (app background, captions, hook title)
   fps: number;
   durationInFrames: number;
   hook: string;

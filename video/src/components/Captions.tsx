@@ -4,9 +4,9 @@ import { fontFamily } from "../fonts";
 import { Look, Word } from "../types";
 
 // Word-by-word captions synced to the voice (most Reels are watched muted): the spoken word is lit.
-export const Captions: React.FC<{ words: Word[]; look: Look; from?: number; until: number; cuts?: number[] }> = ({
-  words, look, from = 0, until, cuts = [],
-}) => {
+// themes: 0 the spoken word lit in the accent, 1 yellow lit word on bold outlined text, 2 white chips
+export const Captions: React.FC<{ words: Word[]; look: Look; from?: number; until: number; cuts?: number[];
+  theme?: number }> = ({ words, look, from = 0, until, cuts = [], theme = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -39,7 +39,13 @@ export const Captions: React.FC<{ words: Word[]; look: Look; from?: number; unti
       {chunk.map((w, i) => {
         const lit = start + i === at;
         return (
-          <span key={i} style={{ padding: "4px 18px", borderRadius: 18, textTransform: native ? "none" : "uppercase",
+          <span key={i} style={theme === 1 ? {
+            padding: "4px 8px", textTransform: native ? "none" : "uppercase", color: lit ? "#FFE15A" : "#FFFFFF",
+            WebkitTextStroke: "3px #000", paintOrder: "stroke fill", fontSize: 70,
+            textShadow: "0 5px 0 #000" } : theme === 2 ? {
+            padding: "6px 18px", borderRadius: 12, textTransform: "none", color: "#111111",
+            background: lit ? "#FFFFFF" : "rgba(255,255,255,0.72)", transform: lit ? "scale(1.08)" : "none" } : {
+            padding: "4px 18px", borderRadius: 18, textTransform: native ? "none" : "uppercase",
             color: native ? (lit ? "#111111" : "#FFE15A") : lit ? look.onAccent : "#FFFFFF",
             background: lit ? (native ? "#FFE15A" : look.accent) : "transparent",
             textShadow: lit ? "none" : "0 4px 18px rgba(0,0,0,0.75), 0 0 2px rgba(0,0,0,0.9)" }}>

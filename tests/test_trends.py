@@ -764,3 +764,20 @@ def test_no_invented_person_asks_the_question(hook):
     data["hook"] = hook
     with pytest.raises(Invalid, match="invented person"):
         check(data)
+
+
+def test_a_video_opens_on_a_picture_never_on_a_text_card():
+    from whynot.create.trend_render import open_on_a_picture
+    shots = [{"visual": "text", "durationInFrames": 45, "sfx": "whoosh"},
+             {"visual": "photo", "durationInFrames": 30, "sfx": "none"},
+             {"visual": "screen", "durationInFrames": 30, "sfx": "pop"}]
+    out = open_on_a_picture(shots)
+    assert [s["visual"] for s in out] == ["photo", "screen"]
+    assert out[0]["durationInFrames"] == 75 and out[0]["sfx"] == "whoosh"  # same length, the cut's sound kept
+    only_text = [{"visual": "text", "durationInFrames": 30, "sfx": "none"}]
+    assert open_on_a_picture(only_text) == only_text
+    b = check(GOOD)
+    p = build_props(b, palette=["#FFFFFF", "#111111", "#FF5500", "#EEEEEE"], app_name="X",
+                    images={i: f"s{i}.jpg" for i, s in enumerate(b.shots) if s.visual != "text"}, icon=None,
+                    rating=None, rating_count=None, audio=None, sfx={})
+    assert p["shots"][0]["visual"] != "text" and p["shots"][0].get("hook")

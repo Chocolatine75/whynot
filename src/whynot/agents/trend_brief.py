@@ -171,6 +171,8 @@ STORYBOARD — the picture and the voice tell ONE story, beat by beat:
 - TONE of this ad: {tone_rule}
 - The hook and the lines share one point of view: if the hook says "POV you're stuck on the call", the creator is
   the one stuck on it, not someone watching.
+- The FIRST SHOT is a picture, never a text card: a person in the situation (photo) or the app's result (screen),
+  with the hook written over it. A text card on a flat colour as the opening is scrolled past.
 - The real app appears early: the twist's first screen before 6 seconds.
 - The narrator says ONE thing about the app (this angle's feature) in plain spoken words, never the store's
   sentences, then the call to action over the cta shot ("free to download"). Max {narrator_words} words in all.

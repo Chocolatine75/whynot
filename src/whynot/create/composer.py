@@ -33,12 +33,12 @@ SCREEN_RADIUS = 44  # rounded corners of the app screen, like a device display
 FORMATS = {"square": (1080, 1080), "portrait": (1080, 1350), "story": (1080, 1920), "static_1080": (1080, 1080)}
 SUPPORTED_FORMATS = set(FORMATS)
 LAYOUTS = ("split", "rising", "full_screen", "review_card", "before_after", "big_number", "benefits",
-           "big_question", "comparison", "bold_text", "two_screens")
+           "big_question", "comparison", "bold_text", "two_screens", "offer", "note")
 DECORS = ("none", "panel", "diagonal", "circle")  # a shape of colour behind the phone, never under any text
 STYLES = ("light", "dark", "brand", "gradient", "shape")
 # layouts that show a verified fact: the `fixed.content` key they need
 NEEDS = {"review_card": "review", "big_number": "number", "benefits": "benefits", "before_after": "objection",
-         "comparison": "objection"}
+         "comparison": "objection", "offer": "offer", "note": "benefits"}
 LEGACY_LAYOUT = {"app_screen": "split", "result_card": "rising"}
 # Stories/Reels draw the account name over the top and the reply bar and caption over the bottom: no text there
 # (Meta's guidance: ~14 % top, ~20 % bottom). Other formats use the whole canvas.
@@ -733,7 +733,41 @@ def _two_screens(cv: Canvas, headline: str, proof: str, cta: str, content: dict)
     cv.pill(cta, (w // 2 - 200, 56 + hb + 20, w // 2 + 200, 56 + hb + 104))
 
 
-DRAW = {"two_screens": _two_screens, "split": _split, "rising": _rising, "full_screen": _full_screen,
+def _offer(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """The offer first (the most winning format on Meta), only as the store page states it: "Free to download"."""
+    w, h = cv.w, cv.h
+    ob = round(h * 0.26)
+    cv.screen((0, 56 + ob + 250, w, h), rising=True, width={1080: 520, 1350: 620, 1920: 720}.get(cv.H, 520))
+    cv.text("offer", str(content["offer"]), (MARGIN, 40, w - MARGIN, 40 + ob), max_size=170, min_size=60, bold=True,
+            leading=1.0, fg=cv.button if contrast_ratio(cv.button, cv.base) >= 3 else cv.fg)
+    cv.text("headline", headline, (MARGIN, 52 + ob, w - MARGIN, 52 + ob + 110), max_size=46, min_size=28, bold=True)
+    cv.pill(cta, (w // 2 - 200, 56 + ob + 130, w // 2 + 200, 56 + ob + 216))
+
+
+def _note(cv: Canvas, headline: str, proof: str, cta: str, content: dict) -> None:
+    """A phone note in the brand's voice: the headline as its title, verified benefits as ticked items."""
+    w, h = cv.w, cv.h
+    nb = round(h * 0.44)
+    card: Box = (MARGIN, 48, w - MARGIN, 48 + nb)
+    cv.screen((0, card[3] + 140, w, h), rising=True, width={1080: 440, 1350: 540, 1920: 660}.get(cv.H, 440))
+    paper = cv.other(cv.base)
+    ink = best_text_colour(paper, cv.brand.palette)
+    cv.card(card, paper)
+    cv.text("headline", headline, (card[0] + 44, card[1] + 36, card[2] - 44, card[1] + 36 + round(nb * 0.34)),
+            max_size=58, min_size=32, bold=True, align="left", valign="top", fg=ink, bg=paper)
+    items = content["benefits"][:3]
+    top = card[1] + 60 + round(nb * 0.34)
+    row = max(60, (card[3] - 30 - top) // max(1, len(items)))
+    for i, b in enumerate(items):
+        y = top + i * row
+        cv.mark(card[0] + 44, y + 6, 44, tick=True)
+        cv.text(f"item_{i}", str(b), (card[0] + 108, y, card[2] - 44, y + row - 8), max_size=38, min_size=28,
+                align="left", valign="top", fg=ink, bg=paper)
+    cv.pill(cta, (w // 2 - 200, card[3] + 30, w // 2 + 200, card[3] + 116))
+
+
+DRAW = {"offer": _offer, "note": _note, "two_screens": _two_screens, "split": _split, "rising": _rising,
+        "full_screen": _full_screen,
         "review_card": _review_card,
         "before_after": _before_after, "big_number": _big_number, "benefits": _benefits,
         "big_question": _big_question, "comparison": _comparison, "bold_text": _bold_text}

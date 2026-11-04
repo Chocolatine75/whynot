@@ -9,6 +9,7 @@ focus, then a scroll), so the viewer always sees something new, like a creator's
 over the whole first shot, across its cuts.
 """
 
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,7 @@ def shot_frames(brief: TrendBrief, voice_seconds: float = 0.0) -> list[int]:
 
 
 MAX_SHOT_SECONDS = 1.0
+THEMES = 3  # visual treatments in the Trend composition (TrendProps.theme)
 CTA_CARD_FRAMES = round(0.7 * FPS)
 PHOTO_CUTS = ("close", "pan", "punch_in")  # framings after the first one, in turn
 SCREEN_CUTS = ("zoom", "scroll", "float")
@@ -39,6 +41,19 @@ def split_frames(n: int, max_frames: int) -> list[int]:
     """`n` frames as the fewest pieces of at most `max_frames`, as even as possible (they sum to `n`)."""
     k = max(1, math.ceil(n / max_frames))
     return [n // k + (1 if i < n % k else 0) for i in range(k)]
+
+
+def open_on_a_picture(shots: list[dict]) -> list[dict]:
+    """The first frame decides whether the thumb stops: a script that opens on a text card (a flat colour) opens
+    instead on its first picture, with the hook title over it; the card's time goes to that picture, nothing else
+    of the story moves."""
+    first_picture = next((i for i, s in enumerate(shots) if s["visual"] in ("photo", "screen", "mascot")), None)
+    if not shots or shots[0]["visual"] != "text" or first_picture is None:
+        return shots
+    lead = sum(s["durationInFrames"] for s in shots[:first_picture])
+    opening = {**shots[first_picture], "durationInFrames": shots[first_picture]["durationInFrames"] + lead,
+               "sfx": shots[0]["sfx"] if shots[0]["sfx"] != "none" else shots[first_picture]["sfx"]}
+    return [opening, *shots[first_picture + 1:]]
 
 
 def recut(shots: list[dict], *, max_frames: int) -> list[dict]:
@@ -89,6 +104,7 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
                       **({"tiles": (tiles or {})[i]} if i in (tiles or {}) else {}),
                       **({"imageSize": (sizes or {})[i]} if s.visual == "screen" and i in (sizes or {}) else {}),
                       **({"quote": s.quote, "stars": s.stars or 5} if s.visual == "review" else {})})
+    shots = open_on_a_picture(shots)
     end_frames = round(END_CARD_SECONDS * FPS)
     # a closing text card right before the end card said the call to action twice: it gets a beat, the end card
     # (which shows the same call to action with the icon and the button) takes the rest
@@ -105,6 +121,9 @@ def build_props(brief: TrendBrief, *, palette: list[str], app_name: str, images:
         voice = {"src": "voice.mp3", "words": [{"text": w.text, "start": w.start, "end": w.end, "speaker": w.speaker,
                                                  "native": w.native} for w in audio.words]}
     return {
+        # each video its own look (background of the app shots, captions, hook title): ads that look alike are
+        # grouped by Meta's delivery and compete as one
+        "theme": int(hashlib.sha1(brief.id.encode()).hexdigest(), 16) % THEMES,
         "fps": FPS, "durationInFrames": sum(s["durationInFrames"] for s in shots) + end_frames, "hook": brief.hook,
         "shots": shots,
         "endCard": {"durationInFrames": end_frames, "appName": app_name, "icon": icon,

@@ -3,6 +3,7 @@ import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useVideoConfig 
 import { Captions } from "./components/Captions";
 import { EndCard } from "./components/EndCard";
 import { HookTitle } from "./components/HookTitle";
+import { MidCta } from "./components/MidCta";
 import { Shot } from "./components/Shot";
 import { TrendProps } from "./types";
 
@@ -38,7 +39,7 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
     <AbsoluteFill style={{ background: "#000" }}>
       {props.shots.map((s, i) => (
         <Sequence key={i} from={starts[i]} durationInFrames={s.durationInFrames}>
-          <Shot shot={{ ...s, hook: i === 0 || s.hook }} look={props.look} index={i} first={i === 0}
+          <Shot shot={{ ...s, hook: i === 0 || s.hook }} look={props.look} index={i} first={i === 0} theme={props.theme ?? 0}
             caption={voice ? "" : s.caption} pop={props.sfx.pop} />
         </Sequence>
       ))}
@@ -50,10 +51,16 @@ export const TrendAd: React.FC<TrendProps> = (props) => {
       {/* a first shot that is a text card already says the hook: no second copy of it on top */}
       {props.shots[0]?.visual !== "text" ? (
         <Sequence from={0} durationInFrames={hookFrames}>
-          <HookTitle text={props.hook} />
+          <HookTitle text={props.hook} theme={props.theme ?? 0} look={props.look} />
         </Sequence>
       ) : null}
-      {voice ? <Captions words={voice.words} look={props.look} from={hookFrames}
+      {/* the call to action once mid-video (≈4.5 s, for 2 s), when there is time before the end card */}
+      {endStart >= Math.round(4.5 * fps) + 2 * fps + fps ? (
+        <Sequence from={Math.round(4.5 * fps)} durationInFrames={2 * fps}>
+          <MidCta text={props.endCard.cta} icon={props.endCard.icon} look={props.look} frames={2 * fps} />
+        </Sequence>
+      ) : null}
+      {voice ? <Captions words={voice.words} look={props.look} theme={props.theme ?? 0} from={hookFrames}
         until={endStart} cuts={starts.map((f) => f / fps)} /> : null}
       {props.shots.map((s, i) =>
         s.sfx !== "none" && props.sfx[s.sfx] ? (

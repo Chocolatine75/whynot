@@ -71,7 +71,9 @@ def test_every_planned_ad_is_real_reproducible_and_checked(done):
         assert saved.size == {"square": (1080, 1080), "portrait": (1080, 1350)}[v["genome"]["format"]]
         assert Image.open(run / v["story_image"]).size == (1080, 1920) and v["story_guards_passed"]
         t = templates[ad.template_id]
-        again = compose(t, v["genome"], Image.open(run / "assets" / t.fixed["product"]["asset"]))
+        second = t.fixed["product"].get("second")
+        again = compose(t, v["genome"], Image.open(run / "assets" / t.fixed["product"]["asset"]),
+                        Image.open(run / "assets" / second) if second else None)
         assert again.image.tobytes() == saved.convert("RGB").tobytes()
         assert ad.persona == f"{t.persona}.{t.fixed['language']}"
 
@@ -593,3 +595,18 @@ def test_templates_offer_layouts_styles_and_formats_from_their_verified_facts(do
             assert content == {}
     variants = json.loads((run / "variants.json").read_text())
     assert len({v["genome"]["layout"] for v in variants}) >= 3  # the ads do not all look alike
+
+
+def test_the_variants_of_a_concept_never_share_a_look():
+    from whynot.agency.create import diversify
+    t = Template.from_dict({"id": "c_v1", "concept": "c", "persona": "p", "objection": "o",
+                            "fixed": {"brand": {"name": "B", "palette": ["#FFFFFF", "#111111", "#FF5500"]}},
+                            "genes": {"format": ["portrait"], "hook": ["a", "b"], "cta": ["x"],
+                                      "layout": ["split", "rising", "offer", "note", "bold_text"],
+                                      "style": ["light", "dark", "brand"], "decor": ["none", "panel", "circle"]},
+                            "copy": {}})
+    gs = diversify(t, t.sample(4, seed=1), seed=1)
+    assert len(gs) >= 2 and len({g["layout"] for g in gs}) == len(gs)  # one layout per variant
+    assert all(t.check(g) is None for g in gs)
+    other = diversify(t, t.sample(4, seed=1), offset=1, seed=1)
+    assert [g["layout"] for g in other] != [g["layout"] for g in gs]  # the next concept starts elsewhere

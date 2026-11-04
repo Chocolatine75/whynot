@@ -8,7 +8,7 @@ import { ReviewCard } from "./Proof";
 
 // One shot: a full-bleed visual that never stops moving, the caption bubble, a flash on hard cuts.
 export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; index: number; first: boolean;
-  pop?: string }> = ({ shot, look, caption, index, first, pop }) => {
+  pop?: string; theme?: number }> = ({ shot, look, caption, index, first, pop, theme = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const n = shot.durationInFrames;
@@ -50,7 +50,7 @@ export const Shot: React.FC<{ shot: ShotProps; look: Look; caption: string; inde
 
   let visual: React.ReactNode = null;
   if (shot.visual === "screen") {
-    visual = <AppShot shot={shot} look={look} pop={pop} />;
+    visual = <AppShot shot={shot} look={look} pop={pop} theme={theme} />;
   } else if (shot.visual === "photo") {
     visual = (
       <Img src={staticFile(shot.src ?? "")} style={{ width: "100%", height: "100%", objectFit: "cover",
