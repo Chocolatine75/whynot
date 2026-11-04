@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import { RunPathError } from "@/lib/runs";
 import { missingForStop, runStop, validateStop } from "@/lib/stop";
+import { DEMO, demoRefused } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
+  if (DEMO) return demoRefused();
   let body: unknown;
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid request." }, { status: 400 }); }
   const v = validateStop(body);

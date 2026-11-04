@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { runSchedule, validateSchedule } from "@/lib/meta";
 import { RunPathError } from "@/lib/runs";
+import { DEMO, demoRefused } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
 /** Every morning at HH:MM, the agency runs its day by itself (or stop that). */
 export async function POST(req: Request) {
+  if (DEMO) return demoRefused();
   let body: unknown;
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid request." }, { status: 400 }); }
   const v = validateSchedule(body);

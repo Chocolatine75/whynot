@@ -518,3 +518,12 @@ details > summary { cursor: pointer; }
 }
 .ads-table td.r, .ads-table td:nth-child(2) { white-space: nowrap; }
 .ads-table td:nth-child(2) .tag { vertical-align: middle; }
+
+/* public demo (WHYNOT_DEMO=1) */
+.demo-banner { position: relative; z-index: 60; background: #FFF7E6; color: #5A3E00; border-bottom: 1px solid #F5D9A8;
+  font-size: 14px; line-height: 1.45; padding: 10px 20px; text-align: center; }
+.demo-banner a { color: #0866FF; font-weight: 700; }
+.demo-start { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 28px; }
+.demo-cta { background: #0866FF; color: #fff; font-weight: 700; font-size: 18px; padding: 16px 28px; border-radius: 999px;
+  text-decoration: none; box-shadow: 0 8px 30px rgba(8, 102, 255, 0.35); }
+.demo-start p { color: rgba(255, 255, 255, 0.7); font-size: 14px; margin: 0; }

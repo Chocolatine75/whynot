@@ -19,6 +19,9 @@
 **make static and video ads, test every ad in a simulated feed next to your competitors' real ads,**
 **then publish, steer and report on Meta, within the cap you set. You only check and approve.**
 
+### [▶ Live demo: whynot-chi.vercel.app](https://whynot-chi.vercel.app)
+*No API key needed. A read-only example campaign whynot made for Duolingo (concept ads from its public App Store page, not affiliated with Duolingo): real research, strategy, ads, simulated feed and evolution; the week of results after launch is **simulated** and labelled so.*
+
 <img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
 
 *↑ Six of the 24 static ads whynot made for **Muse from Meta** (a concept campaign, not an official Meta ad). Every one is a different concept written from the store page and reviews, laid out by code, and every phone screen is the **real app screenshot, pixel for pixel**: the pixel guard checks it on every ad. Model cost of the whole run: **$0.98**.*
@@ -348,6 +351,8 @@ uv run whynot motion outputs/runs/<run>                   # motion versions of t
 ```bash
 cd web && npm install && npm run dev     # http://localhost:3100, reads outputs/runs/
 ```
+
+The public demo is the same site in read-only mode: `WHYNOT_DEMO=1` reads a bundled example (`scripts/export_example.py RUN web/demo/runs/<name> --media`, tokens and account ids redacted) and refuses every action that would run the engine or touch Meta ([`web/lib/demo.ts`](web/lib/demo.ts)).
 
 ### On Meta (sandbox or an owner-approved account; everything PAUSED until approved)
 

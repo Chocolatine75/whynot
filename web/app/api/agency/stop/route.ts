@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { runAgencyStop, validateAgencyStop } from "@/lib/meta";
 import { RunPathError } from "@/lib/runs";
+import { DEMO, demoRefused } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
 /** The kill switch on the Meta account the agency used: pauses everything it created, now. */
 export async function POST(req: Request) {
+  if (DEMO) return demoRefused();
   let body: unknown;
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid request." }, { status: 400 }); }
   const v = validateAgencyStop(body);

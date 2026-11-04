@@ -39,3 +39,4 @@ web/.next/
 
 # third-party agent skills (MIT, emilkowalski/skill): restore with `npx skills experimental_install`
 .claude/skills/
+web/demo/

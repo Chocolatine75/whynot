@@ -4,8 +4,22 @@
     {
       "name": "web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "web", "run", "dev"],
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "dev"
+      ],
       "port": 3100
+    },
+    {
+      "name": "web-demo",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd web && WHYNOT_DEMO=1 NEXT_PUBLIC_WHYNOT_DEMO=1 npx next dev -p 3200"
+      ],
+      "port": 3200
     }
   ]
 }

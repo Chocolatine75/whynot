@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { resumeAgency, validateResume } from "@/lib/meta";
 import { RunPathError } from "@/lib/runs";
+import { DEMO, demoRefused } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
 /** Run today's day now, or continue a step that waited for the owner's approval. */
 export async function POST(req: Request) {
+  if (DEMO) return demoRefused();
   let body: unknown;
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid request." }, { status: 400 }); }
   const v = validateResume(body);

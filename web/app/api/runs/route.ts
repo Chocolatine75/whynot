@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { listRuns } from "@/lib/runs";
 import { startCampaign, validateCampaign } from "@/lib/start";
+import { DEMO, demoRefused } from "@/lib/demo";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +10,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  if (DEMO) return demoRefused();
   let body: unknown;
   try {
     body = await req.json();

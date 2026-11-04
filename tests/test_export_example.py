@@ -42,3 +42,18 @@ def test_committed_examples_carry_no_secret():
     assert files, "examples/ should hold at least one exported run"
     for p in files:
         assert not LEAKS.search(p.read_text(encoding="utf-8")), p
+
+
+def test_media_export_keeps_every_picture_and_video_but_still_redacts(tmp_path):
+    run = tmp_path / "run"
+    (run / "videos").mkdir(parents=True)
+    (run / "ads").mkdir()
+    (run / "plan.json").write_text("{}")
+    (run / "report.md").write_text("")
+    (run / "state.json").write_text(json.dumps({"account": "act_123456789"}))
+    (run / "videos" / "v.mp4").write_bytes(b"mp4")
+    (run / "ads" / "x.png").write_bytes(b"png")
+    out = tmp_path / "out"
+    mod.export(run, out, media=True)
+    assert (out / "videos" / "v.mp4").exists() and (out / "ads" / "x.png").exists()
+    assert "act_REDACTED" in (out / "state.json").read_text()

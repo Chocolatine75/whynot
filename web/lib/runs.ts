@@ -7,6 +7,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { DEMO, DEMO_ROOT } from "./demo";
 import { type AgencyView, readAgency } from "./meta";
 
 export const STAGES = ["app", "market", "strategy", "creative", "produce", "simulate", "evolve", "plan", "report"] as const;
@@ -25,9 +26,9 @@ export const STAGE_LABELS: Record<Stage, string> = {
   report: "Writing the report",
 };
 
-export const REPO_ROOT = path.resolve(process.env.WHYNOT_REPO ?? path.join(process.cwd(), ".."));
+export const REPO_ROOT = path.resolve(process.env.WHYNOT_REPO ?? (DEMO ? DEMO_ROOT : path.join(process.cwd(), "..")));
 export function runsRoot(): string {
-  return path.resolve(process.env.WHYNOT_RUNS_DIR ?? path.join(REPO_ROOT, "outputs", "runs"));
+  return path.resolve(process.env.WHYNOT_RUNS_DIR ?? (DEMO ? path.join(DEMO_ROOT, "runs") : path.join(REPO_ROOT, "outputs", "runs")));
 }
 
 export class RunPathError extends Error {}
