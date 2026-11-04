@@ -12,17 +12,31 @@
 [![Muse Spark](https://img.shields.io/badge/Muse_Spark_·_Wonder_·_Image-0866FF?style=flat&logo=meta&logoColor=white)](https://ai.meta.com/)
 [![Muse Spark Open](https://img.shields.io/badge/Muse_Spark_Open-open_weights_on_Baseten-6E3FF3?style=flat)](https://www.baseten.co/)
 [![SAM 3.1](https://img.shields.io/badge/SAM_3.1-real_pixels_only-1C2B33?style=flat&logo=meta&logoColor=white)](https://ai.meta.com/sam/)
-[![Tests](https://img.shields.io/badge/tests-960%2B_passing-2EA44F?style=flat)](scripts/check.sh)
+[![CI](https://github.com/Chocolatine75/whynot/actions/workflows/ci.yml/badge.svg)](https://github.com/Chocolatine75/whynot/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-963_Python_·_128_web-2EA44F?style=flat)](tests/)
 
 **Paste your App Store link → agents research your market, write the strategy,**
 **make static and video ads, test every ad in a simulated feed next to your competitors' real ads,**
 **then publish, steer and report on Meta, within the cap you set. You only check and approve.**
 
-<img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
+<img src="docs/readme/self-correct.gif" alt="An ad in a simulated feed between real competitor ads; a simulated customer objects; Muse Spark rewrites one sentence; the new version wins head to head beyond the measured noise; the owner approves; it is launched on Meta" width="860">
 
-*↑ Six of the 24 static ads whynot made for **Muse from Meta** (a concept campaign, not an official Meta ad). Every one is a different concept written from the store page and reviews, laid out by code, and every phone screen is the **real app screenshot, pixel for pixel**: the pixel guard checks it on every ad. Model cost of the whole run: **$0.98**.*
+*↑ **The ad fixes itself, before a cent is spent.** A simulated customer objects ("another paid app that doesn't really help me speak"), Muse Spark rewrites one sentence to answer it, the new version beats the original head to head (**+2.98** vs a measured noise of 1.63, *simulated*), the owner approves, and **this exact ad was launched on Meta on Nov 4** (VietBuddy, our design partner, 2 × €5/day). Motion design in code (Remotion), every word and number from the run's files. [MP4](docs/demo/self-correct.mp4)*
 
 </div>
+
+---
+
+## Where to look (2 minutes)
+
+| To check | Open |
+|---|---|
+| One complete real run, every file the agency wrote | [`examples/duolingo/`](examples/duolingo/) (start with its README) |
+| Every claim → its code → its test → its evidence | [Is the simulator right?](#is-the-simulator-right-we-measure-it-including-the-failures) |
+| What failed, said plainly | [`validate/results/r3-v1-apps-gb-v1.json`](validate/results/r3-v1-apps-gb-v1.json) (the simulator does not predict ad longevity) |
+| Where each Meta model is called, and what it cost | [Built on Meta models](#built-on-meta-models-six-of-them-each-with-its-own-job) |
+| The tests (963 Python + 128 web, no network) | [`tests/`](tests/), `./scripts/check.sh`, [CI](.github/workflows/ci.yml) |
+| Decisions and why | [`docs/DECISIONS.md`](docs/DECISIONS.md) |
 
 ---
 
@@ -105,6 +119,12 @@ Headlines follow rules taken from what runs long on Meta: **≤ 7 words, an acti
 ### 4 · Production: code composes, models never touch the product
 
 Statics are **composition, not generation**: 13 layouts (`split`, `review_card`, `before_after`, `big_number`, `comparison`, `offer`, `note`, `two_screens`...), each allowed only when the concept has the fact it needs (a `review_card` needs a real review, an `offer` a verified store offer). Each variant of a concept gets **its own look**, because Meta's delivery groups ads that look alike and lets them compete as one.
+
+<div align="center">
+<img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
+
+*↑ Six of the 24 static ads whynot made for **Muse from Meta** (a concept campaign, not an official Meta ad). Every one is a different concept written from the store page and reviews, laid out by code, and every phone screen is the **real app screenshot, pixel for pixel**: the pixel guard checks it on every ad. Model cost of the whole run: **$0.98**.*
+</div>
 
 <div align="center">
 <img src="docs/readme/stories.jpg" alt="Four 9:16 story versions of the Muse ads" width="760">
