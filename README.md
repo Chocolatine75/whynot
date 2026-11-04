@@ -19,9 +19,10 @@
 **make static and video ads, test every ad in a simulated feed next to your competitors' real ads,**
 **then publish, steer and report on Meta, within the cap you set. You only check and approve.**
 
-<img src="docs/readme/self-correct.gif" alt="An ad in a simulated feed between real competitor ads; a simulated customer objects; Muse Spark rewrites one sentence; the new version wins head to head beyond the measured noise; the owner approves; it is launched on Meta" width="860">
+<img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
 
-*↑ **The ad fixes itself, before a cent is spent.** A simulated customer objects ("another paid app that doesn't really help me speak"), Muse Spark rewrites one sentence to answer it, the new version beats the original head to head (**+2.98** vs a measured noise of 1.63, *simulated*), the owner approves, and **this exact ad was launched on Meta on Nov 4** (VietBuddy, our design partner, 2 × €5/day). Motion design in code (Remotion), every word and number from the run's files. [MP4](docs/demo/self-correct.mp4)*
+*↑ Six of the 24 static ads whynot made for **Muse from Meta** (a concept campaign, not an official Meta ad). Every one is a different concept written from the store page and reviews, laid out by code, and every phone screen is the **real app screenshot, pixel for pixel**: the pixel guard checks it on every ad. Model cost of the whole run: **$0.98**.*
+
 
 </div>
 
@@ -120,11 +121,6 @@ Headlines follow rules taken from what runs long on Meta: **≤ 7 words, an acti
 
 Statics are **composition, not generation**: 13 layouts (`split`, `review_card`, `before_after`, `big_number`, `comparison`, `offer`, `note`, `two_screens`...), each allowed only when the concept has the fact it needs (a `review_card` needs a real review, an `offer` a verified store offer). Each variant of a concept gets **its own look**, because Meta's delivery groups ads that look alike and lets them compete as one.
 
-<div align="center">
-<img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
-
-*↑ Six of the 24 static ads whynot made for **Muse from Meta** (a concept campaign, not an official Meta ad). Every one is a different concept written from the store page and reviews, laid out by code, and every phone screen is the **real app screenshot, pixel for pixel**: the pixel guard checks it on every ad. Model cost of the whole run: **$0.98**.*
-</div>
 
 <div align="center">
 <img src="docs/readme/stories.jpg" alt="Four 9:16 story versions of the Muse ads" width="760">
@@ -210,6 +206,12 @@ Generation 1 vs generation 0: +0.64 (noise floor 1.31, retest +0.00) → within 
 <img src="docs/readme/evolution.jpg" alt="The campaign page's evolution section: original ad vs generation-1 winner per customer profile, with the noise floor verdict" width="720">
 
 *↑ The campaign page for a run on **Duolingo**'s public App Store page (concept ads, not official Duolingo ads). For one profile, generation 1 beats the original beyond the noise (+1.1 vs ±1.0); for the other, +0.6 is within the noise, **and the page says so**. Simulated.*
+</div>
+
+<div align="center">
+<img src="docs/readme/self-correct.gif" alt="A simulated customer objects; Muse Spark rewrites one sentence; the new version wins beyond the noise; the owner approves; it is launched on Meta" width="760">
+
+*↑ The whole loop on one ad (VietBuddy, our design partner): objection → one sentence rewritten → **+2.98** vs a noise of 1.63 (*simulated*) → approved → **this exact ad launched on Meta on Nov 4**. [MP4](docs/demo/self-correct.mp4)*
 </div>
 
 ### 7 · Running on Meta, within the owner's caps
