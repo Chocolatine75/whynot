@@ -124,7 +124,7 @@ Reviewed Nov 3, 2026 (D-4), line by line, against the logs. ✅ reached · 🟡 
 | R7 | 🟡 | No similarity guard yet (E5-7). Copy repetition rule in place (a 4-word phrase in ≤ 2 concepts, never reused across videos). |
 | R8 | ✅ | `product_pixels_unchanged` passed on **80/80** statics (VietBuddy 56, WhatsApp 24; ~390k opaque product pixels identical each). Video photos can never ask for a screen, logo or text (validated). |
 | R9 | ❌ | Not measured (no live pilot). By design: one approval per launch, daily report. |
-| R10 | 🟡 | Full agency run $1.78 (VietBuddy), $0.48 (WhatsApp, with videos); video ad ~$0.10–0.30; whole hackathon $5.5 of model cost. Student viewer not built (E7 cut). |
+| R10 | 🟡 | Full agency run $1.78 (VietBuddy), $0.48 (WhatsApp, with videos); video ad ~$0.10–0.30; whole hackathon $69.75 of model cost on Matteo's machine (`whynot reproduce`, Nov 4). Student viewer not built (E7 cut). |
 | R11 | 🟡 | Full run (research → plan, 24 variants simulated, 2 evolution rounds) in 6.5 min. Arena cut, so no 3-concept fast path. |
 | R12 | ❌ | 1 design partner (VietBuddy), plus test runs on public apps. |
 
