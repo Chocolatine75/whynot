@@ -21,6 +21,8 @@ SKIP = {"daily.lock", "site.log", "strategy.raw.json"}
 URL = re.compile(r"https?://[^\s\"'<>]+")
 IDS = [
     (re.compile(r"act_\d+"), "act_REDACTED"),
+    (re.compile(r"act=\d+"), "act=REDACTED"),
+    (re.compile(r'("account_id"\s*:\s*")\d+(")'), r"\1REDACTED\2"),
     (re.compile(r"/Users/[^/\s\"]+"), "~"),
     (re.compile(r'("(?:page|page_id|campaign|campaign_id|adset_id|ad_id|creative_id|id)"\s*:\s*")\d{9,}(")'),
      r"\1REDACTED\2"),

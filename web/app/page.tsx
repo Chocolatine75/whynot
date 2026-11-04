@@ -1,6 +1,4 @@
-import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
-import { DEMO, DEMO_RUN } from "@/lib/demo";
 import { fileUrl } from "@/lib/format";
 import { showcase } from "@/lib/runs";
 
@@ -16,12 +14,7 @@ export default function Home() {
       <div className="home-inner">
         <h1 className="home-name">whynot</h1>
         <p className="home-line">Your Meta ads, <em>made and tested</em> before you spend.</p>
-        {DEMO ? (
-          <div className="demo-start">
-            <Link href={`/runs/${DEMO_RUN}`} className="demo-cta">See an example campaign: Duolingo</Link>
-            <p>Read-only demo · no API key · the week of results is simulated</p>
-          </div>
-        ) : <SearchBar />}
+        <SearchBar />
       </div>
       {wall.length > 3 && (
         <div className="wall" aria-hidden>

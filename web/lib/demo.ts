@@ -12,8 +12,8 @@ export const DEMO = process.env.WHYNOT_DEMO === "1" || process.env.NEXT_PUBLIC_W
 /** web/demo: holds runs/ (the example campaign) and validate/results/ (the published experiments). */
 export const DEMO_ROOT = path.join(process.cwd(), "demo");
 
-/** The example campaign's run id, the one the landing page opens. */
-export const DEMO_RUN = "20261104-demo-duolingo";
+/** The example campaigns bundled with the demo (run ids), the search bar opens one of them. */
+export const DEMO_RUNS = { duolingo: "20261104-demo-duolingo", vietbuddy: "20261103-vietbuddy" } as const;
 
 export const DEMO_REFUSAL = "This is the read-only demo: nothing runs here and no API key is used. "
   + "Clone the repository to run the agency on your own app.";

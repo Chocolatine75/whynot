@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Figtree, Geist_Mono } from "next/font/google";
-import DemoBanner from "@/components/DemoBanner";
 import TopBar from "@/components/TopBar";
 import "./globals.css";
 
@@ -23,7 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>
         <a href="#content" className="skip">Skip to content</a>
-        <DemoBanner />
         <TopBar />
         {children}
       </body>

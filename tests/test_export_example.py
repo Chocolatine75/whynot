@@ -10,7 +10,7 @@ spec = importlib.util.spec_from_file_location("export_example", ROOT / "scripts"
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
-LEAKS = re.compile(r"access_token|act_\d|EAA[A-Za-z0-9]{20}|/Users/|\"page\"\s*:\s*\"\d{9,}")
+LEAKS = re.compile(r"access_token|act_\d|act=\d|\"account_id\"\s*:\s*\"\d|EAA[A-Za-z0-9]{20}|/Users/|\"page\"\s*:\s*\"\d{9,}")
 
 
 def test_export_redacts_tokens_accounts_and_paths(tmp_path):
@@ -22,7 +22,8 @@ def test_export_redacts_tokens_accounts_and_paths(tmp_path):
     (run / "market_ads.jsonl").write_text(json.dumps(
         {"ad_snapshot_url": "https://www.facebook.com/ads/archive/render_ad/?id=1&access_token=EAAsecret123"}) + "\n")
     (run / "state.json").write_text(json.dumps(
-        {"account": "act_2579757785851312", "page": "1352874221250687", "connection": "/Users/someone/x.json"}))
+        {"account": "act_2579757785851312", "page": "1352874221250687", "connection": "/Users/someone/x.json",
+         "account_id": "2579757785851312", "url": "https://adsmanager.facebook.com/x?act=2579757785851312"}))
     (run / "assets" / "screen_1.png").write_bytes(b"png")
     (run / "daily.lock").write_text("lock")
     for name in ("a-1.png", "b-2.png", "c-3.png"):

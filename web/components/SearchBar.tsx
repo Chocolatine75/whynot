@@ -6,6 +6,10 @@ import { MODES, loadSettings } from "@/lib/agencySettings";
 import { ArrowUp, LinkIcon } from "@/components/Icons";
 import { runUrl } from "@/lib/format";
 
+const DEMO = process.env.NEXT_PUBLIC_WHYNOT_DEMO === "1";
+// keep in sync with web/lib/demo.ts (that file is server-only)
+const DEMO_RUNS = { duolingo: "20261104-demo-duolingo", vietbuddy: "20261103-vietbuddy" } as const;
+
 const EXAMPLES = [
   ["Duolingo", "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"],
   ["Headspace", "https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008"],
@@ -30,6 +34,10 @@ export default function SearchBar() {
     if (!app.trim()) { setError("Paste your App Store link first."); return; }
     setBusy(true);
     setError(null);
+    if (DEMO) {  // the public demo runs nothing: it opens the example campaign made earlier for that app
+      router.push(runUrl(app.includes("id6796837982") ? DEMO_RUNS.vietbuddy : DEMO_RUNS.duolingo));
+      return;
+    }
     try {
       // connected: the whole agency runs on the account, as set on the Meta account page; otherwise the ads
       // are made and tested only
