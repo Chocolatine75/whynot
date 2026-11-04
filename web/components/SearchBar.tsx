@@ -85,13 +85,6 @@ export default function SearchBar() {
           <button key={name} type="button" className="chip ghost" onClick={() => { setApp(url); setError(null); }}>Try {name}</button>
         ))}
       </div>
-      {DEMO && (
-        <p className="demo-note">
-          Demo: the example run we made on Duolingo, with its week of results simulated.
-          To run whynot on your own app, run it locally and connect your Meta account and your Meta AI keys.{" "}
-          <a href="https://github.com/Chocolatine75/whynot" target="_blank" rel="noreferrer">Code</a>
-        </p>
-      )}
       {error && <p className="search-error" role="alert">{error}</p>}
       {busy && <p className="search-status" role="status">Starting the agency…</p>}
     </form>
