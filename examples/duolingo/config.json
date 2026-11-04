@@ -1,0 +1,39 @@
+{
+  "app_ref": "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128",
+  "countries": [
+    "US"
+  ],
+  "daily_cap_eur": 10.0,
+  "budget_usd": 4.0,
+  "research_countries": null,
+  "store_country": "us",
+  "language": null,
+  "competitor_pages": [],
+  "max_angles": 6,
+  "variants_per_template": 4,
+  "feeds_per_variant": 3,
+  "placebos": 3,
+  "feed_size": 4,
+  "viewers_per_feed": 2,
+  "viewer_reasoning": "low",
+  "generations": 2,
+  "evolve_parents": 2,
+  "mutations_per_parent": 2,
+  "tournament_rounds": 2,
+  "evolve_audiences": null,
+  "strategy_model": "muse-wonder-1.0",
+  "director_model": "muse-spark-1.3",
+  "policy": {
+    "level": "autopilot",
+    "daily_cap_eur": 10.0
+  },
+  "seed": 0,
+  "feed_pool": 12,
+  "static_formats": [
+    "portrait",
+    "square"
+  ],
+  "viewer_images": true,
+  "image_side": 512,
+  "capture_creatives": 24
+}

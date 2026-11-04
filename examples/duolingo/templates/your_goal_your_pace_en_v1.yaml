@@ -1,0 +1,104 @@
+id: your_goal_your_pace_en_v1
+concept: A curious starter sets a small personal goal and celebrates quiet progress
+  with rewards.
+persona: chess_math_music_curious
+objection: streak_pressure_and_guilt
+evidence:
+  angle: your_goal_your_pace
+  refs:
+  - store
+  claims:
+  - track_progress_rewards
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_6.png
+    second: screen_1.png
+  language: en
+  content:
+    review:
+      text: Óscar es bueno jugando ajedrez y ya que estamos aquí alguien me ayuda
+        salir del sótano de Duolingo es que no hice su racha por un día ⏱️
+      rating: 5
+      review: '14744576031'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+    objection:
+      text: The owl and the streak will guilt-trip me every day and punish me for
+        taking a break.
+      objection: streak_pressure_and_guilt
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  proof:
+  - rating
+  - none
+  body:
+  - short
+  - story
+  title:
+  - main
+  cta:
+  - USE_APP
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - before_after
+  - big_number
+  - benefits
+  - big_question
+  - comparison
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: Want learning without the pressure?
+    bold_claim: Set a goal, follow your pace
+  body:
+    short: Choose a goal that fits a busy day. Learners can track progress and work
+      toward goals with playful rewards and achievements, in languages, chess, math
+      or music.
+    story: Starting fresh feels easier self-paced. You set the target, follow it gently,
+      and enjoy small wins as you move forward.
+  title:
+    main: Learn At Your Own Pace
+  proof:
+    rating: Rewards that mark progress
+    none: ''
+  cta:
+    USE_APP: Set My Goal
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible

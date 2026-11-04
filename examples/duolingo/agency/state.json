@@ -1,0 +1,125 @@
+{
+ "created": "2026-11-04T14:50:10.191855+00:00",
+ "steps": {
+  "connect": {
+   "at": "2026-11-04T14:50:10.192512+00:00",
+   "event": "3f7575758379",
+   "status": "ok",
+   "outputs": {
+    "account": "act_REDACTED",
+    "page": "REDACTED",
+    "can_publish": true,
+    "can_read": true,
+    "objective": "traffic",
+    "expires_at": "2026-12-31T16:32:53.561459+00:00",
+    "renewed": false,
+    "warnings": [
+     "permission business_management not granted: the agency cannot use ad accounts owned by a Business Manager"
+    ]
+   },
+   "seconds": 0.43,
+   "usd": 0.0,
+   "budget_usd": 8.0
+  },
+  "create": {
+   "at": "2026-11-04T14:50:10.625854+00:00",
+   "event": "e58d0683b4b4",
+   "status": "ok",
+   "outputs": {
+    "app": "Duolingo: Learn Languages",
+    "ad_sets": 2,
+    "ads": 6,
+    "planned_eur_per_day": 10.0,
+    "plan_errors": []
+   },
+   "seconds": 1459.38,
+   "usd": 4.0527,
+   "budget_usd": 4.0
+  },
+  "publish": {
+   "at": "2026-11-04T15:26:10.478187+00:00",
+   "event": "52832fed8c58",
+   "status": "waiting",
+   "detail": "first live launch needs the owner's approval: run again with --approve <your name>",
+   "seconds": 0.01,
+   "usd": 0.0,
+   "budget_usd": 3.9473
+  }
+ },
+ "days": {
+  "2026-11-04": {
+   "at": "2026-11-04T15:26:10.483681+00:00",
+   "event": "2da51f4c297f",
+   "status": "ok",
+   "outputs": {
+    "day": "2026-11-04",
+    "simulated": false,
+    "live": 0,
+    "paused": 0,
+    "new": 2,
+    "waiting_approval": 2,
+    "published_paused": 0,
+    "failures": [],
+    "committed_eur": 0,
+    "cap_eur": 20.0,
+    "report": "agency/reports/2026-11-04.md"
+   },
+   "seconds": 740.9,
+   "usd": 0.6618,
+   "budget_usd": 3.0
+  }
+ },
+ "config": {
+  "app_ref": "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128",
+  "countries": [
+   "US"
+  ],
+  "daily_cap_eur": 20.0,
+  "level": "autopilot",
+  "simulated_account": false,
+  "connection": "~/dev/whynot/data/private/connections/act_REDACTED.json",
+  "objective": "auto",
+  "landing_url": null,
+  "budget_usd": 8.0,
+  "step_budgets_usd": {
+   "create": 4.0,
+   "daily": 3.0
+  },
+  "publish_static": true,
+  "paused_only": true,
+  "static_share": 0.5,
+  "target_live": 4,
+  "max_new": 2,
+  "budget_per_ad_eur": 5.0,
+  "create": {},
+  "seed": 0
+ },
+ "account": {
+  "account_id": "2579757785851312",
+  "account_name": "Matteo Atkinson",
+  "currency": "EUR",
+  "page_id": "REDACTED",
+  "page_name": "Whynot test",
+  "app_id": null,
+  "user_name": "Matteo Atkinson",
+  "granted": [
+   "ads_management",
+   "ads_read",
+   "pages_manage_ads",
+   "pages_read_engagement",
+   "pages_show_list",
+   "public_profile"
+  ],
+  "sandbox": false,
+  "warnings": [
+   "permission business_management not granted: the agency cannot use ad accounts owned by a Business Manager"
+  ],
+  "connected_at": "2026-11-02T22:22:35.052415+00:00",
+  "expires_at": "2026-12-31T16:32:53.561459+00:00",
+  "act": "act_REDACTED",
+  "can_publish": true,
+  "can_read": true
+ },
+ "website": "https://www.duolingo.com",
+ "objective": "traffic"
+}

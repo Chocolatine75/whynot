@@ -122,7 +122,7 @@ Reviewed Nov 3, 2026 (D-4), line by line, against the logs. ✅ reached · 🟡 
 | R5 | 🟡 | `whynot predict` freezes a hashed ranking, `--verify` and the comparison script exist. Not frozen for a live pilot yet (no pilot). |
 | R6 | 🟡 | Simulated only: gen 2 beats gen 0 beyond the noise floor in 2/2 audiences (VietBuddy, $1.92); viewers were unanimous, so this is the simulator's consistent preference, not proof for people. Fake world: known better mutation found 92 %, false alarms 7 %. No humans, no pilot metrics. |
 | R7 | 🟡 | No similarity guard yet (E5-7). Copy repetition rule in place (a 4-word phrase in ≤ 2 concepts, never reused across videos). |
-| R8 | ✅ | `product_pixels_unchanged` passed on **80/80** statics (VietBuddy 56, WhatsApp 24; ~390k opaque product pixels identical each). Video photos can never ask for a screen, logo or text (validated). |
+| R8 | ✅ | `product_pixels_unchanged` passed on **620/620** statics logged on Matteo's machine (`whynot reproduce`, Nov 4; first measured 80/80: VietBuddy 56, WhatsApp 24). Video photos can never ask for a screen, logo or text (validated). |
 | R9 | ❌ | Not measured (no live pilot). By design: one approval per launch, daily report. |
 | R10 | 🟡 | Full agency run $1.78 (VietBuddy), $0.48 (WhatsApp, with videos); video ad ~$0.10–0.30; whole hackathon $69.75 of model cost on Matteo's machine (`whynot reproduce`, Nov 4). Student viewer not built (E7 cut). |
 | R11 | 🟡 | Full run (research → plan, 24 variants simulated, 2 evolution rounds) in 6.5 min. Arena cut, so no 3-concept fast path. |
@@ -131,6 +131,6 @@ Reviewed Nov 3, 2026 (D-4), line by line, against the logs. ✅ reached · 🟡 
 ### Criteria
 
 - **Impact.** 🟡 Problem and economics written (README, DEMO); a real partner is onboarded but not live.
-- **Use of Meta models.** ✅ Six Meta models, each with its own job (README table); open weights on the critical path (viewers on Muse Spark Open); Contributor tier never used on partner data. ❌ No trained student.
-- **Technical depth.** ✅ Validation tools with CIs, noise floor, bias suite, frozen predictions; agent pipeline with guards, caps, autonomy levels, approvals, kill switch, event log; ~900 tests, CI green. 🟡 R1–R3 not all measured on real data; R3 fails. ❌ One command for every number (D-1).
+- **Use of Meta models.** ✅ Six Meta models, each with its own job (README table); open weights used for the viewers in the validation experiments (R3, bias suite: Muse Spark Open), production viewers on Muse Spark (one setting switches); Contributor tier never used on partner data. ❌ No trained student.
+- **Technical depth.** ✅ Validation tools with CIs, noise floor, bias suite, frozen predictions; agent pipeline with guards, caps, autonomy levels, approvals, kill switch, event log; 960 Python + 128 web tests, CI green; `whynot reproduce` recomputes 9 demo numbers at $0 (D-1); one complete run in `examples/duolingo/`. 🟡 R1–R3 not all measured on real data; R3 fails.
 - **Demo.** 🟡 Script and shot list in `docs/DEMO.md`; recording on Nov 4.

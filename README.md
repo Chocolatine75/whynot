@@ -38,7 +38,7 @@ whynot is the agency. One command (or one search bar) takes an App Store link an
 2. **Writes the strategy** with **Muse Wonder**: customer profiles, what stops each one from installing, the angles that work, the angles nobody uses.
 3. **Writes concepts**, not variations: a creative director agent (**Muse Spark**) writes distinct ad concepts, each backed by evidence, each with a **genome** (hook, proof, layout, style...) that can mutate.
 4. **Produces the ads deterministically.** Statics are composed by code (13 layouts × 5 styles × 4 decors, in 1:1, 4:5 and 9:16); the real app screen is cut out of the store screenshots by **SAM 3.1** and never generated. Video ads are storyboarded skits on a trending format, rendered with Remotion.
-5. **Tests every ad before a cent is spent.** Each ad is placed in a simulated feed **between competitors' real ads**. Viewer agents (the customer profiles, on **Muse Spark Open**) say whether they stopped, understood, believed it, **why not**, and which ad they prefer.
+5. **Tests every ad before a cent is spent.** Each ad is placed in a simulated feed **between competitors' real ads**. Viewer agents (the customer profiles, on **Muse Spark**, or **Muse Spark Open** with one setting) say whether they stopped, understood, believed it, **why not**, and which ad they prefer.
 6. **Evolves** the winners: one change per round, kept only if it wins head-to-head **beyond a measured noise floor**.
 7. **Runs the campaign on Meta**: everything created PAUSED, launched only on the owner's approval, one spend cap, a daily loop that reads results, pauses losers and tired ads, ships new ideas and writes a report. A kill switch pauses everything at once.
 
@@ -48,14 +48,16 @@ A design choice we leaned on hard: **the simulator is a measured proxy, not an o
 
 ## Built on Meta models: six of them, each with its own job
 
-| Model | What it does in whynot |
-|---|---|
-| **Muse Wonder** | The strategist: reads the whole market and the app in one call, writes customer profiles and angles |
-| **Muse Spark** | The agents: scout, creative director, evolver, video storyboard writer, tone critic, screen picker |
-| **Muse Spark Open** (open weights, on Baseten) | The viewer agents of the simulated feed: thousands of calls, bias-tested |
-| **Muse Image** | Photos for the video ads, one cast kept across a whole storyboard; never a phone screen, logo or text |
-| **SAM 3.1** | Cuts the real interface and the mascot out of store screenshots; finds the tiles to animate |
-| **Muse Voice Transcribe** | Listens to the final mix of every video and flags it when the audio drifts from the captions |
+| Model | What it does in whynot | Where it is called | Spend, whole hackathon (this machine) |
+|---|---|---|---|
+| **Muse Spark** | The agents (scout, creative director, evolver, video storyboard writer, tone critic, screen picker) **and the viewer agents of the simulated feed** in production runs | [`agents/`](src/whynot/agents/), `viewer_chat` in [`models.py`](src/whynot/models.py) ← [`sim/viewer.py`](src/whynot/sim/viewer.py) | $51.17 |
+| **Muse Wonder** | The strategist: reads the whole market, the store page and 150 reviews in one call | [`agents/strategist.py`](src/whynot/agents/strategist.py) | $8.77 |
+| **Muse Spark Open** (open weights, on Baseten) | The same viewer agents on open weights, one setting away (`VIEWER_BACKEND=baseten`); used for the validation experiments (R3, bias suite, judge baselines) | `viewer_chat` in [`models.py`](src/whynot/models.py), [`validate/judge.py`](src/whynot/validate/judge.py) | $6.48 |
+| **Muse Image** | Photos for the video ads, one cast kept across a storyboard; never a phone screen, logo or text | [`agency/video.py`](src/whynot/agency/video.py) | $3.07 |
+| **SAM 3.1** | Cuts the real interface and the mascot out of store screenshots; finds the tiles to animate | [`assets/cutouts.py`](src/whynot/assets/cutouts.py), parser [`assets/sam.py`](src/whynot/assets/sam.py) | $0.20 |
+| **Muse Voice Transcribe** | Listens to every voice line and the final mix; flags a video when the audio drifts from the captions | [`agency/trend_video.py`](src/whynot/agency/trend_video.py) | $0.07 |
+
+All six go through **one client** ([`models.py`](src/whynot/models.py)) that prices every call before making it and logs its cost; the spend column is `whynot costs` on this machine's ledger.
 
 Plus the **Meta Ad Library API** (research, and the competitors inside the simulated feed) and the **Marketing API** (publishing, insights, kill switch).
 
@@ -133,6 +135,21 @@ Be realistic: people scroll past most ads, are wary of advertising, and rarely w
 
 Per ad they answer, in strict JSON: **stopped? understood? believed? why not?** (in their own words), purchase intent 1–5, and which ad of the feed they prefer. Ads get neutral labels (A1, A2...) in a different random order for each viewer. **Placebos** (a competitor's ad shown under our name) give a reference point: an ad that loses to a placebo is not better than the market, whatever its score says.
 
+What that looks like in a real run ([`examples/duolingo/simulation.json`](examples/duolingo/simulation.json), *simulated*):
+
+```json
+"talk_with_abuela_en_v1-b1746ff3": {
+  "lift_over_placebo": 3.5,
+  "intent": 3.875,
+  "views": 8,
+  "top_why_not": [
+    "the example in the picture is French and I need Spanish for family, so I'm not sure it fits me",
+    "that freezing up part is so me but I've been burned by apps before so I'm not sure it would really work",
+    "I like the abuela part but I'm worried I'll still freeze up and quit after a week like before"
+  ]
+}
+```
+
 The viewers see the pictures, ours and the competitors' (**$0.0138 per feed**). Answers are cached by the exact request, so a view is never paid twice. Simulated reactions only: whynot never claims to predict scroll behaviour or retention curves.
 
 ### 6 · Evolution: tournaments and a noise floor
@@ -153,6 +170,18 @@ same feeds replayed with a fresh draw  →  the gap between the two rankings = t
                     │
                     ▼
 a child is a winner only if it beats its parent by more than the floor, and the retest agrees
+```
+
+That objection is what the evolver answers next. From the same run's [`report.md`](examples/duolingo/report.md):
+
+```
+heritage_family_reconnector (en)
+Gen 1: changed layout → "review_card"  (answers "I've been burned by apps before…"
+       by quoting a real App Store review to build trust)
+Generation 1 vs generation 0: +1.12 (noise floor 0.99, retest +0.82) → better, beyond the noise (SIMULATED)
+
+busy_travel_school_career_beginner (en)
+Generation 1 vs generation 0: +0.64 (noise floor 1.31, retest +0.00) → within noise: no difference we can claim
 ```
 
 **Muse Spark** writes each mutation with a reason ("answers *I've been burned by apps before* by quoting a real App Store review"). The whole loop stays within a dollar budget and keeps the best so far.
@@ -180,22 +209,26 @@ a child is a winner only if it beats its parent by more than the floor, and the 
 <img src="docs/readme/validation.jpg" alt="whynot's validation page: what passes, what fails, what is not yet run" width="720">
 </div>
 
-| What | Result |
-|---|---|
-| Product pixels never invented (pixel guard, logged at creation) | **620/620** static ads, 0 pixels changed |
-| Evolution beats the noise (VietBuddy, 2 audiences) | gen 2 beats gen 0 beyond the floor in **2/2** (+3.89 vs floor 2.31; +3.46 vs 1.55), *simulated* |
-| Does the tournament find a real improvement? (fake world with a known better mutation, 60 seeds) | found in **92 %** of seeds, **7 %** false alarms |
-| Bias suite on the viewer agents (288 views, $1.06) | **flagged**: unknown brand name −0.47, emoji −0.30; not biased by copy length, label leak or position |
-| Does the simulator predict which competitor ads run long? (R3, 186 ads, 44 advertisers) | **No, not yet**: within-advertiser AUC **0.52** [0.44, 0.60]; a plain "shorter copy" rule gets 0.62. Shown on the site as a limit, never hidden |
-| Publishing on a real ad account | **3** campaigns created and read back with no issue (campaign, ad sets, static and video ads), all PAUSED, **€0** spent |
-| Full agency run on a real app: 127 competitor ads, 4 profiles, 24 variants simulated, 2 evolution rounds, a 12-ad capped plan | **6.5 min, $1.78** |
-| Total model spend for the whole hackathon (this machine, 10,243 billed calls) | **$69.75** |
+Every claim, the code that makes it true, the test that guards it, and where the number comes from. ✔ = recomputed by `whynot reproduce`.
 
-**Every number above is recomputed from the logs by one command, at $0:**
+| Claim | Result | Code | Test | Evidence |
+|---|---|---|---|---|
+| The product is never invented | **620/620** static ads, 0 pixels changed ✔ | [`create/guards.py`](src/whynot/create/guards.py) `product_pixels_unchanged` | [`test_composer_guards.py`](tests/test_composer_guards.py) `test_pixel_guard_catches_painted_product` | `guards` in every `variants.json`, e.g. [`examples/duolingo/variants.json`](examples/duolingo/variants.json) (36/36) |
+| Evolution beats the noise | gen 2 > gen 0 beyond the floor in **2/2** audiences (+3.89 vs 2.31; +3.46 vs 1.55), *simulated* ✔ | [`sim/tournament.py`](src/whynot/sim/tournament.py), `stage_evolve` in [`agency/create.py`](src/whynot/agency/create.py) | [`test_evolution_tournament.py`](tests/test_evolution_tournament.py) `test_a_gap_below_the_floor_is_never_called_an_improvement` | run log (partner data, not in git); same method in [`examples/duolingo/evolution.json`](examples/duolingo/evolution.json): 1 beyond the noise, 1 within |
+| The tournament finds real gains and rarely invents one | fake world, 60 seeds: **92 %** found, **7 %** false alarms ✔ | [`sim/tournament.py`](src/whynot/sim/tournament.py) | [`test_evolution_tournament.py`](tests/test_evolution_tournament.py) `test_evolution_finds_the_known_better_mutation_in_most_seeds`, `test_evolution_rarely_claims_an_improvement_that_is_not_there` | the test itself (a world where the right answer is known) |
+| The viewers' biases are measured | 288 views, $1.06: **flagged** unknown brand name −0.47, emoji −0.30; not copy length, label leak or position | [`validate/bias.py`](src/whynot/validate/bias.py), [`scripts/bias_suite.py`](scripts/bias_suite.py) | [`test_bias.py`](tests/test_bias.py) `test_a_planted_bias_is_caught`, `test_a_fair_simulator_is_rarely_flagged` | [`docs/ROADMAP.md`](docs/ROADMAP.md) E2-6 and [`docs/DECISIONS.md`](docs/DECISIONS.md) (Nov 1); recorded answers kept private (partner data) |
+| Does the simulator predict which competitor ads run long? | **No, not yet**: within-advertiser AUC **0.52** [0.44, 0.60]; "shorter copy" gets 0.62 ✔ | [`validate/longevity.py`](src/whynot/validate/longevity.py), [`scripts/r3_v1.py`](scripts/r3_v1.py) | [`test_reproduce.py`](tests/test_reproduce.py) `test_the_committed_r3_result_reproduces_from_a_clean_clone` | [`validate/results/r3-v1-apps-gb-v1.json`](validate/results/r3-v1-apps-gb-v1.json) (186 ads, 44 advertisers) |
+| Nothing goes live without the owner | 3 real-account campaigns created and read back, all PAUSED, **€0** ✔ | [`run/publish.py`](src/whynot/run/publish.py), [`run/autopilot.py`](src/whynot/run/autopilot.py), [`run/killswitch.py`](src/whynot/run/killswitch.py) | [`test_publish.py`](tests/test_publish.py) `test_without_the_owners_approval_nothing_is_created`; [`test_autopilot.py`](tests/test_autopilot.py) `test_cap_is_enforced_at_every_level`; [`test_killswitch.py`](tests/test_killswitch.py) | `publish.json` per run; [`examples/duolingo/publish.json`](examples/duolingo/publish.json): `needs_approval`, nothing created |
+| Tokens never stored | `access_token` stripped from every Ad Library URL | `strip_token` in [`ingest/adlibrary.py`](src/whynot/ingest/adlibrary.py) | [`test_adlibrary.py`](tests/test_adlibrary.py) `test_save_refuses_token`; [`test_export_example.py`](tests/test_export_example.py) | [`examples/duolingo/market_ads.jsonl`](examples/duolingo/market_ads.jsonl) |
+| Headlines that work on Meta | 30/30 weak headlines refused, 28/30 long-running competitor headlines pass | [`create/headlines.py`](src/whynot/create/headlines.py) | [`test_headlines.py`](tests/test_headlines.py) | the test data |
+| Every dollar is counted | **$69.75**, 10,243 billed calls, whole hackathon on this machine ✔ | [`models.py`](src/whynot/models.py) (one client), [`costs.py`](src/whynot/costs.py) | [`test_costs.py`](tests/test_costs.py), [`test_hardening.py`](tests/test_hardening.py) `test_unpriced_model_fails_before_the_call_is_made` | `costs.jsonl` per run, e.g. [`examples/duolingo/costs.jsonl`](examples/duolingo/costs.jsonl) (615 calls, $4.71) |
+| A full run is fast and cheap | research → plan, 127 competitor ads, 24 variants simulated, 2 evolution rounds: **6.5 min, $1.78** | [`agency/create.py`](src/whynot/agency/create.py) | [`test_create_pipeline.py`](tests/test_create_pipeline.py) (whole pipeline, recorded answers, no network) | run log (partner data, not in git) |
 
 ```bash
 uv run whynot reproduce        # 9 reproduced, 0 differ, 0 missing · $0 (no model call)
 ```
+
+On a fresh clone, the R3 result and the fake world reproduce from the repository alone; the others read run logs kept out of git (partner data), and say *missing* rather than invent a number. One complete run is in the repository: [**`examples/duolingo/`**](examples/duolingo/), every file the agency wrote, with a guide to follow one objection from a review to a better ad.
 
 Not done yet, and said so: the partner backtest (R1) and the live pilot wait for the design partner's data and approval; human agreement studies and a distilled student viewer were cut for time. The evolution result is the simulator's consistent preference, not proof about people.
 
@@ -263,6 +296,7 @@ src/whynot/
 video/            Remotion compositions (TypeScript)
 web/              the platform (Next.js)
 validate/results/ every validation result, as JSON
+examples/duolingo/ one complete agency run, every file it wrote (tokens and account ids redacted)
 docs/             product, architecture, targets, decisions, Meta APIs, demo script
 ```
 

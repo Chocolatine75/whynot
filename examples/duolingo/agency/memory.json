@@ -1,0 +1,38 @@
+{
+ "ads": {
+  "day-2026-11-04-1-babysitting_four_subjects_hell": {
+   "key": "day-2026-11-04-1-babysitting_four_subjects_hell",
+   "day": "2026-11-04",
+   "format": "wait_for_it",
+   "persona": "parent_learning_supporter",
+   "angle": "one_app_for_kids_subjects",
+   "hook": "babysitting one kid four homeworks",
+   "voice": "[shouts] bro I'm babysitting Milo and he has four homeworks at once! spanish math drums chess GO! one free app holds Spanish, math games, music, chess for kids. short, fun, streaks keep them coming back. free to download.",
+   "file": "day-2026-11-04-1-babysitting_four_subjects_hell.mp4",
+   "why": "explore: far from everything tried (distance 1.00)",
+   "parent": null,
+   "status": "proposed",
+   "meta_ad_id": null,
+   "launched": null,
+   "metrics": [],
+   "notes": []
+  },
+  "day-2026-11-04-2-sunday_call_uh_huh_hour": {
+   "key": "day-2026-11-04-2-sunday_call_uh_huh_hour",
+   "day": "2026-11-04",
+   "format": "unhinged_mascot",
+   "persona": "heritage_family_reconnector",
+   "angle": "talk_with_abuela",
+   "hook": "fake nodding on grandmas hour call",
+   "voice": "[shouts] Bà Nội's Sunday call's at an hour and I'm still going uh-huh! Con nói tiếng Việt với bà đi! [groans] dạ... dạ... con — uhhh Duolingo does quick bites for real family talk free to download",
+   "file": "day-2026-11-04-2-sunday_call_uh_huh_hour.mp4",
+   "why": "explore: far from everything tried (distance 1.00)",
+   "parent": null,
+   "status": "proposed",
+   "meta_ad_id": null,
+   "launched": null,
+   "metrics": [],
+   "notes": []
+  }
+ }
+}

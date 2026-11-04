@@ -35,7 +35,7 @@ Principle: **agents decide, code composes, the simulator judges, reality calibra
 | Strategist | Strategy and personas over the whole corpus | Muse Wonder |
 | Creative director | Writes templates (concepts + genomes), decides mutations | Muse Spark |
 | Producer | Builds variants via the composer, asks Muse Image for scenes | code, Muse Image, SAM 3.1 |
-| Audience | Viewer agents in the simulated feed | Muse Spark Open (teacher), distilled student |
+| Audience | Viewer agents in the simulated feed | Muse Spark (production runs), Muse Spark Open (validation runs), one setting apart; distilled student: cut for time |
 | Analyst | Reads reactions, runs counterfactuals, explains why | Muse Spark, SAM 3.1 |
 | Media buyer | Publishes, monitors, pauses, rotates — within caps | Ads MCP / Marketing API |
 | Account manager | Weekly report, approvals, owner questions | Muse Spark |

@@ -1,0 +1,102 @@
+id: experts_behind_the_game_en_v1
+concept: Camera zooms past the mascot into the lesson anatomy that parents can trust.
+persona: parent_learning_supporter
+objection: ai_quality_trust_doubts
+evidence:
+  angle: experts_behind_the_game
+  refs:
+  - store
+  - store
+  claims:
+  - designed_by_learning_experts
+  - four_skills_practice
+  - travel_school_career_brain_health
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_2.png
+    second: screen_3.png
+  language: en
+  content:
+    review:
+      text: Óscar es bueno jugando ajedrez y ya que estamos aquí alguien me ayuda
+        salir del sótano de Duolingo es que no hice su racha por un día ⏱️
+      rating: 5
+      review: '14744576031'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+    objection:
+      text: I have heard the lessons now use AI and contain grammar or voice problems
+      objection: ai_quality_trust_doubts
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  proof:
+  - rating
+  body:
+  - short
+  - story
+  title:
+  - main
+  cta:
+  - INSTALL_MOBILE_APP
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - before_after
+  - big_number
+  - benefits
+  - big_question
+  - comparison
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: Fun enough to stick with?
+    bold_claim: Designed by learning experts
+  body:
+    short: Lessons are designed by learning experts. Peek inside a real exercise that
+      blends speaking, writing, reading plus listening to shape words and grammar.
+    story: Behind the playful look is careful structure. Each session builds words
+      and grammar for use in travel, school, career or brain health.
+  title:
+    main: Expert-Designed Fun Lessons
+  proof:
+    rating: Lessons by learning experts
+  cta:
+    INSTALL_MOBILE_APP: Try A Lesson
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible

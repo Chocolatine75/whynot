@@ -1,0 +1,254 @@
+{
+  "api_version": "v26.0",
+  "objective": "app_promotion",
+  "account": "act_{AD_ACCOUNT_ID}",
+  "campaign": {
+    "name": "whynot · Duolingo: Learn Languages",
+    "objective": "OUTCOME_APP_PROMOTION",
+    "status": "PAUSED",
+    "buying_type": "AUCTION",
+    "special_ad_categories": [],
+    "is_adset_budget_sharing_enabled": false
+  },
+  "ad_sets": [
+    {
+      "ref": "adset_0",
+      "name": "Profile 1 · US · 25-44",
+      "campaign_id": "{campaign}",
+      "status": "PAUSED",
+      "daily_budget": 500,
+      "billing_event": "IMPRESSIONS",
+      "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+      "targeting": {
+        "geo_locations": {
+          "countries": [
+            "US"
+          ]
+        },
+        "age_min": 25,
+        "age_max": 44,
+        "user_os": [
+          "iOS"
+        ],
+        "publisher_platforms": [
+          "facebook",
+          "instagram"
+        ],
+        "targeting_automation": {
+          "advantage_audience": 0
+        }
+      },
+      "optimization_goal": "APP_INSTALLS",
+      "promoted_object": {
+        "application_id": "{META_APP_ID}",
+        "object_store_url": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+      }
+    },
+    {
+      "ref": "adset_1",
+      "name": "Profile 2 · US · 18-34",
+      "campaign_id": "{campaign}",
+      "status": "PAUSED",
+      "daily_budget": 500,
+      "billing_event": "IMPRESSIONS",
+      "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+      "targeting": {
+        "geo_locations": {
+          "countries": [
+            "US"
+          ]
+        },
+        "age_min": 18,
+        "age_max": 34,
+        "user_os": [
+          "iOS"
+        ],
+        "publisher_platforms": [
+          "facebook",
+          "instagram"
+        ],
+        "targeting_automation": {
+          "advantage_audience": 0
+        }
+      },
+      "optimization_goal": "APP_INSTALLS",
+      "promoted_object": {
+        "application_id": "{META_APP_ID}",
+        "object_store_url": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+      }
+    }
+  ],
+  "creatives": [
+    {
+      "ref": "creative_talk_with_abuela_en_v1-602774dc",
+      "name": "talk_with_abuela_en_v1-602774dc",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/talk_with_abuela_en_v1-602774dc.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "One reviewer said Duolingo helped them talk with their abuela better. Short practice gets you ready for real conversations, with speaking and listening steps you repeat each day.",
+          "name": "Learn For Family Conversations",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    },
+    {
+      "ref": "creative_talk_with_abuela_en_v1-e708985c",
+      "name": "talk_with_abuela_en_v1-e708985c",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/talk_with_abuela_en_v1-e708985c.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "She knew a few words, not the whole chat. Quick lessons designed by learning experts practice speaking, listening, reading and writing to build vocabulary and grammar to help prepare for real conversations at home.",
+          "name": "Learn For Family Conversations",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    },
+    {
+      "ref": "creative_say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+      "name": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/say_a_full_sentence_not_flashcards_en_v1-a37e7d7b.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+          "name": "Say A Sentence From Lesson One",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    },
+    {
+      "ref": "creative_say_a_full_sentence_not_flashcards_en_v1-8689065e",
+      "name": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/say_a_full_sentence_not_flashcards_en_v1-8689065e.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+          "name": "Say A Sentence From Lesson One",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    },
+    {
+      "ref": "creative_free_start_no_fine_print_claims_en_v1-602c7de5",
+      "name": "free_start_no_fine_print_claims_en_v1-602c7de5",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/free_start_no_fine_print_claims_en_v1-602c7de5.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "Every course is free. Open the app and try a quick, bite-sized lesson in 40+ languages. Super Duolingo can be tried for 14 days free for those who want an optional upgrade.",
+          "name": "Every Course Is Free",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    },
+    {
+      "ref": "creative_free_start_no_fine_print_claims_en_v1-040173f5",
+      "name": "free_start_no_fine_print_claims_en_v1-040173f5",
+      "object_story_spec": {
+        "page_id": "{PAGE_ID}",
+        "link_data": {
+          "image_hash": "{image:ads/free_start_no_fine_print_claims_en_v1-040173f5.png}",
+          "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+          "message": "Every course is free. Learn 40+ languages through quick, bite-sized lessons. Super Duolingo is optional and can be tried for 14 days free.",
+          "name": "Every Course Is Free",
+          "call_to_action": {
+            "type": "INSTALL_MOBILE_APP",
+            "value": {
+              "link": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ads": [
+    {
+      "ref": "ad_talk_with_abuela_en_v1-602774dc",
+      "name": "talk_with_abuela_en_v1-602774dc",
+      "adset_id": "{adset_0}",
+      "creative": {
+        "creative_id": "{creative_talk_with_abuela_en_v1-602774dc}"
+      },
+      "status": "PAUSED"
+    },
+    {
+      "ref": "ad_talk_with_abuela_en_v1-e708985c",
+      "name": "talk_with_abuela_en_v1-e708985c",
+      "adset_id": "{adset_0}",
+      "creative": {
+        "creative_id": "{creative_talk_with_abuela_en_v1-e708985c}"
+      },
+      "status": "PAUSED"
+    },
+    {
+      "ref": "ad_say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+      "name": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+      "adset_id": "{adset_1}",
+      "creative": {
+        "creative_id": "{creative_say_a_full_sentence_not_flashcards_en_v1-a37e7d7b}"
+      },
+      "status": "PAUSED"
+    },
+    {
+      "ref": "ad_say_a_full_sentence_not_flashcards_en_v1-8689065e",
+      "name": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+      "adset_id": "{adset_1}",
+      "creative": {
+        "creative_id": "{creative_say_a_full_sentence_not_flashcards_en_v1-8689065e}"
+      },
+      "status": "PAUSED"
+    },
+    {
+      "ref": "ad_free_start_no_fine_print_claims_en_v1-602c7de5",
+      "name": "free_start_no_fine_print_claims_en_v1-602c7de5",
+      "adset_id": "{adset_1}",
+      "creative": {
+        "creative_id": "{creative_free_start_no_fine_print_claims_en_v1-602c7de5}"
+      },
+      "status": "PAUSED"
+    },
+    {
+      "ref": "ad_free_start_no_fine_print_claims_en_v1-040173f5",
+      "name": "free_start_no_fine_print_claims_en_v1-040173f5",
+      "adset_id": "{adset_1}",
+      "creative": {
+        "creative_id": "{creative_free_start_no_fine_print_claims_en_v1-040173f5}"
+      },
+      "status": "PAUSED"
+    }
+  ],
+  "currency_note": "daily_budget is in the ad account's minor units (cents for EUR)"
+}

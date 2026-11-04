@@ -1,0 +1,1910 @@
+[
+  {
+    "variant_id": "experts_behind_the_game_en_v1-a47cb9ce",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "before_after",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/experts_behind_the_game_en_v1-a47cb9ce.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-a47cb9ce.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Designed by learning experts",
+      "body": "Behind the playful look is careful structure. Each session builds words and grammar for use in travel, school, career or brain health.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-eb504af3",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/experts_behind_the_game_en_v1-eb504af3.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-eb504af3.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Fun enough to stick with?",
+      "body": "Lessons are designed by learning experts. Peek inside a real exercise that blends speaking, writing, reading plus listening to shape words and grammar.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-7c2635b2",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "benefits",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/experts_behind_the_game_en_v1-7c2635b2.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-7c2635b2.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Fun enough to stick with?",
+      "body": "Behind the playful look is careful structure. Each session builds words and grammar for use in travel, school, career or brain health.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-ce8631fa",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "rising",
+      "decor": "circle",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/experts_behind_the_game_en_v1-ce8631fa.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "605346 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-ce8631fa.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Designed by learning experts",
+      "body": "Behind the playful look is careful structure. Each session builds words and grammar for use in travel, school, career or brain health.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-a47cb9ce",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "before_after",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/free_start_no_fine_print_claims_en_v1-a47cb9ce.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-a47cb9ce.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Every course is free to start",
+      "body": "No mystery here. Pick a language and start a tiny first session today, with a trial of Super available for 14 days free if you want more.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Install App Free"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/free_start_no_fine_print_claims_en_v1-eb504af3.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-eb504af3.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "What does free actually include?",
+      "body": "Every course is free. Open the app and try a quick, bite-sized lesson in 40+ languages. Super Duolingo can be tried for 14 days free for those who want an optional upgrade.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Install App Free"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-7c2635b2",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "benefits",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/free_start_no_fine_print_claims_en_v1-7c2635b2.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-7c2635b2.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "What does free actually include?",
+      "body": "No mystery here. Pick a language and start a tiny first session today, with a trial of Super available for 14 days free if you want more.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Install App Free"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-3b29d510",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "LEARN_MORE",
+      "layout": "rising",
+      "decor": "circle",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/free_start_no_fine_print_claims_en_v1-3b29d510.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "605346 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-3b29d510.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Every course is free to start",
+      "body": "No mystery here. Pick a language and start a tiny first session today, with a trial of Super available for 14 days free if you want more.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Learn More"
+    }
+  },
+  {
+    "variant_id": "not_just_languages_chess_en_v1-ba1ebb3e",
+    "template_id": "not_just_languages_chess_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "DOWNLOAD",
+      "layout": "big_number",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/not_just_languages_chess_en_v1-ba1ebb3e.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "304906 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/not_just_languages_chess_en_v1-ba1ebb3e.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Now learn chess the playful way",
+      "body": "Curious but never moved a pawn? Start with simple moves and grow toward full matches, all in a playful lesson style.",
+      "title": "Learn Chess From Zero",
+      "proof": "Beginner to level-up chess",
+      "cta": "Get Chess Free"
+    }
+  },
+  {
+    "variant_id": "not_just_languages_chess_en_v1-fdcd2ac9",
+    "template_id": "not_just_languages_chess_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "invite",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "DOWNLOAD",
+      "layout": "big_number",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/not_just_languages_chess_en_v1-fdcd2ac9.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "498766 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/not_just_languages_chess_en_v1-fdcd2ac9.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "From first moves to full matches",
+      "body": "Curious but never moved a pawn? Start with simple moves and grow toward full matches, all in a playful lesson style.",
+      "title": "Learn Chess From Zero",
+      "proof": "Beginner to level-up chess",
+      "cta": "Get Chess Free"
+    }
+  },
+  {
+    "variant_id": "not_just_languages_chess_en_v1-99c8359a",
+    "template_id": "not_just_languages_chess_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "invite",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "DOWNLOAD",
+      "layout": "benefits",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/not_just_languages_chess_en_v1-99c8359a.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/not_just_languages_chess_en_v1-99c8359a.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "From first moves to full matches",
+      "body": "Curious but never moved a pawn? Start with simple moves and grow toward full matches, all in a playful lesson style.",
+      "title": "Learn Chess From Zero",
+      "proof": "Beginner to level-up chess",
+      "cta": "Get Chess Free"
+    }
+  },
+  {
+    "variant_id": "not_just_languages_chess_en_v1-c6e938d7",
+    "template_id": "not_just_languages_chess_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "invite",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "DOWNLOAD",
+      "layout": "two_screens",
+      "decor": "none",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/not_just_languages_chess_en_v1-c6e938d7.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "380072 opaque product pixels identical (+1 more screen)"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/not_just_languages_chess_en_v1-c6e938d7.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "From first moves to full matches",
+      "body": "Curious but never moved a pawn? Start with simple moves and grow toward full matches, all in a playful lesson style.",
+      "title": "Learn Chess From Zero",
+      "proof": "Beginner to level-up chess",
+      "cta": "Get Chess Free"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-a47cb9ce",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "before_after",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-a47cb9ce.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-a47cb9ce.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "One short lesson, one real sentence",
+      "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Hear it, say it, write it",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "confession",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "bold_text",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-8689065e.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "316646 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-8689065e.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Stop memorizing, start saying it",
+      "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Hear it, say it, write it",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-b1746ff3",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "none",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-b1746ff3.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-b1746ff3.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "One short lesson, one real sentence",
+      "body": "Duolingo is a free app for learning 40+ languages through quick, bite-sized lessons. Hear, say and write each phrase aloud, then use it to get ready for real conversations.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Hear it, say it, write it",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-8825066d",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "split",
+      "decor": "none",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-8825066d.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "387524 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-8825066d.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "One short lesson, one real sentence",
+      "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Hear it, say it, write it",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-a47cb9ce",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "before_after",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/talk_with_abuela_en_v1-a47cb9ce.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-a47cb9ce.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "She knew a few words, not the whole chat. Daily bites grow words and grammar across hearing, saying, reading and typing, toward full sentences shared at home.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-ad650fd6",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "portrait",
+      "hook": "warm_line",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "bold_text",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/talk_with_abuela_en_v1-ad650fd6.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "316646 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-ad650fd6.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Small lessons for longer phone calls",
+      "body": "She knew a few words, not the whole chat. Daily bites grow words and grammar across hearing, saying, reading and typing, toward full sentences shared at home.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-b1746ff3",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "none",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/talk_with_abuela_en_v1-b1746ff3.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-b1746ff3.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "One reviewer said Duolingo helped them talk with their abuela better. Short practice gets you ready for real conversations, with speaking and listening steps you repeat each day.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-8825066d",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "split",
+      "decor": "none",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/talk_with_abuela_en_v1-8825066d.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "387524 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-8825066d.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "She knew a few words, not the whole chat. Daily bites grow words and grammar across hearing, saying, reading and typing, toward full sentences shared at home.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "your_goal_your_pace_en_v1-6d1d3192",
+    "template_id": "your_goal_your_pace_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "USE_APP",
+      "layout": "before_after",
+      "decor": "circle",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/your_goal_your_pace_en_v1-6d1d3192.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/your_goal_your_pace_en_v1-6d1d3192.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Set a goal, follow your pace",
+      "body": "Starting fresh feels easier self-paced. You set the target, follow it gently, and enjoy small wins as you move forward.",
+      "title": "Learn At Your Own Pace",
+      "proof": "Rewards that mark progress",
+      "cta": "Set My Goal"
+    }
+  },
+  {
+    "variant_id": "your_goal_your_pace_en_v1-9c0c8545",
+    "template_id": "your_goal_your_pace_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "none",
+      "body": "short",
+      "title": "main",
+      "cta": "USE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/your_goal_your_pace_en_v1-9c0c8545.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/your_goal_your_pace_en_v1-9c0c8545.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Want learning without the pressure?",
+      "body": "Choose a goal that fits a busy day. Learners can track progress and work toward goals with playful rewards and achievements, in languages, chess, math or music.",
+      "title": "Learn At Your Own Pace",
+      "proof": "",
+      "cta": "Set My Goal"
+    }
+  },
+  {
+    "variant_id": "your_goal_your_pace_en_v1-017c553f",
+    "template_id": "your_goal_your_pace_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "none",
+      "body": "story",
+      "title": "main",
+      "cta": "USE_APP",
+      "layout": "benefits",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/your_goal_your_pace_en_v1-017c553f.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/your_goal_your_pace_en_v1-017c553f.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Want learning without the pressure?",
+      "body": "Starting fresh feels easier self-paced. You set the target, follow it gently, and enjoy small wins as you move forward.",
+      "title": "Learn At Your Own Pace",
+      "proof": "",
+      "cta": "Set My Goal"
+    }
+  },
+  {
+    "variant_id": "your_goal_your_pace_en_v1-34d75a84",
+    "template_id": "your_goal_your_pace_en_v1",
+    "persona": "chess_math_music_curious",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "none",
+      "body": "story",
+      "title": "main",
+      "cta": "USE_APP",
+      "layout": "rising",
+      "decor": "circle",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 0,
+    "image": "ads/your_goal_your_pace_en_v1-34d75a84.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "647346 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/your_goal_your_pace_en_v1-34d75a84.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Set a goal, follow your pace",
+      "body": "Starting fresh feels easier self-paced. You set the target, follow it gently, and enjoy small wins as you move forward.",
+      "title": "Learn At Your Own Pace",
+      "proof": "",
+      "cta": "Set My Goal"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-8d597389",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "body_g1_b1746f_0",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "none",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "talk_with_abuela_en_v1-b1746ff3",
+    "mutation": {
+      "gene": "body",
+      "text": "One reviewer said Duolingo helped them talk with their abuela better. Duolingo is a free app for learning 40+ languages through quick, bite-sized lessons that help learners prepare for real conversations.",
+      "why": "Answers 'I need Spanish for family, so I'm not sure it fits me' by stating 40+ languages and preparation for real conversations to show family language fit."
+    },
+    "image": "ads/talk_with_abuela_en_v1-8d597389.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-8d597389.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "One reviewer said Duolingo helped them talk with their abuela better. Duolingo is a free app for learning 40+ languages through quick, bite-sized lessons that help learners prepare for real conversations.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-602774dc",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "portrait",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "review_card",
+      "decor": "none",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "talk_with_abuela_en_v1-b1746ff3",
+    "mutation": {
+      "gene": "layout",
+      "text": "review_card",
+      "why": "Answers 'I've been burned by apps before so I'm not sure it would really work' by quoting a real App Store review to build trust."
+    },
+    "image": "ads/talk_with_abuela_en_v1-602774dc.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "426826 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-602774dc.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "One reviewer said Duolingo helped them talk with their abuela better. Short practice gets you ready for real conversations, with speaking and listening steps you repeat each day.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-e708985c",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "body_g1_882506_0",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "split",
+      "decor": "none",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "talk_with_abuela_en_v1-8825066d",
+    "mutation": {
+      "gene": "body",
+      "text": "She knew a few words, not the whole chat. Quick lessons designed by learning experts practice speaking, listening, reading and writing to build vocabulary and grammar to help prepare for real conversations at home.",
+      "why": "Answers 'didn't really get me talking for real' by replacing vague progress with verified prepare-for-real-conversations plus experts and 4-skill practice."
+    },
+    "image": "ads/talk_with_abuela_en_v1-e708985c.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "387524 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-e708985c.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "She knew a few words, not the whole chat. Quick lessons designed by learning experts practice speaking, listening, reading and writing to build vocabulary and grammar to help prepare for real conversations at home.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "talk_with_abuela_en_v1-ab66d7fb",
+    "template_id": "talk_with_abuela_en_v1",
+    "persona": "heritage_family_reconnector",
+    "genome": {
+      "format": "square",
+      "hook": "bold_claim",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "before_after",
+      "decor": "none",
+      "style": "light"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "talk_with_abuela_en_v1-8825066d",
+    "mutation": {
+      "gene": "layout",
+      "text": "before_after",
+      "why": "Answers 'looks like every other free app ad and I'm not sure it'll get me past a few words' by showing the objection of only a few words then the answer of real kitchen-table talk, keeping the same co"
+    },
+    "image": "ads/talk_with_abuela_en_v1-ab66d7fb.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "301546 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/talk_with_abuela_en_v1-ab66d7fb.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Practice for the kitchen table talk",
+      "body": "She knew a few words, not the whole chat. Daily bites grow words and grammar across hearing, saying, reading and typing, toward full sentences shared at home.",
+      "title": "Learn For Family Conversations",
+      "proof": "Helped talk with abuela better",
+      "cta": "Start Learning Free"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-0a33baa6",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "confession",
+      "proof": "rating",
+      "body": "body_g1_868906_0",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "bold_text",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+    "mutation": {
+      "gene": "body",
+      "text": "That pause at the counter is familiar. Quick, bite-sized lessons help prepare for real conversations, and you can track progress toward goals with playful rewards.",
+      "why": "Answers skepticism about sticking with it by showing progress tracking with playful rewards and quick lessons that fit a busy routine"
+    },
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-0a33baa6.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "316646 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-0a33baa6.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Stop memorizing, start saying it",
+      "body": "That pause at the counter is familiar. Quick, bite-sized lessons help prepare for real conversations, and you can track progress toward goals with playful rewards.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Hear it, say it, write it",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+    "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "confession",
+      "proof": "proof_g1_868906_1",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "bold_text",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+    "mutation": {
+      "gene": "proof",
+      "text": "Track progress with playful rewards",
+      "why": "Answers skepticism about sticking with it by making continued progress and rewards visible on the image"
+    },
+    "image": "ads/say_a_full_sentence_not_flashcards_en_v1-a37e7d7b.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "316646 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "2 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/say_a_full_sentence_not_flashcards_en_v1-a37e7d7b.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Stop memorizing, start saying it",
+      "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+      "title": "Say A Sentence From Lesson One",
+      "proof": "Track progress with playful rewards",
+      "cta": "Install Free App"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-602c7de5",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "hook_g1_eb504a_0",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+    "mutation": {
+      "gene": "hook",
+      "text": "Every course is free. Start learning now",
+      "why": "Answers 'feels like theres a catch' from the hook asking what free includes by stating plainly that every course is free"
+    },
+    "image": "ads/free_start_no_fine_print_claims_en_v1-602c7de5.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-602c7de5.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Every course is free. Start learning now",
+      "body": "Every course is free. Open the app and try a quick, bite-sized lesson in 40+ languages. Super Duolingo can be tried for 14 days free for those who want an optional upgrade.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Install App Free"
+    }
+  },
+  {
+    "variant_id": "free_start_no_fine_print_claims_en_v1-040173f5",
+    "template_id": "free_start_no_fine_print_claims_en_v1",
+    "persona": "busy_travel_school_career_beginner",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "body_g1_eb504a_1",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+    "mutation": {
+      "gene": "body",
+      "text": "Every course is free. Learn 40+ languages through quick, bite-sized lessons. Super Duolingo is optional and can be tried for 14 days free.",
+      "why": "Answers confusion about what is actually free vs what needs Super by separating the free courses from the optional Super trial"
+    },
+    "image": "ads/free_start_no_fine_print_claims_en_v1-040173f5.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/free_start_no_fine_print_claims_en_v1-040173f5.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "What does free actually include?",
+      "body": "Every course is free. Learn 40+ languages through quick, bite-sized lessons. Super Duolingo is optional and can be tried for 14 days free.",
+      "title": "Every Course Is Free",
+      "proof": "Free app, 40+ languages",
+      "cta": "Install App Free"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-54c8ae12",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "hook_g1_7c2635_0",
+      "proof": "rating",
+      "body": "story",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "benefits",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "experts_behind_the_game_en_v1-7c2635b2",
+    "mutation": {
+      "gene": "hook",
+      "text": "One free app for languages, math, music and chess",
+      "why": "No stated objection, viewers just preferred other ads; parent target wants one fun app across languages, math, music and chess, so hook makes breadth and free immediately visible."
+    },
+    "image": "ads/experts_behind_the_game_en_v1-54c8ae12.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-54c8ae12.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "One free app for languages, math, music and chess",
+      "body": "Behind the playful look is careful structure. Each session builds words and grammar for use in travel, school, career or brain health.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-04f0a805",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "body_g1_7c2635_1",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "benefits",
+      "decor": "diagonal",
+      "style": "shape"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "experts_behind_the_game_en_v1-7c2635b2",
+    "mutation": {
+      "gene": "body",
+      "text": "Beyond languages, try math that feels like a game, reading music with no instrument needed, and chess for total beginners. Quick, bite-sized lessons with playful rewards and achievements.",
+      "why": "No stated objection, viewers just preferred other ads; body answers parent need for expert-designed variety kids will enjoy by naming verified math, music and chess benefits plus playful rewards."
+    },
+    "image": "ads/experts_behind_the_game_en_v1-04f0a805.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-04f0a805.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Fun enough to stick with?",
+      "body": "Beyond languages, try math that feels like a game, reading music with no instrument needed, and chess for total beginners. Quick, bite-sized lessons with playful rewards and achievements.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-d5f9905b",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "body_g1_eb504a_0",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "comparison",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "experts_behind_the_game_en_v1-eb504af3",
+    "mutation": {
+      "gene": "body",
+      "text": "Lessons are designed by learning experts and practice speaking, reading, listening and writing to build vocabulary and grammar skills and help prepare for real conversations.",
+      "why": "Answers 'not sure if it's actually solid or just gimmicky' and grammar worry by naming the expert design and the four-skill anatomy that builds vocabulary and grammar for real conversations."
+    },
+    "image": "ads/experts_behind_the_game_en_v1-d5f9905b.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "480286 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "3 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-d5f9905b.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Fun enough to stick with?",
+      "body": "Lessons are designed by learning experts and practice speaking, reading, listening and writing to build vocabulary and grammar skills and help prepare for real conversations.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  },
+  {
+    "variant_id": "experts_behind_the_game_en_v1-974e8b1d",
+    "template_id": "experts_behind_the_game_en_v1",
+    "persona": "parent_learning_supporter",
+    "genome": {
+      "format": "portrait",
+      "hook": "question",
+      "proof": "rating",
+      "body": "short",
+      "title": "main",
+      "cta": "INSTALL_MOBILE_APP",
+      "layout": "benefits",
+      "decor": "panel",
+      "style": "brand"
+    },
+    "language": "en",
+    "generation": 1,
+    "parent_id": "experts_behind_the_game_en_v1-eb504af3",
+    "mutation": {
+      "gene": "layout",
+      "text": "benefits",
+      "why": "Answers 'not sure if it's actually solid or just gimmicky' by switching from comparison to three verified benefits with ticks, making the expert-designed lesson anatomy parents can trust easier to sca"
+    },
+    "image": "ads/experts_behind_the_game_en_v1-974e8b1d.png",
+    "guards": {
+      "brand_palette": {
+        "name": "brand_palette",
+        "passed": true,
+        "detail": "all colours from the brand palette"
+      },
+      "policy_safe": {
+        "name": "policy_safe",
+        "passed": true,
+        "detail": "rule-based check passed"
+      },
+      "product_pixels_unchanged": {
+        "name": "product_pixels_unchanged",
+        "passed": true,
+        "detail": "351388 opaque product pixels identical"
+      },
+      "text_legible": {
+        "name": "text_legible",
+        "passed": true,
+        "detail": "5 text elements legible"
+      }
+    },
+    "guards_passed": true,
+    "story_image": "ads/experts_behind_the_game_en_v1-974e8b1d.story.png",
+    "story_guards_passed": true,
+    "texts": {
+      "hook": "Fun enough to stick with?",
+      "body": "Lessons are designed by learning experts. Peek inside a real exercise that blends speaking, writing, reading plus listening to shape words and grammar.",
+      "title": "Expert-Designed Fun Lessons",
+      "proof": "Lessons by learning experts",
+      "cta": "Try A Lesson"
+    }
+  }
+]

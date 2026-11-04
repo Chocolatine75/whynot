@@ -1,0 +1,109 @@
+id: say_a_full_sentence_not_flashcards_en_v1
+concept: A nervous traveler turns a three-minute lesson into one spoken sentence at
+  a cafe counter.
+persona: busy_travel_school_career_beginner
+objection: memorize_but_cannot_speak
+evidence:
+  angle: say_a_full_sentence_not_flashcards
+  refs:
+  - ad:1786616109275129
+  - store
+  claims:
+  - free_40_plus_languages_bite_sized
+  - four_skills_practice
+  - prepare_for_real_conversations
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_4.png
+    second: screen_5.png
+  language: en
+  content:
+    review:
+      text: Óscar es bueno jugando ajedrez y ya que estamos aquí alguien me ayuda
+        salir del sótano de Duolingo es que no hice su racha por un día ⏱️
+      rating: 5
+      review: '14744576031'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+    objection:
+      text: I will memorize words for months and still freeze when I have to speak
+        to a real person.
+      objection: memorize_but_cannot_speak
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  - confession
+  proof:
+  - rating
+  - none
+  body:
+  - short
+  - story
+  title:
+  - main
+  cta:
+  - INSTALL_MOBILE_APP
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - before_after
+  - big_number
+  - benefits
+  - big_question
+  - comparison
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: Blanked on hello abroad before?
+    bold_claim: One short lesson, one real sentence
+    confession: Stop memorizing, start saying it
+  body:
+    short: Duolingo is a free app for learning 40+ languages through quick, bite-sized
+      lessons. Hear, say and write each phrase aloud, then use it to get ready for
+      real conversations.
+    story: That pause at the counter is familiar. A small lesson lets you listen first,
+      speak next, and type after, so a complete sentence is ready when you need it.
+  title:
+    main: Say A Sentence From Lesson One
+  proof:
+    rating: Hear it, say it, write it
+    none: ''
+  cta:
+    INSTALL_MOBILE_APP: Install Free App
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible

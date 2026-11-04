@@ -1,0 +1,118 @@
+{
+  "name": "whynot · Duolingo: Learn Languages",
+  "app_name": "Duolingo: Learn Languages",
+  "store_url": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+  "daily_cap_eur": 10.0,
+  "ad_sets": [
+    {
+      "name": "Profile 1 · US · 25-44",
+      "audience": {
+        "persona": "heritage_family_reconnector.en",
+        "name": "Heritage family reconnector",
+        "countries": [
+          "US"
+        ],
+        "age_min": 25,
+        "age_max": 44,
+        "gender": "all"
+      },
+      "daily_budget_eur": 5.0,
+      "ads": [
+        {
+          "variant_id": "talk_with_abuela_en_v1-602774dc",
+          "template_id": "talk_with_abuela_en_v1",
+          "persona": "heritage_family_reconnector.en",
+          "image_path": "ads/talk_with_abuela_en_v1-602774dc.png",
+          "headline_on_image": "Practice for the kitchen table talk",
+          "body": "One reviewer said Duolingo helped them talk with their abuela better. Short practice gets you ready for real conversations, with speaking and listening steps you repeat each day.",
+          "title": "Learn For Family Conversations",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 102.5341
+        },
+        {
+          "variant_id": "talk_with_abuela_en_v1-e708985c",
+          "template_id": "talk_with_abuela_en_v1",
+          "persona": "heritage_family_reconnector.en",
+          "image_path": "ads/talk_with_abuela_en_v1-e708985c.png",
+          "headline_on_image": "Practice for the kitchen table talk",
+          "body": "She knew a few words, not the whole chat. Quick lessons designed by learning experts practice speaking, listening, reading and writing to build vocabulary and grammar to help prepare for real conversations at home.",
+          "title": "Learn For Family Conversations",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 102.5341
+        }
+      ]
+    },
+    {
+      "name": "Profile 2 · US · 18-34",
+      "audience": {
+        "persona": "busy_travel_school_career_beginner.en",
+        "name": "Busy travel, school and career beginner",
+        "countries": [
+          "US"
+        ],
+        "age_min": 18,
+        "age_max": 34,
+        "gender": "all"
+      },
+      "daily_budget_eur": 5.0,
+      "ads": [
+        {
+          "variant_id": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+          "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+          "persona": "busy_travel_school_career_beginner.en",
+          "image_path": "ads/say_a_full_sentence_not_flashcards_en_v1-a37e7d7b.png",
+          "headline_on_image": "Stop memorizing, start saying it",
+          "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+          "title": "Say A Sentence From Lesson One",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 102.9059
+        },
+        {
+          "variant_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+          "template_id": "say_a_full_sentence_not_flashcards_en_v1",
+          "persona": "busy_travel_school_career_beginner.en",
+          "image_path": "ads/say_a_full_sentence_not_flashcards_en_v1-8689065e.png",
+          "headline_on_image": "Stop memorizing, start saying it",
+          "body": "That pause at the counter is familiar. A small lesson lets you listen first, speak next, and type after, so a complete sentence is ready when you need it.",
+          "title": "Say A Sentence From Lesson One",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 102.2707
+        },
+        {
+          "variant_id": "free_start_no_fine_print_claims_en_v1-602c7de5",
+          "template_id": "free_start_no_fine_print_claims_en_v1",
+          "persona": "busy_travel_school_career_beginner.en",
+          "image_path": "ads/free_start_no_fine_print_claims_en_v1-602c7de5.png",
+          "headline_on_image": "Every course is free. Start learning now",
+          "body": "Every course is free. Open the app and try a quick, bite-sized lesson in 40+ languages. Super Duolingo can be tried for 14 days free for those who want an optional upgrade.",
+          "title": "Every Course Is Free",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 99.6242
+        },
+        {
+          "variant_id": "free_start_no_fine_print_claims_en_v1-040173f5",
+          "template_id": "free_start_no_fine_print_claims_en_v1",
+          "persona": "busy_travel_school_career_beginner.en",
+          "image_path": "ads/free_start_no_fine_print_claims_en_v1-040173f5.png",
+          "headline_on_image": "What does free actually include?",
+          "body": "Every course is free. Learn 40+ languages through quick, bite-sized lessons. Super Duolingo is optional and can be tried for 14 days free.",
+          "title": "Every Course Is Free",
+          "cta": "INSTALL_MOBILE_APP",
+          "guards_passed": true,
+          "sim_score": 99.3681
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "cap €10.00/day funds 2 ad set(s) at €5 minimum; dropped: ['parent_learning_supporter.en', 'chess_math_music_curious.en']",
+    "budget split evenly: simulated scores rank ads but do not move money before real results"
+  ],
+  "daily_total_eur": 10.0,
+  "errors": []
+}

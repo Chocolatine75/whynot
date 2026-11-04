@@ -48,7 +48,7 @@ Positioning: *the marketing team of a much bigger brand, for the price of an app
 4. **Personas.** Built from real reach breakdowns × customer segments × objections (e.g. "F 25–34 FR, short on time, doubts it works for her").
 5. **Create.** ~10 templates: distinct concepts, each tied to a persona/objection and backed by evidence, each with a genome.
 6. **Produce.** Deterministic assembly of statics and short videos from genes. Product/app screen = SAM 3.1 cutout, never generated. Scenes and first frames from Muse Image.
-7. **Test.** A feed = the candidate + N real competitor ads from the same market. Viewer agents (Muse Spark Open, sees images/video + transcript) react per ad: hook noticed (first frame / first 2 s), message understood, believed, objection ("why not"), purchase intent (free text → SSR distribution), preferred ad in the feed. Aggregated per persona.
+7. **Test.** A feed = the candidate + N real competitor ads from the same market. Viewer agents (Muse Spark or Muse Spark Open, see the pictures) react per ad: hook noticed (first frame / first 2 s), message understood, believed, objection ("why not"), purchase intent (free text → SSR distribution), preferred ad in the feed. Aggregated per persona.
 8. **Explain.** Counterfactuals: remove/swap one tracked element (face, product, text, first shot), re-simulate, report the delta (simulated).
 9. **Evolve.** The creative director reads objections and counterfactuals, mutates genes, re-tests, until the ad wins its feed or the budget is spent.
 10. **Run.** Winners published through the Ads MCP / Marketing API within caps. Daily: pull metrics, detect fatigue, pause losers, keep winners. Weekly: new concepts. Meta handles bidding and delivery.

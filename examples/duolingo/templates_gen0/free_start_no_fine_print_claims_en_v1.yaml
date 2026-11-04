@@ -1,0 +1,106 @@
+id: free_start_no_fine_print_claims_en_v1
+concept: 'Plain transparency: every course free, first lesson starts in seconds, Super
+  mentioned only as optional.'
+persona: busy_travel_school_career_beginner
+objection: free_but_limited_by_energy_ads
+evidence:
+  angle: free_start_no_fine_print_claims
+  refs:
+  - store
+  - store
+  claims:
+  - every_course_free
+  - free_40_plus_languages_bite_sized
+  - super_14_day_free_trial
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_1.png
+    second: screen_2.png
+  language: en
+  content:
+    review:
+      text: Óscar es bueno jugando ajedrez y ya que estamos aquí alguien me ayuda
+        salir del sótano de Duolingo es que no hice su racha por un día ⏱️
+      rating: 5
+      review: '14744576031'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+    objection:
+      text: It says free
+      objection: free_but_limited_by_energy_ads
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  proof:
+  - rating
+  body:
+  - short
+  - story
+  title:
+  - main
+  cta:
+  - LEARN_MORE
+  - INSTALL_MOBILE_APP
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - before_after
+  - big_number
+  - benefits
+  - big_question
+  - comparison
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: What does free actually include?
+    bold_claim: Every course is free to start
+  body:
+    short: Every course is free. Open the app and try a quick, bite-sized lesson in
+      40+ languages. Super Duolingo can be tried for 14 days free for those who want
+      an optional upgrade.
+    story: No mystery here. Pick a language and start a tiny first session today,
+      with a trial of Super available for 14 days free if you want more.
+  title:
+    main: Every Course Is Free
+  proof:
+    rating: Free app, 40+ languages
+  cta:
+    LEARN_MORE: Learn More
+    INSTALL_MOBILE_APP: Install App Free
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible

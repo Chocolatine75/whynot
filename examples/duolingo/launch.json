@@ -1,0 +1,12 @@
+[
+  {
+    "ad_set": "Profile 1 · US · 25-44",
+    "outcome": "needs_approval",
+    "why": "first live launch needs the owner's approval"
+  },
+  {
+    "ad_set": "Profile 2 · US · 18-34",
+    "outcome": "needs_approval",
+    "why": "first live launch needs the owner's approval"
+  }
+]

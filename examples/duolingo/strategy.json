@@ -1,0 +1,457 @@
+{
+  "positioning": "For US beginners learning for family, travel, school, work or brain health, Duolingo makes starting free: bite-sized, expert-designed lessons in 40+ languages, plus chess, math and music, that feel like a game, not a class.",
+  "personas": [
+    {
+      "id": "heritage_family_reconnector",
+      "name": "Heritage family reconnector",
+      "description": "US adults who want to understand and speak with relatives in a family language rather than study it academically.",
+      "age_min": 25,
+      "age_max": 44,
+      "gender": "all",
+      "countries": [
+        "US"
+      ],
+      "motivations": [
+        "Talk with a grandmother or other relatives",
+        "Understand full family conversations",
+        "Build a daily learning habit"
+      ],
+      "objections": [
+        "memorize_but_cannot_speak",
+        "ai_tutor_alternatives_look_personal",
+        "free_but_limited_by_energy_ads"
+      ]
+    },
+    {
+      "id": "busy_travel_school_career_beginner",
+      "name": "Busy travel, school and career beginner",
+      "description": "US adults starting a language for travel, school or work who need a low-friction alternative to textbooks and formal classes.",
+      "age_min": 18,
+      "age_max": 34,
+      "gender": "all",
+      "countries": [
+        "US"
+      ],
+      "motivations": [
+        "Prepare for real conversations",
+        "Start quickly in bite-sized lessons",
+        "Build speaking, reading, listening and writing skills",
+        "Avoid boring, grammar-heavy study"
+      ],
+      "objections": [
+        "memorize_but_cannot_speak",
+        "free_but_limited_by_energy_ads",
+        "too_gamified_not_serious",
+        "ai_tutor_alternatives_look_personal"
+      ]
+    },
+    {
+      "id": "parent_learning_supporter",
+      "name": "Parent learning supporter",
+      "description": "US parents looking for a fun, expert-designed learning app their children will enjoy across languages, math, music and chess.",
+      "age_min": 30,
+      "age_max": 49,
+      "gender": "all",
+      "countries": [
+        "US"
+      ],
+      "motivations": [
+        "Support a child's learning",
+        "Find screen time that feels educational and fun",
+        "Use lessons designed by learning experts"
+      ],
+      "objections": [
+        "too_gamified_not_serious",
+        "ai_quality_trust_doubts",
+        "free_but_limited_by_energy_ads"
+      ]
+    },
+    {
+      "id": "chess_math_music_curious",
+      "name": "Chess, math and music curious learner",
+      "description": "US adults and older learners who may not want a language first, but want to start chess, refresh math or learn to read music in a playful format.",
+      "age_min": 18,
+      "age_max": 44,
+      "gender": "all",
+      "countries": [
+        "US"
+      ],
+      "motivations": [
+        "Learn chess as a total beginner or level up",
+        "Make math feel like a game",
+        "Learn to read music with no instrument needed"
+      ],
+      "objections": [
+        "streak_pressure_and_guilt",
+        "free_but_limited_by_energy_ads"
+      ]
+    }
+  ],
+  "objections": [
+    {
+      "id": "free_but_limited_by_energy_ads",
+      "text": "It says free, but I will hit energy limits, sit through ads and get pestered to pay before I can really learn.",
+      "answer": "Be transparent: say every course is free and show a bite-sized lesson, but never promise unlimited free practice or no ads; present Super only as an optional upgrade using store-verified terms.",
+      "evidence": [
+        {
+          "ref": "review:14744334863",
+          "quote": "Early on, it starts out as a great free learning app. But you reach a point where simply doing daily lessons uses up more “energy” than your avatar has."
+        },
+        {
+          "ref": "review:14743874578",
+          "quote": "But some minuses are that there are sooo many ads, every lesson one pops up and it’s pretty annoying."
+        },
+        {
+          "ref": "review:14743963155",
+          "quote": "Only use if you want to pestered to upgrade after every single thing you do"
+        }
+      ]
+    },
+    {
+      "id": "memorize_but_cannot_speak",
+      "text": "I will memorize words for months and still freeze when I have to speak to a real person.",
+      "answer": "Show speaking, listening and full-sentence practice and clearly attributed learner anecdotes; do not promise fluency, native-like speech or a guaranteed timeline.",
+      "evidence": [
+        {
+          "ref": "review:14743734314",
+          "quote": "This app taught me nothing and I try and even use super Duolingo and still can't speak after 3 years of using Duolingo"
+        },
+        {
+          "ref": "review:14743771100",
+          "quote": "It doesn’t actually teach you anything, it’s just a memorization app"
+        },
+        {
+          "ref": "ad:1786616109275129",
+          "quote": "Tired of learning words but freezing in real conversations?"
+        }
+      ]
+    },
+    {
+      "id": "streak_pressure_and_guilt",
+      "text": "The owl and the streak will guilt-trip me every day and punish me for taking a break.",
+      "answer": "Avoid threatening-owl creative for cold audiences; frame progress as a self-chosen goal supported by playful rewards and achievements rather than fear of losing a streak.",
+      "evidence": [
+        {
+          "ref": "review:14744356903",
+          "quote": "You have to do your lessons EVERY day or pay."
+        },
+        {
+          "ref": "review:14744269870",
+          "quote": "The green owl also well known as Duolingo has not been very nice lately and I think it may have been because of the way it threatens people to do their lessons"
+        }
+      ]
+    },
+    {
+      "id": "too_gamified_not_serious",
+      "text": "This looks like a game full of chests, praise and distractions, not a serious way to learn.",
+      "answer": "Lead with the learning anatomy behind the game: speaking, reading, listening and writing, expert design and a concrete sentence produced; let characters and rewards appear only after the educational value is clear.",
+      "evidence": [
+        {
+          "ref": "review:14744195936",
+          "quote": "there are way too many game-ish elements getting in the way."
+        },
+        {
+          "ref": "review:14744204557",
+          "quote": "We came to learn not play video games!!"
+        },
+        {
+          "ref": "ad:1879349966775791",
+          "quote": "No boring grammar drills!"
+        }
+      ]
+    },
+    {
+      "id": "ai_tutor_alternatives_look_personal",
+      "text": "Other apps give me an AI tutor for conversations and instant corrections, so why would I choose this?",
+      "answer": "Do not claim an AI tutor or instant corrections, which the store page does not verify; differentiate on a free, structured, expert-designed path across many languages and subjects, with speaking as one of four skills.",
+      "evidence": [
+        {
+          "ref": "ad:1879349966775791",
+          "quote": "Practice conversations, get instant corrections, and build real fluency."
+        },
+        {
+          "ref": "ad:1066695719681798",
+          "quote": "With AI Language Tutor, speak like a native from day one."
+        }
+      ]
+    },
+    {
+      "id": "ai_quality_trust_doubts",
+      "text": "I have heard the lessons now use AI and contain grammar or voice problems, so I do not trust the quality.",
+      "answer": "Make no AI-quality claims; reassure skeptics with the store-verified learning-expert claim and show an actual lesson sample instead of mascot-led hype.",
+      "evidence": [
+        {
+          "ref": "review:14744676992",
+          "quote": "the increase in ai usage has made this app disappointing and useless"
+        },
+        {
+          "ref": "review:14744256261",
+          "quote": "I see grammar issues regularly, and it’s immensely disappointing."
+        },
+        {
+          "ref": "review:14744237117",
+          "quote": "The AI voices are nearly impossible to understand."
+        }
+      ]
+    }
+  ],
+  "angles": [
+    {
+      "id": "say_a_full_sentence_not_flashcards",
+      "idea": "Open on a traveler freezing, then show a bite-sized Duolingo lesson building speaking, listening and writing into a full sentence they say out loud.",
+      "persona": "busy_travel_school_career_beginner",
+      "objection": "memorize_but_cannot_speak",
+      "competitors_use_it": true,
+      "evidence": [
+        {
+          "ref": "ad:1786616109275129",
+          "quote": "Tired of learning words but freezing in real conversations?"
+        },
+        {
+          "ref": "store",
+          "quote": "Practice speaking, reading, listening & writing to build your vocabulary & grammar skills."
+        }
+      ]
+    },
+    {
+      "id": "talk_with_abuela",
+      "idea": "A heritage learner practices a short lesson, then uses full sentences in a warm conversation with their grandmother.",
+      "persona": "heritage_family_reconnector",
+      "objection": "memorize_but_cannot_speak",
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "review:14743848019",
+          "quote": "I have had a hard time learning Spanish for a while but after I downloaded duo, I could actually talk with my abuela better"
+        },
+        {
+          "ref": "review:14744388050",
+          "quote": "especially my grandmother but after using Duolingo I can speak and understand full sentences."
+        }
+      ]
+    },
+    {
+      "id": "free_start_no_fine_print_claims",
+      "idea": "State plainly that every course is free, tap into a first bite-sized lesson in seconds, and avoid any unlimited-learning or no-ads promise for the free tier.",
+      "persona": "busy_travel_school_career_beginner",
+      "objection": "free_but_limited_by_energy_ads",
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "store",
+          "quote": "Every course is free."
+        },
+        {
+          "ref": "store",
+          "quote": "Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons."
+        }
+      ]
+    },
+    {
+      "id": "serious_skills_playful_delivery",
+      "idea": "Split-screen contrast: boring drill on one side, Duolingo's four-skill lesson on the other, with the payoff framed as real skill-building, not just points.",
+      "persona": "busy_travel_school_career_beginner",
+      "objection": "too_gamified_not_serious",
+      "competitors_use_it": true,
+      "evidence": [
+        {
+          "ref": "ad:1879349966775791",
+          "quote": "No boring grammar drills!"
+        },
+        {
+          "ref": "store",
+          "quote": "Designed by learning experts & loved by hundreds of millions worldwide, our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more."
+        }
+      ]
+    },
+    {
+      "id": "structured_path_vs_open_ended_ai_chat",
+      "idea": "Position Duolingo as the guided, expert-designed path for beginners who do not know what to say to an open-ended AI tutor yet.",
+      "persona": "busy_travel_school_career_beginner",
+      "objection": "ai_tutor_alternatives_look_personal",
+      "competitors_use_it": true,
+      "evidence": [
+        {
+          "ref": "ad:1879349966775791",
+          "quote": "Practice conversations, get instant corrections, and build real fluency."
+        },
+        {
+          "ref": "store",
+          "quote": "Designed by learning experts & loved by hundreds of millions worldwide, our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more."
+        }
+      ]
+    },
+    {
+      "id": "your_goal_your_pace",
+      "idea": "Replace streak fear with a learner setting their own goal and tracking progress through playful rewards and achievements.",
+      "persona": "chess_math_music_curious",
+      "objection": "streak_pressure_and_guilt",
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "store",
+          "quote": "Work toward your learning goals with playful rewards & achievements when you make practicing language lessons or chess online part of your daily habit."
+        }
+      ]
+    },
+    {
+      "id": "experts_behind_the_game",
+      "idea": "For quality skeptics, zoom into a real lesson and credit learning experts and a science-based methodology rather than leading with the mascot.",
+      "persona": "parent_learning_supporter",
+      "objection": "ai_quality_trust_doubts",
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "store",
+          "quote": "Designed by learning experts & loved by hundreds of millions worldwide"
+        },
+        {
+          "ref": "store",
+          "quote": "Duolingo works. Designed by learning experts, Duolingo has a science-based teaching methodology proven to foster long-term knowledge retention across language lessons & chess lessons alike."
+        }
+      ]
+    },
+    {
+      "id": "not_just_languages_chess",
+      "idea": "Surprise hook: the language app now teaches chess the Duolingo way, from total beginner moves to leveling up and playing matches.",
+      "persona": "chess_math_music_curious",
+      "objection": null,
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "store",
+          "quote": "Whether you're a total beginner or looking to level up your game, you'll love learning chess the Duolingo way."
+        },
+        {
+          "ref": "review:14743925384",
+          "quote": "I love Duolingo! It’s so fun-especially chess-and there are so many options to enjoy getting better at!"
+        }
+      ]
+    },
+    {
+      "id": "one_app_for_kids_subjects",
+      "idea": "A parent discovers one free app where a child can move between a language, math that feels like a game, music with no instrument and chess.",
+      "persona": "parent_learning_supporter",
+      "objection": null,
+      "competitors_use_it": false,
+      "evidence": [
+        {
+          "ref": "store",
+          "quote": "Built by learning experts, our Math course makes math feel like a game."
+        },
+        {
+          "ref": "store",
+          "quote": "Learn how to read music & play songs in our Music course, no instrument needed!"
+        },
+        {
+          "ref": "review:14743397675",
+          "quote": "This is so good for my kids learning and he likes the app"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "free_40_plus_languages_bite_sized",
+      "text": "Duolingo is a free app for learning 40+ languages through quick, bite-sized lessons.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons."
+      }
+    },
+    {
+      "id": "four_skills_practice",
+      "text": "Lessons practice speaking, reading, listening and writing to build vocabulary and grammar skills.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Practice speaking, reading, listening & writing to build your vocabulary & grammar skills."
+      }
+    },
+    {
+      "id": "designed_by_learning_experts",
+      "text": "Lessons are designed by learning experts.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Designed by learning experts & loved by hundreds of millions worldwide, our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more."
+      }
+    },
+    {
+      "id": "prepare_for_real_conversations",
+      "text": "Lessons help learners prepare for real conversations.",
+      "evidence": {
+        "ref": "store",
+        "quote": "our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more."
+      }
+    },
+    {
+      "id": "travel_school_career_brain_health",
+      "text": "People learn with Duolingo for travel, school, career or brain health.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Whether you're learning a language for travel, school, career or your brain health, you'll love learning with Duolingo."
+      }
+    },
+    {
+      "id": "every_course_free",
+      "text": "Every course is free.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Every course is free."
+      }
+    },
+    {
+      "id": "chess_beginner_to_level_up",
+      "text": "The chess course serves total beginners and people looking to level up their game.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Whether you're a total beginner or looking to level up your game, you'll love learning chess the Duolingo way."
+      }
+    },
+    {
+      "id": "math_feels_like_a_game",
+      "text": "The Math course makes math feel like a game.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Built by learning experts, our Math course makes math feel like a game."
+      }
+    },
+    {
+      "id": "music_no_instrument_needed",
+      "text": "The Music course teaches reading music and playing songs with no instrument needed.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Learn how to read music & play songs in our Music course, no instrument needed!"
+      }
+    },
+    {
+      "id": "track_progress_rewards",
+      "text": "Learners can track progress and work toward goals with playful rewards and achievements.",
+      "evidence": {
+        "ref": "store",
+        "quote": "Track your progress. Work toward your learning goals with playful rewards & achievements when you make practicing language lessons or chess online part of your daily habit."
+      }
+    },
+    {
+      "id": "super_14_day_free_trial",
+      "text": "Super Duolingo can be tried for 14 days free.",
+      "evidence": {
+        "ref": "store",
+        "quote": "If you like Duolingo, try Super Duolingo for 14 days free!"
+      }
+    },
+    {
+      "id": "reviewer_talked_with_abuela",
+      "text": "One reviewer said Duolingo helped them talk with their abuela better.",
+      "evidence": {
+        "ref": "review:14743848019",
+        "quote": "I have had a hard time learning Spanish for a while but after I downloaded duo, I could actually talk with my abuela better"
+      }
+    }
+  ],
+  "notes": [
+    "Do not claim fluency, native-like speaking, instant corrections, an AI tutor, unlimited free lessons, no ads on the free tier, specific prices or learning timelines; none are verified in the sources and reviews actively contradict several of them.",
+    "Energy limits, ads, upsells, streak pressure, gamification and AI-quality complaints are recurring in 1- to 3-star reviews; creative and landing expectations must be set transparently to avoid low-quality installs and refunds.",
+    "Competitor ads cluster heavily on AI tutors, real conversations, instant corrections and no boring grammar drills; Duolingo's defensible wedge in these sources is free breadth, expert-designed structure, four skills and subjects beyond languages.",
+    "No verified evidence in the sources for ASL, Kurdish, Thai or other specific missing-language availability, child age suitability, or Super pricing; do not target or promise those without separate verification."
+  ]
+}

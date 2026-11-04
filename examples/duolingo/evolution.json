@@ -1,0 +1,1140 @@
+{
+  "generations": 2,
+  "judge": "tournament",
+  "groups": [
+    {
+      "persona": "heritage_family_reconnector",
+      "language": "en",
+      "history": [
+        {
+          "generation": 0,
+          "judge": "arena",
+          "scores": {
+            "talk_with_abuela_en_v1-b1746ff3": {
+              "variant_id": "talk_with_abuela_en_v1-b1746ff3",
+              "lift": 3.5,
+              "lift_over_placebo": 3.5,
+              "intent": 3.875,
+              "intent_vs_placebo": 2.541666666666667,
+              "views": 8,
+              "top_why_not": [
+                "the example in the picture is French and I need Spanish for family, so I'm not sure it fits me",
+                "that freezing up part is so me but I've been burned by apps before so I'm not sure it would really work",
+                "I like the abuela part but I'm worried I'll still freeze up and quit after a week like before"
+              ],
+              "biased_group": false
+            },
+            "talk_with_abuela_en_v1-ad650fd6": {
+              "variant_id": "talk_with_abuela_en_v1-ad650fd6",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.3333333333333335,
+              "intent": 4.0,
+              "intent_vs_placebo": 2.666666666666667,
+              "views": 6,
+              "top_why_not": [
+                "I've tried apps before and quit, not sure I'd stick with it even though I want to",
+                "sounds good but I've started apps before and quit, not sure small lessons really get me to a full call with grandma",
+                "just worried free means I'll get hit with a paywall later"
+              ],
+              "biased_group": false
+            },
+            "talk_with_abuela_en_v1-a47cb9ce": {
+              "variant_id": "talk_with_abuela_en_v1-a47cb9ce",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.3333333333333335,
+              "intent": 3.8333333333333335,
+              "intent_vs_placebo": 2.5,
+              "views": 6,
+              "top_why_not": [
+                "I just saw the same one above so I kept scrolling, but the freezing up part feels real",
+                "just worried I'll play the game for a bit and still freeze up at the real kitchen table",
+                "I've started apps before and quit, so I'm not sure I'd actually keep the habit"
+              ],
+              "biased_group": false
+            },
+            "talk_with_abuela_en_v1-8825066d": {
+              "variant_id": "talk_with_abuela_en_v1-8825066d",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.3333333333333335,
+              "intent": 4.166666666666667,
+              "intent_vs_placebo": 2.833333333333334,
+              "views": 6,
+              "top_why_not": [
+                "I've tried free apps before and they didn't really get me talking for real",
+                "looks like every other free app ad and I'm not sure it'll get me past a few words to a real talk with family"
+              ],
+              "biased_group": false
+            }
+          },
+          "kept": [
+            "talk_with_abuela_en_v1-b1746ff3",
+            "talk_with_abuela_en_v1-8825066d"
+          ],
+          "info": {
+            "placebo_lift": 0.0,
+            "placebo_intent": 1.3333333333333333,
+            "biased": false,
+            "placebo_views": 18,
+            "feeds": 11,
+            "variants": 4,
+            "competitors": {
+              "pool": 12,
+              "long_running": 0,
+              "wrong_language": 0,
+              "images": true
+            }
+          }
+        },
+        {
+          "generation": 1,
+          "judge": "tournament",
+          "refused": [],
+          "children": [
+            "talk_with_abuela_en_v1-8d597389",
+            "talk_with_abuela_en_v1-602774dc",
+            "talk_with_abuela_en_v1-e708985c",
+            "talk_with_abuela_en_v1-ab66d7fb"
+          ],
+          "kept": [
+            "talk_with_abuela_en_v1-602774dc",
+            "talk_with_abuela_en_v1-e708985c"
+          ],
+          "tournament": {
+            "standings": [
+              {
+                "ad_id": "talk_with_abuela_en_v1-602774dc",
+                "strength": 2.5341,
+                "ci": [
+                  1.2583,
+                  4.4619
+                ],
+                "games": 24,
+                "wins": 21.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I'm still not sure an app can really get me talking with my abuela, but this is exactly what I want",
+                  "I've heard of Duolingo so it feels less sketchy, just not sure a daily app really gets me to full conversations with my grandma",
+                  "that talking with my abuela line got me but the phone in the picture is showing French, so I don't buy it'll get me to a real family conversation"
+                ]
+              },
+              {
+                "ad_id": "talk_with_abuela_en_v1-e708985c",
+                "strength": 2.5341,
+                "ci": [
+                  1.84,
+                  3.7776
+                ],
+                "games": 24,
+                "wins": 21.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I'm still not 100% sure an app can actually get me to follow fast talk at home",
+                  "I like the abuela part but I've downloaded Duolingo before and never stuck with it",
+                  "I still worry it'll be cute games but not actually help me follow the whole conversation at home"
+                ]
+              },
+              {
+                "ad_id": "talk_with_abuela_en_v1-8825066d",
+                "strength": 1.4101,
+                "ci": [
+                  0.7464,
+                  2.2855
+                ],
+                "games": 24,
+                "wins": 17.0,
+                "placebo": false,
+                "top_why_not": [
+                  "It looks like the exact same ad I just saw so I kind of tune it out",
+                  "It looks like the same ad I just saw so I kind of tune it out the second time",
+                  "kitchen table talk is exactly what I want but again it's showing French and looks like a game, not full conversations at home"
+                ]
+              },
+              {
+                "ad_id": "talk_with_abuela_en_v1-b1746ff3",
+                "strength": -0.3755,
+                "ci": [
+                  -1.1742,
+                  0.322
+                ],
+                "games": 24,
+                "wins": 10.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I'm just not 100% sure an app can get me to actually hold a real conversation",
+                  "it shows French in the picture but I need Spanish for my abuela so I'm not sure it's for me",
+                  "just not sure if short lessons are really enough for full conversations"
+                ]
+              },
+              {
+                "ad_id": "talk_with_abuela_en_v1-ab66d7fb",
+                "strength": -0.8816,
+                "ci": [
+                  -2.2335,
+                  0.2356
+                ],
+                "games": 24,
+                "wins": 8.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I've done daily apps before and still freeze up when my family all starts talking fast",
+                  "That freezing up part is me, I just wonder if daily bites are enough for full family chats",
+                  "I've heard of Duolingo and it's free so I might try it but I'm busy and not sure I'll stick with it"
+                ]
+              },
+              {
+                "ad_id": "talk_with_abuela_en_v1-8d597389",
+                "strength": -1.1473,
+                "ci": [
+                  -2.2205,
+                  -0.4158
+                ],
+                "games": 24,
+                "wins": 7.0,
+                "placebo": false,
+                "top_why_not": [
+                  "the abuela part got me but I've tried Duolingo before and it felt more like a game than real talking",
+                  "sounds nice about talking to abuela but every app says that and I'm not sure it would actually get me talking",
+                  "I like the kitchen table part but I'm not sure a free app will actually get me past freezing up with real family"
+                ]
+              },
+              {
+                "ad_id": "placebo:1031984626591024",
+                "strength": -4.0739,
+                "ci": [
+                  -4.8678,
+                  -3.5505
+                ],
+                "games": 24,
+                "wins": 0.0,
+                "placebo": true,
+                "top_why_not": [
+                  "It lists like 10 languages and promises instant fluency, doesn't feel like it's about talking to family, just hype",
+                  "it just lists like 10 languages and AI tutors and unlock fluency, feels generic and not about family conversations",
+                  "looks like every other language app ad and Chinese isn't my family language, nothing about talking to family"
+                ]
+              }
+            ],
+            "views": 84,
+            "feeds": 42,
+            "failures": 0,
+            "usd": 0.6018,
+            "simulated": true
+          },
+          "best_child": {
+            "id": "talk_with_abuela_en_v1-e708985c",
+            "parent": "talk_with_abuela_en_v1-8825066d",
+            "difference": 1.124,
+            "retest_difference": 0.5335,
+            "verdict": "improved"
+          },
+          "vs_gen0": {
+            "best": "talk_with_abuela_en_v1-602774dc",
+            "anchor": "talk_with_abuela_en_v1-8825066d",
+            "difference": 1.124,
+            "retest_difference": 0.8201,
+            "verdict": "improved"
+          }
+        },
+        {
+          "generation": 2,
+          "stopped": "budget: this audience may spend $0.60, $0.62 used, a generation and its retest need about $1.34"
+        }
+      ],
+      "anchor": "talk_with_abuela_en_v1-8825066d",
+      "simulated": true,
+      "final": {
+        "talk_with_abuela_en_v1-602774dc": {
+          "ad_id": "talk_with_abuela_en_v1-602774dc",
+          "strength": 2.5341,
+          "ci": [
+            1.2583,
+            4.4619
+          ],
+          "games": 24,
+          "wins": 21.0,
+          "placebo": false,
+          "top_why_not": [
+            "I'm still not sure an app can really get me talking with my abuela, but this is exactly what I want",
+            "I've heard of Duolingo so it feels less sketchy, just not sure a daily app really gets me to full conversations with my grandma",
+            "that talking with my abuela line got me but the phone in the picture is showing French, so I don't buy it'll get me to a real family conversation"
+          ]
+        },
+        "talk_with_abuela_en_v1-e708985c": {
+          "ad_id": "talk_with_abuela_en_v1-e708985c",
+          "strength": 2.5341,
+          "ci": [
+            1.84,
+            3.7776
+          ],
+          "games": 24,
+          "wins": 21.0,
+          "placebo": false,
+          "top_why_not": [
+            "I'm still not 100% sure an app can actually get me to follow fast talk at home",
+            "I like the abuela part but I've downloaded Duolingo before and never stuck with it",
+            "I still worry it'll be cute games but not actually help me follow the whole conversation at home"
+          ]
+        },
+        "talk_with_abuela_en_v1-8825066d": {
+          "ad_id": "talk_with_abuela_en_v1-8825066d",
+          "strength": 1.4101,
+          "ci": [
+            0.7464,
+            2.2855
+          ],
+          "games": 24,
+          "wins": 17.0,
+          "placebo": false,
+          "top_why_not": [
+            "It looks like the exact same ad I just saw so I kind of tune it out",
+            "It looks like the same ad I just saw so I kind of tune it out the second time",
+            "kitchen table talk is exactly what I want but again it's showing French and looks like a game, not full conversations at home"
+          ]
+        },
+        "talk_with_abuela_en_v1-b1746ff3": {
+          "ad_id": "talk_with_abuela_en_v1-b1746ff3",
+          "strength": -0.3755,
+          "ci": [
+            -1.1742,
+            0.322
+          ],
+          "games": 24,
+          "wins": 10.0,
+          "placebo": false,
+          "top_why_not": [
+            "I'm just not 100% sure an app can get me to actually hold a real conversation",
+            "it shows French in the picture but I need Spanish for my abuela so I'm not sure it's for me",
+            "just not sure if short lessons are really enough for full conversations"
+          ]
+        },
+        "talk_with_abuela_en_v1-ab66d7fb": {
+          "ad_id": "talk_with_abuela_en_v1-ab66d7fb",
+          "strength": -0.8816,
+          "ci": [
+            -2.2335,
+            0.2356
+          ],
+          "games": 24,
+          "wins": 8.0,
+          "placebo": false,
+          "top_why_not": [
+            "I've done daily apps before and still freeze up when my family all starts talking fast",
+            "That freezing up part is me, I just wonder if daily bites are enough for full family chats",
+            "I've heard of Duolingo and it's free so I might try it but I'm busy and not sure I'll stick with it"
+          ]
+        },
+        "talk_with_abuela_en_v1-8d597389": {
+          "ad_id": "talk_with_abuela_en_v1-8d597389",
+          "strength": -1.1473,
+          "ci": [
+            -2.2205,
+            -0.4158
+          ],
+          "games": 24,
+          "wins": 7.0,
+          "placebo": false,
+          "top_why_not": [
+            "the abuela part got me but I've tried Duolingo before and it felt more like a game than real talking",
+            "sounds nice about talking to abuela but every app says that and I'm not sure it would actually get me talking",
+            "I like the kitchen table part but I'm not sure a free app will actually get me past freezing up with real family"
+          ]
+        },
+        "placebo:1031984626591024": {
+          "ad_id": "placebo:1031984626591024",
+          "strength": -4.0739,
+          "ci": [
+            -4.8678,
+            -3.5505
+          ],
+          "games": 24,
+          "wins": 0.0,
+          "placebo": true,
+          "top_why_not": [
+            "It lists like 10 languages and promises instant fluency, doesn't feel like it's about talking to family, just hype",
+            "it just lists like 10 languages and AI tutors and unlock fluency, feels generic and not about family conversations",
+            "looks like every other language app ad and Chinese isn't my family language, nothing about talking to family"
+          ]
+        }
+      },
+      "champion": "talk_with_abuela_en_v1-602774dc",
+      "retest": {
+        "generation": 1,
+        "usd": 0.5471,
+        "failures": 0,
+        "floor": 0.646,
+        "strengths": {
+          "talk_with_abuela_en_v1-602774dc": 2.4838,
+          "talk_with_abuela_en_v1-e708985c": 2.1972,
+          "talk_with_abuela_en_v1-8825066d": 1.6637,
+          "talk_with_abuela_en_v1-b1746ff3": -0.3432,
+          "talk_with_abuela_en_v1-8d597389": -0.8481,
+          "talk_with_abuela_en_v1-ab66d7fb": -1.1135,
+          "placebo:1031984626591024": -4.0399
+        },
+        "rank_agreement": 0.8783
+      },
+      "noise_floor": {
+        "used": 0.9894,
+        "audience": 0.646,
+        "pooled": 0.9894,
+        "simulated": true
+      },
+      "progress": [
+        {
+          "generation": 0,
+          "best": "talk_with_abuela_en_v1-8825066d",
+          "strength": 1.4101,
+          "ci": [
+            0.7464,
+            2.2855
+          ],
+          "vs_gen0": 0.0
+        },
+        {
+          "generation": 1,
+          "best": "talk_with_abuela_en_v1-602774dc",
+          "strength": 2.5341,
+          "ci": [
+            1.2583,
+            4.4619
+          ],
+          "vs_gen0": 1.124,
+          "verdict": "improved",
+          "placebo": -4.0739
+        }
+      ],
+      "result": {
+        "generation": 1,
+        "gen0": "talk_with_abuela_en_v1-8825066d",
+        "best": "talk_with_abuela_en_v1-602774dc",
+        "difference": 1.124,
+        "retest_difference": 0.8201,
+        "noise_floor": 0.9894,
+        "verdict": "improved",
+        "simulated": true
+      }
+    },
+    {
+      "persona": "busy_travel_school_career_beginner",
+      "language": "en",
+      "history": [
+        {
+          "generation": 0,
+          "judge": "arena",
+          "scores": {
+            "say_a_full_sentence_not_flashcards_en_v1-b1746ff3": {
+              "variant_id": "say_a_full_sentence_not_flashcards_en_v1-b1746ff3",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.3333333333333335,
+              "intent": 4.166666666666667,
+              "intent_vs_placebo": 2.8888888888888893,
+              "views": 6,
+              "top_why_not": [
+                "I know Duolingo is free but I've started it before and never stuck with it so I'm not sure I'd actually use it",
+                "I've seen Duolingo a ton and I'm still not sure it actually gets you talking to real people and not just tapping tiles"
+              ],
+              "biased_group": false
+            },
+            "free_start_no_fine_print_claims_en_v1-7c2635b2": {
+              "variant_id": "free_start_no_fine_print_claims_en_v1-7c2635b2",
+              "lift": 0.0,
+              "lift_over_placebo": 0.0,
+              "intent": 3.0,
+              "intent_vs_placebo": 1.7222222222222223,
+              "views": 6,
+              "top_why_not": [
+                "I already know what Duolingo is and I don't want to deal with the free trial turning into paying for Super.",
+                "I've heard Duolingo is free but they'll spam you to pay for Super after like two lessons",
+                "free sounds good but I assume I'll still get bugged about Super later"
+              ],
+              "biased_group": false
+            },
+            "say_a_full_sentence_not_flashcards_en_v1-8689065e": {
+              "variant_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+              "lift": 4.0,
+              "lift_over_placebo": 4.0,
+              "intent": 4.0,
+              "intent_vs_placebo": 2.7222222222222223,
+              "views": 6,
+              "top_why_not": [
+                "I've seen Duolingo ads forever so I'm a little skeptical I'll actually stick with it.",
+                "kinda doubt an app will really get me speaking, but at least this doesn't look like textbook grammar"
+              ],
+              "biased_group": false
+            },
+            "free_start_no_fine_print_claims_en_v1-3b29d510": {
+              "variant_id": "free_start_no_fine_print_claims_en_v1-3b29d510",
+              "lift": 2.0,
+              "lift_over_placebo": 2.0,
+              "intent": 3.6666666666666665,
+              "intent_vs_placebo": 2.388888888888889,
+              "views": 6,
+              "top_why_not": [
+                "nothing really, I know its free to start I just dont feel like starting a lesson this second",
+                "I know Duolingo is free but I don't want to get tricked into a Super trial I have to cancel.",
+                "sounds good but I'm waiting for the catch with that Super trial they mention"
+              ],
+              "biased_group": false
+            },
+            "free_start_no_fine_print_claims_en_v1-eb504af3": {
+              "variant_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+              "lift": 2.6666666666666665,
+              "lift_over_placebo": 2.6666666666666665,
+              "intent": 3.8333333333333335,
+              "intent_vs_placebo": 2.555555555555556,
+              "views": 6,
+              "top_why_not": [
+                "says free but then asks what free even includes so it feels like theres a catch and theyll just push Super on me",
+                "I know Duolingo but I'm confused about what's actually free vs what needs that Super trial",
+                "I've heard free usually means ads or they bug you to pay, so I'm not rushing to install"
+              ],
+              "biased_group": false
+            },
+            "say_a_full_sentence_not_flashcards_en_v1-a47cb9ce": {
+              "variant_id": "say_a_full_sentence_not_flashcards_en_v1-a47cb9ce",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.3333333333333335,
+              "intent": 3.8333333333333335,
+              "intent_vs_placebo": 2.555555555555556,
+              "views": 6,
+              "top_why_not": [
+                "it's basically the same Duolingo ad I just saw so I tune it out the second time"
+              ],
+              "biased_group": false
+            },
+            "say_a_full_sentence_not_flashcards_en_v1-8825066d": {
+              "variant_id": "say_a_full_sentence_not_flashcards_en_v1-8825066d",
+              "lift": 4.0,
+              "lift_over_placebo": 4.0,
+              "intent": 4.0,
+              "intent_vs_placebo": 2.7222222222222223,
+              "views": 6,
+              "top_why_not": [],
+              "biased_group": false
+            },
+            "free_start_no_fine_print_claims_en_v1-a47cb9ce": {
+              "variant_id": "free_start_no_fine_print_claims_en_v1-a47cb9ce",
+              "lift": 2.6666666666666665,
+              "lift_over_placebo": 2.6666666666666665,
+              "intent": 3.6666666666666665,
+              "intent_vs_placebo": 2.388888888888889,
+              "views": 6,
+              "top_why_not": [
+                "it looks like the same ad I just saw so I don't really need to click twice",
+                "I've heard Duolingo is free but they always push the paid version, so I'd worry it'll bug me to pay after",
+                "already know it's gonna bug me to pay for Super after like two lessons"
+              ],
+              "biased_group": false
+            }
+          },
+          "kept": [
+            "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+            "free_start_no_fine_print_claims_en_v1-eb504af3"
+          ],
+          "info": {
+            "placebo_lift": 0.0,
+            "placebo_intent": 1.2777777777777777,
+            "biased": false,
+            "placebo_views": 20,
+            "feeds": 17,
+            "variants": 8,
+            "competitors": {
+              "pool": 12,
+              "long_running": 0,
+              "wrong_language": 0,
+              "images": true
+            }
+          }
+        },
+        {
+          "generation": 1,
+          "judge": "tournament",
+          "refused": [],
+          "children": [
+            "say_a_full_sentence_not_flashcards_en_v1-0a33baa6",
+            "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+            "free_start_no_fine_print_claims_en_v1-602c7de5",
+            "free_start_no_fine_print_claims_en_v1-040173f5"
+          ],
+          "kept": [
+            "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+            "free_start_no_fine_print_claims_en_v1-602c7de5"
+          ],
+          "tournament": {
+            "standings": [
+              {
+                "ad_id": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+                "strength": 2.9059,
+                "ci": [
+                  2.082,
+                  4.531
+                ],
+                "games": 24,
+                "wins": 22.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I've heard of Duolingo forever so I'd worry it'll get boring or naggy with notifications, but nothing major",
+                  "nothing really, just kinda lazy about downloading another app at the moment",
+                  "I literally just saw this same exact ad so I'm just gonna skip it"
+                ]
+              },
+              {
+                "ad_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+                "strength": 2.2707,
+                "ci": [
+                  1.3918,
+                  3.8948
+                ],
+                "games": 24,
+                "wins": 20.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I've seen Duolingo a million times and I know it's free but I usually fall off after a few days",
+                  "I literally just saw this exact same ad so I'm just skipping it",
+                  "just not trying to download anything right in the middle of scrolling"
+                ]
+              },
+              {
+                "ad_id": "say_a_full_sentence_not_flashcards_en_v1-0a33baa6",
+                "strength": 1.4325,
+                "ci": [
+                  0.4817,
+                  2.4965
+                ],
+                "games": 24,
+                "wins": 17.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I've seen Duolingo ads forever and I always fall off after a few days, so I'm not sure I'd actually stick with it",
+                  "it's literally the same Duolingo ad I just saw so I would just skip it the second time",
+                  "I've downloaded it before and fell off, so I'm not sure it will actually get me talking at the counter"
+                ]
+              },
+              {
+                "ad_id": "free_start_no_fine_print_claims_en_v1-602c7de5",
+                "strength": -0.3758,
+                "ci": [
+                  -1.4604,
+                  0.4414
+                ],
+                "games": 24,
+                "wins": 10.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I've heard of Duolingo already and I'm just not sure I'd actually stick with it",
+                  "I know Duolingo is a thing but Ive started it before and quit, not sure Ill stick with it",
+                  "just saw the same exact ad so I scrolled past"
+                ]
+              },
+              {
+                "ad_id": "free_start_no_fine_print_claims_en_v1-040173f5",
+                "strength": -0.6319,
+                "ci": [
+                  -1.6318,
+                  0.1238
+                ],
+                "games": 24,
+                "wins": 9.0,
+                "placebo": false,
+                "top_why_not": [
+                  "it looks free and easy but I'm worried it's going to push me to pay for Super after like two lessons",
+                  "I've already had Duolingo before so I'm not sure it would actually get me speaking for real",
+                  "says free but then it mentions Super and a trial so I feel like I'll hit a paywall anyway"
+                ]
+              },
+              {
+                "ad_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+                "strength": -1.4575,
+                "ci": [
+                  -2.5541,
+                  -0.7036
+                ],
+                "games": 24,
+                "wins": 6.0,
+                "placebo": false,
+                "top_why_not": [
+                  "I literally just saw this same ad and I'm not installing anything from my feed right now",
+                  "looks like the exact same ad I just saw so I'd ignore the duplicate",
+                  "kinda makes me wonder what the catch is with free but that's it"
+                ]
+              },
+              {
+                "ad_id": "placebo:1415229643649190",
+                "strength": -4.144,
+                "ci": [
+                  -4.8079,
+                  -3.5671
+                ],
+                "games": 24,
+                "wins": 0.0,
+                "placebo": true,
+                "top_why_not": [
+                  "I already speak English so I don't care, and it says Duolingo but then says Praktika app so it's confusing",
+                  "This makes no sense, it says Duolingo but then says Praktika app and I already speak English so why would I learn it",
+                  "I already speak English and it says Praktika on a Duolingo ad which is confusing and sketchy"
+                ]
+              }
+            ],
+            "views": 84,
+            "feeds": 42,
+            "failures": 0,
+            "usd": 0.585,
+            "simulated": true
+          },
+          "best_child": {
+            "id": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+            "parent": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+            "difference": 0.6352,
+            "retest_difference": 0.0,
+            "verdict": "within noise"
+          },
+          "vs_gen0": {
+            "best": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+            "anchor": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+            "difference": 0.6352,
+            "retest_difference": 0.0,
+            "verdict": "within noise"
+          }
+        },
+        {
+          "generation": 2,
+          "stopped": "budget: this audience may spend $0.41, $0.60 used, a generation and its retest need about $1.30"
+        }
+      ],
+      "anchor": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+      "simulated": true,
+      "final": {
+        "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b": {
+          "ad_id": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+          "strength": 2.9059,
+          "ci": [
+            2.082,
+            4.531
+          ],
+          "games": 24,
+          "wins": 22.0,
+          "placebo": false,
+          "top_why_not": [
+            "I've heard of Duolingo forever so I'd worry it'll get boring or naggy with notifications, but nothing major",
+            "nothing really, just kinda lazy about downloading another app at the moment",
+            "I literally just saw this same exact ad so I'm just gonna skip it"
+          ]
+        },
+        "say_a_full_sentence_not_flashcards_en_v1-8689065e": {
+          "ad_id": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+          "strength": 2.2707,
+          "ci": [
+            1.3918,
+            3.8948
+          ],
+          "games": 24,
+          "wins": 20.0,
+          "placebo": false,
+          "top_why_not": [
+            "I've seen Duolingo a million times and I know it's free but I usually fall off after a few days",
+            "I literally just saw this exact same ad so I'm just skipping it",
+            "just not trying to download anything right in the middle of scrolling"
+          ]
+        },
+        "say_a_full_sentence_not_flashcards_en_v1-0a33baa6": {
+          "ad_id": "say_a_full_sentence_not_flashcards_en_v1-0a33baa6",
+          "strength": 1.4325,
+          "ci": [
+            0.4817,
+            2.4965
+          ],
+          "games": 24,
+          "wins": 17.0,
+          "placebo": false,
+          "top_why_not": [
+            "I've seen Duolingo ads forever and I always fall off after a few days, so I'm not sure I'd actually stick with it",
+            "it's literally the same Duolingo ad I just saw so I would just skip it the second time",
+            "I've downloaded it before and fell off, so I'm not sure it will actually get me talking at the counter"
+          ]
+        },
+        "free_start_no_fine_print_claims_en_v1-602c7de5": {
+          "ad_id": "free_start_no_fine_print_claims_en_v1-602c7de5",
+          "strength": -0.3758,
+          "ci": [
+            -1.4604,
+            0.4414
+          ],
+          "games": 24,
+          "wins": 10.0,
+          "placebo": false,
+          "top_why_not": [
+            "I've heard of Duolingo already and I'm just not sure I'd actually stick with it",
+            "I know Duolingo is a thing but Ive started it before and quit, not sure Ill stick with it",
+            "just saw the same exact ad so I scrolled past"
+          ]
+        },
+        "free_start_no_fine_print_claims_en_v1-040173f5": {
+          "ad_id": "free_start_no_fine_print_claims_en_v1-040173f5",
+          "strength": -0.6319,
+          "ci": [
+            -1.6318,
+            0.1238
+          ],
+          "games": 24,
+          "wins": 9.0,
+          "placebo": false,
+          "top_why_not": [
+            "it looks free and easy but I'm worried it's going to push me to pay for Super after like two lessons",
+            "I've already had Duolingo before so I'm not sure it would actually get me speaking for real",
+            "says free but then it mentions Super and a trial so I feel like I'll hit a paywall anyway"
+          ]
+        },
+        "free_start_no_fine_print_claims_en_v1-eb504af3": {
+          "ad_id": "free_start_no_fine_print_claims_en_v1-eb504af3",
+          "strength": -1.4575,
+          "ci": [
+            -2.5541,
+            -0.7036
+          ],
+          "games": 24,
+          "wins": 6.0,
+          "placebo": false,
+          "top_why_not": [
+            "I literally just saw this same ad and I'm not installing anything from my feed right now",
+            "looks like the exact same ad I just saw so I'd ignore the duplicate",
+            "kinda makes me wonder what the catch is with free but that's it"
+          ]
+        },
+        "placebo:1415229643649190": {
+          "ad_id": "placebo:1415229643649190",
+          "strength": -4.144,
+          "ci": [
+            -4.8079,
+            -3.5671
+          ],
+          "games": 24,
+          "wins": 0.0,
+          "placebo": true,
+          "top_why_not": [
+            "I already speak English so I don't care, and it says Duolingo but then says Praktika app so it's confusing",
+            "This makes no sense, it says Duolingo but then says Praktika app and I already speak English so why would I learn it",
+            "I already speak English and it says Praktika on a Duolingo ad which is confusing and sketchy"
+          ]
+        }
+      },
+      "champion": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+      "retest": {
+        "generation": 1,
+        "usd": 0.5147,
+        "failures": 0,
+        "floor": 1.3053,
+        "strengths": {
+          "say_a_full_sentence_not_flashcards_en_v1-8689065e": 2.8543,
+          "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b": 2.8543,
+          "say_a_full_sentence_not_flashcards_en_v1-0a33baa6": 1.9529,
+          "free_start_no_fine_print_claims_en_v1-602c7de5": -0.1786,
+          "free_start_no_fine_print_claims_en_v1-040173f5": -1.3703,
+          "free_start_no_fine_print_claims_en_v1-eb504af3": -1.6843,
+          "placebo:1415229643649190": -4.4284
+        },
+        "rank_agreement": 0.9759
+      },
+      "noise_floor": {
+        "used": 1.3053,
+        "audience": 1.3053,
+        "pooled": 0.9894,
+        "simulated": true
+      },
+      "progress": [
+        {
+          "generation": 0,
+          "best": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+          "strength": 2.2707,
+          "ci": [
+            1.3918,
+            3.8948
+          ],
+          "vs_gen0": 0.0
+        },
+        {
+          "generation": 1,
+          "best": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+          "strength": 2.9059,
+          "ci": [
+            2.082,
+            4.531
+          ],
+          "vs_gen0": 0.6352,
+          "verdict": "within noise",
+          "placebo": -4.144
+        }
+      ],
+      "result": {
+        "generation": 1,
+        "gen0": "say_a_full_sentence_not_flashcards_en_v1-8689065e",
+        "best": "say_a_full_sentence_not_flashcards_en_v1-a37e7d7b",
+        "difference": 0.6352,
+        "retest_difference": 0.0,
+        "noise_floor": 1.3053,
+        "verdict": "within noise",
+        "simulated": true
+      }
+    },
+    {
+      "persona": "parent_learning_supporter",
+      "language": "en",
+      "history": [
+        {
+          "generation": 0,
+          "judge": "arena",
+          "scores": {
+            "experts_behind_the_game_en_v1-7c2635b2": {
+              "variant_id": "experts_behind_the_game_en_v1-7c2635b2",
+              "lift": 4.0,
+              "lift_over_placebo": 3.7777777777777777,
+              "intent": 4.666666666666667,
+              "intent_vs_placebo": 3.4444444444444446,
+              "views": 6,
+              "top_why_not": [],
+              "biased_group": false
+            },
+            "experts_behind_the_game_en_v1-ce8631fa": {
+              "variant_id": "experts_behind_the_game_en_v1-ce8631fa",
+              "lift": 1.3333333333333333,
+              "lift_over_placebo": 1.1111111111111112,
+              "intent": 3.8333333333333335,
+              "intent_vs_placebo": 2.611111111111111,
+              "views": 6,
+              "top_why_not": [
+                "it looks almost identical to the last one so I'm not sure what's different",
+                "I like that it's designed by experts but I'm not sure if it would actually hold my kids' attention.",
+                "sounds good with expert design but doesn't say it's good for kids or math and music"
+              ],
+              "biased_group": false
+            },
+            "experts_behind_the_game_en_v1-eb504af3": {
+              "variant_id": "experts_behind_the_game_en_v1-eb504af3",
+              "lift": 3.3333333333333335,
+              "lift_over_placebo": 3.111111111111111,
+              "intent": 3.0,
+              "intent_vs_placebo": 1.7777777777777777,
+              "views": 6,
+              "top_why_not": [
+                "I like the fun and expert part but that comment about AI and grammar problems makes me nervous for my kids",
+                "I like that it's supposed to be fun enough to stick with, but I'm still not sure if it's actually solid or just gimmicky.",
+                "That comment about AI and grammar or voice problems worries me, and I'm not convinced this is actually fun and right for kids my age."
+              ],
+              "biased_group": false
+            },
+            "experts_behind_the_game_en_v1-a47cb9ce": {
+              "variant_id": "experts_behind_the_game_en_v1-a47cb9ce",
+              "lift": 2.5,
+              "lift_over_placebo": 2.2777777777777777,
+              "intent": 2.875,
+              "intent_vs_placebo": 1.6527777777777777,
+              "views": 8,
+              "top_why_not": [
+                "Still wondering if it has the math and music and stuff for kids and not just languages, and if it's really screen time I feel good about",
+                "That note about AI and grammar or voice problems makes me nervous about quality for my kid, and I'm not sure this is made for children.",
+                "I'm still a little wary if it's really good for kids or just more screen time, but this is the closest"
+              ],
+              "biased_group": false
+            }
+          },
+          "kept": [
+            "experts_behind_the_game_en_v1-7c2635b2",
+            "experts_behind_the_game_en_v1-eb504af3"
+          ],
+          "info": {
+            "placebo_lift": 0.2222222222222222,
+            "placebo_intent": 1.2222222222222223,
+            "biased": false,
+            "placebo_views": 18,
+            "feeds": 11,
+            "variants": 4,
+            "competitors": {
+              "pool": 12,
+              "long_running": 0,
+              "wrong_language": 0,
+              "images": true
+            }
+          }
+        },
+        {
+          "generation": 1,
+          "stopped": "budget spent during the tournament: the previous generation is kept",
+          "refused": []
+        }
+      ],
+      "anchor": null,
+      "simulated": true,
+      "final": {},
+      "champion": "experts_behind_the_game_en_v1-7c2635b2",
+      "retest": null,
+      "noise_floor": {
+        "used": 0.9894,
+        "audience": null,
+        "pooled": 0.9894,
+        "simulated": true
+      },
+      "progress": []
+    },
+    {
+      "persona": "chess_math_music_curious",
+      "language": "en",
+      "history": [
+        {
+          "generation": 0,
+          "judge": "arena",
+          "scores": {
+            "not_just_languages_chess_en_v1-fdcd2ac9": {
+              "variant_id": "not_just_languages_chess_en_v1-fdcd2ac9",
+              "lift": 4.0,
+              "lift_over_placebo": 4.0,
+              "intent": 4.333333333333333,
+              "intent_vs_placebo": 3.333333333333333,
+              "views": 6,
+              "top_why_not": [
+                "it says get chess free but then it's pushing a 14 day free trial, I don't want to get stuck paying",
+                "that 14 days free thing makes me worry I'll get charged if I forget to cancel",
+                "I'm just a little worried the 14 days free will try to charge me after"
+              ],
+              "biased_group": false
+            },
+            "your_goal_your_pace_en_v1-9c0c8545": {
+              "variant_id": "your_goal_your_pace_en_v1-9c0c8545",
+              "lift": 1.3333333333333333,
+              "lift_over_placebo": 1.3333333333333333,
+              "intent": 3.3333333333333335,
+              "intent_vs_placebo": 2.3333333333333335,
+              "views": 6,
+              "top_why_not": [
+                "I like the no-pressure idea but I've heard the streak guilt-tripping is real and annoying",
+                "I like the no pressure idea but I already know Duo is famous for guilt-tripping you about streaks",
+                "I like the no-pressure idea but I don't want another app guilt-tripping me about streaks"
+              ],
+              "biased_group": false
+            },
+            "not_just_languages_chess_en_v1-99c8359a": {
+              "variant_id": "not_just_languages_chess_en_v1-99c8359a",
+              "lift": 4.0,
+              "lift_over_placebo": 4.0,
+              "intent": 5.0,
+              "intent_vs_placebo": 4.0,
+              "views": 6,
+              "top_why_not": [],
+              "biased_group": false
+            },
+            "not_just_languages_chess_en_v1-ba1ebb3e": {
+              "variant_id": "not_just_languages_chess_en_v1-ba1ebb3e",
+              "lift": 2.6666666666666665,
+              "lift_over_placebo": 2.6666666666666665,
+              "intent": 4.333333333333333,
+              "intent_vs_placebo": 3.333333333333333,
+              "views": 6,
+              "top_why_not": [
+                "I just saw the same one and now it's talking about a 14 day trial, so I'm not sure what's actually free.",
+                "I'm interested but that 14 days free trial sounds like it'll try to charge me after",
+                "worried it's only free for 14 days then they'll try to charge me"
+              ],
+              "biased_group": false
+            },
+            "your_goal_your_pace_en_v1-6d1d3192": {
+              "variant_id": "your_goal_your_pace_en_v1-6d1d3192",
+              "lift": 0.6666666666666666,
+              "lift_over_placebo": 0.6666666666666666,
+              "intent": 2.1666666666666665,
+              "intent_vs_placebo": 1.1666666666666665,
+              "views": 6,
+              "top_why_not": [
+                "the guilt-trip streak thing turns me off, I don't want an app shaming me if I miss a day",
+                "Doesn't say what I'm learning and I don't want the owl guilt-tripping me over streaks.",
+                "The guilt-trip streak part is too real but I can't tell if this is even about chess or math, just feels like the same Duolingo pressure"
+              ],
+              "biased_group": false
+            },
+            "not_just_languages_chess_en_v1-c6e938d7": {
+              "variant_id": "not_just_languages_chess_en_v1-c6e938d7",
+              "lift": 4.0,
+              "lift_over_placebo": 4.0,
+              "intent": 4.833333333333333,
+              "intent_vs_placebo": 3.833333333333333,
+              "views": 6,
+              "top_why_not": [],
+              "biased_group": false
+            },
+            "your_goal_your_pace_en_v1-017c553f": {
+              "variant_id": "your_goal_your_pace_en_v1-017c553f",
+              "lift": 1.3333333333333333,
+              "lift_over_placebo": 1.3333333333333333,
+              "intent": 4.0,
+              "intent_vs_placebo": 3.0,
+              "views": 6,
+              "top_why_not": [
+                "I like the math as a game part but the daily streak stuff stresses me out even if they say no pressure",
+                "looks fun but I'm wary about the streak pressure and if it's really free",
+                "sounds good but I'm not sure I'd actually stick with it every day"
+              ],
+              "biased_group": false
+            },
+            "your_goal_your_pace_en_v1-34d75a84": {
+              "variant_id": "your_goal_your_pace_en_v1-34d75a84",
+              "lift": 1.5,
+              "lift_over_placebo": 1.5,
+              "intent": 1.625,
+              "intent_vs_placebo": 0.625,
+              "views": 8,
+              "top_why_not": [
+                "I'm not trying to learn a language right now and I'm over the whole streak pressure thing",
+                "looks like just another language streak thing and I'm not trying to do language right now",
+                "I like the go at your own pace and small wins idea but I thought it was still for languages, not chess or math"
+              ],
+              "biased_group": false
+            }
+          },
+          "kept": [
+            "not_just_languages_chess_en_v1-99c8359a",
+            "your_goal_your_pace_en_v1-34d75a84"
+          ],
+          "info": {
+            "placebo_lift": 0.0,
+            "placebo_intent": 1.0,
+            "biased": false,
+            "placebo_views": 18,
+            "feeds": 17,
+            "variants": 8,
+            "competitors": {
+              "pool": 12,
+              "long_running": 0,
+              "wrong_language": 0,
+              "images": true
+            }
+          }
+        },
+        {
+          "generation": 1,
+          "stopped": "budget: this audience may spend $-0.10, $0.00 used, a generation and its retest need about $0.00"
+        }
+      ],
+      "anchor": null,
+      "simulated": true,
+      "final": {},
+      "champion": "not_just_languages_chess_en_v1-99c8359a",
+      "retest": null,
+      "noise_floor": {
+        "used": 0.9894,
+        "audience": null,
+        "pooled": 0.9894,
+        "simulated": true
+      },
+      "progress": []
+    }
+  ],
+  "usd": 2.4878,
+  "simulated": true,
+  "noise_floor_pooled": 0.9894,
+  "summary": {
+    "audiences": 4,
+    "judged": 2,
+    "improved": 1,
+    "within noise": 1,
+    "worse": 0,
+    "not measured": 0,
+    "simulated": true
+  }
+}

@@ -7,12 +7,11 @@ Last updated: 2026-11-04
 
 ## Where we are
 
-Team: Matteo Atkinson, Tom Angles (Tom drives both lanes while Matteo has no Claude credits). Deadline Wed Nov 4,
-22:00 Paris. **whynot = AI ad agency for small businesses on Meta**: research → strategy → ads (statics and trend
+Team: Matteo Atkinson, Tom Angles. Deadline Wed Nov 4, 9:00 PM ET (Thu Nov 5, 03:00 Paris). **whynot = AI ad agency for small businesses on Meta**: research → strategy → ads (statics and trend
 videos with voice) → simulated feed → evolution → plan → publish → daily loop → report, all logged and capped.
-Partner (VietBuddy) day: **Monday Nov 2** (`docs/PILOT.md`).
+Partner (VietBuddy): onboarded, not live yet (`docs/PILOT.md`).
 
-Works today (`master`, 723 Python + 65 web tests):
+Works today (`master`, 960 Python + 128 web tests; numbers below are from Nov 1, newer ones in the log and README):
 - `whynot create`, `whynot video` (trend ads with Remotion + ElevenLabs), `whynot daily` (results, pauses, new ideas,
   video ads published to Meta), `whynot publish` / `stop` (kill switch, CLI + button), `whynot predict` (frozen,
   hashed predictions), `whynot costs`; `/validation` page; R1 backtest ready for the partner's data.
@@ -54,6 +53,7 @@ Works today (`master`, 723 Python + 65 web tests):
 
 Newest first. One entry per working session: date, who, what changed, what's next.
 
+- 2026-11-04 (5) — Matteo + Claude — **Repo made checkable by an AI judge**: `examples/duolingo/` = one full real run (every JSON/MD the stages wrote + planned ads; tokens, ad account, Page id, home path redacted by `scripts/export_example.py`, guarded by `tests/test_export_example.py`) with a guide; README: claim → code → test → evidence table, real extracts (viewers' why-not, evolution verdicts), Meta model table with call sites and spend. Found and fixed: production viewers ran on **Muse Spark**, Muse Spark Open only in validation (R3, bias suite) — README, TARGETS, ARCHITECTURE, PRODUCT now say so. Not changed (Tom's): `docs/DEMO.md` still says $5.5 and 'viewers on Muse Spark Open'.
 - 2026-11-04 (4) — Matteo + Claude — **README rewritten to sell the project** (style of the VoodRadar winner): hero grid of Muse-from-Meta concept ads re-rendered with today's composer ($0, 24/24 guards passed), story strip, validation page screenshot, video GIF, method sections, every number from `whynot reproduce` (spend now $69.75, not $5.5). Images in `docs/readme/` (no third-party brands or competitor creatives). Next: Tom's demo video, submit.
 
 - 2026-11-04 (3) — Matteo + Claude — **What wins on Meta, applied** (`b/meta-craft`): researched forums and benchmarks (Motion/Runneth creative benchmarks 2026: offer-first, demo, testimonial, before/after, listicle, us-vs-them lead; r/FacebookAds: answer-first hooks, lo-fi, mid CTA; Jon Loomer on Andromeda: look-alike ads are grouped, diversify). Applied: videos open on a picture, mid-video CTA, per-video theme; statics `offer` (verified offers only) and `note` layouts, each variant of a concept its own look. Checked free: 2 previews + a 24-ad sheet.

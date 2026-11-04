@@ -1,0 +1,32 @@
+[
+ {
+  "source": "screen_1.png",
+  "ui": null,
+  "description": "Course list offering 40+ free languages"
+ },
+ {
+  "source": "screen_2.png",
+  "ui": null,
+  "description": "Picture matching vocabulary exercise for bite-sized lessons"
+ },
+ {
+  "source": "screen_3.png",
+  "ui": null,
+  "description": "Interactive chess puzzle teaching checkmate moves"
+ },
+ {
+  "source": "screen_4.png",
+  "ui": null,
+  "description": "Translate sentences by arranging word tiles"
+ },
+ {
+  "source": "screen_5.png",
+  "ui": null,
+  "description": "Simulated café dialogue to practice conversations"
+ },
+ {
+  "source": "screen_6.png",
+  "ui": null,
+  "description": "Daily streak tracker encouraging consistent practice"
+ }
+]

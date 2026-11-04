@@ -1,0 +1,26 @@
+{"agent": "connector", "stage": "connect", "status": "start", "id": "3f7575758379", "ts": "2026-11-04T14:50:10.192417+00:00", "inputs": {"config": "8f2b64b470754eac"}}
+{"agent": "connector", "stage": "connect", "status": "ok", "id": "ef76bcc13fe5", "ts": "2026-11-04T14:50:10.625377+00:00", "seconds": 0.43, "outputs": {"summary": "81f073ddd5b9d34d"}}
+{"agent": "agency", "stage": "create", "status": "start", "id": "e58d0683b4b4", "ts": "2026-11-04T14:50:10.625703+00:00", "inputs": {"config": "8f2b64b470754eac"}}
+{"agent": "appstore", "parent": "e58d0683b4b4", "stage": "app", "status": "start", "ts": "2026-11-04T14:50:10.640607+00:00", "id": "d5ec7b15462a"}
+{"agent": "appstore", "parent": "e58d0683b4b4", "stage": "app", "status": "ok", "seconds": 1.68, "usd": 0.0, "outputs": {"app.json": "47919f4643355c09", "brand.json": "0a14bfb4e3658f5d"}, "ts": "2026-11-04T14:50:12.321275+00:00", "id": "aacba8bcac76"}
+{"agent": "scout", "parent": "e58d0683b4b4", "stage": "market", "status": "start", "ts": "2026-11-04T14:50:12.322102+00:00", "id": "635307f6b8e2"}
+{"agent": "scout", "parent": "e58d0683b4b4", "stage": "market", "status": "ok", "seconds": 54.35, "usd": 0.0202, "outputs": {"market.json": "5f61622d770e92c3", "market_ads.jsonl": "aae990f31c30dc0f"}, "ts": "2026-11-04T14:51:06.671303+00:00", "id": "ac782521d2fe"}
+{"agent": "strategist", "parent": "e58d0683b4b4", "stage": "strategy", "status": "start", "ts": "2026-11-04T14:51:06.676558+00:00", "id": "979e61efc496"}
+{"agent": "strategist", "parent": "e58d0683b4b4", "stage": "strategy", "status": "ok", "seconds": 165.65, "usd": 0.6598, "outputs": {"strategy.json": "14207cfddb7a3f91"}, "ts": "2026-11-04T14:53:52.320333+00:00", "id": "2a6c57b5ebfb"}
+{"agent": "director", "parent": "e58d0683b4b4", "stage": "creative", "status": "start", "ts": "2026-11-04T14:53:52.321160+00:00", "id": "4945a2d56b37"}
+{"agent": "director", "parent": "e58d0683b4b4", "stage": "creative", "status": "ok", "seconds": 93.76, "usd": 0.0853, "outputs": {"templates": "6c6bb8ac7b196980"}, "ts": "2026-11-04T14:55:26.083305+00:00", "id": "ee87086f5fd8"}
+{"agent": "composer", "parent": "e58d0683b4b4", "stage": "produce", "status": "start", "ts": "2026-11-04T14:55:26.095339+00:00", "id": "e2d3b795d5fc"}
+{"agent": "composer", "parent": "e58d0683b4b4", "stage": "produce", "status": "ok", "seconds": 4.45, "usd": 0.0, "outputs": {"variants.json": "d79162fd31e6cd53"}, "guards": {"variants": 24, "passed": 24}, "ts": "2026-11-04T14:55:30.543683+00:00", "id": "7f6e07e171fd"}
+{"agent": "viewers", "parent": "e58d0683b4b4", "stage": "simulate", "status": "start", "ts": "2026-11-04T14:55:30.543837+00:00", "id": "52c57de51b5d"}
+{"agent": "viewers", "parent": "e58d0683b4b4", "stage": "simulate", "status": "ok", "seconds": 269.69, "usd": 0.7996, "outputs": {"simulation.json": "73045b9c2e5c028d"}, "ts": "2026-11-04T15:00:00.227985+00:00", "id": "504ee8d915ea"}
+{"agent": "evolver", "parent": "e58d0683b4b4", "stage": "evolve", "status": "start", "ts": "2026-11-04T15:00:00.228314+00:00", "id": "eed0c35cd7b6"}
+{"agent": "evolver", "parent": "e58d0683b4b4", "stage": "evolve", "status": "ok", "seconds": 869.76, "usd": 2.4878, "outputs": {"evolution.json": "a08e984676c4b645"}, "guards": {"variants": 36, "passed": 36}, "ts": "2026-11-04T15:26:10.463529+00:00", "id": "1bd1ec65fb40"}
+{"agent": "planner", "parent": "e58d0683b4b4", "stage": "plan", "status": "start", "ts": "2026-11-04T15:26:10.473161+00:00", "id": "05fdb6ffa12b"}
+{"agent": "planner", "parent": "e58d0683b4b4", "stage": "plan", "status": "ok", "seconds": 0.0, "usd": 0.0, "outputs": {"plan.json": "830562978ea40c12", "launch.json": "88811a65fcf6bb05"}, "guards": {"plan_errors": 0}, "ts": "2026-11-04T15:26:10.474137+00:00", "id": "73bc0ea7d813"}
+{"agent": "account_manager", "parent": "e58d0683b4b4", "stage": "report", "status": "start", "ts": "2026-11-04T15:26:10.474230+00:00", "id": "6b5773f43950"}
+{"agent": "account_manager", "parent": "e58d0683b4b4", "stage": "report", "status": "ok", "seconds": 0.0, "usd": 0.0, "outputs": {"report.md": "c54693271f216e74"}, "ts": "2026-11-04T15:26:10.476109+00:00", "id": "bfab8666d197"}
+{"agent": "agency", "stage": "create", "status": "ok", "id": "e765b5ea2b95", "ts": "2026-11-04T15:26:10.478073+00:00", "seconds": 1459.38, "usd": 4.0527, "outputs": {"summary": "75282dd5d3dbca07"}, "rollup": true}
+{"agent": "publisher", "stage": "publish", "status": "start", "id": "52832fed8c58", "ts": "2026-11-04T15:26:10.478155+00:00", "inputs": {"config": "8f2b64b470754eac"}}
+{"agent": "publisher", "stage": "publish", "status": "waiting", "id": "eed35b887a58", "ts": "2026-11-04T15:26:10.483580+00:00", "seconds": 0.01, "detail": "first live launch needs the owner's approval: run again with --approve <your name>"}
+{"agent": "media_buyer", "stage": "daily", "status": "start", "id": "2da51f4c297f", "ts": "2026-11-04T15:26:10.483647+00:00", "inputs": {"config": "8f2b64b470754eac", "day": "2026-11-04"}}
+{"agent": "media_buyer", "stage": "daily", "status": "ok", "id": "92796dc10d6d", "ts": "2026-11-04T15:38:31.390031+00:00", "seconds": 740.9, "usd": 0.6618, "outputs": {"summary": "48366118ea215b27"}, "detail": "2026-11-04"}

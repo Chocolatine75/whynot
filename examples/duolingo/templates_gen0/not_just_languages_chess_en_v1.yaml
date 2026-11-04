@@ -1,0 +1,99 @@
+id: not_just_languages_chess_en_v1
+concept: Surprise reveal that the playful lesson format now welcomes first-time chess
+  players.
+persona: chess_math_music_curious
+objection: none
+evidence:
+  angle: not_just_languages_chess
+  refs:
+  - store
+  - review:14743925384
+  claims:
+  - chess_beginner_to_level_up
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_3.png
+    second: screen_4.png
+  language: en
+  content:
+    review:
+      text: The only thing I recommend is to not have the annoying “adds” that advertise
+        getting super Duolingo.
+      rating: 5
+      review: '14743925384'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  - invite
+  proof:
+  - rating
+  body:
+  - short
+  - story
+  title:
+  - main
+  cta:
+  - DOWNLOAD
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - big_number
+  - benefits
+  - big_question
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: Never played chess before?
+    bold_claim: Now learn chess the playful way
+    invite: From first moves to full matches
+  body:
+    short: The chess course serves total beginners and people looking to level up
+      their game. Learn moves step by step, then play matches with the same playful
+      feel.
+    story: Curious but never moved a pawn? Start with simple moves and grow toward
+      full matches, all in a playful lesson style.
+  title:
+    main: Learn Chess From Zero
+  proof:
+    rating: Beginner to level-up chess
+  cta:
+    DOWNLOAD: Get Chess Free
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible

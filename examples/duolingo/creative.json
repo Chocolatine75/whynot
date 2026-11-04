@@ -1,0 +1,19 @@
+{
+  "en": {
+    "countries": [
+      "US"
+    ],
+    "attempts": 2,
+    "errors": [
+      "the same words come back in too many concepts: 'reading listening and writing' in 3 (say_a_full_sentence_not_flashcards, talk_with_abuela, experts_behind_the_game); 'speaking reading listening and' in 3 (say_a_full_sentence_not_flashcards, talk_with_abuela, experts_behind_the_game); 'vocabulary and grammar skills' in 3 (say_a_full_sentence_not_flashcards, talk_with_abuela, experts_behind_the_game). At most 2 concepts may share a phrase: say each idea in its own words, don't paste the store page"
+    ]
+  },
+  "screens": {
+    "say_a_full_sentence_not_flashcards_en_v1": "Translate sentences by arranging word tiles",
+    "talk_with_abuela_en_v1": "Simulated café dialogue to practice conversations",
+    "your_goal_your_pace_en_v1": "Daily streak tracker encouraging consistent practice",
+    "experts_behind_the_game_en_v1": "Picture matching vocabulary exercise for bite-sized lessons",
+    "free_start_no_fine_print_claims_en_v1": "Course list offering 40+ free languages",
+    "not_just_languages_chess_en_v1": "Interactive chess puzzle teaching checkmate moves"
+  }
+}

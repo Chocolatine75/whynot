@@ -1,0 +1,1264 @@
+{
+  "app_id": "570060128",
+  "name": "Duolingo: Learn Languages",
+  "seller": "Duolingo, Inc",
+  "bundle_id": "com.duolingo.DuolingoMobile",
+  "store_url": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128",
+  "description": "Learn a new language, chess & more with the world's most downloaded education app! Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons. Practice speaking, reading, listening & writing to build your vocabulary & grammar skills.\n\nDesigned by learning experts & loved by hundreds of millions worldwide, our lessons make learning effective & fun and help you prepare for real conversations in Spanish, French, Japanese, Korean, Chinese, Italian, German, English and more.\n\n\nAnd now, you can learn CHESS on Duolingo! Whether you're a total beginner or looking to level up your game, you'll love learning chess the Duolingo way. Play matches and fun chess lessons for all levels, no matter the language - chess, ajedrez, xadrez, schach, Шахматы, الشطرنج.\n\n• Chess: Learn the moves, level up your game & play matches in our Chess course. Learn the basics, solve fun chess puzzles & improve your strategy with guided lessons. Whether you're new to chess or already play, our course is designed to help you have fun and build real skills. Checkmate!\n\n• Math: Forget lectures and math worksheets! Built by learning experts, our Math course makes math feel like a game. Boost learning and fight the summer slide with standards-aligned math lessons for elementary school, middle school, and high school students.\n\n• Music: Learn how to read music & play songs in our Music course, no instrument needed! Using an on-screen keyboard, you'll learn bit-by-bit.\n\nWhether you're learning a language for travel, school, career or your brain health, you'll love learning with Duolingo.\n\n\nWhy Duolingo?\n\n• Duolingo is fun & effective. Game-like language lessons & fun characters help you build speaking, reading, listening, & writing skills, plus enjoy fun chess & competitive online chess in one app.\n\n• Duolingo works. Designed by learning experts, Duolingo has a science-based teaching methodology proven to foster long-term knowledge retention across language lessons & chess lessons alike.\n\n• Track your progress. Work toward your learning goals with playful rewards & achievements when you make practicing language lessons or chess online part of your daily habit.\n\n• Join millions of learners. Stay motivated with competitive Leaderboards as you learn languages & play chess online alongside our global community.\n\n• Every course is free. Learn Spanish, French, German, Italian, Russian, Portuguese, Turkish, Dutch, Irish, Danish, Swedish, Ukrainian, Esperanto, Polish, Greek, Hungarian, Norwegian, Hebrew, Welsh, Arabic, Latin, Hawaiian, Scottish Gaelic, Vietnamese, Korean, Japanese, English, & even High Valyrian! And now, learn Math, Music & improve your Chess skills with fun, bite-sized lessons.\n\n\nWhat the world is saying about Duolingo:\n\n\"Far & away the best language-learning app.\" - The Wall Street Journal\n\n\"This free app & website is among the most effective language-learning methods I've tried… lessons come in the form of brief challenges, speaking, translating, answering multiple-choice questions, that keep me coming back for more.\" - The New York Times\n\n\"Duolingo may hold the secret to the future of education.\" - TIME Magazine\n\n\"Duolingo is cheerful, lighthearted & fun.\" - Forbes\n\n\"I Can't Stop Playing Duolingo Chess.\" - Wired\n\nIf you like Duolingo, try Super Duolingo for 14 days free! Learn a language fast with no ads & get fun perks like Unlimited Energy & Monthly Streak Repair.\n\nIf you choose to purchase Super Duolingo, payment will be charged to your Apple account, and your account will be charged for renewal within 24-hours prior to the end of the current period. Auto-renewal may be turned off at any time by going to your settings in the App Store after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.\n\nPrivacy Policy: https://www.duolingo.com/privacy\nTerms of Service: https://www.duolingo.com/terms",
+  "genres": [
+    "Education",
+    "Social Networking"
+  ],
+  "price": 0.0,
+  "currency": "USD",
+  "rating": 4.72246,
+  "rating_count": 5558294,
+  "screenshot_urls": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6e/ef/30/6eef3023-de04-3b29-21f8-a993245b9abd/iPhone6.5_-_Default_-_first_screen_adapt_Var_2_01.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cb/ee/31/cbee31c9-a814-b59b-db16-3136ce60d20d/V2_iOS6.5_02.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e0/aa/36/e0aa3660-a5e3-431d-908a-fc04035a62a8/V2_iOS6.5_03.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c2/f5/5c/c2f55ce1-38da-64cc-a7ec-af549fd053e6/V2_iOS6.5_04.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/60/9d/f5/609df56a-1d35-f7fa-92bb-4120ad5ec16c/V2_iOS6.5_05.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/37/b0/99/37b099cd-086d-b920-2ed3-0be6507353c4/V2_iOS6.5_06.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/02/4f/ca/024fcaa8-bc94-def3-4df8-f8f06589c2e4/V2_iOS6.5_07.jpg/320x480bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6b/a0/8e/6ba08efd-ba4a-b4f8-25a4-dfd749c570a7/V2_iOS6.5_08.jpg/320x480bb.jpg"
+  ],
+  "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/11/e8/8d11e8e6-8040-7512-d03e-ea56124d3eef/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "languages": [
+    "AR",
+    "BN",
+    "CS",
+    "NL",
+    "EN",
+    "FR",
+    "DE",
+    "EL",
+    "HI",
+    "HU",
+    "ID",
+    "IT",
+    "JA",
+    "KN",
+    "KO",
+    "MR",
+    "PL",
+    "PT",
+    "PA",
+    "RO",
+    "RU",
+    "ZH",
+    "ES",
+    "SV",
+    "TA",
+    "TE",
+    "TH",
+    "ZH",
+    "TR",
+    "UK",
+    "UR",
+    "VI"
+  ],
+  "reviews": [
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I Love it!!",
+      "text": "It helps me a lot in Spanish.",
+      "version": "7.147.0",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "В какой-то момент перестал работать микрофон",
+      "text": "Показывает что микрофон меня слышит, но он не засчитывает задания, микрофон и разрешение на него у меня включено. В поддержку обращалась, не помогло.",
+      "version": "7.147.0",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Вау",
+      "text": "Теперь я понимаю слова лучше",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "good app, wish i didn’t have to pay a subscription for everything that exists",
+      "text": "unfortunate.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Streak Freeze Inflation",
+      "text": "They raised the streak freeze from 200 to 600. Usually if I need to unfreeze I just pay it but now it’s too much. Next time I freeze my streak and don’t have gems I’m going to just let it drop and leave the app for good",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "deleted",
+      "text": "the increase in ai usage has made this app disappointing and useless",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Very fun",
+      "text": "I have learning a lot of stuff on this app and the free trial is free and fun",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Oscar",
+      "text": "Óscar es bueno jugando ajedrez y ya que estamos aquí alguien me ayuda salir del sótano de Duolingo es que no hice su racha por un día ⏱️",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "No more untimed flash cards",
+      "text": "I pay for Duolingo because of the apps great resources for learning, but mainly for the matching vocabulary words practice. Out of everything on the app, this was the one thing helping me remember new words so that I could move forward in the language. With the new update, the feature is gone and learning new words feels like I’ve hit a wall and makes me want to give up learning the language entirely. This update isn’t for the users, it’s for the company to gain money. It sucks and a lot of people feel this way too.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Love duo but",
+      "text": "Duolingo is a fun way to learn a new language but all the adds are a bit ridiculous and the premium option is too expensive. The light version is cool but it still shows ads",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo",
+      "text": "It’s really good if you’re practicing or learning new languages",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "I don’t like doulingo snymore",
+      "text": "It made me die in deadlock because of a notification",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "I use it everyday for vocab and that it",
+      "text": "Absolute garbage app. I’ve  wasted so much time on this app and haven t made much progress at all. They have their priorities mixed up. Even the lessons where you can converse are horrible (the ai doesn’t understand what’s you’re saying). Do not waste money on this app. Use the free mode for vocab only.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "So far so good",
+      "text": "I’m still testing it out, I’m on day 38 so I have lots of work to do but so far I enjoy the app, I’m primarily trying to learn German but have dabbled in a few other languages.  I kind wish they’d start with Alphabet to understand German from a more elementary perspective but we shall see how I progress & if I’m actually learning as I will have a native speaker coming to visit next month 🎉",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "👌",
+      "text": "Very decent",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Good",
+      "text": "It helped me improve my skills in Spanish and chess and music😱",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Топ",
+      "text": "Очень красиво но жаль что только на 1 месяц пробный",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Why I only did three out of five",
+      "text": "There is no more lost boy song or closer or cyanide but if u add them back for music then my rate be five",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Thank You",
+      "text": "I am part Mexican and I used to not understand what people were saying to me,especially my grandmother but after using Duolingo I can speak and understand full sentences. Little scared of Duo though.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Kinda stressing me out",
+      "text": "Hear me out. I think that this app is really good, and that it could help a lot. But whenever I try to sign up, and when I get past the first lesson, I know this doesn't really relate to like anything, but it's just not for me because whenever I try to like. Sign up. It says unknown error, and it says that it's up to date, like the apps up to date. I don't know what to do,",
+      "version": "7.58.1",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "Good but a money grab",
+      "text": "While I enjoy the lessons and think it’s good practice, it’s frustrating to spend over $150 for a year long membership and still have Duolingo try to make me pay for extra gems and what not. I feel if you pay for the membership you should be able to practice as much as you wish. Will likely go with another language learning program when my subscription is complete.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "I hate it",
+      "text": "It frustrates me and it bully’s you. You have to PAY to take a break. You have to do your lessons EVERY day or pay. Ridiculous.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Helps a lot",
+      "text": "I downloaded this app thinking I was just gonna do it for FUN but I’ve learned so many words and I’m having fun at the same time it’s overall a really good app and if you wanna learn more languages download this NOW it really helps",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo",
+      "text": "Teach me with Spanish math that’s all I did because that’s the only thing I need to help with and it’s really good. You should really do it.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duo",
+      "text": "I kinda do like Duolingo its not so many ads which is good and I’m learning Dutch way easier now and I’m learning fast thanks to Duolingo I feel confident and comfortable with traveling now I can talk and understand my friends thanks to Duolingo",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Eventually it’s a trap",
+      "text": "Early on, it starts out as a great free learning app. But you reach a point where simply doing daily lessons uses up more “energy” than your avatar has. You can’t buy energy with your gems. The only way to get energy is to sign up for one of their paid premium services with the promise that the first week is free. But after that . . .",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "I mean it’s good but the adds are horrible",
+      "text": "Ok so I liked it but I kept getting ads and when you don’t have the subscription you can’t actually use the app and it forces you to to keep a streak but my sister had a 500 day streak and deleted the app because she wasn’t really learning.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "Fell off so hard",
+      "text": "App used to be helpful so if course they monetized it to no end. Even with super Duolingo and “no ads” they still want you to buy an upgrade for a family plan or buy their plush or leave a review. What happened to the uninterrupted learning that is advertised. Also I don’t know why the chess coach is so insanely weird always..",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "App has become unusable",
+      "text": "The experience has become impossible. Regardless of if you are free to play or paying you spend more time clicking through pointless screens  rather than actually learning. And if you are free to play good luck doing anything before you run out of energy now. This used to be a really enjoyable app that felt like it made learning fun. Now it just feels like brain rot with a few flash cards worth of words in between. They also apparently have shifted heavily to using ai which is making grammar mistakes. If I wanted to just learn from an ai why would I waste time doing it in this abysmal app.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "I am so happy that this is not a scam",
+      "text": "This is so fun and I learned so much words like mul keo pi\nAnd a lot more ppang means bread I’m learning with fun",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Doulingo",
+      "text": "Duolingo is the best!!! it helps your child learn math language even fun chess it makes the fun with the math and it is epiccc!!!!!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Mi mejor eleccion",
+      "text": "Lo descargue desde hace tiempo al igual que otras app pero las otras las voy quitando por que veo que no me ayudan o que realmente no son gratis pero está app a sido una bendicion ya puedo tener conversaciones y en mis 2 trabajos me an asendido estoy muy feliz la recomiendo totalmente .",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "¡Amazing!",
+      "text": "¡I love it!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Green owl",
+      "text": "The green owl also well known as Duolingo has not been very nice lately and I think it may have been because of the way it threatens people to do their lessons",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Great! App",
+      "text": "AWESOOMEEE🎃🎀🧟🇺🇸🇸🇦🇨🇳🇨🇳🇮🇶🇻🇳🇹🇭🇬🇧🇫🇲🇨🇴🇹🇷🇦🇼🇲🇦🇲🇽🇲🇲🇵🇷🇼🇸🇹🇲🇰🇷🇨🇦🇳🇨🇴🇲🇦🇽🇩🇰🇩🇰🇸🇧🇱🇻🇫🇮🇫🇮🇷🇸🇧🇪🇨🇭🇨🇲🇹🇨🇧🇿🇨🇻🇦🇪🇮🇳🇧🇷🇸🇹🇬🇦🇸🇿🇨🇰🇬🇶🇮🇹🇱🇷🇬🇷🇨🇱🇲🇪🇲🇪🇹🇫🇧🇹🇹🇫🇧🇹\nL",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "It great",
+      "text": "I’m learning Korean right now and it is amazing, I know know 25plus words and I started yesterday",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I LOVE DUOLINGO 💚💚",
+      "text": "Duolingo has helped me so much in learning a new language, and I'm so happy that I'm now practically bilingual!! Thanks to Duolingo, I've been learning a new language every day, and each day it helps me Learn more!!! If it wasn't for Duolingo, I'd probably be a different person who doesn't know any other languages If you're someone who wants to learn a new language, I 100% recommend Duolingo!!!!!!!!!!!!!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Easy way to learn",
+      "text": "I really enjoy doing my lessons. It’s not only reaching me how to speak Spanish but also learning how to write as well! I would recommend if your trying to learn a new language",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Foreign Language Major’s Opinion",
+      "text": "I attained a Bachelor of Arts in Spanish in 2021. Since then, I’ve been using Duolingo to keep my Spanish current. It saddens me to say Duolingo has gotten worse over the years. The downturn started when Duolingo started firing people to instead have AI create lessons. I see grammar issues regularly, and it’s immensely disappointing.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Charge",
+      "text": "The amount of charge you get isn’t enough to really lock, in and work on your language you’re studying. It restricts progress and makes buying super the only way for anyone who really wants to learn a new language unable to, and instead all they know how to say is I eat bread is Spanish, or one or two words. You need to rethink wether this free app is really helping people if the amount they can learn is so restrictive.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "what abt kurdish😭😭",
+      "text": "I’ve been doing spanish for a while now and have like a 322 day streak and I’ve learned so much but I wish there was Kurdish on here so i could communicate with other family members better.💔",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Broken App",
+      "text": "This app has gotten so incredibly buggy that it is essentially broken. No matter how many times you report a bug, you only get an AI response to your report with no resolution to the problem. All of my previous lessons I’ve done are broken, meaning I can no longer go back and review as it just gives me the same lesson no matter what. The AI voices are nearly impossible to understand. All and all this app sucks and I do not recommend it for language learning. If I could give 0 stars I would.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Doulingo",
+      "text": "The best",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Too much gamification",
+      "text": "For the love of Nintendo please stop the puzzle pieces and having to tap 3 times to open a treasure chest. We came to learn not play video games!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Chess",
+      "text": "I played with everyone.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Too many distractions",
+      "text": "This seems to be a good app for learning a language, but there are way too many game-ish elements getting in the way. Even if you ignore the ads in the free version, there are still a ton of distractions, such as accumulating puzzle pieces, and having to put up with ridiculous, effusive praise for simply completing a lesson. By the time one has clicked through all the chaff, one has probably forgotten half of the previous lesson.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Lessons Learned from yesterdays",
+      "text": "I have been looking forward to playing as much and learning.  It has definitely helped recalling skills I’ve let erode…just refreshing. \n\nThose lunch time games with 1stSgt (Sensei) was the training ground. Each move made with the intent of beating the Sensei…defeated every time. \n\nYears later my dominant game was the lessons learned from then Sensei…I became the Mountain all came to learn defeat.\n\nThanks Duolingo.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "definitely recommend",
+      "text": "ive been using duolingo for about 3 years off and on (i have barley ably storage on my phone so i end up deleting it) and i loveee it like i learn so easily with it but i will say the constant ads are a little annoying all though it’s at the end of the lesson nevertheless jts really great and helped me learn 3 languages!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "DuoAmazing!",
+      "text": "Great lessons to return to!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Nov. 2nd 2026",
+      "text": "5 stars for sure it’s helped me learn Spanish and chess in fun and simple ways it can be annoying at times but overall awesome I’d recommend this app to literally anybody in the world that wants to learn a new language",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I love it",
+      "text": "Very cool app to learn",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Mwa",
+      "text": "Kiss kiss",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "The best language app",
+      "text": "I love the bite sized lessons!!!! Easy to learn and super is super helpful!!!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Love this learning game!!",
+      "text": "H",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Why is it 5 star?",
+      "text": "I give this app a five star because there is plenty of languages you can learn , even chess , math , or even music there is just plenty to do on this app 🥳",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I love my Duolingo",
+      "text": "It is really, really good for learning and correcting your mistakes- thanks!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Super cette applis",
+      "text": "J’aime tout simplement Duolingo, pour moi c’est une application très bien pensée et très bien travaillée techniquement",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "slight problem",
+      "text": "i love duolingo. ive been using it to learn italian since 2022. my streak is at 1,443 days. i do love duolingo and it is one of the only ways ive been able to actually learn and retain italian. \nonly issue is when im asked to directly translate a word whose gender changes based on context, its a 50/50 gamble whether i get it right or wrong. for example, in the flashcards, one of the cards was \"cousin.\" i put \"cugino,\" because all the words previously had been masculine. it was marked wrong, and the correction was \"cugina.\"\n\ni was right :/",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Worst app ever",
+      "text": "Horrible horrible horrible horrible worst app ever.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Don’t download even by mistake",
+      "text": "Kids and adults if you’re reading this review and you don’t download it then read this: dear diary, Duolingo is a big creepster to everyone it wants you to do lessons.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo is fun",
+      "text": "It’s a fun way to learn a language or whatever your using Duolingo for and it has unique features and cool animations",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Fun way to learn a language",
+      "text": "Simple exercises and lots of praise!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "New update sucks",
+      "text": "I miss when you can see ahead and skip sections. It’s getting to the point where it’s too easy bc I’m learning outside of the app and it’s no longer beneficial for my learning. It’s a shame I really enjoyed the app for vocabulary and grammar touch ups. Now it’s a bit tedious when I am at a place I could easily test out of.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "4 stars",
+      "text": "It’s really amazing and has helped me improve my French so much but something that made me not give it 5 stars is that when u don’t have super Duolingo it just begs you and begs and that gets annoying but overall it’s not that bad",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Ts is the best",
+      "text": "Best app ever",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo learning languages",
+      "text": "Duolingo is great for people who don’t know how to speak a certain language. I definitely recommend Duolingo because it is so fun and you get to do writing speaking putting words into sentences and so much more in Duolingo. I definitely definitely definitely recommend.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Besttttttttt",
+      "text": "It is so fun and I am learning so much and learning so fast",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Great",
+      "text": "This is a great app for learning languages it makes it fun and you can also learn chess and math",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo is the best",
+      "text": "Duolingo is good because you can learn different languages and you can also learn math,piano,chess so it is a great way to learn so much stuff",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Strict",
+      "text": "Words have to be spelled correctly or you get it wrong",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Good premise",
+      "text": "It occasionally sends you death threats no biggie though",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo",
+      "text": "Muy buena",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Add more languages",
+      "text": "I really want to learn Thai! Add Thai pleaseee!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Best thing ever",
+      "text": "Platform is the best thing ever I’ve learned so many languages like Korean and chess. I advise you to buy it really much with these platforms. I’ve learned so many things. I think you should get it like math, chest, French, Spanish music and German very easy five stars.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Why I love Duolingo!",
+      "text": "Duolingo helps me learn new languages, and not just that but I can also customize my avatar and have fun playing Duolingo games!!! If you have kids that want to learn more languages I definitely suggest this for them.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Why have limits",
+      "text": "I don’t understand why I have to pay $10 a month to learn chess for 4 lessons and have limited energy for learning. I could go for hours if there was no limit but besides that it is fun",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Best language app ever",
+      "text": "This app is amazing if you want to learn another language, I have been taking Spanish in school for almost 5 years and I took Duolingo for about two weeks and I know more French on Duolingo than I do Spanish. It’s crazy how well Duolingo helps.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Best duo",
+      "text": "I love chess but also hate the review button when i click it now my battery on duo is dying no",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Not worth it",
+      "text": "Only use if you want to pestered to upgrade after every single thing you do",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "🙉",
+      "text": "Hi",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "My honest opinion",
+      "text": "Duolingo is amazing! They have several different languages you can learn! I’m learning Spanish, and can already say a lot of sentences just after 17 days. I’m also considering to learn Spanish. I do wish that the video chats were always free, though. I know that you can set up a free trial, but I don’t want to do that. It would be nice to have an actual conversation in Spanish with someone else. Other than that, Duolingo is great!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Great!",
+      "text": "What an awesome app! Well put together, fun and very instructive! Highly recommend!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "GET THIS APP NOW",
+      "text": "This app helps me learn anything I want and it is very easy to learn with this app so\nGET THIS APP NOW",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Unusable after the latest update—aggressive mobile game ads are ruining a paid app",
+      "text": "I am incredibly frustrated with the recent update. I actually pay for the Duo Lite tier, but suddenly Duolingo is treating my account like a cheap, free-to-play mobile game.\nInstead of the short, charming Duolingo-themed ads I used to get, I am now being forced to sit through aggressive, 30-second unskippable third-party video ads for games like Royal Match after every single lesson. I pay for a subscription to avoid this kind of intrusive trash. Forcing unskippable video ads into an educational app completely ruins the learning flow.\nIf I wanted to sit through endless mobile game ads to earn gems, I’d download a garbage mobile game, not a language learning tool. Please fix this monetization greed. Until this is changed, I am leaving a 1-star review and will not be renewing.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Two problems",
+      "text": "Honestly, I love Duolingo, I’m learning German right now. But I have two problems,I don’t want to do Super Duolingo, so every time I finish a lesson,  it would pop up telling me that I should when I don’t and I kind of find it annoying. Also,  when they make you say this specific sentence, I say and pronounce it correctly but it says every time that it doesn’t sound right until it says that I have it wrong and takes away one of my hearts. It happened twice already, the first time it went well, but now it just says it’s wrong. Please fix those two problems. I definitely recommend Duolingo though!",
+      "version": "7.58.1",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Fun!",
+      "text": "I love Duolingo! It’s so fun-especially chess-and there are so many options to enjoy getting better at! I think you should totally get this! The only thing I recommend is to not have the annoying “adds” that advertise getting super Duolingo. The adds go on once after every lesson/game. But anyways I love to do Duolingo for fun and learning!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Why Duolingo help me",
+      "text": "Duolingo is really helping me learn new skills like chess and Japanese and Chinese I think that you deserve a five star rating.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "It’s fun!!!",
+      "text": "I like Duolingo but as someone with ADHD sometimes it’s hard to follow. That’s just a personal preference though, it is a great app, highly recommended. Just one thing. I would REALLY like an ASL course because so many are like $50 a year or something like that. That’s all thanks so much!!! :D",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Generally a great app!",
+      "text": "Duolingo really reached me some helpful ways of learning the language along with some chess! Daily reminds me to complete lesson and has an easy way of making sure I understand what I’m learning. But some minuses are that there are sooo many ads, every lesson one pops up and it’s pretty annoying. Still a good app for language learning though!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Review",
+      "text": "GOATED",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Helps",
+      "text": "Help so much I already know much of my new language",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "This is great",
+      "text": "I think Duolingo is great. And I think it’s an amazing way to learn! I’ve literally learned more on Duolingo in the past week than I have in Spanish class in the past 2 years! An even if you don’t buy the membership, it’s still amazing. And the membership just feels like an add-on instead of something you need.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Amazing",
+      "text": "I have had a hard time learning Spanish for a while but after I downloaded duo, I could actually talk with my abuela better",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Best learning app ever!!!",
+      "text": "Duolingo offers you with various different courses to choose from, ranging from Spanish, to math, and even chess! Plus, with the leaderboard and prizes system, it always encourages you to learn even more! Also, you can have streaks, and friend streaks to earn rewards. If you miss a lesson, you better run! So, I think it’s 5 stars! Like Duo always says:\n“SPANISH OR VANISH!”",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo-Ava",
+      "text": "Duolingo is an amazing app I love it! It teaches languages like it’s easy, it’s also progress to kids learning! Thank you Duo•",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "My opinionnn!😘",
+      "text": "I like Duolingo it’s a good app it has helped me pretty much but I do have one complaint that when you don’t have ‘Super Duolingo’ it is very strict with your energy and the ads and stuff also it keeps pressing me to do my lessons sooo much bro😭\n\n\n\nBut over all it’s okay!!! Not so bad!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Fun",
+      "text": "Fun and overtime you get better",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Amazing!",
+      "text": "Duolingo is an amazing app that teaches you multiple skills",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Cool bird",
+      "text": "The green birds kinda cool only issue is him holding my family hostage after I missed a day",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Bloated,",
+      "text": "How can this app be 500MB? Bloated. Please add even rudimentary iPhone Duo support.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "amazing",
+      "text": "it teaches well and is very considerate to how fast or slow we are learning its better with duo +",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Zero teaching",
+      "text": "It doesn’t actually teach you anything, it’s just a memorization app",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "THIS IS THE BEST",
+      "text": "It’s so easy to learn French with video calls retry mistakes making my favorite learning app!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Love ittt",
+      "text": "I love Duolingo! From English all the way to a full conversation with a native French speaker. If you get super Duolingo you will be parfait (perfect)! Talking with Lily, having unlimited power, and staying active on Duolingo!! Go get Duolingo!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "𝓤𝓼𝓮 𝓓𝓾𝓸𝓵𝓲𝓷𝓰𝓸 𝓲𝓽 𝓽𝓪𝓾𝓰𝓱𝓽 𝓶𝓮 𝓱𝓸𝔀 𝓽𝓸 𝓼𝓹𝓮𝓪𝓴 𝓢𝓹𝓪𝓷𝓲𝓼𝓱",
+      "text": "𝓐𝓶𝓪𝔃𝓲𝓷𝓰  5 𝓼𝓽𝓪𝓻𝓼",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Super great",
+      "text": "I love this app it’s so good if you want to learn a different language so if you were interested in getting this app btw it’s amazing,My opinion BTW",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "German skills",
+      "text": "My German skills are doing better than ever",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "I really don't like this app",
+      "text": "This app taught me nothing and I try and even use super Duolingo and still can't speak after 3 years of using Duolingo",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I LOVE IT I learn languages in a FLASH! :)",
+      "text": "I LOVE TO LEARN",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Streak update",
+      "text": "24 day streak btw",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "This is perfect",
+      "text": "Duolingo is great when you want to learn any language or chess piano mostly anything I’ve learned Italian and it’s was a roller coaster ride of adventures",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Amazing!!",
+      "text": "Lessons are amazing, the leaderboards are amazing, everything about Duolingo is amazing!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Cool",
+      "text": "This app is super fun and I think I’ll learn korean next",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "I love chess. I love chess. I love chess. I love chess. I love chess.",
+      "text": "I love Spanish. I love Spanish. I love chess. I love math.\n🧮",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo",
+      "text": "I love this app so much it works amazing. I’ve learned 10 new German words today and 122 new words in the last week for Spanish amazing app. You should try it.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Duolingo Review",
+      "text": "It’s annoying how fast the battery runs out",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "🫐",
+      "text": "Aprendes muchos idiomas y es muy bueno y te enseña muy bien",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Holy cow this is fun and educational",
+      "text": "Honestly, Duolingo is a big help when learning a language, (like for me, I’m learning Russian) and I recommend it, and there is more things to learn! Like chess, French , CHINESE, a lot! Anyways, I recommend it once again!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "It helped me so much!",
+      "text": "I went from not knowing any Korean to knowing so much In one day!definitely recommend!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Works",
+      "text": "Duolingo has actually helped me learn Spanish",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "Why this is bad in a way",
+      "text": "They take a spelling very seriously, and the characters on I low-key really annoying! I’m trying to do this in school as well but I have no time to so it’s hard to keep up in the witches just kind of takes up too much room, but I won’t remember to do it without it! also leaderboard thing kind of rude and kind Jewish showing a flute in Hebrew and when I was taking Gabriel lesson to see how was it was all wrong in Hebrew so I’m worried that I’m learning French incorrectly!!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "The best thing on earth",
+      "text": "The best thing",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Almost perfect",
+      "text": "This app is amazing I’m learning French every day and I’m having a great time doing it however I can’t give a perfect review because the energy thing",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Super Duolingo",
+      "text": "I want to get super Duolingo but am not able to pay for it",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "The best",
+      "text": "Duolingo helped me so much in math, Spanish,and music \nBest game ever I recommend for those non-Spanish speakers",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Parents gone",
+      "text": "I forgot to do my Duolingo and my phone just randomly got really hot and then it smelled bad. THEN IT STOPPED I called for my mom and dad and they were gone.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "What",
+      "text": "They told me to say the whole bible in jamacian and i only got to the third part of my jamacian lessons",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "CUTE AWSOMENESS",
+      "text": "I love this app my game name is jolt437 and This is the best app ever created!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 2,
+      "title": "Too much pressure for an app purchases",
+      "text": "The app is useful for practicing language, but in-app pressure to purchase additional gimmicks, is irritating after spending so much money for the app. The app also uses too many silly motivational tactics. I just want to practice the language, not tap four or five times just to move past a goofy icon and treasure chest.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "AMAZING",
+      "text": "I was supposed to type in Irish and I was not sure how to spell but Duolingo like melted it into my brain and I got most correct!!!!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Duolingo is great but...",
+      "text": "I think Duolingo performance could be greater if they weren't constantly shoving an add in our face every lesson, made the costume events not be so pay to get, and it was more talking and less typing.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 3,
+      "title": "Ai",
+      "text": "Would be 4 star but you use ai and its a bad ai so two bads",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Lo increíble que e aprendido en Duolingo",
+      "text": "Duolingo hace que aprender idiomas como inglés o portugués sea más divertido y fácil yo mejore muchísimo en inglés y portugués pues la verdad yo me lo instalaría si fuera gringa aunque sepa todos los idiomas del mundo me gustaría aprender más en dúo .",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 1,
+      "title": "Literally everything costs energy",
+      "text": "Anytime I play chess it’s usually where it only costs so many per lesson. But now, it costs energy to do the littlest thing. Also, the super Duolingo thing says no adds if you subscribe, but the only ads I get are for super Duolingo",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Good,but adds and battery sucks",
+      "text": "Well I’ve been learning chess a lot better but I feel like I don’t get as much time as I should because of the interruptions and having to get everything right or no lessons.Fix this please.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Languages",
+      "text": "They are great because they have lesson where you have to write and say words. Also this is written by a 9 year old.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "😃😃😃",
+      "text": "I really like that they teach all types of languages but I really like the chess and math",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "GREAT APP!",
+      "text": "Duolingo is an app that tutors and teaches you with NO mistakes aloud! There are SO many languages and subjects you can learn! I’m definitely having fun with my French! Bonjour! Un cafe et the!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Good for learning",
+      "text": "Best game to use when u want to lean a languages or something",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "You taught me",
+      "text": "You’ve helped me so much to learn how to speak French. Do you want me to show you",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duolingo",
+      "text": "Así aprendes mucho con Duolingo, ya casi puedo hablar mejor el idioma que quiera aprender",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Sign Language",
+      "text": "It’s an amazing language learning app and it makes you want to continue learning with the daily streaks. I feel it should also have a sign language option too because it’s also a language but other than that overall i think it’s a great app!",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Hi",
+      "text": "This is so much fun it’s a really easy way to learn new languages.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Nice app",
+      "text": "This is so good for my kids learning and he likes the app",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "really no complaints",
+      "text": "the only annoying part is the ads and how the energy runs out sometimes like i wish i could js learn unlimited but wtv",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Duo",
+      "text": "I love this app it’s super motivating in a wonderful way and I enjoy learning something new every day",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "Slayyyyy",
+      "text": "It’s a great way to learn new languages and math skills the only problem is that if you’re not buying a super plan then you don’t get as good as an education and if your mom buys super family then it’s difficult to get on the super if that makes sense",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 4,
+      "title": "67",
+      "text": "Great app I’m Learning so quick just wish their Werner so many adds.",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "O dia que ele foi munto bom",
+      "text": "Eu esto no Estados Unidos e ele me ajuda pra mim fala vale s pena",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "REDACTED",
+      "rating": 5,
+      "title": "Great app",
+      "text": "Great for learning new languages and new math and chess skills",
+      "version": "7.147.0",
+      "date": "2026-11-02"
+    }
+  ],
+  "website": "https://www.duolingo.com"
+}

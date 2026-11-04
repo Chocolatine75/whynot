@@ -1,0 +1,116 @@
+id: talk_with_abuela_en_v1
+concept: A granddaughter practices daily phrases until she can follow and join a kitchen-table
+  chat.
+persona: heritage_family_reconnector
+objection: memorize_but_cannot_speak
+evidence:
+  angle: talk_with_abuela
+  refs:
+  - review:14743848019
+  - review:14744388050
+  claims:
+  - reviewer_talked_with_abuela
+  - prepare_for_real_conversations
+  - four_skills_practice
+fixed:
+  brand:
+    name: 'Duolingo: Learn Languages'
+    palette:
+    - '#FCFDF9'
+    - '#1E2612'
+    - '#77C801'
+    - '#EFF7E3'
+  product:
+    source: app_store_screenshot
+    asset: screen_5.png
+    second: screen_6.png
+  language: en
+  content:
+    review:
+      text: I have had a hard time learning Spanish for a while but after I downloaded
+        duo, I could actually talk with my abuela better
+      rating: 5
+      review: '14743848019'
+    number:
+      value: '14'
+      label: Super Duolingo can be tried for 14 days free.
+      claim: super_14_day_free_trial
+    benefits:
+    - Every course is free.
+    - Lessons are designed by learning experts.
+    - The Math course makes math feel like a game.
+    objection:
+      text: I will memorize words for months and still freeze when I have to speak
+        to a real person.
+      objection: memorize_but_cannot_speak
+genes:
+  format:
+  - portrait
+  - square
+  hook:
+  - question
+  - bold_claim
+  - warm_line
+  proof:
+  - rating
+  body:
+  - short
+  - story
+  - body_g1_b1746f_0
+  - body_g1_882506_0
+  title:
+  - main
+  cta:
+  - INSTALL_MOBILE_APP
+  layout:
+  - split
+  - rising
+  - full_screen
+  - review_card
+  - before_after
+  - big_number
+  - benefits
+  - big_question
+  - comparison
+  - bold_text
+  - two_screens
+  decor:
+  - none
+  - panel
+  - diagonal
+  - circle
+  style:
+  - light
+  - dark
+  - brand
+  - gradient
+  - shape
+copy:
+  hook:
+    question: Missing half the family stories?
+    bold_claim: Practice for the kitchen table talk
+    warm_line: Small lessons for longer phone calls
+  body:
+    short: One reviewer said Duolingo helped them talk with their abuela better. Short
+      practice gets you ready for real conversations, with speaking and listening
+      steps you repeat each day.
+    story: She knew a few words, not the whole chat. Daily bites grow words and grammar
+      across hearing, saying, reading and typing, toward full sentences shared at
+      home.
+    body_g1_b1746f_0: One reviewer said Duolingo helped them talk with their abuela
+      better. Duolingo is a free app for learning 40+ languages through quick, bite-sized
+      lessons that help learners prepare for real conversations.
+    body_g1_882506_0: She knew a few words, not the whole chat. Quick lessons designed
+      by learning experts practice speaking, listening, reading and writing to build
+      vocabulary and grammar to help prepare for real conversations at home.
+  title:
+    main: Learn For Family Conversations
+  proof:
+    rating: Helped talk with abuela better
+  cta:
+    INSTALL_MOBILE_APP: Start Learning Free
+guards:
+- brand_palette
+- policy_safe
+- product_pixels_unchanged
+- text_legible
