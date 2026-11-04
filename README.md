@@ -20,7 +20,7 @@
 **then publish, steer and report on Meta, within the cap you set. You only check and approve.**
 
 ### [▶ Live demo: whynot-chi.vercel.app](https://whynot-chi.vercel.app)
-*No API key needed. A read-only example campaign whynot made for Duolingo (concept ads from its public App Store page, not affiliated with Duolingo): real research, strategy, ads, simulated feed and evolution; the week of results after launch is **simulated** and labelled so.*
+*No API key needed. The platform in read-only mode, with two campaigns made earlier: **Duolingo** (concept ads from its public App Store page, not affiliated with Duolingo) followed by a **simulated** week on the agency's daily loop (new ads every day, pauses for fatigue and losers; results invented by a known model and marked *sim*), and **VietBuddy**, our design partner, the campaign launched on Meta on Nov 4.*
 
 <img src="docs/readme/ads-grid.jpg" alt="Six static ads whynot made for Muse from Meta, each a different concept and look" width="760">
 
