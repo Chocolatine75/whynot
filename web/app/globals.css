@@ -518,3 +518,8 @@ details > summary { cursor: pointer; }
 }
 .ads-table td.r, .ads-table td:nth-child(2) { white-space: nowrap; }
 .ads-table td:nth-child(2) .tag { vertical-align: middle; }
+
+/* public demo (WHYNOT_DEMO=1): one quiet line under the search bar */
+.demo-note { margin: 18px auto 0; max-width: 560px; text-align: center; font-size: 13px; line-height: 1.5; color: var(--text-3, rgba(255, 255, 255, 0.55)); }
+.demo-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.topnav .tag.sim { align-self: center; margin-right: 6px; cursor: help; }

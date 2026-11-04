@@ -15,8 +15,8 @@ export const DEMO_ROOT = path.join(process.cwd(), "demo");
 /** The example campaigns bundled with the demo (run ids), the search bar opens one of them. */
 export const DEMO_RUNS = { duolingo: "20261104-demo-duolingo", vietbuddy: "20261103-vietbuddy" } as const;
 
-export const DEMO_REFUSAL = "This is the read-only demo: nothing runs here and no API key is used. "
-  + "Clone the repository to run the agency on your own app.";
+export const DEMO_REFUSAL = "This is the read-only demo (the example run we made on Duolingo): nothing runs here. "
+  + "To run whynot on your own app, run it locally and connect your Meta account and your Meta AI keys.";
 
 /** Every POST in demo mode answers this instead of starting the engine. */
 export function demoRefused(): Response {
