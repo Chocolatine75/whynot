@@ -157,6 +157,12 @@ a child is a winner only if it beats its parent by more than the floor, and the 
 
 **Muse Spark** writes each mutation with a reason ("answers *I've been burned by apps before* by quoting a real App Store review"). The whole loop stays within a dollar budget and keeps the best so far.
 
+<div align="center">
+<img src="docs/readme/evolution.jpg" alt="The campaign page's evolution section: original ad vs generation-1 winner per customer profile, with the noise floor verdict" width="720">
+
+*↑ The campaign page for a run on **Duolingo**'s public App Store page (concept ads, not official Duolingo ads). For one profile, generation 1 beats the original beyond the noise (+1.1 vs ±1.0); for the other, +0.6 is within the noise, **and the page says so**. Simulated.*
+</div>
+
 ### 7 · Running on Meta, within the owner's caps
 
 - `whynot connect`: Facebook login → a 60-day token, renewed on its own; finds the ad account and the Page.
@@ -329,7 +335,7 @@ Every command and its JSON output: [`docs/META_AUTOMATION.md`](docs/META_AUTOMAT
 
 ## Built during the hackathon
 
-Everything in this repository was written during the [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon) (Oct 26 – Nov 4, 2026, Indie Developer track, theme *Build for Your World*); the commit history is the record. Open-source libraries only (licences in [`docs/DECISIONS.md`](docs/DECISIONS.md)). The ads shown here are concept ads made by whynot from the public App Store page of Muse from Meta; they are not official Meta ads. Related prior work we learned from (ideas only, no code): [VoodRadar](https://github.com/edouardfoussier/voodoo-anthropic-hack-winner); see [Prior art](docs/PRIOR_ART.md).
+Everything in this repository was written during the [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon) (Oct 26 – Nov 4, 2026, Indie Developer track, theme *Build for Your World*); the commit history is the record. Open-source libraries only (licences in [`docs/DECISIONS.md`](docs/DECISIONS.md)). The ads shown here are concept ads made by whynot from the public App Store pages of Muse from Meta and Duolingo; they are not official ads of either company. Related prior work we learned from (ideas only, no code): [VoodRadar](https://github.com/edouardfoussier/voodoo-anthropic-hack-winner); see [Prior art](docs/PRIOR_ART.md).
 
 **Docs:** [Targets and where we are](docs/TARGETS.md) · [Product](docs/PRODUCT.md) · [Architecture](docs/ARCHITECTURE.md) · [Meta automation](docs/META_AUTOMATION.md) · [Meta APIs](docs/META_APIS.md) · [Pilot checklist](docs/PILOT.md) · [Demo script](docs/DEMO.md) · [Decisions](docs/DECISIONS.md) · [Research](docs/RESEARCH.md) · [Competition](docs/COMPETITION.md)
 
