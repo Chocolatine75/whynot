@@ -1,9 +1,10 @@
 import React from "react";
 import { Composition } from "remotion";
 import { Ad } from "./Ad";
+import { SelfCorrect } from "./SelfCorrect";
 import { StaticMotion } from "./StaticMotion";
 import { TrendAd } from "./TrendAd";
-import { AdProps, MotionProps, TrendProps } from "./types";
+import { AdProps, MotionProps, SelfCorrectProps, TrendProps } from "./types";
 
 const sample: AdProps = {
   fps: 30, durationInFrames: 30 * 10, transitionFrames: 10, hook: "Your ads, made for you",
@@ -32,6 +33,21 @@ const motionSample: MotionProps = {
   screen: "screen.png", content: {},
 };
 
+
+// Defaults = the VietBuddy run of Nov 3 (outputs/runs/web/20261103-125927-id6796837982): report.md, simulation.json.
+const selfCorrectSample: SelfCorrectProps = {
+  brand: "VietBuddy: Learn Vietnamese", title: "Warm Phrases For Family", cta: "Learn more", image: "after.png",
+  keptText: "Walking in with your partner, you want kindness more than polish.",
+  oldSentence: "Rehearse a gentle greeting and voice handy phrases aloud at an easy tempo.",
+  newSentence: "Practice real situations such as talking with family and speak useful phrases out loud at your own pace.",
+  persona: "Partner and in-law confidence builder",
+  objection: "I like the sound of it but I'm wary it'll just be another paid app that doesn't really help me speak",
+  difference: 2.98, noiseFloor: 1.63, retest: 2.64,
+  competitors: ["comp1.jpg", "comp2.jpg"], competitorNames: ["Ling", "Competitor"],
+  liveLine: "Launched on Meta · Nov 4", liveSub: "This exact ad, on Instagram and Facebook, €5/day cap",
+  footnote: "simulated scores; the launch is real",
+};
+
 export const Root: React.FC = () => (
   <>
     <Composition id="Ad" component={Ad} width={1080} height={1920} fps={30} durationInFrames={300}
@@ -43,5 +59,7 @@ export const Root: React.FC = () => (
     <Composition id="StaticMotion" component={StaticMotion} width={1080} height={1920} fps={30} durationInFrames={210}
       defaultProps={motionSample}
       calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames, fps: props.fps })} />
+    <Composition id="SelfCorrect" component={SelfCorrect} width={1920} height={1080} fps={30} durationInFrames={660}
+      defaultProps={selfCorrectSample} />
   </>
 );

@@ -92,3 +92,24 @@ export type MotionProps = {
     objection?: { text: string };
   };
 };
+
+// The demo's "the ad fixes itself" sequence (SelfCorrect.tsx): every field comes from one run's files.
+export type SelfCorrectProps = {
+  brand: string;
+  title: string;
+  cta: string;
+  image: string; // the ad's picture (file in the public dir)
+  keptText: string; // the part of the body both versions share
+  oldSentence: string;
+  newSentence: string;
+  persona: string;
+  objection: string; // a simulated viewer's "why not", word for word
+  difference: number; // gen 1 vs gen 0, Bradley-Terry
+  noiseFloor: number;
+  retest: number;
+  competitors: [string, string]; // real competitor creatives (public dir), shown blurred
+  competitorNames: [string, string];
+  liveLine: string;
+  liveSub: string;
+  footnote: string;
+};
