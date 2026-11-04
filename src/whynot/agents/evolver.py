@@ -22,6 +22,7 @@ from typing import Any
 from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
 from whynot.agents.director import Context, CopyRules
 from whynot.agents.strategist import normalise
+from whynot.create.headlines import problems as headline_problems
 from whynot.create.templates import Genome, Template
 from whynot.models import SPARK
 
@@ -95,6 +96,8 @@ def make_validator(ctx: Context, parent: Parent, n: int):
             if normalise(text) in existing or any(normalise(text) == normalise(o.text) for o in out):
                 raise Invalid(f"{w}: this {gene} already exists; write a different one")
             rules.check({f"{gene}.new": text}, w)
+            if gene == "hook" and (hp := headline_problems(text, "en" if ctx.language == "English" else ctx.language)):
+                raise Invalid(f"{w}: hook {text!r}: {'; '.join(hp)}")
             why = str(m.get("why", "")).strip()
             if not why:
                 raise Invalid(f"{w}: say which objection it answers in 'why'")
@@ -135,7 +138,9 @@ looks: layout, style or decor, to one of its other options) to answer the most i
 concept. Change the element that matters most for that objection.
 Rules: language {ctx.language} with correct accents and punctuation; only verified facts; never name competitors;
 no emoji or pictograms; Meta policy (no personal attributes, no "guaranteed"/"#1"/"100%", no engagement bait,
-no ALL CAPS); limits: hook ≤70, body ≤280, title ≤40, proof ≤50 characters.
+no ALL CAPS); limits: hook ≤70, body ≤280, title ≤40, proof ≤50 characters. A hook: at most 7 words, with a verb, a
+question naming the moment or a verified number; no filler ("journey", "seamless"...), no "Less X, more Y",
+"From X to Y" or "not just".
 
 Reply with JSON only:
 {{"mutations": [{{"gene": "hook | body | title | proof | layout | style | decor", "text": "the new text, or the option",

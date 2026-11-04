@@ -150,7 +150,7 @@ def default_reply(model: str, messages: list[dict]) -> str:
     if "You are improving a Meta app-install ad" in text:
         french = "language French" in text
         hook = "Parlez enfin avec votre famille" if french else "Finally talk with your family"
-        alt = "Votre famille, votre accent" if french else "Your family, your accent"
+        alt = "Entendez l’accent de votre famille" if french else "Hear your family's own accent"
         return json.dumps({"mutations": [
             {"gene": "hook", "text": hook, "why": "answers 'Not for me' by naming who they want to talk to"},
             {"gene": "hook", "text": alt, "why": "same objection, shorter"}]})

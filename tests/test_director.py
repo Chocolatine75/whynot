@@ -136,7 +136,7 @@ def test_accent_stripped_copy_is_refused_for_accented_languages(monkeypatch):
     french = dataclasses.replace(CTX, language="French")
     stripped = director_json()
     for t in stripped["templates"]:
-        t["hooks"] = {"q": "Votre vol est retarde, mais pourquoi au juste", "b": "Le statut ne dit pas tout"}
+        t["hooks"] = {"q": "Vol retarde, mais pourquoi au juste ?", "b": "Le statut dit vraiment tout ?"}
         t["bodys"] = {"short": "Un statut dit retarde. Voyez la raison en direct sur iPhone, sans attendre.",
                       "story": "Tableau au rouge, depart repousse, sans explication. Suivez le vol en direct."}
         t["titles"] = {"main": "Voir pourquoi le vol est retarde"}
@@ -193,5 +193,5 @@ def test_a_promise_word_the_store_page_says_is_allowed():
 
     ctx = dataclasses.replace(CTX, store_text=CTX.store_text + " Get instant feedback on every phrase.")
     d = director_json()
-    d["templates"][0]["hooks"]["family"] = "Instant feedback on your accent"
+    d["templates"][0]["hooks"]["family"] = "Get instant feedback on your accent"
     assert len(make_validator(ctx, ANGLES)(d)) == 4

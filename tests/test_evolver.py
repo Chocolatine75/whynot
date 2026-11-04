@@ -37,7 +37,8 @@ def test_valid_mutations():
     (mutations(("format", "reel")), "gene must be one of"),
     (mutations(("cta", "Buy")), "gene must be one of"),
     (mutations(("hook", "Train your ear first")), "already exists"),  # an existing option
-    (mutations(("hook", "New one here"), ("hook", "new  one HERE")), "already exists"),  # duplicates
+    (mutations(("hook", "Hear a new one here"), ("hook", "hear a  new one HERE")), "already exists"),  # duplicates
+    (mutations(("hook", "Less memorizing, more lived moments")), "template"),  # E5-1 headline rules
     (mutations(("hook", "Join 2 million learners")), "not in any verified claim"),
     (mutations(("hook", "Better than Rival Lingo")), "competitor"),
     (mutations(("hook", "Are you lonely abroad?")), "personal attribute"),

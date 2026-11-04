@@ -5,11 +5,11 @@ def director_json(angles=("southern_accent", "listen_first", "five_minutes", "fr
     ideas = {
         "southern_accent": ("Speak Vietnamese the way your family does, with the Southern accent.",
                             {"family": "Talk like your family does",
-                             "accent": "Northern or Southern accent, your choice"}),
+                             "accent": "Pick the Northern or Southern accent"}),
         "listen_first": ("Train your ear before you ever have to speak.",
                          {"ear": "Train your ear first", "listen": "Listen, guess, then read"}),
         "five_minutes": ("Short real-life lessons that fit a commute before the trip.",
-                         {"commute": "One short lesson per commute", "trip": "Order coffee in Hanoi next month"}),
+                         {"commute": "Fit a lesson into your commute", "trip": "Order coffee in Hanoi next month"}),
         "free_start": ("Try the whole method for free before deciding.",
                        {"free": "Start learning for free", "try": "Try it free tonight"}),
     }
@@ -39,7 +39,7 @@ def director_json(angles=("southern_accent", "listen_first", "five_minutes", "fr
 
 FRENCH = {
     "southern_accent": ("Parler vietnamien comme votre famille, avec l’accent du Sud.",
-                        {"family": "Parlez comme votre famille", "accent": "Accent du Nord ou du Sud, à vous de voir"}),
+                        {"family": "Parlez comme votre famille", "accent": "Choisissez l’accent du Nord ou du Sud"}),
     "listen_first": ("Entraîner l’oreille avant d’avoir à parler.",
                      {"ear": "Entraînez d’abord votre oreille", "listen": "Écoutez, devinez, puis lisez"}),
 }

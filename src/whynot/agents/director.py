@@ -20,6 +20,8 @@ from whynot.agents.ask import Answer, ChatClient, Invalid, ask_json
 from whynot.agents.strategist import Strategy, normalise
 from whynot.create import fonts, policy
 from whynot.create.composer import missing_glyphs
+from whynot.create.headlines import MAX_WORDS as HEADLINE_WORDS
+from whynot.create.headlines import problems as headline_problems
 from whynot.create.templates import KNOWN_GUARDS, Template, TemplateError
 from whynot.models import SPARK
 
@@ -216,6 +218,10 @@ def make_validator(ctx: Context, angle_ids: list[str]):
                 if not isinstance(shots, list) or not shots or not set(shots) <= {"app_screen", "result_card"}:
                     raise Invalid(f"{w}: first_shots must be a non-empty subset of ['app_screen', 'result_card']")
                 hooks = list(genes_text["hook"].values())
+                lang = "en" if ctx.language == "English" else ctx.language
+                for k, h in genes_text["hook"].items():  # the headline on the image (E5-1)
+                    if hp := headline_problems(h, lang):
+                        raise Invalid(f"{w}: hook {k!r} ({h!r}): {'; '.join(hp)}")
                 for j, h in enumerate(hooks):
                     for k in hooks[j + 1:]:
                         if _jaccard(h, k) >= MAX_HOOK_SIMILARITY:
@@ -303,6 +309,10 @@ Angles:
 
 Rules:
 - Language: {ctx.language}. Plain, specific, human. Speak to the persona's situation and answer the objection.
+- HOOKS (the headline on the image): at most {HEADLINE_WORDS} words, with an action: a verb ("Order coffee by ear"),
+  a question that names the moment ("Frozen at the coffee counter?") or a verified number. Concrete, never filler
+  ("journey", "solution", "experience", "seamless", "unlock"...), never the templates "Less X, more Y",
+  "From X to Y" or "X, not just Y".
 - Only facts from the verified claims. No invented numbers, prices, ratings, awards or testimonials.
 - Never name competitors. Write correct {ctx.language}: full accents and normal punctuation (commas, apostrophes,
   question marks) are expected. Only emoji and pictograms (★, ✓, →, flags) are not allowed on the image texts.
